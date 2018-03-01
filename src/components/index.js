@@ -1,4 +1,4 @@
-import '../_style/index.less';
+import '../styles/index.less';
 
 import './Avatar';
 import './AvatarClip';

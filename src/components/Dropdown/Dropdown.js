@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import controlledPropValidator from '../../_shared/propValidator/controlled'
+import controlledPropValidator from '../../utils/propValidator/controlled'
 import Popover from '../Popover'
 import DropdownToggle from './DropdownToggle'
 import DropdownMenu from './DropdownMenu'

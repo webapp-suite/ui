@@ -1,5 +1,5 @@
 // import 'font-awesome/css/font-awesome.css'
-import '../../_style/index.less'
+import '../../styles/index.less'
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import classnames from 'classnames'
-import controlledPropValidator from '../../_shared/propValidator/controlled'
+import controlledPropValidator from '../../utils/propValidator/controlled'
 
 const DropdownToggle = props => {
   const { className, children, open, ...other } = props

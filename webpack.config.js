@@ -10,16 +10,16 @@ const entryName = `earth-ui-${version}.min`
 const config = {
   resolve: {
     alias: {
-      'variable.less': `${sourcePath}/_style/variable.less`,
-      'mixin.less': `${sourcePath}/_style/mixin.less`,
-      'core.less': `${sourcePath}/_style/core.less`
+      'variable.less': `${sourcePath}/styles/variable.less`,
+      'mixin.less': `${sourcePath}/styles/mixin.less`,
+      'core.less': `${sourcePath}/styles/core.less`
     }
   },
   entry: {},
   output: {
     path: outputPath,
     publicPath: '../',
-    filename: 'js/[name].js'
+    filename: '[name].js'
   },
   module: {
     loaders: [{
@@ -50,7 +50,7 @@ const config = {
     'prop-types': 'PropTypes'
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].css'),
+    new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         properties: false
