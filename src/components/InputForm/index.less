@@ -1,0 +1,66 @@
+@import '~variable';
+@import '~core';
+
+@width: 460px;
+@height: @unit-sixfold;
+@input-height: @unit-double + 4;
+
+.input-form, .input-form-active, .input-form-nobutton {
+  position: relative;
+  width: @width;
+  height: @height;
+  line-height: @height;
+  font-size: @fontsize;
+  font-weight: @fontweight;
+  border-bottom: 1px solid @lite-lite;
+  vertical-align: middle;
+  .label {
+    color: @medium-dark;
+  }
+  .content {
+    position: absolute;
+    left: 92px;
+    color: @medium-litest;
+    border: none;
+    outline: none;
+    top: 50%;
+    margin-top: -@input-height / 2;
+    height: @input-height;
+    width: @width - 172;
+    line-height: @input-height;
+    font-size: @fontsize;
+    font-weight: @fontweight;
+  }
+  .button, .button-cancel {
+    display: none;
+  }
+  .button-active {
+    float: right;
+    color: @theme;
+    cursor: pointer;
+    &:hover {
+      font-weight: @fontweight-bold;
+    }
+  }
+  .button-cancel-active {
+    &:extend(.input-form .button-active);
+    &:hover {
+      font-weight: @fontweight-bold;
+    }
+    color: @dark-lite;
+    margin-left: @unit;
+  }
+}
+
+.input-form-active {
+  border-bottom-color: @theme;
+}
+
+.input-form-nobutton:hover {
+  border-bottom-color: @theme;
+}
+
+::-webkit-input-placeholder { color: @lite; }
+::-moz-placeholder { color: @lite; } /* firefox 19+ */
+:-ms-input-placeholder { color: @lite; } /* ie */
+input:-moz-placeholder { color: @lite; }

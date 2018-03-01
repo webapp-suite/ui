@@ -1,0 +1,24 @@
+import '../_style/index.less';
+
+import './Avatar';
+import './AvatarClip';
+import './AvatarUpload/';
+import './BackToTop/';
+import './Button/';
+import './ClearableInput';
+import './Dropdown';
+import './Fetch';
+import './Form';
+import './Gallery';
+import './Icon';
+import './Input';
+import './InputForm';
+import './InputLine';
+import './message';
+import './Modal';
+import './Popover';
+import './Select';
+import './SelectDropdown';
+import './TextOverflow';
+import './Tooltip';
+import './Upload';

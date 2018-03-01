@@ -1,0 +1,76 @@
+@import '~variable';
+
+@default: 30px;
+@large: 92px;
+@larger: 112px;
+
+.cmui-avatarupload {
+  position: relative;
+  display: inline-table;
+  .cmui-avatarupload__cover__circle__large,
+  .cmui-avatarupload__cover__circle__larger {
+    display: none;
+  }
+  &:hover {
+    .cmui-avatarupload__cover {
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      color: @white;
+      top: 0;
+      left: 50%;
+      cursor: pointer;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .cmui-avatarupload__cover__circle__large {
+      .cmui-avatarupload__cover();
+      width: @large;
+      height: @large;
+      line-height: @large;
+      margin-left: -(@large)/2;
+    }
+    .cmui-avatarupload__cover__circle__larger {
+      .cmui-avatarupload__cover();
+      width: @larger;
+      height: @larger;
+      line-height: @larger;
+      margin-left: -(@larger)/2;
+    }
+  }
+}
+
+.cmui-avatarupload__circle__default {
+  width: @default;
+  height: @default;
+  border-radius: 50%;
+  border: 1px solid @lite-darker;
+}
+
+.cmui-avatarupload__circle__large {
+  .cmui-avatarupload__circle__default();
+  width: @large;
+  height: @large;
+  margin: 0 auto;
+  background-color: @lite-darker;
+  color: @white;
+  line-height: @large;
+  text-align: center;
+  font-size: 13px;
+  img& {
+    display: block;
+    border: 1px solid @lite-dark;
+    margin-bottom: 0;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .6);
+  }
+}
+
+.cmui-avatarupload__circle__larger {
+  .cmui-avatarupload__circle__large();
+  width: @larger;
+  height: @larger;
+  line-height: @larger;
+}

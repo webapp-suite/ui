@@ -1,0 +1,24 @@
+@import '~variable';
+
+.cmui-spinner {
+  font-size: 26px;
+}
+
+.cmui-spinner__circle {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  border: .1em solid @theme;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  animation: 1s ease-in-out infinite cmui-spinner;
+}
+
+@keyframes cmui-spinner {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate(360deg);
+  }
+}

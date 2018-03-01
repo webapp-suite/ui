@@ -1,0 +1,143 @@
+@import '~variable';
+
+@duration: .2s;
+@zIndex: @zindex-dialog;
+@primary-color-deep: #19afff;
+
+.cmui-modal--scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+body.cmui-modal--open {
+  overflow: hidden;
+}
+
+.cmui-modal {
+  display: none;
+  backface-visibility: hidden;
+}
+
+.cmui-modal__backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  opacity: 0;
+  transition: all @duration;
+  z-index: @zIndex;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.cmui-modal__modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zIndex;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+.cmui-modal__modal-dialog {
+  margin: 100px auto;
+  min-width: 100px;
+  display: table;
+  transition: all @duration;
+}
+
+.cmui-modal__modal-dialog--lock {
+  animation: cmui-modal-shake .8s;
+}
+
+@keyframes cmui-modal-shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.cmui-modal__modal-content {
+  opacity: 0;
+  transform: scale(.98) translate3d(0, -10%, 0);
+  transform-origin: top;
+  transition: all @duration;
+}
+
+.cmui-modal--sm {
+  .cmui-modal__modal-dialog {
+    width: 300px;
+  }
+}
+
+.cmui-modal--lg {
+  .cmui-modal__modal-dialog {
+    width: @zindex-dialog;
+  }
+}
+
+.cmui-modal__modal-header {
+  background-color: @theme;
+  color: #fff;
+  //padding: 15px 20px;
+  position: relative;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+  }
+}
+
+.cmui-modal__modal-header-close {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  margin-top: -16px;
+  &:before {
+    content: " ×";
+    font-size: 44px;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+    font-weight: 300;
+  }
+  &:hover {
+    &:before {
+      color: @white;
+    }
+  }
+}
+
+.cmui-modal__modal-body {
+  padding: 20px;
+  background-color: #fff;
+}
+
+div.cmui-modal--open {
+  .cmui-modal__backdrop {
+    opacity: .6;
+  }
+  .cmui-modal__modal-content {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}

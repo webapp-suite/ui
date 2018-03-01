@@ -1,0 +1,77 @@
+@import '~variable';
+@danger-color: @red;
+
+.cmui-form__item {
+  padding-top: 0;
+  padding-bottom: 22px;
+}
+
+.cmui-form__item-label {
+  height: 22px;
+  line-height: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.cmui-form__item-content {
+  overflow: hidden;
+}
+
+.cmui-form__item-label--required {
+  &:after {
+    content: '* ';
+    color: @danger-color;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+}
+
+.cmui-form__item-tip {
+  font-size: 12px;
+  margin-top: 11px;
+  display: block;
+  color: #999;
+  > .cmui-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+  }
+}
+
+.cmui-form__item--error {
+  .cmui-input,
+  .cmui-form-textarea {
+    border-color: @danger-color;
+  }
+  .cmui-select,
+  .cmui-multiple-select {
+    border-color: @danger-color;
+  }
+  .cmui-form__item-tip {
+    color: @danger-color;
+  }
+}
+
+.cmui-form-sm {
+  .cmui-form__item-label {
+    font-size: 12px;
+  }
+  .cmui-form__item {
+    padding-top: 0;
+    padding-bottom: 15px;
+  }
+}
+
+.cmui-form-lg {
+  .cmui-form__item-label {
+    font-size: 16px;
+  }
+  .cmui-form__item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}

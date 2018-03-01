@@ -1,0 +1,111 @@
+@import '~variable';
+
+.AvatarClip-title {
+  margin-top: @unit-double;
+  margin-bottom: @unit;
+  font-size: 24px;
+  color: #262626;
+  text-align: center;
+}
+.AvatarClip-subtitle {
+  padding: 0 38px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8590a6;
+  text-align: center;
+}
+
+.AvatarClip-content {
+  text-align: center;
+  .AvatarClip-edit {
+    width: 240px;
+    height: 240px;
+    margin: 24px 60px 50px;
+    canvas {
+      cursor: move;
+    }
+  }
+  .AvatarClip-zoom {
+    svg {
+      vertical-align: text-bottom;
+      fill: #9fadc7;
+    }
+    input[type=range].range-input{
+      width:220px;
+      height:12px;
+      padding:0;
+      margin:0 10px;
+      vertical-align:middle;
+      background:transparent;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none
+    }
+    input[type=range].range-input:focus{
+      outline:none;
+    }
+    input[type=range].range-input::-webkit-slider-runnable-track{
+      height:5px;
+      cursor:pointer;
+      background:#f2f5fb;
+      border-radius:2px;
+    }
+    input[type=range].range-input::-webkit-slider-thumb{
+      width:12px;
+      height:12px;
+      margin-top:-4px;
+      cursor:pointer;
+      background:#d2dbe8;
+      border-radius:50%;
+      -webkit-appearance:none;
+      appearance:none;
+    }
+    input[type=range].range-input::-moz-range-track{
+      height:5px;
+      cursor:pointer;
+      background:#f2f5fb;
+      border-radius:2px;
+    }
+    input[type=range].range-input::-moz-range-thumb{
+      width:12px;
+      height:12px;
+      cursor:pointer;
+      background:#d2dbe8;
+      border:none;
+      border-radius:50%;
+    }
+    input[type=range].range-input::-ms-track{
+      width:100%;
+      height:5px;
+      color:transparent;
+      cursor:pointer;
+      background:transparent;
+      border-color:transparent;
+    }
+    input[type=range].range-input::-ms-fill-lower, input[type=range].range-input::-ms-fill-upper {
+      background:#f2f5fb;
+      border-radius:2px;
+    }
+    input[type=range].range-input::-ms-thumb {
+      width:12px;
+      height:12px;
+      cursor:pointer;
+      background:#d2dbe8;
+      border:none;
+      border-radius:50%;
+    }
+    input[type=range].range-input::-ms-tooltip {
+      display:none
+    }
+  }
+  .AvatarClip-footer {
+    margin-top: 40px;
+    margin-bottom: 28px;
+    button {
+      width: 220px;
+      height: 33px;
+      font-size: 14px;
+    }
+  }
+}

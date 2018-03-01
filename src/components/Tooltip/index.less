@@ -1,0 +1,29 @@
+@mainColor: #333;
+
+.cmui-tooltip__popover {
+  white-space: pre-wrap;
+  > .cmui-popover__content {
+    background-color: @mainColor;
+    color: #fff;
+  }
+  &.cmui-popover--up {
+    &:after {
+      border-top-color: @mainColor;
+    }
+  }
+  &.cmui-popover--down {
+    &:after {
+      border-bottom-color: @mainColor;
+    }
+  }
+  &.cmui-popover--left {
+    &:after {
+      border-left-color: @mainColor;
+    }
+  }
+  &.cmui-popover--right {
+    &:after {
+      border-right-color: @mainColor;
+    }
+  }
+}
