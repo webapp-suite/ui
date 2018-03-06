@@ -1,0 +1,102 @@
+/**
+ * @title 基本功能
+ */
+import { Modal, ModalHeader, ModalBody } from 'earth-ui/Modal'
+import Button from 'earth-ui/Button'
+
+class ModalBasic extends Component {
+
+  handleOpen() {
+    this.refs.modal.open()
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={::this.handleOpen}>Open</Button>
+        <Modal ref="modal">
+          <ModalHeader>
+            <h4>Heading</h4>
+          </ModalHeader>
+          <ModalBody>
+            Modal Body
+          </ModalBody>
+        </Modal>
+      </div>
+    )
+  }
+}
+
+/**
+ * @title 锁定的
+ * @desc 点击半透明背景不会自动关闭
+ */
+import { Modal, ModalHeader, ModalBody } from 'bfd/Modal'
+import Button from 'bfd/Button'
+
+class ModalLock extends Component {
+
+  handleOpen() {
+    this.refs.modal.open()
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={::this.handleOpen}>Open</Button>
+        <Modal ref="modal" lock>
+          <ModalHeader>
+            <h4>Heading</h4>
+          </ModalHeader>
+          <ModalBody>
+            Modal Body
+          </ModalBody>
+        </Modal>
+      </div>
+    )
+  }
+}
+
+/**
+ * @title 嵌套的
+ */
+import { Modal, ModalHeader, ModalBody } from 'bfd/Modal'
+import Button from 'bfd/Button'
+
+class ModalNested extends Component {
+
+  handleOpen() {
+    this.refs.modal.open()
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={::this.handleOpen}>Open</Button>
+        <Modal ref="modal">
+          <ModalHeader>
+            <h4>Heading</h4>
+          </ModalHeader>
+          <ModalBody>
+            <Button
+              type="minor"
+              onClick={() => this.refs.modal2.open()}
+            >
+              Open
+            </Button>
+            <Modal ref="modal2" size="sm">
+              <ModalHeader>
+                <h4>Heading</h4>
+              </ModalHeader>
+              <ModalBody>
+                Modal Body
+              </ModalBody>
+            </Modal>
+          </ModalBody>
+        </Modal>
+      </div>
+    )
+  }
+}
+
+@component Modal/Modal

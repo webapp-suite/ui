@@ -1,0 +1,72 @@
+[{
+  "category": "base",
+  "cn": "基础组件",
+  "icon": "th-large",
+  "components": [{
+    "name": "Button",
+    "cn": "按钮"
+  }, {
+    "name": "Input",
+    "cn": "输入框"
+  }, {
+    "name": "Icon",
+    "cn": "图标"
+  }, {
+    "name": "Layout",
+    "cn": "布局"
+  }, {
+    "name": "Select",
+    "cn": "下拉选择"
+  }, {
+    "name": "Form",
+    "cn": "表单"
+  }, {
+    "name": "Modal",
+    "cn": "模态框"
+  }, {
+    "name": "message",
+    "cn": "全局提示"
+  }, {
+    "name": "Tooltip",
+    "cn": "提示框"
+  },{
+    "name": "Upload",
+    "cn": "上传"
+  }, {
+    "name": "Spinner",
+    "cn": "加载中"
+  }]
+}, {
+  "category": "advance",
+  "cn": "交互进阶",
+  "icon": "retweet",
+  "components": [{
+    "name": "Dropdown",
+    "cn": "下拉菜单"
+  }, {
+    "name": "ClearableInput",
+    "cn": "清空输入框"
+  }, {
+    "name": "TextOverflow",
+    "cn": "文字溢出"
+  }]
+}, {
+  "category": "business",
+  "cn": "业务定制",
+  "icon": "edit",
+  "components": [{
+    "name": "Nav",
+    "cn": "导航"
+  }, {
+    "name": "Fetch",
+    "cn": "AJAX加载管理"
+  }]
+}, {
+  "category": "tools",
+  "cn": "工具模块",
+  "icon": "wrench",
+  "components": [{
+    "name": "xhr",
+    "cn": "AJAX请求"
+  }]
+}]

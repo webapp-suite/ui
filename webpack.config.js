@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const version = fs.readJsonSync('package.json').version;
 const sourcePath = path.resolve(__dirname, './src')
-const outputPath = path.resolve(__dirname, './dist/' + version)
+const outputPath = path.resolve(__dirname, './dist/')
 const entryName = `earth-ui-${version}.min`
 
 const config = {
@@ -22,17 +22,15 @@ const config = {
     filename: '[name].js'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
-      include: sourcePath
+      loaders: 'babel-loader'
     }, {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: ['css-loader', 'postcss-loader', 'less-loader']
-      }),
-      include: sourcePath
+      })
     }, {
       test: /\.css$/,
       use: ExtractTextPlugin.extract({

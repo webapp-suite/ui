@@ -9,7 +9,6 @@
     "react"
   ],
   "plugins": [
-    "transform-decorators-legacy",
     "transform-runtime"
   ],
   "env": {

@@ -1,0 +1,23 @@
+/**
+ * @title 基本功能
+ */
+import ClearableInput from 'earth-ui/ClearableInput'
+
+const ClearableInputBasic = () => {
+  return (
+    <ClearableInput defaultValue="清除" />
+  )
+}
+
+/**
+ * @title 禁用
+ */
+import ClearableInput from 'earth-ui/ClearableInput'
+
+const ClearableInputDisabled = () => {
+  return (
+    <ClearableInput defaultValue="清除" disabled />
+  )
+}
+
+@component ClearableInput
