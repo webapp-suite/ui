@@ -1,10 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
-const fs = require('fs-extra');
 const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const beautify = require('code-beautify')
-const version = fs.readJsonSync('package.json').version;
+const fs = require('fs')
+const version = JSON.parse(fs.readFileSync('package.json')).version
 const sourcePath = path.resolve(__dirname, './site')
 const outputPath = path.resolve(__dirname, `./site/versions/${version}`)
 
@@ -96,8 +96,8 @@ if (isProduction) {
 }
 
 // Generate index.html in 'site' dir
-config.plugins.push(function() {
-  this.plugin('done', function(statsData) {
+config.plugins.push(function () {
+  this.plugin('done', function (statsData) {
     const stats = statsData.toJson()
     let html = fs.readFileSync(`${sourcePath}/index.html`, 'utf8')
     const distPath = config.output.publicPath + 'site.' + (isProduction ? stats.hash + '.' : '') + 'js'

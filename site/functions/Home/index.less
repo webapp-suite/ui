@@ -1,21 +1,26 @@
+@import "~variable";
 @primary-color-light: #cfeeff;
-@primary-color: #27b3fe;
-@primary-color-deep: #19afff;
-@primary-color-deeper: #00a6ff;
-@success-color: #4cd964;
-@danger-color: #f94242;
+@primary-color:@theme;
+@primary-color-deep: @theme-dark;
+@primary-color-deeper: @theme-darker;
 
 .home {
   background-color: #fafafa;
 }
 
 .home__banner {
-  height: calc(~'100vh - 60px');
-  min-height: 450px;
-  background: url('./img/banner.jpg') no-repeat center;
-  background-size: cover;
+  //height: calc(~'100vh - 60px');
+  //background: url('./img/banner.jpg') no-repeat center;
+  //background-size: cover;
+  //background-color: @black;
   padding-top: 120px;
   padding-bottom: 120px;
+  background-color: #212121;
+  background-image: url(./img/background-stars.svg),url(./img/sat-path.svg),url(./img/ic-ring-planet.svg);
+  background-position: center,left -40px bottom,right 20px top 120px;
+  background-size: cover,195px 159px,239px 187px;
+  background-repeat: no-repeat,no-repeat,no-repeat;
+  text-align: center;
 }
 
 .home__banner-center {
@@ -42,7 +47,6 @@
   }
   em {
     font-style: normal;
-    color: #cce8ff;
     display: block;
     margin-bottom: .6em;
     @media (min-width: 320px) {
@@ -62,13 +66,6 @@
     @media (min-width: 960px) {
       font-size: 24px;
     }
-  }
-}
-
-.home__banner-install {
-  .cmui-btn {
-    background-color: #fff;
-    color: @primary-color;
   }
 }
 
@@ -108,7 +105,7 @@
 
 .home__middle-code {
   border-radius: 2px;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, .17);
+  //box-shadow: 0 1px 5px rgba(104, 104, 104, .17);
 }
 
 .home__features {

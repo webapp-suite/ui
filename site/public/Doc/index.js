@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import Markdown from 'public/Markdown'
 import './index.less'
@@ -74,6 +75,12 @@ const Doc = props => {
       })}
     </div>
   )
+}
+
+Doc.propTypes = {
+  name: PropTypes.string,
+  apis: PropTypes.array,
+  props: PropTypes.array
 }
 
 export default Doc

@@ -8,7 +8,7 @@ export default class SvgSprite extends React.Component {
 
     return (
       <svg {...other} style={style}
-           xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg">
         {symbols.map(symbol => {
           return <Symbol key={symbol.name} symbol={symbol} />
         })}

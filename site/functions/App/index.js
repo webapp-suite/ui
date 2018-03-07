@@ -1,16 +1,36 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link, IndexLink } from 'react-router'
-import classnames from 'classnames'
 import { Row, Col } from 'earth-ui/Layout'
-import { Nav, NavItem } from 'earth-ui/Nav'
 import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/Dropdown'
 import Button from 'earth-ui/Button'
 import Icon from 'earth-ui/Icon'
 import './index.less'
 
 class App extends Component {
+  isPassive () {
+    let supportsPassiveOption = false
+    try {
+      addEventListener('test', null, Object.defineProperty({}, 'passive', {
+        get: function () {
+          supportsPassiveOption = true
+        }
+      }))
+    } catch (e) {}
+    return supportsPassiveOption
+  }
 
-  renderNav() {
+  componentDidMount () {
+    document.getElementsByTagName('body')[0].addEventListener('touchmove', function (e) { e.preventDefault() }, this.isPassive() ? {
+      capture: false,
+      passive: false
+    } : false)
+  }
+  componentWillUnmount () {
+    document.getElementsByTagName('body')[0].removeEventListener('touchmove')
+  }
+
+  renderNav () {
     return (
       <ul>
         <li>
@@ -32,14 +52,14 @@ class App extends Component {
     )
   }
 
-  render() {
+  render () {
     const { children } = this.props
     return (
       <div className="wrapper">
         <Row className="header" fluid>
           <Col>
             <Link to="/" className="header__logo">
-              <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} />
+              {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
               Earth UI <sub>v1.x</sub>
             </Link>
           </Col>
@@ -68,11 +88,14 @@ class App extends Component {
             </a>
           </Col>
         </Row>
-        <div className="body">{children}</div>
-        <div className="footer">Galaxy-Explorer前端研发部及 UI 视觉部联合出品</div>
+        <div className="content">{children}</div>
       </div>
     )
   }
+}
+
+App.propTypes = {
+  children: PropTypes.node
 }
 
 export default App

@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Nav, IndexNavItem, NavItem } from 'earth-ui/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 
 export default class extends Component {
-
-  constructor() {
+  static propTypes = {
+    children: PropTypes.node
+  }
+  constructor () {
     super()
     this.componentsMap = {}
     this.state = {
@@ -12,13 +15,13 @@ export default class extends Component {
     }
   }
 
-  toggle(open) {
+  toggle (open) {
     this.setState({ open })
   }
 
-  render() {
+  render () {
     const { open } = this.state
-    const { children, params } = this.props
+    const { children } = this.props
     return (
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>

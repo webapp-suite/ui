@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import './index.less'
 
 const Row = props => {
-  const { children, className, gutter, fluid, ...other} = props
+  const { children, className, gutter, fluid, ...other } = props
   const classNames = classnames(
     'cmui-row',
     {
@@ -22,11 +22,15 @@ const Row = props => {
 
 Row.propTypes = {
 
+  children: PropTypes.node,
+
+  className: PropTypes.string,
+
   // 是否带间隔
-  gutter: PropTypes.bool,   
-  
+  gutter: PropTypes.bool,
+
   // 是否流式布局，按内容自适应自左向右布局
-  fluid: PropTypes.bool   
+  fluid: PropTypes.bool
 }
 
 export default Row

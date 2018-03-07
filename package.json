@@ -1,7 +1,7 @@
 {
   "name": "earthui",
   "version": "0.0.1",
-  "main": "",
+  "main": "src/components/index.js",
   "author": "muwenzi",
   "description": "",
   "license": "MIT",
@@ -9,18 +9,22 @@
     "node": ">= 8.0.0"
   },
   "scripts": {
-    "precommit": "lint-staged",
-    "postcommit": "git update-index --again",
     "test": "npm run lint && npm run unit",
-    "lint": "eslint src",
+    "lint": "eslint src && eslint site",
+    "fix": "eslint src --fix eslint site --fix",
     "unit": "jest",
     "build": "rimraf dist && webpack -p --progress --config webpack.config.js",
     "site:dev": "webpack --progress --config webpack.config.site.js && node-dev site/server.js",
-    "site:prod": "",
-    "server": "NODE_ENV=production pm2 start site/server.js",
-    "create": "node bin/create.js",
+    "presite:prod": "webpack -p --progress --config webpack.config.site.js",
+    "site:prod": "NODE_ENV=production pm2 start site/server.js",
     "banner": "file-banner src --ignore '__tests__|\\.png'",
     "coverage": "coveralls"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "postcommit": "git update-index --again"
+    }
   },
   "lint-staged": {
     "*.js": [
@@ -70,9 +74,9 @@
     "code-beautify": "0.0.11",
     "eslint": "^4.18.1",
     "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
-    "fs-extra": "^5.0.0",
     "html-loader": "^0.5.5",
     "husky": "^0.15.0-rc.8",
     "lint-staged": "^7.0.0",

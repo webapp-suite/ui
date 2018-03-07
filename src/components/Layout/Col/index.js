@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import './index.less'
 
 const Col = props => {
-  const { children, className, col, right, ...other} = props
+  const { children, className, col, right, ...other } = props
   const classNames = classnames(
     'cmui-col',
     col && col.split(' ').map(v => 'cmui-col--' + v),
@@ -17,6 +17,9 @@ const Col = props => {
 }
 
 Col.propTypes = {
+  children: PropTypes.node,
+
+  className: PropTypes.string,
 
   // 布局规则，col="md-6 sm-5"，参考 bootstrap 布局用法
   col: PropTypes.string,

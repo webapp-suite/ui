@@ -1,4 +1,5 @@
 import React from 'react'
+import PropType from 'prop-types'
 import Button from 'earth-ui/Button'
 import './index.less'
 
@@ -10,6 +11,10 @@ const NotFound = (props) => {
       <Button onClick={() => props.history.goBack()}>返回</Button>
     </div>
   )
+}
+
+NotFound.propTypes = {
+  history: PropType.object
 }
 
 export default NotFound

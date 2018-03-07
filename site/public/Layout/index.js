@@ -6,23 +6,22 @@ import Button from 'earth-ui/Button'
 import './index.less'
 
 class Layout extends Component {
-
-  getChildContext() {
+  getChildContext () {
     return {
       layout: this
     }
   }
 
-  close() {
+  close () {
     this.props.open && this.props.onToggle(false)
   }
 
-  toggle(e) {
+  toggle (e) {
     e.stopPropagation()
     this.props.onToggle(!this.props.open)
   }
 
-  render() {
+  render () {
     const { open, className, children } = this.props
     return (
       <Row fluid className={classnames('layout', {'layout--open': open}, className)}>
@@ -41,8 +40,6 @@ Layout.propTypes = {
   onToggle: PropTypes.func.isRequired
 }
 
-
-
 const LayoutSidebar = props => {
   const { children } = props
   return <Col className="layout__sidebar">{children}</Col>
@@ -60,6 +57,19 @@ const LayoutContent = (props, { layout }) => {
       {children}
     </Col>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+}
+
+LayoutSidebar.propTypes = {
+  children: PropTypes.node
+}
+
+LayoutContent.propTypes = {
+  children: PropTypes.node
 }
 
 LayoutContent.contextTypes = {

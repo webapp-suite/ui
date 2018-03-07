@@ -98,14 +98,14 @@ class InputForm extends Component {
       <div className={inputForm}>
         <span className="label">{label}</span>
         <input value={this.state.content}
-               className="content"
-               onChange={(e) => this._handleChange(e)}
-               ref={ref => (this.contentInput = ref)}
-               {...this.state.inputProps}
-               name={name}
-               placeholder={placeholder}
-               type={type}
-               autoComplete="off"
+          className="content"
+          onChange={(e) => this._handleChange(e)}
+          ref={ref => (this.contentInput = ref)}
+          {...this.state.inputProps}
+          name={name}
+          placeholder={placeholder}
+          type={type}
+          autoComplete="off"
         />
         {hasbutton &&
           <span>

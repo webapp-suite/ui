@@ -18,7 +18,7 @@ const imports = {
 
   variables: [],
 
-  add(item) {
+  add (item) {
     let match = item.match(/import (.*?) from(.*)/)
     if (match) {
       const variables = match[1].split(/,|\{|\}/).map(v => v.trim())
@@ -39,18 +39,17 @@ const imports = {
     }
   },
 
-  getAll() {
+  getAll () {
     return imports.list
   },
 
-  reset() {
+  reset () {
     imports.list = []
     imports.variables = []
   }
 }
 
 module.exports = function (source) {
-
   this.cacheable()
 
   imports.reset()
@@ -96,7 +95,7 @@ module.exports = function (source) {
       } else {
         dir += '.js'
       }
-    } catch(e) {
+    } catch (e) {
       dir += '.js'
     }
 
@@ -139,7 +138,7 @@ module.exports = function (source) {
 
     // API、组件对外的方法
     const apiReg = /\* @public([^]+?)\*\//g
-    while(match = apiReg.exec(sourceCode)) {
+    while (match = apiReg.exec(sourceCode)) {
       match = match[1]
       const api = {}
       const handleMap = {
@@ -192,7 +191,7 @@ module.exports = function (source) {
 
   // 提前声明
   const codes = demos.map(demo => {
-    const code = demo.code.replace(/`/g, '\\\`').replace(/\$\{/g, '\\\${')
+    const code = demo.code.replace(/`/g, '\\`').replace(/\$\{/g, '\\${')
     return `const code${demo.name} = \`${code}\`
 ${demo.mainCode}`
   })

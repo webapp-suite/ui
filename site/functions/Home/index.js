@@ -8,7 +8,6 @@ import Feature from './Feature'
 import './index.less'
 
 export default () => {
-
   const code = `import DatePicker from 'earth-ui/DatePicker'
 
 class App extends Component {
@@ -27,13 +26,13 @@ class App extends Component {
       <div className="home__banner">
         <Center>
           <div className="home__banner-center">
-            <h2>Earth UI —— Earth Project React 组件库</h2>
+            <h2>Earth UI - Earth Project React 组件库</h2>
             <h1>UI • Earth Project</h1>
             <em>文档版本：v1.x</em>
             <Link to="/guide#install" className="home__banner-install">
               <Button>安装</Button>
             </Link>
-            <Link to="/guide" className="home__banner-start">
+            <Link to="/components" className="home__banner-start">
               <Button>开始</Button>
             </Link>
           </div>

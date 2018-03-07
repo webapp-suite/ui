@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Nav, NavItem } from 'earth-ui/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import components from './components.json'
 
 class Components extends Component {
-
-  constructor() {
+  constructor () {
     super()
     this.componentsMap = {}
     this.state = {
@@ -13,18 +13,18 @@ class Components extends Component {
     }
   }
 
-  toggle(open) {
+  toggle (open) {
     this.setState({ open })
   }
 
-  renderTitle(component) {
+  renderTitle (component) {
     const { name, cn } = this.componentsMap[component]
     return (
       <h2 className="components__title" style={{marginTop: '0px'}}>{cn + ' ' + name}</h2>
     )
   }
 
-  render() {
+  render () {
     const { open } = this.state
     const { children, params } = this.props
     return (
@@ -32,9 +32,9 @@ class Components extends Component {
         <LayoutSidebar>
           <Nav href="/components" onItemClick={() => this.toggle(false)}>
             {components.map((item, i) => (
-              <NavItem 
-                key={item.category} 
-                icon={item.icon} 
+              <NavItem
+                key={item.category}
+                icon={item.icon}
                 title={item.cn}
                 defaultOpen
               >
@@ -43,8 +43,8 @@ class Components extends Component {
                   return (
                     <NavItem
                       key={component.name}
-                      href={component.name} 
-                      title={component.cn + ' ' + component.name}
+                      href={component.name}
+                      title={component.name + ' ' + component.cn}
                     />
                   )
                 })}
@@ -59,6 +59,11 @@ class Components extends Component {
       </Layout>
     )
   }
+}
+
+Components.propTypes = {
+  children: PropTypes.node,
+  params: PropTypes.object
 }
 
 export default Components

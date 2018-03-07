@@ -6,7 +6,7 @@ import './index.less'
 const Markdown = props => {
   const { className, html, ...other } = props
   return (
-    <div 
+    <div
       className={classnames('markdown', className)}
       dangerouslySetInnerHTML={{__html: html}}
       {...other}
@@ -15,7 +15,8 @@ const Markdown = props => {
 }
 
 Markdown.propTypes = {
-  html: PropTypes.string
+  html: PropTypes.string,
+  className: PropTypes.string
 }
 
 export default Markdown

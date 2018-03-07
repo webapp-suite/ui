@@ -44,32 +44,32 @@ render((
           cb(null, require('./functions/Changelog').default)
         })
       }} />
-      {/*<Route path="scaffolding" getComponent={(location, cb) => {*/}
-        {/*require.ensure([], require => {*/}
-          {/*cb(null, require('./functions/Scaffolding').default)*/}
-        {/*})*/}
-      {/*}}>*/}
-        {/*<IndexRoute getComponent={(location, cb) => {*/}
-          {/*require.ensure([], require => {*/}
-            {/*cb(null, require('./functions/Scaffolding/Home').default)*/}
-          {/*})*/}
-        {/*}} />*/}
-        {/*<Route path="workflow" getComponent={(location, cb) => {*/}
-          {/*require.ensure([], require => {*/}
-            {/*cb(null, require('./functions/Scaffolding/Workflow').default)*/}
-          {/*})*/}
-        {/*}} />*/}
-        {/*<Route path="docs" getComponent={(location, cb) => {*/}
-          {/*require.ensure([], require => {*/}
-            {/*cb(null, require('./functions/Scaffolding/Docs').default)*/}
-          {/*})*/}
-        {/*}} />*/}
-        {/*<Route path="changelog" getComponent={(location, cb) => {*/}
-          {/*require.ensure([], require => {*/}
-            {/*cb(null, require('./functions/Scaffolding/Changelog').default)*/}
-          {/*})*/}
-        {/*}} />*/}
-      {/*</Route>*/}
+      {/* <Route path="scaffolding" getComponent={(location, cb) => { */}
+      {/* require.ensure([], require => { */}
+      {/* cb(null, require('./functions/Scaffolding').default) */}
+      {/* }) */}
+      {/* }}> */}
+      {/* <IndexRoute getComponent={(location, cb) => { */}
+      {/* require.ensure([], require => { */}
+      {/* cb(null, require('./functions/Scaffolding/Home').default) */}
+      {/* }) */}
+      {/* }} /> */}
+      {/* <Route path="workflow" getComponent={(location, cb) => { */}
+      {/* require.ensure([], require => { */}
+      {/* cb(null, require('./functions/Scaffolding/Workflow').default) */}
+      {/* }) */}
+      {/* }} /> */}
+      {/* <Route path="docs" getComponent={(location, cb) => { */}
+      {/* require.ensure([], require => { */}
+      {/* cb(null, require('./functions/Scaffolding/Docs').default) */}
+      {/* }) */}
+      {/* }} /> */}
+      {/* <Route path="changelog" getComponent={(location, cb) => { */}
+      {/* require.ensure([], require => { */}
+      {/* cb(null, require('./functions/Scaffolding/Changelog').default) */}
+      {/* }) */}
+      {/* }} /> */}
+      {/* </Route> */}
       <Route path="*" getComponent={(location, cb) => {
         require.ensure([], require => {
           cb(null, require('./functions/NotFound').default)

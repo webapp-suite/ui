@@ -3,18 +3,17 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 class Nav extends Component {
-
-  getChildContext() {
+  getChildContext () {
     return {
       nav: this
     }
   }
 
-  handleItemClick(props, e) {
+  handleItemClick (props, e) {
     this.props.onItemClick && this.props.onItemClick(props, e)
   }
-  
-  render() {
+
+  render () {
     const { children, className, href, onItemClick, ...other } = this.props
     return (
       <div className={classnames('cmui-nav', className)} {...other}>
@@ -29,6 +28,10 @@ Nav.childContextTypes = {
 }
 
 Nav.propTypes = {
+
+  children: PropTypes.node,
+
+  className: PropTypes.string,
 
   // 所有 NavItem 的基础 href
   href: PropTypes.string,

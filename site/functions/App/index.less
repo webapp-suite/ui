@@ -50,10 +50,37 @@ body {
   color: #333;
   font-size: 12px;
   line-height: 1.5;
-}
-
-.wrapper {
-  animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
+  overflow: hidden;
+  margin-top: 60px;
+  .wrapper {
+    animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
+    height: 100%;
+    .header {
+      position: fixed;
+      z-index: @zindex-header;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: @black;
+      padding: 15px 20px;
+      color: @white;
+      transition: all .2s;
+      a {
+        color: @white;
+        text-decoration: none;
+        &:hover {
+          color: @primary-color;
+          text-decoration: none;
+        }
+      }
+    }
+    .content {
+      height: 100%;
+      min-height: 100vh;
+      margin: 0;
+      overflow-y: scroll;
+    }
+  }
 }
 
 @keyframes wrapper-fade {
@@ -62,21 +89,6 @@ body {
   }
   100% {
     opacity: 1;
-  }
-}
-
-.header {
-  background-color: @black;
-  padding: 15px 20px;
-  color: #fff;
-  transition: all .2s;
-  a {
-    color: #fff;
-    text-decoration: none;
-    &:hover {
-      color: #fff;
-      text-decoration: none;
-    }
   }
 }
 
@@ -90,7 +102,7 @@ body {
     height: 30px;
     vertical-align: middle;
     margin-right: 10px;
-    fill: #fff;
+    fill: @white;
   }
   sub {
     margin-left: 3px;
@@ -115,11 +127,10 @@ body {
         display: block;
         padding: 0 18px;
         line-height: 26px;
-        border-radius: 16px;
         transition: all .2s;
         &:hover,
         &.active {
-          background-color: #fff;
+          font-weight: @fontweight-bold;
           color: @primary-color;
         }
       }
@@ -155,7 +166,7 @@ body {
       &:hover,
       &.active {
         background-color: @primary-color;
-        color: #fff;
+        color: @white;
       }
     }
   }
@@ -168,28 +179,13 @@ body {
   line-height: 30px;
 }
 
-.body {
-  min-height: 100vh;
-}
-
-.footer {
-  padding: 0 20px;
-  height: 60px;
-  font-size: 14px;
-  background-color: #555;
-  color: #ebebeb;
-  line-height: 60px;
-  text-align: center;
-}
-
-
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
 }
 
 #nprogress .bar {
-  background: #fff;
+  background: @white;
 
   position: fixed;
   z-index: 1031;

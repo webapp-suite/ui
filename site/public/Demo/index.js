@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import Button from 'earth-ui/Button'
 import Pre from 'public/Pre'
 import './index.less'
 
 class Demo extends Component {
-
-  constructor(props) {
+  constructor (props) {
     super()
     this.state = {
       open: false
@@ -18,11 +17,11 @@ class Demo extends Component {
   //   this.codeHeight = ReactDOM.findDOMNode(this.refs.pre).offsetHeight
   // }
 
-  handleToggle() {
+  handleToggle () {
     this.setState({open: !this.state.open})
   }
 
-  render() {
+  render () {
     const { className, title, desc, code, children } = this.props
     const { open } = this.state
     const classNames = classnames('demo', {
@@ -44,6 +43,14 @@ class Demo extends Component {
       </div>
     )
   }
+}
+
+Demo.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  code: PropTypes.string
 }
 
 export default Demo

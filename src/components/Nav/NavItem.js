@@ -5,15 +5,14 @@ import classnames from 'classnames'
 import Icon from '../Icon'
 
 class NavItem extends Component {
-
-  constructor(props) {
+  constructor (props) {
     super()
     this.state = {
       open: props.defaultOpen || false
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     const href = this.getHref(this.props)
     const active = this.isActive(this.props, href)
     const state = { href, active }
@@ -23,13 +22,13 @@ class NavItem extends Component {
     this.setState(state)
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const href = this.getHref(nextProps)
     const active = this.isActive(nextProps, href)
     this.setState({ href, active })
   }
 
-  getHref(props) {
+  getHref (props) {
     let href = props.href
     if (props.blank) return href
     if (!props.index && !href) return ''
@@ -38,7 +37,7 @@ class NavItem extends Component {
     return href.replace(/\/+/g, '/').replace(/(.+)\/$/, '$1')
   }
 
-  isActive(props, href) {
+  isActive (props, href) {
     if (props.index) {
       return href === (location.pathname || '/')
     } else {
@@ -46,18 +45,17 @@ class NavItem extends Component {
     }
   }
 
-  toggle(e) {
+  toggle (e) {
     e.preventDefault()
     this.setState({open: !this.state.open})
   }
 
-  handleClick(e) {
+  handleClick (e) {
     this.props.onClick && this.props.onClick(e)
     !this.props.children && this.context.nav.handleItemClick(this.props, e)
   }
 
-  render() {
-
+  render () {
     const { open, href, active } = this.state
     const {
       children, className, index, defaultOpen, icon, title, blank, ...other
@@ -105,6 +103,12 @@ NavItem.contextTypes = {
 }
 
 NavItem.propTypes = {
+
+  children: PropTypes.node,
+
+  className: PropTypes.string,
+
+  onClick: PropTypes.func,
 
   index: PropTypes.bool,
 

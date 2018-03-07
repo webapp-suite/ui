@@ -8,7 +8,7 @@ const Pre = props => {
   const { className, lang, transparent, children } = props
   const code = beautify(children, lang || 'js')
   return (
-    <pre 
+    <pre
       className={classnames('pre', {'pre--transparent': transparent}, className)}
       dangerouslySetInnerHTML={{__html: code}}
     />
@@ -16,6 +16,8 @@ const Pre = props => {
 }
 
 Pre.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
   lang: PropTypes.string,
   transparent: PropTypes.bool
 }
