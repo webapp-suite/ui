@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, './')))
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack')
   const webpackDevMiddleware = require('webpack-dev-middleware')
-  const WebpackConfig = require('../webpack.config.site')
+  const WebpackConfig = require('../config/webpack.config.site')
   app.use(webpackDevMiddleware(webpack(WebpackConfig), {
     publicPath: `/versions/${version}/`,
     stats: {

@@ -7,13 +7,16 @@
     "browser": true,
     "node": true,
     "es6": true,
+    "jest": true
   },
   "globals": {
     __CLIENT__: true,
     __SERVER__: true,
     __DEVELOPMENT__: true,
     __DEVTOOLS__: true,
-    runtime: true
+    runtime: true,
+    jsdom: true
+
   },
   "parser": "babel-eslint",
   "rules": {

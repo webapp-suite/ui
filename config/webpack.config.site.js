@@ -5,8 +5,9 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const beautify = require('code-beautify')
 const fs = require('fs')
 const version = JSON.parse(fs.readFileSync('package.json')).version
-const sourcePath = path.resolve(__dirname, './site')
-const outputPath = path.resolve(__dirname, `./site/versions/${version}`)
+const sitePath = path.resolve(__dirname, '../site')
+const sourcePath = path.resolve(__dirname, '../src')
+const outputPath = path.resolve(__dirname, `../site/versions/${version}`)
 
 const isProduction = process.argv.slice(2)[0] === '-p'
 
@@ -14,7 +15,7 @@ rimraf.sync(outputPath)
 
 const config = {
   entry: {
-    site: `${sourcePath}/index.js`
+    site: `${sitePath}/index.js`
   },
   output: {
     path: outputPath,
@@ -23,19 +24,24 @@ const config = {
     publicPath: `/versions/${version}/`
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
+      loader: 'babel-loader',
+      options: {
+        cacheDirectory: true
+        // babelrc: false,
+        // extends: 'config/.babelrc'
+      },
       exclude: /node_modules/
     }, {
       test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
       loader: 'file-loader?name=files/[hash].[ext]'
     }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader!postcss-loader'
-    }, {
       test: /\.less$/,
-      loader: 'style-loader!css-loader!less-loader!postcss-loader'
+      loader: 'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js!less-loader'
+    }, {
+      test: /\.css$/,
+      loader: 'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js'
     }, {
       test: /\.md$/,
       loader: 'html-loader!markdown-loader'
@@ -46,23 +52,23 @@ const config = {
   },
   resolveLoader: {
     alias: {
-      'doc-loader': path.join(__dirname, './site/loaders/doc')
+      'doc-loader': path.join(__dirname, '../site/loaders/doc')
     }
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      sourcePath,
+      sitePath,
       'node_modules'
     ],
     alias: {
-      'earth-ui': path.resolve(__dirname, './src/components'),
-      'public': path.resolve(__dirname, './site/public'),
-      'scaffolding': path.resolve(__dirname, '../create-earth-app'),
-      'doc': path.join(__dirname, './site/loaders/doc'),
-      'variable.less': path.resolve(__dirname, './src/styles/variable.less'),
-      'mixin.less': path.resolve(__dirname, './src/styles/mixin.less'),
-      'core.less': path.resolve(__dirname, './src/styles/core.less')
+      'earth-ui': `${sourcePath}/components`,
+      'public': `${sitePath}/public`,
+      'scaffolding': `${sitePath}/create-earth-app`,
+      'doc': `${sitePath}/loaders/doc`,
+      'variable.less': `${sourcePath}/styles/variable.less`,
+      'mixin.less': `${sourcePath}/styles/mixin.less`,
+      'core.less': `${sourcePath}/styles/core.less`
     }
   },
   plugins: [
@@ -99,10 +105,10 @@ if (isProduction) {
 config.plugins.push(function () {
   this.plugin('done', function (statsData) {
     const stats = statsData.toJson()
-    let html = fs.readFileSync(`${sourcePath}/index.html`, 'utf8')
+    let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
     const distPath = config.output.publicPath + 'site.' + (isProduction ? stats.hash + '.' : '') + 'js'
     html = html.replace(/(<script src=").*?(")/, '$1' + distPath + '$2')
-    fs.writeFileSync(path.join(`${sourcePath}/index.html`), html)
+    fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
   })
 })
 
