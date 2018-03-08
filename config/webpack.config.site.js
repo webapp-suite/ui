@@ -4,12 +4,11 @@ const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const beautify = require('code-beautify')
 const fs = require('fs')
-const version = JSON.parse(fs.readFileSync('package.json')).version
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
-const outputPath = path.resolve(__dirname, `../site/versions/${version}`)
+const outputPath = path.resolve(__dirname, '../dist/site')
 
-const isProduction = process.argv.slice(2)[0] === '-p'
+const isProduction = process.env.NODE_ENV === 'production'
 
 rimraf.sync(outputPath)
 
@@ -21,7 +20,7 @@ const config = {
     path: outputPath,
     filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
     chunkFilename: '[id]' + (isProduction ? '.[hash]' : '') + '.js',
-    publicPath: `/versions/${version}/`
+    publicPath: '/site/'
   },
   module: {
     rules: [{

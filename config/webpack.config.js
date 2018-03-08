@@ -1,11 +1,14 @@
 const path = require('path')
 const fs = require('fs')
+const rimraf = require('rimraf')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const version = JSON.parse(fs.readFileSync('package.json')).version
 const sourcePath = path.resolve(__dirname, '../src')
-const outputPath = path.resolve(__dirname, '../dist/')
+const outputPath = path.resolve(__dirname, '../dist/libs')
 const entryName = `earth-ui-${version}.min`
+
+rimraf.sync(outputPath)
 
 const config = {
   entry: {},

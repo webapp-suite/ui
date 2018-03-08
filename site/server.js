@@ -5,7 +5,6 @@ const multiparty = require('multiparty')
 const compression = require('compression')
 // const domain = require('domain')
 const fs = require('fs')
-const version = JSON.parse(fs.readFileSync('package.json')).version
 
 const app = express()
 app.use(compression())
@@ -13,7 +12,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
-app.use(express.static(path.join(__dirname, './')))
+app.use(express.static(path.join(__dirname, '../dist')))
 
 // Error handle
 // app.use(function (req, res, next) {
@@ -29,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const WebpackConfig = require('../config/webpack.config.site')
   app.use(webpackDevMiddleware(webpack(WebpackConfig), {
-    publicPath: `/versions/${version}/`,
+    publicPath: WebpackConfig.output.publicPath,
     stats: {
       colors: true,
       profile: true
