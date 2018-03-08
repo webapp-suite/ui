@@ -1,5 +1,6 @@
 language: node_js
-script: npm test
-script: npm run build
 node_js:
   - "8.9.0"
+script:
+  - npm test
+  - npm run build
