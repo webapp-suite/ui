@@ -8,24 +8,6 @@ import Icon from 'earth-ui/Icon'
 import './index.less'
 
 class App extends Component {
-  isPassive () {
-    let supportsPassiveOption = false
-    try {
-      addEventListener('test', null, Object.defineProperty({}, 'passive', {
-        get: function () {
-          supportsPassiveOption = true
-        }
-      }))
-    } catch (e) {}
-    return supportsPassiveOption
-  }
-
-  componentDidMount () {
-    document.getElementsByTagName('body')[0].addEventListener('touchmove', function (e) { e.preventDefault() }, this.isPassive() ? {
-      capture: false,
-      passive: false
-    } : false)
-  }
   componentWillUnmount () {
     document.getElementsByTagName('body')[0].removeEventListener('touchmove')
   }
