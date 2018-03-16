@@ -1,5 +1,9 @@
-@sidebar-width: 220px;
+@sidebar-width: 275px;
 @header-height: 60px;
+
+@top: 30px;
+@left: 50px;
+@bottom: 50px;
 
 .layout {
   position: relative;
@@ -35,7 +39,7 @@
   right: 0;
   top: @header-height;
   bottom: 0;
-  padding-right: 30px;
+  padding: @top @left @bottom;
   overflow-y: scroll;
   overflow-x: hidden;
   @media (max-width: 768px) {

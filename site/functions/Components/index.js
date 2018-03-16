@@ -44,7 +44,7 @@ class Components extends Component {
                     <NavItem
                       key={component.name}
                       href={component.name}
-                      title={component.name + ' ' + component.cn}
+                      title={`${component.name} ${component.cn}`}
                     />
                   )
                 })}

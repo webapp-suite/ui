@@ -1,11 +1,14 @@
 @import "~variable";
 @primary-color-light: #cfeeff;
-@primary-color:@theme;
+@primary-color: @theme;
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
 
 @padding-left: 38px;
 @border-color: #f0f0f0;
+
+@width: 274px;
+@height: 40px;
 
 .cmui-nav {
   border-right: 1px solid #eaeaea;
@@ -14,6 +17,9 @@
     padding: 0;
     background-color: #fff;
     list-style: none;
+  }
+  > ul {
+    padding: 20px 0 28px 0;
   }
 }
 
@@ -24,18 +30,34 @@
     text-decoration: none;
     position: relative;
     padding: 0px 15px;
-    line-height: 34px;
-    border-bottom: 1px solid @border-color;
+    line-height: @height;
+    //border-bottom: 1px solid @border-color;
     border-radius: 0;
-    border-left: 5px solid #eaeaea;
+    //border-left: 3px solid #eaeaea;
+    margin-bottom: 8px;
+    font-size: @fontsize;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-right: 3px solid transparent;
+    }
     &:hover {
-      background-color: #fafafa;
-      border-left-color: @primary-color;
-      color: #333;
+      //&:after {
+      //  border-right-color: @primary-color;
+      //}
+      //background-color: @theme-liter;
+      color: @theme;
       text-decoration: none;
     }
     &:focus {
-      background-color: #fafafa;
+      //&:after {
+      //  border-right-color: @primary-color;
+      //}
+      background-color: @theme-liter;
       outline: none;
       text-decoration: none;
     }
@@ -82,13 +104,15 @@
 
 .cmui-nav__item--active {
   > a {
-    color: #333;
-    background-color: #f5f5f5;
-    border-left-color: @primary-color-deep;
+    color: @theme;
+    background-color: @theme-liter;
+    &:after {
+      border-right-color: @primary-color;
+    }
     &:hover,
     &:focus {
-      color: #333;
-      background-color: #f5f5f5;
+      color: @theme;
+      background-color: @theme-liter;
     }
   }
 }
