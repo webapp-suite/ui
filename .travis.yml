@@ -8,3 +8,5 @@ script:
   - npm test
   - npm run build
   - npm run site:build
+notifications:
+    slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
