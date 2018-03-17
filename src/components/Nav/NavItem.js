@@ -118,8 +118,8 @@ NavItem.propTypes = {
   // 菜单图标，参考 Icon 组件 type 属性
   icon: PropTypes.string,
 
-  // 菜单标题
-  title: PropTypes.string,
+  // 菜单标题，可以是文本字符串，也可以是 React 元素
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   // 初始化是否展开（不可控），用于非叶子节点
   defaultOpen: PropTypes.bool,

@@ -34,7 +34,7 @@ class Components extends Component {
             {components.map((item, i) => (
               <NavItem
                 key={item.category}
-                icon={item.icon}
+                // icon={item.icon}
                 title={item.cn}
                 defaultOpen
               >
@@ -44,7 +44,7 @@ class Components extends Component {
                     <NavItem
                       key={component.name}
                       href={component.name}
-                      title={`${component.name} ${component.cn}`}
+                      title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
                     />
                   )
                 })}

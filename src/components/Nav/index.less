@@ -4,7 +4,8 @@
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
 
-@padding-left: 38px;
+@header-padding: 20px;
+@nav-parent-padding-left: 20 + 20px;
 @border-color: #f0f0f0;
 
 @width: 274px;
@@ -25,10 +26,10 @@
 .cmui-nav__item {
   > a {
     display: block;
-    color: #333;
+    color: #314659;
     text-decoration: none;
     position: relative;
-    padding: 0px 15px;
+    padding: 0 15px 0 @header-padding;
     line-height: @height;
     //border-bottom: 1px solid @border-color;
     border-radius: 0;
@@ -52,13 +53,15 @@
       color: @theme;
       text-decoration: none;
     }
-    &:focus {
+    &:active {
       //&:after {
       //  border-right-color: @primary-color;
       //}
       background-color: @theme-liter;
-      outline: none;
-      text-decoration: none;
+      transition-property: color, border-color, background, padding;
+      transition-duration: 0.3s, 0.3s, 0.3s, 0.15s;
+      transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition-delay: initial, initial, initial, initial;
     }
   }
   > ul {
@@ -68,11 +71,11 @@
     border-left: 0;
     border-right: 0;
     > a {
-      padding-left: @padding-left;
+      padding-left: @nav-parent-padding-left;
     }
     .cmui-nav__item {
       > a {
-        padding-left: @padding-left * 2;
+        padding-left: @nav-parent-padding-left * 2;
       }
     }
   }

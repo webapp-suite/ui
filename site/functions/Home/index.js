@@ -43,7 +43,7 @@ class App extends Component {
         <Center>
           <Row gutter>
             <Col col="md-6" className="home__middle-left">
-              <h2>企业级前端整体方案</h2>
+              <h2>2C端极简风格UI组件库</h2>
               <p>Galaxy-Explorer UI 结合 create-earth-app 脚手架可快速开发集单页面应用、组件化、可视化、大数据交互、权限管理、前后端分离等特性的企业级项目。</p>
             </Col>
             <Col col="md-6">
@@ -56,15 +56,15 @@ class App extends Component {
       <div className="home__features">
         <Center>
           <div className="home__features-head">
-            <h1>组件化开发</h1>
+            <h1>组件库特点</h1>
             <p>Earth UI 抛弃了传统的组件封装方式，基于 React 组件开发思想，语义化 UI 的同时可作为一种数据类型自由传递，无论需求多么复杂，场景多么奇特，我们都可以搞定。</p>
           </div>
           <Row>
-            <Feature title="组件化" icon={require('./img/feature_0.png')}>
-              基于 React 组件开发思想，简单、灵活、高效
+            <Feature title="多种类型组件" icon={require('./img/feature_0.png')}>
+              采用声明式和命令式组件在不同场景灵活搭配，更加便捷
             </Feature>
-            <Feature title="覆盖广" icon={require('./img/feature_1.png')}>
-              覆盖基础组件，高级交互，以及计划推出的数据可视化组件
+            <Feature title="简单易用" icon={require('./img/feature_1.png')}>
+              极简的属性和接口定义，尽量减少开发者的使用复杂度
             </Feature>
             <Feature title="生态完整" icon={require('./img/feature_2.png')}>
               搭配脚手架，摆脱繁琐的环境配置、重复的基础工作
