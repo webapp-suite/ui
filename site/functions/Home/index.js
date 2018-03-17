@@ -27,13 +27,13 @@ class App extends Component {
         <Center>
           <div className="home__banner-center">
             <h2>Earth UI - Earth Project React 组件库</h2>
-            <h1>UI • Earth Project</h1>
-            <em>文档版本：v1.x</em>
+            <h1>Earth UI Components Library</h1>
+            <em>最新版本：v0.1.0</em>
             <Link to="/guide#install" className="home__banner-install">
               <Button>安装</Button>
             </Link>
             <Link to="/components" className="home__banner-start">
-              <Button>开始</Button>
+              <Button>文档</Button>
             </Link>
           </div>
         </Center>

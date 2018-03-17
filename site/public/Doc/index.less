@@ -1,12 +1,17 @@
+@import "~variable";
+
 .doc {
   border: 1px solid #ececec;
   border-radius: 2px;
-  padding: 20px;
+  padding: 20px 20px 0;
   margin-top: 20px;
   .markdown {
     margin-bottom: 0;
     p {
       margin-top: 0;
+      margin-bottom: 0;
+      font-size: 13px;
+      font-weight: @fontweight;
     }
   }
   > h2 {
@@ -25,19 +30,32 @@
       padding-right: 20px;
     }
     td {
+      font-size: @fontsize;
+      font-weight: @fontweight-medium;
+      font-family: @fontfamily-code;
+      line-height: 34px;
       padding: 10px 0;
       border-top: 1px solid #ececec;
       padding-right: 20px;
-      vertical-align: top;
+      //vertical-align: middle;
+    }
+    thead {
+      th {
+        font-size: @fontsize;
+        font-weight: @fontweight-medium;
+      }
     }
   }
   dl {
-    margin-top: 30px;
+    margin: 0;
+    padding: 20px 0 20px;
     border-top: 1px solid #ececec;
   }
   dt {
     color: #333;
-    margin: 10px 0;
+    margin: 0;
+    font-size: @fontsize;
+    font-weight: @fontweight-medium;
     span:first-child {
       color: #c82829;
     }
@@ -45,6 +63,7 @@
   dd {
     margin: 0;
     margin-top: 10px;
+    font-size: 12px;
     > h2 {
       font-size: 12px;
       color: #333;

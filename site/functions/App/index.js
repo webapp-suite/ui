@@ -22,7 +22,7 @@ class App extends Component {
           <Link to="/guide" activeClassName="active">指南</Link>
         </li>
         <li>
-          <Link to="/components" activeClassName="active">组件</Link>
+          <Link to="/components" activeClassName="active">文档</Link>
         </li>
         <li>
           <Link to="/changelog" activeClassName="active">更新日志</Link>
@@ -42,7 +42,7 @@ class App extends Component {
           <Col>
             <Link to="/" className="header__logo">
               {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
-              Earth UI <sub>v1.x</sub>
+              Earth UI <sub>v0.1.0</sub>
             </Link>
           </Col>
           <Col className="header__nav">
