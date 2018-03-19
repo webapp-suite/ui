@@ -24,9 +24,6 @@
     "name": "Modal",
     "cn": "模态框"
   }, {
-    "name": "message",
-    "cn": "全局提示"
-  }, {
     "name": "Tooltip",
     "cn": "提示框"
   },{
@@ -35,10 +32,21 @@
   }, {
     "name": "Spinner",
     "cn": "加载中"
+  },{
+    "name": "Nav",
+    "cn": "导航"
+  }]
+}, {
+  "category": "function",
+  "cn": "函数式组件",
+  "icon": "retweet",
+  "components": [{
+    "name": "message",
+    "cn": "全局提示"
   }]
 }, {
   "category": "advance",
-  "cn": "交互进阶",
+  "cn": "交互辅助",
   "icon": "retweet",
   "components": [{
     "name": "Dropdown",
@@ -49,23 +57,35 @@
   }, {
     "name": "TextOverflow",
     "cn": "文字溢出"
+  }, {
+    "name": "BackToTop",
+    "cn": "回到顶部"
   }]
 }, {
   "category": "business",
   "cn": "业务定制",
   "icon": "edit",
   "components": [{
-    "name": "Nav",
-    "cn": "导航"
+    "name": "Gallery",
+    "cn": "图片墙"
   }, {
-    "name": "Fetch",
-    "cn": "AJAX加载管理"
+    "name": "Avatar",
+    "cn": "头像"
+  }, {
+    "name": "AvatarUpload",
+    "cn": "上传头像"
+  }, {
+    "name": "AvatarClip",
+    "cn": "裁剪头像"
   }]
 }, {
   "category": "tools",
   "cn": "工具模块",
   "icon": "wrench",
   "components": [{
+    "name": "Fetch",
+    "cn": "AJAX加载管理"
+  }, {
     "name": "xhr",
     "cn": "AJAX请求"
   }]

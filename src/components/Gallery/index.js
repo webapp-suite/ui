@@ -38,16 +38,15 @@ class Gallery extends Component {
 }
 
 Gallery.propTypes = {
+  // 图片列表
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
-      // thumbnail: PropTypes.string.isRequired,
-      // srcset: PropTypes.array,
-      // caption: PropTypes.string,
       width: PropTypes.number.isRequired,
       height: PropTypes.number.isRequired
     })
   ).isRequired,
+  // `JustifiedLayout`配置项
   options: PropTypes.object
 }
 
