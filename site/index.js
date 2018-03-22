@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Router, browserHistory, Route, IndexRoute, IndexRedirect } from 'react-router'
 // import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import process from 'nprogress'
-import App from './functions/App'
+import App from './pages/App'
 
 render((
   <Router onUpdate={() => {
@@ -18,30 +18,30 @@ render((
     >
       <IndexRoute getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./functions/Home').default)
+          cb(null, require('./pages/Home').default)
         })
       }} />
       <Route path="guide" getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./functions/Guide').default)
+          cb(null, require('./pages/Guide').default)
         })
       }} />
       <Route path="components" getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./functions/Components').default)
+          cb(null, require('./pages/Components').default)
         })
       }}>
         <IndexRedirect to="/components/Button" />
         <Route path=":component" getComponent={(nextState, cb) => {
           const component = nextState.location.pathname.split('/').pop()
           require.ensure([], require => {
-            cb(null, require(`./functions/Components/docs/${component}.doc`).default)
+            cb(null, require(`./pages/Components/docs/${component}.doc`).default)
           })
         }} />
       </Route>
       <Route path="Changelog" getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./functions/Changelog').default)
+          cb(null, require('./pages/Changelog').default)
         })
       }} />
       {/* <Route path="scaffolding" getComponent={(nextState, cb) => { */}
@@ -72,7 +72,7 @@ render((
       {/* </Route> */}
       <Route path="*" getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./functions/NotFound').default)
+          cb(null, require('./pages/NotFound').default)
         })
       }} />
     </Route>
