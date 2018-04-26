@@ -38,7 +38,7 @@
   }]
 }, {
   "category": "function",
-  "cn": "函数式组件",
+  "cn": "函数组件",
   "icon": "retweet",
   "components": [{
     "name": "message",

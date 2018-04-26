@@ -121,7 +121,7 @@ module.exports = function (source) {
           desc = desc.trim().replace(/\*\/$/, '')
           desc = marked(desc.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
         }
-        let type = res[4].match(/string|bool|number|object|array|func|node|element|oneOf.*/g)[0]
+        let type = res[4].match(/shape|string|bool|number|object|array|func|node|element|oneOf.*/g)[0]
         if (type.indexOf('oneOfType') === 0) {
           type = type.match(/PropTypes\.\w+/g).join(' | ').replace(/PropTypes\./g, '')
         } else if (type.indexOf('oneOf') === 0) {

@@ -1,0 +1,17 @@
+/**
+ * @title 基础功能
+ */
+import BackToTop from 'earth-ui/BackToTop'
+
+const BackToTopBasic = () => {
+  const config = {
+    text: 'TOP',
+    topDistance: 10,
+    timing: 'easeIn'
+  }
+  return (
+    <BackToTop {...config} />
+  )
+}
+
+@component BackToTop

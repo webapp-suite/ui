@@ -129,22 +129,47 @@ BackToTop.defaultProps = {
 }
 
 BackToTop.propTypes = {
+
+  // 按钮形状，默认`default`无圆角， 可选`round`
   shape: PropTypes.oneOf(['default', 'round']),
+
+  // 按钮圆角的大小
   radius: PropTypes.number,
+
+  // 按钮中的文字
   text: PropTypes.string,
+
+  // 文字字体大小，默认`18px`
   fontSize: PropTypes.string,
+
+  // 按钮的 position, 包括 top, bottom, left, right
   position: PropTypes.shape({
     top: PropTypes.string,
     bottom: PropTypes.string,
     left: PropTypes.string,
     right: PropTypes.string
   }),
+
+  // 按钮的图标类型
   icon: PropTypes.string,
+
+  // 按钮文字颜色，默认`white`
   color: PropTypes.string,
+
+  // 按钮的背景颜色， 默认`rgba(0, 0, 0, .5)`
   background: PropTypes.string,
+
+  // 按钮hover时候的背景颜色， 默认`rgba(0, 0, 0, .7)`
   hover: PropTypes.object,
+
+  // 按钮距离顶部的高度，默认`200`
   topDistance: PropTypes.number,
+
+  // 按钮出现和消失的动画类型，默认`linear`，此外还有`easeIn/easeOut/easeInOut`
   timing: PropTypes.oneOf(['linear', 'easeIn', 'easeOut', 'easeInOut']),
+
+  // 按钮出现和消失的速度，默认`100`
   speed: PropTypes.number
 }
+
 export default BackToTop
