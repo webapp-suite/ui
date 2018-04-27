@@ -22,6 +22,7 @@ class Gallery extends Component {
     options.containerWidth = this.state.containerWidth
     const childElements = images.map((image, index) =>
       <div className="cmui-gallery__wrapper"
+        key={index}
         style={{backgroundImage: `url(${image.src})`, width: image.width, height: image.height}}
       >
         <div className="cmui-gallery__img-cover" />
