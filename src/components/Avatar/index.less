@@ -1,17 +1,30 @@
 @import '~variable';
 
 @default: 30px;
+@sm: 20px;
 @lg: 112px;
+@border-color: #d7d7d7;
 
-.cmui-avatar__circle__default {
+.cmui-avatar {
   width: @default;
   height: @default;
+  border: 1px solid @border-color;
+}
+
+.cmui-avatar__square {
+  .cmui-avatar();
+}
+
+.cmui-avatar__circle {
   border-radius: 50%;
 }
 
-.cmui-avatar__circle__lg {
+.cmui-avatar__sm {
+  width: @sm;
+  height: @sm;
+}
+
+.cmui-avatar__lg {
   width: @lg;
   height: @lg;
-  border-radius: 50%;
-  border: 1px solid #d7d7d7;
 }

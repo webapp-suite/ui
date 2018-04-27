@@ -1,0 +1,34 @@
+/**
+ * @title 基础样式
+ */
+import Avatar from 'earth-ui/Avatar'
+
+const AvatarBasic = () => {
+  return <Avatar src="https://avatars0.githubusercontent.com/u/12554487" />
+}
+
+/**
+ * @title 头像尺寸
+ */
+import Avatar from 'earth-ui/Avatar'
+
+const AvatarSize = () => {
+  return (
+    <div>
+      <Avatar size="lg" src="https://avatars0.githubusercontent.com/u/12554487" />
+      <Avatar src="https://avatars0.githubusercontent.com/u/12554487" />
+      <Avatar size="sm" src="https://avatars0.githubusercontent.com/u/12554487" />
+    </div>
+  )
+}
+
+/**
+ * @title 圆形头像
+ */
+import Avatar from 'earth-ui/Avatar'
+
+const ButtonIcon = () => {
+  return <Avatar shape="circle" src="https://avatars0.githubusercontent.com/u/12554487" />
+}
+
+@component Avatar

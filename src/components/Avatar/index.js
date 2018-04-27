@@ -13,9 +13,13 @@ class Avatar extends Component {
 
   render () {
     let {shape, size, src, className, ...others} = this.props
-    return <img src={`/img/${src}`}
+    return <img src={src}
       onClick={::this._handleClick}
-      className={cx(`cmui-avatar__${shape}__${size}`, className)}
+      className={cx(
+        'cmui-avatar',
+        {[`cmui-avatar__${shape}`]: shape, [`cmui-avatar__${size}`]: size},
+        className
+      )}
       {...others}
     />
   }
@@ -23,16 +27,24 @@ class Avatar extends Component {
 
 Avatar.propTypes = {
   className: PropTypes.string,
-  shape: PropTypes.string,
-  size: PropTypes.string,
+
+  // 头像的形状，默认`square`，可选`circle`
+  shape: PropTypes.oneOf(['square', 'circle']),
+
+  // 输入框大小，除默认外可选值：`sm`、`lg`
+  size: PropTypes.oneOf(['sm', 'lg']),
+
+  // 头像图片的地址
   src: PropTypes.string,
+
+  // 点击头像事件
   onClick: PropTypes.func,
+
   others: PropTypes.any
 }
 
 Avatar.defaultProps = {
-  shape: 'circle',
-  size: 'default',
+  shape: 'square',
   src: ''
 }
 
