@@ -3,7 +3,7 @@
  */
 import AvatarUpload from 'earth-ui/AvatarUpload'
 
-const AvatarUploadByAvatar = () => {
+const AvatarUploadFirst = () => {
   return <AvatarUpload size="lg" text="设置头像" onClick={() => confirm('示意：上传头像？')} />
 }
 
@@ -12,7 +12,7 @@ const AvatarUploadByAvatar = () => {
  */
 import AvatarUpload from 'earth-ui/AvatarUpload'
 
-const AvatarUploadByButton = () => {
+const AvatarUploadUpdate = () => {
   return <AvatarUpload size="lg" text="更换头像" src="https://avatars0.githubusercontent.com/u/12554487" onClick={() => confirm('示意：更换头像？')} />
 }
 
