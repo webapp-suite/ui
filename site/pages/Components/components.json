@@ -1,4 +1,18 @@
 [{
+  "category": "design",
+  "cn": "布局与设计",
+  "icon": "retweet",
+  "components": [{
+    "name": "Layout",
+    "cn": "布局"
+  }, {
+    "name": "Color",
+    "cn": "颜色"
+  }, {
+    "name": "Icon",
+    "cn": "图标"
+  }]
+},{
   "category": "base",
   "cn": "基础组件",
   "icon": "th-large",
@@ -8,12 +22,6 @@
   }, {
     "name": "Input",
     "cn": "输入框"
-  }, {
-    "name": "Icon",
-    "cn": "图标"
-  }, {
-    "name": "Layout",
-    "cn": "布局"
   }, {
     "name": "Select",
     "cn": "下拉选择"

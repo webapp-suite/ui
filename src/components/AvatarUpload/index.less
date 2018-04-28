@@ -1,14 +1,55 @@
 @import '~variable';
 
 @default: 30px;
-@large: 92px;
-@larger: 112px;
+@lg: 92px;
+@xlg: 112px;
+@cover-bg: rgba(0, 0, 0, 0.6);
 
-.cmui-avatarupload {
+// 第一次上传头像
+.cmui-avatarupload__first {
+  width: @default;
+  height: @default;
+  line-height: @default;
+  border: 1px solid @lite-darker;
+  background-color: @lite-darker;
+  color: @white;
+  text-align: center;
+  font-size: 13px;
+  img {
+    display: block;
+    border: 1px solid @lite-dark;
+    margin-bottom: 0;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: @cover-bg;
+  }
+}
+
+.cmui-avatarupload__square {
+  .cmui-avatarupload__first();
+}
+
+.cmui-avatarupload__circle {
+  border-radius: 50%;
+}
+
+.cmui-avatarupload__lg {
+  width: @lg;
+  height: @lg;
+  line-height: @lg;
+}
+
+.cmui-avatarupload__xlg {
+  width: @xlg;
+  height: @xlg;
+  line-height: @xlg;
+}
+
+// 更新已经上传的头像
+.cmui-avatarupload__update {
   position: relative;
-  display: inline-table;
-  .cmui-avatarupload__cover__circle__large,
-  .cmui-avatarupload__cover__circle__larger {
+  .cmui-avatarupload__cover {
     display: none;
   }
   &:hover {
@@ -21,56 +62,19 @@
       left: 50%;
       cursor: pointer;
       text-align: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: @cover-bg;
     }
-    .cmui-avatarupload__cover__circle__large {
-      .cmui-avatarupload__cover();
-      width: @large;
-      height: @large;
-      line-height: @large;
-      margin-left: -(@large)/2;
+    .cmui-avatarupload__cover__lg {
+      width: @lg;
+      height: @lg;
+      line-height: @lg;
+      margin-left: -(@lg)/2;
     }
-    .cmui-avatarupload__cover__circle__larger {
-      .cmui-avatarupload__cover();
-      width: @larger;
-      height: @larger;
-      line-height: @larger;
-      margin-left: -(@larger)/2;
+    .cmui-avatarupload__cover__xlg {
+      width: @xlg;
+      height: @xlg;
+      line-height: @xlg;
+      margin-left: -(@xlg)/2;
     }
   }
-}
-
-.cmui-avatarupload__circle__default {
-  width: @default;
-  height: @default;
-  border-radius: 50%;
-  border: 1px solid @lite-darker;
-}
-
-.cmui-avatarupload__circle__large {
-  .cmui-avatarupload__circle__default();
-  width: @large;
-  height: @large;
-  margin: 0 auto;
-  background-color: @lite-darker;
-  color: @white;
-  line-height: @large;
-  text-align: center;
-  font-size: 13px;
-  img& {
-    display: block;
-    border: 1px solid @lite-dark;
-    margin-bottom: 0;
-  }
-  &:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, .6);
-  }
-}
-
-.cmui-avatarupload__circle__larger {
-  .cmui-avatarupload__circle__large();
-  width: @larger;
-  height: @larger;
-  line-height: @larger;
 }

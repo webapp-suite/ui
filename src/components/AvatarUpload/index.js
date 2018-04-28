@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
+import Avatar from '../Avatar'
 import './index.less'
 
 class AvatarUpload extends Component {
@@ -11,15 +13,27 @@ class AvatarUpload extends Component {
   }
 
   render () {
-    let {shape, size, src} = this.props
+    let {shape, size, src, className, text} = this.props
     return (
       <div style={{display: 'flex'}}>
         {src
-          ? <div className="cmui-avatarupload">
-            <img src={`/img/${src}`} alt="img" onClick={::this._handleClick} className={`cmui-avatarupload__${shape}__${size}`} />
-            <div className={`cmui-avatarupload__cover__${shape}__${size}`} onClick={::this._handleClick}>更换头像</div>
+          ? <div className="cmui-avatarupload__update">
+            <Avatar src={src} shape={shape} size={size} onClick={::this._handleClick} />
+            <div onClick={::this._handleClick}
+              className={cx(
+                'cmui-avatarupload__cover',
+                {[`cmui-avatarupload__cover__${shape}`]: shape,
+                  [`cmui-avatarupload__cover__${size}`]: size},
+                className
+              )}>{text}</div>
           </div>
-          : <div onClick={::this._handleClick} className={`cmui-avatarupload__${shape}__${size}`}>设置头像</div>
+          : <div onClick={::this._handleClick}
+            className={cx(
+              'cmui-avatarupload__first',
+              {[`cmui-avatarupload__${shape}`]: shape,
+                [`cmui-avatarupload__${size}`]: size},
+              className
+            )}>{text}</div>
         }
       </div>
     )
@@ -27,15 +41,26 @@ class AvatarUpload extends Component {
 }
 
 AvatarUpload.propTypes = {
-  shape: PropTypes.string,
-  size: PropTypes.string,
+  className: PropTypes.string,
+
+  // 头像的形状，默认`circle`，可选`square`
+  shape: PropTypes.oneOf(['square', 'circle']),
+
+  // 输入框大小，除默认外可选值：`lg`、`xlg`
+  size: PropTypes.oneOf(['lg', 'xlg']),
+
+  // 头像图片的地址
   src: PropTypes.string,
+
+  // 头像中间说明文字/hover状态下的说明文字
+  text: PropTypes.string,
+
+  // 点击头像事件
   onClick: PropTypes.func
 }
 
 AvatarUpload.defaultProps = {
   shape: 'circle',
-  size: 'default',
   src: ''
 }
 
