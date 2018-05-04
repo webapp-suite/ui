@@ -25,7 +25,7 @@ class App extends Component {
           <Link to="/components" activeClassName="active">文档</Link>
         </li>
         <li>
-          <Link to="/design" activeClassName="active">设计</Link>
+          <Link to="/design" activeClassName="active">交互体验</Link>
         </li>
         <li>
           <Link to="/changelog" activeClassName="active">更新日志</Link>

@@ -7,10 +7,13 @@
     "cn": "布局"
   }, {
     "name": "Color",
-    "cn": "颜色"
+    "cn": "色彩"
   }, {
     "name": "Icon",
     "cn": "图标"
+  }, {
+    "name": "Motion",
+    "cn": "动效"
   }]
 },{
   "category": "base",
@@ -34,13 +37,10 @@
   }, {
     "name": "Tooltip",
     "cn": "提示框"
-  },{
-    "name": "Upload",
-    "cn": "上传"
   }, {
     "name": "Spinner",
     "cn": "加载中"
-  },{
+  }, {
     "name": "Nav",
     "cn": "导航"
   }]
@@ -70,6 +70,20 @@
     "cn": "回到顶部"
   }]
 }, {
+  "category": "tools",
+  "cn": "工具模块",
+  "icon": "wrench",
+  "components": [{
+    "name": "Fetch",
+    "cn": "AJAX加载管理"
+  }, {
+    "name": "xhr",
+    "cn": "AJAX请求"
+  }, {
+    "name": "Upload",
+    "cn": "上传"
+  }]
+}, {
   "category": "business",
   "cn": "业务定制",
   "icon": "edit",
@@ -85,16 +99,5 @@
   }, {
     "name": "AvatarClip",
     "cn": "裁剪头像"
-  }]
-}, {
-  "category": "tools",
-  "cn": "工具模块",
-  "icon": "wrench",
-  "components": [{
-    "name": "Fetch",
-    "cn": "AJAX加载管理"
-  }, {
-    "name": "xhr",
-    "cn": "AJAX请求"
   }]
 }]
