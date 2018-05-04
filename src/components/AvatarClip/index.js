@@ -79,16 +79,32 @@ class AvatarClip extends Component {
 }
 
 AvatarClip.propTypes = {
-  image: PropTypes.string.isRequired,
-  onSave: PropTypes.func.isRequired,
-  cropButtonName: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  border: PropTypes.number,
-  color: PropTypes.arrayOf(PropTypes.number),
   // 是否打开头像裁剪对话框
   open: PropTypes.bool,
-  onClose: PropTypes.func
+
+  // 需要进行裁剪头像的地址
+  image: PropTypes.string.isRequired,
+
+  // 保存裁剪头像的回调函数
+  onSave: PropTypes.func.isRequired,
+
+  // 关闭裁剪对话框的回调函数
+  onClose: PropTypes.func,
+
+  // 裁剪对话框确认裁剪按钮名称，默认`Close`
+  cropButtonName: PropTypes.string,
+
+  // 需要裁剪的宽度，默认`160`
+  width: PropTypes.number,
+
+  // 需要裁剪的宽度，默认`160`
+  height: PropTypes.number,
+
+  // 裁剪头像时遮罩边框大小，默认`40`
+  border: PropTypes.number,
+
+  // 裁剪对话框文字颜色，默认`[248, 249, 250, 0.9]`
+  color: PropTypes.arrayOf(PropTypes.number)
 }
 
 AvatarClip.defaultProps = {
