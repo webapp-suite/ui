@@ -15,7 +15,7 @@ class AvatarUpload extends Component {
   render () {
     let {shape, size, src, className, text} = this.props
     return (
-      <div style={{display: 'flex'}}>
+      <div className="cmui-avatarupload">
         {src
           ? <div className="cmui-avatarupload__update">
             <Avatar src={src} shape={shape} size={size} onClick={::this._handleClick} />
