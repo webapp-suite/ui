@@ -80,8 +80,9 @@ class Upload extends Component {
         state: 0
       })
 
+      // todo: remove
       xhr.header = {
-        userId: window.runtime.userId
+        userId: window.runtime ? window.runtime.userId : ''
       }
 
       ;(function (self, file, index) {
@@ -153,7 +154,7 @@ class Upload extends Component {
   }
 
   render () {
-    const { className, action, fileName, text, multiple, onUplading, onComplete, showFileList, button, ...other } = this.props
+    const { className, action, fileName, text, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
       <div className={classnames('cmui-upload', className)} {...other}>
         <input ref="file" onChange={::this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
@@ -161,7 +162,7 @@ class Upload extends Component {
           {this.props.children}
         </div>
         {button &&
-          <Button ghost onClick={::this.handleClick}>{button}</Button>
+          <Button type="ghost" onClick={::this.handleClick}>{button}</Button>
         }
         {showFileList &&
           <div className="cmui-upload__listbox">
