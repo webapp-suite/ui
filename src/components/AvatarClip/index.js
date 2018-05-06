@@ -79,9 +79,6 @@ class AvatarClip extends Component {
 }
 
 AvatarClip.propTypes = {
-  // 是否打开头像裁剪对话框
-  open: PropTypes.bool,
-
   // 需要进行裁剪头像的地址
   image: PropTypes.string.isRequired,
 
@@ -90,6 +87,9 @@ AvatarClip.propTypes = {
 
   // 关闭裁剪对话框的回调函数
   onClose: PropTypes.func,
+
+  // 是否打开头像裁剪对话框
+  open: PropTypes.bool,
 
   // 裁剪对话框确认裁剪按钮名称，默认`Close`
   cropButtonName: PropTypes.string,
