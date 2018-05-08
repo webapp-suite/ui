@@ -31,8 +31,8 @@ Avatar.propTypes = {
   // 头像的形状，默认`circle`，可选`square`
   shape: PropTypes.oneOf(['square', 'circle']),
 
-  // 输入框大小，除默认外可选值：`sm`、`lg`、`xlg`
-  size: PropTypes.oneOf(['sm', 'lg', 'xlg']),
+  // 输入框大小，除默认外可选值：`sm`、`lg`、`xl`
+  size: PropTypes.oneOf(['sm', 'lg', 'xl']),
 
   // 头像图片的地址
   src: PropTypes.string,
