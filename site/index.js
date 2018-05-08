@@ -26,12 +26,25 @@ render((
           cb(null, require('./pages/Guide').default)
         })
       }} />
+      <Route path="Design" getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./pages/Design').default)
+        })
+      }} >
+        <IndexRedirect to="/design/layout" />
+        <Route path=":designElement" getComponent={(nextState, cb) => {
+          const designElement = nextState.location.pathname.split('/').pop()
+          require.ensure([], require => {
+            cb(null, require(`./pages/Design/docs/${designElement}.md`))
+          })
+        }} />
+      </Route>
       <Route path="components" getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./pages/Components').default)
         })
       }}>
-        <IndexRedirect to="/components/Button" />
+        <IndexRedirect to="/components/Layout" />
         <Route path=":component" getComponent={(nextState, cb) => {
           const component = nextState.location.pathname.split('/').pop()
           require.ensure([], require => {
@@ -44,32 +57,6 @@ render((
           cb(null, require('./pages/Changelog').default)
         })
       }} />
-      {/* <Route path="scaffolding" getComponent={(nextState, cb) => { */}
-      {/* require.ensure([], require => { */}
-      {/* cb(null, require('./functions/Scaffolding').default) */}
-      {/* }) */}
-      {/* }}> */}
-      {/* <IndexRoute getComponent={(nextState, cb) => { */}
-      {/* require.ensure([], require => { */}
-      {/* cb(null, require('./functions/Scaffolding/Home').default) */}
-      {/* }) */}
-      {/* }} /> */}
-      {/* <Route path="workflow" getComponent={(nextState, cb) => { */}
-      {/* require.ensure([], require => { */}
-      {/* cb(null, require('./functions/Scaffolding/Workflow').default) */}
-      {/* }) */}
-      {/* }} /> */}
-      {/* <Route path="docs" getComponent={(nextState, cb) => { */}
-      {/* require.ensure([], require => { */}
-      {/* cb(null, require('./functions/Scaffolding/Docs').default) */}
-      {/* }) */}
-      {/* }} /> */}
-      {/* <Route path="changelog" getComponent={(nextState, cb) => { */}
-      {/* require.ensure([], require => { */}
-      {/* cb(null, require('./functions/Scaffolding/Changelog').default) */}
-      {/* }) */}
-      {/* }} /> */}
-      {/* </Route> */}
       <Route path="*" getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./pages/NotFound').default)

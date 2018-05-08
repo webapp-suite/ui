@@ -3,7 +3,7 @@
 @primary-color:@theme;
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
-@header-padding: 20px;
+@header-padding: 40px;
 
 html, body, #app {
   height: 100%;
@@ -51,17 +51,13 @@ body {
   color: #333;
   font-size: 12px;
   line-height: 1.5;
-  overflow: hidden;
-  margin-top: 60px;
+  //overflow: hidden;
+  //margin-top: 60px;
   .wrapper {
     animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
     height: 100%;
     .header {
-      position: fixed;
-      z-index: @zindex-header;
-      top: 0;
-      left: 0;
-      right: 0;
+      //position: relative;
       background-color: @black;
       padding: 15px @header-padding;
       color: @white;
@@ -76,10 +72,8 @@ body {
       }
     }
     .content {
-      height: 100%;
       min-height: 100vh;
-      margin: 0;
-      overflow-y: scroll;
+      margin-top: 40px;
     }
   }
 }

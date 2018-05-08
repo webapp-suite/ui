@@ -31,29 +31,35 @@ class Components extends Component {
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>
           <Nav href="/components" onItemClick={() => this.toggle(false)}>
-            {components.map((item, i) => (
-              <NavItem
-                key={item.category}
-                // icon={item.icon}
-                title={item.cn}
-                defaultOpen
-              >
-                {item.components.map((component, i) => {
-                  this.componentsMap[component.name] = component
-                  return (
-                    <NavItem
-                      key={component.name}
-                      href={component.name}
-                      title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
-                    />
-                  )
-                })}
-              </NavItem>
-            ))}
+            {components.map((item, i) => {
+              !item.components && (this.componentsMap[item.name] = item)
+              return item.components
+                ? <NavItem
+                  key={item.category}
+                  title={item.cn}
+                  defaultOpen
+                >
+                  {item.components.map((component, i) => {
+                    this.componentsMap[component.name] = component
+                    return (
+                      <NavItem
+                        key={component.name}
+                        href={component.name}
+                        title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
+                      />
+                    )
+                  })}
+                </NavItem>
+                : <NavItem
+                  key={item.name}
+                  href={item.name}
+                  title={item.cn}
+                />
+            })}
           </Nav>
         </LayoutSidebar>
         <LayoutContent>
-          {this.renderTitle(params.component)}
+          {this.renderTitle(params.component ? params.component : params)}
           {children}
         </LayoutContent>
       </Layout>

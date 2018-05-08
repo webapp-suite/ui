@@ -1,21 +1,12 @@
 [{
-  "category": "design",
-  "cn": "布局与设计",
   "icon": "retweet",
-  "components": [{
-    "name": "Layout",
-    "cn": "布局"
-  }, {
-    "name": "Color",
-    "cn": "色彩"
-  }, {
-    "name": "Icon",
-    "cn": "图标"
-  }, {
-    "name": "Motion",
-    "cn": "动效"
-  }]
-},{
+  "name": "Layout",
+  "cn": "布局"
+}, {
+  "icon": "retweet",
+  "name": "Icon",
+  "cn": "图标"
+}, {
   "category": "base",
   "cn": "基础组件",
   "icon": "th-large",

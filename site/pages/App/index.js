@@ -5,6 +5,8 @@ import { Row, Col } from 'earth-ui/Layout'
 import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/Dropdown'
 import Button from 'earth-ui/Button'
 import Icon from 'earth-ui/Icon'
+import BackToTop from 'earth-ui/BackToTop'
+import Footer from 'public/Footer'
 import './index.less'
 
 class App extends Component {
@@ -21,24 +23,32 @@ class App extends Component {
         <li>
           <Link to="/guide" activeClassName="active">指南</Link>
         </li>
+        {/* <li> */}
+        {/* <Link to="/design" activeClassName="active">设计</Link> */}
+        {/* </li> */}
         <li>
-          <Link to="/components" activeClassName="active">文档</Link>
-        </li>
-        <li>
-          <Link to="/design" activeClassName="active">交互体验</Link>
+          <Link to="/components" activeClassName="active">组件</Link>
         </li>
         <li>
           <Link to="/changelog" activeClassName="active">更新日志</Link>
         </li>
-        {/* <li> */}
-        {/* <Link to="/scaffolding" activeClassName="active">脚手架</Link> */}
-        {/* </li> */}
       </ul>
     )
   }
 
   render () {
-    const { children } = this.props
+    let { children } = this.props
+    let config = {
+      text: 'TOP',
+      topDistance: 10,
+      timing: 'easeIn',
+      background: 'rgba(73, 73, 73, 1)',
+      hover: {background: 'rgba(43, 43, 43, 1)'},
+      position: {
+        bottom: '10%',
+        right: '30px'
+      }
+    }
     return (
       <div className="wrapper">
         <Row className="header" fluid>
@@ -74,6 +84,8 @@ class App extends Component {
           </Col>
         </Row>
         <div className="content">{children}</div>
+        <Footer />
+        <BackToTop {...config} />
       </div>
     )
   }

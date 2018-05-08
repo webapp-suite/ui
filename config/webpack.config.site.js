@@ -63,7 +63,6 @@ const config = {
     alias: {
       'earth-ui': `${sourcePath}/components`,
       'public': `${sitePath}/public`,
-      'scaffolding': `${sitePath}/create-earth-app`,
       'doc': `${sitePath}/loaders/doc`,
       'variable.less': `${sourcePath}/styles/variable.less`,
       'mixin.less': `${sourcePath}/styles/mixin.less`,
