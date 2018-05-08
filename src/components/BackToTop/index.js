@@ -142,7 +142,7 @@ BackToTop.propTypes = {
   // 文字字体大小，默认`18px`
   fontSize: PropTypes.string,
 
-  // 按钮的 position, 包括 top, bottom, left, right
+  // 按钮的 position, 包括 top, bottom, left, right, 默认`position: {bottom: '10%', right: '5%'}`
   position: PropTypes.shape({
     top: PropTypes.string,
     bottom: PropTypes.string,
