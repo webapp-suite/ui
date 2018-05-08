@@ -41,7 +41,7 @@ function xhr (option) {
     option.url = (xhr.baseUrl || '') + option.url
   }
 
-  option.type = (option.type || 'post').toUpperCase()
+  option.type = (option.type || 'get').toUpperCase()
 
   let timer
 
@@ -69,7 +69,7 @@ function xhr (option) {
     if (request.readyState === 4) {
       if (request.status.toString().slice(0, 1) === '2') {
         let response = request.responseText
-        if (request.getResponseHeader('Content-Type').indexOf('application/json') !== -1) {
+        if (request.getResponseHeader('Content-Type').includes('application/json')) {
           response = JSON.parse(response)
         }
 
@@ -144,7 +144,7 @@ function xhr (option) {
 
   let sendDataStr = ''
 
-  if (['get', 'GET'].indexOf(option.type) !== -1) {
+  if (['get', 'GET'].includes(option.type)) {
     for (const key in sendData) {
       if (sendDataStr !== '') {
         sendDataStr += '&'
@@ -153,11 +153,11 @@ function xhr (option) {
     }
   }
 
-  const link = option.url.indexOf('?') !== -1 ? '&' : '?'
+  const link = option.url.includes('?') ? '&' : '?'
 
   request.open(option.type, option.url + (sendDataStr && link + sendDataStr), option.hasOwnProperty('async') ? option.async : true)
 
-  if (['get', 'GET'].indexOf(option.type) === -1 && isObject(sendData)) {
+  if (!['get', 'GET'].includes(option.type) && isObject(sendData)) {
     sendData = Object.assign({}, sendData)
     sendData = Object.keys(sendData).map(key => {
       let value = sendData[key]
