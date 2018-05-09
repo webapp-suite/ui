@@ -13,15 +13,15 @@ class Footer extends PureComponent {
               采用声明式和命令式组件在不同场景灵活搭配，更便捷</div>
           </div>
           <div className="left">
-            <h2>微信赞赏</h2>
-            <div className="pay">
-              <img src="/img/qrcode_wechat.jpg" alt="" />
-            </div>
-          </div>
-          <div className="left">
             <h2>支付宝赞赏</h2>
             <div className="pay">
               <img src="/img/qrcode_alipay.jpg" alt="" />
+            </div>
+          </div>
+          <div className="left">
+            <h2>微信赞赏</h2>
+            <div className="pay">
+              <img src="/img/qrcode_wechat.jpg" alt="" />
             </div>
           </div>
           <div className="right">
