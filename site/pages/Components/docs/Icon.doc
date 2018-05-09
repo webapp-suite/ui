@@ -1,10 +1,11 @@
 /**
  * @title 基本功能
+ * @desc 全部继承自 Fontawesome Icon
  */
 import Icon from 'earth-ui/Icon'
 
 const IconBasic = () => {
-  return <Icon type="weixin" />
+  return <Icon type="star" />
 }
 
 @component Icon

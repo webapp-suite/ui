@@ -1,4 +1,3 @@
-// import 'font-awesome/css/font-awesome.css'
 import '../../styles/index.less'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -13,7 +12,7 @@ const Icon = props => {
 
 Icon.propTypes = {
   className: PropTypes.string,
-  // 图标类型
+  // 图标类型，https://fontawesome.com/v4.7.0/icons/
   type: PropTypes.string.isRequired
 }
 
