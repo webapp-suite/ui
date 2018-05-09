@@ -30,10 +30,10 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // 按钮类型，除默认外可选值: `minor`、`ghost`
+  // 按钮类型
   type: PropTypes.oneOf(['minor', 'ghost']),
 
-  // 按钮尺寸，除默认外可选值：`sm`、`lg`
+  // 按钮尺寸
   size: PropTypes.oneOf(['sm', 'lg']),
 
   // 按钮图标，支持 fontawaresome 图标

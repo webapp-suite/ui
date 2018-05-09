@@ -50,7 +50,7 @@ Input.propTypes = {
   // 输入改变后的回调，参数为 event 对象
   onChange: PropTypes.func,
 
-  // 输入框大小，除默认外可选值：sm、lg
+  // 输入框大小
   size: PropTypes.oneOf(['sm', 'lg']),
 
   // 是否禁用
