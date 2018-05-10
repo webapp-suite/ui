@@ -10,11 +10,11 @@ class ClearableInput extends Component {
   constructor (props) {
     super()
     let value
-    let originValue
+    let originalValue
     let hasChanged = false
-    'value' in props && (originValue = value = props.value)
-    'defaultValue' in props && (value = props.defaultValue)
-    this.state = { value, originValue, hasChanged }
+    'value' in props && (originalValue = value = props.value)
+    'defaultValue' in props && (originalValue = value = props.defaultValue)
+    this.state = { value, originalValue, hasChanged }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -33,7 +33,7 @@ class ClearableInput extends Component {
   }
 
   handleChange (value) {
-    let hasChanged = value !== this.state.originValue
+    let hasChanged = value !== this.state.originalValue
     this.setState({ value, hasChanged })
     this.props.onChange && this.props.onChange(value)
   }
@@ -68,8 +68,6 @@ class ClearableInput extends Component {
 
     return (
       <div className={classnames('cmui-clearable-input', className)} {...other}>
-        {/* {autocomplete === 'off' && <input type="text" className="autocomplete-off" />} */}
-        {/* {autocomplete === 'off' && <input type="password" className="autocomplete-off" />} */}
         <Input
           ref="input"
           onChange={::this.handleInput}
@@ -94,12 +92,18 @@ class ClearableInput extends Component {
 ClearableInput.propTypes = {
 
   className: PropTypes.string,
+
+  // 类型
   type: PropTypes.string,
+
+  // 是否只读
   readOnly: PropTypes.bool,
+
+  // 最大长度
   maxLength: PropTypes.number,
 
+  // 禁用输入框清除功能
   forbidClearable: PropTypes.bool,
-  // autocomplete: PropTypes.string,
 
   // 输入框的值
   value: controlledPropValidator(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
@@ -122,6 +126,7 @@ ClearableInput.propTypes = {
   // 同 input placeholder
   placeholder: PropTypes.string,
 
+  // 宽度
   width: PropTypes.string
 }
 

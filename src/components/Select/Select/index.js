@@ -6,6 +6,7 @@ import shouldComponentUpdate from '../../shouldComponentUpdate'
 import dataFilter from '../../../utils/dataFilter'
 import TextOverflow from '../../TextOverflow'
 import SelectDropdown from '../../SelectDropdown'
+import ClearableInput from '../../ClearableInput'
 import './index.less'
 
 class Select extends Component {
@@ -64,10 +65,17 @@ class Select extends Component {
     }
   }
 
+  handleSearch (searchValue) {
+    this.setState({
+      searchValue,
+      index: -1
+    })
+  }
+
   handleDropToggle (open) {
-    // this.props.searchable && open && setTimeout(() => {
-    //   this.refs.clearableInput && this.refs.clearableInput.focus()
-    // }, 0)
+    this.props.searchable && open && setTimeout(() => {
+      this.refs.clearableInput && this.refs.clearableInput.focus()
+    }, 0)
   }
 
   getOptionsWithProps (onMatch) {
@@ -102,18 +110,40 @@ class Select extends Component {
     })
   }
 
+  filterBySearchValue (options) {
+    const { searchValue } = this.state
+    if (!searchValue) return options
+    return options.filter(option => {
+      const { value, children } = option.props
+      if (!value && value !== 0) return false
+      return children.indexOf(searchValue) !== -1 || String(value).indexOf(searchValue) !== -1
+    })
+  }
+
+  shouldSearchable (options) {
+    if (!this.props.searchable) return options
+    const { index } = this.state
+    return options.map((option, i) => {
+      return React.cloneElement(option, {
+        active: index === i
+      })
+    })
+  }
+
   render () {
     const {
       children, className, defaultValue, onChange, data, dataFilter, defaultOption, size,
-      placeholder, noOptionsContent, noMatchingContent, ...other
+      placeholder, searchPlaceholder, searchable, noOptionsContent, noMatchingContent, ...other
     } = this.props
-    const { value } = this.state
+    const { value, searchValue } = this.state
 
     delete other.value
     delete other.render
 
     let title = null
     let optionsWithProps = this.getOptionsWithProps(children => (title = children))
+    optionsWithProps = this.filterBySearchValue(optionsWithProps)
+    optionsWithProps = this.shouldSearchable(optionsWithProps)
 
     const classNames = classnames('cmui-select', {
       [`cmui-select--${size}`]: size
@@ -149,6 +179,16 @@ class Select extends Component {
         caret
         {...other}
       >
+        {searchable && (
+          <ClearableInput
+            ref="clearableInput"
+            className="bfd-select__search-input"
+            value={searchValue}
+            placeholder={searchPlaceholder}
+            onChange={::this.handleSearch}
+            onKeyDown={this.handleKeyDown.bind(this, optionsWithProps)}
+          />
+        )}
         <ul className={optionsClassNames}>
           {optionsWithProps && optionsWithProps.length ? optionsWithProps : (
             <li className="cmui-select__option">{noOptionsContent}</li>
@@ -161,6 +201,7 @@ class Select extends Component {
 
 Select.defaultProps = {
   placeholder: '请选择',
+  searchPlaceholder: '请输入关键词搜索',
   noOptionsContent: '无选项',
   noMatchingContent: '无匹配选项'
 }
@@ -198,13 +239,19 @@ Select.propTypes = {
   // 无 `value` 且无选项匹配时 Select 显示的内容，默认 `请选择`
   placeholder: PropTypes.string,
 
+  // 是否可搜索，搜索范围为 Option 的 value 和 children
+  searchable: PropTypes.bool,
+
+  // 搜索框 placeholder，默认`请输入关键词搜索`
+  searchPlaceholder: PropTypes.string,
+
   // 是否禁用
   disabled: PropTypes.bool,
 
   // 尺寸
   size: PropTypes.oneOf(['sm', 'lg']),
 
-  // 宽度，默认 160
+  // 宽度，默认`100%`
   width: PropTypes.number,
 
   // 无 option 时显示的内容，默认`无选项`
