@@ -19,7 +19,14 @@
     "lint": "eslint src && eslint site",
     "fix": "eslint src --fix eslint site --fix",
     "test": "jest --config=config/jest.config.json",
-    "coverage": "coveralls"
+    "coverage": "coveralls",
+    "commit": "git-cz",
+    "release": "standard-version"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "husky": {
     "hooks": {
@@ -76,6 +83,8 @@
     "babel-eslint": "^8.2.2",
     "babel-jest": "^10.0.0",
     "code-beautify": "0.0.11",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.18.1",
     "eslint-config-standard-react": "^6.0.0",
     "eslint-plugin-react": "^7.7.0",
@@ -92,6 +101,7 @@
     "react-hot-loader": "^4.0.0-rc.0",
     "rimraf": "^2.6.2",
     "standard": "^11.0.0",
+    "standard-version": "^4.3.0",
     "webpack-dashboard": "^1.1.1",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.21.0",
