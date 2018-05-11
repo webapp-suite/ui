@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { scrollTo, currentYPosition } from './scroll'
+import Icon from '../Icon'
 import './index.less'
 
 class BackToTop extends Component {
@@ -12,17 +13,17 @@ class BackToTop extends Component {
         position: 'fixed',
         zIndex: 2000,
         paddingBottom: '50%',
-        padding: '6px 12px',
+        padding: '8px 12px',
         fontSize: props.fontSize,
         textAlign: 'center',
         whiteSpace: 'nowrap',
-        width: props.text === '' && `${props.radius * 2}px`,
-        height: props.text === '' && `${props.radius * 2}px`,
+        width: props.text === '' && !props.icon && `${props.radius * 2}px`,
+        height: props.text === '' && !props.icon && `${props.radius * 2}px`,
         opacity: 0,
         color: props.color,
         background: props.background,
         border: 'none',
-        borderRadius: props.shape === 'round' ? '50%' : '2px',
+        borderRadius: props.shape === 'round' ? '50%' : '0',
         cursor: 'pointer',
         outline: 'none',
         boxShadow: '0 2px 5px 0 rgba(0,0,0,.26)',
@@ -41,7 +42,7 @@ class BackToTop extends Component {
     if (icon === '') {
       this.ico = ''
     } else {
-      this.ico = <span className={icon} style={iconStyle} />
+      this.ico = <Icon type={icon} style={iconStyle} />
     }
   }
   componentDidMount () {
