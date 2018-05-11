@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import update from 'react-update'
-import classnames from 'classnames'
+import cx from 'classnames'
 import invariant from 'invariant'
 import xhr from '../../xhr'
 import './index.less'
@@ -149,13 +149,17 @@ class Form extends Component {
 
   render () {
     const {
-      children, className, data, defaultData, onChange, onSubmit, onSuccess, size, rules, labelWidth, ...other
+      children, className, data, defaultData, onChange, onSubmit, onSuccess, size, rules, labelWidth, width, ...other
     } = this.props
 
-    const classNames = classnames(
+    const classNames = cx(
       'cmui-form',
       {[`cmui-form-${size}`]: size}
     )
+
+    if (width) {
+      other.style = Object.assign(other.style || {}, { width })
+    }
 
     return (
       <form
@@ -194,7 +198,10 @@ Form.propTypes = {
   // 表单验证规则，需要验证的 key 与 data 对象一一对应
   rules: PropTypes.object,
 
-  // 表单 label 宽度，如果不需要 label，设置为 0 即可
+  // 表单的宽度大小，单位为px
+  width: PropTypes.number,
+
+  // 表单 label 宽度，如果不需要 label，设置为`0`即可
   labelWidth: PropTypes.number,
 
   // 表单提交 URL，内部调用 xhr 模块

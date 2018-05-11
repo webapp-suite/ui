@@ -123,11 +123,11 @@ FormItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // label 显示内容
-  label: PropTypes.string,
-
   // 表单数据 key，与 data、rules 对应
   name: PropTypes.string.isRequired,
+
+  // label 显示内容
+  label: PropTypes.string,
 
   // 是否必填，label 显示上的区别
   required: PropTypes.bool,
