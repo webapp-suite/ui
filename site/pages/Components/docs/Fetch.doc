@@ -22,7 +22,7 @@ class FetchDemo extends Component {
     const { url, data } = this.state
     return (
       <div>
-        <Select defaultValue="0" onChange={::this.handleChange}>
+        <Select defaultValue="0" onChange={::this.handleChange} width={200}>
           <Option value="0">昨天</Option>
           <Option value="1">最近7天</Option>
           <Option value="2">最近30天</Option>

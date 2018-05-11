@@ -5,7 +5,7 @@ import { Select, Option } from 'earth-ui/Select'
 
 const SelectBasic = () => {
   return (
-    <Select>
+    <Select width={200}>
       <Option>请选择</Option>
       <Option value="0">苹果</Option>
       <Option value="1">三星</Option>
@@ -35,6 +35,7 @@ const SelectData = () => {
       data={data}
       render={item => <Option value={item.id}>{item.name}</Option>}
       defaultOption={<Option>请选择</Option>}
+      width={200}
     />
   )
 }
@@ -51,6 +52,7 @@ const SelectUrl = () => {
       url="/data/select.json"
       render={item => <Option value={item.id}>{item.name}</Option>}
       defaultOption={<Option>请选择</Option>}
+      width={200}
     />
   )
 }
@@ -62,7 +64,7 @@ import { Select, Option } from 'earth-ui/Select'
 
 const SelectSearchable = () => {
   return (
-    <Select searchable>
+    <Select searchable width={200}>
       <Option>请选择</Option>
       <Option value="0">苹果</Option>
       <Option value="1">三星</Option>
@@ -78,7 +80,7 @@ const SelectSearchable = () => {
 import { Select, Option } from 'earth-ui/Select'
 const SelectDisabled = () => {
   return (
-    <Select disabled>
+    <Select disabled width={200}>
       <Option>请选择</Option>
       <Option value="0">苹果</Option>
       <Option value="1">三星</Option>

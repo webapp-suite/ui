@@ -6,11 +6,11 @@ import Input from 'earth-ui/Input'
 const InputSize = () => {
   return (
     <div>
-      <Input placeholder="小尺寸" size="sm" />
+      <Input placeholder="小尺寸" size="sm" width={460} />
       <br/><br/>
-      <Input placeholder="正常" />
+      <Input placeholder="正常" width={460} />
       <br/><br/>
-      <Input placeholder="大尺寸" size="lg" />
+      <Input placeholder="大尺寸" size="lg" width={460} />
     </div>
   )
 }
@@ -23,7 +23,7 @@ import Input from 'earth-ui/Input'
 const InputDisabled = () => {
   return (
     <div>
-      <Input placeholder="不可用" disabled />
+      <Input placeholder="不可用" width={460} disabled />
     </div>
   )
 }

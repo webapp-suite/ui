@@ -6,7 +6,7 @@ import { Nav, IndexNavItem, NavItem } from 'earth-ui/Nav'
 
 const NavBasic = () => {
   return (
-    <Nav href="/">
+    <Nav href="/" width={240}>
       <IndexNavItem icon="th" title="数据概况" />
       <NavItem href="users" icon="users" title="人群管理" defaultOpen>
         <NavItem href="users/list" title="人群列表" />

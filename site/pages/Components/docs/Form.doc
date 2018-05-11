@@ -49,6 +49,7 @@ class FormBasic extends Component {
         onChange={formData => this.update('set', { formData })}
         rules={this.rules}
         onSuccess={::this.handleSuccess}
+        width={460}
       >
         <FormItem label="用户群" required name="name" help="5个字符以内">
           <FormInput />
@@ -61,7 +62,7 @@ class FormBasic extends Component {
           </FormSelect>
         </FormItem>
         <FormItem label="描述" name="desc" help="500个字符以内">
-          <FormTextarea />
+          <FormTextarea minHeight={70} />
         </FormItem>
         <FormSubmit>保存</FormSubmit>
       </Form>
