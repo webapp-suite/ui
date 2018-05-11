@@ -32,7 +32,7 @@ class Input extends Component {
       className
     )
     if (width) {
-      other.style = Object.assign(other.style || {}, { width: width })
+      other.style = Object.assign(other.style || {}, { width })
     }
     return <input ref="input" className={classNames} {...other} />
   }
@@ -53,13 +53,14 @@ Input.propTypes = {
   // 输入框大小
   size: PropTypes.oneOf(['sm', 'lg']),
 
+  // 输入框的宽度大小，单位为px
+  width: PropTypes.number,
+
   // 是否禁用
   disabled: PropTypes.bool,
 
   // 同 input placeholder
   placeholder: PropTypes.string,
-
-  width: PropTypes.string,
 
   customProp ({ value, onChange }) {
     if (value && !onChange) {
