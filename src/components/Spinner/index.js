@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 const Spinner = props => {
@@ -13,7 +13,7 @@ const Spinner = props => {
   }
 
   return (
-    <div className={classnames('cmui-spinner', className)} {...other}>
+    <div className={cx('cmui-spinner', className)} {...other}>
       <div className="cmui-spinner__circle" />
     </div>
   )
