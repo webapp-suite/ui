@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 
 class Nav extends Component {
   getChildContext () {
@@ -14,9 +14,14 @@ class Nav extends Component {
   }
 
   render () {
-    const { children, className, href, onItemClick, ...other } = this.props
+    const { children, className, href, onItemClick, width, ...other } = this.props
+
+    if (width) {
+      other.style = Object.assign(other.style || {}, { width })
+    }
+
     return (
-      <div className={classnames('cmui-nav', className)} {...other}>
+      <div className={cx('cmui-nav', className)} {...other}>
         <ul>{children}</ul>
       </div>
     )
@@ -32,6 +37,9 @@ Nav.propTypes = {
   children: PropTypes.node,
 
   className: PropTypes.string,
+
+  // 宽度，默认`100%`
+  width: PropTypes.number,
 
   // 所有 NavItem 的基础 href
   href: PropTypes.string,
