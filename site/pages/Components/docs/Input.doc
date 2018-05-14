@@ -8,7 +8,7 @@ const InputSize = () => {
     <div>
       <Input placeholder="小尺寸" size="sm" width={460} />
       <br/><br/>
-      <Input placeholder="正常" width={460} />
+      <Input placeholder="默认尺寸" width={460} />
       <br/><br/>
       <Input placeholder="大尺寸" size="lg" width={460} />
     </div>

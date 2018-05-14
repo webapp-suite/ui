@@ -5,9 +5,10 @@
 .cmui-input {
   width: @width;
   height: 40px;
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   outline: none;
-  font-size: 12px;
+  font-size: @fontsize-small;
   border: 2px solid @lite;
   background-color: @white;
   vertical-align: middle;
@@ -26,15 +27,11 @@
 
 .cmui-input--sm {
   height: 36px;
-  padding-left: 6px;
-  padding-right: 6px;
 }
 
 .cmui-input--lg {
-  height: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 13px;
+  height: 48px;
+  font-size: @fontsize;
 }
 
 // remove IE clearfield

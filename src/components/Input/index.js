@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 class Input extends Component {
@@ -24,7 +24,7 @@ class Input extends Component {
 
   render () {
     const { className, size, width, ...other } = this.props
-    const classNames = classnames(
+    const classNames = cx(
       'cmui-input',
       {
         [`cmui-input--${size}`]: size
