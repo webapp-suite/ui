@@ -1,7 +1,7 @@
 {
   "name": "earthui",
   "version": "0.0.1",
-  "main": "src/components/index.js",
+  "main": "dist/index.js",
   "author": "muwenzi",
   "description": "",
   "license": "MIT",
