@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import classlist from 'classlist'
 
 class ModalContent extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    lock: PropTypes.bool,
-    size: PropTypes.number,
-    zIndex: PropTypes.number,
-    close: PropTypes.func,
-    modal: PropTypes.object
-  }
-
   constructor (props) {
     super(props)
     this.relativeValue = 0
@@ -67,7 +57,7 @@ class ModalContent extends Component {
   render () {
     const {children, className, lock, size, zIndex, close, modal, ...other} = this.props
     return (
-      <div className={classnames('cmui-modal', {
+      <div className={cx('cmui-modal', {
         [`cmui-modal--${size}`]: size
       }, className)} {...other}>
         <div className="cmui-modal__backdrop" style={{zIndex: zIndex || 3000}} />
@@ -80,6 +70,10 @@ class ModalContent extends Component {
             <div className="cmui-modal__modal-content">
               {children}
             </div>
+            <div
+              className="cmui-modal__modal-close"
+              onClick={() => close()}
+            />
           </div>
         </div>
       </div>
@@ -89,6 +83,16 @@ class ModalContent extends Component {
 
 ModalContent.childContextTypes = {
   modalContent: PropTypes.instanceOf(ModalContent)
+}
+
+ModalContent.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  lock: PropTypes.bool,
+  size: PropTypes.number,
+  zIndex: PropTypes.number,
+  close: PropTypes.func,
+  modal: PropTypes.object
 }
 
 export default ModalContent

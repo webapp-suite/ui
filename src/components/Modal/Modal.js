@@ -19,26 +19,6 @@ const scrollbarWidth = (() => {
 })()
 
 class Modal extends Component {
-  static contextTypes = {
-    modalContent: PropTypes.object
-  }
-  static propTypes = {
-    // 是否打开
-    open: PropTypes.bool,
-
-    // 切换 open 状态后的回调，参数为切换后的 open 状态，立刻执行，不会等到动画结束后
-    onToggle: PropTypes.func,
-
-    // 是否锁定，锁定后点击背景无法关闭
-    lock: PropTypes.bool,
-
-    // 关闭后的回调，动画结束后执行。如果 close 方法传入回调，则此属性不会触发
-    onClose: PropTypes.func,
-
-    // 尺寸，可选值：`sm`, `lg`, 默认中等尺寸
-    size: PropTypes.oneOf(['sm', 'lg'])
-  }
-
   constructor (props) {
     super(props)
     this.closeCallbacks = new EventPool()
@@ -170,6 +150,28 @@ class Modal extends Component {
   render () {
     return null
   }
+}
+
+Modal.contextTypes = {
+  modalContent: PropTypes.object
+}
+
+Modal.propTypes = {
+
+  // 是否打开
+  open: PropTypes.bool,
+
+  // 切换 open 状态后的回调，参数为切换后的 open 状态，立刻执行，不会等到动画结束后
+  onToggle: PropTypes.func,
+
+  // 是否锁定，锁定后点击背景无法关闭
+  lock: PropTypes.bool,
+
+  // 关闭后的回调，动画结束后执行。如果 close 方法传入回调，则此属性不会触发
+  onClose: PropTypes.func,
+
+  // 尺寸，可选值：`sm`, `lg`, 默认中等尺寸
+  size: PropTypes.oneOf(['sm', 'lg'])
 }
 
 export default Modal

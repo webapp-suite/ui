@@ -1,26 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 
 const ModalHeader = (props, context) => {
-  const { children, className, ...other } = props
+  const { children, className, title, ...other } = props
   return (
-    <div className={classnames('cmui-modal__modal-header', className)} {...other}>
+    <div className={cx('cmui-modal__modal-header', className)} {...other}>
+      {title && (<div className="cmui-modal__modal-header--default">{title}</div>)}
       {children}
-      <div
-        className="cmui-modal__modal-header-close"
-        onClick={() => context.modalContent.props.close()}
-      />
     </div>
   )
 }
 
-ModalHeader.contextTypes = {
-  modalContent: PropTypes.object
-}
 ModalHeader.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+
+  // 导航栏标题，可以置空
+  title: PropTypes.string
 }
 
 export default ModalHeader

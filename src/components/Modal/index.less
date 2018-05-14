@@ -2,7 +2,11 @@
 
 @duration: .2s;
 @zIndex: @zindex-dialog;
-@primary-color-deep: #19afff;
+@padding-lr: 38px;
+@padding-tb: 40px;
+@min-width-sm: 300px;
+@min-width-md: 400px;
+@min-width-lg: 500px;
 
 .cmui-modal--scrollbar-measure {
   position: absolute;
@@ -48,8 +52,9 @@ body.cmui-modal--open {
 }
 
 .cmui-modal__modal-dialog {
+  position: relative;
   margin: 100px auto;
-  min-width: 100px;
+  min-width: @min-width-md;
   display: table;
   transition: all @duration;
 }
@@ -85,32 +90,32 @@ body.cmui-modal--open {
 
 .cmui-modal--sm {
   .cmui-modal__modal-dialog {
-    width: 300px;
+    min-width: @min-width-sm;
   }
 }
 
 .cmui-modal--lg {
   .cmui-modal__modal-dialog {
-    width: @zindex-dialog;
+    min-width: @min-width-lg;
   }
 }
 
 .cmui-modal__modal-header {
-  background-color: @theme;
-  color: #fff;
-  //padding: 15px 20px;
+  background-color: @white;
+  color: @dark-darker;
+  padding: @padding-tb @padding-lr 30px;
   position: relative;
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-size: 14px;
+  text-align: left;
+  .cmui-modal__modal-header--default {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 500;
   }
 }
 
-.cmui-modal__modal-header-close {
+.cmui-modal__modal-close {
   position: absolute;
-  top: 0;
+  top: -8px;
   right: -40px;
   margin-top: -16px;
   &:before {
@@ -128,8 +133,9 @@ body.cmui-modal--open {
 }
 
 .cmui-modal__modal-body {
-  padding: 20px;
-  background-color: #fff;
+  padding: 20px @padding-lr @padding-tb;
+  background-color: @white;
+  font-size: @fontsize;
 }
 
 div.cmui-modal--open {
