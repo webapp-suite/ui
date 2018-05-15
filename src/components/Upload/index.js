@@ -1,47 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import xhr from '../xhr'
 import FileList from './FileList'
 import Button from '../Button/index'
 import './index.less'
 
 class Upload extends Component {
-  static propTypes= {
-
-    className: PropTypes.string,
-
-    // 上传的地址
-    action: PropTypes.string,
-
-    // 上传按钮文本内容，默认为`文件上传`
-    text: PropTypes.string,
-
-    // 上传文件名称，默认为files
-    fileName: PropTypes.string,
-
-    // 是否支持多选文件，ie10+ 支持。开启后按住 ctrl 可选择多个文件。
-    multiple: PropTypes.bool,
-
-    // 文件上传进行中事件
-    onUplading: PropTypes.func,
-
-    onUpload: PropTypes.func,
-
-    // 上传文件完成时的回调函数，前提用户没有自定义onUpload方法方可生效
-    onComplete: PropTypes.func,
-
-    // 是否显示文件上传列表
-    showFileList: PropTypes.bool,
-
-    children: PropTypes.node,
-
-    button: PropTypes.string
-  }
-
-  static defaultProps = {
-    text: '文件上传'
-  }
   constructor () {
     super()
     this.state = {
@@ -154,15 +119,15 @@ class Upload extends Component {
   }
 
   render () {
-    const { className, action, fileName, text, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
+    const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
-      <div className={classnames('cmui-upload', className)} {...other}>
+      <div className={cx('cmui-upload', className)} {...other}>
         <input ref="file" onChange={::this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
         <div className="cmui-upload__children" onClick={::this.handleClick}>
           {this.props.children}
         </div>
-        {button &&
-          <Button type="ghost" onClick={::this.handleClick}>{button}</Button>
+        {button && button.name &&
+          <Button {...button} onClick={::this.handleClick}>{button.name}</Button>
         }
         {showFileList &&
           <div className="cmui-upload__listbox">
@@ -172,6 +137,44 @@ class Upload extends Component {
       </div>
     )
   }
+}
+
+Upload.propTypes = {
+
+  children: PropTypes.node,
+
+  className: PropTypes.string,
+
+  // 上传的地址
+  action: PropTypes.string,
+
+  // 上传按钮内容和样式
+  button: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    size: PropTypes.string,
+    icon: PropTypes.string,
+    circle: PropTypes.bool,
+    transparent: PropTypes.bool
+  }),
+
+  // 上传文件名称，默认为files
+  fileName: PropTypes.string,
+
+  // 是否支持多选文件，ie10+ 支持。开启后按住 ctrl 可选择多个文件。
+  multiple: PropTypes.bool,
+
+  // 文件上传进行中事件
+  onUplading: PropTypes.func,
+
+  onUpload: PropTypes.func,
+
+  // 上传文件完成时的回调函数，前提用户没有自定义onUpload方法方可生效
+  onComplete: PropTypes.func,
+
+  // 是否显示文件上传列表
+  showFileList: PropTypes.bool
+
 }
 
 export default Upload

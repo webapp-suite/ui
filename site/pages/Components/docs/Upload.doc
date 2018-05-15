@@ -8,6 +8,9 @@ class UploadFile extends Component {
 
   render() {
     const props = {
+      button: {
+        name: '文件上传'
+      },
       method: 'post',
       action: '/upload.do',
       onUplading: ::this.handleUploading,
