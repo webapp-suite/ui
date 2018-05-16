@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AvatarEditor from 'react-avatar-editor'
 import Button from '../Button'
-import { Modal, ModalHeader, ModalBody } from '../Modal'
+import { Modal, ModalBody } from '../Modal'
 import './index.less'
 
 class AvatarClip extends Component {
@@ -36,7 +36,6 @@ class AvatarClip extends Component {
     const { image, width, height, border, color, cropButtonName, open } = this.props
     return (
       <Modal open={open} onClose={::this.onClose} lock>
-        <ModalHeader />
         <ModalBody>
           <h3 className="AvatarClip-title">编辑头像</h3>
           <div className="AvatarClip-subtitle">调整头像尺寸和位置</div>

@@ -4,8 +4,10 @@
   margin-top: @unit-double;
   margin-bottom: @unit;
   font-size: 24px;
+  font-weight: @fontweight-bold;
   color: #262626;
   text-align: center;
+  line-height: 28px;
 }
 .AvatarClip-subtitle {
   padding: 0 38px;
@@ -21,12 +23,13 @@
   .AvatarClip-edit {
     width: 240px;
     height: 240px;
-    margin: 24px 60px 50px;
+    margin: 24px 42px 50px;
     canvas {
       cursor: move;
     }
   }
   .AvatarClip-zoom {
+    line-height: 16px;
     svg {
       vertical-align: text-bottom;
       fill: #9fadc7;
@@ -101,7 +104,7 @@
   }
   .AvatarClip-footer {
     margin-top: 40px;
-    margin-bottom: 28px;
+    margin-bottom: 10px;
     button {
       width: 220px;
       height: 33px;
