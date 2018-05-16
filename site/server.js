@@ -43,6 +43,13 @@ app.post('/api/form', function (req, res) {
   })
 })
 
+app.delete('/user/test', function (req, res) {
+  res.json({
+    code: 200,
+    data: {}
+  })
+})
+
 function clone (obj) {
   let o
   if (typeof obj === 'object') {
