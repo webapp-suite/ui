@@ -9,7 +9,7 @@ const MessageSuccess = () => {
   return (
     <Button onClick={() => xhr({
       type: 'DELETE',
-      url: '/user/5',
+      url: '/user/test',
       success(data) {
         console.log(data)
       }
