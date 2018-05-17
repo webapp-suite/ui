@@ -182,7 +182,7 @@ class Select extends Component {
         {searchable && (
           <ClearableInput
             ref="clearableInput"
-            className="bfd-select__search-input"
+            className="cmui-select__search-input"
             value={searchValue}
             placeholder={searchPlaceholder}
             onChange={::this.handleSearch}
