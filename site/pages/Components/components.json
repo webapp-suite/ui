@@ -7,6 +7,17 @@
   "name": "Icon",
   "cn": "图标"
 }, {
+  "category": "imperative",
+  "cn": "命令式组件",
+  "icon": "retweet",
+  "components": [{
+    "name": "message",
+    "cn": "全局提示"
+  }, {
+    "name": "xhr",
+    "cn": "AJAX请求"
+  }]
+}, {
   "category": "base",
   "cn": "基础组件",
   "icon": "th-large",
@@ -19,6 +30,9 @@
   }, {
     "name": "Select",
     "cn": "下拉选择"
+  }, {
+    "name": "Dropdown",
+    "cn": "下拉菜单"
   }, {
     "name": "Form",
     "cn": "表单"
@@ -36,21 +50,10 @@
     "cn": "导航"
   }]
 }, {
-  "category": "function",
-  "cn": "函数组件",
-  "icon": "retweet",
-  "components": [{
-    "name": "message",
-    "cn": "全局提示"
-  }]
-}, {
   "category": "advance",
-  "cn": "交互辅助",
+  "cn": "辅助组件",
   "icon": "retweet",
   "components": [{
-    "name": "Dropdown",
-    "cn": "下拉菜单"
-  }, {
     "name": "ClearableInput",
     "cn": "清空输入框"
   }, {
@@ -62,21 +65,18 @@
   }]
 }, {
   "category": "tools",
-  "cn": "工具模块",
+  "cn": "工具组件",
   "icon": "wrench",
   "components": [{
     "name": "Fetch",
     "cn": "AJAX加载管理"
-  }, {
-    "name": "xhr",
-    "cn": "AJAX请求"
   }, {
     "name": "Upload",
     "cn": "上传"
   }]
 }, {
   "category": "business",
-  "cn": "业务定制",
+  "cn": "业务组件",
   "icon": "edit",
   "components": [{
     "name": "Gallery",
