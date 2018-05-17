@@ -5,7 +5,7 @@
  * ```js
  * {
  *   type: 'DELETE', // 请求类型，支持所有 HTTP 请求类型
- *   url: '/user/5', // 请求地址
+ *   url: '/user/test', // 请求地址
  *   data: {}, // 发送的数据，如果是对象会被字符串化并设置请求头 Content-Type
  *   beforeSend: request => {}, // 发送前处理逻辑，参数为当前 XMLHttpRequest 对象
  *   success: () => {}, // 成功后的回调，是否调用以及参数是什么取决于全局 xhr.success 的处理
@@ -95,8 +95,8 @@ function xhr (option) {
          * @description 全局成功回调，在 dataFilter 后执行，此方法会覆盖单独的 success
          * 方法，如果需要可手动调用
          * ```js
-         * import xhr from 'cmui/xhr'
-         * import message from 'cmui/message'
+         * import xhr from 'earth-ui/xhr'
+         * import message from 'earth-ui/message'
          *
          * xhr.success = (res, option) => {
          *   if (typeof res !== 'object') {
