@@ -1,20 +1,22 @@
 {
   "name": "earthui",
-  "version": "0.0.1",
-  "main": "dist/index.js",
-  "author": "muwenzi",
-  "description": "",
+  "version": "0.1.0",
+  "author": "Kimi Gao",
+  "description": "a minimalism-style UI component library powered by react.js",
   "license": "MIT",
+  "main": "dist/earth-ui.js",
+  "module": "src/components/index.js",
   "engines": {
-    "node": ">= 8.9.0",
-    "npm": ">= 5.2.0"
+    "node": "^8.9.0",
+    "npm": "^5.2.0"
   },
   "scripts": {
-    "build": "webpack --progress --config config/webpack.config.js",
+    "dist": "rimraf dist && webpack --progress --config config/webpack.config.js",
     "site:build": "NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
     "presite:prod": "npm i && NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:prod": "NODE_ENV=production pm2 start site/server.js",
+    "create": "node bin/create.js",
     "banner": "file-banner src --ignore '__tests__|\\.png'",
     "lint": "eslint src && eslint site",
     "fix": "eslint src --fix eslint site --fix",
@@ -39,6 +41,11 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "prop-types": "^15.6.1"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
