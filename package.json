@@ -11,7 +11,7 @@
     "npm": "^5.2.0"
   },
   "scripts": {
-    "dist": "rimraf dist && webpack --progress --config config/webpack.config.js",
+    "build": "rimraf dist && webpack --progress --config config/webpack.config.js",
     "site:build": "NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
     "presite:prod": "npm i && NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
