@@ -6,7 +6,7 @@ const beautify = require('code-beautify')
 const fs = require('fs')
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
-const outputPath = path.resolve(__dirname, '../dist/site')
+const outputPath = path.resolve(__dirname, '../site/dist')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -20,7 +20,7 @@ const config = {
     path: outputPath,
     filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
     chunkFilename: '[id]' + (isProduction ? '.[hash]' : '') + '.js',
-    publicPath: '/site/'
+    publicPath: '/dist/'
   },
   module: {
     rules: [{
