@@ -1,6 +1,6 @@
 {
   "name": "earthui",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "author": "Kimi Gao",
   "description": "a minimalism-style UI component library powered by react.js",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "site:build": "NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
     "presite:prod": "npm i && NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
-    "site:prod": "NODE_ENV=production node-dev site/server.js",
+    "site:prod": "NODE_ENV=production pm2 start site/server.js --name earth-ui",
     "create": "node bin/create.js",
     "banner": "file-banner src --ignore '__tests__|\\.png'",
     "lint": "eslint src && eslint site",
