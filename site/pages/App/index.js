@@ -75,7 +75,7 @@ class App extends Component {
               </DropdownMenu>
             </Dropdown>
             <a
-              href="https://github.com/G-Explorer/Earth-UI"
+              href="https://github.com/G-Explorer/earth-ui"
               target="_blank"
               className="header__github"
             >

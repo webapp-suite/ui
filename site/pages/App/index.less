@@ -31,6 +31,7 @@ a {
   color: @primary-color;
   text-decoration: none;
   &:hover {
+    color: @primary-color-deep;
     text-decoration: underline;
   }
 }
@@ -49,10 +50,19 @@ pre, code {
 body {
   font-family: @fontfamily;
   color: #333;
-  font-size: 12px;
+  font-size: @fontsize-small;
   line-height: 1.5;
   //overflow: hidden;
   //margin-top: 60px;
+  .markdown {
+    font-size: @fontsize;
+    code {
+      font-size: 13px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: @fontweight-medium;
+    }
+  }
   .wrapper {
     animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
     height: 100%;
@@ -102,7 +112,7 @@ body {
   sub {
     margin-left: 3px;
     bottom: 0px;
-    font-size: 50%;
+    font-size: 12px;
   }
 }
 
@@ -117,11 +127,11 @@ body {
     padding: 0;
     li {
       display: inline-block;
-      margin-right: 6px;
       a {
         display: block;
-        padding: 0 18px;
+        padding: 0 22px;
         line-height: 26px;
+        font-weight: @fontweight-medium;
         transition: all .2s;
         &:hover,
         &.active {
