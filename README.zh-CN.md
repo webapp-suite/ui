@@ -1,6 +1,6 @@
 <h1 align="center">
+    <img width="436" src="https://user-images.githubusercontent.com/12554487/40153405-4784fd0e-59bc-11e8-893e-946b246b6076.jpg" alt="earth-ui logo">
     <br>
-    <img width="430" src="https://user-images.githubusercontent.com/12554487/40153405-4784fd0e-59bc-11e8-893e-946b246b6076.jpg" alt="earth-ui logo">
     <br>
 </h1>
 
@@ -30,7 +30,7 @@ ReactDOM.render(<Button />, mountNode);
 引入样式：
 
 ```js
-import 'earth-ui/dist/earth-ui.css';  // or 'earth-ui/dist/earth-ui.less'
+import 'earth-ui/dist/earth-ui.css';
 ```
 
 ## 组件全局配置
@@ -53,7 +53,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 $ git clone git@github.com:G-Explorer/earth-ui.git
 $ cd earth-ui
 $ npm install
-$ npm start
+$ npm run site:dev
 ```
 
 打开浏览器访问 http://127.0.0.1:3003 ， 更多本地开发文档参见 https://github.com/G-Explorer/earth-ui/wiki/Development .
