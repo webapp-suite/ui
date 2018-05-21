@@ -58,7 +58,7 @@ $ npm run site:dev
 
 Open your browser and visit http://127.0.0.1:3003 , see more at https://github.com/G-Explorer/earth-ui/wiki/Development .
 
-#### Write a new component
+#### Create a new component
 
 ```sh
 npm run create MyComponent
