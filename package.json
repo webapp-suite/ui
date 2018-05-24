@@ -7,6 +7,8 @@
   "license": "MIT",
   "main": "dist/earth-ui.js",
   "module": "src/components/index.js",
+  "repository": "https://github.com/G-Explorer/earth-ui",
+  "homepage": "https://ui.muwenzi.com/",
   "engines": {
     "node": "^8.9.0",
     "npm": "^5.2.0"
