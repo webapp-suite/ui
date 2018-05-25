@@ -35,7 +35,7 @@ import 'earth-ui/dist/earth-ui.css';
 
 ## Global config
 
-Just override or extend `defaultProps`, using [Tooltip](https://ui.muwenzi.com/components/Tooltip) as an example:
+Just override or extend `defaultProps`, using [Tooltip][tooltip-url] as an example:
 
 ```js
 Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
@@ -43,7 +43,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 })
 ```
 
-Imperative API modules: [message](https://ui.muwenzi.com/components/message), [xhr](https://ui.muwenzi.com/components/xhr) also support global config, the components which use url-mode to load data and [Form](https://ui.muwenzi.com/components/Form) are all dependent on xhr. Please refer to their respective documentation for detailed configuration.
+Imperative API modules: [message][message-url], [xhr][xhr-url] also support global config, the components which use url-mode to load data and [Form][form-url] are all dependent on xhr. Please refer to their respective documentation for detailed configuration.
 
 > Those APIs will be stateful when global config is set and that's to say the final result is affected by the configuration. So try to configure it at a time and explain it to other developers.
 
@@ -56,7 +56,7 @@ $ npm install
 $ npm run site:dev
 ```
 
-Open your browser and visit http://127.0.0.1:3003 , see more at https://github.com/G-Explorer/earth-ui/wiki/Development .
+Open your browser and visit http://127.0.0.1:3003 , see more at [Development Instructions][dev-instructions-url] .
 
 #### Create a new component
 
@@ -68,11 +68,11 @@ Open: http://localhost:3003/components/MyComponent
 
 ## Changelog
 
-[CHANGELOG](https://ui.muwenzi.com/changelog)
+[CHANGELOG][changelog-url]
 
 ## Contributing
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [Pull Requests](https://github.com/G-Explorer/earth-ui/pulls) or as [GitHub issues](https://github.com/G-Explorer/earth-ui/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/G-Explorer/earth-ui/wiki/Development) and have a good time! :)
+We welcome all contributions. Please read our [CONTRIBUTING.md][contributing-url] first. You can submit any ideas as [Pull Requests][pr-url] or as [GitHub issues][issue-url]. If you'd like to improve code, check out the [Development Instructions][dev-instructions-url] and have a good time! :)
 
 ## License
 
@@ -80,14 +80,19 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 
 [travis-url]: https://travis-ci.org/G-Explorer/earth-ui
 [travis-image]: https://img.shields.io/travis/G-Explorer/earth-ui/master.svg?style=flat-square
-
 [npm-version-url]: https://www.npmjs.com/package/earth-ui
 [npm-version-image]: https://img.shields.io/npm/v/earth-ui.svg?style=flat-square
-
 [npm-downloads-url]: https://www.npmjs.com/package/earth-ui
 [npm-downloads-image]: https://img.shields.io/npm/dt/earth-ui.svg?style=flat-square
-
 [license-url]: https://github.com/G-Explorer/earth-ui/blob/master/LICENSE
 [license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
-
 [zh-CN-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.zh-CN.md
+[tooltip-url]: https://ui.muwenzi.com/components/Tooltip
+[message-url]: https://ui.muwenzi.com/components/message
+[xhr-url]: https://ui.muwenzi.com/components/xhr
+[form-url]: https://ui.muwenzi.com/components/Form
+[dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
+[changelog-url]: https://ui.muwenzi.com/changelog
+[contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
+[pr-url]: https://github.com/G-Explorer/earth-ui/pulls
+[issue-url]: https://github.com/G-Explorer/earth-ui/issues

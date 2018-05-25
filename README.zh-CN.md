@@ -35,7 +35,7 @@ import 'earth-ui/dist/earth-ui.css';
 
 ## 组件全局配置
 
-覆盖或扩展 `defaultProps` 即可，以 [Tooltip](https://ui.muwenzi.com/components/Tooltip) 为例:
+覆盖或扩展 `defaultProps` 即可，以 [Tooltip][tooltip-url] 为例:
 
 ```js
 Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
@@ -43,7 +43,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 })
 ```
 
-命令式 API 模块：[message](https://ui.muwenzi.com/components/message)、[xhr](https://ui.muwenzi.com/components/xhr) 也支持全局配置，涉及 url 方式加载数据的组件以及 [Form](https://ui.muwenzi.com/components/Form) 均依赖 xhr，详细配置请参考其各自文档。
+命令式 API 模块：[message][message-url]、[xhr][xhr-url] 也支持全局配置，涉及 url 方式加载数据的组件以及 [Form][form-url] 均依赖 xhr，详细配置请参考其各自文档。
 
 > 全局配置后，这些 API 会变成有状态的，即最终结果受配置影响，所以尽量一次性配置并向其它开发者说明。
 
@@ -56,7 +56,7 @@ $ npm install
 $ npm run site:dev
 ```
 
-打开浏览器访问 http://127.0.0.1:3003 ， 更多本地开发文档参见 https://github.com/G-Explorer/earth-ui/wiki/Development .
+打开浏览器访问 http://127.0.0.1:3003 ， 更多本地开发文档参见 [Development Instructions][dev-instructions-url] .
 
 #### 编写一个新组件
 
@@ -68,11 +68,11 @@ npm run create MyComponent
 
 ## 更新日志
 
-[CHANGELOG](https://ui.muwenzi.com/changelog)
+[CHANGELOG][changelog-url]
 
 ## 贡献
 
-欢迎大家参与贡献开源项目，贡献前请先阅读 [CONTRIBUTING.md](https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md)。你可以通过 [Pull Requests](https://github.com/G-Explorer/earth-ui/pulls) 或者 [GitHub issues](https://github.com/G-Explorer/earth-ui/issues) 来贡献你的想法或代码。如果你想改进代码，请先查看 [Development Instructions](https://github.com/G-Explorer/earth-ui/wiki/Development) 祝coding愉快！:)
+欢迎大家参与贡献开源项目，贡献前请先阅读 [CONTRIBUTING.md][contributing-url]。你可以通过 [Pull Requests][pr-url] 或者 [GitHub issues][issue-url] 来贡献你的想法或代码。如果你想改进代码，请先查看 [Development Instructions][dev-instructions-url] 祝coding愉快！:)
 
 ## License
 
@@ -80,14 +80,19 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 
 [travis-url]: https://travis-ci.org/G-Explorer/earth-ui
 [travis-image]: https://img.shields.io/travis/G-Explorer/earth-ui/master.svg?style=flat-square
-
 [npm-version-url]: https://www.npmjs.com/package/earth-ui
 [npm-version-image]: https://img.shields.io/npm/v/earth-ui.svg?style=flat-square
-
 [npm-downloads-url]: https://www.npmjs.com/package/earth-ui
 [npm-downloads-image]: https://img.shields.io/npm/dt/earth-ui.svg?style=flat-square
-
 [license-url]: https://github.com/G-Explorer/earth-ui/blob/master/LICENSE
 [license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
-
-[en-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.md
+[zh-CN-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.zh-CN.md
+[tooltip-url]: https://ui.muwenzi.com/components/Tooltip
+[message-url]: https://ui.muwenzi.com/components/message
+[xhr-url]: https://ui.muwenzi.com/components/xhr
+[form-url]: https://ui.muwenzi.com/components/Form
+[dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
+[changelog-url]: https://ui.muwenzi.com/changelog
+[contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
+[pr-url]: https://github.com/G-Explorer/earth-ui/pulls
+[issue-url]: https://github.com/G-Explorer/earth-ui/issues
