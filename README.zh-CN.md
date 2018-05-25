@@ -86,7 +86,7 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [npm-downloads-image]: https://img.shields.io/npm/dt/earth-ui.svg?style=flat-square
 [license-url]: https://github.com/G-Explorer/earth-ui/blob/master/LICENSE
 [license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
-[zh-CN-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.zh-CN.md
+[en-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.md
 [tooltip-url]: https://ui.muwenzi.com/components/Tooltip
 [message-url]: https://ui.muwenzi.com/components/message
 [xhr-url]: https://ui.muwenzi.com/components/xhr
