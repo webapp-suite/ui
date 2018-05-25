@@ -22,8 +22,8 @@ If you are going to report a bug, please answer the following questions, thank y
 
 ## Environment Information
 
-- The version of earth-ui(e.g. 0.1.0):
-- The version of node.js(e.g. 8.9.0):
-- The version of npm(e.g. 5.2.0):
-- Your operating system and it's version(e.g. macOS 10.13.4):
-- Your browser and it's version(e.g. Chrome 48.0.0.0(64-bit)):
+- earth-ui version(e.g. 0.1.0):
+- node.js version(e.g. 8.9.0):
+- npm version(e.g. 5.2.0):
+- operating system version(e.g. macOS 10.13.4):
+- browser version(e.g. Chrome 48.0.0.0(64-bit)):

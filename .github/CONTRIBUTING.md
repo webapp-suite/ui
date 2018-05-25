@@ -28,7 +28,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 **Before submitting a pull request**, please make sure the following is done:
 
-1. Fork the repository and create your branch from [proper branch](#Branch-Organization).
+1. Fork the repository and create your branch from [proper branch](#branch-organization).
 1. Run `npm install` in the repository root.
 1. If you’ve fixed a bug or added code that should be tested, add tests!
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
@@ -44,5 +44,5 @@ After cloning earth-ui, run `npm install` to fetch its dependencies. Then, you c
 1. `npm run fix` fixes the code style.
 1. `npm test` runs the complete test suite.
 1. `npm run create` creates a new basic component.
-1. `npm run build` creates UMD build files for earth-ui.
+1. `npm run build` creates built files for earth-ui.
 1. `npm run release` publishes npm package, [more usage](https://github.com/conventional-changelog/standard-version).
