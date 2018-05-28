@@ -8,7 +8,7 @@ const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../site/dist')
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.SITE_ENV === 'production'
 
 rimraf.sync(outputPath)
 
@@ -82,7 +82,7 @@ const config = {
 if (isProduction) {
   config.plugins.push(new webpack.DefinePlugin({
     'process.env': {
-      'NODE_ENV': JSON.stringify('production')
+      'SITE_ENV': JSON.stringify('production')
     }
   }))
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
