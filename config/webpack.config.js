@@ -1,12 +1,9 @@
 const path = require('path')
-// const fs = require('fs')
 const rimraf = require('rimraf')
-// const webpack = require('webpack')
+const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// const version = JSON.parse(fs.readFileSync('package.json')).version
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../dist')
-// const entryName = `earth-ui-${version}.min`
 const entryName = `earth-ui`
 
 rimraf.sync(outputPath)
@@ -27,7 +24,7 @@ const config = {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader?config.path=config/postcss.config.js', 'less-loader']
+        use: ['css-loader?minimize=true', 'postcss-loader?config.path=config/postcss.config.js', 'less-loader']
       }),
       include: sourcePath
     }, {
@@ -55,12 +52,12 @@ const config = {
     'prop-types': 'PropTypes'
   },
   plugins: [
-    new ExtractTextPlugin('[name].css')
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     properties: false
-    //   }
-    // })
+    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        properties: false
+      }
+    })
   ]
 }
 
