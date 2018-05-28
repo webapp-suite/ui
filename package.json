@@ -19,8 +19,9 @@
   },
   "scripts": {
     "build": "rimraf dist && webpack --progress --config config/webpack.config.js",
+    "site:build": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
-    "presite:prod": "npm i && rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
+    "presite:prod": "npm i && npm run site:build",
     "site:prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
     "create": "node bin/create.js",
     "lint": "eslint src && eslint site",
