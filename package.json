@@ -14,8 +14,8 @@
   "repository": "https://github.com/G-Explorer/earth-ui",
   "homepage": "https://ui.muwenzi.com/",
   "engines": {
-    "node": "^8.9.0",
-    "npm": "^5.2.0"
+    "node": ">=8.9.0",
+    "npm": ">=5.2.0"
   },
   "scripts": {
     "build": "rimraf dist && webpack --progress --config config/webpack.config.js",
@@ -50,9 +50,9 @@
     ]
   },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "prop-types": "^15.6.1"
+    "react": ">=15.0.0",
+    "react-dom": ">=15.0.0",
+    "prop-types": ">=15.0.0"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
