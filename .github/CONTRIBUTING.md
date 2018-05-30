@@ -39,10 +39,12 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 After cloning earth-ui, run `npm install` to fetch its dependencies. Then, you can run several commands:
 
+1. `npm lib` creates lib and transform into es5.
+1. `npm dist` creates packed css and js of earth-ui.
 1. `npm site:dev` runs earth-ui website locally.
+1. `npm site:prod` runs earth-ui website in production env.
+1. `npm run create` creates a new basic component.
 1. `npm run lint` checks the code style.
 1. `npm run fix` fixes the code style.
 1. `npm test` runs the complete test suite.
-1. `npm run create` creates a new basic component.
-1. `npm run build` creates built files for earth-ui.
 1. `npm run release` publishes npm package, [more usage](https://github.com/conventional-changelog/standard-version).

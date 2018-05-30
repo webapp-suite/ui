@@ -15,23 +15,65 @@
 
 ## 安装
 
-```bash
-$ npm install earth-ui
+```sh
+npm i earth-ui
 ```
 
+## 基础使用
 
-## 使用示例
+```jsx
+import Button from 'earth-ui/lib/Button';
+import 'earth-ui/dist/earth-ui.min.css';
 
-```js
-import { Button } from 'earth-ui';
-ReactDOM.render(<Button />, mountNode);
+ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-引入样式：
+## Use in create-react-app
 
-```js
-import 'earth-ui/dist/earth-ui.css';
+[create-react-app][create-react-app-url] 是业界最优秀的 React 应用开发工具之一，我们会尝试在 `create-react-app` 创建的工程中使用 `earth-ui` 组件。
+
+首先，需要在命令行中安装 `create-react-app` 工具，[详细安装说明][create-react-app-url] 。
+
+现在从 yarn 或 npm 安装并引入 `earth-ui` 。
+
+```sh
+yarn add earth-ui
 ```
+
+修改 `src/App.js`，引入 `earth-ui` 的按钮组件。
+
+```jsx
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Button from 'earth-ui/lib/Button';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+          <Button icon="plus">添加</Button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+修改 `src/App.css`，在文件顶部引入 `earth-ui/dist/earth-ui.min.css` 。
+
+```css
+@import '~earth-ui/dist/earth-ui.min.css';
+
+.App {
+  text-align: center;
+}
+
+...
+```
+
+现在你应该能看到页面上已经有了 `earth-ui` 的按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 [User Guide][create-react-app-user-guide-url] .
 
 ## 组件全局配置
 
@@ -49,22 +91,21 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 
 ## 本地开发
 
-```bash
-$ git clone git@github.com:G-Explorer/earth-ui.git
-$ cd earth-ui
-$ npm install
-$ npm run site:dev
+```sh
+git clone git@github.com:G-Explorer/earth-ui.git
+cd earth-ui
+npm i
+npm run site:dev
 ```
 
 打开浏览器访问 http://127.0.0.1:3003 ， 更多本地开发文档参见 [Development Instructions][dev-instructions-url] .
 
-#### 编写一个新组件
+#### 创建一个新组件
 
 ```sh
 npm run create MyComponent
 ```
 查看：http://localhost:3003/components/MyComponent
-
 
 ## 更新日志
 
@@ -96,3 +137,5 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
 [pr-url]: https://github.com/G-Explorer/earth-ui/pulls
 [issue-url]: https://github.com/G-Explorer/earth-ui/issues
+[create-react-app-url]: https://github.com/facebookincubator/create-react-app
+[create-react-app-user-guide-url]: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md

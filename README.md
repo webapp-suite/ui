@@ -15,23 +15,65 @@ English | [简体中文][zh-CN-url]
 
 ## Install
 
-```bash
-$ npm install earth-ui
+```sh
+npm i earth-ui
 ```
 
+## Basic usage
 
-## Usage
+```jsx
+import Button from 'earth-ui/lib/Button';
+import 'earth-ui/dist/earth-ui.min.css';
 
-```js
-import { Button } from 'earth-ui';
-ReactDOM.render(<Button />, mountNode);
+ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-And import style manually:
+## Use in create-react-app
 
-```js
-import 'earth-ui/dist/earth-ui.css';
+[create-react-app][create-react-app-url] is one of the best React application development tools. We are going to use `earth-ui` within it.
+
+First of all, you need install `create-react-app`, [see more][create-react-app-url] .
+
+Now we install `earth-ui` from yarn or npm.
+
+```sh
+yarn add earth-ui
 ```
+
+Modify `src/App.js`, import Button component from `earth-ui`.
+
+```jsx
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Button from 'earth-ui/lib/Button';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+          <Button icon="plus">添加</Button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+Add `earth-ui/dist/earth-ui.min.css` at the top of `src/App.css` .
+
+```css
+@import '~earth-ui/dist/earth-ui.min.css';
+
+.App {
+  text-align: center;
+}
+
+...
+```
+
+Ok, you should now see a button displayed on the page. Next you can choose any components of `earth-ui` to develop your application. Visit other workflows of `create-react-app` at its [User Guide][create-react-app-user-guide-url] .
 
 ## Global config
 
@@ -49,11 +91,11 @@ Imperative API modules: [message][message-url], [xhr][xhr-url] also support glob
 
 ## Development
 
-```bash
-$ git clone git@github.com:G-Explorer/earth-ui.git
-$ cd earth-ui
-$ npm install
-$ npm run site:dev
+```sh
+git clone git@github.com:G-Explorer/earth-ui.git
+cd earth-ui
+npm i
+npm run site:dev
 ```
 
 Open your browser and visit http://127.0.0.1:3003 , see more at [Development Instructions][dev-instructions-url] .
@@ -64,7 +106,6 @@ Open your browser and visit http://127.0.0.1:3003 , see more at [Development Ins
 npm run create MyComponent
 ```
 Open: http://localhost:3003/components/MyComponent
-
 
 ## Changelog
 
@@ -96,3 +137,5 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
 [pr-url]: https://github.com/G-Explorer/earth-ui/pulls
 [issue-url]: https://github.com/G-Explorer/earth-ui/issues
+[create-react-app-url]: https://github.com/facebookincubator/create-react-app
+[create-react-app-user-guide-url]: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md
