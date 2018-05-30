@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/G-Explorer/earth-ui/compare/v0.1.2...v0.1.3) (2018-05-30)
+
+
+### Bug Fixes
+
+* **package.json:** resolve dist dir missing when npm publish ([b7fe94d](https://github.com/G-Explorer/earth-ui/commit/b7fe94d))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/G-Explorer/earth-ui/compare/v0.1.1...v0.1.2) (2018-05-30)
 
