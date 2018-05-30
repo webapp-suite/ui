@@ -6,6 +6,18 @@ All notable changes to this project will be documented in this file. See [standa
 ## [0.1.2](https://github.com/G-Explorer/earth-ui/compare/v0.1.1...v0.1.2) (2018-05-30)
 
 
+### Bug Fixes
+
+All those changes were referred to cannot import `earth-ui` lib
+
+* **utils:** move utils to components dir and renamed ([c4420b9](https://github.com/G-Explorer/earth-ui/commit/c4420b9))
+* **less:** small tweak in components less ([192bb9e](https://github.com/G-Explorer/earth-ui/commit/192bb9e))
+* **components:** remove redundant code in some components ([d4d947d](https://github.com/G-Explorer/earth-ui/commit/d4d947d))
+* **components:** use new url less file ([763f0dd](https://github.com/G-Explorer/earth-ui/commit/763f0dd))
+* **config/package:** new build command and gulpfile changed ([83cc5ef](https://github.com/G-Explorer/earth-ui/commit/83cc5ef))
+* **travis:** use dist and lib command ([7e72da6](https://github.com/G-Explorer/earth-ui/commit/7e72da6))
+
+
 
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/G-Explorer/earth-ui/compare/v0.1.0...v0.1.1) (2018-05-24)
