@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../dist')
-const entryName = `earth-ui`
+const entryName = `earth-ui.min`
 
 rimraf.sync(outputPath)
 
@@ -13,7 +13,8 @@ const config = {
   output: {
     path: outputPath,
     publicPath: '../',
-    filename: '[name].js'
+    filename: '[name].js',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [{
@@ -47,9 +48,24 @@ const config = {
     }
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'prop-types': 'PropTypes'
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
+    'prop-types': {
+      root: 'PropTypes',
+      commonjs2: 'prop-types',
+      commonjs: 'prop-types',
+      amd: 'prop-types'
+    }
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),

@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const replace = require('gulp-replace')
 
 gulp.task('default', function () {
-  gulp.src('../lib/**/*.js')
+  gulp.src('../lib/components/**/*.js')
     .pipe(replace(/require\('(\.\/)*(\.\.\/)*(\w+\/)*\w+\.less'\);/, ''))
     .pipe(gulp.dest('../lib'))
 })

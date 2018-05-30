@@ -9,8 +9,7 @@
     "ui"
   ],
   "license": "MIT",
-  "main": "dist/earth-ui.js",
-  "module": "src/components/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/G-Explorer/earth-ui",
   "homepage": "https://ui.muwenzi.com/",
   "engines": {
@@ -18,10 +17,11 @@
     "npm": ">=5.2.0"
   },
   "scripts": {
-    "build": "rimraf dist && webpack --progress --config config/webpack.config.js",
-    "site:build": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
+    "lib": "rimraf lib && NODE_ENV=production babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js",
+    "dist": "rimraf dist && webpack --progress --config config/webpack.config.js",
+    "site:dist": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
-    "presite:prod": "npm i && npm run site:build",
+    "presite:prod": "npm i && npm run site:dist",
     "site:prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
     "create": "node bin/create.js",
     "lint": "eslint src && eslint site",
@@ -63,6 +63,7 @@
     "react-update": "^0.4.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^10.0.0",
@@ -84,6 +85,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.10",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-replace": "^1.0.0",
     "html-loader": "^0.5.5",
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",
