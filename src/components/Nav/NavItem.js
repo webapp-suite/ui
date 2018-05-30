@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
-import classnames from 'classnames'
+import cx from 'classnames'
 import Icon from '../Icon'
 
 class NavItem extends Component {
@@ -75,7 +75,7 @@ class NavItem extends Component {
       Item = <Link to={href}>{NavIcon}{title}{Toggle}</Link>
     }
 
-    const classNames = classnames(
+    const classNames = cx(
       'cmui-nav__item',
       {
         'cmui-nav__item--open': open,

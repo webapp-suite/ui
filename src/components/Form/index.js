@@ -12,7 +12,5 @@ export {
   FormInput,
   FormSelect,
   Option,
-  FormTextarea,
-  Form as Form2,
-  FormItem as FormItem2
+  FormTextarea
 }
