@@ -1,4 +1,4 @@
-import '../styles/index.less'
+import '../styles/core.less'
 
 import './Avatar'
 import './AvatarClip'
@@ -24,3 +24,4 @@ import './SelectDropdown'
 import './TextOverflow'
 import './Tooltip'
 import './Upload'
+import './xhr'
