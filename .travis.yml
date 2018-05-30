@@ -6,7 +6,8 @@ cache:
     - "node_modules"
 script:
   - npm test
-  - npm run build
-  - npm run site:build
+  - npm run lib
+  - npm run dist
+  - npm run site:dist
 notifications:
     slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
