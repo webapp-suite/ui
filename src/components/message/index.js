@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import classnames from 'classnames'
-import ToggleNode from '../../utils/ToggleNode'
+import ToggleNode from '../_util/ToggleNode'
 // import Icon from '../Icon'
 import Button from '../Button'
 

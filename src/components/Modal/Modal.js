@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import classlist from 'classlist'
-import ToggleNode from '../../utils/ToggleNode'
-import EventPool from '../../utils/EventPool'
+import ToggleNode from '../_util/ToggleNode'
+import EventPool from '../_util/EventPool'
 import ModalContent from './ModalContent'
 
 const scrollbarWidth = (() => {

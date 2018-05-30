@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import controlledPropValidator from '../../utils/propValidator/controlled'
+import controlledPropValidator from '../_util/propValidator/controlled'
 import Input from '../Input'
 import Button from '../Button'
 import './index.less'
