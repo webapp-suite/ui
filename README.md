@@ -21,7 +21,7 @@ npm i earth-ui
 
 ## Basic usage
 
-```jsx
+```js
 import Button from 'earth-ui/lib/Button';
 import 'earth-ui/dist/earth-ui.min.css';
 
@@ -42,7 +42,7 @@ yarn add earth-ui
 
 Modify `src/App.js`, import Button component from `earth-ui`.
 
-```jsx
+```js
 import React, { Component } from 'react';
 import './App.css';
 import Button from 'earth-ui/lib/Button';

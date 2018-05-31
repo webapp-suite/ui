@@ -21,7 +21,7 @@ npm i earth-ui
 
 ## 基础使用
 
-```jsx
+```js
 import Button from 'earth-ui/lib/Button';
 import 'earth-ui/dist/earth-ui.min.css';
 
@@ -42,7 +42,7 @@ yarn add earth-ui
 
 修改 `src/App.js`，引入 `earth-ui` 的按钮组件。
 
-```jsx
+```js
 import React, { Component } from 'react';
 import './App.css';
 import Button from 'earth-ui/lib/Button';
