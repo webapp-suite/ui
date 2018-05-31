@@ -44,7 +44,6 @@ Modify `src/App.js`, import Button component from `earth-ui`.
 
 ```jsx
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Button from 'earth-ui/lib/Button';
 
