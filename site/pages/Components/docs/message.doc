@@ -1,8 +1,8 @@
 /**
  * @title 成功信息
  */
-import message from 'earth-ui/message'
-import Button from 'earth-ui/Button'
+import message from 'earth-ui/lib/message'
+import Button from 'earth-ui/lib/Button'
 
 const MessageSuccess = () => {
   return (
@@ -13,8 +13,8 @@ const MessageSuccess = () => {
 /**
  * @title 失败信息
  */
-import message from 'earth-ui/message'
-import Button from 'earth-ui/Button'
+import message from 'earth-ui/lib/message'
+import Button from 'earth-ui/lib/Button'
 
 const MessageDanger = () => {
   return (
@@ -25,8 +25,8 @@ const MessageDanger = () => {
 /**
  * @title 自定义关闭时间，单位秒
  */
-import message from 'earth-ui/message'
-import Button from 'earth-ui/Button'
+import message from 'earth-ui/lib/message'
+import Button from 'earth-ui/lib/Button'
 
 const MessageCustomDuration = () => {
   return (
@@ -37,8 +37,8 @@ const MessageCustomDuration = () => {
 /**
  * @title 消息队列
  */
-import message from 'earth-ui/message'
-import Button from 'earth-ui/Button'
+import message from 'earth-ui/lib/message'
+import Button from 'earth-ui/lib/Button'
 
 const MessageQueue = () => {
   return (
@@ -52,8 +52,8 @@ const MessageQueue = () => {
 /**
  * @title 手动关闭
  */
-import message from 'earth-ui/message'
-import Button from 'earth-ui/Button'
+import message from 'earth-ui/lib/message'
+import Button from 'earth-ui/lib/Button'
 
 const MessageManual = () => {
   return (

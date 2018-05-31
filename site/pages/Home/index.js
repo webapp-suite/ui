@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Button from 'earth-ui/Button'
-import { Row, Col } from 'earth-ui/Layout'
+import Button from 'earth-ui/lib/Button'
+import { Row, Col } from 'earth-ui/lib/Layout'
 import Center from 'public/Center'
 import Pre from 'public/Pre'
 import Feature from './Feature'
 import './index.less'
 
 export default () => {
-  const code = `import Button from 'earth-ui/Button'
+  const code = `import Button from 'earth-ui/lib/Button'
 
 class App extends Component {
 
@@ -28,7 +28,7 @@ class App extends Component {
           <div className="home__banner-center">
             <h2>Based on ReactJS</h2>
             <h1>Earth UI Components Library</h1>
-            <em>最新版本：v0.1.0</em>
+            <em>最新版本：v0.1.3</em>
             <Link to="/guide#install" className="home__banner-install">
               <Button>安装</Button>
             </Link>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropType from 'prop-types'
-import { Col } from 'earth-ui/Layout'
+import { Col } from 'earth-ui/lib/Layout'
 import './index.less'
 
 const Feature = props => {

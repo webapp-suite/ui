@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Nav, NavItem } from 'earth-ui/Nav'
+import { Nav, NavItem } from 'earth-ui/lib/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import Markdown from 'public/Markdown'
 import components from './navitems.json'

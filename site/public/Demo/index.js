@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 import Pre from 'public/Pre'
 import './index.less'
 

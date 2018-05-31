@@ -2,7 +2,7 @@
  * @title 基本功能
  */
 
-import { Nav, IndexNavItem, NavItem } from 'earth-ui/Nav'
+import { Nav, IndexNavItem, NavItem } from 'earth-ui/lib/Nav'
 
 const NavBasic = () => {
   return (

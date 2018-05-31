@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, IndexLink } from 'react-router'
-import { Row, Col } from 'earth-ui/Layout'
-import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/Dropdown'
-import Button from 'earth-ui/Button'
-import Icon from 'earth-ui/Icon'
-import BackToTop from 'earth-ui/BackToTop'
+import { Row, Col } from 'earth-ui/lib/Layout'
+import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/lib/Dropdown'
+import Button from 'earth-ui/lib/Button'
+import Icon from 'earth-ui/lib/Icon'
+import BackToTop from 'earth-ui/lib/BackToTop'
 import Footer from 'public/Footer'
 import './index.less'
 
@@ -55,7 +55,7 @@ class App extends Component {
           <Col>
             <Link to="/" className="header__logo">
               {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
-              Earth UI <sub>v0.1.0</sub>
+              Earth UI <sub>v0.1.3</sub>
             </Link>
           </Col>
           <Col className="header__nav">

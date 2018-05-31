@@ -1,7 +1,7 @@
 /**
  * @title 按钮类型
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonType = () => {
   return (
@@ -16,7 +16,7 @@ const ButtonType = () => {
 /**
  * @title 按钮尺寸
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonSize = () => {
   return (
@@ -32,7 +32,7 @@ const ButtonSize = () => {
  * @title 图标按钮
  * @desc 如果需要自定义图标位置，结合使用 Icon 组件
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonIcon = () => {
   return (
@@ -46,7 +46,7 @@ const ButtonIcon = () => {
 /**
  * @title 圆形按钮
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonCircle = () => {
   return (
@@ -61,7 +61,7 @@ const ButtonCircle = () => {
  * @title transparent
  * @desc 文字颜色继承父级，背景透明
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonTransparent = () => {
   return (
@@ -75,7 +75,7 @@ const ButtonTransparent = () => {
 /**
  * @title 不可用的
  */
-import Button from 'earth-ui/Button'
+import Button from 'earth-ui/lib/Button'
 
 const ButtonDisabled = () => {
   return (

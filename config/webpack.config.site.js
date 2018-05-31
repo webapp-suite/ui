@@ -61,7 +61,7 @@ const config = {
       'node_modules'
     ],
     alias: {
-      'earth-ui': `${sourcePath}/components`,
+      'earth-ui/lib': `${sourcePath}/components`,
       'public': `${sitePath}/public`,
       'doc': `${sitePath}/loaders/doc`,
       'variable.less': `${sourcePath}/styles/variable.less`,

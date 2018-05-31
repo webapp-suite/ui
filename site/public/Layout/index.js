@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { Row, Col } from 'earth-ui/Layout'
-import Button from 'earth-ui/Button'
+import { Row, Col } from 'earth-ui/lib/Layout'
+import Button from 'earth-ui/lib/Button'
 import './index.less'
 
 class Layout extends Component {

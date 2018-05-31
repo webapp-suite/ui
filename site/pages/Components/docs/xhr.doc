@@ -2,8 +2,8 @@
  * @title 基本功能
  * @desc 打开控制台查看 response
  */
-import xhr from 'earth-ui/xhr'
-import Button from 'earth-ui/Button'
+import xhr from 'earth-ui/lib/xhr'
+import Button from 'earth-ui/lib/Button'
 
 const MessageSuccess = () => {
   return (

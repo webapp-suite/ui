@@ -2,7 +2,7 @@
  * @title 代码演示
  * @desc 滚动页面，右下角即可显示该组件
  */
-import BackToTop from 'earth-ui/BackToTop'
+import BackToTop from 'earth-ui/lib/BackToTop'
 
 const BackToTopBasic = () => {
   const config = {

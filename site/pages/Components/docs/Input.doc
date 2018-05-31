@@ -1,7 +1,7 @@
 /**
  * @title 尺寸
  */
-import Input from 'earth-ui/Input'
+import Input from 'earth-ui/lib/Input'
 
 const InputSize = () => {
   return (
@@ -18,7 +18,7 @@ const InputSize = () => {
 /**
  * @title 不可用
  */
-import Input from 'earth-ui/Input'
+import Input from 'earth-ui/lib/Input'
 
 const InputDisabled = () => {
   return (

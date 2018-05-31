@@ -1,8 +1,8 @@
 /**
  * @title 基本功能
  */
-import Fetch from 'earth-ui/Fetch'
-import { Select, Option } from 'earth-ui/Select'
+import Fetch from 'earth-ui/lib/Fetch'
+import { Select, Option } from 'earth-ui/lib/Select'
 
 class FetchDemo extends Component {
 

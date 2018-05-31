@@ -2,7 +2,7 @@
  * @title 文件上传
  */
 import { Component } from 'react'
-import Upload from 'earth-ui/Upload'
+import Upload from 'earth-ui/lib/Upload'
 
 class UploadFile extends Component {
 

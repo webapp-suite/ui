@@ -1,8 +1,8 @@
 /**
  * @title 基本功能
  */
-import Tooltip from 'earth-ui/Tooltip'
-import Icon from 'earth-ui/Icon'
+import Tooltip from 'earth-ui/lib/Tooltip'
+import Icon from 'earth-ui/lib/Icon'
 
 const TooltipBasic = () => {
   return (
@@ -17,8 +17,8 @@ const TooltipBasic = () => {
 /**
  * @title click 方式触发
  */
-import Tooltip from 'earth-ui/Tooltip'
-import Icon from 'earth-ui/Icon'
+import Tooltip from 'earth-ui/lib/Tooltip'
+import Icon from 'earth-ui/lib/Icon'
 
 const TooltipClick = () => {
   return (
