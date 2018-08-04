@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { scrollTo, currentYPosition } from './scroll'
 import Icon from '../Icon'
-import './index.less'
 
 class BackToTop extends Component {
   constructor (props) {

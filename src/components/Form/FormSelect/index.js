@@ -12,7 +12,7 @@ const FormSelect = (props, context) => {
     onChange && onChange(value)
   }
   return (
-    <Select className={classnames('cmui-form-select', className)} {...other}>
+    <Select className={classnames('earthui-form__select', className)} {...other}>
       {children}
     </Select>
   )

@@ -67,7 +67,7 @@ class ClearableInput extends Component {
     const inputProps = { value, disabled, size, placeholder, readOnly, type, maxLength, width }
 
     return (
-      <div className={classnames('cmui-clearable-input', className)} {...other}>
+      <div className={classnames('earthui-clearable-input', className)} {...other}>
         <Input
           ref="input"
           onChange={::this.handleInput}
@@ -79,7 +79,7 @@ class ClearableInput extends Component {
             icon="remove"
             size="sm"
             transparent
-            className="cmui-clearable-input__clear"
+            className="earthui-clearable-input__clear-btn"
             disabled={inputProps.disabled}
             onClick={::this.handleClear}
           />

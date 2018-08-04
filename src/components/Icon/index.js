@@ -6,7 +6,7 @@ import classnames from 'classnames'
 const Icon = props => {
   const { className, type, ...other } = props
   return (
-    <i className={classnames('cmui-icon icon', 'icon-' + type, className)} {...other} />
+    <i className={classnames('earthui-icon icon', 'icon-' + type, className)} {...other} />
   )
 }
 

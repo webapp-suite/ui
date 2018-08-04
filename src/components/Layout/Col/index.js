@@ -6,10 +6,10 @@ import './index.less'
 const Col = props => {
   const { children, className, col, right, ...other } = props
   const classNames = classnames(
-    'cmui-col',
-    col && col.split(' ').map(v => 'cmui-col--' + v),
+    'earthui-layout__col',
+    col && col.split(' ').map(v => 'earthui-layout__col_' + v),
     {
-      'cmui-col--right': right
+      'earthui-layout__col_right': right
     },
     className
   )

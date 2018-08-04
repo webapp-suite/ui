@@ -145,12 +145,12 @@ class Select extends Component {
     optionsWithProps = this.filterBySearchValue(optionsWithProps)
     optionsWithProps = this.shouldSearchable(optionsWithProps)
 
-    const classNames = classnames('cmui-select', {
-      [`cmui-select--${size}`]: size
+    const classNames = classnames('earthui-select', {
+      [`earthui-select_${size}`]: size
     }, className)
 
-    const optionsClassNames = classnames('cmui-select__options', {
-      [`cmui-select__options--${size}`]: size
+    const optionsClassNames = classnames('earthui-select__options', {
+      [`earthui-select__options_${size}`]: size
     })
 
     if (!title) {
@@ -164,7 +164,7 @@ class Select extends Component {
 
     const Title = (
       <TextOverflow>
-        <div className="cmui-select__title">{title}</div>
+        <div className="earthui-select__title">{title}</div>
       </TextOverflow>
     )
 
@@ -182,7 +182,7 @@ class Select extends Component {
         {searchable && (
           <ClearableInput
             ref="clearableInput"
-            className="cmui-select__search-input"
+            className="earthui-select__search-input"
             value={searchValue}
             placeholder={searchPlaceholder}
             onChange={::this.handleSearch}
@@ -191,7 +191,7 @@ class Select extends Component {
         )}
         <ul className={optionsClassNames}>
           {optionsWithProps && optionsWithProps.length ? optionsWithProps : (
-            <li className="cmui-select__option">{noOptionsContent}</li>
+            <li className="earthui-select__option">{noOptionsContent}</li>
           )}
         </ul>
       </SelectDropdown>

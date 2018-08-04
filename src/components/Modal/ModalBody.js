@@ -6,7 +6,7 @@ const ModalBody = props => {
   const { children, className, ...other } = props
   return (
     <div
-      className={classnames('cmui-modal__modal-body', className)}
+      className={classnames('earthui-modal__modal-body', className)}
       {...other}
     >
       {children}

@@ -153,8 +153,8 @@ class Form extends Component {
     } = this.props
 
     const classNames = cx(
-      'cmui-form',
-      {[`cmui-form-${size}`]: size}
+      'earthui-form',
+      {[`earthui-form_${size}`]: size}
     )
 
     if (width) {

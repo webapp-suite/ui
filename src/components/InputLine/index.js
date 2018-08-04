@@ -19,8 +19,8 @@ class InputLine extends Component {
     let {styleType, type, validationState, help, ...others} = this.props
     return (
       <div>
-        <input className="cmui-inputline__line" type={type} name={name} {...others} />
-        {!validationState && <div className="cmui-inputline__help">{help}</div>}
+        <input className="earthui-input-line" type={type} name={name} {...others} />
+        {!validationState && <div className="earthui-input-line__help">{help}</div>}
       </div>
     )
   }

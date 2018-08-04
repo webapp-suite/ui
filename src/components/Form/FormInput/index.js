@@ -11,7 +11,7 @@ const FormInput = (props, context) => {
     form.setItemValue(formItem, value)
     onChange && onChange(value)
   }
-  return <ClearableInput className={classnames('cmui-form-input', className)} {...other} forbidClearable />
+  return <ClearableInput className={classnames('earthui-form__input', className)} {...other} forbidClearable />
 }
 
 FormInput.propTypes = {

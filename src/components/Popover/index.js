@@ -153,8 +153,8 @@ class Popover extends Component {
     const { children, triggerMode, disabled } = this.props
     const { open } = this.state
     const triggerProps = {
-      className: classnames(children.props.className, 'cmui-popover__trigger', {
-        'cmui-popover__trigger--disabled': disabled
+      className: classnames(children.props.className, 'earthui-popover__trigger', {
+        'earthui-popover__trigger_disabled': disabled
       })
     }
     if (!disabled) {

@@ -49,7 +49,7 @@ class FormSubmit extends Component {
     const { process } = this.state
     return (
       <Button
-        className={classnames('cmui-form-submit', className)}
+        className={classnames('earthui-form__submit', className)}
         onClick={::this.handleClick}
         disabled={process}
         {...other}

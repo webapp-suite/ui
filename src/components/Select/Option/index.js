@@ -8,10 +8,10 @@ import './index.less'
 const Option = props => {
   const { children, className, data, value, selected, active, ...other } = props
   const classNames = classnames(
-    'cmui-select__option',
+    'earthui-select__option',
     {
-      'cmui-select__option--active': active,
-      'cmui-select__option--selected': selected
+      'earthui-select__option_active': active,
+      'earthui-select__option_selected': selected
     },
     className
   )
@@ -20,7 +20,7 @@ const Option = props => {
       <TextOverflow>
         <div>{children}</div>
       </TextOverflow>
-      {selected && <Icon type="check" className="cmui-select__option-icon--selected" />}
+      {selected && <Icon type="check" className="earthui-select__option-icon_selected" />}
     </li>
   )
 }

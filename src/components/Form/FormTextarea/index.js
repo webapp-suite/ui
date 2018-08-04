@@ -24,7 +24,7 @@ const FormTextarea = (props, context) => {
   if (minHeight) {
     other.style = Object.assign(other.style || {}, { minHeight })
   }
-  return <textarea className={classnames('cmui-form-textarea', className)} {...other} />
+  return <textarea className={classnames('earthui-form__textarea', className)} {...other} />
 }
 
 FormTextarea.propTypes = {

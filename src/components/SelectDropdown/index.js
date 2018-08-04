@@ -28,8 +28,8 @@ class SelectDropdown extends Component {
         disabled={disabled}
         ref={dropdown => (this.dropdown = dropdown)}
       >
-        <DropdownToggle className={classnames('cmui-select-dropdown', {
-          'cmui-select-dropdown--caretable': caret
+        <DropdownToggle className={classnames('earthui-select-dropdown', {
+          'earthui-select-dropdown__dropdown-toggle_caretable': caret
         }, className)} {...other}>
           {url && hasPropValue ? (
             <Fetch
@@ -41,9 +41,9 @@ class SelectDropdown extends Component {
               {title}
             </Fetch>
           ) : title}
-          {caret && <Icon type="caret-down" className="cmui-select-dropdown__caret" />}
+          {caret && <Icon type="caret-down" className="earthui-select-dropdown__caret" />}
         </DropdownToggle>
-        <DropdownMenu className="cmui-select-dropdown__popover">
+        <DropdownMenu className="earthui-select-dropdown__popover">
           {url && !hasPropValue ? (
             <Fetch
               url={url}

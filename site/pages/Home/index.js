@@ -30,10 +30,10 @@ class App extends Component {
             <h1>Earth UI Components Library</h1>
             <em>最新版本：v0.1.3</em>
             <Link to="/guide#install" className="home__banner-install">
-              <Button>安装</Button>
+              <Button className="home__banner-btn">安装</Button>
             </Link>
             <Link to="/components" className="home__banner-start">
-              <Button>文档</Button>
+              <Button className="home__banner-btn">文档</Button>
             </Link>
           </div>
         </Center>

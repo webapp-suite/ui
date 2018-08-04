@@ -80,29 +80,29 @@ class Fetch extends Component {
     },
     loading () {
       return (
-        <div className="cmui-fetch__mask">
-          <Spinner height={this.props.spinnerHeight} className="cmui-fetch__state" />
+        <div className="earthui-fetch__mask">
+          <Spinner height={this.props.spinnerHeight} className="earthui-fetch__state" />
         </div>
       )
     },
     error () {
       return (
-        <div className="cmui-fetch__mask">
-          <div className="cmui-fetch__state cmui-fetch__state-error">{this.state.msg}</div>
+        <div className="earthui-fetch__mask">
+          <div className="earthui-fetch__state earthui-fetch__state-error">{this.state.msg}</div>
         </div>
       )
     }
   }
 
   render () {
-    const { className, url, onSuccess, defaultHeight, delay, ...other } = this.props
+    const { className, url, onSuccess, defaultHeight, delay, spinnerHeight, ...other } = this.props
     if (defaultHeight) {
       other.style = Object.assign(other.style || {}, {
         minHeight: defaultHeight + 'px'
       })
     }
     return (
-      <div className={classnames('cmui-fetch', className)} {...other}>
+      <div className={classnames('earthui-fetch', className)} {...other}>
         {this.stateMap[this.state.xhr].call(this)}
       </div>
     )

@@ -13,8 +13,8 @@ const Spinner = props => {
   }
 
   return (
-    <div className={cx('cmui-spinner', className)} {...other}>
-      <div className="cmui-spinner__circle" />
+    <div className={cx('earthui-spinner', className)} {...other}>
+      <div className="earthui-spinner__circle" />
     </div>
   )
 }

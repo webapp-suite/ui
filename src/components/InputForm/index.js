@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 class InputForm extends Component {
@@ -36,7 +36,6 @@ class InputForm extends Component {
   }
 
   _edit () {
-    console.log('edit')
     this.setState({
       showEdit: false,
       inputProps: {}
@@ -52,7 +51,6 @@ class InputForm extends Component {
   }
 
   _save () {
-    console.log('save')
     this.props.save(this.state.name, this.state.content)
     this.setState({
       showEdit: true,
@@ -63,7 +61,6 @@ class InputForm extends Component {
   }
 
   _cancel () {
-    console.log('cancel')
     this.setState({
       showEdit: true,
       inputProps: {
@@ -77,28 +74,28 @@ class InputForm extends Component {
 
   render () {
     let { label, name, hasbutton, placeholder, type } = this.props
-    const inputForm = classNames({
-      'input-form': this.state.showEdit && hasbutton,
-      'input-form-active': !this.state.showEdit && hasbutton,
-      'input-form-nobutton': !hasbutton
+    const inputForm = cx({
+      'earthui-input-form': this.state.showEdit && hasbutton,
+      'earthui-input-form_active': !this.state.showEdit && hasbutton,
+      'earthui-input-form_nobutton': !hasbutton
     })
-    const buttonEdit = classNames({
-      'button': !this.state.showEdit,
-      'button-active': this.state.showEdit
+    const buttonEdit = cx({
+      'earthui-input-form__btn': !this.state.showEdit,
+      'earthui-input-form__btn_active': this.state.showEdit
     })
-    const buttonSave = classNames({
-      'button': this.state.showEdit,
-      'button-active': !this.state.showEdit
+    const buttonSave = cx({
+      'earthui-input-form__btn': this.state.showEdit,
+      'earthui-input-form__btn_active': !this.state.showEdit
     })
-    const buttonCancel = classNames({
-      'button-cancel': this.state.showEdit,
-      'button-cancel-active': !this.state.showEdit
+    const buttonCancel = cx({
+      'earthui-input-form__btn-cancel': this.state.showEdit,
+      'earthui-input-form__btn-cancel_active': !this.state.showEdit
     })
     return (
       <div className={inputForm}>
-        <span className="label">{label}</span>
+        <span className="earthui-input-form__label">{label}</span>
         <input value={this.state.content}
-          className="content"
+          className="earthui-input-form__content"
           onChange={(e) => this._handleChange(e)}
           ref={ref => (this.contentInput = ref)}
           {...this.state.inputProps}

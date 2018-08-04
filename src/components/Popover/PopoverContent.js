@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-import cx from 'classnames'
 import classlist from 'classlist'
+import cx from 'classnames'
 import CoordinateFactory from './CoordinateFactory'
 
 class PopoverContent extends Component {
@@ -33,8 +33,8 @@ class PopoverContent extends Component {
       triggerNode, rootNode, direction, align
     )
     this.positionClassNames = cx({
-      [`cmui-popover--${computedDirection}`]: true,
-      [`cmui-popover--align-${computedAlign}`]: !!computedAlign
+      [`earthui-popover_${computedDirection}`]: true,
+      [`earthui-popover_align-${computedAlign}`]: !!computedAlign
     })
     classlist(rootNode).add(this.positionClassNames)
   }
@@ -44,10 +44,10 @@ class PopoverContent extends Component {
       children, className, triggerNode, triggerMode, direction, align, ...other
     } = this.props
     return (
-      <div className={cx('cmui-popover', {
-        'cmui-popover--animation': triggerMode === 'hover'
+      <div className={cx('earthui-popover', {
+        'earthui-popover_animation': triggerMode === 'hover'
       }, className)} {...other}>
-        <div className="cmui-popover__content">
+        <div className="earthui-popover__content">
           {children}
         </div>
       </div>
@@ -56,8 +56,12 @@ class PopoverContent extends Component {
 }
 
 PopoverContent.propTypes = {
-  children: PropTypes.element,
-  triggerNode: PropTypes.node,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.element
+  ]),
+  triggerNode: PropTypes.object,
   className: PropTypes.string,
   triggerMode: PropTypes.oneOf(['click', 'hover']),
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),

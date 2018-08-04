@@ -121,16 +121,16 @@ class Upload extends Component {
   render () {
     const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
-      <div className={cx('cmui-upload', className)} {...other}>
+      <div className={cx('earthui-upload', className)} {...other}>
         <input ref="file" onChange={::this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
-        <div className="cmui-upload__children" onClick={::this.handleClick}>
+        <div className="earthui-upload__children" onClick={::this.handleClick}>
           {this.props.children}
         </div>
         {button && button.name &&
           <Button {...button} onClick={::this.handleClick}>{button.name}</Button>
         }
         {showFileList &&
-          <div className="cmui-upload__listbox">
+          <div className="earthui-upload__listbox">
             <FileList data={this.state.list} onRemove={::this.handleRemove} />
           </div>
         }

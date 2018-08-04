@@ -1,11 +1,10 @@
 @import '~variable';
-//@import '~core';
 
 @width: 460px;
 @height: @unit-sixfold;
 @input-height: @unit-double + 4;
 
-.input-form, .input-form-active, .input-form-nobutton {
+.earthui-input-form, .earthui-input-form_active, .earthui-input-form_nobutton {
   position: relative;
   width: @width;
   height: @height;
@@ -14,10 +13,10 @@
   font-weight: @fontweight;
   border-bottom: 1px solid @lite-lite;
   vertical-align: middle;
-  .label {
+  .earthui-input-form__label {
     color: @medium-dark;
   }
-  .content {
+  .earthui-input-form__content {
     position: absolute;
     left: 92px;
     color: @medium-litest;
@@ -31,10 +30,10 @@
     font-size: @fontsize;
     font-weight: @fontweight;
   }
-  .button, .button-cancel {
+  .earthui-input-form__btn, .earthui-input-form__btn-cancel {
     display: none;
   }
-  .button-active {
+  .earthui-input-form__btn_active {
     float: right;
     color: @theme;
     cursor: pointer;
@@ -42,8 +41,8 @@
       font-weight: @fontweight-bold;
     }
   }
-  .button-cancel-active {
-    &:extend(.input-form .button-active);
+  .earthui-input-form__btn-cancel_active {
+    &:extend(.earthui-input-form .earthui-input-form__btn_active);
     &:hover {
       font-weight: @fontweight-bold;
     }
@@ -52,11 +51,11 @@
   }
 }
 
-.input-form-active {
+.earthui-input-form_active {
   border-bottom-color: @theme;
 }
 
-.input-form-nobutton:hover {
+.earthui-input-form_nobutton:hover {
   border-bottom-color: @theme;
 }
 

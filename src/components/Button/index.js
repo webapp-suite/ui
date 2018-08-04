@@ -7,14 +7,14 @@ import './index.less'
 const Button = props => {
   const { children, className, type, size, icon, circle, transparent, ghost, ...other } = props
   const classNames = classnames(
-    'cmui-btn',
+    'earthui-button__btn',
     {
-      'cmui-btn--ghost': ghost,
-      [`cmui-btn--${type}`]: type,
-      [`cmui-btn--${size}`]: size,
-      'cmui-btn--circle': circle,
-      'cmui-btn--icon': icon && !children,
-      'cmui-btn--transparent': transparent
+      'earthui-button__btn_ghost': ghost,
+      [`earthui-button__btn_${type}`]: type,
+      [`earthui-button__btn_${size}`]: size,
+      'earthui-button__btn_circle': circle,
+      'earthui-button__icon': icon && !children,
+      'earthui-button__btn_transparent': transparent
     },
     className
   )

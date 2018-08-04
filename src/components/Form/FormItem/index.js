@@ -71,36 +71,36 @@ class FormItem extends Component {
     const labelWidth = this.context.form.props.labelWidth
 
     const Help = help && (
-      <div className="cmui-form__item-tip">
+      <div className="earthui-form__item-tip">
         <Icon type="question-circle" />
         {help}
       </div>
     )
 
     const Error = error && (
-      <div className="cmui-form__item-tip">
+      <div className="earthui-form__item-tip">
         <Icon type="info-circle" />
         {error}
       </div>
     )
 
-    const classNames = classnames('cmui-form__item', {
-      'cmui-form__item--error': error
+    const classNames = classnames('earthui-form__item', {
+      'earthui-form__item_error': error
     }, className)
 
     return (
       <div className={classNames} {...other}>
         {label && (
           <div
-            className={classnames('cmui-form__item-label', {
-              'cmui-form__item-label--required': required
+            className={classnames('earthui-form__item-label', {
+              'earthui-form__item-label_required': required
             })}
             style={{width: `${labelWidth}px`}}
           >
             {label}
           </div>
         )}
-        <div className="cmui-form__item-content">
+        <div className="earthui-form__item-content">
           {children}
           {Error || Help}
         </div>

@@ -5,8 +5,8 @@ import classnames from 'classnames'
 const DropdownToggle = props => {
   const { className, children, open, ...other } = props
   return (
-    <div className={classnames('cmui-dropdown-toggle', {
-      'cmui-dropdown-toggle--open': open
+    <div className={classnames('earthui-dropdown-toggle', {
+      'earthui-dropdown-toggle_open': open
     }, className)} {...other}>
       {children}
     </div>

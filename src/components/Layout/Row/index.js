@@ -6,10 +6,10 @@ import './index.less'
 const Row = props => {
   const { children, className, gutter, fluid, ...other } = props
   const classNames = classnames(
-    'cmui-row',
+    'earthui-layout__row',
     {
-      'cmui-row--gutter': gutter,
-      'cmui-row--fluid': fluid
+      'earthui-layout__row_gutter': gutter,
+      'earthui-layout__row_fluid': fluid
     },
     className
   )

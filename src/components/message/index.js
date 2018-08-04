@@ -17,7 +17,7 @@ class Message extends Component {
   }
 
   componentDidMount () {
-    this.toggleNode = new ToggleNode(ReactDOM.findDOMNode(this), 'cmui-message--open')
+    this.toggleNode = new ToggleNode(ReactDOM.findDOMNode(this), 'earthui-message_open')
     this.toggleNode.onClose = () => {
       this.props.onClose && this.props.onClose()
     }
@@ -45,15 +45,15 @@ class Message extends Component {
   render () {
     const { type, message, duration } = this.props
     return (
-      <div className={classnames('cmui-message', {[`cmui-message--${type}`]: type})}>
+      <div className={classnames('earthui-message', {[`earthui-message_${type}`]: type})}>
         {/* <Icon */}
-        {/* className="cmui-message__symbol" */}
+        {/* className="earthui-message__symbol" */}
         {/* type={type === 'success' ? 'check' : 'warning'} */}
         {/* /> */}
         {message}
         {duration === 0 && (
           <Button
-            className="cmui-message__remove"
+            className="earthui-message__remove"
             transparent
             icon="remove"
             onClick={::this.handleClose}
