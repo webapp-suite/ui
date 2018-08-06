@@ -5,7 +5,7 @@ import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import components from './components.json'
 
 class Components extends Component {
-  constructor () {
+  constructor (props) {
     super()
     this.componentsMap = {}
     this.state = {
@@ -15,6 +15,17 @@ class Components extends Component {
 
   toggle (open) {
     this.setState({ open })
+  }
+
+  switchRoute (route) {
+    if (route) {
+      this.props.router.push(`/components/${route}`)
+    }
+  }
+
+  handleItemClick (e) {
+    this.toggle(false)
+    this.switchRoute(e.id)
   }
 
   renderTitle (component) {
@@ -30,31 +41,37 @@ class Components extends Component {
     return (
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>
-          <Nav href="/components" onItemClick={() => this.toggle(false)}>
-            {components.map((item, i) => {
+          <Nav selectedId={params.component} onItemClick={::this.handleItemClick} >
+            {components.map(item => {
               !item.components && (this.componentsMap[item.name] = item)
-              return item.components
-                ? <NavItem
-                  key={item.category}
-                  title={item.cn}
-                  defaultOpen
-                >
-                  {item.components.map((component, i) => {
-                    this.componentsMap[component.name] = component
-                    return (
-                      <NavItem
-                        key={component.name}
-                        href={component.name}
-                        title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
-                      />
-                    )
-                  })}
-                </NavItem>
-                : <NavItem
+              if (item.components) {
+                return (
+                  <NavItem
+                    key={item.category}
+                    id={item.category}
+                    title={item.cn}
+                    defaultOpen
+                  >
+                    {item.components.map(component => {
+                      this.componentsMap[component.name] = component
+                      return (
+                        <NavItem
+                          key={component.name}
+                          id={component.name}
+                          title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
+                        />
+                      )
+                    })}
+                  </NavItem>
+                )
+              }
+              return (
+                <NavItem
                   key={item.name}
-                  href={item.name}
+                  id={item.name}
                   title={item.cn}
                 />
+              )
             })}
           </Nav>
         </LayoutSidebar>
@@ -69,7 +86,8 @@ class Components extends Component {
 
 Components.propTypes = {
   children: PropTypes.node,
-  params: PropTypes.object
+  params: PropTypes.object,
+  router: PropTypes.object
 }
 
 export default Components

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
 import cx from 'classnames'
 import Icon from '../Icon'
 
@@ -13,9 +12,8 @@ class NavItem extends Component {
   }
 
   componentWillMount () {
-    const href = this.getHref(this.props)
-    const active = this.isActive(this.props, href)
-    const state = { href, active }
+    const active = this.isActive(this.props)
+    const state = { active }
     if (this.props.children && active) {
       state.open = true
     }
@@ -23,26 +21,12 @@ class NavItem extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const href = this.getHref(nextProps)
-    const active = this.isActive(nextProps, href)
-    this.setState({ href, active })
+    const active = this.isActive(nextProps)
+    this.setState({ active })
   }
 
-  getHref (props) {
-    let href = props.href
-    if (props.blank) return href
-    if (!props.index && !href) return ''
-    const baseURL = this.context.nav.props.href || ''
-    href = baseURL + '/' + (href || '')
-    return href.replace(/\/+/g, '/').replace(/(.+)\/$/, '$1')
-  }
-
-  isActive (props, href) {
-    if (props.index) {
-      return href === (location.pathname || '/')
-    } else {
-      return href && new RegExp(href + '(?=/|$|\\?|#)').test(location.href)
-    }
+  isActive (props) {
+    return this.context.nav.state.selectedId === props.id
   }
 
   toggle (e) {
@@ -56,39 +40,35 @@ class NavItem extends Component {
   }
 
   render () {
-    const { open, href, active } = this.state
+    const { open, active } = this.state
     const {
-      children, className, index, defaultOpen, icon, title, blank, ...other
+      children, className, defaultOpen, icon, title, ...other
     } = this.props
 
-    delete other.href
+    delete other.selectedId
 
     const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
     const Toggle = children && <Icon type="caret-right" className={`${prefixCls}-nav__item-toggle`} />
 
     let Item
     if (children) {
-      Item = <a href={href} onClick={::this.toggle}>{NavIcon}{title}{Toggle}</a>
-    } else if (blank) {
-      Item = <a href={href} target="_blank">{NavIcon}{title}{Toggle}</a>
+      Item = <div className={`${prefixCls}-nav_item-entity`} onClick={::this.toggle}>{NavIcon}{title}{Toggle}</div>
     } else {
-      Item = <Link to={href}>{NavIcon}{title}{Toggle}</Link>
+      Item = <div className={`${prefixCls}-nav_item-entity`}>{NavIcon}{title}{Toggle}</div>
     }
-
-    const classNames = cx(
-      `${prefixCls}-nav__item`,
-      {
-        [`${prefixCls}-nav__item_open`]: open,
-        [`${prefixCls}-nav__item_active`]: active
-      },
-      className
-    )
 
     // 收起状态时不再渲染子节点
     return (
       <li
         onClick={::this.handleClick}
-        className={classNames}
+        className={cx(
+          `${prefixCls}-nav__item`,
+          {
+            [`${prefixCls}-nav__item_open`]: open,
+            [`${prefixCls}-nav__item_active`]: active
+          },
+          className
+        )}
         {...other}
       >
         {Item}
@@ -108,24 +88,22 @@ NavItem.propTypes = {
 
   className: PropTypes.string,
 
-  onClick: PropTypes.func,
+  selectedId: PropTypes.string,
 
-  index: PropTypes.bool,
-
-  // 当前菜单 href，非叶子节点也需要指定，与路由对应
-  href: PropTypes.string,
-
-  // 菜单图标，参考 Icon 组件 type 属性
-  icon: PropTypes.string,
+  // 菜单 id
+  id: PropTypes.string.isRequired,
 
   // 菜单标题，可以是文本字符串，也可以是 React 元素
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 初始化是否展开（不可控），用于非叶子节点
-  defaultOpen: PropTypes.bool,
+  // 点击 NavItem 调用此函数
+  onClick: PropTypes.func,
 
-  // 是否新窗口打开
-  blank: PropTypes.bool
+  // 菜单图标，参考 Icon 组件 type 属性
+  icon: PropTypes.string,
+
+  // 初始化是否展开（不可控），用于非叶子节点
+  defaultOpen: PropTypes.bool
 }
 
 export default NavItem

@@ -2,20 +2,25 @@
  * @title 基本功能
  */
 
-import { Nav, IndexNavItem, NavItem } from 'earth-ui/lib/Nav'
+import React, { Component } from 'react'
+import { Nav, NavItem } from 'earth-ui/lib/Nav'
 
-const NavBasic = () => {
-  return (
-    <Nav href="/" width={240}>
-      <IndexNavItem icon="th" title="数据概况" />
-      <NavItem href="users" icon="users" title="人群管理" defaultOpen>
-        <NavItem href="users/list" title="人群列表" />
-        <NavItem href="users/task" title="任务管理" />
-      </NavItem>
-    </Nav>
-  )
+class NavBasic extends Component {
+  handleClick (e) {
+    console.log('click ', e);
+  }
+  render () {
+    return (
+      <Nav selectedId="1" width={240} onItemClick={::this.handleClick}>
+        <NavItem id="1" icon="th" title="数据概况" />
+        <NavItem id="2" icon="users" title="人群管理" defaultOpen>
+          <NavItem id="3" title="人群列表" />
+          <NavItem id="4" title="任务管理" />
+        </NavItem>
+      </Nav>
+    )
+  }
 }
 
 @component Nav/Nav
 @component Nav/NavItem
-@component Nav/IndexNavItem

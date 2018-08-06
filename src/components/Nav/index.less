@@ -24,13 +24,14 @@
 }
 
 .@{prefix-cls}-nav__item {
-  > a {
+  > .@{prefix-cls}-nav_item-entity {
     display: block;
     color: #314659;
     text-decoration: none;
     position: relative;
     padding: 0 15px 0 @header-padding;
     line-height: @height;
+    cursor: pointer;
     //border-bottom: 1px solid @border-color;
     border-radius: 0;
     //border-left: 3px solid #eaeaea;
@@ -70,11 +71,11 @@
   .@{prefix-cls}-nav__item {
     border-left: 0;
     border-right: 0;
-    > a {
+    > .@{prefix-cls}-nav_item-entity {
       padding-left: @nav-parent-padding-left;
     }
     .@{prefix-cls}-nav__item {
-      > a {
+      > .@{prefix-cls}-nav_item-entity {
         padding-left: @nav-parent-padding-left * 2;
       }
     }
@@ -105,7 +106,7 @@
 }
 
 .@{prefix-cls}-nav__item_active {
-  > a {
+  > .@{prefix-cls}-nav_item-entity {
     color: @theme;
     background-color: @theme-liter;
     &:after {
