@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import controlledPropValidator from '../_util/propValidator/controlled'
 import Input from '../Input'
 import Button from '../Button'
@@ -67,7 +67,7 @@ class ClearableInput extends Component {
     const inputProps = { value, disabled, size, placeholder, readOnly, type, maxLength, width }
 
     return (
-      <div className={classnames('earthui-clearable-input', className)} {...other}>
+      <div className={cx(`${prefixCls}-clearable-input`, className)} {...other}>
         <Input
           ref="input"
           onChange={::this.handleInput}
@@ -79,7 +79,7 @@ class ClearableInput extends Component {
             icon="remove"
             size="sm"
             transparent
-            className="earthui-clearable-input__clear-btn"
+            className={`${prefixCls}-clearable-input__clear-btn`}
             disabled={inputProps.disabled}
             onClick={::this.handleClear}
           />

@@ -1,14 +1,15 @@
+@import '~variable';
 @padding: 7px;
 @arrowRelative: 20px + @padding;
-@import '~variable';
+@keyframes-popover: ~"@{prefix-cls}-popover";
 
-.earthui-popover__trigger {
+.@{prefix-cls}-popover__trigger {
   cursor: pointer;
   user-select: none;
 }
 
-.earthui-popover__trigger_disabled,
-.earthui-popover__trigger_disabled * {
+.@{prefix-cls}-popover__trigger_disabled,
+.@{prefix-cls}-popover__trigger_disabled * {
   background-color: #eceff1!important;
   border-color: #eaeaea!important;
   cursor: not-allowed!important;
@@ -16,7 +17,7 @@
   user-select: none;
 }
 
-.earthui-popover {
+.@{prefix-cls}-popover {
   position: absolute;
   left: 0;
   top: 0;
@@ -29,11 +30,11 @@
   }
 }
 
-.earthui-popover_animation {
-  animation: earthui-popover .15s;
+.@{prefix-cls}-popover_animation {
+  animation: @keyframes-popover .15s;
 }
 
-@keyframes earthui-popover {
+@keyframes @keyframes-popover {
   from {
     opacity: 0;
   }
@@ -42,7 +43,7 @@
   }
 }
 
-.earthui-popover_up {
+.@{prefix-cls}-popover_up {
   padding-bottom: @padding;
   margin-top: -@padding;
    //popover arrow
@@ -56,7 +57,7 @@
   }
 }
 
-.earthui-popover_down {
+.@{prefix-cls}-popover_down {
   padding-top: @padding;
   &:after {
     left: 50%;
@@ -68,7 +69,7 @@
   }
 }
 
-.earthui-popover_left {
+.@{prefix-cls}-popover_left {
   padding-right: @padding;
   &:after {
     top: 50%;
@@ -80,7 +81,7 @@
   }
 }
 
-.earthui-popover_right {
+.@{prefix-cls}-popover_right {
   padding-left: @padding;
   &:after {
     top: 50%;
@@ -92,33 +93,33 @@
   }
 }
 
-.earthui-popover_align-left {
+.@{prefix-cls}-popover_align-left {
   &:after {
     left: @arrowRelative;
   }
 }
 
-.earthui-popover_align-right {
+.@{prefix-cls}-popover_align-right {
   &:after {
     left: auto;
     right: @arrowRelative;
   }
 }
 
-.earthui-popover_align-top {
+.@{prefix-cls}-popover_align-top {
   &:after {
     top: @arrowRelative;
   }
 }
 
-.earthui-popover_align-bottom {
+.@{prefix-cls}-popover_align-bottom {
   &:after {
     top: auto;
     bottom: @arrowRelative;
   }
 }
 
-.earthui-popover__content {
+.@{prefix-cls}-popover__content {
   padding: 10px 12px;
   background: #fff;
   word-wrap: break-word;

@@ -33,8 +33,8 @@ class PopoverContent extends Component {
       triggerNode, rootNode, direction, align
     )
     this.positionClassNames = cx({
-      [`earthui-popover_${computedDirection}`]: true,
-      [`earthui-popover_align-${computedAlign}`]: !!computedAlign
+      [`${prefixCls}-popover_${computedDirection}`]: true,
+      [`${prefixCls}-popover_align-${computedAlign}`]: !!computedAlign
     })
     classlist(rootNode).add(this.positionClassNames)
   }
@@ -44,10 +44,10 @@ class PopoverContent extends Component {
       children, className, triggerNode, triggerMode, direction, align, ...other
     } = this.props
     return (
-      <div className={cx('earthui-popover', {
-        'earthui-popover_animation': triggerMode === 'hover'
+      <div className={cx(`${prefixCls}-popover`, {
+        [`${prefixCls}-popover_animation`]: triggerMode === 'hover'
       }, className)} {...other}>
-        <div className="earthui-popover__content">
+        <div className={`${prefixCls}-popover__content`}>
           {children}
         </div>
       </div>

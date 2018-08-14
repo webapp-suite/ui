@@ -11,7 +11,7 @@ class TextOverflow extends Component {
     const { children, className, ...other } = this.props
     return (
       <Popover
-        className={cx('earthui-tooltip__popover', className)}
+        className={cx(`${prefixCls}-tooltip__popover`, className)}
         content={children.props.children}
         shouldOpen={() => {
           if (!this.rootNode) {
@@ -22,7 +22,7 @@ class TextOverflow extends Component {
         {...other}
       >
         {React.cloneElement(children, {
-          className: cx(children.props.className, 'earthui-text-overflow')
+          className: cx(children.props.className, `${prefixCls}-text-overflow`)
         })}
       </Popover>
     )

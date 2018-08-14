@@ -5,7 +5,7 @@
 @xl: 112px;
 @cover-bg: rgba(0, 0, 0, 0.6);
 
-.earthui-avatar-upload {
+.@{prefix-cls}-avatar-upload {
   display: flex;
   // todo: post-css
   -webkit-user-select: none;
@@ -15,7 +15,7 @@
 }
 
 // 第一次上传头像
-.earthui-avatar-upload__first {
+.@{prefix-cls}-avatar-upload__first {
   width: @default;
   height: @default;
   line-height: @default;
@@ -35,34 +35,34 @@
   }
 }
 
-.earthui-avatar-upload__shallow-cover_square {
-  .earthui-avatar-upload__first();
+.@{prefix-cls}-avatar-upload__shallow-cover_square {
+  &:extend(.@{prefix-cls}-avatar-upload__first);
 }
 
-.earthui-avatar-upload__shallow-cover_circle {
+.@{prefix-cls}-avatar-upload__shallow-cover_circle {
   border-radius: 50%;
 }
 
-.earthui-avatar-upload__shallow-cover_lg {
+.@{prefix-cls}-avatar-upload__shallow-cover_lg {
   width: @lg;
   height: @lg;
   line-height: @lg;
 }
 
-.earthui-avatar-upload__shallow-cover_xl {
+.@{prefix-cls}-avatar-upload__shallow-cover_xl {
   width: @xl;
   height: @xl;
   line-height: @xl;
 }
 
 // 更新已经上传的头像
-.earthui-avatar-upload__update {
+.@{prefix-cls}-avatar-upload__update {
   position: relative;
-  .earthui-avatar-upload__cover {
+  .@{prefix-cls}-avatar-upload__cover {
     display: none;
   }
   &:hover {
-    .earthui-avatar-upload__cover {
+    .@{prefix-cls}-avatar-upload__cover {
       display: block;
       position: absolute;
       border-radius: 50%;
@@ -73,13 +73,13 @@
       text-align: center;
       background: @cover-bg;
     }
-    .earthui-avatar-upload__cover_lg {
+    .@{prefix-cls}-avatar-upload__cover_lg {
       width: @lg;
       height: @lg;
       line-height: @lg;
       margin-left: -(@lg)/2;
     }
-    .earthui-avatar-upload__cover_xl {
+    .@{prefix-cls}-avatar-upload__cover_xl {
       width: @xl;
       height: @xl;
       line-height: @xl;

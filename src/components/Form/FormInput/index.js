@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import ClearableInput from '../../ClearableInput'
 
 const FormInput = (props, context) => {
@@ -11,7 +11,7 @@ const FormInput = (props, context) => {
     form.setItemValue(formItem, value)
     onChange && onChange(value)
   }
-  return <ClearableInput className={classnames('earthui-form__input', className)} {...other} forbidClearable />
+  return <ClearableInput className={cx(`${prefixCls}-form__input`, className)} {...other} forbidClearable />
 }
 
 FormInput.propTypes = {

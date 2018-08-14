@@ -1,20 +1,21 @@
 @import '~variable';
+@keyframes-spinner: ~"@{prefix-cls}-spinner";
 
-.earthui-spinner {
+.@{prefix-cls}-spinner {
   font-size: 26px;
 }
 
-.earthui-spinner__circle {
+.@{prefix-cls}-spinner__circle {
   width: 1em;
   height: 1em;
   position: relative;
   border: .1em solid @theme;
   border-radius: 50%;
   border-bottom-color: transparent;
-  animation: 1s ease-in-out infinite earthui-spinner;
+  animation: 1s ease-in-out infinite @keyframes-spinner;
 }
 
-@keyframes earthui-spinner {
+@keyframes @keyframes-spinner {
   from {
     transform: translate3d(0, 0, 0) rotate(0deg);
   }

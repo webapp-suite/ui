@@ -6,32 +6,32 @@
 @xl: 112px;
 @border-color: #d7d7d7;
 
-.earthui-avatar {
+.@{prefix-cls}-avatar {
   vertical-align: top;
   width: @default;
   height: @default;
   border: 1px solid @border-color;
 }
 
-.earthui-avatar__img_square {
-  .earthui-avatar();
+.@{prefix-cls}-avatar__img_square {
+  &:extend(.@{prefix-cls}-avatar);
 }
 
-.earthui-avatar__img_circle {
+.@{prefix-cls}-avatar__img_circle {
   border-radius: 50%;
 }
 
-.earthui-avatar__img_sm {
+.@{prefix-cls}-avatar__img_sm {
   width: @sm;
   height: @sm;
 }
 
-.earthui-avatar__img_lg {
+.@{prefix-cls}-avatar__img_lg {
   width: @lg;
   height: @lg;
 }
 
-.earthui-avatar__img_xl {
+.@{prefix-cls}-avatar__img_xl {
   width: @xl;
   height: @xl;
 }

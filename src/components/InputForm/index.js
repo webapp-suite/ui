@@ -4,23 +4,6 @@ import cx from 'classnames'
 import './index.less'
 
 class InputForm extends Component {
-  static propTypes = {
-    label: PropTypes.string,
-    name: PropTypes.string,
-    placeholder: PropTypes.string,
-    type: PropTypes.string,
-    content: PropTypes.string,
-    save: PropTypes.func,
-    onChange: PropTypes.func,
-    hasbutton: PropTypes.bool
-  }
-
-  static defaultProps = {
-    label: '',
-    content: '',
-    placeholder: ''
-  }
-
   constructor (props) {
     super(props)
     let state = {
@@ -75,27 +58,27 @@ class InputForm extends Component {
   render () {
     let { label, name, hasbutton, placeholder, type } = this.props
     const inputForm = cx({
-      'earthui-input-form': this.state.showEdit && hasbutton,
-      'earthui-input-form_active': !this.state.showEdit && hasbutton,
-      'earthui-input-form_nobutton': !hasbutton
+      [`${prefixCls}-input-form`]: this.state.showEdit && hasbutton,
+      [`${prefixCls}-input-form_active`]: !this.state.showEdit && hasbutton,
+      [`${prefixCls}-input-form_nobutton`]: !hasbutton
     })
     const buttonEdit = cx({
-      'earthui-input-form__btn': !this.state.showEdit,
-      'earthui-input-form__btn_active': this.state.showEdit
+      [`${prefixCls}-input-form__btn`]: !this.state.showEdit,
+      [`${prefixCls}-input-form__btn_active`]: this.state.showEdit
     })
     const buttonSave = cx({
-      'earthui-input-form__btn': this.state.showEdit,
-      'earthui-input-form__btn_active': !this.state.showEdit
+      [`${prefixCls}-input-form__btn`]: this.state.showEdit,
+      [`${prefixCls}-input-form__btn_active`]: !this.state.showEdit
     })
     const buttonCancel = cx({
-      'earthui-input-form__btn-cancel': this.state.showEdit,
-      'earthui-input-form__btn-cancel_active': !this.state.showEdit
+      [`${prefixCls}-input-form__btn-cancel`]: this.state.showEdit,
+      [`${prefixCls}-input-form__btn-cancel_active`]: !this.state.showEdit
     })
     return (
       <div className={inputForm}>
-        <span className="earthui-input-form__label">{label}</span>
+        <span className={`${prefixCls}-input-form__label`}>{label}</span>
         <input value={this.state.content}
-          className="earthui-input-form__content"
+          className={`${prefixCls}-input-form__content`}
           onChange={(e) => this._handleChange(e)}
           ref={ref => (this.contentInput = ref)}
           {...this.state.inputProps}
@@ -116,6 +99,23 @@ class InputForm extends Component {
       </div>
     )
   }
+}
+
+InputForm.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  content: PropTypes.string,
+  save: PropTypes.func,
+  onChange: PropTypes.func,
+  hasbutton: PropTypes.bool
+}
+
+InputForm.defaultProps = {
+  label: '',
+  content: '',
+  placeholder: ''
 }
 
 export default InputForm

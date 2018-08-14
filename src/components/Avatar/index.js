@@ -16,8 +16,11 @@ class Avatar extends Component {
     return <img src={src}
       onClick={::this._handleClick}
       className={cx(
-        'earthui-avatar',
-        {[`earthui-avatar__img_${shape}`]: shape, [`earthui-avatar__img_${size}`]: size},
+        `${prefixCls}-avatar`,
+        {
+          [`${prefixCls}-avatar__img_${shape}`]: shape,
+          [`${prefixCls}-avatar__img_${size}`]: size
+        },
         className
       )}
       {...others}

@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import TextOverflow from '../../TextOverflow'
 import Icon from '../../Icon'
 import './index.less'
 
 const Option = props => {
   const { children, className, data, value, selected, active, ...other } = props
-  const classNames = classnames(
-    'earthui-select__option',
+  const classNames = cx(
+    `${prefixCls}-select__option`,
     {
-      'earthui-select__option_active': active,
-      'earthui-select__option_selected': selected
+      [`${prefixCls}-select__option_active`]: active,
+      [`${prefixCls}-select__option_selected`]: selected
     },
     className
   )
@@ -20,7 +20,7 @@ const Option = props => {
       <TextOverflow>
         <div>{children}</div>
       </TextOverflow>
-      {selected && <Icon type="check" className="earthui-select__option-icon_selected" />}
+      {selected && <Icon type="check" className={`${prefixCls}-select__option-icon_selected`} />}
     </li>
   )
 }

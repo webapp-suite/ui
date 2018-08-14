@@ -1,12 +1,12 @@
 @import '~variable';
 @danger-color: @red;
 
-.earthui-form__item {
+.@{prefix-cls}-form__item {
   padding-top: 0;
   padding-bottom: 22px;
 }
 
-.earthui-form__item-label {
+.@{prefix-cls}-form__item-label {
   height: 22px;
   line-height: 22px;
   font-size: 13px;
@@ -15,11 +15,11 @@
   margin-bottom: 12px;
 }
 
-.earthui-form__item-content {
+.@{prefix-cls}-form__item-content {
   overflow: hidden;
 }
 
-.earthui-form__item-label_required {
+.@{prefix-cls}-form__item-label_required {
   &:after {
     content: '* ';
     color: @danger-color;
@@ -30,45 +30,45 @@
   }
 }
 
-.earthui-form__item-tip {
+.@{prefix-cls}-form__item-tip {
   font-size: 12px;
   margin-top: 11px;
   display: block;
   color: #999;
-  > .earthui-icon {
+  > .@{prefix-cls}-icon {
     margin-right: 3px;
   }
 }
 
-.earthui-form__item_error {
-  .earthui-input,
-  .earthui-form__textarea {
+.@{prefix-cls}-form__item_error {
+  .@{prefix-cls}-input,
+  .@{prefix-cls}-form__textarea {
     border-color: @danger-color;
   }
-  .earthui-select,
-  .earthui-multiple-select {
+  .@{prefix-cls}-select,
+  .@{prefix-cls}-multiple-select {
     border-color: @danger-color;
   }
-  .earthui-form__item-tip {
+  .@{prefix-cls}-form__item-tip {
     color: @danger-color;
   }
 }
 
-.earthui-form_sm {
-  .earthui-form__item-label {
+.@{prefix-cls}-form_sm {
+  .@{prefix-cls}-form__item-label {
     font-size: 12px;
   }
-  .earthui-form__item {
+  .@{prefix-cls}-form__item {
     padding-top: 0;
     padding-bottom: 15px;
   }
 }
 
-.earthui-form_lg {
-  .earthui-form__item-label {
+.@{prefix-cls}-form_lg {
+  .@{prefix-cls}-form__item-label {
     font-size: 16px;
   }
-  .earthui-form__item {
+  .@{prefix-cls}-form__item {
     padding-top: 20px;
     padding-bottom: 20px;
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import { Select, Option } from '../../Select'
 
 const FormSelect = (props, context) => {
@@ -12,7 +12,7 @@ const FormSelect = (props, context) => {
     onChange && onChange(value)
   }
   return (
-    <Select className={classnames('earthui-form__select', className)} {...other}>
+    <Select className={cx(`${prefixCls}-form__select`, className)} {...other}>
       {children}
     </Select>
   )

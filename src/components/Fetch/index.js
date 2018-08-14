@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import xhr from '../xhr'
 import Spinner from '../Spinner'
 import './index.less'
@@ -80,15 +80,15 @@ class Fetch extends Component {
     },
     loading () {
       return (
-        <div className="earthui-fetch__mask">
-          <Spinner height={this.props.spinnerHeight} className="earthui-fetch__state" />
+        <div className={`${prefixCls}-fetch__mask`}>
+          <Spinner height={this.props.spinnerHeight} className={`${prefixCls}-fetch__state`} />
         </div>
       )
     },
     error () {
       return (
-        <div className="earthui-fetch__mask">
-          <div className="earthui-fetch__state earthui-fetch__state-error">{this.state.msg}</div>
+        <div className={`${prefixCls}-fetch__mask`}>
+          <div className={`${prefixCls}-fetch__state ${prefixCls}-fetch__state-error`}>{this.state.msg}</div>
         </div>
       )
     }
@@ -102,7 +102,7 @@ class Fetch extends Component {
       })
     }
     return (
-      <div className={classnames('earthui-fetch', className)} {...other}>
+      <div className={cx(`${prefixCls}-fetch`, className)} {...other}>
         {this.stateMap[this.state.xhr].call(this)}
       </div>
     )

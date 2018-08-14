@@ -68,6 +68,9 @@ const config = {
     }
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'prefixCls': JSON.stringify('earthui')
+    }),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

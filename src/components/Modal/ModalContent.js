@@ -38,11 +38,11 @@ class ModalContent extends Component {
   }
 
   handleModalClick (e) {
-    if (e.target.className === 'earthui-modal__modal') {
+    if (e.target.className === `${prefixCls}-modal__modal`) {
       if (!this.props.lock) {
         this.props.close()
       } else {
-        const LOCK_CLASSNAME = 'earthui-modal__modal-dialog_lock'
+        const LOCK_CLASSNAME = `${prefixCls}-modal__modal-dialog_lock`
         const END_EVENT = 'animationend'
         classlist(this.modalNode).add(LOCK_CLASSNAME)
         const onAnimationEnd = () => {
@@ -57,21 +57,21 @@ class ModalContent extends Component {
   render () {
     const {children, className, lock, size, zIndex, close, modal, ...other} = this.props
     return (
-      <div className={cx('earthui-modal', {
-        [`earthui-modal_${size}`]: size
+      <div className={cx(`${prefixCls}-modal`, {
+        [`${prefixCls}-modal_${size}`]: size
       }, className)} {...other}>
-        <div className="earthui-modal__backdrop" style={{zIndex: zIndex || 3000}} />
+        <div className={`${prefixCls}-modal__backdrop`} style={{zIndex: zIndex || 3000}} />
         <div
-          className="earthui-modal__modal"
+          className={`${prefixCls}-modal__modal`}
           style={{zIndex: zIndex || 3000}}
           onClick={::this.handleModalClick}
         >
-          <div className="earthui-modal__modal-dialog" ref={node => (this.modalNode = node)}>
-            <div className="earthui-modal__modal-content">
+          <div className={`${prefixCls}-modal__modal-dialog`} ref={node => (this.modalNode = node)}>
+            <div className={`${prefixCls}-modal__modal-content`}>
               {children}
             </div>
             <div
-              className="earthui-modal__modal-close"
+              className={`${prefixCls}-modal__modal-close`}
               onClick={() => close()}
             />
           </div>

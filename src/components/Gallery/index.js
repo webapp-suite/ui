@@ -21,11 +21,11 @@ class Gallery extends Component {
     const { images, options } = this.props
     options.containerWidth = this.state.containerWidth
     const childElements = images.map((image, index) =>
-      <div className="earthui-gallery"
+      <div className={`${prefixCls}-gallery`}
         key={index}
         style={{backgroundImage: `url(${image.src})`, width: image.width, height: image.height}}
       >
-        <div className="earthui-gallery__img-cover" />
+        <div className={`${prefixCls}-gallery__img-cover`} />
       </div>
     )
     return (

@@ -1,27 +1,28 @@
+@import '~variable';
 @mainColor: #333;
 
-.earthui-tooltip__popover {
+.@{prefix-cls}-tooltip__popover {
   white-space: pre-wrap;
-  > .earthui-popover__content {
+  > .@{prefix-cls}-popover__content {
     background-color: @mainColor;
     color: #fff;
   }
-  &.earthui-popover_up {
+  &.@{prefix-cls}-popover_up {
     &:after {
       border-top-color: @mainColor;
     }
   }
-  &.earthui-popover_down {
+  &.@{prefix-cls}-popover_down {
     &:after {
       border-bottom-color: @mainColor;
     }
   }
-  &.earthui-popover_left {
+  &.@{prefix-cls}-popover_left {
     &:after {
       border-left-color: @mainColor;
     }
   }
-  &.earthui-popover_right {
+  &.@{prefix-cls}-popover_right {
     &:after {
       border-right-color: @mainColor;
     }

@@ -2,7 +2,7 @@
 @success-color: @green;
 @danger-color: @red-lite;
 
-.earthui-message {
+.@{prefix-cls}-message {
   position: fixed;
   z-index: 9999;
   min-width: 200px;
@@ -21,12 +21,12 @@
   transition: opacity .15s, transform .15s;
 }
 
-.earthui-message_open {
+.@{prefix-cls}-message_open {
   opacity: 1;
   transform: translate(-50%, 0);
 }
 
-.earthui-message__symbol {
+.@{prefix-cls}-message__symbol {
   position: absolute;
   left: 30px;
   top: 50%;
@@ -34,20 +34,20 @@
   transform: translateY(-50%);
 }
 
-.earthui-message__remove {
+.@{prefix-cls}-message__remove {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.earthui-message_success {
-  .earthui-message__symbol {
+.@{prefix-cls}-message_success {
+  .@{prefix-cls}-message__symbol {
     color: @success-color;
   }
 }
 
-.earthui-message_danger {
-  .earthui-message__symbol {
+.@{prefix-cls}-message_danger {
+  .@{prefix-cls}-message__symbol {
     color: @danger-color;
   }
 }

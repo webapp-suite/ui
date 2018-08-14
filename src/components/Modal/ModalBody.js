@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 
 const ModalBody = props => {
   const { children, className, ...other } = props
   return (
     <div
-      className={classnames('earthui-modal__modal-body', className)}
+      className={cx(`${prefixCls}-modal__modal-body`, className)}
       {...other}
     >
       {children}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 const FormTextarea = (props, context) => {
@@ -24,7 +24,7 @@ const FormTextarea = (props, context) => {
   if (minHeight) {
     other.style = Object.assign(other.style || {}, { minHeight })
   }
-  return <textarea className={classnames('earthui-form__textarea', className)} {...other} />
+  return <textarea className={cx(`${prefixCls}-form__textarea`, className)} {...other} />
 }
 
 FormTextarea.propTypes = {

@@ -1,4 +1,6 @@
-.earthui-layout__row {
+@import '~variable';
+
+.@{prefix-cls}-layout__row {
   &:after {
     content: " ";
     display: block;
@@ -9,23 +11,23 @@
   }
 }
 
-.earthui-layout__row_gutter {
+.@{prefix-cls}-layout__row_gutter {
   margin-left: -8px;
   margin-right: -8px;
-  > .earthui-layout__col {
+  > .@{prefix-cls}-layout__col {
     padding-left: 8px;
     padding-right: 8px;
   }
 }
 
-.earthui-layout__row_fluid {
-  > .earthui-layout__col {
+.@{prefix-cls}-layout__row_fluid {
+  > .@{prefix-cls}-layout__col {
     float: left;
   }
 }
 
-.earthui-layout__row {
-  .earthui-layout__col_right {
+.@{prefix-cls}-layout__row {
+  .@{prefix-cls}-layout__col_right {
     float: right;
   }
 }

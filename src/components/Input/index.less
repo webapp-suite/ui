@@ -2,7 +2,7 @@
 
 @width: 100%;
 
-.earthui-input {
+.@{prefix-cls}-input {
   width: @width;
   height: 40px;
   padding-left: 10px;
@@ -25,17 +25,17 @@
   }
 }
 
-.earthui-input_sm {
+.@{prefix-cls}-input_sm {
   height: 36px;
 }
 
-.earthui-input_lg {
+.@{prefix-cls}-input_lg {
   height: 48px;
   font-size: @fontsize;
 }
 
 // remove IE clearfield
-.earthui-input::-ms-clear {
+.@{prefix-cls}-input::-ms-clear {
   display: none;
 }
 

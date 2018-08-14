@@ -8,7 +8,7 @@ const Tooltip = props => {
   const { children, className, title, ...other } = props
   return (
     <Popover
-      className={cx('earthui-tooltip__popover', className)}
+      className={cx(`${prefixCls}-tooltip__popover`, className)}
       content={title}
       {...other}
     >

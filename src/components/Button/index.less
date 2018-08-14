@@ -1,6 +1,6 @@
 @import '~variable';
 
-.earthui-button__btn {
+.@{prefix-cls}-button__btn {
   color: @white;
   padding: 0 20px;
   height: 30px;
@@ -29,15 +29,15 @@
     color: #9e9e9e;
     cursor: not-allowed;
   }
-  .earthui-icon {
+  .@{prefix-cls}-icon {
     margin-right: 5px;
   }
-  +.earthui-button__btn {
+  +.@{prefix-cls}-button__btn {
     margin-left: 10px;
   }
 }
 
-.earthui-button__btn_minor {
+.@{prefix-cls}-button__btn_minor {
   color: @theme;
   background-color: @theme-liter;
   border-color: @theme;
@@ -46,41 +46,41 @@
   }
 }
 
-.earthui-button__btn_sm {
+.@{prefix-cls}-button__btn_sm {
   padding: 0 10px;
   height: 22px;
 }
 
-.earthui-button__btn_lg {
+.@{prefix-cls}-button__btn_lg {
   padding: 0 33px;
   height: 40px;
   font-size: 14px;
 }
 
-.earthui-button__icon,
-.earthui-button__btn_circle {
+.@{prefix-cls}-button__icon,
+.@{prefix-cls}-button__btn_circle {
   padding: 0;
   width: 30px;
   text-align: center;
-  &.earthui-button__btn_sm {
+  &.@{prefix-cls}-button__btn_sm {
     width: 22px;
   }
-  &.earthui-button__btn_lg {
+  &.@{prefix-cls}-button__btn_lg {
     width: 40px;
   }
 }
 
-.earthui-button__icon {
-  .earthui-button__icon {
+.@{prefix-cls}-button__icon {
+  .@{prefix-cls}-button__icon {
     margin-right: 0;
   }
 }
 
-.earthui-button__btn_circle {
+.@{prefix-cls}-button__btn_circle {
   border-radius: 50%;
 }
 
-.earthui-button__btn_transparent {
+.@{prefix-cls}-button__btn_transparent {
   border: 0;
   background-color: transparent;
   color: inherit;
@@ -98,7 +98,7 @@
   }
 }
 
-.earthui-button__btn_ghost {
+.@{prefix-cls}-button__btn_ghost {
   border: 1px solid @theme;
   background-color: transparent;
   color: @theme;
