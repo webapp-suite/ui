@@ -28,7 +28,7 @@ class Select extends Component {
 
   shouldComponentUpdate = shouldComponentUpdate
 
-  handleLoad (data) {
+  handleLoad = data => {
     const { url } = this.props
     data = dataFilter(this, data) || []
     invariant(
@@ -65,14 +65,14 @@ class Select extends Component {
     }
   }
 
-  handleSearch (searchValue) {
+  handleSearch = searchValue => {
     this.setState({
       searchValue,
       index: -1
     })
   }
 
-  handleDropToggle (open) {
+  handleDropToggle = open => {
     this.props.searchable && open && setTimeout(() => {
       this.refs.clearableInput && this.refs.clearableInput.focus()
     }, 0)
@@ -173,9 +173,9 @@ class Select extends Component {
         ref="dropdown"
         className={classNames}
         title={Title}
-        onLoad={::this.handleLoad}
+        onLoad={this.handleLoad}
         hasPropValue={'value' in this.props || 'defaultValue' in this.props}
-        onToggle={::this.handleDropToggle}
+        onToggle={this.handleDropToggle}
         caret
         {...other}
       >
@@ -185,7 +185,7 @@ class Select extends Component {
             className={`${prefixCls}-select__search-input`}
             value={searchValue}
             placeholder={searchPlaceholder}
-            onChange={::this.handleSearch}
+            onChange={this.handleSearch}
             onKeyDown={this.handleKeyDown.bind(this, optionsWithProps)}
           />
         )}

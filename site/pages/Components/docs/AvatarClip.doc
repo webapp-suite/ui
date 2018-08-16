@@ -16,7 +16,7 @@ class ProfileAvatar extends Component {
       imgSrc: 'https://avatars0.githubusercontent.com/u/12554487'
     }
   }
-  onUpload (files) {
+  onUpload = files => {
     let reader = new FileReader()
     let file = files[0]
     if (!file) return
@@ -31,7 +31,7 @@ class ProfileAvatar extends Component {
     reader.readAsDataURL(file)
   }
   // 当对话框点击X按钮时候回调
-  onClose () {
+  onClose = () => {
     this.setState({
       cropperOpen: false
     })
@@ -47,7 +47,7 @@ class ProfileAvatar extends Component {
     }
     return new Blob([u8arr], {type: mime})
   }
-  handleSave (dataURL) {
+  handleSave = dataURL => {
     const blob = this.dataURLtoBlob(dataURL)
 
     xhr.header = {
@@ -73,14 +73,14 @@ class ProfileAvatar extends Component {
   render () {
     return (
       <div>
-        <Upload onUpload={::this.onUpload}>
+        <Upload onUpload={this.onUpload}>
           <AvatarUpload size="lg" text="更换头像" src="https://avatars0.githubusercontent.com/u/12554487"/>
         </Upload>
         {this.state.cropperOpen &&
           <AvatarClip
             open={this.state.cropperOpen}
-            onSave={::this.handleSave}
-            onClose={::this.onClose}
+            onSave={this.handleSave}
+            onClose={this.onClose}
             cropButtonName="保存"
             image={this.state.img}
             width={160}

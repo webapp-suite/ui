@@ -17,7 +17,7 @@ class Demo extends Component {
   //   this.codeHeight = ReactDOM.findDOMNode(this.refs.pre).offsetHeight
   // }
 
-  handleToggle () {
+  handleToggle = () => {
     this.setState({open: !this.state.open})
   }
 
@@ -33,7 +33,7 @@ class Demo extends Component {
         <div className="demo__content">{children}</div>
         {desc && <div className="demo__desc">{desc}</div>}
         <div className="demo__toggle">
-          <Button transparent icon="angle-double-down" onClick={::this.handleToggle}>
+          <Button transparent icon="angle-double-down" onClick={this.handleToggle}>
             代码
           </Button>
         </div>

@@ -12,12 +12,12 @@ export default () => {
 
 class App extends Component {
 
-  handleClick () {
+  handleClick () => {
     console.log('hello, earth-ui')
   }
 
   render () {
-    return <Button onClick={::this.handleClick} />
+    return <Button onClick={this.handleClick} />
   }
 }`
 

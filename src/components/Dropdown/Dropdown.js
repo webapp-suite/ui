@@ -35,7 +35,7 @@ class Dropdown extends Component {
     this.setState({open: false})
   }
 
-  handleToggle (open) {
+  handleToggle = open => {
     this.setState({ open })
     this.props.onToggle && this.props.onToggle(open)
   }
@@ -62,7 +62,7 @@ class Dropdown extends Component {
       <Popover
         triggerMode="click"
         open={open}
-        onToggle={::this.handleToggle}
+        onToggle={this.handleToggle}
         content={menuProps.children}
         disabled={disabled}
         aligned={aligned}

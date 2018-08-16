@@ -4,14 +4,16 @@
 
 import React, { Component } from 'react'
 import { Nav, NavItem } from 'earth-ui/lib/Nav'
+import message from 'earth-ui/lib/message'
 
 class NavBasic extends Component {
-  handleClick (e) {
-    console.log('click ', e);
+  handleClick = res => {
+    console.log(res)
+    message.success(res.title);
   }
   render () {
     return (
-      <Nav selectedId="1" width={240} onItemClick={::this.handleClick}>
+      <Nav selectedId="1" width={240} onItemClick={this.handleClick}>
         <NavItem id="1" icon="th" title="数据概况" />
         <NavItem id="2" icon="users" title="人群管理" defaultOpen>
           <NavItem id="3" title="人群列表" />

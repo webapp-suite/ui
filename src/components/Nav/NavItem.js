@@ -29,12 +29,12 @@ class NavItem extends Component {
     return this.context.nav.state.selectedId === props.id
   }
 
-  toggle (e) {
+  toggle = e => {
     e.preventDefault()
     this.setState({open: !this.state.open})
   }
 
-  handleClick (e) {
+  handleClick = e => {
     this.props.onClick && this.props.onClick(e)
     !this.props.children && this.context.nav.handleItemClick(this.props, e)
   }
@@ -52,7 +52,7 @@ class NavItem extends Component {
 
     let Item
     if (children) {
-      Item = <div className={`${prefixCls}-nav_item-entity`} onClick={::this.toggle}>{NavIcon}{title}{Toggle}</div>
+      Item = <div className={`${prefixCls}-nav_item-entity`} onClick={this.toggle}>{NavIcon}{title}{Toggle}</div>
     } else {
       Item = <div className={`${prefixCls}-nav_item-entity`}>{NavIcon}{title}{Toggle}</div>
     }
@@ -60,7 +60,7 @@ class NavItem extends Component {
     // 收起状态时不再渲染子节点
     return (
       <li
-        onClick={::this.handleClick}
+        onClick={this.handleClick}
         className={cx(
           `${prefixCls}-nav__item`,
           {

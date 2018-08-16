@@ -5,7 +5,7 @@ import Avatar from '../Avatar'
 import './index.less'
 
 class AvatarUpload extends Component {
-  _handleClick (e) {
+  _handleClick = e => {
     const onClick = this.props.onClick
     if (onClick) {
       onClick(e)
@@ -18,8 +18,8 @@ class AvatarUpload extends Component {
       <div className={`${prefixCls}-avatar-upload`}>
         {src
           ? <div className={`${prefixCls}-avatar-upload__update`}>
-            <Avatar src={src} shape={shape} size={size} onClick={::this._handleClick} />
-            <div onClick={::this._handleClick}
+            <Avatar src={src} shape={shape} size={size} onClick={this._handleClick} />
+            <div onClick={this._handleClick}
               className={cx(
                 `${prefixCls}-avatar-upload__cover`,
                 {
@@ -29,7 +29,7 @@ class AvatarUpload extends Component {
                 className
               )}>{text}</div>
           </div>
-          : <div onClick={::this._handleClick}
+          : <div onClick={this._handleClick}
             className={cx(
               `${prefixCls}-avatar-upload__first`,
               {

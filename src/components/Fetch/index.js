@@ -42,7 +42,7 @@ class Fetch extends Component {
           this.setState({xhr: 'success'})
           callback ? callback(res) : this.handleSuccess(res)
         },
-        error: ::this.handleError
+        error: this.handleError
       })
     }, this.props.delay || 0)
   }
@@ -57,7 +57,7 @@ class Fetch extends Component {
     this.props.onSuccess && this.props.onSuccess(res)
   }
 
-  handleError (msg) {
+  handleError = msg => {
     this.setState({xhr: 'error', msg})
   }
 

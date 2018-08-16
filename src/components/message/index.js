@@ -35,10 +35,10 @@ class Message extends Component {
 
   prepareClose (props) {
     const { duration } = props
-    duration && setTimeout(::this.handleClose, duration * 1000)
+    duration && setTimeout(this.handleClose, duration * 1000)
   }
 
-  handleClose () {
+  handleClose = () => {
     this.setState({open: false})
   }
 
@@ -56,7 +56,7 @@ class Message extends Component {
             className={`${prefixCls}-message__remove`}
             transparent
             icon="remove"
-            onClick={::this.handleClose}
+            onClick={this.handleClose}
           />
         )}
       </div>

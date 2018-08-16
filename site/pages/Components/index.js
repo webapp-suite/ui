@@ -23,7 +23,7 @@ class Components extends Component {
     }
   }
 
-  handleItemClick (e) {
+  handleItemClick = e => {
     this.toggle(false)
     this.switchRoute(e.id)
   }
@@ -41,7 +41,7 @@ class Components extends Component {
     return (
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>
-          <Nav selectedId={params.component} onItemClick={::this.handleItemClick} >
+          <Nav selectedId={params.component} onItemClick={this.handleItemClick} >
             {components.map(item => {
               !item.components && (this.componentsMap[item.name] = item)
               if (item.components) {

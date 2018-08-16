@@ -1,3 +1,5 @@
+@import '~variable';
+
 .demo {
   border-radius: 2px;
   border: 1px solid #ececec;
@@ -10,7 +12,7 @@
 
 @media (max-width: 991px) {
   // todo do not rely on earthui classname
-  .earthui-layout__col:last-child > .demo:first-child {
+  .@{prefix-cls}-layout__col:last-child > .demo:first-child {
     margin-top: 20px;
   }
 }

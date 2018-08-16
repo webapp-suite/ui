@@ -19,7 +19,7 @@ class FormSubmit extends Component {
     this.toggleProcess = () => {}
   }
 
-  handleClick () {
+  handleClick = () => {
     const { onClick } = this.props
     const { form } = this.context
     onClick && onClick()
@@ -50,7 +50,7 @@ class FormSubmit extends Component {
     return (
       <Button
         className={cx(`${prefixCls}-form__submit`, className)}
-        onClick={::this.handleClick}
+        onClick={this.handleClick}
         disabled={process}
         {...other}
       >

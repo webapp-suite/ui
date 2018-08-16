@@ -13,20 +13,20 @@ class AvatarClip extends Component {
     }
   }
 
-  setEditorRef (editor) {
+  setEditorRef = editor => {
     if (editor) this.editor = editor
   }
 
-  handleScale (e) {
+  handleScale = e => {
     const scale = parseFloat(e.target.value)
     this.setState({ scale })
   }
 
-  onClose () {
+  onClose = () => {
     this.props.onClose && this.props.onClose()
   }
 
-  handleSave () {
+  handleSave = () => {
     const img = this.editor.getImageScaledToCanvas().toDataURL()
     this.props.onSave(img)
   }
@@ -35,14 +35,14 @@ class AvatarClip extends Component {
   render () {
     const { image, width, height, border, color, cropButtonName, open } = this.props
     return (
-      <Modal open={open} onClose={::this.onClose} lock>
+      <Modal open={open} onClose={this.onClose} lock>
         <ModalBody>
           <h3 className={`${prefixCls}-avatar-clip__title`}>编辑头像</h3>
           <div className={`${prefixCls}-avatar-clip__subtitle`}>调整头像尺寸和位置</div>
           <div className={`${prefixCls}-avatar-clip__content`}>
             <div className={`${prefixCls}-avatar-clip__edit`}>
               <AvatarEditor
-                ref={::this.setEditorRef}
+                ref={this.setEditorRef}
                 image={image}
                 width={width}
                 height={height}
@@ -56,7 +56,7 @@ class AvatarClip extends Component {
               <input
                 type="range"
                 name="scale"
-                onChange={::this.handleScale}
+                onChange={this.handleScale}
                 min="1"
                 max="2"
                 step="0.01"
@@ -66,7 +66,7 @@ class AvatarClip extends Component {
               <svg viewBox="0 0 18 16" width="21" height="16" aria-hidden="true" style={{height: 16, width: 21}}><title /><g><path d="M13.296 3H1.006C.45 3 0 3.45 0 4.003v10.995C0 15.545.45 16 1.007 16h12.986C14.55 16 15 15.553 15 15V4.003C15 3.456 14.55 3 13.993 3h-.697zm-.892 11H2.596c-.33 0-.596-.266-.596-.6V5.6C2 5.27 2.267 5 2.596 5h9.81c.328 0 .595.266.595.6v7.8c0 .33-.268.6-.596.6zM4 0c-.552 0-1 .448-1 1s.448 1 1 1h11.5s.5 0 .5.5V12c0 .552.448 1 1 1s1-.448 1-1V1c0-.552-.448-1-1-1H4z" fillRule="evenodd" /></g></svg>
             </div>
             <div className={`${prefixCls}-avatar-clip__footer`}>
-              <Button onClick={::this.handleSave}>
+              <Button onClick={this.handleSave}>
                 {cropButtonName}
               </Button>
             </div>
