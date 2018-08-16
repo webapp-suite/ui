@@ -9,11 +9,11 @@ class FileList extends Component {
   }
   render () {
     return (
-      <div className="cmui-upload__filelist">
+      <div className={`${prefixCls}-upload__filelist`}>
         {
           this.props.data.map((item, index) => {
             return (
-              <div key={index} className="cmui-upload__filelist_row">
+              <div key={index} className={`${prefixCls}-upload__filelist_row`}>
                 <span>{item.name}</span>
                 <span>{item.percent}%</span>
                 <Icon type="upload" style={{display: item.state === 0 ? '' : 'none'}} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import Button from '../Button'
 import Spinner from '../Spinner'
 
@@ -49,7 +49,7 @@ class FormSubmit extends Component {
     const { process } = this.state
     return (
       <Button
-        className={classnames('cmui-form-submit', className)}
+        className={cx(`${prefixCls}-form__submit`, className)}
         onClick={::this.handleClick}
         disabled={process}
         {...other}

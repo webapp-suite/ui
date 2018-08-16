@@ -1,6 +1,6 @@
 @import '~variable';
 
-.cmui-select__option {
+.@{prefix-cls}-select__option {
   cursor: pointer;
   padding: 0 10px;
   line-height: 40px;
@@ -14,17 +14,17 @@
   }
 }
 
-.cmui-select__option--selected {
+.@{prefix-cls}-select__option_selected {
   position: relative;
   color: @theme;
 }
 
-.cmui-select__option--active,
-.cmui-select__option--active:hover {
+.@{prefix-cls}-select__option_active,
+.@{prefix-cls}-select__option_active:hover {
   background-color: @medium-liter;
 }
 
-.cmui-select__option-icon--selected {
+.@{prefix-cls}-select__option-icon_selected {
   position: absolute;
   right: 9px;
   top: 50%;

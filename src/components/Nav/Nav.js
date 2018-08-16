@@ -21,7 +21,7 @@ class Nav extends Component {
     }
 
     return (
-      <div className={cx('cmui-nav', className)} {...other}>
+      <div className={cx(`${prefixCls}-nav`, className)} {...other}>
         <ul>{children}</ul>
       </div>
     )

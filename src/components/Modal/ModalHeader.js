@@ -5,8 +5,8 @@ import cx from 'classnames'
 const ModalHeader = (props, context) => {
   const { children, className, title, ...other } = props
   return (
-    <div className={cx('cmui-modal__modal-header', className)} {...other}>
-      {title && (<div className="cmui-modal__modal-header--default">{title}</div>)}
+    <div className={cx(`${prefixCls}-modal__modal-header`, className)} {...other}>
+      {title && (<div className={`${prefixCls}-modal__modal-header_default`}>{title}</div>)}
       {children}
     </div>
   )

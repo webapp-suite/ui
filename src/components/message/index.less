@@ -2,35 +2,31 @@
 @success-color: @green;
 @danger-color: @red-lite;
 
-.cmui-message {
+.@{prefix-cls}-message {
   position: fixed;
   z-index: 9999;
   min-width: 200px;
-  //max-width: 400px;
   left: 50%;
   transform: translate(-50%, 0);
   top: 40%;
   padding: 33px 88px;
   text-align: center;
-  //padding-left: 80px;
-  //border-radius: 2px;
   border: 1px solid transparent;
   word-wrap: break-word;
   font-size: 14px;
   background-color: rgba(0, 0, 0, .75);
   color: @white;
-  //box-shadow: 0px 2px 8px rgba(0, 0, 0, .2);
   opacity: 0;
   transform: translate(-50%, -25%);
   transition: opacity .15s, transform .15s;
 }
 
-.cmui-message--open {
+.@{prefix-cls}-message_open {
   opacity: 1;
   transform: translate(-50%, 0);
 }
 
-.cmui-message__symbol {
+.@{prefix-cls}-message__symbol {
   position: absolute;
   left: 30px;
   top: 50%;
@@ -38,20 +34,20 @@
   transform: translateY(-50%);
 }
 
-.cmui-message__remove {
+.@{prefix-cls}-message__remove {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.cmui-message--success {
-  .cmui-message__symbol {
+.@{prefix-cls}-message_success {
+  .@{prefix-cls}-message__symbol {
     color: @success-color;
   }
 }
 
-.cmui-message--danger {
-  .cmui-message__symbol {
+.@{prefix-cls}-message_danger {
+  .@{prefix-cls}-message__symbol {
     color: @danger-color;
   }
 }

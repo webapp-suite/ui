@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 const Col = props => {
   const { children, className, col, right, ...other } = props
-  const classNames = classnames(
-    'cmui-col',
-    col && col.split(' ').map(v => 'cmui-col--' + v),
+  const classNames = cx(
+    `${prefixCls}-layout__col`,
+    col && col.split(' ').map(v => `${prefixCls}-layout__col_${v}`),
     {
-      'cmui-col--right': right
+      [`${prefixCls}-layout__col_right`]: right
     },
     className
   )

@@ -1,12 +1,12 @@
 @import '~variable';
 @danger-color: @red;
 
-.cmui-form__item {
+.@{prefix-cls}-form__item {
   padding-top: 0;
   padding-bottom: 22px;
 }
 
-.cmui-form__item-label {
+.@{prefix-cls}-form__item-label {
   height: 22px;
   line-height: 22px;
   font-size: 13px;
@@ -15,11 +15,11 @@
   margin-bottom: 12px;
 }
 
-.cmui-form__item-content {
+.@{prefix-cls}-form__item-content {
   overflow: hidden;
 }
 
-.cmui-form__item-label--required {
+.@{prefix-cls}-form__item-label_required {
   &:after {
     content: '* ';
     color: @danger-color;
@@ -30,45 +30,45 @@
   }
 }
 
-.cmui-form__item-tip {
+.@{prefix-cls}-form__item-tip {
   font-size: 12px;
   margin-top: 11px;
   display: block;
   color: #999;
-  > .cmui-icon {
+  > .@{prefix-cls}-icon {
     margin-right: 3px;
   }
 }
 
-.cmui-form__item--error {
-  .cmui-input,
-  .cmui-form-textarea {
+.@{prefix-cls}-form__item_error {
+  .@{prefix-cls}-input,
+  .@{prefix-cls}-form__textarea {
     border-color: @danger-color;
   }
-  .cmui-select,
-  .cmui-multiple-select {
+  .@{prefix-cls}-select,
+  .@{prefix-cls}-multiple-select {
     border-color: @danger-color;
   }
-  .cmui-form__item-tip {
+  .@{prefix-cls}-form__item-tip {
     color: @danger-color;
   }
 }
 
-.cmui-form-sm {
-  .cmui-form__item-label {
+.@{prefix-cls}-form_sm {
+  .@{prefix-cls}-form__item-label {
     font-size: 12px;
   }
-  .cmui-form__item {
+  .@{prefix-cls}-form__item {
     padding-top: 0;
     padding-bottom: 15px;
   }
 }
 
-.cmui-form-lg {
-  .cmui-form__item-label {
+.@{prefix-cls}-form_lg {
+  .@{prefix-cls}-form__item-label {
     font-size: 16px;
   }
-  .cmui-form__item {
+  .@{prefix-cls}-form__item {
     padding-top: 20px;
     padding-bottom: 20px;
   }

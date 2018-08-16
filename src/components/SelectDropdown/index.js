@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import { Dropdown, DropdownToggle, DropdownMenu } from '../Dropdown'
 import Fetch from '../Fetch'
 import Icon from '../Icon'
@@ -28,8 +28,8 @@ class SelectDropdown extends Component {
         disabled={disabled}
         ref={dropdown => (this.dropdown = dropdown)}
       >
-        <DropdownToggle className={classnames('cmui-select-dropdown', {
-          'cmui-select-dropdown--caretable': caret
+        <DropdownToggle className={cx(`${prefixCls}-select-dropdown`, {
+          [`${prefixCls}-select-dropdown__dropdown-toggle_caretable`]: caret
         }, className)} {...other}>
           {url && hasPropValue ? (
             <Fetch
@@ -41,9 +41,9 @@ class SelectDropdown extends Component {
               {title}
             </Fetch>
           ) : title}
-          {caret && <Icon type="caret-down" className="cmui-select-dropdown__caret" />}
+          {caret && <Icon type="caret-down" className={`${prefixCls}-select-dropdown__caret`} />}
         </DropdownToggle>
-        <DropdownMenu className="cmui-select-dropdown__popover">
+        <DropdownMenu className={`${prefixCls}-select-dropdown__popover`}>
           {url && !hasPropValue ? (
             <Fetch
               url={url}

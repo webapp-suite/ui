@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import invariant from 'invariant'
 import Icon from '../../Icon'
 import './index.less'
@@ -71,36 +71,36 @@ class FormItem extends Component {
     const labelWidth = this.context.form.props.labelWidth
 
     const Help = help && (
-      <div className="cmui-form__item-tip">
+      <div className={`${prefixCls}-form__item-tip`}>
         <Icon type="question-circle" />
         {help}
       </div>
     )
 
     const Error = error && (
-      <div className="cmui-form__item-tip">
+      <div className={`${prefixCls}-form__item-tip`}>
         <Icon type="info-circle" />
         {error}
       </div>
     )
 
-    const classNames = classnames('cmui-form__item', {
-      'cmui-form__item--error': error
+    const classNames = cx(`${prefixCls}-form__item`, {
+      [`${prefixCls}-form__item_error`]: error
     }, className)
 
     return (
       <div className={classNames} {...other}>
         {label && (
           <div
-            className={classnames('cmui-form__item-label', {
-              'cmui-form__item-label--required': required
+            className={cx(`${prefixCls}-form__item-label`, {
+              [`${prefixCls}-form__item-label_required`]: required
             })}
             style={{width: `${labelWidth}px`}}
           >
             {label}
           </div>
         )}
-        <div className="cmui-form__item-content">
+        <div className={`${prefixCls}-form__item-content`}>
           {children}
           {Error || Help}
         </div>

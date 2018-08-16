@@ -1,16 +1,18 @@
-.cmui-clearable-input {
+@import '~variable';
+
+.@{prefix-cls}-clearable-input {
   position: relative;
   display: inline-block;
   width: 100%;
   .autocomplete-off {
     display: none;
   }
-  .cmui-input--sm + .cmui-clearable-input__clear {
+  .@{prefix-cls}-input_sm + .@{prefix-cls}-clearable-input__clear-btn {
     right: 0;
   }
 }
 
-.cmui-clearable-input__clear {
+.@{prefix-cls}-clearable-input__clear-btn {
   position: absolute;
   top: 50%;
   margin-top: -11px;

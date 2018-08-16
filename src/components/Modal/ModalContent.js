@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import cx from 'classnames'
 import classlist from 'classlist'
+import cx from 'classnames'
 
 class ModalContent extends Component {
   constructor (props) {
@@ -38,11 +38,11 @@ class ModalContent extends Component {
   }
 
   handleModalClick (e) {
-    if (e.target.className === 'cmui-modal__modal') {
+    if (e.target.className === `${prefixCls}-modal__modal`) {
       if (!this.props.lock) {
         this.props.close()
       } else {
-        const LOCK_CLASSNAME = 'cmui-modal__modal-dialog--lock'
+        const LOCK_CLASSNAME = `${prefixCls}-modal__modal-dialog_lock`
         const END_EVENT = 'animationend'
         classlist(this.modalNode).add(LOCK_CLASSNAME)
         const onAnimationEnd = () => {
@@ -57,21 +57,21 @@ class ModalContent extends Component {
   render () {
     const {children, className, lock, size, zIndex, close, modal, ...other} = this.props
     return (
-      <div className={cx('cmui-modal', {
-        [`cmui-modal--${size}`]: size
+      <div className={cx(`${prefixCls}-modal`, {
+        [`${prefixCls}-modal_${size}`]: size
       }, className)} {...other}>
-        <div className="cmui-modal__backdrop" style={{zIndex: zIndex || 3000}} />
+        <div className={`${prefixCls}-modal__backdrop`} style={{zIndex: zIndex || 3000}} />
         <div
-          className="cmui-modal__modal"
+          className={`${prefixCls}-modal__modal`}
           style={{zIndex: zIndex || 3000}}
           onClick={::this.handleModalClick}
         >
-          <div className="cmui-modal__modal-dialog" ref={node => (this.modalNode = node)}>
-            <div className="cmui-modal__modal-content">
+          <div className={`${prefixCls}-modal__modal-dialog`} ref={node => (this.modalNode = node)}>
+            <div className={`${prefixCls}-modal__modal-content`}>
               {children}
             </div>
             <div
-              className="cmui-modal__modal-close"
+              className={`${prefixCls}-modal__modal-close`}
               onClick={() => close()}
             />
           </div>
@@ -89,7 +89,7 @@ ModalContent.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   lock: PropTypes.bool,
-  size: PropTypes.number,
+  size: PropTypes.string,
   zIndex: PropTypes.number,
   close: PropTypes.func,
   modal: PropTypes.object

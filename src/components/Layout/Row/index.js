@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 const Row = props => {
   const { children, className, gutter, fluid, ...other } = props
-  const classNames = classnames(
-    'cmui-row',
+  const classNames = cx(
+    `${prefixCls}-layout__row`,
     {
-      'cmui-row--gutter': gutter,
-      'cmui-row--fluid': fluid
+      [`${prefixCls}-layout__row_gutter`]: gutter,
+      [`${prefixCls}-layout__row_fluid`]: fluid
     },
     className
   )

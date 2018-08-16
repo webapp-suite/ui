@@ -2,7 +2,7 @@ import './index.less'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-import classnames from 'classnames'
+import cx from 'classnames'
 import ToggleNode from '../_util/ToggleNode'
 // import Icon from '../Icon'
 import Button from '../Button'
@@ -17,7 +17,7 @@ class Message extends Component {
   }
 
   componentDidMount () {
-    this.toggleNode = new ToggleNode(ReactDOM.findDOMNode(this), 'cmui-message--open')
+    this.toggleNode = new ToggleNode(ReactDOM.findDOMNode(this), `${prefixCls}-message_open`)
     this.toggleNode.onClose = () => {
       this.props.onClose && this.props.onClose()
     }
@@ -45,15 +45,15 @@ class Message extends Component {
   render () {
     const { type, message, duration } = this.props
     return (
-      <div className={classnames('cmui-message', {[`cmui-message--${type}`]: type})}>
+      <div className={cx(`${prefixCls}-message`, {[`${prefixCls}-message_${type}`]: type})}>
         {/* <Icon */}
-        {/* className="cmui-message__symbol" */}
+        {/* className={`${prefixCls}-message__symbol`} */}
         {/* type={type === 'success' ? 'check' : 'warning'} */}
         {/* /> */}
         {message}
         {duration === 0 && (
           <Button
-            className="cmui-message__remove"
+            className={`${prefixCls}-message__remove`}
             transparent
             icon="remove"
             onClick={::this.handleClose}

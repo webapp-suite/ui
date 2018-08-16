@@ -25,9 +25,9 @@ class Input extends Component {
   render () {
     const { className, size, width, ...other } = this.props
     const classNames = cx(
-      'cmui-input',
+      `${prefixCls}-input`,
       {
-        [`cmui-input--${size}`]: size
+        [`${prefixCls}-input_${size}`]: size
       },
       className
     )

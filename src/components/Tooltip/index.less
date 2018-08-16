@@ -1,27 +1,28 @@
+@import '~variable';
 @mainColor: #333;
 
-.cmui-tooltip__popover {
+.@{prefix-cls}-tooltip__popover {
   white-space: pre-wrap;
-  > .cmui-popover__content {
+  > .@{prefix-cls}-popover__content {
     background-color: @mainColor;
     color: #fff;
   }
-  &.cmui-popover--up {
+  &.@{prefix-cls}-popover_up {
     &:after {
       border-top-color: @mainColor;
     }
   }
-  &.cmui-popover--down {
+  &.@{prefix-cls}-popover_down {
     &:after {
       border-bottom-color: @mainColor;
     }
   }
-  &.cmui-popover--left {
+  &.@{prefix-cls}-popover_left {
     &:after {
       border-left-color: @mainColor;
     }
   }
-  &.cmui-popover--right {
+  &.@{prefix-cls}-popover_right {
     &:after {
       border-right-color: @mainColor;
     }

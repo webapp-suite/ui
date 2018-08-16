@@ -1,4 +1,6 @@
-.cmui-row {
+@import '~variable';
+
+.@{prefix-cls}-layout__row {
   &:after {
     content: " ";
     display: block;
@@ -9,23 +11,23 @@
   }
 }
 
-.cmui-row--gutter {
+.@{prefix-cls}-layout__row_gutter {
   margin-left: -8px;
   margin-right: -8px;
-  > .cmui-col {
+  > .@{prefix-cls}-layout__col {
     padding-left: 8px;
     padding-right: 8px;
   }
 }
 
-.cmui-row--fluid {
-  > .cmui-col {
+.@{prefix-cls}-layout__row_fluid {
+  > .@{prefix-cls}-layout__col {
     float: left;
   }
 }
 
-.cmui-row {
-  .cmui-col--right {
+.@{prefix-cls}-layout__row {
+  .@{prefix-cls}-layout__col_right {
     float: right;
   }
 }

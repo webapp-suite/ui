@@ -1,25 +1,22 @@
 @import '~variable';
 
-.cmui-upload {
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: center;
-  .cmui-upload__children {
+.@{prefix-cls}-upload {
+  .@{prefix-cls}-upload__children {
     display: table;
     margin-bottom: @unit-double;
   }
 }
-.cmui-upload__listbox {
+.@{prefix-cls}-upload__listbox {
   position: relative;
   left: 0px;
-  background-color: #fff;
+  background-color: @white;
   opacity: 1;
 }
-.cmui-upload__filelist {
+.@{prefix-cls}-upload__filelist {
   padding-top: 10px;
-  background-color: #fff;
+  background-color: @white;
 }
-.cmui-upload__filelist_row {
+.@{prefix-cls}-upload__filelist_row {
   margin: 10px 0px;
   span {
     padding-right: 10px;

@@ -63,8 +63,8 @@ class NavItem extends Component {
 
     delete other.href
 
-    const NavIcon = icon && <Icon type={icon} className="cmui-nav__item-icon" />
-    const Toggle = children && <Icon type="caret-right" className="cmui-nav__item-toggle" />
+    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
+    const Toggle = children && <Icon type="caret-right" className={`${prefixCls}-nav__item-toggle`} />
 
     let Item
     if (children) {
@@ -76,10 +76,10 @@ class NavItem extends Component {
     }
 
     const classNames = cx(
-      'cmui-nav__item',
+      `${prefixCls}-nav__item`,
       {
-        'cmui-nav__item--open': open,
-        'cmui-nav__item--active': active
+        [`${prefixCls}-nav__item_open`]: open,
+        [`${prefixCls}-nav__item_active`]: active
       },
       className
     )

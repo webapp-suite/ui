@@ -15,8 +15,8 @@
     __DEVELOPMENT__: true,
     __DEVTOOLS__: true,
     runtime: true,
-    jsdom: true
-
+    jsdom: true,
+    prefixCls: true
   },
   "parser": "babel-eslint",
   "rules": {

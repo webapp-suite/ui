@@ -10,7 +10,7 @@ const scrollbarWidth = (() => {
   const scrollDiv = document.createElement('div')
   const body = document.body
 
-  scrollDiv.className = 'cmui-modal--scrollbar-measure'
+  scrollDiv.className = `${prefixCls}-modal__scrollbar-measure`
   body.appendChild(scrollDiv)
   const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
   body.removeChild(scrollDiv)
@@ -63,7 +63,7 @@ class Modal extends Component {
       const body = document.body
       const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
       const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
-      classlist(body).remove('cmui-modal--open')
+      classlist(body).remove(`${prefixCls}-modal_open`)
       if (bodyPaddingRight) {
         body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
       } else {
@@ -80,11 +80,11 @@ class Modal extends Component {
     const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
     const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
     if (open && !prevOpen) {
-      classlist(body).add('cmui-modal--open')
+      classlist(body).add(`${prefixCls}-modal_open`)
       body.style.paddingRight = bodyPaddingRight + _scrollbarWidth + 'px'
     } else if (!open && prevOpen) {
       this.closeCallbacks.add(() => {
-        classlist(body).remove('cmui-modal--open')
+        classlist(body).remove(`${prefixCls}-modal_open`)
         if (bodyPaddingRight) {
           body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
         } else {
@@ -124,7 +124,7 @@ class Modal extends Component {
     const onRendered = () => {
       if (!this.toggleModal) {
         const node = ReactDOM.findDOMNode(this.content)
-        this.toggleModal = new ToggleNode(node, 'cmui-modal--open')
+        this.toggleModal = new ToggleNode(node, `${prefixCls}-modal_open`)
         this.toggleModal.onClose = () => this.closeCallbacks.free()
       }
       this.toggleModal.open()

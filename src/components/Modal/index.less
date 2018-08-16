@@ -7,8 +7,9 @@
 @min-width-sm: 300px;
 @min-width-md: 400px;
 @min-width-lg: 500px;
+@keyframes-modal-shake: ~"@{prefix-cls}-modal__modal-shake";
 
-.cmui-modal--scrollbar-measure {
+.@{prefix-cls}-modal__scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
@@ -16,16 +17,16 @@
   overflow: scroll;
 }
 
-body.cmui-modal--open {
+body.@{prefix-cls}-modal_open {
   overflow: hidden;
 }
 
-.cmui-modal {
+.@{prefix-cls}-modal {
   display: none;
   backface-visibility: hidden;
 }
 
-.cmui-modal__backdrop {
+.@{prefix-cls}-modal__backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -37,7 +38,7 @@ body.cmui-modal--open {
   background-color: rgba(0, 0, 0, .8);
 }
 
-.cmui-modal__modal {
+.@{prefix-cls}-modal__modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -51,7 +52,7 @@ body.cmui-modal--open {
 
 }
 
-.cmui-modal__modal-dialog {
+.@{prefix-cls}-modal__modal-dialog {
   position: relative;
   margin: 100px auto;
   min-width: @min-width-md;
@@ -59,11 +60,11 @@ body.cmui-modal--open {
   transition: all @duration;
 }
 
-.cmui-modal__modal-dialog--lock {
-  animation: cmui-modal-shake .8s;
+.@{prefix-cls}-modal__modal-dialog_lock {
+  animation: @keyframes-modal-shake .8s;
 }
 
-@keyframes cmui-modal-shake {
+@keyframes  @keyframes-modal-shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
@@ -81,39 +82,39 @@ body.cmui-modal--open {
   }
 }
 
-.cmui-modal__modal-dialog {
+.@{prefix-cls}-modal__modal-dialog {
   opacity: 0;
   transform: scale(.98) translate3d(0, -10%, 0);
   transform-origin: top;
   transition: all @duration;
 }
 
-.cmui-modal--sm {
-  .cmui-modal__modal-dialog {
+.@{prefix-cls}-modal_sm {
+  .@{prefix-cls}-modal__modal-dialog {
     min-width: @min-width-sm;
   }
 }
 
-.cmui-modal--lg {
-  .cmui-modal__modal-dialog {
+.@{prefix-cls}-modal_lg {
+  .@{prefix-cls}-modal__modal-dialog {
     min-width: @min-width-lg;
   }
 }
 
-.cmui-modal__modal-header {
+.@{prefix-cls}-modal__modal-header {
   background-color: @white;
   color: @dark-darker;
   padding: @padding-tb @padding-lr 30px;
   position: relative;
   text-align: left;
-  .cmui-modal__modal-header--default {
+  .@{prefix-cls}-modal__modal-header_default {
     font-size: 24px;
     line-height: 24px;
     font-weight: 500;
   }
 }
 
-.cmui-modal__modal-close {
+.@{prefix-cls}-modal__modal-close {
   position: absolute;
   top: -8px;
   right: -40px;
@@ -132,17 +133,17 @@ body.cmui-modal--open {
   }
 }
 
-.cmui-modal__modal-body {
+.@{prefix-cls}-modal__modal-body {
   padding: 20px @padding-lr @padding-tb;
   background-color: @white;
   font-size: @fontsize;
 }
 
-div.cmui-modal--open {
-  .cmui-modal__backdrop {
+div.@{prefix-cls}-modal_open {
+  .@{prefix-cls}-modal__backdrop {
     opacity: .6;
   }
-  .cmui-modal__modal-dialog {
+  .@{prefix-cls}-modal__modal-dialog {
     opacity: 1;
     transform: scale(1) translate3d(0, 0, 0);
   }

@@ -11,7 +11,7 @@
 @width: 274px;
 @height: 40px;
 
-.cmui-nav {
+.@{prefix-cls}-nav {
   ul {
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@
   }
 }
 
-.cmui-nav__item {
+.@{prefix-cls}-nav__item {
   > a {
     display: block;
     color: #314659;
@@ -67,13 +67,13 @@
   > ul {
     display: none;
   }
-  .cmui-nav__item {
+  .@{prefix-cls}-nav__item {
     border-left: 0;
     border-right: 0;
     > a {
       padding-left: @nav-parent-padding-left;
     }
-    .cmui-nav__item {
+    .@{prefix-cls}-nav__item {
       > a {
         padding-left: @nav-parent-padding-left * 2;
       }
@@ -81,13 +81,13 @@
   }
 }
 
-.cmui-nav__item-icon {
+.@{prefix-cls}-nav__item-icon {
   margin-right: 10px;
   width: 1em;
   text-align: center;
 }
 
-.cmui-nav__item-toggle {
+.@{prefix-cls}-nav__item-toggle {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -95,16 +95,16 @@
   transition: transform .2s;
 }
 
-.cmui-nav__item--open {
+.@{prefix-cls}-nav__item_open {
   > ul {
     display: block;
   }
-  .cmui-nav__item-toggle {
+  .@{prefix-cls}-nav__item-toggle {
     transform: rotate(90deg);
   }
 }
 
-.cmui-nav__item--active {
+.@{prefix-cls}-nav__item_active {
   > a {
     color: @theme;
     background-color: @theme-liter;

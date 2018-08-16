@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import invariant from 'invariant'
 import shouldComponentUpdate from '../../shouldComponentUpdate'
 import dataFilter from '../../_util/dataFilter'
@@ -145,12 +145,12 @@ class Select extends Component {
     optionsWithProps = this.filterBySearchValue(optionsWithProps)
     optionsWithProps = this.shouldSearchable(optionsWithProps)
 
-    const classNames = classnames('cmui-select', {
-      [`cmui-select--${size}`]: size
+    const classNames = cx(`${prefixCls}-select`, {
+      [`${prefixCls}-select_${size}`]: size
     }, className)
 
-    const optionsClassNames = classnames('cmui-select__options', {
-      [`cmui-select__options--${size}`]: size
+    const optionsClassNames = cx(`${prefixCls}-select__options`, {
+      [`${prefixCls}-select__options_${size}`]: size
     })
 
     if (!title) {
@@ -164,7 +164,7 @@ class Select extends Component {
 
     const Title = (
       <TextOverflow>
-        <div className="cmui-select__title">{title}</div>
+        <div className={`${prefixCls}-select__title`}>{title}</div>
       </TextOverflow>
     )
 
@@ -182,7 +182,7 @@ class Select extends Component {
         {searchable && (
           <ClearableInput
             ref="clearableInput"
-            className="cmui-select__search-input"
+            className={`${prefixCls}-select__search-input`}
             value={searchValue}
             placeholder={searchPlaceholder}
             onChange={::this.handleSearch}
@@ -191,7 +191,7 @@ class Select extends Component {
         )}
         <ul className={optionsClassNames}>
           {optionsWithProps && optionsWithProps.length ? optionsWithProps : (
-            <li className="cmui-select__option">{noOptionsContent}</li>
+            <li className={`${prefixCls}-select__option`}>{noOptionsContent}</li>
           )}
         </ul>
       </SelectDropdown>

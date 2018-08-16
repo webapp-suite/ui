@@ -1,6 +1,6 @@
 @import '~variable';
 
-.cmui-btn {
+.@{prefix-cls}-button__btn {
   color: @white;
   padding: 0 20px;
   height: 30px;
@@ -29,15 +29,15 @@
     color: #9e9e9e;
     cursor: not-allowed;
   }
-  .cmui-icon {
+  .@{prefix-cls}-icon {
     margin-right: 5px;
   }
-  +.cmui-btn {
+  +.@{prefix-cls}-button__btn {
     margin-left: 10px;
   }
 }
 
-.cmui-btn--minor {
+.@{prefix-cls}-button__btn_minor {
   color: @theme;
   background-color: @theme-liter;
   border-color: @theme;
@@ -46,41 +46,41 @@
   }
 }
 
-.cmui-btn--sm {
+.@{prefix-cls}-button__btn_sm {
   padding: 0 10px;
   height: 22px;
 }
 
-.cmui-btn--lg {
+.@{prefix-cls}-button__btn_lg {
   padding: 0 33px;
   height: 40px;
   font-size: 14px;
 }
 
-.cmui-btn--icon,
-.cmui-btn--circle {
+.@{prefix-cls}-button__icon,
+.@{prefix-cls}-button__btn_circle {
   padding: 0;
   width: 30px;
   text-align: center;
-  &.cmui-btn--sm {
+  &.@{prefix-cls}-button__btn_sm {
     width: 22px;
   }
-  &.cmui-btn--lg {
+  &.@{prefix-cls}-button__btn_lg {
     width: 40px;
   }
 }
 
-.cmui-btn--icon {
-  .cmui-icon {
+.@{prefix-cls}-button__icon {
+  .@{prefix-cls}-button__icon {
     margin-right: 0;
   }
 }
 
-.cmui-btn--circle {
+.@{prefix-cls}-button__btn_circle {
   border-radius: 50%;
 }
 
-.cmui-btn--transparent {
+.@{prefix-cls}-button__btn_transparent {
   border: 0;
   background-color: transparent;
   color: inherit;
@@ -98,7 +98,7 @@
   }
 }
 
-.cmui-btn--ghost {
+.@{prefix-cls}-button__btn_ghost {
   border: 1px solid @theme;
   background-color: transparent;
   color: @theme;

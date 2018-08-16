@@ -15,23 +15,27 @@ class AvatarUpload extends Component {
   render () {
     let {shape, size, src, className, text} = this.props
     return (
-      <div className="cmui-avatarupload">
+      <div className={`${prefixCls}-avatar-upload`}>
         {src
-          ? <div className="cmui-avatarupload__update">
+          ? <div className={`${prefixCls}-avatar-upload__update`}>
             <Avatar src={src} shape={shape} size={size} onClick={::this._handleClick} />
             <div onClick={::this._handleClick}
               className={cx(
-                'cmui-avatarupload__cover',
-                {[`cmui-avatarupload__cover__${shape}`]: shape,
-                  [`cmui-avatarupload__cover__${size}`]: size},
+                `${prefixCls}-avatar-upload__cover`,
+                {
+                  [`${prefixCls}-avatar-upload__cover_${shape}`]: shape,
+                  [`${prefixCls}-avatar-upload__cover_${size}`]: size
+                },
                 className
               )}>{text}</div>
           </div>
           : <div onClick={::this._handleClick}
             className={cx(
-              'cmui-avatarupload__first',
-              {[`cmui-avatarupload__${shape}`]: shape,
-                [`cmui-avatarupload__${size}`]: size},
+              `${prefixCls}-avatar-upload__first`,
+              {
+                [`${prefixCls}-avatar-upload__shallow-cover_${shape}`]: shape,
+                [`${prefixCls}-avatar-upload__shallow-cover_${size}`]: size
+              },
               className
             )}>{text}</div>
         }

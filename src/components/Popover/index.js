@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-import classnames from 'classnames'
+import cx from 'classnames'
 import PopoverContent from './PopoverContent'
 import './index.less'
 
+// todo remove listener after done
 window.addEventListener('click', () => {
   const openedPopoverInContext = Popover[Popover.OPENED_POPOVER]
   openedPopoverInContext && openedPopoverInContext.close()
@@ -153,8 +154,8 @@ class Popover extends Component {
     const { children, triggerMode, disabled } = this.props
     const { open } = this.state
     const triggerProps = {
-      className: classnames(children.props.className, 'cmui-popover__trigger', {
-        'cmui-popover__trigger--disabled': disabled
+      className: cx(children.props.className, `${prefixCls}-popover__trigger`, {
+        [`${prefixCls}-popover__trigger_disabled`]: disabled
       })
     }
     if (!disabled) {

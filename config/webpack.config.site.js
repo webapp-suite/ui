@@ -99,6 +99,10 @@ if (isProduction) {
   }))
 }
 
+config.plugins.push(new webpack.DefinePlugin({
+  'prefixCls': JSON.stringify('earthui')
+}))
+
 // Generate index.html in 'site' dir
 config.plugins.push(function () {
   this.plugin('done', function (statsData) {

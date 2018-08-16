@@ -1,12 +1,12 @@
-import '../../styles/iconfont.less'
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
+import '../../styles/iconfont.less'
 
 const Icon = props => {
   const { className, type, ...other } = props
   return (
-    <i className={classnames('cmui-icon icon', 'icon-' + type, className)} {...other} />
+    <i className={cx(`${prefixCls}-icon icon`, 'icon-' + type, className)} {...other} />
   )
 }
 

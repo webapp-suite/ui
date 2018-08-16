@@ -1,26 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import cx from 'classnames'
 import './index.less'
 
 class InputForm extends Component {
-  static propTypes = {
-    label: PropTypes.string,
-    name: PropTypes.string,
-    placeholder: PropTypes.string,
-    type: PropTypes.string,
-    content: PropTypes.string,
-    save: PropTypes.func,
-    onChange: PropTypes.func,
-    hasbutton: PropTypes.bool
-  }
-
-  static defaultProps = {
-    label: '',
-    content: '',
-    placeholder: ''
-  }
-
   constructor (props) {
     super(props)
     let state = {
@@ -36,7 +19,6 @@ class InputForm extends Component {
   }
 
   _edit () {
-    console.log('edit')
     this.setState({
       showEdit: false,
       inputProps: {}
@@ -52,7 +34,6 @@ class InputForm extends Component {
   }
 
   _save () {
-    console.log('save')
     this.props.save(this.state.name, this.state.content)
     this.setState({
       showEdit: true,
@@ -63,7 +44,6 @@ class InputForm extends Component {
   }
 
   _cancel () {
-    console.log('cancel')
     this.setState({
       showEdit: true,
       inputProps: {
@@ -77,28 +57,28 @@ class InputForm extends Component {
 
   render () {
     let { label, name, hasbutton, placeholder, type } = this.props
-    const inputForm = classNames({
-      'input-form': this.state.showEdit && hasbutton,
-      'input-form-active': !this.state.showEdit && hasbutton,
-      'input-form-nobutton': !hasbutton
+    const inputForm = cx({
+      [`${prefixCls}-input-form`]: this.state.showEdit && hasbutton,
+      [`${prefixCls}-input-form_active`]: !this.state.showEdit && hasbutton,
+      [`${prefixCls}-input-form_nobutton`]: !hasbutton
     })
-    const buttonEdit = classNames({
-      'button': !this.state.showEdit,
-      'button-active': this.state.showEdit
+    const buttonEdit = cx({
+      [`${prefixCls}-input-form__btn`]: !this.state.showEdit,
+      [`${prefixCls}-input-form__btn_active`]: this.state.showEdit
     })
-    const buttonSave = classNames({
-      'button': this.state.showEdit,
-      'button-active': !this.state.showEdit
+    const buttonSave = cx({
+      [`${prefixCls}-input-form__btn`]: this.state.showEdit,
+      [`${prefixCls}-input-form__btn_active`]: !this.state.showEdit
     })
-    const buttonCancel = classNames({
-      'button-cancel': this.state.showEdit,
-      'button-cancel-active': !this.state.showEdit
+    const buttonCancel = cx({
+      [`${prefixCls}-input-form__btn-cancel`]: this.state.showEdit,
+      [`${prefixCls}-input-form__btn-cancel_active`]: !this.state.showEdit
     })
     return (
       <div className={inputForm}>
-        <span className="label">{label}</span>
+        <span className={`${prefixCls}-input-form__label`}>{label}</span>
         <input value={this.state.content}
-          className="content"
+          className={`${prefixCls}-input-form__content`}
           onChange={(e) => this._handleChange(e)}
           ref={ref => (this.contentInput = ref)}
           {...this.state.inputProps}
@@ -119,6 +99,23 @@ class InputForm extends Component {
       </div>
     )
   }
+}
+
+InputForm.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  content: PropTypes.string,
+  save: PropTypes.func,
+  onChange: PropTypes.func,
+  hasbutton: PropTypes.bool
+}
+
+InputForm.defaultProps = {
+  label: '',
+  content: '',
+  placeholder: ''
 }
 
 export default InputForm
