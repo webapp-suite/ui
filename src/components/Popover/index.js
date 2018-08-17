@@ -68,7 +68,7 @@ class Popover extends Component {
    * @name popover.open()
    * @description 打开浮层
    */
-  open () {
+  open = () => {
     const { shouldOpen, onToggle } = this.props
     if (!shouldOpen || shouldOpen()) {
       this.setState({ open: true })
@@ -87,7 +87,7 @@ class Popover extends Component {
    * @name popover.close()
    * @description 关闭浮层
    */
-  close () {
+  close = () => {
     if (!this.state.open) return
     const { shouldClose, onToggle } = this.props
     if (!shouldClose || shouldClose()) {
@@ -162,12 +162,12 @@ class Popover extends Component {
       if (triggerMode === 'hover') {
         triggerProps.onMouseEnter = () => {
           clearTimeout(this.closeTimer)
-          this.openTimer = setTimeout(::this.open, Popover.LAZY_DURATION)
+          this.openTimer = setTimeout(this.open, Popover.LAZY_DURATION)
           children.props.onMouseEnter && children.props.onMouseEnter()
         }
         triggerProps.onMouseLeave = () => {
           clearTimeout(this.openTimer)
-          this.closeTimer = setTimeout(::this.close, Popover.LAZY_DURATION)
+          this.closeTimer = setTimeout(this.close, Popover.LAZY_DURATION)
           children.props.onMouseLeave && children.props.onMouseLeave()
         }
       } else {

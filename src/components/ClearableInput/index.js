@@ -21,13 +21,13 @@ class ClearableInput extends Component {
     'value' in nextProps && this.setState({value: nextProps.value})
   }
 
-  handleClear (e) {
+  handleClear = e => {
     e.stopPropagation()
     this.props.onClear && this.props.onClear()
     this.handleChange('')
   }
 
-  handleInput (e) {
+  handleInput = e => {
     e.stopPropagation()
     this.handleChange(e.target.value)
   }
@@ -70,7 +70,7 @@ class ClearableInput extends Component {
       <div className={cx(`${prefixCls}-clearable-input`, className)} {...other}>
         <Input
           ref="input"
-          onChange={::this.handleInput}
+          onChange={this.handleInput}
           {...inputProps}
         />
         {(!forbidClearable && hasChanged && (value || value === 0 || Number.isNaN(value))) && (
@@ -81,7 +81,7 @@ class ClearableInput extends Component {
             transparent
             className={`${prefixCls}-clearable-input__clear-btn`}
             disabled={inputProps.disabled}
-            onClick={::this.handleClear}
+            onClick={this.handleClear}
           />
         )}
       </div>

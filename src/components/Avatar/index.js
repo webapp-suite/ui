@@ -4,7 +4,7 @@ import cx from 'classnames'
 import './index.less'
 
 class Avatar extends Component {
-  _handleClick (e) {
+  _handleClick = e => {
     const onClick = this.props.onClick
     if (onClick) {
       onClick(e)
@@ -14,7 +14,7 @@ class Avatar extends Component {
   render () {
     let {shape, size, src, className, ...others} = this.props
     return <img src={src}
-      onClick={::this._handleClick}
+      onClick={this._handleClick}
       className={cx(
         `${prefixCls}-avatar`,
         {

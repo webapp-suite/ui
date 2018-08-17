@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Nav, NavItem } from 'earth-ui/lib/Nav'
+import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import components from './components.json'
 
 class Components extends Component {
-  constructor () {
+  constructor (props) {
     super()
     this.componentsMap = {}
     this.state = {
@@ -15,6 +15,17 @@ class Components extends Component {
 
   toggle (open) {
     this.setState({ open })
+  }
+
+  switchRoute (route) {
+    if (route) {
+      this.props.router.push(`/components/${route}`)
+    }
+  }
+
+  handleItemClick = props => {
+    this.toggle(false)
+    this.switchRoute(props.id)
   }
 
   renderTitle (component) {
@@ -30,31 +41,37 @@ class Components extends Component {
     return (
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>
-          <Nav href="/components" onItemClick={() => this.toggle(false)}>
-            {components.map((item, i) => {
-              !item.components && (this.componentsMap[item.name] = item)
-              return item.components
-                ? <NavItem
-                  key={item.category}
-                  title={item.cn}
-                  defaultOpen
-                >
-                  {item.components.map((component, i) => {
-                    this.componentsMap[component.name] = component
+          <Nav
+            selectedId={params.component}
+            onItemClick={this.handleItemClick}
+            width={280}
+            indent={40}
+          >
+            {components.map(item => {
+              if (!item.components) {
+                this.componentsMap[item.name] = item
+                return (
+                  <NavItem key={item.name} id={item.name} title={item.cn} />
+                )
+              }
+              return (
+                <SubNav key={item.name} title={item.cn} defaultOpen>
+                  {item.components.map(itemGroup => {
                     return (
-                      <NavItem
-                        key={component.name}
-                        href={component.name}
-                        title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
-                      />
+                      <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
+                        {itemGroup.components.map(component => {
+                          this.componentsMap[component.name] = component
+                          return (
+                            <NavItem key={component.name} id={component.name}>
+                              <span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>
+                            </NavItem>
+                          )
+                        })}
+                      </NavItemGroup>
                     )
                   })}
-                </NavItem>
-                : <NavItem
-                  key={item.name}
-                  href={item.name}
-                  title={item.cn}
-                />
+                </SubNav>
+              )
             })}
           </Nav>
         </LayoutSidebar>
@@ -69,7 +86,8 @@ class Components extends Component {
 
 Components.propTypes = {
   children: PropTypes.node,
-  params: PropTypes.object
+  params: PropTypes.object,
+  router: PropTypes.object
 }
 
 export default Components

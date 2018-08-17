@@ -110,7 +110,7 @@ class Modal extends Component {
    * @param {function} [callback] 关闭后的回调，动画结束后执行
    * @description 关闭模态框
    */
-  close (callback = this.props.onClose) {
+  close = (callback = this.props.onClose) => {
     this.setState({open: false})
     this.props.onToggle && this.props.onToggle(false)
     this.closeCallbacks.add(callback)
@@ -138,7 +138,7 @@ class Modal extends Component {
       ReactDOM.render((
         <ModalContent
           ref={content => (this.content = content)}
-          close={::this.close}
+          close={this.close}
           modal={this}
           {...other}
         />

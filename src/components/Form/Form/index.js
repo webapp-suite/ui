@@ -142,7 +142,7 @@ class Form extends Component {
     }
   }
 
-  handleSubmit () {
+  handleSubmit = () => {
     // e.preventDefault()
     this.props.onSubmit && this.validate() && this.props.onSubmit(this.state.data)
   }
@@ -163,7 +163,7 @@ class Form extends Component {
 
     return (
       <form
-        onSubmit={::this.handleSubmit}
+        onSubmit={this.handleSubmit}
         className={classNames}
         {...other}
       >

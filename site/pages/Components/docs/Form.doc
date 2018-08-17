@@ -35,7 +35,7 @@ class FormBasic extends Component {
     this.update('set', 'formData.cities', selects)
   }
 
-  handleSuccess(res) {
+  handleSuccess = res => {
     console.log(res)
     message.success('操作成功！')
   }
@@ -48,7 +48,7 @@ class FormBasic extends Component {
         data={formData}
         onChange={formData => this.update('set', { formData })}
         rules={this.rules}
-        onSuccess={::this.handleSuccess}
+        onSuccess={this.handleSuccess}
         width={460}
       >
         <FormItem label="用户群" required name="name" help="5个字符以内">

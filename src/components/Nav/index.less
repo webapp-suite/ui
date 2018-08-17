@@ -4,14 +4,17 @@
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
 
-@header-padding: 40px;
-@nav-parent-padding-left: 40px * 2;
 @border-color: #f0f0f0;
 
-@width: 274px;
+@width: 276px;
 @height: 40px;
 
 .@{prefix-cls}-nav {
+  user-select: none;
+  font-family: @fontfamily-nav;
+  font-weight: @fontweight-medium;
+  border-right: 1px solid @lite-lite;
+  width: @width;
   ul {
     margin: 0;
     padding: 0;
@@ -19,28 +22,30 @@
     list-style: none;
   }
   > ul {
-    padding: 0 0 28px 0;
+    padding: 0;
   }
 }
 
-.@{prefix-cls}-nav__item {
-  > a {
+.@{prefix-cls}-nav__item,
+.@{prefix-cls}-nav__sub-nav {
+  > .@{prefix-cls}-nav_item-entity,
+  > .@{prefix-cls}-nav_sub-nav-entity {
     display: block;
     color: #314659;
     text-decoration: none;
     position: relative;
-    padding: 0 15px 0 @header-padding;
+    padding: 0 15px 0;
     line-height: @height;
+    cursor: pointer;
     //border-bottom: 1px solid @border-color;
     border-radius: 0;
     //border-left: 3px solid #eaeaea;
     margin-bottom: 8px;
     font-size: @fontsize;
-    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     &:after {
       content: "";
       position: absolute;
-      right: 0;
+      right: -1px;
       top: 0;
       bottom: 0;
       border-right: 3px solid transparent;
@@ -70,24 +75,27 @@
   .@{prefix-cls}-nav__item {
     border-left: 0;
     border-right: 0;
-    > a {
-      padding-left: @nav-parent-padding-left;
-    }
-    .@{prefix-cls}-nav__item {
-      > a {
-        padding-left: @nav-parent-padding-left * 2;
-      }
+  }
+  .@{prefix-cls}-nav__item-group {
+    cursor: default;
+    .@{prefix-cls}-nav__item-group-title {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 8px 16px;
+      font-family: @fontfamily-nav;
     }
   }
 }
 
-.@{prefix-cls}-nav__item-icon {
+.@{prefix-cls}-nav__item-icon,
+.@{prefix-cls}-nav__sub-nav-icon {
   margin-right: 10px;
   width: 1em;
   text-align: center;
 }
 
-.@{prefix-cls}-nav__item-toggle {
+.@{prefix-cls}-nav__sub-nav-toggle {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -95,17 +103,17 @@
   transition: transform .2s;
 }
 
-.@{prefix-cls}-nav__item_open {
+.@{prefix-cls}-nav__sub-nav_open {
   > ul {
     display: block;
   }
-  .@{prefix-cls}-nav__item-toggle {
+  .@{prefix-cls}-nav__sub-nav-toggle {
     transform: rotate(90deg);
   }
 }
 
 .@{prefix-cls}-nav__item_active {
-  > a {
+  > .@{prefix-cls}-nav_item-entity {
     color: @theme;
     background-color: @theme-liter;
     &:after {

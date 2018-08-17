@@ -1,6 +1,7 @@
 import Nav from './Nav'
+import SubNav from './SubNav'
+import NavItemGroup from './NavItemGroup'
 import NavItem from './NavItem'
-import IndexNavItem from './IndexNavItem'
 import './index.less'
 
-export { Nav, NavItem, IndexNavItem }
+export { Nav, SubNav, NavItemGroup, NavItem }

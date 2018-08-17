@@ -63,7 +63,6 @@
     "invariant": "^2.2.2",
     "justified-layout": "^2.1.1",
     "react-avatar-editor": "^10.3.0",
-    "react-router": "^2.8.1",
     "react-update": "^0.4.4"
   },
   "devDependencies": {
@@ -111,6 +110,7 @@
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-hot-loader": "^4.0.0-rc.0",
+    "react-router": "^2.8.1",
     "rimraf": "^2.6.2",
     "standard": "^11.0.0",
     "standard-version": "^4.3.0",

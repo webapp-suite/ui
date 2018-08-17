@@ -37,7 +37,7 @@ class ModalContent extends Component {
     this.modalNode.style.transform = `translateY(-${this.relativeValue}px)`
   }
 
-  handleModalClick (e) {
+  handleModalClick = e => {
     if (e.target.className === `${prefixCls}-modal__modal`) {
       if (!this.props.lock) {
         this.props.close()
@@ -64,7 +64,7 @@ class ModalContent extends Component {
         <div
           className={`${prefixCls}-modal__modal`}
           style={{zIndex: zIndex || 3000}}
-          onClick={::this.handleModalClick}
+          onClick={this.handleModalClick}
         >
           <div className={`${prefixCls}-modal__modal-dialog`} ref={node => (this.modalNode = node)}>
             <div className={`${prefixCls}-modal__modal-content`}>

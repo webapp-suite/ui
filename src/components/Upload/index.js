@@ -15,14 +15,14 @@ class Upload extends Component {
     }
   }
 
-  handleClick (e) {
+  handleClick = e => {
     if (this.props.button && e.target.localName !== 'button') return
     const fileEl = this.refs.file
     fileEl.value = ''
     fileEl.click()
   }
 
-  handleChange (event) {
+  handleChange = event => {
     const el = event.target
     const files = el.files
     const onUplading = this.props.onUplading
@@ -105,7 +105,7 @@ class Upload extends Component {
     })
   }
 
-  handleRemove (currItem) {
+  handleRemove = currItem => {
     const self = this
     const arr = this.state.list.slice(0)
     arr.map((item, index) => {
@@ -122,16 +122,16 @@ class Upload extends Component {
     const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
       <div className={cx(`${prefixCls}-upload`, className)} {...other}>
-        <input ref="file" onChange={::this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
-        <div className={`${prefixCls}-upload__children`} onClick={::this.handleClick}>
+        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
+        <div className={`${prefixCls}-upload__children`} onClick={this.handleClick}>
           {this.props.children}
         </div>
         {button && button.name &&
-          <Button {...button} onClick={::this.handleClick}>{button.name}</Button>
+          <Button {...button} onClick={this.handleClick}>{button.name}</Button>
         }
         {showFileList &&
           <div className={`${prefixCls}-upload__listbox`}>
-            <FileList data={this.state.list} onRemove={::this.handleRemove} />
+            <FileList data={this.state.list} onRemove={this.handleRemove} />
           </div>
         }
       </div>
