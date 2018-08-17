@@ -12,7 +12,7 @@ export default () => {
 
 class App extends Component {
 
-  handleClick () => {
+  handleClick = () => {
     console.log('hello, earth-ui')
   }
 
