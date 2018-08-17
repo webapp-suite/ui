@@ -22,7 +22,7 @@ class Nav extends Component {
   }
 
   render () {
-    const { children, className, width, ...other } = this.props
+    const { children, className, width, indent, ...other } = this.props
 
     delete other.selectedId
     delete other.onItemClick
@@ -31,9 +31,15 @@ class Nav extends Component {
       other.style = Object.assign(other.style || {}, { width })
     }
 
+    const childrenWithNewProps = React.Children.map(children, child => {
+      return React.cloneElement(child, {
+        indent
+      })
+    })
+
     return (
       <div className={cx(`${prefixCls}-nav`, className)} {...other}>
-        <ul>{children}</ul>
+        <ul>{childrenWithNewProps}</ul>
       </div>
     )
   }
@@ -53,10 +59,17 @@ Nav.propTypes = {
   selectedId: PropTypes.string.isRequired,
 
   // 宽度，默认`100%`
+  indent: PropTypes.number,
+
+  // 菜单缩进宽度
   width: PropTypes.number,
 
   // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象
   onItemClick: PropTypes.func
+}
+
+Nav.defaultProps = {
+  indent: 24
 }
 
 export default Nav

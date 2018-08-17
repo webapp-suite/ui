@@ -4,14 +4,15 @@
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
 
-@header-padding: 40px;
-@nav-parent-padding-left: 40px * 2;
+@nav-item-padding: 24px;
+@nav-parent-padding-left: @nav-item-padding * 2;
 @border-color: #f0f0f0;
 
 @width: 274px;
 @height: 40px;
 
 .@{prefix-cls}-nav {
+  user-select: none;
   ul {
     margin: 0;
     padding: 0;
@@ -23,13 +24,15 @@
   }
 }
 
-.@{prefix-cls}-nav__item {
-  > .@{prefix-cls}-nav_item-entity {
+.@{prefix-cls}-nav__item,
+.@{prefix-cls}-nav__sub-nav {
+  > .@{prefix-cls}-nav_item-entity,
+  > .@{prefix-cls}-nav_sub-nav-entity {
     display: block;
     color: #314659;
     text-decoration: none;
     position: relative;
-    padding: 0 15px 0 @header-padding;
+    padding: 0 15px 0 @nav-item-padding;
     line-height: @height;
     cursor: pointer;
     //border-bottom: 1px solid @border-color;
@@ -74,21 +77,32 @@
     > .@{prefix-cls}-nav_item-entity {
       padding-left: @nav-parent-padding-left;
     }
-    .@{prefix-cls}-nav__item {
-      > .@{prefix-cls}-nav_item-entity {
-        padding-left: @nav-parent-padding-left * 2;
-      }
+  }
+  .@{prefix-cls}-nav__item-group {
+    cursor: default;
+    .@{prefix-cls}-nav__item-group-title {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 8px 16px;
+      padding-left: @nav-item-padding + 8px ;
+      font-family: @fontfamily-nav;
     }
+    > .@{prefix-cls}-nav_item-entity {
+      padding-left: @nav-parent-padding-left * 2;
+    }
+
   }
 }
 
-.@{prefix-cls}-nav__item-icon {
+.@{prefix-cls}-nav__item-icon,
+.@{prefix-cls}-nav__sub-nav-icon {
   margin-right: 10px;
   width: 1em;
   text-align: center;
 }
 
-.@{prefix-cls}-nav__item-toggle {
+.@{prefix-cls}-nav__sub-nav-toggle {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -96,11 +110,11 @@
   transition: transform .2s;
 }
 
-.@{prefix-cls}-nav__item_open {
+.@{prefix-cls}-nav__sub-nav_open {
   > ul {
     display: block;
   }
-  .@{prefix-cls}-nav__item-toggle {
+  .@{prefix-cls}-nav__sub-nav-toggle {
     transform: rotate(90deg);
   }
 }

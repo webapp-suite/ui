@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Nav, NavItem } from 'earth-ui/lib/Nav'
+import { Nav, NavItem, SubNav } from 'earth-ui/lib/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import components from './components.json'
 
@@ -23,9 +23,9 @@ class Components extends Component {
     }
   }
 
-  handleItemClick = e => {
+  handleItemClick = props => {
     this.toggle(false)
-    this.switchRoute(e.id)
+    this.switchRoute(props.id)
   }
 
   renderTitle (component) {
@@ -41,14 +41,17 @@ class Components extends Component {
     return (
       <Layout open={open} onToggle={open => this.toggle(open)}>
         <LayoutSidebar>
-          <Nav selectedId={params.component} onItemClick={this.handleItemClick} >
+          <Nav
+            selectedId={params.component}
+            onItemClick={this.handleItemClick}
+            indent={40}
+          >
             {components.map(item => {
               !item.components && (this.componentsMap[item.name] = item)
               if (item.components) {
                 return (
-                  <NavItem
+                  <SubNav
                     key={item.category}
-                    id={item.category}
                     title={item.cn}
                     defaultOpen
                   >
@@ -62,7 +65,7 @@ class Components extends Component {
                         />
                       )
                     })}
-                  </NavItem>
+                  </SubNav>
                 )
               }
               return (
