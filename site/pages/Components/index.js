@@ -51,19 +51,11 @@ class Components extends Component {
               if (!item.components) {
                 this.componentsMap[item.name] = item
                 return (
-                  <NavItem
-                    key={item.name}
-                    id={item.name}
-                    title={item.cn}
-                  />
+                  <NavItem key={item.name} id={item.name} title={item.cn} />
                 )
               }
               return (
-                <SubNav
-                  key={item.name}
-                  title={item.cn}
-                  defaultOpen
-                >
+                <SubNav key={item.name} title={item.cn} defaultOpen>
                   {item.components.map(itemGroup => {
                     return (
                       <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
