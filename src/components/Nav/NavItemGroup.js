@@ -28,10 +28,10 @@ NavItemGroup.propTypes = {
   className: PropTypes.string,
   indent: PropTypes.number,
 
-  // 分组的菜单项
+  // 分组的导航项项
   children: PropTypes.node.isRequired,
 
-  // 分组标题，可以是文本字符串，也可以是 React 元素
+  // 分组导航标题，可以是文本字符串，也可以是 React 元素
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 }
 

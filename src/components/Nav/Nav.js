@@ -55,13 +55,13 @@ Nav.propTypes = {
 
   className: PropTypes.string,
 
-  // 当前选中的菜单项的 id
+  // 当前选中的导航项的 id
   selectedId: PropTypes.string.isRequired,
 
-  // 宽度，默认`100%`
+  // 导航缩进宽度
   indent: PropTypes.number,
 
-  // 菜单缩进宽度
+  // 导航宽度
   width: PropTypes.number,
 
   // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象

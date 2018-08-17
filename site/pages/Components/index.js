@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Nav, NavItem, SubNav } from 'earth-ui/lib/Nav'
+import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'public/Layout'
 import components from './components.json'
 
@@ -44,36 +44,41 @@ class Components extends Component {
           <Nav
             selectedId={params.component}
             onItemClick={this.handleItemClick}
+            width={280}
             indent={40}
           >
             {components.map(item => {
-              !item.components && (this.componentsMap[item.name] = item)
-              if (item.components) {
+              if (!item.components) {
+                this.componentsMap[item.name] = item
                 return (
-                  <SubNav
-                    key={item.category}
+                  <NavItem
+                    key={item.name}
+                    id={item.name}
                     title={item.cn}
-                    defaultOpen
-                  >
-                    {item.components.map(component => {
-                      this.componentsMap[component.name] = component
-                      return (
-                        <NavItem
-                          key={component.name}
-                          id={component.name}
-                          title={<span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>}
-                        />
-                      )
-                    })}
-                  </SubNav>
+                  />
                 )
               }
               return (
-                <NavItem
+                <SubNav
                   key={item.name}
-                  id={item.name}
                   title={item.cn}
-                />
+                  defaultOpen
+                >
+                  {item.components.map(itemGroup => {
+                    return (
+                      <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
+                        {itemGroup.components.map(component => {
+                          this.componentsMap[component.name] = component
+                          return (
+                            <NavItem key={component.name} id={component.name}>
+                              <span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>
+                            </NavItem>
+                          )
+                        })}
+                      </NavItemGroup>
+                    )
+                  })}
+                </SubNav>
               )
             })}
           </Nav>

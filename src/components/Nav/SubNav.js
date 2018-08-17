@@ -71,16 +71,16 @@ SubNav.propTypes = {
 
   indent: PropTypes.number,
 
-  // 子菜单的菜单项
+  // 二级导航的导航项
   children: PropTypes.node.isRequired,
 
-  // 菜单标题，可以是文本字符串，也可以是 React 元素
+  // 二级导航标题，可以是文本字符串，也可以是 React 元素
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击 SubNav 调用此函数
+  // 点击二级导航项调用此函数
   onClick: PropTypes.func,
 
-  // 菜单图标，参考 Icon 组件 type 属性
+  // 二级导航项图标，参考 Icon 组件 type 属性
   icon: PropTypes.string,
 
   // 初始化是否展开（不可控）

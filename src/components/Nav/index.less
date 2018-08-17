@@ -4,15 +4,17 @@
 @primary-color-deep: @theme-dark;
 @primary-color-deeper: @theme-darker;
 
-@nav-item-padding: 24px;
-@nav-parent-padding-left: @nav-item-padding * 2;
 @border-color: #f0f0f0;
 
-@width: 274px;
+@width: 276px;
 @height: 40px;
 
 .@{prefix-cls}-nav {
   user-select: none;
+  font-family: @fontfamily-nav;
+  font-weight: @fontweight-medium;
+  border-right: 1px solid @lite-lite;
+  width: @width;
   ul {
     margin: 0;
     padding: 0;
@@ -20,7 +22,7 @@
     list-style: none;
   }
   > ul {
-    padding: 0 0 28px 0;
+    padding: 0;
   }
 }
 
@@ -32,7 +34,7 @@
     color: #314659;
     text-decoration: none;
     position: relative;
-    padding: 0 15px 0 @nav-item-padding;
+    padding: 0 15px 0;
     line-height: @height;
     cursor: pointer;
     //border-bottom: 1px solid @border-color;
@@ -40,11 +42,10 @@
     //border-left: 3px solid #eaeaea;
     margin-bottom: 8px;
     font-size: @fontsize;
-    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     &:after {
       content: "";
       position: absolute;
-      right: 0;
+      right: -1px;
       top: 0;
       bottom: 0;
       border-right: 3px solid transparent;
@@ -74,9 +75,6 @@
   .@{prefix-cls}-nav__item {
     border-left: 0;
     border-right: 0;
-    > .@{prefix-cls}-nav_item-entity {
-      padding-left: @nav-parent-padding-left;
-    }
   }
   .@{prefix-cls}-nav__item-group {
     cursor: default;
@@ -85,13 +83,8 @@
       font-size: 14px;
       line-height: 1.5;
       padding: 8px 16px;
-      padding-left: @nav-item-padding + 8px ;
       font-family: @fontfamily-nav;
     }
-    > .@{prefix-cls}-nav_item-entity {
-      padding-left: @nav-parent-padding-left * 2;
-    }
-
   }
 }
 

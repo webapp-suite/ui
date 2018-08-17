@@ -7,88 +7,92 @@
   "name": "Icon",
   "cn": "图标"
 }, {
-  "category": "imperative",
-  "cn": "命令式组件",
-  "icon": "retweet",
+  "cn": "组件",
+  "name": "Components",
   "components": [{
-    "name": "message",
-    "cn": "全局提示"
+    "group": "Functional",
+    "cn": "函数式组件",
+    "icon": "retweet",
+    "components": [{
+      "name": "message",
+      "cn": "全局提示"
+    }, {
+      "name": "xhr",
+      "cn": "AJAX请求"
+    }]
   }, {
-    "name": "xhr",
-    "cn": "AJAX请求"
-  }]
-}, {
-  "category": "base",
-  "cn": "基础组件",
-  "icon": "th-large",
-  "components": [{
-    "name": "Button",
-    "cn": "按钮"
+    "group": "Basic",
+    "cn": "基础组件",
+    "icon": "th-large",
+    "components": [{
+      "name": "Button",
+      "cn": "按钮"
+    }, {
+      "name": "Input",
+      "cn": "输入框"
+    }, {
+      "name": "Select",
+      "cn": "下拉选择"
+    }, {
+      "name": "Dropdown",
+      "cn": "下拉菜单"
+    }, {
+      "name": "Form",
+      "cn": "表单"
+    }, {
+      "name": "Modal",
+      "cn": "模态框"
+    }, {
+      "name": "Tooltip",
+      "cn": "提示框"
+    }, {
+      "name": "Spinner",
+      "cn": "加载中"
+    }, {
+      "name": "Nav",
+      "cn": "导航"
+    }]
   }, {
-    "name": "Input",
-    "cn": "输入框"
+    "group": "Auxiliary",
+    "cn": "辅助组件",
+    "icon": "retweet",
+    "components": [{
+      "name": "ClearableInput",
+      "cn": "清空输入框"
+    }, {
+      "name": "TextOverflow",
+      "cn": "文字溢出"
+    }, {
+      "name": "BackToTop",
+      "cn": "回到顶部"
+    }]
   }, {
-    "name": "Select",
-    "cn": "下拉选择"
+    "group": "Tools",
+    "cn": "工具组件",
+    "icon": "wrench",
+    "components": [{
+      "name": "Fetch",
+      "cn": "AJAX加载管理"
+    }, {
+      "name": "Upload",
+      "cn": "上传"
+    }]
   }, {
-    "name": "Dropdown",
-    "cn": "下拉菜单"
-  }, {
-    "name": "Form",
-    "cn": "表单"
-  }, {
-    "name": "Modal",
-    "cn": "模态框"
-  }, {
-    "name": "Tooltip",
-    "cn": "提示框"
-  }, {
-    "name": "Spinner",
-    "cn": "加载中"
-  }, {
-    "name": "Nav",
-    "cn": "导航"
-  }]
-}, {
-  "category": "advance",
-  "cn": "辅助组件",
-  "icon": "retweet",
-  "components": [{
-    "name": "ClearableInput",
-    "cn": "清空输入框"
-  }, {
-    "name": "TextOverflow",
-    "cn": "文字溢出"
-  }, {
-    "name": "BackToTop",
-    "cn": "回到顶部"
-  }]
-}, {
-  "category": "tools",
-  "cn": "工具组件",
-  "icon": "wrench",
-  "components": [{
-    "name": "Fetch",
-    "cn": "AJAX加载管理"
-  }, {
-    "name": "Upload",
-    "cn": "上传"
-  }]
-}, {
-  "category": "business",
-  "cn": "业务组件",
-  "icon": "edit",
-  "components": [{
-    "name": "Gallery",
-    "cn": "图片墙"
-  }, {
-    "name": "Avatar",
-    "cn": "头像"
-  }, {
-    "name": "AvatarUpload",
-    "cn": "上传头像"
-  }, {
-    "name": "AvatarClip",
-    "cn": "裁剪头像"
+    "group": "Customized",
+    "cn": "定制组件",
+    "icon": "edit",
+    "components": [{
+      "name": "Gallery",
+      "cn": "图片墙"
+    }, {
+      "name": "Avatar",
+      "cn": "头像"
+    }, {
+      "name": "AvatarUpload",
+      "cn": "上传头像"
+    }, {
+      "name": "AvatarClip",
+      "cn": "裁剪头像"
+    }]
   }]
 }]

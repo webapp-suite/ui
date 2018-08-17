@@ -19,7 +19,9 @@ class NavItem extends React.Component {
 
   handleClick = e => {
     this.props.onClick && this.props.onClick(e)
-    this.context.nav.handleItemClick(this.props, e)
+    const props = {...this.props}
+    delete props.indent
+    this.context.nav.handleItemClick(props, e)
   }
 
   render () {
@@ -64,16 +66,16 @@ NavItem.propTypes = {
 
   indent: PropTypes.number,
 
-  // 菜单 id
+  // 导航项 id
   id: PropTypes.string.isRequired,
 
-  // 菜单标题，可以是文本字符串，也可以是 React 元素
+  // 导航项标题，可以是文本字符串，也可以是 React 元素
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击 NavItem 调用此函数
+  // 点击导航项调用此函数
   onClick: PropTypes.func,
 
-  // 菜单图标，参考 Icon 组件 type 属性
+  // 导航项图标，参考 Icon 组件 type 属性
   icon: PropTypes.string
 }
 
