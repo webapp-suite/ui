@@ -55,7 +55,7 @@ class App extends Component {
           <Col>
             <Link to="/" className="header__logo">
               {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
-              Earth UI <sub>v0.1.3</sub>
+              Earth UI <sub>v0.2.0</sub>
             </Link>
           </Col>
           <Col className="header__nav">

@@ -28,7 +28,7 @@ class App extends Component {
           <div className="home__banner-center">
             <h2>Based on ReactJS</h2>
             <h1>Earth UI Components Library</h1>
-            <em>最新版本：v0.1.3</em>
+            <em>最新版本：v0.2.0</em>
             <Link to="/guide#install" className="home__banner-install">
               <Button className="home__banner-btn">安装</Button>
             </Link>
