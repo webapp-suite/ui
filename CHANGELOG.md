@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/G-Explorer/earth-ui/compare/v0.1.3...v0.2.0) (2018-08-20)
+
+
+### Code Refactoring
+
+* **Nav:** remove react-router and use new properties ([#2](https://github.com/G-Explorer/earth-ui/issues/2)) ([5c5d1b7](https://github.com/G-Explorer/earth-ui/commit/5c5d1b7))
+
+
+### BREAKING CHANGES
+
+* **Nav:** remove IndexNavItem and id, selectedId must be added
+
+* refactor(all components): use class arrow function to replace :: syntax
+
+* feat(Nav): add SubNav and NavItemGroup sub component
+
+* refactor(Nav/site): optimize Nav style and add NavItemGroup in site
+
+* fix(Nav/test): add SubNav in nav test
+
+* style(site): small tweaks in typo
+
+* fix(site): example class function syntax error
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/G-Explorer/earth-ui/compare/v0.1.2...v0.1.3) (2018-05-30)
 
