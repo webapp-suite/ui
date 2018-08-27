@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import Markdown from 'public/Markdown'
+import Markdown from 'widgets/Markdown'
 import './index.less'
 
 const Doc = props => {

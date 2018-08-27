@@ -5,8 +5,31 @@
 @primary-color-deeper: @theme-darker;
 
 .home {
-  background-color: #fafafa;
-  margin-top: -40px;
+  //position: absolute;
+  //top: 0;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
+  .header {
+    background-color: #212121;
+    .header__nav ul li a {
+      &:hover,
+      &.active {
+        font-weight: @fontweight-bold;
+        color: @white;
+        &:after {
+          background-color: @white;
+        }
+      }
+    }
+  }
+  a {
+    //color: @white;
+    color: @lite-darker;
+    &:hover {
+      color: @white;
+    }
+  }
 }
 
 .home__banner {

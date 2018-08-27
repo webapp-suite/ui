@@ -1,0 +1,117 @@
+@import "~core";
+@primary-color-light: #cfeeff;
+@primary-color: @theme;
+@primary-color-deep: @theme-dark;
+@primary-color-deeper: @theme-darker;
+@header-padding: 40px;
+
+html, body, #app {
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: @fontweight;
+  margin-top: 1.3em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+a {
+  color: @primary-color;
+  text-decoration: none;
+  &:hover {
+    color: @primary-color-deep;
+    text-decoration: underline;
+  }
+}
+
+pre, code {
+  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: @fontfamily;
+  color: #333;
+  font-size: @fontsize-small;
+  line-height: 1.5;
+  overflow: hidden;
+  //margin-top: 60px;
+  .markdown {
+    font-size: @fontsize;
+    code {
+      font-size: 13px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: @fontweight-medium;
+    }
+  }
+  .wrapper {
+    animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
+    height: 100%;
+  }
+  //.content {
+  //
+  //  //width: 100%;
+  //  //margin-top: 40px;
+  //}
+}
+
+@keyframes wrapper-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: @theme;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: none;
+}

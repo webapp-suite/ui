@@ -14,7 +14,7 @@ rimraf.sync(outputPath)
 
 const config = {
   entry: {
-    site: `${sitePath}/index.js`
+    site: `${sitePath}/router.js`
   },
   output: {
     path: outputPath,
@@ -62,7 +62,7 @@ const config = {
     ],
     alias: {
       'earth-ui/lib': `${sourcePath}/components`,
-      'public': `${sitePath}/public`,
+      'widgets': `${sitePath}/widgets`,
       'doc': `${sitePath}/loaders/doc`,
       'variable.less': `${sourcePath}/styles/variable.less`,
       'mixin.less': `${sourcePath}/styles/mixin.less`,

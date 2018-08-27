@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Router, browserHistory, Route, IndexRoute, IndexRedirect, withRouter } from 'react-router'
 // import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import process from 'nprogress'
-import App from './pages/App'
+import App from './pages/index'
 
 render((
   <Router onUpdate={() => {
