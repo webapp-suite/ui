@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, browserHistory, Route, IndexRoute, IndexRedirect, withRouter } from 'react-router'
+import { Router, browserHistory, Route, IndexRoute, IndexRedirect } from 'react-router'
 // import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import process from 'nprogress'
 import App from './pages/index'
@@ -41,7 +41,7 @@ render((
       </Route>
       <Route path="components" getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, withRouter(require('./pages/Components').default))
+          cb(null, require('./pages/Components').default)
         })
       }}>
         <IndexRedirect to="/components/Layout" />

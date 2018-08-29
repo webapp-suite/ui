@@ -1,5 +1,7 @@
 @import "~variable";
 
+@magenta-7: #c41d7f;
+
 .doc {
   border: 1px solid #ececec;
   border-radius: 2px;
@@ -79,15 +81,15 @@
 }
 
 .doc__prop-name {
-  color: #ef2951;
+  color: @magenta-7;
 }
 
 .doc__prop-name--required {
   &:after {
-    content: ' *'
+    content: ' *';
   }
 }
 
 .doc__prop-type {
-  color: #00a6ff;
+  color: @black;
 }

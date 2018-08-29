@@ -20,7 +20,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      this.props.router.push(`/components/${route}`)
+      this.context.router.push(`/components/${route}`)
     }
   }
 
@@ -33,6 +33,28 @@ class Components extends React.Component {
     const { name, cn } = this.componentsMap[component]
     return (
       <h2 className="components__title" style={{marginTop: '0px'}}>{cn + ' ' + name}</h2>
+    )
+  }
+
+  renderNavItem (item, position) {
+    this.componentsMap[item.name] = item
+    if (position === 'outside') {
+      return (
+        <NavItem key={item.name} id={item.name} title={item.cn} />
+      )
+    }
+    return (
+      <NavItem key={item.name} id={item.name}>
+        <span><span>{item.name}</span><span className="chinese">{item.cn}</span></span>
+      </NavItem>
+    )
+  }
+
+  renderNavItemGroup (itemGroup) {
+    return (
+      <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
+        {itemGroup.components.map(component => this.renderNavItem(component))}
+      </NavItemGroup>
     )
   }
 
@@ -52,26 +74,15 @@ class Components extends React.Component {
             >
               {components.map(item => {
                 if (!item.components) {
-                  this.componentsMap[item.name] = item
-                  return (
-                    <NavItem key={item.name} id={item.name} title={item.cn} />
-                  )
+                  return this.renderNavItem(item, 'outside')
                 }
                 return (
                   <SubNav key={item.name} title={item.cn} defaultOpen>
                     {item.components.map(itemGroup => {
-                      return (
-                        <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
-                          {itemGroup.components.map(component => {
-                            this.componentsMap[component.name] = component
-                            return (
-                              <NavItem key={component.name} id={component.name}>
-                                <span><span>{component.name}</span><span className="chinese">{component.cn}</span></span>
-                              </NavItem>
-                            )
-                          })}
-                        </NavItemGroup>
-                      )
+                      if (itemGroup.group) {
+                        return this.renderNavItemGroup(itemGroup)
+                      }
+                      return this.renderNavItem(itemGroup)
                     })}
                   </SubNav>
                 )
@@ -90,8 +101,11 @@ class Components extends React.Component {
 
 Components.propTypes = {
   children: PropTypes.node,
-  params: PropTypes.object,
-  router: PropTypes.object
+  params: PropTypes.object
+}
+
+Components.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default Components

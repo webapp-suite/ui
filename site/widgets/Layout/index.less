@@ -2,14 +2,13 @@
 
 @sidebar-width: 281px;
 @header-height: 60px;
-
 @pd-top: 40px;
 @pd-left: 50px;
-@pd-bottom: 50px;
+@pd-bottom: 60px;
 
 .layout {
   display: flex;
-  min-height: 100vh;
+  //min-height: 100vh;
 }
 
 .layout__sidebar {
@@ -22,7 +21,7 @@
   //overflow-x: hidden;
   .layout__sidebar-scrollbar {
     padding-top: @pd-top / 2;
-    padding-bottom: @pd-bottom - 20;
+    padding-bottom: @pd-bottom - 30;
   }
   //background-color: #f5f5f5;
   .earthui-nav ul {
@@ -32,7 +31,6 @@
   width: @sidebar-width;
 
   transition: all .2s;
-  border-right: 1px solid @lite-lite;
   font-weight: @fontweight-medium;
   .chinese {
     font-size: 12px;
@@ -53,10 +51,11 @@
 .layout__content {
   float: none !important;
   position: absolute;
-  left: @sidebar-width;
+  left: @sidebar-width - 2;
   right: 0;
   top: 0;
   bottom: 0;
+  border-left: 1px solid @lite-lite;
   //background-color: #fafafa;
 
   // ~ flex: 1;

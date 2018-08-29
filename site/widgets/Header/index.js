@@ -20,7 +20,7 @@ const renderNav = () => {
       {/* <Link to="/design" activeClassName="active">设计</Link> */}
       {/* </li> */}
       <li>
-        <Link to="/components" activeClassName="active">文档</Link>
+        <Link to="/components" activeClassName="active">组件</Link>
       </li>
       <li>
         <Link to="/changelog" activeClassName="active">更新日志</Link>
@@ -35,12 +35,13 @@ class Header extends React.Component {
       <Row className="header" fluid>
         <Col>
           <Link to="/" className="header__logo">
-            <img src="../../img/earth_logo.jpg" className="header__logo-img" />
-            <img src="../../img/earth_text_black.png" className="header__logo-text" />
-            {/* <img src="../../img/earth_text_white.png" className="header__logo-text" /> */}
+            <img src="../../img/earth_text_white.png" className="header__logo-text" />
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>
           </Link>
+        </Col>
+        <Col className="header__nav">
+          {renderNav()}
         </Col>
         <Col right>
           <Dropdown ref="dropdown">
@@ -62,9 +63,6 @@ class Header extends React.Component {
           >
             <Icon type="github" />
           </a>
-        </Col>
-        <Col className="header__nav" right>
-          {renderNav()}
         </Col>
       </Row>
     )

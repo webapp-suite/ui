@@ -37,7 +37,7 @@ a {
 }
 
 pre, code {
-  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: @fontfamily-code;
   -webkit-font-smoothing: antialiased;
   color: #666;
 }
@@ -45,6 +45,21 @@ pre, code {
 * {
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.3);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: @dark-liter;
+  }
 }
 
 body {
@@ -52,8 +67,6 @@ body {
   color: #333;
   font-size: @fontsize-small;
   line-height: 1.5;
-  overflow: hidden;
-  //margin-top: 60px;
   .markdown {
     font-size: @fontsize;
     code {
@@ -67,11 +80,6 @@ body {
     animation: wrapper-fade .25s cubic-bezier(.455,.03,.515,.955);
     height: 100%;
   }
-  //.content {
-  //
-  //  //width: 100%;
-  //  //margin-top: 40px;
-  //}
 }
 
 @keyframes wrapper-fade {

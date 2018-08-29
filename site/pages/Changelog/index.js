@@ -3,20 +3,20 @@ import Center from 'widgets/Center'
 import Markdown from 'widgets/Markdown'
 import Header from 'widgets/Header'
 import Footer from 'widgets/Footer'
-import Scrollbar from 'widgets/Scrollbar'
+import BackToTop from 'earth-ui/lib/BackToTop'
 import html from '../../../CHANGELOG.md'
+import config from '../config'
 import './index.less'
 
 export default () => {
   return (
     <div className="changelog">
       <Header />
-      <Scrollbar>
-        <Center>
-          <Markdown html={html} />
-        </Center>
-        <Footer />
-      </Scrollbar>
+      <Center>
+        <Markdown html={html} />
+      </Center>
+      <Footer />
+      <BackToTop {...config.backToTop} />
     </div>
   )
 }
