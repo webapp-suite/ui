@@ -7,9 +7,8 @@ const ButtonType = () => {
   return (
     <div>
       <Button>默认</Button>
-      <Button type="secondary">次要</Button>
+      <Button type="minor">次要</Button>
       <Button type="ghost">幽灵</Button>
-      <Button type="text">文字</Button>
     </div>
   )
 }
@@ -25,22 +24,6 @@ const ButtonSize = () => {
       <Button size="lg">大尺寸</Button>
       <Button>默认</Button>
       <Button size="sm">小尺寸</Button>
-    </div>
-  )
-}
-
-/**
- * @title 文字按钮颜色
- */
-import Button from 'earth-ui/lib/Button'
-
-const TextButtonColor = () => {
-  return (
-    <div>
-      <Button type="text" color="theme">文字</Button>
-      <Button type="text" color="red">文字</Button>
-      <Button type="text" color="black">文字</Button>
-      <Button type="text" color="grey">文字</Button>
     </div>
   )
 }
