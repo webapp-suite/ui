@@ -67,7 +67,7 @@ const Home = () => {
             <p>Earth UI 基于 React 组件开发思想，致力于打造开箱即用、体验友好、功能完善的UI组件库。</p>
           </div>
           <Row>
-            <Feature title="面向C/B端" icon={require('./img/feature_0.png')}>
+            <Feature title="面向中前台" icon={require('./img/feature_0.png')}>
               面向中前台，对中前台的常见场景倾力打造极致的用户体验
             </Feature>
             <Feature title="简洁易用" icon={require('./img/feature_1.png')}>
