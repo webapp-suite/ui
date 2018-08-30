@@ -45,7 +45,7 @@ class Components extends React.Component {
     }
     return (
       <NavItem key={item.name} id={item.name}>
-        <span><span>{item.name}</span><span className="chinese">{item.cn}</span></span>
+        <span>{item.name}</span><span className="chinese">{item.cn}</span>
       </NavItem>
     )
   }
