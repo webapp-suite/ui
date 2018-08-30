@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import Button from 'earth-ui/lib/Button'
 import Pre from 'widgets/Pre'
 import './index.less'
@@ -24,8 +24,8 @@ class Demo extends Component {
   render () {
     const { className, title, desc, code, children } = this.props
     const { open } = this.state
-    const classNames = classnames('demo', {
-      'demo--open': open
+    const classNames = cx('demo', {
+      'demo__open': open
     }, className)
     return (
       <div className={classNames}>
@@ -33,7 +33,7 @@ class Demo extends Component {
         <div className="demo__content">{children}</div>
         {desc && <div className="demo__desc">{desc}</div>}
         <div className="demo__toggle">
-          <Button transparent icon="angle-double-down" onClick={this.handleToggle}>
+          <Button transparent icon="angle-double-right" onClick={this.handleToggle}>
             代码
           </Button>
         </div>
