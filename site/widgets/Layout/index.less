@@ -1,31 +1,28 @@
 @import "~variable";
 
-@sidebar-width: 280px;
+@sidebar-width: 281px;
 @header-height: 60px;
-
-@top: 0;
-@left: 50px;
-@bottom: 50px;
+@pd-top: 40px;
+@pd-left: 50px;
+@pd-bottom: 60px;
 
 .layout {
   display: flex;
-  min-height: 100vh;
-  //overflow-y: scroll;
 }
 
 .layout__sidebar {
-  //position: fixed;
-  //float: none !important;
-  //margin-top: @header-height;
-  //top: 0;
-  //left: 0;
-  //bottom: 0;
-  //overflow-y: scroll;
-
+  position: absolute;
+  float: none !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  .layout__sidebar-scrollbar {
+    padding-top: @pd-top / 2;
+    padding-bottom: @pd-bottom - 30;
+  }
   width: @sidebar-width;
 
   transition: all .2s;
-  border-right: 1px solid @lite-lite;
   font-weight: @fontweight-medium;
   .chinese {
     font-size: 12px;
@@ -35,7 +32,6 @@
   @media (max-width: 768px) {
     position: absolute;
     transform: translate(-@sidebar-width - 2px, 0);
-    //box-shadow: 2px 0 5px rgba(0, 0, 0, .2);
     height: 100%;
     background-color: @white;
     z-index: 9999;
@@ -44,19 +40,22 @@
 }
 
 .layout__content {
-  //float: none !important;
-  //position: fixed;
-  //left: @sidebar-width;
-  //right: 0;
-  //top: @header-height;
-  //bottom: 0;
-  //overflow-y: scroll;
+  float: none !important;
+  position: absolute;
+  left: @sidebar-width - 2;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid @lite-lite;
 
   // ~ flex: 1;
   flex-grow: 1;
   flex-basis: 0;
+  .layout__content-scrollbar {
+    overflow-x: hidden;
+    padding: @pd-top @pd-left @pd-bottom;
+  }
 
-  padding: @top @left @bottom;
   @media (max-width: 768px) {
     width: 100%;
     padding-top: 70px;

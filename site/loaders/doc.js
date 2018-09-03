@@ -57,8 +57,8 @@ module.exports = function (source) {
   // 依赖的公共模块
   imports.add(`import React, { Component } from 'react'`)
   imports.add(`import { Row, Col } from 'earth-ui/lib/Layout'`)
-  imports.add(`import Demo from 'public/Demo'`)
-  imports.add(`import Doc from 'public/Doc'`)
+  imports.add(`import Demo from 'widgets/Demo'`)
+  imports.add(`import Doc from 'widgets/Doc'`)
 
   // 获取 DEMO、文档数据
   const demos = []

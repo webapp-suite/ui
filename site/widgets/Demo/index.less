@@ -1,9 +1,10 @@
 @import '~variable';
 
 .demo {
-  border-radius: 2px;
-  border: 1px solid #ececec;
+  //border-radius: 2px;
+  border: 1px solid #f0f0f0;
   margin-top: 20px;
+  background-color: #fefefe;
   &:first-child {
     margin-top: 0;
   }
@@ -34,6 +35,9 @@
 .demo__toggle {
   border-top: 1px solid #ececec;
   text-align: right;
+  .icon {
+    transition: transform .2s;
+  }
 }
 
 .demo__code {
@@ -41,7 +45,11 @@
   margin-top: -10px;
 }
 
-.demo--open {
+.demo__open {
+  .demo__toggle .icon {
+    transform: rotate(90deg);
+    transition: transform .2s;
+  }
   .demo__code {
     display: block;
   }

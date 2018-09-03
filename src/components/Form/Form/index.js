@@ -186,7 +186,7 @@ Form.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // 表单数据源，作为表单验证时的数据对象、表单提交的数据源、FormInput、FormSelect、FormTextarea 等自动填充的数据源
+  // 表单数据源，作为表单验证时的数据对象，即 FormInput、FormSelect、FormTextarea 等自动填充的数据源
   data: PropTypes.object,
 
   // 表单数据源（不可控），同 data
@@ -210,8 +210,7 @@ Form.propTypes = {
   // 成功后的回调，参数为服务器返回后的数据
   onSuccess: PropTypes.func,
 
-  // 表单提交回调，参数为当前表单的数据，自定义提交后的行为，不会自动调用
-  // save。不指定此属性，表单提交后自动调用 save
+  // 表单提交回调，参数为当前表单的数据，自定义提交后的行为，不会自动调用save。不指定此属性，表单提交后自动调用save
   onSubmit: PropTypes.func,
 
   // 提交的数据处理器，参数为当前表单数据，返回最终发送的数据

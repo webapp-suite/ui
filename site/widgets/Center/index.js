@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import './index.less'
 
 const Center = props => {
-  return <div className="center">{props.children}</div>
+  return (
+    <div className="center">
+      {props.children}
+    </div>
+  )
 }
 
 Center.propTypes = {

@@ -9,8 +9,7 @@ class Footer extends PureComponent {
           <div className="left">
             <h2>关于组件库</h2>
             <div className="intro">Earth UI - Earth Project React UI 组件库<br />
-              在视觉设计和组件使用上都崇信极简主义的风格<br />
-              采用声明式和命令式组件在不同场景灵活搭配，更便捷</div>
+              在视觉设计和组件使用上都崇信极简主义的风格</div>
           </div>
           <div className="left">
             <h2>支付宝赞赏</h2>
