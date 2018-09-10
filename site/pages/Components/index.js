@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { navigate } from '@reach/router'
 import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
 import { Layout, LayoutSidebar, LayoutContent } from 'widgets/Layout'
-import Header from 'widgets/Header'
 import components from './components.json'
 
 class Components extends React.Component {
@@ -20,7 +20,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      this.context.router.push(`/components/${route}`)
+      navigate(`/components/${route}`)
     }
   }
 
@@ -60,14 +60,13 @@ class Components extends React.Component {
 
   render () {
     const { open } = this.state
-    const { children, params } = this.props
+    const { children, '*': component } = this.props
     return (
       <div className="components">
-        <Header />
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
             <Nav
-              selectedId={params.component}
+              selectedId={component}
               onItemClick={this.handleItemClick}
               width={280}
               indent={40}
@@ -90,7 +89,7 @@ class Components extends React.Component {
             </Nav>
           </LayoutSidebar>
           <LayoutContent>
-            {this.renderTitle(params.component ? params.component : params)}
+            {component && this.renderTitle(component)}
             {children}
           </LayoutContent>
         </Layout>
@@ -101,11 +100,7 @@ class Components extends React.Component {
 
 Components.propTypes = {
   children: PropTypes.node,
-  params: PropTypes.object
-}
-
-Components.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  '*': PropTypes.string
 }
 
 export default Components

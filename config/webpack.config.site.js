@@ -69,6 +69,11 @@ const config = {
       'core.less': `${sourcePath}/styles/core.less`
     }
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'prop-types': 'PropTypes'
+  },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       test: /\.md$/,
@@ -109,7 +114,7 @@ config.plugins.push(function () {
     const stats = statsData.toJson()
     let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
     const distPath = config.output.publicPath + 'site.' + (isProduction ? stats.hash + '.' : '') + 'js'
-    html = html.replace(/(<script src=").*?(")/, '$1' + distPath + '$2')
+    html = html.replace(/(<script src=").*?dist.*?(")/, '$1' + distPath + '$2')
     fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
   })
 })

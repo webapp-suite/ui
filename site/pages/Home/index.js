@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from '@reach/router'
 import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import Center from 'widgets/Center'
 import Pre from 'widgets/Pre'
-import Header from 'widgets/Header'
 import Footer from 'widgets/Footer'
 import BackToTop from 'earth-ui/lib/BackToTop'
 import Feature from './Feature'
@@ -29,7 +28,6 @@ class App extends Component {
 const Home = () => {
   return (
     <div className="home">
-      <Header />
       <div className="home__banner">
         <Center>
           <div className="home__banner-center">

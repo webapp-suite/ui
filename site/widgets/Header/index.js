@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, IndexLink } from 'react-router'
+import { Link } from '@reach/router'
 import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/lib/Dropdown'
@@ -7,24 +7,26 @@ import Icon from 'earth-ui/lib/Icon'
 import pkg from '../../../package.json'
 import './index.less'
 
+// TODO: will be replaced in next @reach/router
+const NavLink = ({ className, activeClassName, partial, ...props }) => (
+  <Link
+    getProps={({ isCurrent, isPartiallyCurrent }) => {
+      const condition = partial ? isPartiallyCurrent : isCurrent
+      return condition
+        ? { className: `${className} active` }
+        : { className }
+    }}
+    {...props}
+  />
+)
+
 const renderNav = () => {
   return (
     <ul>
-      <li>
-        <IndexLink to="/" activeClassName="active">首页</IndexLink>
-      </li>
-      <li>
-        <Link to="/guide" activeClassName="active">指南</Link>
-      </li>
-      {/* <li> */}
-      {/* <Link to="/design" activeClassName="active">设计</Link> */}
-      {/* </li> */}
-      <li>
-        <Link to="/components" activeClassName="active">组件</Link>
-      </li>
-      <li>
-        <Link to="/changelog" activeClassName="active">更新日志</Link>
-      </li>
+      <li><NavLink to="/" activeClassName="active">首页</NavLink></li>
+      <li><NavLink to="/guide" activeClassName="active">指南</NavLink></li>
+      <li><NavLink to="/components" activeClassName="active" partial>组件</NavLink></li>
+      <li><NavLink to="/changelog" activeClassName="active">更新日志</NavLink></li>
     </ul>
   )
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Header from 'widgets/Header'
 import './index.less'
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     let { children } = this.props
     return (
       <div className="wrapper">
+        <Header />
         {children}
       </div>
     )
