@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/G-Explorer/earth-ui/compare/v0.2.0...v0.2.1) (2018-09-11)
+
+
+### Code Refactoring
+
+* **site/Nav:** make navbar scroll separately on webpage and small tweaks in Nav ([#7](https://github.com/G-Explorer/earth-ui/pull/7)) ([97efaa5](https://github.com/G-Explorer/earth-ui/commit/97efaa5))
+* **router:** use reach router and remove prop-types warnings in site console ([#26](https://github.com/G-Explorer/earth-ui/pull/26)) ([e2902a2](https://github.com/G-Explorer/earth-ui/commit/e2902a2))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/G-Explorer/earth-ui/compare/v0.1.3...v0.2.0) (2018-08-20)
 
