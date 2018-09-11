@@ -1,67 +1,34 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, browserHistory, Route, IndexRoute, IndexRedirect } from 'react-router'
-// import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import process from 'nprogress'
+import ReactDOM from 'react-dom'
+import { Router, Redirect } from '@reach/router'
+import Imported, { whenComponentsReady } from 'react-imported-component'
+import NProgress from 'nprogress'
 import App from './pages/index'
 
-render((
-  <Router onUpdate={() => {
-    process.done()
-    window.scrollTo(0, 0)
-  }} history={browserHistory}>
-    <Route
-      path="/"
-      onEnter={() => process.start()}
-      onChange={() => process.start()}
-      component={App}
-    >
-      <IndexRoute getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/Home').default)
-        })
-      }} />
-      <Route path="guide" getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/Guide').default)
-        })
-      }} />
-      <Route path="Design" getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/Design').default)
-        })
-      }} >
-        <IndexRedirect to="/design/layout" />
-        <Route path=":designElement" getComponent={(nextState, cb) => {
-          const designElement = nextState.location.pathname.split('/').pop()
-          require.ensure([], require => {
-            cb(null, require(`./pages/Design/docs/${designElement}.md`))
-          })
-        }} />
-      </Route>
-      <Route path="components" getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/Components').default)
-        })
-      }}>
-        <IndexRedirect to="/components/Layout" />
-        <Route path=":component" getComponent={(nextState, cb) => {
-          const component = nextState.location.pathname.split('/').pop()
-          require.ensure([], require => {
-            cb(null, require(`./pages/Components/docs/${component}.doc`).default)
-          })
-        }} />
-      </Route>
-      <Route path="Changelog" getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/Changelog').default)
-        })
-      }} />
-      <Route path="*" getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./pages/NotFound').default)
-        })
-      }} />
-    </Route>
+const asyncComponent = path => Imported(() => {
+  NProgress.start()
+  whenComponentsReady().then(() => NProgress.done())
+  return import(`./pages/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+})
+
+const Home = asyncComponent('Home')
+const Guide = asyncComponent('Guide')
+const Changelog = asyncComponent('Changelog')
+const NotFound = asyncComponent('NotFound')
+const Components = asyncComponent('Components')
+const Doc = routeProps => React.createElement(asyncComponent(`Components/docs/${routeProps.component}.doc`))
+
+ReactDOM.render((
+  <Router>
+    <App path="/">
+      <Home path="/" />
+      <Guide path="/guide" />
+      <Redirect noThrow from="/components" to="/components/Layout" />
+      <Components path="/components">
+        <Doc path=":component" />
+      </Components>
+      <Changelog path="/changelog" />
+      <NotFound default />
+    </App>
   </Router>
 ), document.getElementById('app'))
