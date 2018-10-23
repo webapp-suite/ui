@@ -1,13 +1,13 @@
 @import '~variable';
 
 .@{prefix-cls}-button__btn {
-  color: @white;
+  color: @ui-color-white;
   padding: 0 20px;
   height: 30px;
-  font-size: @fontsize-small;
+  font-size: @ui-fontsize-mini;
   background-color: @theme;
   border: 1px solid @theme;
-  border-radius: @btn-border-radius;
+  border-radius: @ui-unit;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
@@ -24,8 +24,8 @@
     outline: none;
   }
   &[disabled] {
-    background-color: #eceff1;
-    border-color: #eaeaea;
+    background-color: @ui-color-gray-lighter;
+    border-color: @ui-color-gray-light;
     color: #9e9e9e;
     cursor: not-allowed;
   }
@@ -39,10 +39,10 @@
 
 .@{prefix-cls}-button__btn_minor {
   color: @theme;
-  background-color: @theme-liter;
+  background-color: @theme-lighter;
   border-color: @theme;
   &:hover:enabled {
-    color: @white;
+    color: @ui-color-white;
   }
 }
 
@@ -103,6 +103,6 @@
   background-color: transparent;
   color: @theme;
   &:hover:enabled {
-    color: @white;
+    color: @ui-color-white;
   }
 }

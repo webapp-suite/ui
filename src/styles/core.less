@@ -15,7 +15,7 @@ html, body {
 
 body {
   font-family: @fontfamily;
-  font-size: @fontsize;
+  font-size: @ui-fontsize;
 }
 
 *,
@@ -39,10 +39,10 @@ input:focus {
 }
 
 input:-webkit-autofill {
-  border: 1px solid @white;
+  border: 1px solid @ui-color-white;
   border-bottom-color: @medium-litest;
   -webkit-text-fill-color: @medium-litest;
-  -webkit-box-shadow: 0 0 0px 50px @white inset;
+  -webkit-box-shadow: 0 0 0px 50px @ui-color-white inset;
 }
 input:-webkit-autofill:focus {
   -webkit-text-fill-color: @theme-dark;

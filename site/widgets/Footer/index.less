@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   background-color: @background-color;
-  color: @white;
+  color: @ui-color-white;
   border-top: @theme-footer-bottom-top 1px solid;
   .first-line, .second-line {
     overflow: hidden;
@@ -14,10 +14,10 @@
   h2 {
     color: @theme-footer-text-top;
     display: block;
-    font-size: @fontsize-medium;
-    font-weight: @fontweight-medium;
-    height: @unit-double;
-    line-height: @unit-double;
+    font-size: @ui-fontsize-medium;
+    font-weight: @ui-fontweight-medium;
+    height: @ui-unit;
+    line-height: @ui-unit;
     vertical-align: middle;
     margin-bottom: 28px;
   }
@@ -29,7 +29,7 @@
   }
   .intro, .pay, .help {
     color: @theme-footer-text-middle;
-    font-size: @fontsize;
+    font-size: @ui-fontsize;
     font-family: @fontfamily-footer-bottom;
     font-weight: 600;
     max-width: 342px;
@@ -48,7 +48,7 @@
   .intro {
     line-height: 25px;
     color: rgba(255, 255, 255, 0.65);
-    font-weight: @fontweight-medium;
+    font-weight: @ui-fontweight-medium;
   }
   .help {
     margin-right: 0;
@@ -69,7 +69,7 @@
   }
   .second-line {
     padding: 16px 138px;
-    font-size: @fontsize;
+    font-size: @ui-fontsize;
     font-family: @fontfamily-footer-bottom;
     font-weight: 600;
     color: @theme-footer-text-bottom;
@@ -88,7 +88,7 @@
         content: '';
         display: inline-block;
         text-align: center;
-        width: @unit-half;
+        width: @ui-unit-quarter
       }
       &:last-child {
         &:after {

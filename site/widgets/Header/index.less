@@ -7,11 +7,11 @@
   position: relative;
   background-color: @dark-darker;
   padding: 15px @header-padding;
-  color: @white;
+  color: @ui-color-white;
   transition: all .2s;
-  z-index: @zindex-header;
+  z-index: @ui-zindex-modal;
   a {
-    color: @white;
+    color: @ui-color-white;
     text-decoration: none;
     &:hover {
       color: @primary-color;
@@ -21,7 +21,7 @@
   .header__logo {
     display: block;
     font-size: 16px;
-    font-weight: @fontweight-medium;
+    font-weight: @ui-fontweight-medium;
     line-height: 30px;
     vertical-align: middle;
     margin-right: 40px;
@@ -30,7 +30,7 @@
       height: 30px;
       vertical-align: middle;
       margin-right: 10px;
-      fill: @white;
+      fill: @ui-color-white;
     }
     img.header__logo-img {
       position: relative;
@@ -66,11 +66,11 @@
           display: block;
           padding: 0 22px;
           line-height: 26px;
-          font-weight: @fontweight-medium;
+          font-weight: @ui-fontweight-medium;
           transition: all .2s;
           &:hover,
           &.active {
-            font-weight: @fontweight-bold;
+            font-weight: @ui-fontweight-bold;
             color: @primary-color;
           }
         }
@@ -106,7 +106,7 @@
         &:hover,
         &.active {
           background-color: @primary-color;
-          color: @white;
+          color: @ui-color-white;
         }
       }
     }

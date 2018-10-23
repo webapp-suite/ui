@@ -45,7 +45,7 @@ Layout.propTypes = {
 
 const LayoutSidebar = props => {
   const { children } = props
-  return <Col className="layout__sidebar"><Scrollbar className="layout__sidebar-scrollbar" autoHide>{children}</Scrollbar></Col>
+  return <Col className="layout__sidebar"><Scrollbar className="layout__sidebar-scrollbar">{children}</Scrollbar></Col>
 }
 
 const LayoutContent = (props, { layout }) => {

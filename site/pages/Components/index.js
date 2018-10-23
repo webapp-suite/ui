@@ -68,7 +68,7 @@ class Components extends React.Component {
             <Nav
               selectedId={component}
               onItemClick={this.handleItemClick}
-              width={280}
+              width={320}
               indent={40}
             >
               {components.map(item => {
@@ -76,7 +76,7 @@ class Components extends React.Component {
                   return this.renderNavItem(item, 'outside')
                 }
                 return (
-                  <SubNav key={item.name} title={item.cn} defaultOpen>
+                  <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen}>
                     {item.components.map(itemGroup => {
                       if (itemGroup.group) {
                         return this.renderNavItemGroup(itemGroup)

@@ -1,10 +1,9 @@
 @import "~variable";
 
-@sidebar-width: 281px;
 @header-height: 60px;
-@pd-top: 40px;
-@pd-left: 50px;
-@pd-bottom: 60px;
+@pd-top: 70px;
+@pd-left: 60px;
+@pd-bottom: 140px;
 
 .layout {
   display: flex;
@@ -16,14 +15,15 @@
   top: 0;
   left: 0;
   bottom: 0;
+  background-color: @ui-color-slate;
   .layout__sidebar-scrollbar {
     padding-top: @pd-top / 2;
-    padding-bottom: @pd-bottom - 30;
+    //padding-bottom: @pd-bottom - 30;
   }
-  width: @sidebar-width;
+  width: @ui-width-aside;
 
   transition: all .2s;
-  font-weight: @fontweight-medium;
+  font-weight: @ui-fontweight-medium;
   .chinese {
     font-size: 12px;
     margin-left: 6px;
@@ -31,9 +31,9 @@
   }
   @media (max-width: 768px) {
     position: absolute;
-    transform: translate(-@sidebar-width - 2px, 0);
+    transform: translate(-@ui-width-aside - 2px, 0);
     height: 100%;
-    background-color: @white;
+    background-color: @ui-color-white;
     z-index: 9999;
     overflow: auto;
   }
@@ -41,8 +41,9 @@
 
 .layout__content {
   float: none !important;
+  background-color: hsl(195, 19%, 92%);
   position: absolute;
-  left: @sidebar-width - 2;
+  left: @ui-width-aside - 2;
   right: 0;
   top: 0;
   bottom: 0;
@@ -53,7 +54,7 @@
   flex-basis: 0;
   .layout__content-scrollbar {
     overflow-x: hidden;
-    padding: @pd-top @pd-left @pd-bottom;
+    padding: @pd-top 0 @pd-bottom @pd-left;
   }
 
   @media (max-width: 768px) {

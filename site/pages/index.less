@@ -10,7 +10,7 @@ html, body, #app {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: @fontweight;
+  font-weight: @ui-fontweight;
   margin-top: 1.3em;
   margin-bottom: 1em;
 }
@@ -65,15 +65,16 @@ pre, code {
 body {
   font-family: @fontfamily;
   color: #333;
-  font-size: @fontsize-small;
+  font-size: @ui-fontsize-mini;
   line-height: 1.5;
+  overflow: hidden;
   .markdown {
-    font-size: @fontsize;
+    font-size: @ui-fontsize;
     code {
       font-size: 13px;
     }
     h1, h2, h3, h4, h5, h6 {
-      font-weight: @fontweight-medium;
+      font-weight: @ui-fontweight-medium;
     }
   }
   .wrapper {

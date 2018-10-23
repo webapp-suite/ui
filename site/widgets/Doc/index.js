@@ -7,7 +7,11 @@ import './index.less'
 const Doc = props => {
   return (
     <div className="doc">
-      <h2>{props.name.charCodeAt(0) < 97 ? '<' + props.name + ' />' : props.name}</h2>
+      <header className="doc__header">
+        <div className="doc__title">
+          {props.name.charCodeAt(0) < 97 ? '<' + props.name + ' />' : props.name}
+        </div>
+      </header>
       {props.props && props.props.length ? (
         <table>
           <thead>

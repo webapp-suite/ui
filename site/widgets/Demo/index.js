@@ -29,7 +29,7 @@ class Demo extends Component {
     }, className)
     return (
       <div className={classNames}>
-        <h2 className="demo__title">{title}</h2>
+        <header className="demo__header"><div className="demo__title">{title}</div></header>
         <div className="demo__content">{children}</div>
         {desc && <div className="demo__desc">{desc}</div>}
         <div className="demo__toggle">

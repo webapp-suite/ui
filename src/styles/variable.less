@@ -1,71 +1,170 @@
 // Prefix ......................................................................
-// The prefix to use on all css classes
+
 @prefix-cls: earthui;
 
+// Radius ......................................................................
+
+@ui-radius: 3px;
+
 // Units .......................................................................
-@unit: 11px;
-@unit-half: (@unit / 2);       // 5.5px
-@unit-double: (@unit * 2);     // 22px
-@unit-triple: (@unit * 3);     // 33px
-@unit-fourfold: (@unit * 4);   // 44px
-@unit-fivefold: (@unit * 5);   // 55px
-@unit-sixfold: (@unit * 6);    // 66px
-@unit-ninefold: (@unit * 9);   // 99px
-@width-main: 1000px;
-@radius: 3px;
+
+@ui-unit: 20px;
+@ui-unit-half: (@ui-unit / 2);
+@ui-unit-quarter: (@ui-unit / 4);
+@ui-unit-eighth: (@ui-unit / 8);
+@ui-unit-plus: (@ui-unit * 1.5);
+@ui-unit-double: (@ui-unit * 2);
+@ui-unit-triple: (@ui-unit * 3);
+@ui-width-aside: 320px;
 
 // Fonts .......................................................................
 
-// font-size 11px~20px
-@fontsize-smaller: 11px;
-@fontsize-small: 12px;
-@fontsize: 14px;
-@fontsize-medium: 16px;
-@fontsize-big: 18px;
-@fontsize-biger: 20px;
-// font-size 22px~40px
-@fontsize-smaller-double: 22px;
-@fontsize-small-double: 24px;
-@fontsize-double: 28px;
-@fontsize-medium-double: 32px;
-@fontsize-big-double: 36px;
-@fontsize-biger-double: 40px;
-// font-weight 100～900
-@fontweight-lightest: 100;
-@fontweight-lighter: 200;
-@fontweight-light: 300;
-@fontweight: 400;
-@fontweight-medium: 500;
-@fontweight-bold: 700;
-@fontweight-bolder: 800;
-@fontweight-boldest: 900;
-// font-family
-@fontfamily: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
-@fontfamily-mono: "Ubuntu Mono", "Monaco", "Consolas", "Bitstream Vera Sans Mono", monospace;
-@fontfamily-icon: fantasy;
-@fontfamily-logo: "Songti SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;;
-@fontfamily-subnav: -apple-system,BlinkMacSystemFont,Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-@fontfamily-code: "Lucida Console", Consolas, Menlo, Courier, monospace;
-@fontfamily-footer-bottom: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@fontfamily-nav: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@ui-fontsize-small: 11px;
+@ui-fontsize-mini: 12px;
+@ui-fontsize: 14px;
+@ui-fontsize-medium: 16px;
+@ui-fontsize-big: 18px;
+@ui-fontsize-xbig: 24px;
+@ui-fontsize-xxbig: 36px;
+@ui-fontsize-icon: 22px;
+
+@ui-fontweight-light: 300;
+@ui-fontweight: 400;
+@ui-fontweight-medium: 500;
+@ui-fontweight-semibold: 600;
+@ui-fontweight-bold: 700;
+
+@ui-fontstack: 'Open Sans', 'Helvetica Neue', 'Lucida Grande', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+@ui-fontstack-mono: 'Ubuntu Mono', 'Menlo', 'Monaco', 'Consolas', 'Bitstream Vera Sans Mono', monospace;
+@ui-fontstack-icon: 'Tradeshifticons', fantasy;
 
 // Z-index .....................................................................
 
-@zindex-main: 0;
-@zindex-subnav: 1000;
-@zindex-header: 1500;
-@zindex-dropdown: 2000;
-@zindex-dialog: 3000;
-@zindex-spin: 4000;
-@zindex-max: 10000;
-@zindex-dialog-cover: @zindex-dialog - 1;
-@zindex-spin-cover: @zindex-spin - 1;
+@ui-zindex-main: 0;
+@ui-zindex-topbar: 1000;
+@ui-zindex-modal: 1500;
+@ui-zindex-aside: 2000;
+@ui-zindex-dialog: 3000;
+@ui-zindex-spin: 4000;
+@ui-zindex-max: 10000;
+@ui-zindex-dialog-cover: @ui-zindex-dialog - 1;
+@ui-zindex-aside-cover: @ui-zindex-aside - 1;
+@ui-zindex-spin-cover: @ui-zindex-spin - 1;
 
 // Colors ......................................................................
 
-// black and white
-@black: rgba(0, 0, 0, 1);
-@white: rgba(255, 255, 255, 1);
+// Base
+@ui-color-white: hsl(0, 0%, 100%);
+@ui-color-black: hsl(204, 25%, 8%);
+
+// Red
+@ui-color-red-lightest: hsl(0, 57%, 90%);
+@ui-color-red-lighter: hsl(0, 59%, 80%);
+@ui-color-red-light: hsl(0, 59%, 60%);
+@ui-color-red: hsl(0, 100%, 37%);
+@ui-color-red-dark: hsl(0, 100%, 30%);
+@ui-color-red-darker: hsl(0, 100%, 24%);
+
+// Orange
+@ui-color-orange-lightest: hsl(32, 100%, 92%);
+@ui-color-orange-lighter: hsl(33, 100%, 84%);
+@ui-color-orange-light: hsl(33, 100%, 68%);
+@ui-color-orange: hsl(33, 100%, 50%);
+@ui-color-orange-dark: hsl(31, 100%, 47%);
+@ui-color-orange-darker: hsl(26, 100%, 41%);
+
+// Yellow
+@ui-color-yellow-lightest: hsl(44, 95%, 92%);
+@ui-color-yellow-lighter: hsl(45, 95%, 85%);
+@ui-color-yellow-light: hsl(44, 96%, 70%);
+@ui-color-yellow: hsl(44, 98%, 53%);
+@ui-color-yellow-dark: hsl(40, 100%, 52%);
+@ui-color-yellow-darker: hsl(34, 100%, 49%);
+
+// Green
+@ui-color-green-lightest: hsl(99, 59%, 90%);
+@ui-color-green-lighter: hsl(99, 60%, 81%);
+@ui-color-green-light: hsl(99, 61%, 63%);
+@ui-color-green: hsl(99, 85%, 42%);
+@ui-color-green-dark: hsl(101, 87%, 33%);
+@ui-color-green-darker: hsl(103, 91%, 26%);
+
+// Blue
+@ui-color-blue-lightest: hsl(199, 100%, 92%);
+@ui-color-blue-lighter: hsl(199, 100%, 84%);
+@ui-color-blue-light: hsl(199, 100%, 68%);
+@ui-color-blue: hsl(199, 100%, 50%);
+@ui-color-blue-dark: hsl(201, 100%, 40%);
+@ui-color-blue-darker: hsl(203, 100%, 32%);
+
+// Purple
+@ui-color-purple-lightest: hsl(295, 39%, 89%);
+@ui-color-purple-lighter: hsl(295, 40%, 78%);
+@ui-color-purple-light: hsl(295, 40%, 57%);
+@ui-color-purple: hsl(295, 79%, 34%);
+@ui-color-purple-dark: hsl(294, 82%, 26%);
+@ui-color-purple-darker: hsl(296, 100%, 19%);
+
+// Pink
+@ui-color-pink-lightest: hsl(325, 46%, 89%);
+@ui-color-pink-lighter: hsl(325, 48%, 78%);
+@ui-color-pink-light: hsl(325, 48%, 57%);
+@ui-color-pink: hsl(325, 98%, 33%);
+@ui-color-pink-dark: hsl(327, 99%, 26%);
+@ui-color-pink-darker: hsl(329, 100%, 21%);
+
+// Grey
+@ui-color-gray-lightest: hsl(204, 22%, 95%);
+@ui-color-gray-lighter: hsl(200, 21%, 92%);
+@ui-color-gray-light: hsl(198, 20%, 83%);
+@ui-color-gray: hsl(198, 20%, 67%);
+@ui-color-gray-dark: hsl(198, 20%, 59%);
+@ui-color-gray-darker: hsl(198, 20%, 49%);
+
+// Slate
+@ui-color-slate-lightest: hsl(198, 20%, 39%);
+@ui-color-slate-lighter: hsl(199, 20%, 31%);
+@ui-color-slate-light: hsl(199, 20%, 22%);
+@ui-color-slate: hsl(196, 20%, 15%);
+@ui-color-slate-dark: hsl(196, 22%, 10%);
+@ui-color-slate-darker: hsl(197, 20%, 7%);
+
+// Animations ..................................................................
+
+@ui-transition-now: 0.1s;
+@ui-transition-fast: 0.2s;
+@ui-transition-slow: 0.6s;
+
+// live examples in dropdown on http://matthewlein.com/ceaser/
+@ui-timing-easeinquad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+@ui-timing-easeincubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@ui-timing-easeinquart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+@ui-timing-easeinquint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ui-timing-easeinsine: cubic-bezier(0.47, 0, 0.745, 0.715);
+@ui-timing-easeinexpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+@ui-timing-easeincirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+@ui-timing-easeinback: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+@ui-timing-easeoutquad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+@ui-timing-easeoutcubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+@ui-timing-easeoutquart: cubic-bezier(0.165, 0.84, 0.44, 1);
+@ui-timing-easeoutquint: cubic-bezier(0.23, 1, 0.32, 1);
+@ui-timing-easeoutsine: cubic-bezier(0.39, 0.575, 0.565, 1);
+@ui-timing-easeoutexpo: cubic-bezier(0.19, 1, 0.22, 1);
+@ui-timing-easeoutcirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+@ui-timing-easeoutback: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+@ui-timing-easeinoutquad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+@ui-timing-easeinoutcubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+@ui-timing-easeinoutquart: cubic-bezier(0.77, 0, 0.175, 1);
+@ui-timing-easeinoutquint: cubic-bezier(0.86, 0, 0.07, 1);
+@ui-timing-easeinoutsine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+@ui-timing-easeinoutexpo: cubic-bezier(1, 0, 0, 1);
+@ui-timing-easeinoutcirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+@ui-timing-easeinoutback: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+
+// will remove
 
 // dark grey
 @dark-darker: rgba(33, 33, 33, 1);
@@ -90,109 +189,31 @@
 @lite-lite: rgba(235, 235, 235, 1);
 @lite-liter: rgba(245, 245, 245, 1);
 
-// green
-@green: rgba(114, 177, 72, 1);
-@green-dark: rgba(94, 157, 52, 1);
-@green-darker: rgba(74, 137, 32, 1);
-@green-lite: rgba(134, 197, 92, 1);
-@green-text: @white;
-
-// pale green
-@litegreen: rgba(178, 215, 130, 1);
-
-// dark green
-@darkgreen: rgba(24, 84, 63, 1);
-
-// blue
-@blue: rgba(32, 160, 233, 1);
-@blue-dark: rgba(12, 140, 213, 1);
-@blue-darker: rgba(0, 120, 193, 1);
-@blue-lite: rgba(43, 180, 253, 1);
-@blue-liter: rgba(88, 184, 239, 1);
-@blue-text: @white;
-
-// pale blue
-@liteblue-lite: rgba(247, 248, 250, 1);
-@liteblue: rgba(236, 247, 253, 1);
-@liteblue-dark: rgba(220, 241, 253, 1);
-
-// dark blue
-@dustblue: rgba(54, 99, 117, 1);
-@darkblue: rgba(24, 63, 84, 1);
-
-// red
-@red: rgba(191, 0, 0, 1);
-@red-dark: rgba(171, 0, 0, 1);
-@red-darker: rgba(151, 0, 0, 1);
-@red-lite: rgba(231, 0, 0, 1);
-@red-liter: rgb(233, 97, 85);
-@red-text: @white;
-
-// dark red
-@darkred: rgba(233, 32, 32, 1);
-@darkred-lite: rgba(248, 229, 229, 1);
-@darkred-text: @white;
-
-// yellow
-@yellow: rgba(253, 254, 213, 1);
-@yellow-dark: rgba(244, 242, 201, 1);
-@yellow-text: rgba(127, 115, 72, 1);
-
-// purple
-@purple: rgba(148, 52, 200, 1);
-@purple-dark: rgba(128, 45, 173, 1);
-@purple-darker: rgba(108, 25, 153, 1);
-@purple-lite: rgba(166, 58, 224, 1);
-@purple-text: @white;
-
-@theme: #c99a05;
-@theme-dark: #a78005;
-@theme-darker: #907005;
-@theme-lite: #c0ae8a;
-@theme-liter: #f5f3ef;
-@theme-text: @white;
+@theme-lighter: @ui-color-blue-lighter;
+@theme-light: @ui-color-blue-light;
+@theme: @ui-color-blue;
+@theme-dark: @ui-color-blue-dark;
+@theme-darker:@ui-color-blue-darker;
+@theme-text: @ui-color-white;
 //@theme-header: #25292e;
-@theme-header: @black;
+@theme-header: @ui-color-black;
 //@theme-header: #333;
-@theme-header-logo: @white;
+@theme-header-logo: @ui-color-white;
 @theme-header-dropdown: @dark-darker;
 //@theme-footer: rgb(68, 68, 68);
-@theme-footer: @black;
+@theme-footer: @ui-color-black;
 @theme-footer-bottom-top: @lite-lite;
 @theme-footer-text-top: #fff;
 @theme-footer-text-middle: #ddd;
 //@theme-footer-text-bottom: #aaa;
 @theme-footer-text-bottom: rgba(255, 255, 255, 0.65);
-@btn-border-radius: 0px;
 
-// Animations ..................................................................
-
-@transition-now: 0.1s;
-@transition-fast: 0.2s;
-@transition-slow: 0.6s;
-
-// live examples in dropdown on http://matthewlein.com/ceaser/
-@timing-easeinquad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
-@timing-easeincubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-@timing-easeinquart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
-@timing-easeinquint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-@timing-easeinsine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
-@timing-easeinexpo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
-@timing-easeincirc: cubic-bezier(0.600, 0.040, 0.980, 0.335);
-@timing-easeinback: cubic-bezier(0.600, -0.280, 0.735, 0.045);
-@timing-easeoutquad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-@timing-easeoutcubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-@timing-easeoutquart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-@timing-easeoutquint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-@timing-easeoutsine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
-@timing-easeoutexpo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
-@timing-easeoutcirc: cubic-bezier(0.075, 0.820, 0.165, 1.000);
-@timing-easeoutback: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-@timing-easeoutquad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
-@timing-easeoutcubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
-@timing-easeoutquart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-@timing-easeoutquint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-@timing-easeoutsine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
-@timing-easeoutexpo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
-@timing-easeoutcirc: cubic-bezier(0.785, 0.135, 0.150, 0.860);
-@timing-easeoutback: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+// font-family
+@fontfamily: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
+@fontfamily-mono: "Ubuntu Mono", "Monaco", "Consolas", "Bitstream Vera Sans Mono", monospace;
+@fontfamily-icon: fantasy;
+@fontfamily-logo: "Songti SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;;
+@fontfamily-subnav: -apple-system,BlinkMacSystemFont,Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+@fontfamily-code: "Lucida Console", Consolas, Menlo, Courier, monospace;
+@fontfamily-footer-bottom: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@fontfamily-nav: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

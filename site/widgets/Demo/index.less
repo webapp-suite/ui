@@ -1,10 +1,9 @@
 @import '~variable';
 
 .demo {
-  //border-radius: 2px;
-  border: 1px solid #f0f0f0;
   margin-top: 20px;
-  background-color: #fefefe;
+  border-radius: @ui-radius;
+  background-color: @ui-color-white;
   &:first-child {
     margin-top: 0;
   }
@@ -18,9 +17,17 @@
   }
 }
 
-.demo__title {
-  margin: 20px;
-  font-size: 14px;
+.demo__header {
+  background-color: hsl(200, 23%, 95%);
+  height: @ui-unit-double;
+  padding: @ui-unit-half;
+  border-top-left-radius: @ui-radius;
+  border-top-right-radius: @ui-radius;
+  .demo__title {
+    color: @ui-color-black;
+    font-size: @ui-fontsize;
+    font-weight: @ui-fontweight-semibold;
+  }
 }
 
 .demo__content {

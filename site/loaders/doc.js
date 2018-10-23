@@ -205,7 +205,8 @@ ${demo.mainCode}`
         <${demo.name} />
       </Demo>
     `)
-    i % 2 === 0 ? leftCol.push(code) : rightCol.push(code)
+    leftCol.push(code)
+    // i % 2 === 0 ? leftCol.push(code) : rightCol.push(code)
   })
 
   let layout
@@ -217,7 +218,12 @@ ${demo.mainCode}`
       </Row>
     `)
   } else {
-    layout = leftCol[0]
+    // layout = leftCol[0]
+    layout = (`
+      <Row gutter>
+        <Col col="md-6">${leftCol.join('\r\n')}</Col>
+      </Row>
+    `)
   }
 
   // 生成文档代码
@@ -233,10 +239,12 @@ const docs = ${JSON.stringify(docs)}
 
 export default () => {
   return (
-    <div>
-      ${layout}
-      {docs.map(doc => <Doc key={doc.name} {...doc} />)}
-    </div>
+  <div>
+    ${layout}
+    <Row gutter>
+      <Col col="md-6">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+    </Row>
+   </div>
   )
 }`
 }
