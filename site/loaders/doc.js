@@ -213,15 +213,15 @@ ${demo.mainCode}`
   if (rightCol.length) {
     layout = (`
       <Row gutter>
-        <Col col="md-6">${leftCol.join('\r\n')}</Col>
-        <Col col="md-6">${rightCol.join('\r\n')}</Col>
+        <Col col="md-13">${leftCol.join('\r\n')}</Col>
+        <Col col="md-11">${rightCol.join('\r\n')}</Col>
       </Row>
     `)
   } else {
     // layout = leftCol[0]
     layout = (`
       <Row gutter>
-        <Col col="md-6">${leftCol.join('\r\n')}</Col>
+        <Col col="md-13">${leftCol.join('\r\n')}</Col>
       </Row>
     `)
   }
@@ -242,7 +242,7 @@ export default () => {
   <div>
     ${layout}
     <Row gutter>
-      <Col col="md-6">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+      <Col col="md-13">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
     </Row>
    </div>
   )
