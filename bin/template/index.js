@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import './index.less'
 
-class <%= name %> extends Component {
+class <%= name %> extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -14,7 +14,7 @@ class <%= name %> extends Component {
   render () {
     const { className, ...other } = this.props
     return (
-      <div className={cx('cmui-<%= className %>', className)} {...other}>
+      <div className={cx(`${prefixCls}-<%= className %>`, className)} {...other}>
         something...
       </div>
     )
