@@ -31,7 +31,7 @@ const renderNav = () => {
   )
 }
 
-class Header extends React.Component {
+class TopHeader extends React.Component {
   render () {
     return (
       <Row className="header" fluid>
@@ -71,4 +71,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default TopHeader
