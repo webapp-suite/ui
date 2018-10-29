@@ -66,7 +66,8 @@ const config = {
       'doc': `${sitePath}/loaders/doc`,
       'variable.less': `${sourcePath}/styles/variable.less`,
       'mixin.less': `${sourcePath}/styles/mixin.less`,
-      'core.less': `${sourcePath}/styles/core.less`
+      'core.less': `${sourcePath}/styles/core.less`,
+      'dox.less': `${sitePath}/styles/index.less`
     }
   },
   externals: {
