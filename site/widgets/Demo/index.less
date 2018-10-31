@@ -1,19 +1,29 @@
-@import '~variable';
+@import '~ui-variables';
 
 .demo {
   margin-top: 20px;
   border-radius: @ui-radius;
-  background-color: @ui-color-white;
   &:first-child {
     margin-top: 0;
   }
-
 }
 
 @media (max-width: 991px) {
   // todo do not rely on earthui classname
   .@{prefix-cls}-layout__col:last-child > .demo:first-child {
     margin-top: 20px;
+  }
+}
+
+.demo__left {
+  .demo__desc, .demo__code {
+    margin: -20px;
+  }
+  .demo__desc, .demo__code_last {
+    margin-top: 20px;
+  }
+  .demo__code_last {
+    border-top: 1px solid @ui-color-gray-lightest;
   }
 }
 
@@ -31,7 +41,9 @@
 }
 
 .demo__content {
-  margin: 20px;
+  &_right {
+    margin: 0 0 0 @ui-unit;
+  }
 }
 
 .demo__desc {
@@ -49,7 +61,8 @@
 
 .demo__code {
   display: none;
-  margin-top: -10px;
+  font-size: @ui-fontsize-mini;
+  //margin-top: -10px;
 }
 
 .demo__open {

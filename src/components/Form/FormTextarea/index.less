@@ -1,10 +1,10 @@
-@import '~variable';
+@import '~ui-variables';
 
 .@{prefix-cls}-form__textarea {
   display: block;
   width: 100%;
   color: inherit;
-  border: 2px solid @lite;
+  border: 2px solid hsl(0, 0%, 88%);
   padding: 10px;
   background-color: @ui-color-white;
   resize: none;
@@ -13,6 +13,6 @@
   transition: border-color @ui-transition-fast ease;
   &:focus {
     outline: none;
-    border-color: @medium-liter;
+    border-color: hsl(0, 0%, 58%);
   }
 }

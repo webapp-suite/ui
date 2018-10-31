@@ -1,0 +1,588 @@
+@import 'ui-variables.less';
+@import 'ui-mixins.less';
+
+i {
+  .ui-mixin-icon();
+  position: relative;
+  top: 0;
+  &:before {
+    position: relative;
+  }
+  svg {
+    &,
+    a,
+    defs,
+    g,
+    glyph,
+    marker,
+    mask,
+    missing-glyph,
+    pattern,
+    switch,
+    symbol,
+    circle,
+    ellipse,
+    image,
+    line,
+    path,
+    polygon,
+    polyline,
+    rect,
+    text,
+    use {
+      fill: currentColor;
+    }
+  }
+  &.@{prefix-cls}-icon {
+    svg {
+      margin-top: 0 - 50%;
+    }
+  }
+}
+.@{prefix-cls}-icon__logo-trade:before {
+  content: 'K';
+}
+.@{prefix-cls}-icon__logo-shift:before {
+  content: 'L';
+}
+.@{prefix-cls}-icon__logo-t1:before {
+  content: 'M';
+}
+.@{prefix-cls}-icon__logo-t2:before {
+  content: 'N';
+}
+.@{prefix-cls}-icon__discovery:before {
+  content: 'E';
+}
+.@{prefix-cls}-icon__activity:before {
+  content: 'f';
+}
+.@{prefix-cls}-icon__todo:before {
+  content: 'q';
+}
+.@{prefix-cls}-icon__network:before {
+  content: 'G';
+}
+.@{prefix-cls}-icon__createdocument:before {
+  content: 'P';
+}
+.@{prefix-cls}-icon__alldocuments:before {
+  content: 'j';
+}
+.@{prefix-cls}-icon__document:before {
+  content: ';';
+}
+.@{prefix-cls}-icon__sales:before {
+  content: 'X';
+}
+.@{prefix-cls}-icon__purchases:before {
+  content: '$';
+}
+.@{prefix-cls}-icon__cart:before {
+  content: '$';
+}
+.@{prefix-cls}-icon__drafts:before {
+  content: 'F';
+}
+.@{prefix-cls}-icon__apps:before {
+  content: 'a';
+}
+.@{prefix-cls}-icon__usersettings:before {
+  content: 'U';
+}
+.@{prefix-cls}-icon__settings:before {
+  content: 'y';
+}
+.@{prefix-cls}-icon__companyprofile:before {
+  content: 'H';
+}
+.@{prefix-cls}-icon__logout:before {
+  content: 'Q';
+}
+.@{prefix-cls}-icon__support:before {
+  content: '?';
+}
+.@{prefix-cls}-icon__checked:before, .@{prefix-cls}-icon__accept:before, .@{prefix-cls}-icon__done:before {
+  content: '3';
+}
+.@{prefix-cls}-icon__checked-alt:before {
+  content: '2';
+}
+.@{prefix-cls}-icon__remove:before {
+  content: 'D';
+}
+.@{prefix-cls}-icon__add:before {
+  content: '&';
+}
+.@{prefix-cls}-icon__close:before {
+  content: '*';
+}
+.@{prefix-cls}-icon__location:before {
+  content: '@';
+}
+.@{prefix-cls}-icon__addfilter:before {
+  content: 'k';
+}
+.@{prefix-cls}-icon__followed:before {
+  content: 'S';
+}
+.@{prefix-cls}-icon__unfollowed:before {
+  content: '5';
+}
+.@{prefix-cls}-icon__search:before {
+  content: 's';
+}
+.@{prefix-cls}-icon__statuschange:before {
+  content: '1';
+}
+.@{prefix-cls}-icon__edit:before {
+  content: 'p';
+}
+.@{prefix-cls}-icon__rating:before {
+  content: 'r';
+}
+.@{prefix-cls}-icon__share:before {
+  content: 'R';
+}
+.@{prefix-cls}-icon__industry:before {
+  content: 'z';
+}
+.@{prefix-cls}-icon__showpicker:before {
+  content: '6';
+}
+.@{prefix-cls}-icon__warning:before {
+  content: '!';
+}
+.@{prefix-cls}-icon__timer:before {
+  content: 't';
+}
+.@{prefix-cls}-icon__comment:before {
+  content: 'w';
+}
+.@{prefix-cls}-icon__more:before {
+  content: '+';
+}
+.@{prefix-cls}-icon__users:before {
+  content: 'g';
+}
+.@{prefix-cls}-icon__ownership:before {
+  content: '\00a7';
+}
+.@{prefix-cls}-icon__companysize:before {
+  content: 'g';
+}
+.@{prefix-cls}-icon__view:before {
+  content: 'I';
+}
+.@{prefix-cls}-icon__reject:before {
+  content: 'd';
+}
+.@{prefix-cls}-icon__dispute:before {
+  content: '\05C';
+}
+.@{prefix-cls}-icon__menuswitch:before {
+  content: 'l';
+}
+.@{prefix-cls}-icon__calendar:before {
+  content: '\00a9';
+}
+.@{prefix-cls}-icon__select:before {
+  content: '}';
+}
+.@{prefix-cls}-icon__delete:before {
+  content: '#';
+}
+.@{prefix-cls}-icon__cancel:before {
+  content: 'd';
+}
+.@{prefix-cls}-icon__info:before {
+  content: 'i';
+}
+.@{prefix-cls}-icon__forums:before {
+  content: 'i';
+}
+.@{prefix-cls}-icon__addfield:before {
+  content: ',';
+}
+.@{prefix-cls}-icon__fileaccess:before {
+  content: '/';
+}
+.@{prefix-cls}-icon__error:before {
+  content: '!';
+}
+.@{prefix-cls}-icon__appactivate:before {
+  content: '&';
+}
+.@{prefix-cls}-icon__appactive:before {
+  content: '3';
+}
+.@{prefix-cls}-icon__fileattach:before {
+  content: 'A';
+}
+.@{prefix-cls}-icon__reset:before {
+  content: 'n';
+}
+.@{prefix-cls}-icon__send:before {
+  content: 'm';
+}
+.@{prefix-cls}-icon__save:before {
+  content: 'e';
+}
+.@{prefix-cls}-icon__proceed:before {
+  content: '>';
+}
+.@{prefix-cls}-icon__back:before {
+  content: '<';
+}
+.@{prefix-cls}-icon__download:before {
+  content: 'B';
+}
+.@{prefix-cls}-icon__broadcastmessage:before {
+  content: 'b';
+}
+.@{prefix-cls}-icon__insertfrominventory:before {
+  content: '|';
+}
+.@{prefix-cls}-icon__triangleright:before {
+  content: '6';
+}
+.@{prefix-cls}-icon__triangleleft:before {
+  content: '8';
+}
+.@{prefix-cls}-icon__triangleup:before {
+  content: '9';
+}
+.@{prefix-cls}-icon__triangledown:before {
+  content: '7';
+}
+.@{prefix-cls}-icon__arrowright:before {
+  content: '>';
+}
+.@{prefix-cls}-icon__arrowleft:before {
+  content: '<';
+}
+.@{prefix-cls}-icon__arrowup:before {
+  content: 'u';
+}
+.@{prefix-cls}-icon__arrowdown:before {
+  content: 'v';
+}
+.@{prefix-cls}-icon__preview:before {
+  content: 'o';
+}
+.@{prefix-cls}-icon__locked:before {
+  content: 'V';
+}
+.@{prefix-cls}-icon__unlocked:before {
+  content: 'W';
+}
+.@{prefix-cls}-icon__next:before {
+  content: '>';
+}
+.@{prefix-cls}-icon__approve:before {
+  content: '3';
+}
+.@{prefix-cls}-icon__code:before {
+  content: 'C';
+}
+.@{prefix-cls}-icon__halt:before {
+  content: 'h';
+}
+.@{prefix-cls}-icon__pay:before {
+  content: '_';
+}
+.@{prefix-cls}-icon__other:before {
+  content: 'O';
+}
+.@{prefix-cls}-icon__myapps:before {
+  content: 'Y';
+}
+.@{prefix-cls}-icon__companyevent:before {
+  content: 'c';
+}
+.@{prefix-cls}-icon__split:before {
+  content: '%';
+}
+.@{prefix-cls}-icon__split-alt:before {
+  content: '\00f7';
+}
+.@{prefix-cls}-icon__merge:before {
+  content: 'J';
+}
+.@{prefix-cls}-icon__associated:before {
+  content: '=';
+}
+.@{prefix-cls}-icon__radio:before {
+  content: '{';
+}
+.@{prefix-cls}-icon__radioon:before {
+  content: ':';
+}
+.@{prefix-cls}-icon__checkbox:before {
+  content: "'";
+}
+.@{prefix-cls}-icon__checkboxon:before {
+  content: '"';
+}
+.@{prefix-cls}-icon__checkbox-indeterminate:before {
+  content: '\2260';
+}
+.@{prefix-cls}-icon__written-request:before {
+  content: '(';
+}
+.@{prefix-cls}-icon__categories:before {
+  content: ')';
+}
+.@{prefix-cls}-icon__favorites:before {
+  content: '\2265';
+}
+.@{prefix-cls}-icon__heart:before {
+  content: '\2265';
+}
+.@{prefix-cls}-icon__preferred:before {
+  content: '\222B';
+}
+.@{prefix-cls}-icon__pin:before {
+  content: '\222B';
+}
+.@{prefix-cls}-icon__previously-requested:before {
+  content: '\221E';
+}
+.@{prefix-cls}-icon__archive:before {
+  content: '\00f7';
+}
+.@{prefix-cls}-icon__add-to-archive:before {
+  content: '\2205';
+}
+.@{prefix-cls}-icon__collaboration:before {
+  content: '\2122';
+}
+.@{prefix-cls}-icon__add-current-object:before {
+  content: '\00ae';
+}
+.@{prefix-cls}-icon__forward:before {
+  content: '\2264';
+}
+.@{prefix-cls}-icon__question:before {
+  content: '\2020';
+}
+.@{prefix-cls}-icon__phone:before {
+  content: '\2202';
+}
+.@{prefix-cls}-icon__box:before {
+  content: '\2030';
+}
+.@{prefix-cls}-icon__users-assign:before {
+  content: '\02DD';
+}
+.@{prefix-cls}-icon__users-add:before {
+  content: '\005D';
+}
+.@{prefix-cls}-icon__users-remove:before {
+  content: '\0060';
+}
+.@{prefix-cls}-icon__tools:before {
+  content: 'á';
+}
+.@{prefix-cls}-icon__basket:before {
+  content: '^';
+}
+.@{prefix-cls}-icon__erp:before {
+  content: 'è';
+}
+.@{prefix-cls}-icon__upload:before {
+  content: "↑";
+}
+.@{prefix-cls}-icon__ada:before {
+  content: "Â";
+}
+// Fixes .......................................................................
+
+.@{prefix-cls}-icon__checked:before,
+.@{prefix-cls}-icon__accept:before,
+.@{prefix-cls}-icon__done:before,
+.@{prefix-cls}-icon__approve:before,
+.@{prefix-cls}-icon__appactive:before {
+  left: 1px;
+  top: 0.5px;
+}
+.@{prefix-cls}-icon__activity:before {
+  left: 1px;
+}
+.@{prefix-cls}-icon__alldocuments:before {
+  left: 1px;
+  top: -1px;
+}
+.@{prefix-cls}-icon__broadcastmessage:before {
+  left: 0.75px;
+  top: -0.25px;
+}
+.@{prefix-cls}-icon__arrowdown:before,
+.@{prefix-cls}-icon__arrowleft:before,
+.@{prefix-cls}-icon__back:before,
+.@{prefix-cls}-icon__arrowright:before,
+.@{prefix-cls}-icon__arrowup:before {
+  top: -1px;
+}
+.@{prefix-cls}-icon__arrowright:before, .@{prefix-cls}-icon__next:before {
+  left: 1px;
+}
+.@{prefix-cls}-icon__arrowup:before {
+  left: 0.5px;
+}
+.@{prefix-cls}-icon__associated:before {
+  top: -1px;
+  left: -1px;
+}
+.@{prefix-cls}-icon__code:before, .@{prefix-cls}-icon__view:before {
+  left: 1px;
+}
+.@{prefix-cls}-icon__comment:before,
+.@{prefix-cls}-icon__collaboration:before,
+.@{prefix-cls}-icon__companyevent:before,
+.@{prefix-cls}-icon__delete:before {
+  left: 0.75px;
+}
+.@{prefix-cls}-icon__triangledown:before {
+  left: 0.25px;
+  top: 2px;
+}
+.@{prefix-cls}-icon__triangleleft:before {
+  left: -1px;
+  top: -0.5px;
+}
+.@{prefix-cls}-icon__triangleright:before, .@{prefix-cls}-icon__showpicker:before {
+  left: 1px;
+  top: -0.5px;
+}
+.@{prefix-cls}-icon__triangleup:before {
+  left: 0.5px;
+}
+.@{prefix-cls}-icon__todo:before {
+  left: 2px;
+}
+.@{prefix-cls}-icon__radio:before, .@{prefix-cls}-icon__radioon:before {
+  left: 0.5px;
+}
+.@{prefix-cls}-icon__industry:before {
+  top: -1px;
+  left: 1px;
+}
+
+// WebKit (Safari AND Chrome) ..................................................
+
+.ui-engine-webkit {
+  .@{prefix-cls}-icon__close:before {
+    top: -1px;
+    left: 0.25px;
+  }
+  .@{prefix-cls}-icon__addfilter:before {
+    top: 2px;
+    left: 0.5px;
+  }
+  .@{prefix-cls}-icon__appactivate:before,
+  .@{prefix-cls}-icon__companysize:before,
+  .@{prefix-cls}-icon__createdocument:before,
+  .@{prefix-cls}-icon__dispute:before,
+  .@{prefix-cls}-icon__users:before {
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__discovery:before {
+    left: 0.5px;
+  }
+  .@{prefix-cls}-icon__checkbox:before,
+  .@{prefix-cls}-icon__checkboxon:before,
+  .@{prefix-cls}-icon__rating:before,
+  .@{prefix-cls}-icon__followed:before .@{prefix-cls}-icon__unfollowed:before {
+    top: -1px;
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__checked-alt:before {
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__remove:before, .@{prefix-cls}-icon__more:before {
+    left: 0.5px;
+  }
+  .@{prefix-cls}-icon__warning:before, .@{prefix-cls}-icon__error:before {
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__settings:before {
+    top: 0.5px;
+    left: 0.5px;
+  }
+  .@{prefix-cls}-icon__usersettings:before {
+    top: -1px;
+    left: 0.5px;
+  }
+}
+
+// Firefox .....................................................................
+
+.ui-engine-gecko {
+  .@{prefix-cls}-icon__close:before {
+    top: -1.75px;
+    left: 0.85px;
+  }
+  .@{prefix-cls}-icon__remove:before {
+    top: 1px;
+  }
+  .@{prefix-cls}-icon__menuswitch:before {
+    top: 1px;
+  }
+  .@{prefix-cls}-icon__addfield:before {
+    left: 0.25px;
+    top: 0.25px;
+  }
+  .@{prefix-cls}-icon__addfilter:before {
+    top: 1px;
+  }
+  .@{prefix-cls}-icon__appactivate:before {
+    left: 1px;
+    top: -1px;
+  }
+  .@{prefix-cls}-icon__companysize:before, .@{prefix-cls}-icon__users:before {
+    left: 2px;
+  }
+  .@{prefix-cls}-icon__checkbox:before, .@{prefix-cls}-icon__checkboxon:before {
+    top: -2px;
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__createdocument:before {
+    left: 0.75px;
+    top: -0.75px;
+  }
+  .@{prefix-cls}-icon__checked-alt:before {
+    left: 0.75px;
+  }
+  .@{prefix-cls}-icon__download:before {
+    left: 1px;
+  }
+  .@{prefix-cls}-icon__drafts:before {
+    left: 0.1px;
+    top: -0.5px;
+  }
+  .@{prefix-cls}-icon__rating:before, .@{prefix-cls}-icon__followed:before, .@{prefix-cls}-icon__unfollowed:before {
+    left: 1px;
+    top: -1.25px;
+  }
+  .@{prefix-cls}-icon__remove:before, .@{prefix-cls}-icon__more:before {
+    top: -1px;
+    left: 0.5px;
+  }
+  .@{prefix-cls}-icon__warning:before, .@{prefix-cls}-icon__error:before {
+    left: 1px;
+    top: -1px;
+  }
+  .@{prefix-cls}-icon__usersettings:before {
+    top: -2px;
+    left: 0.25px;
+  }
+}
+
+// Exploder ....................................................................
+
+.ui-engine-explorer {
+  .@{prefix-cls}-icon__close:before {
+    top: -2px;
+  }
+}

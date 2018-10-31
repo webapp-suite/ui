@@ -3,7 +3,7 @@ import { Link } from '@reach/router'
 import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import Center from 'widgets/Center'
-import Pre from 'widgets/Pre'
+import Code from 'widgets/Code'
 import Footer from 'widgets/Footer'
 import BackToTop from 'earth-ui/lib/BackToTop'
 import Feature from './Feature'
@@ -52,7 +52,7 @@ const Home = () => {
               <p>一套基于ReactJS的UI组件库，在视觉设计和组件使用上都崇信极简主义的风格。采用声明式和命令式组件在不同场景灵活搭配，更便捷，也更注重中前台的用户体验。</p>
             </Col>
             <Col col="md-6">
-              <Pre className="home__middle-code">{code}</Pre>
+              <Code lang="jsx" className="home__middle-code">{code}</Code>
             </Col>
           </Row>
         </Center>

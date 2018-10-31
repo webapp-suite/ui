@@ -1,4 +1,4 @@
-@import "~core";
+@import "~ui";
 @primary-color-light: #cfeeff;
 @primary-color: @theme;
 @primary-color-deep: @theme-dark;
@@ -36,11 +36,11 @@ a {
   }
 }
 
-pre, code {
-  font-family: @fontfamily-code;
-  -webkit-font-smoothing: antialiased;
-  color: #666;
-}
+//pre, code {
+//  font-family: @fontfamily-code;
+//  -webkit-font-smoothing: antialiased;
+//  color: #666;
+//}
 
 * {
   box-sizing: border-box;
@@ -58,15 +58,11 @@ pre, code {
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: @dark-liter;
+    background-color: hsl(0, 0%, 29%);
   }
 }
 
 body {
-  font-family: @fontfamily;
-  color: #333;
-  font-size: @ui-fontsize-mini;
-  line-height: 1.5;
   overflow: hidden;
   .markdown {
     font-size: @ui-fontsize;

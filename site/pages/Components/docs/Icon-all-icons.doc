@@ -1,0 +1,8 @@
+/**
+ * @title All Icons
+ */
+import Icon from 'earth-ui/lib/Icon'
+
+const IconBasic = () => {
+  return <Icon type="heart" />
+}

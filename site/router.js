@@ -16,7 +16,7 @@ const Guide = asyncComponent('Guide')
 const Changelog = asyncComponent('Changelog')
 const NotFound = asyncComponent('NotFound')
 const Components = asyncComponent('Components')
-const Doc = routeProps => React.createElement(asyncComponent(`Components/docs/${routeProps.component}.doc`))
+const Dox = routeProps => React.createElement(asyncComponent(`Components/docs/${routeProps.component}.doc`))
 
 ReactDOM.render((
   <Router>
@@ -25,7 +25,7 @@ ReactDOM.render((
       <Guide path="/guide" />
       <Redirect noThrow from="/components" to="/components/Layout" />
       <Components path="/components">
-        <Doc path=":component" />
+        <Dox path=":component" />
       </Components>
       <Changelog path="/changelog" />
       <NotFound default />

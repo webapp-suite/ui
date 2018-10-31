@@ -1,18 +1,18 @@
-@import '~variable';
+@import '~ui-variables';
 
-@background-color: @theme-footer;
+@background-color: @ui-color-black;
 
 .container {
   position: relative;
   width: 100%;
   background-color: @background-color;
   color: @ui-color-white;
-  border-top: @theme-footer-bottom-top 1px solid;
+  border-top: rgba(235, 235, 235, 1) 1px solid;
   .first-line, .second-line {
     overflow: hidden;
   }
   h2 {
-    color: @theme-footer-text-top;
+    color: @ui-color-white;
     display: block;
     font-size: @ui-fontsize-medium;
     font-weight: @ui-fontweight-medium;
@@ -28,9 +28,9 @@
     float: right;
   }
   .intro, .pay, .help {
-    color: @theme-footer-text-middle;
+    color: #ddd;
     font-size: @ui-fontsize;
-    font-family: @fontfamily-footer-bottom;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     max-width: 342px;
     margin-right: 70px;
@@ -70,9 +70,9 @@
   .second-line {
     padding: 16px 138px;
     font-size: @ui-fontsize;
-    font-family: @fontfamily-footer-bottom;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
-    color: @theme-footer-text-bottom;
+    color: rgba(255, 255, 255, 0.65);
     cursor: default;
     line-height: 32px;
     span {

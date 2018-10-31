@@ -1,9 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
+import HeaderBar from 'earth-ui/lib/HeaderBar'
 import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
+import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
 import { Layout, LayoutSidebar, LayoutContent } from 'widgets/Layout'
+// import Scrollbar from 'widgets/Scrollbar'
 import components from './components.json'
+import './index.less'
+
+// const SVG = props => {
+//   return (
+//
+//   )
+// }
+
+const getTabsByComponentName = (components, componentName) => {
+  for (let c of components) {
+    if (c.name === componentName) {
+      return c.tabs
+    }
+    if (c.components) {
+      const tabs = getTabsByComponentName(c.components, componentName)
+      if (tabs) return tabs
+    }
+  }
+}
 
 class Components extends React.Component {
   constructor (props) {
@@ -29,10 +51,27 @@ class Components extends React.Component {
     this.switchRoute(props.id)
   }
 
-  renderTitle (component) {
+  handleTabClick = doc => {
+    this.switchRoute(doc)
+  }
+
+  renderTitle (docName) {
+    const component = docName.split('-')[0]
     const { name, cn } = this.componentsMap[component]
+    const tabs = getTabsByComponentName(components, name)
     return (
-      <h2 className="components__title" style={{marginTop: '0px'}}>{cn + ' ' + name}</h2>
+      <HeaderBar
+        className="components__title"
+        icon="/svg/appLogo.svg" title={`${name} ${cn}`}
+      >
+        {!!tabs && (
+          <Tabs activeKey={docName}>
+            <TabList>
+              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc} onClick={() => this.handleTabClick(tab.doc)}>{tab.label}</Tab>)}
+            </TabList>
+          </Tabs>
+        )}
+      </HeaderBar>
     )
   }
 
@@ -43,8 +82,9 @@ class Components extends React.Component {
         <NavItem key={item.name} id={item.name} title={item.cn} />
       )
     }
+    const id = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
     return (
-      <NavItem key={item.name} id={item.name}>
+      <NavItem key={item.name} id={id}>
         <span>{item.name}</span><span className="chinese">{item.cn}</span>
       </NavItem>
     )
@@ -90,7 +130,7 @@ class Components extends React.Component {
           </LayoutSidebar>
           <LayoutContent>
             {component && this.renderTitle(component)}
-            {children}
+            <div className="components__content-wrapper"><div className="components__content">{children}</div></div>
           </LayoutContent>
         </Layout>
       </div>

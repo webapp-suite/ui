@@ -1,4 +1,4 @@
-@import "~variable";
+@import "~ui-variables";
 
 @magenta-7: #c41d7f;
 
@@ -24,7 +24,7 @@
     .doc__title {
       padding: @ui-unit-quarter @ui-unit;
       color: @ui-color-white;
-      font-size: @ui-fontsize;
+      font-size: @ui-fontsize-medium;
       font-weight: @ui-fontweight;
       font-family: @ui-fontstack-mono;
     }
@@ -36,6 +36,8 @@
     background-color: @ui-color-gray-lightest;
     border: 1px solid #e8e8e8;
     border-top-color: transparent;
+    border-bottom-left-radius: @ui-radius;
+    border-bottom-right-radius: @ui-radius;
     th {
       text-align: left;
       font-weight: normal;
@@ -45,14 +47,11 @@
       padding-right: 20px;
     }
     td {
-      font-size: @ui-fontsize;
-      font-weight: @ui-fontweight-medium;
-      font-family: @fontfamily-code;
+      font-size: @ui-fontsize-medium;
+      font-family: @ui-fontstack-mono;
       line-height: 34px;
       padding: 10px 0;
-      //border-top: 1px solid #ececec;
       padding-right: 20px;
-      //vertical-align: middle;
     }
     thead {
       th {
@@ -63,8 +62,10 @@
   }
   dl {
     margin: 0;
-    padding: 20px 0 20px;
-    border-top: 1px solid #ececec;
+    padding: @ui-unit;
+    background-color: @ui-color-gray-lightest;
+    border: 1px solid #e8e8e8;
+    border-top-color: transparent;
   }
   dt {
     color: #333;
@@ -99,6 +100,7 @@
 .doc__prop-name--required {
   &:after {
     content: ' *';
+    color: @ui-color-red;
   }
 }
 

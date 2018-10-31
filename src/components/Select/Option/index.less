@@ -1,11 +1,11 @@
-@import '~variable';
+@import '~ui-variables';
 
 .@{prefix-cls}-select__option {
   cursor: pointer;
   padding: 0 10px;
   line-height: 40px;
   padding-right: 28px;
-  border-bottom: 1px solid @lite-lite;
+  border-bottom: 1px solid hsl(0, 0%, 92%);
   &:last-child {
     border-bottom: none;
   }
@@ -21,7 +21,7 @@
 
 .@{prefix-cls}-select__option_active,
 .@{prefix-cls}-select__option_active:hover {
-  background-color: @medium-liter;
+  background-color: hsl(0, 0%, 58%);
 }
 
 .@{prefix-cls}-select__option-icon_selected {

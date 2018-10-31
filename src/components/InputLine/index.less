@@ -1,21 +1,21 @@
-@import '~variable';
+@import '~ui-variables';
 
 .@{prefix-cls}-input-line {
-  color: @medium-litest;
+  color: hsl(0, 0%, 69%);
   font-size: @ui-fontsize;
   border-color: @ui-color-white;
   background-color: @ui-color-white;
   -webkit-appearance: none;
   border-bottom-color: @theme-dark;
   border: 1px transparent solid;
-  border-bottom: 1px @lite-darker solid;
+  border-bottom: 1px hsl(0, 0%, 80%) solid;
   padding-bottom: @ui-unit-half;
   &:focus {
     border-bottom-color: @theme-dark;
     color: @theme-dark;
   }
   &::-webkit-input-placeholder {
-    color: @lite-dark;
+    color: hsl(0, 0%, 84%);
   }
   &:focus::-webkit-input-placeholder {
     color: @theme-light;

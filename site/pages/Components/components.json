@@ -1,6 +1,6 @@
 [{
   "icon": "retweet",
-  "name": "intro",
+  "name": "Intro",
   "cn": "介绍"
 }, {
   "icon": "retweet",
@@ -20,8 +20,8 @@
     "cn": "排版"
   }]
 }, {
-  "cn": "UI 组件",
-  "name": "UI Components",
+  "cn": "布局组件",
+  "name": "Layout Components",
   "defaultOpen": true,
   "components": [{
     "icon": "retweet",
@@ -29,8 +29,43 @@
     "cn": "布局"
   }, {
     "icon": "retweet",
+    "name": "HeaderBar",
+    "cn": "顶栏"
+  }, {
+    "icon": "retweet",
+    "name": "ToolBar",
+    "cn": "工具栏"
+  }, {
+    "icon": "retweet",
+    "name": "FooterBar",
+    "cn": "底栏"
+  }, {
+    "name": "Nav",
+    "cn": "导航栏"
+  }, {
+    "icon": "retweet",
+    "name": "SideBar",
+    "cn": "侧栏"
+  }]
+}, {
+  "cn": "UI 组件",
+  "name": "UI Components",
+  "defaultOpen": true,
+  "components": [{
+    "icon": "retweet",
     "name": "Icon",
-    "cn": "图标"
+    "cn": "图标",
+    "tabs": [{
+      "label": "Usage",
+      "doc": "Icon-usage"
+    }, {
+      "label": "All Icons",
+      "doc": "Icon-all-icons"
+    }]
+  }, {
+    "icon": "retweet",
+    "name": "Board",
+    "cn": "面板"
   }, {
     "name": "Button",
     "cn": "按钮"
@@ -40,9 +75,6 @@
   }, {
     "name": "Dropdown",
     "cn": "下拉菜单"
-  }, {
-    "name": "Nav",
-    "cn": "导航"
   }, {
     "name": "Spinner",
     "cn": "加载中"
@@ -61,6 +93,9 @@
   }, {
     "name": "Tooltip",
     "cn": "提示框"
+  }, {
+    "name": "Tabs",
+    "cn": "选项卡"
   }, {
     "name": "message",
     "cn": "全局提示"

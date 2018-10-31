@@ -1,4 +1,13 @@
 /**
+ * @title 默认按钮
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonDefault = () => {
+  return <Button>Default Button</Button>
+}
+
+/**
  * @title 按钮类型
  */
 import Button from 'earth-ui/lib/Button'
@@ -6,24 +15,40 @@ import Button from 'earth-ui/lib/Button'
 const ButtonType = () => {
   return (
     <div>
-      <Button>默认</Button>
-      <Button type="minor">次要</Button>
-      <Button type="ghost">幽灵</Button>
+      <Button type="primary">Primary</Button>
+      <Button type="secondary">Secondary</Button>
+      <Button type="tertiary">Tertiary</Button>
     </div>
   )
 }
 
 /**
- * @title 按钮尺寸
+ * @title 微型按钮
  */
 import Button from 'earth-ui/lib/Button'
 
-const ButtonSize = () => {
+const ButtonMicro = () => {
   return (
     <div>
-      <Button size="lg">大尺寸</Button>
-      <Button>默认</Button>
-      <Button size="sm">小尺寸</Button>
+      <Button type="primary" micro>Primary</Button>
+      <Button type="secondary" micro>Secondary</Button>
+      <Button type="tertiary" micro>Tertiary</Button>
+    </div>
+  )
+}
+
+/**
+ * @title Block 按钮
+ * @desc block属性将使按钮适合其父宽度
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonBlock = () => {
+  return (
+    <div>
+      <Button type="primary" block>Primary</Button><br/><br/>
+      <Button type="secondary" block>Secondary</Button><br/><br/>
+      <Button type="tertiary" block>Tertiary</Button>
     </div>
   )
 }
@@ -37,37 +62,9 @@ import Button from 'earth-ui/lib/Button'
 const ButtonIcon = () => {
   return (
     <div>
-      <Button icon="plus">添加</Button>
-      <Button icon="align-left" />
-    </div>
-  )
-}
-
-/**
- * @title 圆形按钮
- */
-import Button from 'earth-ui/lib/Button'
-
-const ButtonCircle = () => {
-  return (
-    <div>
-      <Button icon="plus" circle />
-      <Button circle>赞</Button>
-    </div>
-  )
-}
-
-/**
- * @title transparent
- * @desc 文字颜色继承父级，背景透明
- */
-import Button from 'earth-ui/lib/Button'
-
-const ButtonTransparent = () => {
-  return (
-    <div>
-      <Button icon="plus" transparent />
-      <Button icon="align-left" transparent />
+      <Button icon="delete" />
+      <Button icon="statuschange" type="secondary" />
+      <Button icon="activity" type="secondary">数据分析</Button>
     </div>
   )
 }
@@ -81,7 +78,8 @@ const ButtonDisabled = () => {
   return (
     <div>
       <Button disabled>不可用</Button>
-      <Button icon="plus" disabled />
+      <Button icon="statuschange" disabled />
+      <Button icon="activity" type="secondary" disabled>数据分析</Button>
     </div>
   )
 }

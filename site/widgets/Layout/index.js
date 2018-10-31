@@ -52,14 +52,14 @@ const LayoutContent = (props, { layout }) => {
   const { children } = props
   return (
     <Col className="layout__content" onClick={() => layout.close()}>
-      <Scrollbar className="layout__content-scrollbar">
-        <Button
-          icon="bars"
-          className="layout__toggle"
-          onClick={e => layout.toggle(e)}
-        />
-        {children}
-      </Scrollbar>
+      {/* <Scrollbar className="layout__content-scrollbar"> */}
+      <Button
+        icon="bars"
+        className="layout__toggle"
+        onClick={e => layout.toggle(e)}
+      />
+      {children}
+      {/* </Scrollbar> */}
     </Col>
   )
 }

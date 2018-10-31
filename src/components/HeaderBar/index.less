@@ -1,0 +1,54 @@
+@import '~ui-variables';
+@import '~ui-mixins';
+
+@width: 100%;
+
+.@{prefix-cls}-headerbar {
+  position: relative;
+  z-index: @ui-zindex-topbar;
+  width: 100%;
+  background-color: @ui-color-white;
+  border-bottom: 1px solid @ui-color-gray-light;
+  .ui-mixin-transition(opacity);
+  &__bars {
+    &-tool {
+      position: relative;
+      user-select: none;
+      height: 60px;
+      max-height: 60px;
+      min-height: 60px;
+      white-space: nowrap;
+      &-item {
+        position: absolute;
+        font-size: 0;
+        white-space: nowrap;
+        margin: 0!important;
+        > li {
+          font-size: @ui-fontsize;
+          display: inline-block;
+          vertical-align: middle;
+          padding: @ui-unit-half @ui-unit-quarter;
+        }
+        li&-icon {
+          .ui-mixin-reduce-l();
+          height: 60px;
+          max-height: 60px;
+          min-height: 60px;
+        }
+        &-title {
+          label {
+            font-size: 18px;
+            padding: 10px;
+            padding-left: 0;
+            line-height: 20px;
+            display: block;
+            position: relative;
+            top: -1px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}

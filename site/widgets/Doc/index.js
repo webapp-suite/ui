@@ -18,6 +18,7 @@ const Doc = props => {
             <tr>
               <th>属性</th>
               <th>类型</th>
+              {/* <th>默认</th> */}
               <th>说明</th>
             </tr>
           </thead>
@@ -30,6 +31,7 @@ const Doc = props => {
                   {prop.name}
                 </td>
                 <td className="doc__prop-type">{prop.type}</td>
+                {/* <td className="doc__prop-type">{props.defaultProps}</td> */}
                 <td>
                   <Markdown html={prop.desc} />
                 </td>

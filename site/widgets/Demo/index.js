@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Button from 'earth-ui/lib/Button'
-import Pre from 'widgets/Pre'
+import { Row, Col } from 'earth-ui/lib/Layout'
+import Board from 'earth-ui/lib/Board'
+import Code from 'widgets/Code'
 import './index.less'
 
 class Demo extends Component {
@@ -22,26 +23,60 @@ class Demo extends Component {
   }
 
   render () {
-    const { className, title, desc, code, children } = this.props
+    const { className, title, desc, code, renderPosition, children } = this.props
     const { open } = this.state
-    const classNames = cx('demo', {
-      'demo__open': open
-    }, className)
-    return (
-      <div className={classNames}>
-        <header className="demo__header"><div className="demo__title">{title}</div></header>
-        <div className="demo__content">{children}</div>
-        {desc && <div className="demo__desc">{desc}</div>}
-        <div className="demo__toggle">
-          <Button transparent icon="angle-double-right" onClick={this.handleToggle}>
-            代码
-          </Button>
-        </div>
-        <div className="demo__code" ref="pre">
-          <Pre transparent>{code}</Pre>
-        </div>
-      </div>
-    )
+    const renderInLeft = () => {
+      const buttons = [{
+        label: 'show code',
+        type: 'tertiary',
+        onClick: () => {
+          this.handleToggle()
+        }
+      }]
+      return (
+        <Row className={cx('demo', {'demo__open': open}, className)}>
+          <Col col="md-13" className="demo__left">
+            <Board title={title} buttons={buttons} theme="simple">
+              <div className="demo__content">{children}</div>
+              {desc && <div className="demo__desc">{desc}</div>}
+              <div className="demo__code demo__code_last" ref="pre">
+                <Code lang="jsx">{code}</Code>
+              </div>
+            </Board>
+          </Col>
+        </Row>
+      )
+    }
+    const renderInRight = () => {
+      const buttons = [{
+        label: 'hide code',
+        type: 'tertiary',
+        onClick: () => {
+          this.handleToggle()
+        }
+      }]
+      return (
+        <Row className={cx('demo', {'demo__open': !open}, className)}>
+          <Col col="md-13" className="demo__left">
+            <Board title={title} buttons={buttons} theme="simple">
+              <div className="demo__code" ref="pre">
+                <Code lang="jsx">{code}</Code>
+              </div>
+            </Board>
+          </Col>
+          <Col col="md-11">
+            <div className="demo__content_right">{children}</div>
+            {desc && <div className="demo__desc">{desc}</div>}
+          </Col>
+        </Row>
+      )
+    }
+
+    const render = {
+      'left': renderInLeft(),
+      'right': renderInRight()
+    }
+    return render[renderPosition]
   }
 }
 
@@ -50,7 +85,8 @@ Demo.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   desc: PropTypes.string,
-  code: PropTypes.string
+  code: PropTypes.string,
+  renderPosition: PropTypes.oneOf('left', 'right')
 }
 
 export default Demo

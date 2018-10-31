@@ -36,7 +36,7 @@
 
 @ui-fontstack: 'Open Sans', 'Helvetica Neue', 'Lucida Grande', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
 @ui-fontstack-mono: 'Ubuntu Mono', 'Menlo', 'Monaco', 'Consolas', 'Bitstream Vera Sans Mono', monospace;
-@ui-fontstack-icon: 'Tradeshifticons', fantasy;
+@ui-fontstack-icon: 'Earthui Icons', fantasy;
 
 // Z-index .....................................................................
 
@@ -129,6 +129,14 @@
 @ui-color-slate-dark: hsl(196, 22%, 10%);
 @ui-color-slate-darker: hsl(197, 20%, 7%);
 
+// Theme
+@theme-lighter: @ui-color-blue-lighter;
+@theme-light: @ui-color-blue-light;
+@theme: @ui-color-blue;
+@theme-dark: @ui-color-blue-dark;
+@theme-darker:@ui-color-blue-darker;
+@theme-text: @ui-color-white;
+
 // Animations ..................................................................
 
 @ui-transition-now: 0.1s;
@@ -162,58 +170,3 @@
 @ui-timing-easeinoutexpo: cubic-bezier(1, 0, 0, 1);
 @ui-timing-easeinoutcirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 @ui-timing-easeinoutback: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-
-// will remove
-
-// dark grey
-@dark-darker: rgba(33, 33, 33, 1);
-@dark-dark: rgba(43, 43, 43, 1);
-@dark: rgba(53, 53, 53, 1);
-@dark-lite: rgba(63, 63, 63, 1);
-@dark-liter: rgba(73, 73, 73, 1);
-
-// medium grey
-@medium-darkest: rgba(97, 97, 97, 1);
-@medium-darker: rgba(107, 107, 107, 1);
-@medium-dark: rgba(117, 117, 117, 1);
-@medium: rgba(127, 127, 127, 1);
-@medium-lite: rgba(137, 137, 137, 1);
-@medium-liter: rgba(147, 147, 147, 1);
-@medium-litest: rgba(175, 175, 175, 1);
-
-// lite grey
-@lite-darker: rgba(205, 205, 205, 1);
-@lite-dark: rgba(215, 215, 215, 1);
-@lite: rgba(225, 225, 225, 1);
-@lite-lite: rgba(235, 235, 235, 1);
-@lite-liter: rgba(245, 245, 245, 1);
-
-@theme-lighter: @ui-color-blue-lighter;
-@theme-light: @ui-color-blue-light;
-@theme: @ui-color-blue;
-@theme-dark: @ui-color-blue-dark;
-@theme-darker:@ui-color-blue-darker;
-@theme-text: @ui-color-white;
-//@theme-header: #25292e;
-@theme-header: @ui-color-black;
-//@theme-header: #333;
-@theme-header-logo: @ui-color-white;
-@theme-header-dropdown: @dark-darker;
-//@theme-footer: rgb(68, 68, 68);
-@theme-footer: @ui-color-black;
-@theme-footer-bottom-top: @lite-lite;
-@theme-footer-text-top: #fff;
-@theme-footer-text-middle: #ddd;
-//@theme-footer-text-bottom: #aaa;
-@theme-footer-text-bottom: rgba(255, 255, 255, 0.65);
-
-// font-family
-@fontfamily: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
-@fontfamily-mono: "Ubuntu Mono", "Monaco", "Consolas", "Bitstream Vera Sans Mono", monospace;
-@fontfamily-icon: fantasy;
-@fontfamily-logo: "Songti SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;;
-@fontfamily-subnav: -apple-system,BlinkMacSystemFont,Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-@fontfamily-code: "Lucida Console", Consolas, Menlo, Courier, monospace;
-@fontfamily-footer-bottom: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@fontfamily-nav: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
