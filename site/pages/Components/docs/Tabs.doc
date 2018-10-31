@@ -1,6 +1,6 @@
 /**
  * @title 基本功能
- * @renderPosition right
+ * @renderModel right
  */
 import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
 
@@ -19,7 +19,7 @@ const TabsBasic = () => {
 
 /**
  * @title 页签模式
- * @renderPosition right
+ * @renderModel right
  */
 import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
 import Button from 'earth-ui/lib/Button'

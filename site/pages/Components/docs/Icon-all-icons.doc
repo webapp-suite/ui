@@ -1,8 +1,148 @@
 /**
  * @title All Icons
+ * @renderModel full
  */
 import Icon from 'earth-ui/lib/Icon'
+import Button from 'earth-ui/lib/Button'
 
 const IconBasic = () => {
-  return <Icon type="heart" />
+  const allIcons = [
+    'logo-t1',
+    'logo-t2',
+    'discovery',
+    'activity',
+    'todo',
+    'network',
+    'createdocument',
+    'alldocuments',
+    'document',
+    'sales',
+    'purchases',
+    'drafts',
+    'apps',
+    'usersettings',
+    'settings',
+    'companyprofile',
+    'logout',
+    'support',
+    'checked',
+    'accept',
+    'done',
+    'checked-alt',
+    'remove',
+    'add',
+    'close',
+    'location',
+    'addfilter',
+    'followed',
+    'unfollowed',
+    'search',
+    'statuschange',
+    'edit',
+    'rating',
+    'share',
+    'industry',
+    'showpicker',
+    'warning',
+    'timer',
+    'comment',
+    'more',
+    'users',
+    'ownership',
+    'companysize',
+    'view',
+    'reject',
+    'dispute',
+    'menuswitch',
+    'delete',
+    'cancel',
+    'info',
+    'forums',
+    'addfield',
+    'fileaccess',
+    'error',
+    'appactivate',
+    'appactive',
+    'fileattach',
+    'reset',
+    'send',
+    'save',
+    'proceed',
+    'back',
+    'download',
+    'broadcastmessage',
+    'insertfrominventory',
+    'triangleright',
+    'triangleleft',
+    'triangleup',
+    'triangledown',
+    'arrowright',
+    'arrowleft',
+    'arrowup',
+    'arrowdown',
+    'preview',
+    'locked',
+    'unlocked',
+    'next',
+    'approve',
+    'code',
+    'halt',
+    'pay',
+    'other',
+    'myapps',
+    'companyevent',
+    'split',
+    'merge',
+    'associated',
+    'radio',
+    'radioon',
+    'checkbox',
+    'checkboxon',
+    'checkbox-indeterminate',
+    'written-request',
+    'categories',
+    'favorites',
+    'heart',
+    'preferred',
+    'pin',
+    'previously-requested',
+    'cart',
+    'archive',
+    'add-to-archive',
+    'calendar',
+    'select',
+    'collaboration',
+    'add-current-object',
+    'forward',
+    'question',
+    'phone',
+    'box',
+    'users-assign',
+    'users-add',
+    'users-remove',
+    'tools',
+    'basket',
+    'erp',
+    'upload',
+    'ada'
+  ]
+  const ul = {
+    columnWidth: 'auto',
+    columnCount: 3,
+    marginTop: -20
+  }
+  const li = {
+    listStyle: 'none',
+    marginBottom: 6
+  }
+  return (
+    <ul style={ul}>
+      {allIcons.sort().map(icon =>
+        <li style={li}>
+          <Button icon={icon} type="tertiary" />
+          <span>{icon}</span>
+        </li>
+      )}
+    </ul>
+  )
 }

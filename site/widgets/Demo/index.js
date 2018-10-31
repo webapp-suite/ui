@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Row, Col } from 'earth-ui/lib/Layout'
@@ -6,7 +6,7 @@ import Board from 'earth-ui/lib/Board'
 import Code from 'widgets/Code'
 import './index.less'
 
-class Demo extends Component {
+class Demo extends React.Component {
   constructor (props) {
     super()
     this.state = {
@@ -23,7 +23,7 @@ class Demo extends Component {
   }
 
   render () {
-    const { className, title, desc, code, renderPosition, children } = this.props
+    const { className, title, desc, code, renderModel, children } = this.props
     const { open } = this.state
     const renderInLeft = () => {
       const buttons = [{
@@ -71,12 +71,23 @@ class Demo extends Component {
         </Row>
       )
     }
+    const renderInFull = () => {
+      return (
+        <Row className={cx('demo', {'demo__open': !open}, className)}>
+          <Col col="md-24">
+            <div className="demo__content">{children}</div>
+            {desc && <div className="demo__desc">{desc}</div>}
+          </Col>
+        </Row>
+      )
+    }
 
     const render = {
       'left': renderInLeft(),
-      'right': renderInRight()
+      'right': renderInRight(),
+      'full': renderInFull()
     }
-    return render[renderPosition]
+    return render[renderModel]
   }
 }
 
@@ -86,7 +97,7 @@ Demo.propTypes = {
   title: PropTypes.string,
   desc: PropTypes.string,
   code: PropTypes.string,
-  renderPosition: PropTypes.oneOf('left', 'right')
+  renderModel: PropTypes.oneOf('left', 'right', 'full')
 }
 
 export default Demo

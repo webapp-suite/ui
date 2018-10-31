@@ -182,9 +182,9 @@ module.exports = function (source) {
 
     docs.push(doc)
   }, match => {
-    demos[demos.length - 1].renderPosition = match
+    demos[demos.length - 1].renderModel = match
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderPosition\s(.+)/g
+  const reg = /@title\s(.+)|@desc\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
   source.replace(reg, (match, p1, p2, p3, p4, p5) => {
     [p1, p2, p3, p4, p5].forEach((match, i) => {
       match && callbacks[i](match)
@@ -203,7 +203,7 @@ ${demo.mainCode}`
   const rightCol = []
   demos.forEach((demo, i) => {
     const code = (`
-      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}" renderPosition="${demo.renderPosition || 'left'}">
+      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}" renderModel="${demo.renderModel || 'left'}">
         <${demo.name} />
       </Demo>
     `)

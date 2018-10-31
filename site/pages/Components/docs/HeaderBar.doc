@@ -1,6 +1,6 @@
 /**
  * @title 基本功能
- * @renderPosition right
+ * @renderModel right
  */
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 
@@ -12,7 +12,7 @@ const HeaderBarBasic = () => {
 
 /**
  * @title 带 Tabs 的 HeaderBar
- * @renderPosition right
+ * @renderModel right
  */
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import message from 'earth-ui/lib/message'
@@ -34,7 +34,7 @@ const HeaderBarWithTabs = () => {
 
 /**
  * @title 动态页签
- * @renderPosition right
+ * @renderModel right
  */
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'

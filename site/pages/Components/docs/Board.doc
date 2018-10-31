@@ -1,6 +1,6 @@
 /**
  * @title 基本样式
- * @renderPosition right
+ * @renderModel right
  */
 import Board from 'earth-ui/lib/Board'
 
@@ -20,7 +20,7 @@ const BoardBasic = () => {
 
 /**
  * @title 带标题的面板
- * @renderPosition right
+ * @renderModel right
  */
 import Board from 'earth-ui/lib/Board'
 
@@ -40,7 +40,7 @@ const BoardWithTitle = () => {
 
 /**
  * @title 带按钮的面板
- * @renderPosition right
+ * @renderModel right
  */
 import Board from 'earth-ui/lib/Board'
 import message from 'earth-ui/lib/message'
@@ -62,7 +62,7 @@ const BoardWithButtons = () => {
 
 /**
  * @title 带Tab的面板
- * @renderPosition right
+ * @renderModel right
  */
 import Board from 'earth-ui/lib/Board'
 import message from 'earth-ui/lib/message'
