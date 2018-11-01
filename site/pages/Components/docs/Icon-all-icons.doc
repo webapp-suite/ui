@@ -135,8 +135,18 @@ const IconBasic = () => {
     listStyle: 'none',
     marginBottom: 6
   }
+  if (window.matchMedia('(min-width:1800px)').matches) {
+    ul.columnCount = 6
+  }
   return (
-    <ul style={ul}>
+    <ul style={ul} className="texts">
+    <style type="text/css">
+    @media (min-width: 1800px)  { /* Change to whatever media query you require */
+        #texts {
+          column-count: 6 !important;
+        }
+    }
+    </style>
       {allIcons.sort().map(icon =>
         <li style={li}>
           <Button icon={icon} type="tertiary" />
