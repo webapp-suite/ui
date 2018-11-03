@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import Button from 'earth-ui/lib/Button'
-import Scrollbar from 'widgets/Scrollbar'
 import './index.less'
 
 class Layout extends Component {
@@ -45,7 +44,7 @@ Layout.propTypes = {
 
 const LayoutSidebar = props => {
   const { children } = props
-  return <Col className="layout__sidebar"><Scrollbar className="layout__sidebar-scrollbar">{children}</Scrollbar></Col>
+  return <Col className="layout__sidebar">{children}</Col>
 }
 
 const LayoutContent = (props, { layout }) => {

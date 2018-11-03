@@ -2,6 +2,31 @@
 @import "~ui-mixins";
 
 .components {
+  &__navbar-logo {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid @ui-color-slate;
+    width: @ui-width-aside;
+    color: @ui-color-white;
+    position: fixed;
+    background-color: @ui-color-slate-light;
+    z-index: @ui-zindex-topbar;
+    i {
+      font-size: 37px;
+      top: 6px;
+      left: 66px;
+    }
+  }
+  &__navbar-scrollbar {
+  }
+  &__navbar-menu {
+    //position: relative;
+    //top: 60px;
+    //height: ~'calc(100vh - 60px)';
+    //overflow-y: auto;
+    //overflow-x: hidden;
+    //background-color: @ui-color-slate-light;
+  }
   &__content-wrapper {
     height: ~'calc(100vh - @{ui-unit-triple})';
     overflow-y: scroll;
@@ -9,4 +34,9 @@
   &__content {
     padding: 70px 60px 140px;
   }
+}
+
+.scrollbar {
+  top: 60px;
+  background-color: @ui-color-slate-light;
 }

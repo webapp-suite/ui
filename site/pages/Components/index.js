@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
+import Icon from 'earth-ui/lib/Icon'
 import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
 import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
 import { Layout, LayoutSidebar, LayoutContent } from 'widgets/Layout'
-// import Scrollbar from 'widgets/Scrollbar'
+import Scrollbar from 'widgets/Scrollbar'
 import components from './components.json'
 import './index.less'
 
@@ -79,12 +80,12 @@ class Components extends React.Component {
     this.componentsMap[item.name] = item
     if (position === 'outside') {
       return (
-        <NavItem key={item.name} id={item.name} title={item.cn} />
+        <NavItem id={item.name} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
       )
     }
     const id = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
     return (
-      <NavItem key={item.name} id={id}>
+      <NavItem id={id}>
         <span>{item.name}</span><span className="chinese">{item.cn}</span>
       </NavItem>
     )
@@ -92,7 +93,7 @@ class Components extends React.Component {
 
   renderNavItemGroup (itemGroup) {
     return (
-      <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
+      <NavItemGroup title={itemGroup.group}>
         {itemGroup.components.map(component => this.renderNavItem(component))}
       </NavItemGroup>
     )
@@ -105,28 +106,32 @@ class Components extends React.Component {
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
-            <Nav
-              selectedId={component}
-              onItemClick={this.handleItemClick}
-              width={320}
-              indent={40}
-            >
-              {components.map(item => {
-                if (!item.components) {
-                  return this.renderNavItem(item, 'outside')
-                }
-                return (
-                  <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen}>
-                    {item.components.map(itemGroup => {
-                      if (itemGroup.group) {
-                        return this.renderNavItemGroup(itemGroup)
-                      }
-                      return this.renderNavItem(itemGroup)
-                    })}
-                  </SubNav>
-                )
-              })}
-            </Nav>
+            <div className="components__navbar-logo"><Icon type="logo-trade" /><Icon type="logo-shift" /></div>
+            <Scrollbar className="components__navbar-scrollbar">
+              <Nav
+                selectedId={component}
+                onItemClick={this.handleItemClick}
+                width={320}
+                indent={20}
+                className="components__navbar-menu"
+              >
+                {components.map(item => {
+                  if (!item.components) {
+                    return this.renderNavItem(item, 'outside')
+                  }
+                  return (
+                    <SubNav title={item.cn} defaultOpen={item.defaultOpen} icon={`/svg/icons.svg#${item.icon}`}>
+                      {item.components.map(itemGroup => {
+                        if (itemGroup.group) {
+                          return this.renderNavItemGroup(itemGroup)
+                        }
+                        return this.renderNavItem(itemGroup)
+                      })}
+                    </SubNav>
+                  )
+                })}
+              </Nav>
+            </Scrollbar>
           </LayoutSidebar>
           <LayoutContent>
             {component && this.renderTitle(component)}

@@ -1,19 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import '../../styles/ui-icons.less'
+import './index.less'
 
 const Icon = props => {
-  const { className, type, ...other } = props
+  const { className, type, src, ...other } = props
   return (
-    <i className={cx(`${prefixCls}-icon`, `${prefixCls}-icon__${type}`, className)} {...other} />
+    <i className={cx(`${prefixCls}-icon`, {[`${prefixCls}-icon__${type}`]: type}, className)} {...other}>
+      {src && <svg><use xlinkHref={src} /></svg>}
+    </i>
   )
 }
 
 Icon.propTypes = {
   className: PropTypes.string,
   // 图标类型
-  type: PropTypes.string.isRequired
+  type: PropTypes.string
 }
 
 export default Icon

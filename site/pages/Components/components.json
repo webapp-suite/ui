@@ -1,14 +1,15 @@
 [{
-  "icon": "retweet",
+  "icon": "docs-icon-interface-information",
   "name": "Intro",
   "cn": "介绍"
 }, {
-  "icon": "retweet",
+  "icon": "docs-icon-space-rocket",
   "name": "start",
   "cn": "开始"
 }, {
-  "cn": "设计",
+  "icon": "docs-icon-paint-palette",
   "name": "design",
+  "cn": "设计",
   "defaultOpen": false,
   "components": [{
     "icon": "retweet",
@@ -20,8 +21,9 @@
     "cn": "排版"
   }]
 }, {
-  "cn": "布局组件",
+  "icon": "docs-icon-window-application-6",
   "name": "Layout Components",
+  "cn": "布局组件",
   "defaultOpen": true,
   "components": [{
     "icon": "retweet",
@@ -48,8 +50,9 @@
     "cn": "侧栏"
   }]
 }, {
-  "cn": "UI 组件",
+  "icon": "docs-icon-modules-1",
   "name": "UI Components",
+  "cn": "UI 组件",
   "defaultOpen": true,
   "components": [{
     "icon": "retweet",

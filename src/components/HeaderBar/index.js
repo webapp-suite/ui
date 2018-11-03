@@ -19,7 +19,7 @@ class HeaderBar extends React.Component {
               </li>
             </menu>
           </li>
-          <li>{children}</li>
+          {children && <li>{children}</li>}
         </ul>
       </header>
     )

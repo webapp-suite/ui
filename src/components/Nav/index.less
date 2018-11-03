@@ -1,21 +1,25 @@
 @import "~ui-variables";
 
-@primary-color: @theme;
-@primary-color-deep: @theme-dark;
-@primary-color-deeper: @theme-darker;
-@border-color: #f0f0f0;
+//@primary-color: @theme;
+//@primary-color-deep: @theme-dark;
+//@primary-color-deeper: @theme-darker;
+//@border-color: #f0f0f0;
 @width: 276px;
-@height: 38px;
+//@height: 38px;
+@color-primary-nav-item: @ui-color-slate-light;
+@color-secondary-nav-item: @ui-color-slate;
+@color-hover-nav-item: @ui-color-gray-darker;
+@color-active-nav-item: @theme;
 
 .@{prefix-cls}-nav {
   user-select: none;
   font-weight: @ui-fontweight-medium;
-  border-right: 1px solid hsl(0, 0%, 92%);
+  //border-right: 1px solid hsl(0, 0%, 92%);
   width: @width;
   ul {
     margin: 0;
     padding: 0;
-    background-color: @ui-color-slate-light;
+    background-color: @color-secondary-nav-item;
     list-style: none;
     color: @theme-text;
   }
@@ -26,7 +30,7 @@
 
 .@{prefix-cls}-nav__item,
 .@{prefix-cls}-nav__sub-nav {
-  background-color: @ui-color-slate;
+  background-color: @color-primary-nav-item;
   > .@{prefix-cls}-nav_item-entity,
   > .@{prefix-cls}-nav_sub-nav-entity {
     display: block;
@@ -52,14 +56,14 @@
       //&:after {
       //  border-right-color: @primary-color;
       //}
-      background-color: @ui-color-gray-darker;
+      background-color: @color-hover-nav-item;
       text-decoration: none;
     }
     &:active {
       //&:after {
       //  border-right-color: @primary-color;
       //}
-      background-color: @theme;
+      background-color: @color-active-nav-item;
       transition-property: color, border-color, background, padding;
       transition-duration: 0.3s, 0.3s, 0.3s, 0.15s;
       transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1), cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -70,7 +74,7 @@
     display: none;
   }
   .@{prefix-cls}-nav__item {
-    background-color: @ui-color-slate-light;
+    background-color: @color-secondary-nav-item;
     border-left: 0;
     border-right: 0;
   }
@@ -100,20 +104,22 @@
 
 .@{prefix-cls}-nav__sub-nav-toggle {
   position: absolute;
-  right: 15px;
+  right: 20px;
   top: 50%;
-  margin-top: -6px;
+  //margin-top: -6px;
   transition: transform .2s;
   font-size: 12px;
-  transform: scale(.8);
+  //transform: scale(.8);
 }
 
 .@{prefix-cls}-nav__sub-nav_open {
   > ul {
     display: block;
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;
+    //background-color: @color-secondary-nav-item;
   }
   .@{prefix-cls}-nav__sub-nav-toggle {
-    transform: scale(.8) rotate(90deg);
+    transform: rotate(90deg);
   }
 }
 

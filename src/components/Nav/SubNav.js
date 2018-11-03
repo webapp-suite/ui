@@ -24,7 +24,7 @@ class SubNav extends React.Component {
     const { open } = this.state
     const { children, className, defaultOpen, icon, title, indent, ...other } = this.props
 
-    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav__sub-nav-icon`} />
+    const NavIcon = icon && <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
     const ToggleIcon = <Icon type="triangleright" className={`${prefixCls}-nav__sub-nav-toggle`} />
 
     let indentStyle

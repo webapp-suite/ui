@@ -1,5 +1,6 @@
 /**
  * @title 基本功能
+ * @renderModel right
  */
 
 import React, { Component } from 'react'
