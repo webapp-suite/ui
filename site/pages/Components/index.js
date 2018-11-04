@@ -10,12 +10,6 @@ import Scrollbar from 'widgets/Scrollbar'
 import components from './components.json'
 import './index.less'
 
-// const SVG = props => {
-//   return (
-//
-//   )
-// }
-
 const getTabsByComponentName = (components, componentName) => {
   for (let c of components) {
     if (c.name === componentName) {
@@ -132,6 +126,20 @@ class Components extends React.Component {
                 })}
               </Nav>
             </Scrollbar>
+            <div className="components__navbar-bottom">
+              <div className="components__navbar-bottom-image">
+                <img className="components__navbar-bottom-image-icon" src="/svg/avatarPlaceholder.svg" alt="MOTUS" />
+              </div>
+              <div className="components__navbar-bottom-user">
+                <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
+                  className="components__navbar-bottom-user-company">Tradeshift Corp.</span></div>
+              <div className="components__navbar-bottom-logout">
+                <Icon type="logout" className="components__navbar-bottom-logout-icon" />
+              </div>
+              <div className="components__navbar-bottom-settings">
+                <Icon type="settings" className="components__navbar-bottom-settings-icon" />
+              </div>
+            </div>
           </LayoutSidebar>
           <LayoutContent>
             {component && this.renderTitle(component)}

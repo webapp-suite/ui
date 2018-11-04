@@ -24,7 +24,7 @@
   "icon": "docs-icon-window-application-6",
   "name": "Layout Components",
   "cn": "布局组件",
-  "defaultOpen": true,
+  "defaultOpen": false,
   "components": [{
     "icon": "retweet",
     "name": "Layout",
