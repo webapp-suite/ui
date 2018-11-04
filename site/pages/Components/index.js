@@ -100,9 +100,18 @@ class Components extends React.Component {
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
-            <div className="components__navbar-logo"><Icon type="logo-trade" /><Icon type="logo-shift" /></div>
+            <div className="components__navbar-top">
+              <div className="components__navbar-top-logo">
+                <Icon type="logo-trade" />
+                <Icon type="logo-shift" />
+              </div>
+              <div className="components__navbar-top-close">
+                <Icon type="close" />
+              </div>
+            </div>
             <Scrollbar className="components__navbar-scrollbar">
               <Nav
+                collapsed
                 selectedId={component}
                 onItemClick={this.handleItemClick}
                 width={320}

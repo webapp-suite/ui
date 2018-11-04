@@ -58,6 +58,9 @@ Nav.propTypes = {
   // 当前选中的导航项的 id
   selectedId: PropTypes.string.isRequired,
 
+  // 导航是否收起状态
+  collapsed: PropTypes.bool,
+
   // 导航缩进宽度
   indent: PropTypes.number,
 

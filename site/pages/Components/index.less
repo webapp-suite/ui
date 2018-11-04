@@ -2,7 +2,7 @@
 @import "~ui-mixins";
 
 .components {
-  &__navbar-logo {
+  &__navbar-top {
     height: @ui-unit-triple;
     line-height: @ui-unit-triple;
     border-bottom: 1px solid @ui-color-slate;
@@ -11,10 +11,20 @@
     position: fixed;
     background-color: @ui-color-slate-light;
     z-index: @ui-zindex-topbar;
-    i {
-      font-size: 37px;
-      top: 6px;
-      left: 66px;
+    &-logo {
+      float: left;
+      i {
+        font-size: 37px;
+        top: 6px;
+        left: 66px;
+      }
+    }
+    &-close {
+      float: right;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      cursor: pointer;
     }
   }
   &__navbar-scrollbar {

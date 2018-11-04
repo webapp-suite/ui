@@ -7,9 +7,10 @@ import Icon from 'earth-ui/lib/Icon'
 const TooltipBasic = () => {
   return (
     <Tooltip
+      direction="right"
       title="Nullam quis risus eget urna mollisornare vel eu leo. Cum sociis natoquepenatibus et magnis dis parturient montes"
     >
-      <Icon type="question-circle" />
+      <Icon type="question" />
     </Tooltip>
   )
 }
@@ -24,9 +25,10 @@ const TooltipClick = () => {
   return (
     <Tooltip
       triggerMode="click"
+      direction="right"
       title="Nullam quis risus eget urna mollisornare vel eu leo. Cum sociis natoquepenatibus et magnis dis parturient montes"
     >
-      <Icon type="question-circle" />
+      <Icon type="question" />
     </Tooltip>
   )
 }
