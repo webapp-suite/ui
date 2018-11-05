@@ -4,7 +4,6 @@ import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import Center from 'widgets/Center'
 import Code from 'widgets/Code'
-import Footer from 'widgets/Footer'
 import BackToTop from 'earth-ui/lib/BackToTop'
 import Feature from './Feature'
 import config from '../config'
@@ -87,7 +86,6 @@ const Home = () => {
           <p>正在完善中，敬请期待...</p>
         </Center>
       </div>
-      <Footer />
       <BackToTop {...config.backToTop} />
     </div>
   )

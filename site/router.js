@@ -4,6 +4,7 @@ import { Router, Redirect } from '@reach/router'
 import Imported, { whenComponentsReady } from 'react-imported-component'
 import NProgress from 'nprogress'
 import App from './pages/index'
+import Chrome from './pages/Chrome'
 
 const asyncComponent = path => Imported(() => {
   NProgress.start()
@@ -11,23 +12,22 @@ const asyncComponent = path => Imported(() => {
   return import(`./pages/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
 })
 
-const Home = asyncComponent('Home')
-const Guide = asyncComponent('Guide')
-const Changelog = asyncComponent('Changelog')
-const NotFound = asyncComponent('NotFound')
-const Components = asyncComponent('Components')
-const Dox = routeProps => React.createElement(asyncComponent(`Components/docs/${routeProps.component}.doc`))
+const Intro = () => React.createElement(asyncComponent('Intro'))
+const Start = () => React.createElement(asyncComponent('Start'))
+const Changelog = () => React.createElement(asyncComponent('Changelog'))
+const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.doc`))
+const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render((
   <Router>
     <App path="/">
-      <Home path="/" />
-      <Guide path="/guide" />
-      <Redirect noThrow from="/components" to="/components/Layout" />
-      <Components path="/components">
-        <Dox path=":component" />
-      </Components>
-      <Changelog path="/changelog" />
+      <Chrome path="/">
+        <Intro path="/intro" />
+        <Start path="/start" />
+        <Changelog path="/changelog" />
+        <Dox path="/components/:component" />
+      </Chrome>
+      <Redirect noThrow from="/" to="/intro" />
       <NotFound default />
     </App>
   </Router>

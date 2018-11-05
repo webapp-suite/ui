@@ -22,6 +22,12 @@ const getTabsByComponentName = (components, componentName) => {
   }
 }
 
+const routes = {
+  'intro': '/intro',
+  'start': '/start',
+  'changelog': '/changelog'
+}
+
 class Components extends React.Component {
   constructor (props) {
     super()
@@ -37,7 +43,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      navigate(`/components/${route}`)
+      navigate(routes[route] || `/components/${route}`)
     }
   }
 
@@ -51,8 +57,9 @@ class Components extends React.Component {
   }
 
   renderTitle (docName) {
-    const component = docName.split('-')[0]
-    const { name, cn } = this.componentsMap[component]
+    const componentName = docName.split('-')[0]
+    const component = this.componentsMap[componentName]
+    const { name = '', cn = '' } = component || {}
     const tabs = getTabsByComponentName(components, name)
     return (
       <HeaderBar
@@ -95,7 +102,8 @@ class Components extends React.Component {
 
   render () {
     const { open } = this.state
-    const { children, '*': component } = this.props
+    let { children, '*': component } = this.props
+    component = component.includes('components/') ? component.split('/')[1] : component
     return (
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>

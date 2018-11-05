@@ -46,19 +46,20 @@ a {
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
   }
 
   &::-webkit-scrollbar:horizontal {
-    height: 5px;
+    height: 6px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: @ui-color-slate-lightest;
+    background-color: @ui-color-gray;
+    border-radius: @ui-radius;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(0, 0%, 29%);
+    background-color: @ui-color-slate-lightest;
   }
 }
 
