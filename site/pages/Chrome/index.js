@@ -25,6 +25,8 @@ const getTabsByComponentName = (components, componentName) => {
 const routes = {
   'intro': '/intro',
   'start': '/start',
+  'color': '/color',
+  'typo': '/typo',
   'changelog': '/changelog'
 }
 

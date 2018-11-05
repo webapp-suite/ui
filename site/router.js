@@ -14,6 +14,8 @@ const asyncComponent = path => Imported(() => {
 
 const Intro = () => React.createElement(asyncComponent('Intro'))
 const Start = () => React.createElement(asyncComponent('Start'))
+const Color = () => React.createElement(asyncComponent('design/Color/'))
+const Typo = () => React.createElement(asyncComponent('design/Typo'))
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
 const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.doc`))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
@@ -24,6 +26,8 @@ ReactDOM.render((
       <Chrome path="/">
         <Intro path="/intro" />
         <Start path="/start" />
+        <Color path="/color" />
+        <Typo path="/typo" />
         <Changelog path="/changelog" />
         <Dox path="/components/:component" />
       </Chrome>
