@@ -1,6 +1,8 @@
-/* stylelint-disable no-duplicate-selectors */
-@import "bezierEasing";
-@import "tinyColor";
+/**
+ * ant-design v3.10.4
+ * https://github.com/ant-design/ant-design
+ * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
+ */
 
 // We create a very complex algorithm which take the place of original tint/shade color system
 // to make sure no one can understand it 👻
@@ -58,7 +60,7 @@
   };
 
   this.colorPalette = function(color, index) {
-    var isLight = index <= 6;
+    var isLight = index < 6;
     var hsv = tinycolor(color).toHsv();
     var i = isLight ? lightColorCount + 1 - index : index - lightColorCount - 1;
     return tinycolor({
@@ -71,4 +73,5 @@
 }
 // It is hacky way to make this function will be compiled preferentially by less
 // resolve error: `ReferenceError: colorPalette is not defined`
+// https://github.com/ant-design/ant-motion/issues/44
 .colorPaletteMixin();

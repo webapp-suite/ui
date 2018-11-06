@@ -1,3 +1,9 @@
+/**
+ * ant-design v3.10.4
+ * https://github.com/ant-design/ant-design
+ * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
+ */
+
 import React from 'react'
 import Palette from './Palette'
 
@@ -10,22 +16,10 @@ const ColorPalettes = () => {
       description: '斗志、奔放'
     },
     {
-      name: 'volcano',
-      english: 'Volcano',
-      chinese: '火山',
-      description: '醒目、澎湃'
-    },
-    {
       name: 'orange',
       english: 'Sunset Orange',
       chinese: '日暮',
       description: '温暖、欢快'
-    },
-    {
-      name: 'gold',
-      english: 'Calendula Gold',
-      chinese: '金盏花',
-      description: '活力、积极'
     },
     {
       name: 'yellow',
@@ -34,22 +28,10 @@ const ColorPalettes = () => {
       description: '出生、阳光'
     },
     {
-      name: 'lime',
-      english: 'Lime',
-      chinese: '青柠',
-      description: '自然、生机'
-    },
-    {
       name: 'green',
       english: 'Polar Green',
       chinese: '极光绿',
       description: '健康、创新'
-    },
-    {
-      name: 'cyan',
-      english: 'Cyan',
-      chinese: '明青',
-      description: '希望、坚强'
     },
     {
       name: 'blue',
@@ -58,22 +40,28 @@ const ColorPalettes = () => {
       description: '包容、科技、普惠'
     },
     {
-      name: 'geekblue',
-      english: 'Geek Blue',
-      chinese: '极客蓝',
-      description: '探索、钻研'
-    },
-    {
       name: 'purple',
       english: 'Golden Purple',
       chinese: '酱紫',
       description: '优雅、浪漫'
     },
     {
-      name: 'magenta',
-      english: 'Magenta',
-      chinese: '法式洋红',
+      name: 'pink',
+      english: 'Pink',
+      chinese: '粉红',
       description: '明快、感性'
+    },
+    {
+      name: 'grey',
+      english: 'grey',
+      chinese: '青亮灰',
+      description: '轻盈、低调'
+    },
+    {
+      name: 'slate',
+      english: 'slate',
+      chinese: '板岩灰',
+      description: '神秘、突出'
     }
   ]
   return (

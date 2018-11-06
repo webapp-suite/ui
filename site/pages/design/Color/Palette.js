@@ -1,3 +1,9 @@
+/**
+ * ant-design v3.10.4
+ * https://github.com/ant-design/ant-design
+ * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
+ */
+
 import PropTypes from 'prop-types'
 import React from 'react'
 import message from 'earth-ui/lib/message'
@@ -33,22 +39,31 @@ export default class Palette extends React.Component {
     const { showTitle, direction, color: { name, description, english, chinese } } = this.props
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette'
     const colors = []
+    const colorNameMap = {
+      3: '-lightest',
+      4: '-lighter',
+      5: '-light',
+      6: '',
+      7: '-dark',
+      8: '-darker',
+      9: '-darkest'
+    }
     const colorName = `${english} / ${chinese}`
-    for (let i = 1; i <= 10; i += 1) {
-      const colorText = `${name}-${i}`
+    for (let i = 3; i <= 9; i += 1) {
+      const colorText = `${name}${colorNameMap[i]}`
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
-          onCopy={() => message.success(`@${colorText} copied: ${this.hexColors[colorText]}`)}
+          onCopy={() => message.success(`@ui-color-${colorText} copied: ${this.hexColors[colorText]}`, 2)}
           key={colorText}
         >
           <div
             key={i}
-            ref={(node) => { this.colorNodes[`${name}-${i}`] = node }}
+            ref={(node) => { this.colorNodes[`${name}${colorNameMap[i]}`] = node }}
             className={`main-color-item palatte-${name}-${i}`}
             style={{
-              color: (name === 'yellow' ? i > 6 : i > 5) ? '#fff' : 'unset',
-              fontWeight: i === 6 ? 'bold' : 'normal'
+              color: (name === 'slate' ? i > 2 : i > 5) ? '#fff' : 'unset'
+              // fontWeight: i === 6 ? 'bold' : 'normal'
             }}
             title="click to copy color"
           >
