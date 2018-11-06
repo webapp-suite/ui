@@ -112,8 +112,7 @@ class Components extends React.Component {
           <LayoutSidebar>
             <div className="components__navbar-top">
               <div className="components__navbar-top-logo">
-                <Icon type="logo-trade" />
-                <Icon type="logo-shift" />
+                <span>EARTHUI</span>
               </div>
               <div className="components__navbar-top-close">
                 <Icon type="close" />
@@ -151,7 +150,7 @@ class Components extends React.Component {
               </div>
               <div className="components__navbar-bottom-user">
                 <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
-                  className="components__navbar-bottom-user-company">Tradeshift Corp.</span></div>
+                  className="components__navbar-bottom-user-company">Earthui Corp.</span></div>
               <div className="components__navbar-bottom-logout">
                 <Icon type="logout" className="components__navbar-bottom-logout-icon" />
               </div>

@@ -1,5 +1,6 @@
 @import "~ui-variables";
 @import "~ui-mixins";
+@import "~dox";
 
 .components {
   &__navbar-top {
@@ -13,10 +14,13 @@
     z-index: @ui-zindex-topbar;
     &-logo {
       float: left;
-      i {
-        font-size: 37px;
-        top: 6px;
-        left: 66px;
+      span {
+        position: relative;
+        left: 80px;
+        font-size: 23px;
+        font-weight: @ui-fontweight;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Eurofighter Expanded";
       }
     }
     &-close {
