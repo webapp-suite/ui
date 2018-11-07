@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { navigate } from '@reach/router'
+import {navigate} from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import Icon from 'earth-ui/lib/Icon'
-import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
-import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
-import { Layout, LayoutSidebar, LayoutContent } from 'widgets/Layout'
+import {Nav, NavItem, NavItemGroup, SubNav} from 'earth-ui/lib/Nav'
+import {Tab, TabList, Tabs} from 'earth-ui/lib/Tabs'
+import PropTypes from 'prop-types'
+import React from 'react'
+import {Layout, LayoutContent, LayoutSidebar} from 'widgets/Layout'
 import Scrollbar from 'widgets/Scrollbar'
 import components from './components.json'
 import './index.less'
@@ -112,7 +112,7 @@ class Components extends React.Component {
           <LayoutSidebar>
             <div className="components__navbar-top">
               <div className="components__navbar-top-logo">
-                <span>EARTHUI</span>
+                <span>EARTHUi</span>
               </div>
               <div className="components__navbar-top-close">
                 <Icon type="close" />

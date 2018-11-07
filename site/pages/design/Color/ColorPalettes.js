@@ -54,7 +54,7 @@ const ColorPalettes = () => {
     {
       name: 'grey',
       english: 'grey',
-      chinese: '青亮灰',
+      chinese: '亮青灰',
       description: '轻盈、低调'
     },
     {
