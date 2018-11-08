@@ -64,9 +64,10 @@ const config = {
       'earth-ui/lib': `${sourcePath}/components`,
       'widgets': `${sitePath}/widgets`,
       'doc': `${sitePath}/loaders/doc`,
-      'variable.less': `${sourcePath}/styles/variable.less`,
-      'mixin.less': `${sourcePath}/styles/mixin.less`,
-      'core.less': `${sourcePath}/styles/core.less`
+      'ui-variables.less': `${sourcePath}/styles/ui-variables.less`,
+      'ui-mixins.less': `${sourcePath}/styles/ui-mixins.less`,
+      'ui.less': `${sourcePath}/styles/index.less`,
+      'dox.less': `${sitePath}/styles/index.less`
     }
   },
   externals: {

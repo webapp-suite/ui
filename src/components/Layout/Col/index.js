@@ -21,7 +21,7 @@ Col.propTypes = {
 
   className: PropTypes.string,
 
-  // 布局规则，col="md-6 sm-5"，参考 bootstrap 布局用法
+  // 布局规则，共24栏栅，例如col="md-6 sm-24"
   col: PropTypes.string,
 
   // 是否右浮动

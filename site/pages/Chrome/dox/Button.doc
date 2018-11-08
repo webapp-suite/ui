@@ -1,0 +1,87 @@
+/**
+ * @title 默认按钮
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonDefault = () => {
+  return <Button>Default Button</Button>
+}
+
+/**
+ * @title 按钮类型
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonType = () => {
+  return (
+    <div>
+      <Button type="primary">Primary</Button>
+      <Button type="secondary">Secondary</Button>
+      <Button type="tertiary">Tertiary</Button>
+    </div>
+  )
+}
+
+/**
+ * @title 微型按钮
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonMicro = () => {
+  return (
+    <div>
+      <Button type="primary" micro>Primary</Button>
+      <Button type="secondary" micro>Secondary</Button>
+      <Button type="tertiary" micro>Tertiary</Button>
+    </div>
+  )
+}
+
+/**
+ * @title Block 按钮
+ * @desc block属性将使按钮适合其父宽度
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonBlock = () => {
+  return (
+    <div>
+      <Button type="primary" block>Primary</Button><br/><br/>
+      <Button type="secondary" block>Secondary</Button><br/><br/>
+      <Button type="tertiary" block>Tertiary</Button>
+    </div>
+  )
+}
+
+/**
+ * @title 图标按钮
+ * @desc 如果需要自定义图标位置，结合使用 Icon 组件
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonIcon = () => {
+  return (
+    <div>
+      <Button icon="delete" />
+      <Button icon="statuschange" type="secondary" />
+      <Button icon="activity" type="secondary">数据分析</Button>
+    </div>
+  )
+}
+
+/**
+ * @title 不可用的
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonDisabled = () => {
+  return (
+    <div>
+      <Button disabled>不可用</Button>
+      <Button icon="statuschange" disabled />
+      <Button icon="activity" type="secondary" disabled>数据分析</Button>
+    </div>
+  )
+}
+
+@component Button

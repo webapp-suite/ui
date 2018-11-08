@@ -1,31 +1,31 @@
-@import '~variable';
+@import '~ui-variables';
 
 .@{prefix-cls}-input-line {
-  color: @medium-litest;
-  font-size: @fontsize;
-  border-color: @white;
-  background-color: @white;
+  color: hsl(0, 0%, 69%);
+  font-size: @ui-fontsize;
+  border-color: @ui-color-white;
+  background-color: @ui-color-white;
   -webkit-appearance: none;
   border-bottom-color: @theme-dark;
   border: 1px transparent solid;
-  border-bottom: 1px @lite-darker solid;
-  padding-bottom: @unit;
+  border-bottom: 1px hsl(0, 0%, 80%) solid;
+  padding-bottom: @ui-unit-half;
   &:focus {
     border-bottom-color: @theme-dark;
     color: @theme-dark;
   }
   &::-webkit-input-placeholder {
-    color: @lite-dark;
+    color: hsl(0, 0%, 84%);
   }
   &:focus::-webkit-input-placeholder {
-    color: @theme-lite;
+    color: @theme-light;
   }
 }
 
 .@{prefix-cls}-input-line__help {
   position: absolute;
   right: 40px;
-  margin-top: -@unit-fivefold;
-  color: @red;
-  font-size: @fontsize-small;
+  margin-top: -55px;
+  color: @ui-color-red;
+  font-size: @ui-fontsize-mini;
 }

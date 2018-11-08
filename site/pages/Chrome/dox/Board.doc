@@ -1,0 +1,89 @@
+/**
+ * @title 基本样式
+ * @renderModel right
+ */
+import Board from 'earth-ui/lib/Board'
+
+const BoardBasic = () => {
+  return (
+    <div>
+      <Board>
+        The classic board looks like this.
+      </Board>
+      <br/>
+      <Board theme="simple">
+        The simple board looks like this.
+      </Board>
+    </div>
+  )
+}
+
+/**
+ * @title 带标题的面板
+ * @renderModel right
+ */
+import Board from 'earth-ui/lib/Board'
+
+const BoardWithTitle = () => {
+  return (
+    <div>
+      <Board title="My Board">
+        The classic board with title looks like this.
+      </Board>
+      <br/>
+      <Board title="My Board" theme="simple">
+        The simple board with title looks like this.
+      </Board>
+    </div>
+  )
+}
+
+/**
+ * @title 带按钮的面板
+ * @renderModel right
+ */
+import Board from 'earth-ui/lib/Board'
+import message from 'earth-ui/lib/message'
+
+const BoardWithButtons = () => {
+  const buttons = [
+    {label: 'one',  type: 'primary'},
+    {label: 'two',  type: 'secondary'},
+    {label: 'three',  type: 'tertiary', onClick() {
+      message.success('Clicked!');
+    }}
+  ]
+  return (
+    <Board title="My Board" buttons={buttons}>
+      The classic board with buttons looks like this.
+    </Board>
+  )
+}
+
+/**
+ * @title 带Tab的面板
+ * @renderModel right
+ */
+import Board from 'earth-ui/lib/Board'
+import message from 'earth-ui/lib/message'
+import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+
+const BoardWithTabs = () => {
+  const buttons = [{label: 'tertiary',  type: 'tertiary'}]
+  return (
+    <Board buttons={buttons}>
+      <Tabs>
+        <TabList>
+          <Tab>One</Tab>
+          <Tab>Two</Tab>
+          <Tab>Three</Tab>
+        </TabList>
+        <TabPanel tab="One">Content of Tab Panel 1</TabPanel>
+        <TabPanel tab="Two">Content of Tab Panel 2</TabPanel>
+        <TabPanel tab="Three">Content of Tab Panel 3</TabPanel>
+      </Tabs>
+    </Board>
+  )
+}
+
+@component Board

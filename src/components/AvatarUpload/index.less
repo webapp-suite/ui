@@ -1,4 +1,4 @@
-@import '~variable';
+@import '~ui-variables';
 
 @default: 30px;
 @lg: 92px;
@@ -19,14 +19,14 @@
   width: @default;
   height: @default;
   line-height: @default;
-  border: 1px solid @lite-darker;
-  background-color: @lite-darker;
-  color: @white;
+  border: 1px solid hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 80%);
+  color: @ui-color-white;
   text-align: center;
   font-size: 13px;
   img {
     display: block;
-    border: 1px solid @lite-dark;
+    border: 1px solid hsl(0, 0%, 84%);
     margin-bottom: 0;
   }
   &:hover {
@@ -66,7 +66,7 @@
       display: block;
       position: absolute;
       border-radius: 50%;
-      color: @white;
+      color: @ui-color-white;
       top: 0;
       left: 50%;
       cursor: pointer;

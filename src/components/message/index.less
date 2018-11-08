@@ -1,6 +1,6 @@
-@import '~variable';
-@success-color: @green;
-@danger-color: @red-lite;
+@import '~ui-variables';
+@success-color: @ui-color-green;
+@danger-color: @ui-color-red-light;
 
 .@{prefix-cls}-message {
   position: fixed;
@@ -15,7 +15,7 @@
   word-wrap: break-word;
   font-size: 14px;
   background-color: rgba(0, 0, 0, .75);
-  color: @white;
+  color: @ui-color-white;
   opacity: 0;
   transform: translate(-50%, -25%);
   transition: opacity .15s, transform .15s;

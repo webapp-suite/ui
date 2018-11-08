@@ -1,64 +1,77 @@
-@import "~variable";
+@import "~ui-variables";
 
 @magenta-7: #c41d7f;
 
 .doc {
-  border: 1px solid #ececec;
-  border-radius: 2px;
-  padding: 20px 20px 0;
+  border-radius: @ui-radius;
   margin-top: 20px;
-  background-color: #fefefe;
   .markdown {
     margin-bottom: 0;
     p {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 13px;
-      font-weight: @fontweight;
+      font-weight: @ui-fontweight;
     }
   }
-  > h2 {
+  .doc__header {
     margin-top: 0;
-    font-size: 14px;
+    border-top-left-radius: @ui-radius;
+    border-top-right-radius: @ui-radius;
+    background-color: @ui-color-slate-lightest;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    .doc__title {
+      padding: @ui-unit-quarter @ui-unit;
+      color: @ui-color-white;
+      font-size: @ui-fontsize-medium;
+      font-weight: @ui-fontweight;
+      font-family: @ui-fontstack-mono;
+    }
   }
   table {
     width: 100%;
     border-spacing: 0;
+    padding: 0 @ui-unit @ui-unit;
+    background-color: @ui-color-gray-lightest;
+    border: 1px solid #e8e8e8;
+    border-top-color: transparent;
+    border-bottom-left-radius: @ui-radius;
+    border-bottom-right-radius: @ui-radius;
     th {
       text-align: left;
       font-weight: normal;
       color: #333;
-      border-bottom: 2px solid #ececec;
+      //border-bottom: 2px solid #ececec;
       padding: 12px 0;
       padding-right: 20px;
     }
     td {
-      font-size: @fontsize;
-      font-weight: @fontweight-medium;
-      font-family: @fontfamily-code;
+      font-size: @ui-fontsize-medium;
+      font-family: @ui-fontstack-mono;
       line-height: 34px;
       padding: 10px 0;
-      border-top: 1px solid #ececec;
       padding-right: 20px;
-      //vertical-align: middle;
     }
     thead {
       th {
-        font-size: @fontsize;
-        font-weight: @fontweight-medium;
+        font-size: @ui-fontsize;
+        font-weight: @ui-fontweight-medium;
       }
     }
   }
   dl {
     margin: 0;
-    padding: 20px 0 20px;
-    border-top: 1px solid #ececec;
+    padding: @ui-unit;
+    background-color: @ui-color-gray-lightest;
+    border: 1px solid #e8e8e8;
+    border-top-color: transparent;
   }
   dt {
     color: #333;
     margin: 0;
-    font-size: @fontsize;
-    font-weight: @fontweight-medium;
+    font-size: @ui-fontsize;
+    font-weight: @ui-fontweight-medium;
     span:first-child {
       color: #c82829;
     }
@@ -81,15 +94,16 @@
 }
 
 .doc__prop-name {
-  color: @magenta-7;
+  color: @ui-color-black;
 }
 
 .doc__prop-name--required {
   &:after {
     content: ' *';
+    color: @ui-color-red;
   }
 }
 
 .doc__prop-type {
-  color: @black;
+  color: @ui-color-black;
 }

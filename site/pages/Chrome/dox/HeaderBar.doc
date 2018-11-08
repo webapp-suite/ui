@@ -1,0 +1,60 @@
+/**
+ * @title 基本功能
+ * @renderModel right
+ */
+import HeaderBar from 'earth-ui/lib/HeaderBar'
+
+const HeaderBarBasic = () => {
+  return (
+    <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar" />
+  )
+}
+
+/**
+ * @title 带 Tabs 的 HeaderBar
+ * @renderModel right
+ */
+import HeaderBar from 'earth-ui/lib/HeaderBar'
+import message from 'earth-ui/lib/message'
+import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+
+const HeaderBarWithTabs = () => {
+  return (
+    <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar">
+      <Tabs>
+        <TabList>
+          <Tab>One</Tab>
+          <Tab onClick={()=>message.success('yes')}>Two</Tab>
+        </TabList>
+      </Tabs>
+    </HeaderBar>
+  )
+}
+
+
+/**
+ * @title 动态页签
+ * @renderModel right
+ */
+import HeaderBar from 'earth-ui/lib/HeaderBar'
+import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+
+class TabsDynamic extends Component {
+  render() {
+    return (
+      <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar">
+        <Tabs dynamic>
+          <TabList newTab={{name: `My New Tab`, closeable: true}}>
+              <Tab key="A" closeable>Closeable One</Tab>
+              <Tab key="B" closeable>Closeable Two</Tab>
+          </TabList>
+        </Tabs>
+      </HeaderBar>
+    )
+  }
+}
+
+@component HeaderBar
+@component Tabs/Tabs
+@component Tabs/TabList
+@component Tabs/Tab

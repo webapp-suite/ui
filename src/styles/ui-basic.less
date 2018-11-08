@@ -1,0 +1,52 @@
+@import 'ui-variables.less';
+@import 'ui-mixins.less';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+*,
+*:before,
+*:after {
+  .ui-mixin-border-box ();
+  cursor: inherit;
+}
+*:focus {
+  outline: none;
+}
+*::-moz-focus-inner {
+  border: none;
+}
+*::-moz-focusring {
+  outline: none;
+}
+::-moz-selection,
+::-webkit-selection,
+::selection {
+  background: @ui-color-blue;
+  color: @ui-color-white;
+}
+::placeholder {
+  font-style: italic;
+}
+html {
+  background-color: @ui-color-gray-lighter;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font-family: @ui-fontstack;
+  font-weight: @ui-fontweight;
+  color: @ui-color-black;
+  font-size: @ui-fontsize;
+  line-height: @ui-unit;
+  position: relative;
+  cursor: default;
+}

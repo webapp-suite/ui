@@ -1,25 +1,25 @@
-@import '~variable';
+@import '~ui-variables';
 
 @width: 460px;
-@height: @unit-sixfold;
-@input-height: @unit-double + 4;
+@height: 66px;
+@input-height: @ui-unit + 4;
 
 .@{prefix-cls}-input-form, .@{prefix-cls}-input-form_active, .@{prefix-cls}-input-form_nobutton {
   position: relative;
   width: @width;
   height: @height;
   line-height: @height;
-  font-size: @fontsize;
-  font-weight: @fontweight;
-  border-bottom: 1px solid @lite-lite;
+  font-size: @ui-fontsize;
+  font-weight: @ui-fontweight;
+  border-bottom: 1px solid hsl(0, 0%, 92%);
   vertical-align: middle;
   .@{prefix-cls}-input-form__label {
-    color: @medium-dark;
+    color: hsl(0, 0%, 46%);
   }
   .@{prefix-cls}-input-form__content {
     position: absolute;
     left: 92px;
-    color: @medium-litest;
+    color: hsl(0, 0%, 69%);
     border: none;
     outline: none;
     top: 50%;
@@ -27,8 +27,8 @@
     height: @input-height;
     width: @width - 172;
     line-height: @input-height;
-    font-size: @fontsize;
-    font-weight: @fontweight;
+    font-size: @ui-fontsize;
+    font-weight: @ui-fontweight;
   }
   .@{prefix-cls}-input-form__btn, .@{prefix-cls}-input-form__btn-cancel {
     display: none;
@@ -38,16 +38,16 @@
     color: @theme;
     cursor: pointer;
     &:hover {
-      font-weight: @fontweight-bold;
+      font-weight: @ui-fontweight-bold;
     }
   }
   .@{prefix-cls}-input-form__btn-cancel_active {
     &:extend(.@{prefix-cls}-input-form .@{prefix-cls}-input-form__btn_active);
     &:hover {
-      font-weight: @fontweight-bold;
+      font-weight: @ui-fontweight-bold;
     }
-    color: @dark-lite;
-    margin-left: @unit;
+    color: hsl(0, 0%, 25%);
+    margin-left: @ui-unit-half;
   }
 }
 
@@ -59,7 +59,7 @@
   border-bottom-color: @theme;
 }
 
-::-webkit-input-placeholder { color: @lite; }
-::-moz-placeholder { color: @lite; } /* firefox 19+ */
-:-ms-input-placeholder { color: @lite; } /* ie */
-input:-moz-placeholder { color: @lite; }
+::-webkit-input-placeholder { color: hsl(0, 0%, 88%); }
+::-moz-placeholder { color: hsl(0, 0%, 88%); } /* firefox 19+ */
+:-ms-input-placeholder { color: hsl(0, 0%, 88%); } /* ie */
+input:-moz-placeholder { color: hsl(0, 0%, 88%); }

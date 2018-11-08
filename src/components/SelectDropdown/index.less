@@ -1,4 +1,4 @@
-@import '~variable';
+@import '~ui-variables';
 
 .@{prefix-cls}-select-dropdown {
   min-width: 160px;
@@ -7,10 +7,10 @@
   line-height: 40px;
   font-size: 13px;
   background-color: #fff;
-  border: 2px solid @lite;
+  border: 2px solid hsl(0, 0%, 88%);
   position: relative;
   &:focus {
-    border-color: @medium-liter;
+    border-color: hsl(0, 0%, 58%);
   }
   &.@{prefix-cls}-popover__trigger_disabled {
     &:focus {
@@ -18,12 +18,12 @@
     }
   }
   .@{prefix-cls}-select-dropdown__caret {
-    color: @medium-litest;
+    color: hsl(0, 0%, 69%);
   }
   &.@{prefix-cls}-dropdown-toggle_open {
-    border-color: @medium-liter;
+    border-color: hsl(0, 0%, 58%);
     .@{prefix-cls}-select-dropdown__caret {
-      color: @medium;
+      color: hsl(0, 0%, 50%);
     }
   }
 }
@@ -43,7 +43,7 @@
   > .@{prefix-cls}-popover__content {
     max-width: none;
     padding: 0;
-    border-color: @lite-darker;
+    border-color: hsl(0, 0%, 80%);
     > ul {
       margin: 0;
       padding: 0;

@@ -42,9 +42,8 @@ const config = {
   },
   resolve: {
     alias: {
-      'variable.less': `${sourcePath}/styles/variable.less`,
-      'mixin.less': `${sourcePath}/styles/mixin.less`,
-      'core.less': `${sourcePath}/styles/core.less`
+      'ui-variables.less': `${sourcePath}/styles/ui-variables.less`,
+      'ui-mixins.less': `${sourcePath}/styles/ui-mixins.less`
     }
   },
   externals: {

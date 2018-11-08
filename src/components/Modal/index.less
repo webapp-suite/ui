@@ -1,7 +1,7 @@
-@import '~variable';
+@import '~ui-variables';
 
 @duration: .2s;
-@zIndex: @zindex-dialog;
+@zIndex: @ui-zindex-dialog;
 @padding-lr: 38px;
 @padding-tb: 40px;
 @min-width-sm: 300px;
@@ -102,8 +102,8 @@ body.@{prefix-cls}-modal_open {
 }
 
 .@{prefix-cls}-modal__modal-header {
-  background-color: @white;
-  color: @dark-darker;
+  background-color: @ui-color-white;
+  color: hsl(0, 0%, 13%);
   padding: @padding-tb @padding-lr 30px;
   position: relative;
   text-align: left;
@@ -128,15 +128,15 @@ body.@{prefix-cls}-modal_open {
   }
   &:hover {
     &:before {
-      color: @white;
+      color: @ui-color-white;
     }
   }
 }
 
 .@{prefix-cls}-modal__modal-body {
   padding: 20px @padding-lr @padding-tb;
-  background-color: @white;
-  font-size: @fontsize;
+  background-color: @ui-color-white;
+  font-size: @ui-fontsize;
 }
 
 div.@{prefix-cls}-modal_open {

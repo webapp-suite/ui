@@ -5,23 +5,22 @@ import Icon from '../Icon'
 import './index.less'
 
 const Button = props => {
-  const { children, className, type, size, icon, circle, transparent, ghost, ...other } = props
+  const { children, className, type, circle, micro, block, icon, ...other } = props
   const classNames = cx(
-    `${prefixCls}-button__btn`,
+    `${prefixCls}-button`,
     {
-      [`${prefixCls}-button__btn_ghost`]: ghost,
-      [`${prefixCls}-button__btn_${type}`]: type,
-      [`${prefixCls}-button__btn_${size}`]: size,
-      [`${prefixCls}-button__btn_circle`]: circle,
-      [`${prefixCls}-button__icon`]: icon && !children,
-      [`${prefixCls}-button__btn_transparent`]: transparent
+      [`${prefixCls}-button_${type}`]: type,
+      [`${prefixCls}-button_circle`]: circle,
+      [`${prefixCls}-button_micro`]: micro,
+      [`${prefixCls}-button_block`]: block,
+      [`${prefixCls}-button__icon-only`]: icon && !children
     },
     className
   )
   return (
     <button type="button" className={classNames} {...other}>
       {icon && <Icon type={icon} />}
-      {children}
+      {children && <span>{children}</span>}
     </button>
   )
 }
@@ -31,22 +30,16 @@ Button.propTypes = {
   className: PropTypes.string,
 
   // 按钮类型
-  type: PropTypes.oneOf(['minor', 'ghost']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
 
-  // 按钮尺寸
-  size: PropTypes.oneOf(['sm', 'lg']),
+  // 是否为微缩
+  micro: PropTypes.bool,
+
+  // 是否为block
+  block: PropTypes.bool,
 
   // 按钮图标，支持 fontawaresome 图标
-  icon: PropTypes.string,
-
-  // 是否为圆形
-  circle: PropTypes.bool,
-
-  // 文字颜色是否继承，背景是否透明
-  transparent: PropTypes.bool,
-
-  // 是否幽灵按钮，将要弃用，用`type="ghost"`替代
-  ghost: PropTypes.bool
+  icon: PropTypes.string
 }
 
 export default Button

@@ -1,0 +1,93 @@
+@import 'ui-variables.less';
+
+h1 {
+  font-weight: @ui-fontweight;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: @ui-fontweight;
+  // TODO: font-weight: @ui-fontweight-semibold; ???
+}
+
+h1,
+h2,
+h3 {
+  > span {
+    // baseline shift
+    position: relative;
+  }
+}
+h1 {
+  + h2,
+  + h3,
+  + h4,
+  + h5,
+  + h6 {
+    margin-top: 0;
+  }
+}
+h1 {
+  font-size: @ui-fontsize-xxbig;
+  line-height: @ui-unit * 2;
+  margin-top: @ui-unit * 0.5;
+  margin-bottom: @ui-unit * 1.5;
+  > span,
+  > a {
+    top: 3px;
+  }
+}
+h2 {
+  font-size: @ui-fontsize-xbig;
+  line-height: @ui-unit * 1.5;
+  margin-top: @ui-unit * 1;
+  margin-bottom: @ui-unit* 0.5;
+  > span,
+  > a {
+    top: 1px;
+  }
+}
+h3,
+h4,
+h5,
+h6 {
+  font-size: @ui-fontsize-big;
+  line-height: @ui-unit * 1;
+  margin-top: @ui-unit * 1.5;
+  margin-bottom: @ui-unit * 0.5;
+  > span,
+  > a {
+    top: -1px;
+  }
+}
+//ul:not([class]) {
+//  li {
+//    display: block;
+//    padding-left: 16px;
+//    position: relative;
+//    &:before {
+//      // TODO: bg color variations!
+//      content: '';
+//      position: absolute;
+//      left: 1px;
+//      top: @ui-unit-quarter * 1.5;
+//      width: @ui-unit-quarter;
+//      height: @ui-unit-quarter;
+//      background-color: @ui-color-gray;
+//    }
+//  }
+//}
+//ol:not([class]) {
+//  padding-left: 16px;
+//}
+//ul:not([class]),
+//ol:not([class]) {
+//  text-align: left;
+//  ul,
+//  ol {
+//    padding-left: 16px;
+//    margin-bottom: 0;
+//  }
+//}

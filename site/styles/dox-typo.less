@@ -1,0 +1,68 @@
+@import '~ui-variables';
+
+article {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  em {
+    font-style: italic;
+  }
+  nav {
+    li {
+      display: block;
+      padding-left: 16px;
+      position: relative;
+    }
+    ul {
+      padding-left: 16px;
+      margin-bottom: 0;
+    }
+  }
+  h2 {
+    margin-top: @ui-unit-triple;
+    margin-bottom: @ui-unit-plus;
+  }
+}
+
+section {
+  margin-bottom: @ui-unit;
+  &.desc {
+    font-style: italic;
+    margin-bottom: @ui-unit-double;
+    font-weight: 400 !important;
+    &,
+    code {
+      font-size: 16px;
+    }
+  }
+}
+
+dl {
+  margin-bottom: @ui-unit;
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    padding-left: 16px;
+    + dt {
+      margin-top: @ui-unit;
+    }
+  }
+}
+
+code,
+pre,
+var,
+kbd,
+samp {
+  font-family: @ui-fontstack-mono;
+  word-spacing: -2px;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+}
+h1,h2,h3 {
+  code, pre, var, kbd, samp {
+    font-size: inherit;
+  }
+}

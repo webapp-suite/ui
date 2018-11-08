@@ -7,13 +7,18 @@ import './index.less'
 const Doc = props => {
   return (
     <div className="doc">
-      <h2>{props.name.charCodeAt(0) < 97 ? '<' + props.name + ' />' : props.name}</h2>
+      <header className="doc__header">
+        <div className="doc__title">
+          {props.name.charCodeAt(0) < 97 ? '<' + props.name + ' />' : props.name}
+        </div>
+      </header>
       {props.props && props.props.length ? (
         <table>
           <thead>
             <tr>
               <th>属性</th>
               <th>类型</th>
+              {/* <th>默认</th> */}
               <th>说明</th>
             </tr>
           </thead>
@@ -26,6 +31,7 @@ const Doc = props => {
                   {prop.name}
                 </td>
                 <td className="doc__prop-type">{prop.type}</td>
+                {/* <td className="doc__prop-type">{props.defaultProps}</td> */}
                 <td>
                   <Markdown html={prop.desc} />
                 </td>

@@ -1,0 +1,194 @@
+@import '~ui-variables';
+@import '~ui-mixins';
+@import 'dox-mixins';
+
+@superliteblue: lighten(@ui-color-blue-lightest, 6%);
+
+figure {
+  position: relative;
+  //background-color: @ui-color-white;
+  > figcaption {
+    font-size: @ui-fontsize-mini;
+    font-style: italic;
+    text-align: center;
+    margin: @ui-unit-half 0 0 0;
+  }
+  &.ui-layout {
+    > .ui-toolbar {
+      background-color: @ui-color-gray-lightest;
+    }
+    > .ui-panel,
+    > .ui-panels {
+      background-color: @ui-color-white;
+    }
+    > .ui-panel,
+    > .ui-panels > .ui-panel {
+      padding: 0;
+    }
+  }
+  .output {
+    padding: @ui-unit;
+  }
+  .prism,
+  .prism code {
+    border-radius: @ui-radius;
+  }
+  &.ui-has-header {
+    .prism,
+    .prism code {
+      border-radius: 0 0 @ui-radius @ui-radius;
+    }
+  }
+  .editcode {
+    .ui-mixin-maximize();
+    .dox-mixin-editor();
+    opacity: 0;
+    font-family: @ui-fontstack-mono;
+    width: 100%;
+    height: 100% !important;
+    padding: @ui-unit 0 @ui-unit @ui-unit;
+    overflow: auto;
+    resize: none;
+    background-color: @ui-color-white;
+    &:focus {
+      background-color: @ui-color-yellow-lightest;
+    }
+  }
+  &.editmode .editcode,
+  .editcode:focus {
+    opacity: 1;
+  }
+  .message {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: @ui-unit-half;
+    background-color: @ui-color-yellow-lightest;
+    padding: @ui-unit-quarter @ui-unit-half;
+    white-space: nowrap;
+    text-align: center;
+    z-index: 1;
+    display: none;
+    i {
+      top: 1px;
+    }
+  }
+  &.attention {
+    .message {
+      display: block;
+    }
+  }
+}
+
+/* Color scheme duplicated from Prism ....................................... */
+
+.el {
+  color: #c92c2c;
+}
+.attr-pair span:last-child,
+.attr-value {
+  color: #1990b8;
+}
+.attr-pair span:first-child,
+.attr-name {
+  color: #2f9c0a;
+}
+.function {
+  color: #c92c2c;
+}
+
+/* Prism .................................................................... */
+
+pre.prism {
+  display: block;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  color: @ui-color-black;
+  direction: ltr;
+  text-align: left;
+  .dox-mixin-editor();
+  .dox-mixin-stripes();
+  overflow-y: visible;
+  overflow-x: auto;
+  code {
+    font-size: 14px;
+    display: block;
+    padding: @ui-unit;
+  }
+}
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7d8b99;
+}
+.token.punctuation {
+  color: #5f6364;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.function-name,
+.token.constant,
+.token.symbol {
+  color: #c92c2c;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.function,
+.token.builtin {
+  color: #2f9c0a;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.class-name {
+  color: #1990b8;
+}
+.token.class-name {
+  color: black;
+}
+.token.regex,
+.token.important {
+  color: #e90;
+}
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+.token.important {
+  font-weight: normal;
+}
+.token.entity {
+  cursor: help;
+}
+.namespace {
+  opacity: 0.7;
+}
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before {
+  color: #e0d7d1;
+}
+.runnable pre.prism,
+.runnable textarea {
+  cursor: text;
+}
+.token.tag > .token.class-name {
+  color: #c92c2c;
+}

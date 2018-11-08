@@ -1,23 +1,23 @@
-@import '~variable';
+@import '~ui-variables';
 
-@background-color: @theme-footer;
+@background-color: @ui-color-black;
 
 .container {
   position: relative;
   width: 100%;
   background-color: @background-color;
-  color: @white;
-  border-top: @theme-footer-bottom-top 1px solid;
+  color: @ui-color-white;
+  border-top: rgba(235, 235, 235, 1) 1px solid;
   .first-line, .second-line {
     overflow: hidden;
   }
   h2 {
-    color: @theme-footer-text-top;
+    color: @ui-color-white;
     display: block;
-    font-size: @fontsize-medium;
-    font-weight: @fontweight-medium;
-    height: @unit-double;
-    line-height: @unit-double;
+    font-size: @ui-fontsize-medium;
+    font-weight: @ui-fontweight-medium;
+    height: @ui-unit;
+    line-height: @ui-unit;
     vertical-align: middle;
     margin-bottom: 28px;
   }
@@ -28,9 +28,9 @@
     float: right;
   }
   .intro, .pay, .help {
-    color: @theme-footer-text-middle;
-    font-size: @fontsize;
-    font-family: @fontfamily-footer-bottom;
+    color: #ddd;
+    font-size: @ui-fontsize;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     max-width: 342px;
     margin-right: 70px;
@@ -48,7 +48,7 @@
   .intro {
     line-height: 25px;
     color: rgba(255, 255, 255, 0.65);
-    font-weight: @fontweight-medium;
+    font-weight: @ui-fontweight-medium;
   }
   .help {
     margin-right: 0;
@@ -69,10 +69,10 @@
   }
   .second-line {
     padding: 16px 138px;
-    font-size: @fontsize;
-    font-family: @fontfamily-footer-bottom;
+    font-size: @ui-fontsize;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
-    color: @theme-footer-text-bottom;
+    color: rgba(255, 255, 255, 0.65);
     cursor: default;
     line-height: 32px;
     span {
@@ -88,7 +88,7 @@
         content: '';
         display: inline-block;
         text-align: center;
-        width: @unit-half;
+        width: @ui-unit-quarter
       }
       &:last-child {
         &:after {

@@ -181,10 +181,12 @@ module.exports = function (source) {
     }
 
     docs.push(doc)
+  }, match => {
+    demos[demos.length - 1].renderModel = match
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|(\nimport [^]+?\n})|@component\s(.+)/g
-  source.replace(reg, (match, p1, p2, p3, p4) => {
-    [p1, p2, p3, p4].forEach((match, i) => {
+  const reg = /@title\s(.+)|@desc\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
+  source.replace(reg, (match, p1, p2, p3, p4, p5) => {
+    [p1, p2, p3, p4, p5].forEach((match, i) => {
       match && callbacks[i](match)
     })
   })
@@ -201,23 +203,31 @@ ${demo.mainCode}`
   const rightCol = []
   demos.forEach((demo, i) => {
     const code = (`
-      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}">
+      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}" renderModel="${demo.renderModel || 'left'}">
         <${demo.name} />
       </Demo>
     `)
-    i % 2 === 0 ? leftCol.push(code) : rightCol.push(code)
+    leftCol.push(code)
+    // i % 2 === 0 ? leftCol.push(code) : rightCol.push(code)
   })
 
   let layout
   if (rightCol.length) {
-    layout = (`
-      <Row gutter>
-        <Col col="md-6">${leftCol.join('\r\n')}</Col>
-        <Col col="md-6">${rightCol.join('\r\n')}</Col>
-      </Row>
-    `)
+    layout = leftCol.join('\r\n')
+    // layout = (`
+    //   <Row gutter>
+    //     <Col col="md-13">${leftCol.join('\r\n')}</Col>
+    //     <Col col="md-11">${rightCol.join('\r\n')}</Col>
+    //   </Row>
+    // `)
   } else {
-    layout = leftCol[0]
+    layout = leftCol.join('\r\n')
+    // layout = leftCol[0]
+    // layout = (`
+    //   <Row gutter>
+    //     <Col col="md-13">${leftCol.join('\r\n')}</Col>
+    //   </Row>
+    // `)
   }
 
   // 生成文档代码
@@ -233,10 +243,12 @@ const docs = ${JSON.stringify(docs)}
 
 export default () => {
   return (
-    <div>
-      ${layout}
-      {docs.map(doc => <Doc key={doc.name} {...doc} />)}
-    </div>
+  <div>
+    ${layout}
+    <Row>
+      <Col col="md-13">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+    </Row>
+   </div>
   )
 }`
 }
