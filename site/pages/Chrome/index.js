@@ -62,11 +62,12 @@ class Components extends React.Component {
     const componentName = docName.split('-')[0]
     const component = this.componentsMap[componentName]
     const { name = '', cn = '' } = component || {}
+    const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
     const tabs = getTabsByComponentName(components, name)
     return (
       <HeaderBar
         className="components__title"
-        icon="/svg/appLogo.svg" title={`${name} ${cn}`}
+        icon="/svg/appLogo.svg" title={title}
       >
         {!!tabs && (
           <Tabs activeKey={docName}>
