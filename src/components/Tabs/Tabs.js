@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 class Tabs extends React.Component {
   constructor (props) {
     super()
     this.state = {
-      children: props.children,
       activeIndex: props.activeIndex || 0
     }
   }
@@ -37,11 +36,11 @@ class Tabs extends React.Component {
 
   render () {
     const {
-      className, activeIndex, activeKey, onChange, onClose, ...other
+      children, className, activeIndex, activeKey, onChange, onClose, ...other
     } = this.props
     return (
       <div className={cx(`${prefixCls}-tabs`, className)} {...other}>
-        {this.state.children}
+        {children}
       </div>
     )
   }

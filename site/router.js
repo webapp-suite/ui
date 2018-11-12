@@ -1,21 +1,21 @@
+import {Redirect, Router} from '@reach/router'
+import NProgress from 'nprogress'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Redirect } from '@reach/router'
-import Imported, { whenComponentsReady } from 'react-imported-component'
-import NProgress from 'nprogress'
-import App from './pages/index'
-import Chrome from './pages/Chrome'
+import Imported, {whenComponentsReady} from 'react-imported-component'
+import Chrome from './apps/Chrome'
+import App from './apps/index'
 
 const asyncComponent = path => Imported(() => {
   NProgress.start()
   whenComponentsReady().then(() => NProgress.done())
-  return import(`./pages/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+  return import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
 })
 
 const Intro = () => React.createElement(asyncComponent('Intro'))
-const Start = () => React.createElement(asyncComponent('Start'))
-const Color = () => React.createElement(asyncComponent('design/Color/'))
-const Typo = () => React.createElement(asyncComponent('design/Typo'))
+const Start = routeProps => React.createElement(asyncComponent(`Start`), {routeProps: routeProps})
+const Color = () => React.createElement(asyncComponent('Color'))
+const Font = () => React.createElement(asyncComponent('Font'))
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
 const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.doc`))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
@@ -25,9 +25,9 @@ ReactDOM.render((
     <App path="/">
       <Chrome path="/">
         <Intro path="/intro" />
-        <Start path="/start" />
+        <Start path="/start/:step" />
         <Color path="/color" />
-        <Typo path="/typo" />
+        <Font path="/font" />
         <Changelog path="/changelog" />
         <Dox path="/components/:component" />
       </Chrome>

@@ -1,5 +1,5 @@
-import React from 'react'
 import Button from 'earth-ui/lib/Button'
+import React from 'react'
 import './index.less'
 
 const NotFound = (props) => {

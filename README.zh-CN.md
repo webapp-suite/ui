@@ -15,13 +15,13 @@
 
 ## 安装
 
-```sh
+```bash
 npm i earth-ui
 ```
 
 ## 基础使用
 
-```js
+```jsx
 import Button from 'earth-ui/lib/Button';
 import 'earth-ui/dist/earth-ui.min.css';
 
@@ -36,13 +36,13 @@ ReactDOM.render(<Button>Name</Button>, mountNode);
 
 现在从 yarn 或 npm 安装并引入 `earth-ui` 。
 
-```sh
+```bash
 yarn add earth-ui
 ```
 
 修改 `src/App.js`，引入 `earth-ui` 的按钮组件。
 
-```js
+```jsx
 import React, { Component } from 'react';
 import './App.css';
 import Button from 'earth-ui/lib/Button';
@@ -72,13 +72,13 @@ export default App;
 ...
 ```
 
-现在你应该能看到页面上已经有了 `earth-ui` 的按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 [User Guide][create-react-app-user-guide-url] .
+现在你应该能看到页面上已经有了 `earth-ui` 的按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程可以参考 [User Guide][create-react-app-user-guide-url] .
 
 ## 组件全局配置
 
 覆盖或扩展 `defaultProps` 即可，以 [Tooltip][tooltip-url] 为例:
 
-```js
+```jsx
 Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
   triggerMode: 'click'
 })
@@ -90,7 +90,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 
 ## 本地开发
 
-```sh
+```bash
 git clone git@github.com:G-Explorer/earth-ui.git
 cd earth-ui
 npm i
@@ -101,7 +101,7 @@ npm run site:dev
 
 #### 创建一个新组件
 
-```sh
+```bash
 npm run create MyComponent
 ```
 查看：http://localhost:3003/components/MyComponent

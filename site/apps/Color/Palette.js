@@ -4,9 +4,9 @@
  * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
  */
 
+import message from 'earth-ui/lib/message'
 import PropTypes from 'prop-types'
 import React from 'react'
-import message from 'earth-ui/lib/message'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
 const rgbToHex = (rgbString) => {

@@ -1,11 +1,27 @@
 [{
   "icon": "docs-icon-interface-information",
+  "path": "intro",
   "name": "intro",
   "cn": "介绍"
 }, {
   "icon": "docs-icon-space-rocket",
+  "path": "start",
   "name": "start",
-  "cn": "开始"
+  "cn": "开始",
+  "tabs": [
+    {
+      "label": "Usage",
+      "doc": "usage"
+    },
+    {
+      "label": "Config",
+      "doc": "config"
+    },
+    {
+      "label": "Develop",
+      "doc": "develop"
+    }
+  ]
 }, {
   "icon": "docs-icon-paint-palette",
   "name": "design",
@@ -17,11 +33,12 @@
     "cn": "颜色"
   }, {
     "icon": "retweet",
-    "name": "typo",
-    "cn": "排版"
+    "name": "font",
+    "cn": "字体"
   }]
 }, {
   "icon": "docs-icon-window-application-6",
+  "path": "components",
   "name": "Layout Components",
   "cn": "布局组件",
   "defaultOpen": false,
@@ -51,6 +68,7 @@
   }]
 }, {
   "icon": "docs-icon-modules-1",
+  "path": "components",
   "name": "UI Components",
   "cn": "UI 组件",
   "defaultOpen": true,

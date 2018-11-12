@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Button from '../Button'
 import Tab from './Tab'
 
@@ -34,7 +34,7 @@ class TabList extends React.Component {
   render () {
     const { className, newTab, ...other } = this.props
     return <ul className={cx(`${prefixCls}-tabs__list`, className)} {...other}>
-      {this.state.children}
+      {this.props.children}
       {!!newTab && <Button micro icon="add" onClick={this.addNewTab} />}
     </ul>
   }

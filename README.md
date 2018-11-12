@@ -15,13 +15,13 @@ English | [简体中文][zh-CN-url]
 
 ## Install
 
-```sh
+```bash
 npm i earth-ui
 ```
 
 ## Basic usage
 
-```js
+```jsx
 import Button from 'earth-ui/lib/Button';
 import 'earth-ui/dist/earth-ui.min.css';
 
@@ -36,13 +36,13 @@ First of all, you need install `create-react-app`, [see more][create-react-app-u
 
 Now we install `earth-ui` from yarn or npm.
 
-```sh
+```bash
 yarn add earth-ui
 ```
 
 Modify `src/App.js`, import Button component from `earth-ui`.
 
-```js
+```jsx
 import React, { Component } from 'react';
 import './App.css';
 import Button from 'earth-ui/lib/Button';
@@ -78,7 +78,7 @@ Ok, you should now see a button displayed on the page. Next you can choose any c
 
 Just override or extend `defaultProps`, using [Tooltip][tooltip-url] as an example:
 
-```js
+```jsx
 Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
   triggerMode: 'click'
 })
@@ -90,7 +90,7 @@ Imperative API modules: [message][message-url], [xhr][xhr-url] also support glob
 
 ## Development
 
-```sh
+```bash
 git clone git@github.com:G-Explorer/earth-ui.git
 cd earth-ui
 npm i
@@ -101,7 +101,7 @@ Open your browser and visit http://127.0.0.1:3003 , see more at [Development Ins
 
 #### Create a new component
 
-```sh
+```bash
 npm run create MyComponent
 ```
 Open: http://localhost:3003/components/MyComponent

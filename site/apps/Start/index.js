@@ -1,0 +1,32 @@
+import BackToTop from 'earth-ui/lib/BackToTop'
+import {Col, Row} from 'earth-ui/lib/Layout'
+import React from 'react'
+import Markdown from 'widgets/Markdown'
+import config from '../config'
+
+const asyncComponent = fileName => import(`./${fileName}.md`)
+
+export default class extends React.Component {
+  constructor (props) {
+    super()
+    this.state = {
+      md: ''
+    }
+    asyncComponent(props.routeProps.step).then(md => {
+      this.setState({md})
+    })
+  }
+
+  render () {
+    return (
+      <div className="start">
+        <Row>
+          <Col col="md-16" className="demo__left">
+            <Markdown html={this.state.md} />
+          </Col>
+        </Row>
+        <BackToTop {...config.backToTop} />
+      </div>
+    )
+  }
+}

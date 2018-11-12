@@ -1,5 +1,5 @@
-import React from 'react'
 import {navigate} from '@reach/router'
+import React from 'react'
 import './index.less'
 
 const Home = () => {

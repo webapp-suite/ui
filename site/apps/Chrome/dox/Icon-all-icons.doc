@@ -7,8 +7,6 @@ import Button from 'earth-ui/lib/Button'
 
 const IconBasic = () => {
   const allIcons = [
-    'logo-t1',
-    'logo-t2',
     'discovery',
     'activity',
     'todo',
