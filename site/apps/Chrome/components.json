@@ -10,31 +10,29 @@
   "cn": "开始",
   "tabs": [
     {
-      "label": "Usage",
+      "label": "使用",
       "doc": "usage"
     },
     {
-      "label": "Config",
+      "label": "配置",
       "doc": "config"
     },
     {
-      "label": "Develop",
+      "label": "开发",
       "doc": "develop"
     }
   ]
 }, {
   "icon": "docs-icon-paint-palette",
+  "path": "design",
   "name": "design",
   "cn": "设计",
-  "defaultOpen": false,
-  "components": [{
-    "icon": "retweet",
-    "name": "color",
-    "cn": "颜色"
+  "tabs": [{
+    "label": "颜色",
+    "doc": "color"
   }, {
-    "icon": "retweet",
-    "name": "font",
-    "cn": "字体"
+    "label": "字体",
+    "doc": "font"
   }]
 }, {
   "icon": "docs-icon-window-application-6",

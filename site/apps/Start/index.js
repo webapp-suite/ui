@@ -12,7 +12,7 @@ export default class extends React.Component {
     this.state = {
       md: ''
     }
-    asyncComponent(props.routeProps.step).then(md => {
+    asyncComponent(props.routeProps.tab).then(md => {
       this.setState({md})
     })
   }

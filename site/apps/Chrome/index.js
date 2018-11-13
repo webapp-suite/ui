@@ -22,6 +22,8 @@ const getTabsByComponentName = (components, componentName) => {
   }
 }
 
+const routerWithDynamicSegments = ['components/', 'start/', 'design/']
+
 function renderNavBottom () {
   return <div className="components__navbar-bottom">
     <div className="components__navbar-bottom-image">
@@ -69,7 +71,7 @@ class Components extends React.Component {
 
   renderTitle (docName) {
     const nameBeforeSlash = docName.split('/')[0]
-    const nameAfterSlash = (docName.includes('components/') || docName.includes('start/')) ? docName.split('/')[1] : docName
+    const nameAfterSlash = routerWithDynamicSegments.some(v => docName.includes(v)) ? docName.split('/')[1] : docName
     const componentName = (nameBeforeSlash === 'components' ? nameAfterSlash : nameBeforeSlash).split('-')[0]
     const component = this.componentsMap[componentName]
     const { name = '', cn = '' } = component || {}
