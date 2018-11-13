@@ -3,7 +3,7 @@
 @import "../Code/index.less";
 
 .markdown {
-  line-height: 1.6;
+  line-height: 22px;
   a {
     color: @ui-color-blue;
   }
@@ -13,14 +13,31 @@
   }
   h2 {
     border-bottom: 1px solid @ui-color-gray-light;
-    padding-bottom: @ui-unit-half;
-    line-height: 1.6;
+    padding-bottom: @ui-unit-half * 1.5;
+    line-height: 22px;
     &:first-child {
       margin-top: 0;
     }
   }
   h6 {
     color: #777;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: @ui-fontweight;
+    margin-top: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
   }
   hr {
     border: 1px solid #e6e6e6;
