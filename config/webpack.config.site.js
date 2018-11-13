@@ -2,8 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
-const beautify = require('code-beautify')
 const fs = require('fs')
+const Prism = require('../site/3rdParty/prism/prism.js')
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../site/dist')
@@ -43,7 +43,15 @@ const config = {
       loader: 'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js'
     }, {
       test: /\.md$/,
-      loader: 'html-loader!markdown-loader'
+      use: [
+        {
+          loader: 'html-loader'
+        },
+        {
+          loader: 'markdown-loader',
+          options: {highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang])}
+        }
+      ]
     }, {
       test: /\.doc$/,
       loader: 'babel-loader!doc-loader'
@@ -75,14 +83,7 @@ const config = {
     'react-dom': 'ReactDOM',
     'prop-types': 'PropTypes'
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      test: /\.md$/,
-      options: {
-        markdownLoader: { highlight: (code, lang) => beautify(code, lang) }
-      }
-    })
-  ]
+  plugins: []
 }
 
 if (isProduction) {

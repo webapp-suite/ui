@@ -22,12 +22,23 @@ const getTabsByComponentName = (components, componentName) => {
   }
 }
 
-const routes = {
-  'intro': '/intro',
-  'start': '/start',
-  'color': '/color',
-  'typo': '/typo',
-  'changelog': '/changelog'
+const routerWithDynamicSegments = ['components/', 'start/', 'design/']
+
+function renderNavBottom () {
+  return <div className="components__navbar-bottom">
+    <div className="components__navbar-bottom-image">
+      <img className="components__navbar-bottom-image-icon" src="/svg/avatarPlaceholder.svg" alt="MOTUS" />
+    </div>
+    <div className="components__navbar-bottom-user">
+      <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
+        className="components__navbar-bottom-user-company">Earthui Corp.</span></div>
+    <div className="components__navbar-bottom-logout">
+      <Icon type="logout" className="components__navbar-bottom-logout-icon" />
+    </div>
+    <div className="components__navbar-bottom-settings">
+      <Icon type="settings" className="components__navbar-bottom-settings-icon" />
+    </div>
+  </div>
 }
 
 class Components extends React.Component {
@@ -45,7 +56,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      navigate(routes[route] || `/components/${route}`)
+      navigate(`/${route}`)
     }
   }
 
@@ -59,7 +70,9 @@ class Components extends React.Component {
   }
 
   renderTitle (docName) {
-    const componentName = docName.split('-')[0]
+    const nameBeforeSlash = docName.split('/')[0]
+    const nameAfterSlash = routerWithDynamicSegments.some(v => docName.includes(v)) ? docName.split('/')[1] : docName
+    const componentName = (nameBeforeSlash === 'components' ? nameAfterSlash : nameBeforeSlash).split('-')[0]
     const component = this.componentsMap[componentName]
     const { name = '', cn = '' } = component || {}
     const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
@@ -67,12 +80,14 @@ class Components extends React.Component {
     return (
       <HeaderBar
         className="components__title"
-        icon="/svg/appLogo.svg" title={title}
+        icon="/svg/appLogo.svg"
+        title={title}
       >
         {!!tabs && (
-          <Tabs activeKey={docName}>
+          <Tabs activeKey={nameAfterSlash}>
             <TabList>
-              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc} onClick={() => this.handleTabClick(tab.doc)}>{tab.label}</Tab>)}
+              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc}
+                onClick={() => this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}>{tab.label}</Tab>)}
             </TabList>
           </Tabs>
         )}
@@ -80,14 +95,16 @@ class Components extends React.Component {
     )
   }
 
-  renderNavItem (item, position) {
+  renderNavItem (item, position, path) {
     this.componentsMap[item.name] = item
     if (position === 'outside') {
+      const id = item.tabs ? `${item.path}/${item.tabs[0].doc}` : item.name
       return (
-        <NavItem id={item.name} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
+        <NavItem id={id} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
       )
     }
-    const id = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
+    const nameAfterSlash = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
+    const id = path ? `${path}/${nameAfterSlash}` : nameAfterSlash
     return (
       <NavItem id={id}>
         <span>{item.name}</span><span className="chinese">{item.cn}</span>
@@ -105,8 +122,7 @@ class Components extends React.Component {
 
   render () {
     const { open } = this.state
-    let { children, '*': component } = this.props
-    component = component.includes('components/') ? component.split('/')[1] : component
+    let {children, '*': childComponentPath} = this.props
     return (
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
@@ -122,7 +138,7 @@ class Components extends React.Component {
             <Scrollbar className="components__navbar-scrollbar">
               <Nav
                 collapsed
-                selectedId={component}
+                selectedId={childComponentPath}
                 onItemClick={this.handleItemClick}
                 width={320}
                 indent={20}
@@ -138,31 +154,20 @@ class Components extends React.Component {
                         if (itemGroup.group) {
                           return this.renderNavItemGroup(itemGroup)
                         }
-                        return this.renderNavItem(itemGroup)
+                        return this.renderNavItem(itemGroup, 'inside', item.path)
                       })}
                     </SubNav>
                   )
                 })}
               </Nav>
             </Scrollbar>
-            <div className="components__navbar-bottom">
-              <div className="components__navbar-bottom-image">
-                <img className="components__navbar-bottom-image-icon" src="/svg/avatarPlaceholder.svg" alt="MOTUS" />
-              </div>
-              <div className="components__navbar-bottom-user">
-                <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
-                  className="components__navbar-bottom-user-company">Earthui Corp.</span></div>
-              <div className="components__navbar-bottom-logout">
-                <Icon type="logout" className="components__navbar-bottom-logout-icon" />
-              </div>
-              <div className="components__navbar-bottom-settings">
-                <Icon type="settings" className="components__navbar-bottom-settings-icon" />
-              </div>
-            </div>
+            {renderNavBottom()}
           </LayoutSidebar>
           <LayoutContent>
-            {component && this.renderTitle(component)}
-            <div className="components__content-wrapper"><div className="components__content">{children}</div></div>
+            {childComponentPath && this.renderTitle(childComponentPath)}
+            <div className="components__content-wrapper">
+              <div className="components__content">{children}</div>
+            </div>
           </LayoutContent>
         </Layout>
       </div>

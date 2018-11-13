@@ -5,11 +5,10 @@
 const fs = require('fs')
 const path = require('path')
 const marked = require('marked')
-const beautify = require('code-beautify')
 
-marked.setOptions({
-  highlight: (code, lang) => beautify(code, lang)
-})
+// marked.setOptions({
+//   highlight: (code, lang) => beautify(code, lang)
+// })
 
 // 智能添加依赖，自动规避重复声明
 const imports = {
