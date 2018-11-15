@@ -4,7 +4,12 @@
 import Spinner from 'earth-ui/lib/Spinner'
 
 const SpinnerBasic = () => {
-  return <Spinner />
+  return (
+    <Spinner isLoading>
+      <div>Nullam quis risus eget urna mollisornare vel eu leo. Cum sociis natoquepenatibus et magnis dis parturient montes
+      </div>
+    </Spinner>
+  )
 }
 
 @component Spinner

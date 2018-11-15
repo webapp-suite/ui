@@ -2,17 +2,29 @@
 @keyframes-spinner: ~"@{prefix-cls}-spinner";
 
 .@{prefix-cls}-spinner {
-  font-size: 26px;
-}
-
-.@{prefix-cls}-spinner__circle {
-  width: 1em;
-  height: 1em;
   position: relative;
-  border: .1em solid @theme;
-  border-radius: 50%;
-  border-bottom-color: transparent;
-  animation: 1s ease-in-out infinite @keyframes-spinner;
+  &__container {
+    position: absolute;
+    z-index: @ui-zindex-spin;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,.7);
+    text-align: center;
+    border: 1px solid red;
+    &-spinner {
+      margin: 0 auto;
+      width: 1em;
+      height: 1em;
+      font-size: 26px;
+      position: relative;
+      border: .1em solid @theme;
+      border-radius: 50%;
+      border-bottom-color: transparent;
+      animation: 1s ease-in-out infinite @keyframes-spinner;
+    }
+  }
 }
 
 @keyframes @keyframes-spinner {
