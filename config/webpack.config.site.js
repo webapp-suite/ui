@@ -53,13 +53,13 @@ const config = {
         }
       ]
     }, {
-      test: /\.doc$/,
-      loader: 'babel-loader!doc-loader'
+      test: /\.dox$/,
+      loader: 'babel-loader!dox-loader'
     }]
   },
   resolveLoader: {
     alias: {
-      'doc-loader': path.join(__dirname, '../site/loaders/doc')
+      'dox-loader': path.join(__dirname, '../site/loaders/dox')
     }
   },
   resolve: {
@@ -71,7 +71,7 @@ const config = {
     alias: {
       'earth-ui/lib': `${sourcePath}/components`,
       'widgets': `${sitePath}/widgets`,
-      'doc': `${sitePath}/loaders/doc`,
+      'dox': `${sitePath}/loaders/dox`,
       'ui-variables.less': `${sourcePath}/styles/ui-variables.less`,
       'ui-mixins.less': `${sourcePath}/styles/ui-mixins.less`,
       'ui.less': `${sourcePath}/styles/index.less`,

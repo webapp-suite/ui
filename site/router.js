@@ -16,7 +16,7 @@ const Intro = () => React.createElement(asyncComponent('Intro'))
 const Start = routeProps => React.createElement(asyncComponent('Start'), {routeProps: routeProps})
 const Design = routeProps => React.createElement(asyncComponent('Design'), {routeProps: routeProps})
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
-const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.doc`))
+const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.dox`))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render((
