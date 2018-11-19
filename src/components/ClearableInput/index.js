@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import controlledPropValidator from '../_util/propValidator/controlled'
-import Input from '../Input'
+import PropTypes from 'prop-types'
+import React, {Component} from 'react'
+import controlledPropValidator from '../../utils/propValidator/controlled'
 import Button from '../Button'
+import Input from '../Input'
 import './index.less'
 
 class ClearableInput extends Component {

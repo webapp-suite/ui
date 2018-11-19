@@ -1,10 +1,9 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import cx from 'classnames'
-import omit from 'omit.js'
-import Animate from 'rc-animate'
-import IndicatorSVG from './IndicatorSVG'
+import omit from '../../utils/omit'
 import './index.less'
+import IndicatorSVG from './IndicatorSVG'
 
 // Render indicator
 let defaultIndicator = null
@@ -20,10 +19,10 @@ function renderIndicator (_props) {
     'default': 60,
     'lg': 96
   }
-  const dotClassName = `${prefixCls}-spinner__dot`
+  const dotClassName = `${prefixCls}-spinner__spinner-element-indictor`
   if (React.isValidElement(indicator)) {
     return (
-      <div className={`${prefixCls}-spinner__dot`}>
+      <div className={dotClassName}>
         {indicator}
       </div>
     )
@@ -36,7 +35,7 @@ function renderIndicator (_props) {
   }
 
   return (
-    <div className={cx(dotClassName, `${prefixCls}-spinner__dot-spin`)}>
+    <div className={cx(dotClassName, `${prefixCls}-spinner__spinner-element-indictor-svg`)}>
       <IndicatorSVG width={sizeMap[size]} height={sizeMap[size]} />
     </div>
   )
@@ -118,13 +117,13 @@ class Spinner extends React.Component {
     const { className, size, cover, tip, wrapperClassName, ...other } = this.props
     const { isLoading } = this.state
 
-    const spinClassName = cx(`${prefixCls}-spinner`, {
-      [`${prefixCls}-spinner_sm`]: size === 'sm',
-      [`${prefixCls}-spinner_lg`]: size === 'lg',
-      [`${prefixCls}-spinner_white`]: cover === 'white',
-      [`${prefixCls}-spinner_black`]: cover === 'black',
-      [`${prefixCls}-spinner_spinning`]: isLoading,
-      [`${prefixCls}-spinner_show-text`]: !!tip
+    const spinClassName = cx(`${prefixCls}-spinner__spinner-element`, {
+      [`${prefixCls}-spinner__spinner-element_sm`]: size === 'sm',
+      [`${prefixCls}-spinner__spinner-element_lg`]: size === 'lg',
+      [`${prefixCls}-spinner__spinner-element_white`]: cover === 'white',
+      [`${prefixCls}-spinner__spinner-element_black`]: cover === 'black',
+      [`${prefixCls}-spinner__spinner-element_spinning`]: isLoading,
+      [`${prefixCls}-spinner__spinner-element_show-text`]: !!tip
     }, className)
 
     // fix https://fb.me/react-unknown-prop
@@ -136,9 +135,9 @@ class Spinner extends React.Component {
 
     const spinElement = (
       <div className={spinClassName} >
-        {this.isNestedPattern() && <div className={`${prefixCls}-spinner__cover`} />}
+        {this.isNestedPattern() && <div className={`${prefixCls}-spinner__spinner-element-cover`} />}
         {renderIndicator(this.props)}
-        {tip ? <div className={`${prefixCls}-spinner__text`}>{tip}</div> : null}
+        {tip ? <div className={`${prefixCls}-spinner__spinner-element-text`}>{tip}</div> : null}
       </div>
     )
     if (this.isNestedPattern()) {
@@ -150,19 +149,16 @@ class Spinner extends React.Component {
         [`${prefixCls}-spinner__container_loading`]: isLoading
       })
       return (
-        <Animate
+        <div
           {...divProps}
-          component="div"
           className={animateClassName}
           style={null}
-          transitionLeave={false}
-          transitionName="fade"
         >
-          {isLoading && <div key="loading">{spinElement}</div>}
-          <div className={containerClassName} key="container">
+          {spinElement}
+          <div className={containerClassName}>
             {this.props.children}
           </div>
-        </Animate>
+        </div>
       )
     }
     return spinElement

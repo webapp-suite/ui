@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import controlledPropValidator from '../_util/propValidator/controlled'
+import React, {Component} from 'react'
+import controlledPropValidator from '../../utils/propValidator/controlled'
 import Popover from '../Popover'
-import DropdownToggle from './DropdownToggle'
 import DropdownMenu from './DropdownMenu'
+import DropdownToggle from './DropdownToggle'
 
 class Dropdown extends Component {
   constructor (props) {

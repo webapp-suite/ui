@@ -92,7 +92,7 @@ Demo.propTypes = {
   desc: PropTypes.string,
   note: PropTypes.string,
   code: PropTypes.string,
-  renderModel: PropTypes.oneOf('left', 'right', 'full')
+  renderModel: PropTypes.oneOf(['left', 'right', 'full'])
 }
 
 export default Demo

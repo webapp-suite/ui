@@ -1,22 +1,39 @@
 @import '~ui-variables';
 @import '~ui-mixins';
 
-@spin-prefix-cls: ~"@{prefix-cls}-spinner";
-@spin-dot-default: @ui-color-slate;
+@spinner: ~"@{prefix-cls}-spinner";
+@spinner-element: ~"@{prefix-cls}-spinner__spinner-element";
 @spin-dot-size-sm: 36px;
 @spin-dot-size: 60px;
 @spin-dot-size-lg: 96px;
 @spin-dot-size-base: @spin-dot-size;
 
-.@{spin-prefix-cls} {
+.@{spinner-element} {
   position: absolute;
   display: none;
   line-height: 0.8;
   vertical-align: middle;
   text-align: center;
   opacity: 0;
-  margin-right: 15px;
-  .ui-mixin-transition-transform();
+  margin-right: @ui-unit-half * 1.5;
+  &-tip {
+    color: @ui-color-slate;
+  }
+
+  &-indictor {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &-cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .71;
+    z-index: @ui-zindex-spin-cover;
+  }
 
   &_spinning {
     opacity: 1;
@@ -24,64 +41,33 @@
     display: inline-block;
   }
 
-  &_nested-loading {
-    position: relative;
-    > div > .@{spin-prefix-cls} {
-      display: block;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      .@{spin-prefix-cls}__dot {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -@spin-dot-size-base / 2;
-        margin-left: -@spin-dot-size-base / 2;
-        z-index: @ui-zindex-spin;
-      }
-      .@{spin-prefix-cls}__text {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        padding-top: (@spin-dot-size - @ui-fontsize) / 2 + 4px;
-        color: @ui-color-slate;
-        z-index: @ui-zindex-spin;
-      }
-      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
-        margin-top: -@spin-dot-size-base / 2 - 12px;
-      }
-    }
+  &_white &-cover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 
-    > div > .@{spin-prefix-cls}_sm {
-      .@{spin-prefix-cls}__dot {
-        margin-top: -@spin-dot-size-base / 2;
-        margin-left: -@spin-dot-size-base / 2;
-      }
-      .@{spin-prefix-cls}__text {
-        padding-top: (@spin-dot-size-sm - @ui-fontsize) / 2 + 4px;
-      }
-      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
-        margin-top: -@spin-dot-size-base / 2 - 12px;
-      }
-    }
+  &_black &-cover {
+    background-color: rgba(0, 0, 0, 1);
+  }
 
-    > div > .@{spin-prefix-cls}_lg {
-      .@{spin-prefix-cls}__dot {
-        margin-top: -@spin-dot-size-base / 2;
-        margin-left: -@spin-dot-size-base / 2;
-      }
-      .@{spin-prefix-cls}__text {
-        padding-top: (@spin-dot-size-lg - @ui-fontsize) / 2 + 4px;
-      }
-      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
-        margin-top: -@spin-dot-size-base / 2 - 12px;
-      }
+  &_black &-indictor {
+    svg rect {
+      fill: @ui-color-white !important;
     }
   }
 
+  &_black &-text {
+    color: @ui-color-white !important;
+  }
+
+  &_show-text &-text {
+    display: block;
+  }
+}
+
+.@{spinner}_nested-loading {
+  position: relative;
   &__container {
     position: relative;
-    transition: opacity .3s;
     .ui-mixin-clearfix();
     &_loading {
       pointer-events: none;
@@ -89,61 +75,41 @@
       overflow: hidden;
     }
   }
-
-  // tip
-  // ------------------------------
-  &__tip {
-    color: @spin-dot-default;
-  }
-
-  // dots
-  // ------------------------------
-  &__dot {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  // Sizes
-  // ------------------------------
-  &_lg &__dot {
-    i:after {
-      width: 4px;
-      top: 0px;
-      height: 18px;
-    }
-  }
-
-  &__cover {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    transition: all .3s;
-    opacity: .71;
-    z-index: @ui-zindex-spin-cover;
-  }
-
-  &_white &__cover {
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  &_black &__cover {
-    background-color: rgba(0, 0, 0, 1);
-  }
-
-  &_black &__dot {
-    svg rect {
-      fill: @ui-color-white !important;
-    }
-  }
-
-  &_black &__text {
-    color: @ui-color-white !important;
-  }
-
-  &&_show-text &__text {
+  .@{spinner-element} {
     display: block;
+    height: 100%;
+    width: 100%;
+    &-indictor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -@spin-dot-size-base / 2;
+      margin-left: -@spin-dot-size-base / 2;
+      z-index: @ui-zindex-spin;
+    }
+    &-text {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding-top: (@spin-dot-size - @ui-fontsize) / 2 + 4px;
+      color: @ui-color-slate;
+      z-index: @ui-zindex-spin;
+    }
+    &_show-text .@{spinner-element}-indictor {
+      .ui-mixin-liftup(@spin-dot-size-base / 2 + 12px);
+    }
+    &_sm .@{spinner-element}-text {
+      padding-top: (@spin-dot-size-sm - @ui-fontsize) / 2 + 4px;
+    }
+    &_lg .@{spinner-element}-text {
+      padding-top: (@spin-dot-size-lg - @ui-fontsize) / 2 + 4px;
+    }
+    &_lg .@{spinner-element}-indictor {
+      i:after {
+        width: 4px;
+        top: 0px;
+        height: 18px;
+      }
+    }
   }
 }
