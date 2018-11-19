@@ -9,14 +9,16 @@ import App from './apps/index'
 const asyncComponent = path => Imported(() => {
   NProgress.start()
   whenComponentsReady().then(() => NProgress.done())
-  return import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+  return path.match('.dox')
+    ? import(`../src/components/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+    : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
 })
 
 const Intro = () => React.createElement(asyncComponent('Intro'))
 const Start = routeProps => React.createElement(asyncComponent('Start'), {routeProps: routeProps})
 const Design = routeProps => React.createElement(asyncComponent('Design'), {routeProps: routeProps})
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
-const Dox = routeProps => React.createElement(asyncComponent(`Chrome/dox/${routeProps.component}.dox`))
+const Dox = routeProps => React.createElement(asyncComponent(`${routeProps.component.split('-')[0]}/docs/${routeProps.component}.dox`))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render((

@@ -3,7 +3,7 @@ import React from 'react'
 import Center from 'widgets/Center'
 import Markdown from 'widgets/Markdown'
 import html from '../../../CHANGELOG.md'
-import config from '../config'
+import {backToTop} from '../config'
 import './index.less'
 
 export default () => {
@@ -12,7 +12,7 @@ export default () => {
       <Center>
         <Markdown html={html} />
       </Center>
-      <BackToTop {...config.backToTop} />
+      <BackToTop {...backToTop} />
     </div>
   )
 }

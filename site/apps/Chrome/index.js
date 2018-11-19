@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {Layout, LayoutContent, LayoutSidebar} from 'widgets/Layout'
 import Scrollbar from 'widgets/Scrollbar'
-import components from './components.json'
+import {nav as components} from '../config.js'
 import './index.less'
 
 const getTabsByComponentName = (components, componentName) => {
