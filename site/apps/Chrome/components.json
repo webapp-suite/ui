@@ -95,6 +95,9 @@
     "name": "Dropdown",
     "cn": "下拉菜单"
   }, {
+    "name": "Switch",
+    "cn": "开关"
+  }, {
     "name": "Spinner",
     "cn": "加载中"
   }, {

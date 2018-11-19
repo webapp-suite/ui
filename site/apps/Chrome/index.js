@@ -86,7 +86,7 @@ class Components extends React.Component {
         {!!tabs && (
           <Tabs activeKey={nameAfterSlash}>
             <TabList>
-              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc}
+              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc} key={tab.doc}
                 onClick={() => this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}>{tab.label}</Tab>)}
             </TabList>
           </Tabs>
@@ -100,13 +100,13 @@ class Components extends React.Component {
     if (position === 'outside') {
       const id = item.tabs ? `${item.path}/${item.tabs[0].doc}` : item.name
       return (
-        <NavItem id={id} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
+        <NavItem id={id} key={item.name} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
       )
     }
     const nameAfterSlash = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
     const id = path ? `${path}/${nameAfterSlash}` : nameAfterSlash
     return (
-      <NavItem id={id}>
+      <NavItem id={id} key={item.name}>
         <span>{item.name}</span><span className="chinese">{item.cn}</span>
       </NavItem>
     )
@@ -114,7 +114,7 @@ class Components extends React.Component {
 
   renderNavItemGroup (itemGroup) {
     return (
-      <NavItemGroup title={itemGroup.group}>
+      <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
         {itemGroup.components.map(component => this.renderNavItem(component))}
       </NavItemGroup>
     )
@@ -137,7 +137,6 @@ class Components extends React.Component {
             </div>
             <Scrollbar className="components__navbar-scrollbar">
               <Nav
-                collapsed
                 selectedId={childComponentPath}
                 onItemClick={this.handleItemClick}
                 width={320}
@@ -149,7 +148,7 @@ class Components extends React.Component {
                     return this.renderNavItem(item, 'outside')
                   }
                   return (
-                    <SubNav title={item.cn} defaultOpen={item.defaultOpen} icon={`/svg/icons.svg#${item.icon}`}>
+                    <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen} icon={`/svg/icons.svg#${item.icon}`}>
                       {item.components.map(itemGroup => {
                         if (itemGroup.group) {
                           return this.renderNavItemGroup(itemGroup)

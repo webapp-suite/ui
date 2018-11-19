@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import './index.less'
 
+// remove this after created
+const prefixCls = 'earthui'
+
 class <%= name %> extends React.Component {
   constructor () {
     super()
@@ -14,7 +17,7 @@ class <%= name %> extends React.Component {
   render () {
     const { className, ...other } = this.props
     return (
-      <div className={cx(`${prefixCls}-<%= className %>`, className)} {...other}>
+      <div className={cx('<%= className %>', className)} {...other}>
         something...
       </div>
     )

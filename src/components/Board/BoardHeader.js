@@ -2,18 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-const PanelHeader = props => {
-  const { children, className, type, ...other } = props
+const BoardHeader = props => {
+  const { children = '', className, title, theme, ...other } = props
   return (
-    <div className={cx(`${prefixCls}-panel__header`, className)} {...other}>
+    <div className={cx(`${prefixCls}-board__header`, `${prefixCls}-board__header`, className)} {...other}>
+      {title && <div className={`${prefixCls}-board__header-title`}>{title}</div>}
       {children}
     </div>
   )
 }
 
-PanelHeader.propTypes = {
+BoardHeader.propTypes = {
+  children: PropTypes.any,
   className: PropTypes.string,
-  type: PropTypes.oneOf('grey', 'white')
+
+  // 面板名称
+  title: PropTypes.string
 }
 
-export default PanelHeader
+export default BoardHeader

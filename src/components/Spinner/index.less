@@ -1,37 +1,149 @@
 @import '~ui-variables';
-@keyframes-spinner: ~"@{prefix-cls}-spinner";
+@import '~ui-mixins';
 
-.@{prefix-cls}-spinner {
-  position: relative;
-  &__container {
-    position: absolute;
-    z-index: @ui-zindex-spin;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255,255,255,.7);
-    text-align: center;
-    border: 1px solid red;
-    &-spinner {
-      margin: 0 auto;
-      width: 1em;
-      height: 1em;
-      font-size: 26px;
-      position: relative;
-      border: .1em solid @theme;
-      border-radius: 50%;
-      border-bottom-color: transparent;
-      animation: 1s ease-in-out infinite @keyframes-spinner;
+@spin-prefix-cls: ~"@{prefix-cls}-spinner";
+@spin-dot-default: @ui-color-slate;
+@spin-dot-size-sm: 36px;
+@spin-dot-size: 60px;
+@spin-dot-size-lg: 96px;
+@spin-dot-size-base: @spin-dot-size;
+
+.@{spin-prefix-cls} {
+  position: absolute;
+  display: none;
+  line-height: 0.8;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 0;
+  margin-right: 15px;
+  .ui-mixin-transition-transform();
+
+  &_spinning {
+    opacity: 1;
+    position: static;
+    display: inline-block;
+  }
+
+  &_nested-loading {
+    position: relative;
+    > div > .@{spin-prefix-cls} {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      .@{spin-prefix-cls}__dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -@spin-dot-size-base / 2;
+        margin-left: -@spin-dot-size-base / 2;
+        z-index: @ui-zindex-spin;
+      }
+      .@{spin-prefix-cls}__text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding-top: (@spin-dot-size - @ui-fontsize) / 2 + 4px;
+        color: @ui-color-slate;
+        z-index: @ui-zindex-spin;
+      }
+      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
+        margin-top: -@spin-dot-size-base / 2 - 12px;
+      }
+    }
+
+    > div > .@{spin-prefix-cls}_sm {
+      .@{spin-prefix-cls}__dot {
+        margin-top: -@spin-dot-size-base / 2;
+        margin-left: -@spin-dot-size-base / 2;
+      }
+      .@{spin-prefix-cls}__text {
+        padding-top: (@spin-dot-size-sm - @ui-fontsize) / 2 + 4px;
+      }
+      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
+        margin-top: -@spin-dot-size-base / 2 - 12px;
+      }
+    }
+
+    > div > .@{spin-prefix-cls}_lg {
+      .@{spin-prefix-cls}__dot {
+        margin-top: -@spin-dot-size-base / 2;
+        margin-left: -@spin-dot-size-base / 2;
+      }
+      .@{spin-prefix-cls}__text {
+        padding-top: (@spin-dot-size-lg - @ui-fontsize) / 2 + 4px;
+      }
+      &.@{spin-prefix-cls}_show-text .@{spin-prefix-cls}__dot {
+        margin-top: -@spin-dot-size-base / 2 - 12px;
+      }
     }
   }
-}
 
-@keyframes @keyframes-spinner {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+  &__container {
+    position: relative;
+    transition: opacity .3s;
+    .ui-mixin-clearfix();
+    &_loading {
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+    }
   }
-  to {
-    transform: translate3d(0, 0, 0) rotate(360deg);
+
+  // tip
+  // ------------------------------
+  &__tip {
+    color: @spin-dot-default;
+  }
+
+  // dots
+  // ------------------------------
+  &__dot {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  // Sizes
+  // ------------------------------
+  &_lg &__dot {
+    i:after {
+      width: 4px;
+      top: 0px;
+      height: 18px;
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all .3s;
+    opacity: .71;
+    z-index: @ui-zindex-spin-cover;
+  }
+
+  &_white &__cover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  &_black &__cover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  &_black &__dot {
+    svg rect {
+      fill: @ui-color-white !important;
+    }
+  }
+
+  &_black &__text {
+    color: @ui-color-white !important;
+  }
+
+  &&_show-text &__text {
+    display: block;
   }
 }
