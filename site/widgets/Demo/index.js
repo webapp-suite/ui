@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Row, Col } from 'earth-ui/lib/Layout'
-import { Tabs, Tab, TabList, TabPanel } from 'earth-ui/lib/Tabs'
-import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+import {Board, BoardBody, BoardHeader} from 'earth-ui/lib/Board'
+import {Col, Row} from 'earth-ui/lib/Layout'
+import {Tab, TabList, TabPanel, Tabs} from 'earth-ui/lib/Tabs'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Code from 'widgets/Code'
 import Markdown from 'widgets/Markdown'
 import './index.less'
@@ -50,11 +50,11 @@ class Demo extends React.Component {
     }
     const renderInRight = () => {
       return (
-        <Row className={cx('demo', {'demo__open': !open}, className)}>
+        <Row className={cx('demo', 'demo__no-tabs-board', {'demo__open': !open}, className)}>
           <Col col="md-16" className="demo__left">
             <Markdown html={`<h2>${title}</h2>`} />
             {desc && <Markdown html={desc} />}
-            {children}
+            <div className="demo__no-tabs-board-render">{children}</div>
             <Board theme="simple">
               <BoardBody>
                 <div className="demo__code"><Code lang="jsx">{code}</Code></div>

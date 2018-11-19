@@ -12,13 +12,18 @@
     padding-top: @ui-unit-half;
     padding-bottom: @ui-unit-half - 1px;
     font-weight: @ui-fontweight-semibold;
-    //overflow: hidden;
     .ui-mixin-clearfix();
     .@{prefix-cls}-board__header-title {
       float: left;
     }
     .@{prefix-cls}-button {
       float: right;
+      &:first-child {
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: @ui-unit-half;
+      }
     }
   }
 
