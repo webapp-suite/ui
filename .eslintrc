@@ -22,9 +22,6 @@
   "rules": {
     "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-no-bind": 0,
-    //    "indent": ["error", 4],
-    //    "react/jsx-indent": ["error", 4],
-    //    "react/jsx-indent-props": ["error", 4]
-    //    "react/jsx-indent-props": 0
+    "react/no-did-update-set-state": 0
   }
 }
