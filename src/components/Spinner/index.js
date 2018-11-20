@@ -65,7 +65,7 @@ class Spinner extends React.Component {
   componentDidMount () {
     const { isLoading, delay } = this.props
     if (shouldDelay(isLoading, delay)) {
-      this.delayTimeout = setTimeout(this.delayUpdateSpinning, delay)
+      this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
     }
   }
 
@@ -90,6 +90,7 @@ class Spinner extends React.Component {
       clearTimeout(this.debounceTimeout)
     }
     if (currentSpinning && !isLoading) {
+      // Close spinner
       this.debounceTimeout = window.setTimeout(() => this.setState({ isLoading }), 300)
       if (this.delayTimeout) {
         clearTimeout(this.delayTimeout)
@@ -101,6 +102,7 @@ class Spinner extends React.Component {
         }
         this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
       } else {
+        // Open spinner without delay
         this.setState({ isLoading })
       }
     }
