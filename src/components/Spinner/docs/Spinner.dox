@@ -5,7 +5,6 @@
  */
 import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
-import styled, { keyframes } from 'styled-components'
 
 class SpinnerBasic extends React.Component {
   state = { loading: false }
@@ -13,13 +12,6 @@ class SpinnerBasic extends React.Component {
     this.setState({ loading: value });
   }
   render() {
-    const Border = styled.div`
-      height: 120px;
-      line-height: 118px;
-      color: #aaa;
-      text-align: center;
-      border: 1px dashed #ccc;
-    `
     const border = {
       height: '120px',
       lineHeight: '118px',
@@ -48,7 +40,6 @@ class SpinnerBasic extends React.Component {
  */
 import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
-import styled, { keyframes } from 'styled-components'
 
 class SpinnerTip extends React.Component {
   state = { loading: false }
@@ -56,23 +47,23 @@ class SpinnerTip extends React.Component {
     this.setState({ loading: value });
   }
   render() {
-    const Border = styled.div`
-      height: 120px;
-      line-height: 118px;
-      color: #aaa;
-      text-align: center;
-      border: 1px dashed #ccc;
-    `
+    const border = {
+      height: '120px',
+      lineHeight: '118px',
+      color: '#aaa',
+      textAlign: 'center',
+      border: '1px dashed #ccc'
+    }
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
           打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
         </div>
-        <Border>
+        <div style={border}>
           <Spinner tip="Loading..." isLoading={this.state.loading}>
             自定义描述文案加载效果
           </Spinner>
-        </Border>
+        </div>
       </div>
     )
   }
@@ -85,7 +76,6 @@ class SpinnerTip extends React.Component {
  */
 import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
-import styled, { keyframes } from 'styled-components'
 
 class SpinnerCover extends React.Component {
   state = { loading: false }
@@ -93,13 +83,6 @@ class SpinnerCover extends React.Component {
     this.setState({ loading: value });
   }
   render() {
-    const Border = styled.div`
-      height: 120px;
-      line-height: 118px;
-      color: #aaa;
-      text-align: center;
-      border: 1px dashed #ccc;
-    `
     const border = {
       height: '120px',
       lineHeight: '118px',
@@ -157,31 +140,32 @@ class SpinnerIndicator extends React.Component {
   toggle = value => {
     this.setState({ loading: value });
   }
+  spinnerKeyFrames = keyframes`
+    from {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    to {
+      transform: translate3d(0, 0, 0) rotate(360deg);
+    }
+  `
+  Indicator = styled.div`
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #00aeff
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    animation: 1s ease-in-out infinite ${this.spinnerKeyFrames};
+  `
+  Border = styled.div`
+    height: 120px;
+    line-height: 118px;
+    color: #aaa;
+    text-align: center;
+    border: 1px dashed #ccc;
+  `
   render() {
-    const spinnerKeyFrames = keyframes`
-      from {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-      }
-      to {
-        transform: translate3d(0, 0, 0) rotate(360deg);
-      }
-    `
-    const Indicator = styled.div`
-      position: relative;
-      width: 60px;
-      height: 60px;
-      border: 3px solid #00aeff
-      border-radius: 50%;
-      border-bottom-color: transparent;
-      animation: 1s ease-in-out infinite ${spinnerKeyFrames};
-    `
-    const Border = styled.div`
-      height: 120px;
-      line-height: 118px;
-      color: #aaa;
-      text-align: center;
-      border: 1px dashed #ccc;
-    `
+    const { Indicator, Border } = this
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
