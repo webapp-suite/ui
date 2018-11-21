@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import invariant from 'invariant'
-import shouldComponentUpdate from '../../shouldComponentUpdate'
-import dataFilter from '../../_util/dataFilter'
-import TextOverflow from '../../TextOverflow'
-import SelectDropdown from '../../SelectDropdown'
+import PropTypes from 'prop-types'
+import React, {Component} from 'react'
+import dataFilter from '../../../utils/dataFilter'
+import shouldComponentUpdate from '../../../utils/shouldComponentUpdate'
 import ClearableInput from '../../ClearableInput'
+import SelectDropdown from '../../SelectDropdown'
+import TextOverflow from '../../TextOverflow'
 import './index.less'
 
 class Select extends Component {

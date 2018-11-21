@@ -1,0 +1,104 @@
+/**
+ * @title 基本用法
+ * @desc Board 组件提供 `theme` 属性，可以选择两种的主题风格：`classic` / `simple`，默认为 `classic` 即白色背景带边框的风格。
+ * @renderModel right
+ */
+import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+
+const BoardBasic = () => {
+  return (
+    <div>
+      <Board>
+        <BoardBody>
+          The classic board looks like this.
+        </BoardBody>
+      </Board>
+      <Board theme="simple">
+        <BoardBody>
+          The simple board looks like this.
+        </BoardBody>
+      </Board>
+    </div>
+  )
+}
+
+/**
+ * @title 带标题的面板
+ * @desc 在 BoardHeader 上通过 `title` 属性可以自定义标题，同样也支持两种可选的主题风格。
+ * @renderModel right
+ */
+import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+
+const BoardWithTitle = () => {
+  return (
+    <div>
+      <Board>
+        <BoardHeader title="My Board" />
+        <BoardBody>
+          The classic Board with title looks like this.
+        </BoardBody>
+      </Board>
+      <Board theme="simple">
+        <BoardHeader title="My Board" />
+        <BoardBody>
+          The simple Board with title looks like this.
+        </BoardBody>
+      </Board>
+    </div>
+  )
+}
+
+/**
+ * @title 带按钮的面板
+ * @renderModel right
+ */
+import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+import Button from 'earth-ui/lib/Button'
+import message from 'earth-ui/lib/message'
+
+const BoardWithButtons = () => {
+  return (
+    <Board title="My Board">
+      <BoardHeader>
+        <Button type="primary" micro>one</Button>
+        <Button type="secondary" micro>two</Button>
+        <Button type="tertiary" micro onClick={()=> message.success('Clicked!')}>three</Button>
+      </BoardHeader>
+      <BoardBody>
+        The classic Board with buttons looks like this.
+      </BoardBody>
+    </Board>
+  )
+}
+
+/**
+ * @title 带Tab的面板
+ * @renderModel right
+ */
+import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+import message from 'earth-ui/lib/message'
+
+const BoardWithTabs = () => {
+  return (
+    <Board>
+      <Tabs>
+        <BoardHeader>
+          <TabList>
+            <Tab>One</Tab>
+            <Tab>Two</Tab>
+            <Tab>Three</Tab>
+          </TabList>
+        </BoardHeader>
+        <BoardBody>
+          <TabPanel tab="One">Content of Tab Board 1</TabPanel>
+          <TabPanel tab="Two">Content of Tab Board 2</TabPanel>
+          <TabPanel tab="Three">Content of Tab Board 3</TabPanel>
+        </BoardBody>
+      </Tabs>
+    </Board>
+  )
+}
+
+@component Board/Board
+@component Board/BoardHeader

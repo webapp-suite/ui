@@ -67,7 +67,11 @@ module.exports = function (source) {
       title: match
     })
   }, match => {
-    demos[demos.length - 1].desc = match
+    const desc = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    demos[demos.length - 1].desc = desc
+  }, match => {
+    const note = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    demos[demos.length - 1].note = note
   }, match => {
     const currentDemo = demos[demos.length - 1]
     currentDemo.code = match.trim()
@@ -183,9 +187,9 @@ module.exports = function (source) {
   }, match => {
     demos[demos.length - 1].renderModel = match
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
-  source.replace(reg, (match, p1, p2, p3, p4, p5) => {
-    [p1, p2, p3, p4, p5].forEach((match, i) => {
+  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
+  source.replace(reg, (match, p1, p2, p3, p4, p5, p6) => {
+    [p1, p2, p3, p4, p5, p6].forEach((match, i) => {
       match && callbacks[i](match)
     })
   })
@@ -202,7 +206,8 @@ ${demo.mainCode}`
   const rightCol = []
   demos.forEach((demo, i) => {
     const code = (`
-      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}" renderModel="${demo.renderModel || 'left'}">
+      <Demo title="${demo.title}" code={code${demo.name}} desc="${demo.desc || ''}" 
+      note="${demo.note || ''}" renderModel="${demo.renderModel || 'left'}">
         <${demo.name} />
       </Demo>
     `)
@@ -245,7 +250,7 @@ export default () => {
   <div>
     ${layout}
     <Row>
-      <Col col="md-13">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+      <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
     </Row>
    </div>
   )

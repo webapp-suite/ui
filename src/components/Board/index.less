@@ -5,34 +5,40 @@
   position: relative;
   .ui-mixin-rounded();
   background-color: @ui-color-white;
-  &_classic {
-    border: 1px solid @ui-color-gray-light;
-  }
-  &_simple {
-    border: none;
-  }
 
-  &__header_classic, &__header_simple {
+  &__header {
     .ui-mixin-rounded(@ui-radius, @ui-radius, 0, 0);
     .ui-mixin-reduce(@ui-unit);
     padding-top: @ui-unit-half;
-    padding-bottom: @ui-unit-half;
+    padding-bottom: @ui-unit-half - 1px;
     font-weight: @ui-fontweight-semibold;
-    overflow: hidden;
+    .ui-mixin-clearfix();
     .@{prefix-cls}-board__header-title {
       float: left;
     }
-    .@{prefix-cls}-board__header-buttons {
+    .@{prefix-cls}-button {
       float: right;
+      &:first-child {
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: @ui-unit-half;
+      }
     }
   }
 
-  &__header_classic {
-    border-bottom: 1px solid @ui-color-gray-light;
+  &_classic {
+    border: 1px solid @ui-color-gray-light;
+    .@{prefix-cls}-board__header {
+      border-bottom: 1px solid @ui-color-gray-light;
+    }
   }
 
-  &__header_simple {
-    background-color: hsl(200, 23%, 95%);
+  &_simple {
+    .@{prefix-cls}-board__header {
+      border-bottom: 1px solid transparent;
+      background-color: hsl(200, 23%, 95%);
+    }
   }
 
   &__body {
@@ -41,10 +47,10 @@
   }
 
   .@{prefix-cls}-tabs__list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom: none;
+    .ui-mixin-expand(@ui-unit);
+    margin-top: -@ui-unit-half;
+    margin-bottom: -@ui-unit-half;
+    float: left;
   }
 
   .@{prefix-cls}-tabs__panel {

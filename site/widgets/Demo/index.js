@@ -1,9 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Row, Col } from 'earth-ui/lib/Layout'
-import Board from 'earth-ui/lib/Board'
+import {Board, BoardBody, BoardHeader} from 'earth-ui/lib/Board'
+import {Col, Row} from 'earth-ui/lib/Layout'
+import {Tab, TabList, TabPanel, Tabs} from 'earth-ui/lib/Tabs'
+import PropTypes from 'prop-types'
+import React from 'react'
 import Code from 'widgets/Code'
+import Markdown from 'widgets/Markdown'
 import './index.less'
 
 class Demo extends React.Component {
@@ -14,59 +16,51 @@ class Demo extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.codeHeight = ReactDOM.findDOMNode(this.refs.pre).offsetHeight
-  // }
-
   handleToggle = () => {
     this.setState({open: !this.state.open})
   }
 
   render () {
-    const { className, title, desc, code, renderModel, children } = this.props
+    const { className, title, desc, note, code, renderModel, children } = this.props
     const { open } = this.state
     const renderInLeft = () => {
-      const buttons = [{
-        label: 'show code',
-        type: 'tertiary',
-        onClick: () => {
-          this.handleToggle()
-        }
-      }]
       return (
         <Row className={cx('demo', {'demo__open': open}, className)}>
-          <Col col="md-13" className="demo__left">
-            <Board title={title} buttons={buttons} theme="simple">
-              <div className="demo__content">{children}</div>
-              {desc && <div className="demo__desc">{desc}</div>}
-              <div className="demo__code demo__code_last" ref="pre">
-                <Code lang="jsx">{code}</Code>
-              </div>
+          <Col col="md-16" className="demo__left">
+            <Markdown html={`<h2>${title}</h2>`} />
+            {desc && <Markdown html={desc} />}
+            <Board theme="simple">
+              <Tabs>
+                <BoardHeader>
+                  <TabList>
+                    <Tab>渲染</Tab>
+                    <Tab>代码</Tab>
+                  </TabList>
+                </BoardHeader>
+                <BoardBody>
+                  <TabPanel tab="One" className="demo__content">{children}</TabPanel>
+                  <TabPanel tab="Two" className="demo__code"><Code lang="jsx">{code}</Code></TabPanel>
+                </BoardBody>
+              </Tabs>
             </Board>
+            {note && <Markdown html={note} />}
           </Col>
         </Row>
       )
     }
     const renderInRight = () => {
-      const buttons = [{
-        label: 'hide code',
-        type: 'tertiary',
-        onClick: () => {
-          this.handleToggle()
-        }
-      }]
       return (
-        <Row className={cx('demo', {'demo__open': !open}, className)}>
-          <Col col="md-13" className="demo__left">
-            <Board title={title} buttons={buttons} theme="simple">
-              <div className="demo__code" ref="pre">
-                <Code lang="jsx">{code}</Code>
-              </div>
+        <Row className={cx('demo', 'demo__no-tabs-board', {'demo__open': !open}, className)}>
+          <Col col="md-16" className="demo__left">
+            <Markdown html={`<h2>${title}</h2>`} />
+            {desc && <Markdown html={desc} />}
+            <div className="demo__no-tabs-board-render">{children}</div>
+            <Board theme="simple">
+              <BoardBody>
+                <div className="demo__code"><Code lang="jsx">{code}</Code></div>
+              </BoardBody>
             </Board>
-          </Col>
-          <Col col="md-11">
-            <div className="demo__content_right">{children}</div>
-            {desc && <div className="demo__desc">{desc}</div>}
+            {note && <Markdown html={note} />}
           </Col>
         </Row>
       )
@@ -96,8 +90,9 @@ Demo.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   desc: PropTypes.string,
+  note: PropTypes.string,
   code: PropTypes.string,
-  renderModel: PropTypes.oneOf('left', 'right', 'full')
+  renderModel: PropTypes.oneOf(['left', 'right', 'full'])
 }
 
 export default Demo

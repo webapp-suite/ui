@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
 import './index.less'
 
 class HeaderBar extends React.Component {
@@ -29,7 +29,7 @@ class HeaderBar extends React.Component {
 HeaderBar.propTypes = {
   className: PropTypes.string,
 
-  children: PropTypes.element,
+  children: PropTypes.node,
 
   // HeaderBar 左侧的 icon
   icon: PropTypes.string,

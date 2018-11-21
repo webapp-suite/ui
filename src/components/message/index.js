@@ -1,11 +1,11 @@
-import './index.less'
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
 import cx from 'classnames'
-import ToggleNode from '../_util/ToggleNode'
+import PropTypes from 'prop-types'
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+import ToggleNode from '../../utils/ToggleNode'
 // import Icon from '../Icon'
 import Button from '../Button'
+import './index.less'
 
 class Message extends Component {
   constructor (props) {

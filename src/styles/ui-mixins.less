@@ -291,3 +291,24 @@
           -45deg, @color1 25%, @color2 25%, @color2 50%, @color1 50%, @color1 75%, @color2 75%, @color2
   );
 }
+
+.ui-mixin-clearfix() {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.ui-mixin-size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+.ui-mixin-square(@size) {
+  .ui-mixin-size(@size; @size);
+}

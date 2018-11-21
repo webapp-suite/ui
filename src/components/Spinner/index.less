@@ -1,25 +1,115 @@
 @import '~ui-variables';
-@keyframes-spinner: ~"@{prefix-cls}-spinner";
+@import '~ui-mixins';
 
-.@{prefix-cls}-spinner {
-  font-size: 26px;
-}
+@spinner: ~"@{prefix-cls}-spinner";
+@spinner-element: ~"@{prefix-cls}-spinner__spinner-element";
+@spin-dot-size-sm: 36px;
+@spin-dot-size: 60px;
+@spin-dot-size-lg: 96px;
+@spin-dot-size-base: @spin-dot-size;
 
-.@{prefix-cls}-spinner__circle {
-  width: 1em;
-  height: 1em;
-  position: relative;
-  border: .1em solid @theme;
-  border-radius: 50%;
-  border-bottom-color: transparent;
-  animation: 1s ease-in-out infinite @keyframes-spinner;
-}
-
-@keyframes @keyframes-spinner {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+.@{spinner-element} {
+  position: absolute;
+  display: none;
+  line-height: 0.8;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 0;
+  margin-right: @ui-unit-half * 1.5;
+  &-tip {
+    color: @ui-color-slate;
   }
-  to {
-    transform: translate3d(0, 0, 0) rotate(360deg);
+
+  &-indictor {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &-cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .71;
+    z-index: @ui-zindex-spin-cover;
+  }
+
+  &_spinning {
+    opacity: 1;
+    position: static;
+    display: inline-block;
+  }
+
+  &_white &-cover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  &_black &-cover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  &_black &-indictor {
+    svg rect {
+      fill: @ui-color-white !important;
+    }
+  }
+
+  &_black &-text {
+    color: @ui-color-white !important;
+  }
+
+  &_show-text &-text {
+    display: block;
+  }
+}
+
+.@{spinner}_nested-loading {
+  position: relative;
+  &__container {
+    position: relative;
+    .ui-mixin-clearfix();
+    &_loading {
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+    }
+  }
+  .@{spinner-element} {
+    display: block;
+    height: 100%;
+    width: 100%;
+    &-indictor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -@spin-dot-size-base / 2;
+      margin-left: -@spin-dot-size-base / 2;
+      z-index: @ui-zindex-spin;
+    }
+    &-text {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding-top: (@spin-dot-size - @ui-fontsize) / 2 + 4px;
+      color: @ui-color-slate;
+      z-index: @ui-zindex-spin;
+    }
+    &_show-text .@{spinner-element}-indictor {
+      .ui-mixin-liftup(@spin-dot-size-base / 2 + 12px);
+    }
+    &_sm .@{spinner-element}-text {
+      padding-top: (@spin-dot-size-sm - @ui-fontsize) / 2 + 4px;
+    }
+    &_lg .@{spinner-element}-text {
+      padding-top: (@spin-dot-size-lg - @ui-fontsize) / 2 + 4px;
+    }
+    &_lg .@{spinner-element}-indictor {
+      i:after {
+        width: 4px;
+        top: 0px;
+        height: 18px;
+      }
+    }
   }
 }

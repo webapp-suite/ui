@@ -2,7 +2,7 @@ import BackToTop from 'earth-ui/lib/BackToTop'
 import {Col, Row} from 'earth-ui/lib/Layout'
 import React from 'react'
 import Markdown from 'widgets/Markdown'
-import config from '../config'
+import {backToTop} from '../config'
 
 const asyncComponent = fileName => import(`./${fileName}.md`)
 
@@ -25,7 +25,7 @@ export default class extends React.Component {
             <Markdown html={this.state.md} />
           </Col>
         </Row>
-        <BackToTop {...config.backToTop} />
+        <BackToTop {...backToTop} />
       </div>
     )
   }
