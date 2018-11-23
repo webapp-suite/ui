@@ -39,13 +39,13 @@ class TabsDynamic extends Component {
     }
   }
 
-  handleClose(index) {
+  handleClose = index => {
     const tabs = this.state.tabs
     tabs.splice(index, 1)
     this.setState({ tabs, activeIndex: tabs.length - 1 })
   }
 
-  handleAdd(e) {
+  handleAdd = e => {
     e.preventDefault()
     const tabs = this.state.tabs
     const id = Math.random().toString(16).slice(2, 6)
@@ -62,14 +62,14 @@ class TabsDynamic extends Component {
       <Tabs
         dynamic
         activeIndex={activeIndex}
-        handleClose={::this.handleClose}
+        handleClose={this.handleClose}
         onChange={activeIndex => this.setState({ activeIndex })}
       >
         <TabList>
           {tabs.map((item, i) => (
             <Tab key={item.id}>{item.name}</Tab>)
           )}
-          <Button transparent icon="add" onClick={::this.handleAdd} />
+          <Button transparent icon="add" onClick={this.handleAdd} />
         </TabList>
         {tabs.map((item, i) => (
           <TabPanel key={item.id}>{`我是${item.name}`}</TabPanel>

@@ -13,8 +13,8 @@ class UploadFile extends Component {
       },
       method: 'post',
       action: '/upload.do',
-      onUplading: ::this.handleUploading,
-      onComplete: ::this.handleComplete,
+      onUplading: this.handleUploading,
+      onComplete: this.handleComplete,
       multiple: true,
       showFileList: true
     }
@@ -25,12 +25,12 @@ class UploadFile extends Component {
     )
   }
 
-  handleUploading(pre) {
+  handleUploading = pre => {
     console.log('uploading...', pre)
     return
   }
 
-  handleComplete(data, list) {
+  handleComplete = (data, list) => {
     console.log('complete:', data, 'list:', list)
   }
 }

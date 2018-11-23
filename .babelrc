@@ -1,16 +1,13 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
-      }
-    }],
-    "stage-0",
-    "react"
+    "@babel/preset-env",
+    "@babel/react"
   ],
   "plugins": [
-    "transform-runtime",
-    "syntax-dynamic-import"
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-runtime",
+    ["@babel/plugin-proposal-class-properties", { "loose": false }],
+    ["@babel/plugin-proposal-optional-chaining", { "loose": false }]
   ],
   "env": {
     "development": {
