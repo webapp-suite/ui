@@ -18,7 +18,7 @@ class Switch extends React.Component {
     'on' in nextProps && this.setState({on: nextProps.on})
   }
 
-  handleChange (e) {
+  handleChange = e => {
     e.stopPropagation()
     this.setState({on: e.target.checked})
     this.props.onChange && this.props.onChange(e.target.checked)
@@ -32,7 +32,7 @@ class Switch extends React.Component {
 
     return (
       <label className={cx(`${prefixCls}-switch`, className)} {...other}>
-        <input type="checkbox" checked={on} onChange={::this.handleChange} />
+        <input type="checkbox" checked={on} onChange={this.handleChange} />
         <span className={`${prefixCls}-switch__text`}>{on ? labelOn : labelOff}</span>
       </label>
     )

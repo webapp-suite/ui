@@ -1,6 +1,6 @@
-import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 const rerangeChildren = children => {
   if (!Array.isArray(children)) {
@@ -9,7 +9,7 @@ const rerangeChildren = children => {
   const buttonList = []
   const tabList = []
   children.forEach(elem => {
-    React.isValidElement(elem) && (elem.type.name === 'Button' ? buttonList : tabList).push(elem)
+    React.isValidElement(elem) && (elem?.type?.name === 'Button' ? buttonList : tabList).push(elem)
   })
   return tabList.concat(buttonList.reverse())
 }
