@@ -52,12 +52,7 @@
       "git add"
     ]
   },
-  "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "maintained node versions",
-    "not dead"
-  ],
+  "browserslist": "defaults",
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
