@@ -4,7 +4,9 @@ Please makes sure that these checkboxes are checked before submitting your PR, t
 
 * [ ] Make sure that you propose PR to right branch: bugfix for `master`, feature for latest active branch `feature-x.x`.
 * [ ] Make sure that you follow earth-ui's [code convention](https://github.com/G-Explorer/earth-ui/wiki/Code-convention).
-* [ ] Add some descriptions and refer relative issues for you PR.
+* [ ] Add some descriptions and refer relative issues(optional) for your PR.
+* [ ] Add `Assignees`(assign yourself mostly) for your PR.
+* [ ] Add `Labels` for your PR.
 
 Extra checklist:
 
