@@ -37,7 +37,23 @@ const config = {
       loader: 'file-loader?name=files/[hash].[ext]'
     }, {
       test: /\.less$/,
-      loader: 'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js!less-loader'
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }, {
+        loader: 'postcss-loader',
+        options: {
+          config: {
+            path: 'config/postcss.config.js'
+          }
+        }
+      }, {
+        loader: 'less-loader',
+        options: {
+          javascriptEnabled: true
+        }
+      }]
     }, {
       test: /\.css$/,
       loader: 'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js'
@@ -71,11 +87,10 @@ const config = {
     alias: {
       'earth-ui/lib': `${sourcePath}/components`,
       'widgets': `${sitePath}/widgets`,
-      'dox': `${sitePath}/loaders/dox`,
-      'ui-variables.less': `${sourcePath}/styles/ui-variables.less`,
-      'ui-mixins.less': `${sourcePath}/styles/ui-mixins.less`,
-      'ui.less': `${sourcePath}/styles/index.less`,
-      'dox.less': `${sitePath}/styles/index.less`
+      'ui-variables': `${sourcePath}/styles/ui-variables.less`,
+      'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
+      'ui': `${sourcePath}/styles/index.less`,
+      'dox': `${sitePath}/styles/index.less`
     }
   },
   externals: {

@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from '../Button'
 import Spinner from '../Spinner'
 
-class FormSubmit extends Component {
+class FormSubmit extends React.Component {
   constructor (props, context) {
     super()
     const { form } = context

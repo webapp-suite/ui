@@ -25,7 +25,7 @@ const config = {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader?minimize=true', 'postcss-loader?config.path=config/postcss.config.js', 'less-loader']
+        use: ['css-loader?minimize=true', 'postcss-loader?config.path=config/postcss.config.js', 'less-loader?javascriptEnabled=true']
       }),
       include: sourcePath
     }, {
@@ -42,8 +42,8 @@ const config = {
   },
   resolve: {
     alias: {
-      'ui-variables.less': `${sourcePath}/styles/ui-variables.less`,
-      'ui-mixins.less': `${sourcePath}/styles/ui-mixins.less`
+      'ui-variables': `${sourcePath}/styles/ui-variables.less`,
+      'ui-mixins': `${sourcePath}/styles/ui-mixins.less`
     }
   },
   externals: {
