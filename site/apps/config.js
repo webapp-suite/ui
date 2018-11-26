@@ -3,7 +3,7 @@ export const backToTop = {
   topDistance: 10,
   timing: 'easeIn',
   background: 'rgba(73, 73, 73, 1)',
-  hover: {background: 'rgba(43, 43, 43, 1)'},
+  hover: { background: 'rgba(43, 43, 43, 1)' },
   position: {
     bottom: '10%',
     right: '40px'
@@ -94,24 +94,36 @@ export const nav = [{
       'doc': 'Icon-all-icons'
     }]
   }, {
+    'name': 'dialog',
+    'cn': '对话框'
+  }, {
+    'name': 'message',
+    'cn': '全局提示'
+  }, {
     'icon': 'retweet',
     'name': 'Board',
     'cn': '面板'
   }, {
+    'name': 'Tabs',
+    'cn': '选项卡'
+  }, {
     'name': 'Button',
     'cn': '按钮'
-  }, {
-    'name': 'Modal',
-    'cn': '模态框'
-  }, {
-    'name': 'Dropdown',
-    'cn': '下拉菜单'
   }, {
     'name': 'Switch',
     'cn': '开关'
   }, {
+    'name': 'Tooltip',
+    'cn': '提示框'
+  }, {
+    'name': 'TextOverflow',
+    'cn': '文字溢出'
+  }, {
     'name': 'Spinner',
     'cn': '加载中'
+  }, {
+    'name': 'Dropdown',
+    'cn': '下拉菜单'
   }, {
     'name': 'Form',
     'cn': '表单'
@@ -125,15 +137,6 @@ export const nav = [{
     'name': 'ClearableInput',
     'cn': '清空输入框'
   }, {
-    'name': 'Tooltip',
-    'cn': '提示框'
-  }, {
-    'name': 'Tabs',
-    'cn': '选项卡'
-  }, {
-    'name': 'message',
-    'cn': '全局提示'
-  }, {
     'name': 'Fetch',
     'cn': 'AJAX加载管理'
   }, {
@@ -142,9 +145,6 @@ export const nav = [{
   }, {
     'name': 'xhr',
     'cn': 'AJAX请求'
-  }, {
-    'name': 'TextOverflow',
-    'cn': '文字溢出'
   }, {
     'name': 'BackToTop',
     'cn': '回到顶部'

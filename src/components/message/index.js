@@ -1,13 +1,12 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import ToggleNode from '../../utils/ToggleNode'
-// import Icon from '../Icon'
 import Button from '../Button'
 import './index.less'
 
-class Message extends Component {
+class Message extends React.Component {
   constructor (props) {
     super()
     this.state = {
@@ -25,7 +24,7 @@ class Message extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    'open' in nextProps && this.setState({open: nextProps.open})
+    'open' in nextProps && this.setState({ open: nextProps.open })
     this.prepareClose(nextProps)
   }
 
@@ -35,29 +34,26 @@ class Message extends Component {
 
   prepareClose (props) {
     const { duration } = props
-    duration && setTimeout(this.handleClose, duration * 1000)
+    duration && setTimeout(this.handleClose, duration)
   }
 
   handleClose = () => {
-    this.setState({open: false})
+    this.setState({ open: false })
   }
 
   render () {
-    const { type, message, duration } = this.props
+    const { type, message, btnLabel, duration } = this.props
     return (
-      <div className={cx(`${prefixCls}-message`, {[`${prefixCls}-message_${type}`]: type})}>
+      <div className={cx(`${prefixCls}-message`, { [`${prefixCls}-message_${type}`]: type })}>
         {/* <Icon */}
         {/* className={`${prefixCls}-message__symbol`} */}
         {/* type={type === 'success' ? 'check' : 'warning'} */}
         {/* /> */}
         {message}
-        {duration === 0 && (
-          <Button
-            className={`${prefixCls}-message__remove`}
-            transparent
-            icon="remove"
-            onClick={this.handleClose}
-          />
+        {btnLabel && duration === 0 && (
+          <Button className={`${prefixCls}-message__button`} onClick={this.handleClose}>
+            {btnLabel}
+          </Button>
         )}
       </div>
     )
@@ -65,8 +61,9 @@ class Message extends Component {
 }
 
 Message.propTypes = {
-  type: PropTypes.oneOf(['success', 'danger']).isRequired,
+  type: PropTypes.oneOf(['success', 'info', 'warning', 'error']).isRequired,
   message: PropTypes.node.isRequired,
+  btnLabel: PropTypes.string,
   duration: PropTypes.number,
   onClose: PropTypes.func,
   open: PropTypes.bool
@@ -102,30 +99,45 @@ const message = {
    * @public
    * @name message.success
    * @param  {string | element} message message 内容，支持 React 元素
-   * @param  {number} [duration] 持续时间，单位秒，为0时手动关闭
-   * @description 成功信息，默认 1 秒后自动关闭
+   * @param  {number} [duration] 持续时间，单位ms，为0时手动关闭
+   * @description 成功信息，默认 `1500ms` 后自动关闭
    */
-  success (message, duration = 1) {
+  success (message, btnLabel = '', duration = 1500) {
     render({
       message,
+      btnLabel,
       duration,
       type: 'success',
       open: true
     })
   },
 
-  /**
-   * @public
-   * @name message.danger
-   * @param  {string | element} message message 内容，支持 React 元素
-   * @param  {number} [duration] 持续时间，单位秒，为0时手动关闭
-   * @description 失败信息，默认 2 秒后自动关闭
-   */
-  danger (message, duration = 2) {
+  info (message, btnLabel = 'OK', duration = 0) {
     render({
       message,
+      btnLabel,
       duration,
-      type: 'danger',
+      type: 'info',
+      open: true
+    })
+  },
+
+  warning (message, btnLabel = 'OK', duration = 0) {
+    render({
+      message,
+      btnLabel,
+      duration,
+      type: 'warning',
+      open: true
+    })
+  },
+
+  error (message, btnLabel = 'OK', duration = 0) {
+    render({
+      message,
+      btnLabel,
+      duration,
+      type: 'error',
       open: true
     })
   },
@@ -136,7 +148,7 @@ const message = {
    * @description 关闭当前 message
    */
   close () {
-    render({open: false})
+    render({ open: false })
   }
 }
 

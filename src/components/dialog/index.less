@@ -1,0 +1,156 @@
+@import '~ui-variables';
+
+@duration: .2s;
+@zIndex: @ui-zindex-dialog;
+@padding-lr: 40px;
+@padding-tb: 30px;
+@min-width-sm: 300px;
+@min-width-md: 400px;
+@min-width-lg: 500px;
+@keyframes-dialog-shake: ~"@{prefix-cls}-dialog__dialog-shake";
+@local-variable-dialog-width: @ui-width-aside + (@ui-unit-double * 2) - @ui-unit;
+@local-variable-dialog-minus: 1 - @local-variable-dialog-width * 0.5;
+
+.@{prefix-cls}-dialog__scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+body.@{prefix-cls}-dialog_open {
+  overflow: hidden;
+}
+
+.@{prefix-cls}-dialog {
+  display: none;
+  backface-visibility: hidden;
+}
+
+.@{prefix-cls}-dialog__backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  opacity: 0;
+  transition: all @duration;
+  z-index: @zIndex;
+  background-color: @ui-cover;
+}
+
+.@{prefix-cls}-dialog__dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @zIndex;
+  overflow: hidden;
+  &-dialog {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: @local-variable-dialog-minus;
+    // TODO: assumed in the chrome, account for menu width
+    margin-left: @local-variable-dialog-minus + 130px;
+    display: table;
+    transition: all @duration;
+    &_lock {
+      animation: @keyframes-dialog-shake .8s;
+    }
+  }
+  &-content {
+    width: @local-variable-dialog-width;
+    border-radius: @ui-radius;
+    border: 1px solid @ui-color-gray-light;
+    background-color: @ui-color-white;
+  }
+}
+
+@keyframes  @keyframes-dialog-shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.@{prefix-cls}-dialog__dialog-dialog {
+  opacity: 0;
+  transform: scale(.98) translate3d(0, -10%, 0);
+  transform-origin: top;
+  transition: all @duration;
+}
+
+.@{prefix-cls}-dialog_sm {
+  .@{prefix-cls}-dialog__dialog-dialog {
+    min-width: @min-width-sm;
+  }
+}
+
+.@{prefix-cls}-dialog_lg {
+  .@{prefix-cls}-dialog__dialog-dialog {
+    min-width: @min-width-lg;
+  }
+}
+
+.@{prefix-cls}-dialog__header {
+  padding: @padding-tb @padding-lr @ui-unit-half;
+  &-icon {
+    font-size: 40px;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    &_confirm {
+      color: @ui-color-blue;
+    }
+    &_warning {
+      color: @ui-color-orange;
+    }
+    &_danger {
+      color: @ui-color-red;
+    }
+  }
+}
+
+.@{prefix-cls}-dialog__buttons {
+  padding: 0 @ui-unit-double @ui-unit;
+}
+
+.@{prefix-cls}-dialog__body {
+  padding: 0 @ui-unit-double @ui-unit-double;
+  max-height: 18.5 * @ui-unit;
+  overflow-y: auto;
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.@{prefix-cls}-dialog__header,
+.@{prefix-cls}-dialog__body,
+.@{prefix-cls}-dialog__buttons {
+  position: relative;
+  text-align: center;
+}
+
+div.@{prefix-cls}-dialog_open {
+  .@{prefix-cls}-dialog__backdrop {
+    opacity: 1;
+  }
+  .@{prefix-cls}-dialog__dialog-dialog {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}

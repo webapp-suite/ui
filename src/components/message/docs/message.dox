@@ -1,24 +1,30 @@
 /**
  * @title 成功信息
+ * @desc `success` 信息提示不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
  */
 import message from 'earth-ui/lib/message'
 import Button from 'earth-ui/lib/Button'
 
 const MessageSuccess = () => {
   return (
-    <Button onClick={() => message.success('操作成功')}>成功</Button>
+    <Button type="secondary" onClick={() => message.success('操作成功')}>成功</Button>
   )
 }
 
 /**
  * @title 失败信息
+ * @desc `info`, `warning` 和 `error` 类型的通知需要用户的交互.
  */
 import message from 'earth-ui/lib/message'
 import Button from 'earth-ui/lib/Button'
 
 const MessageDanger = () => {
   return (
-    <Button onClick={() => message.danger('操作失败')}>失败</Button>
+    <div>
+      <Button type="secondary" onClick={() => message.info('You can do it.')}>info</Button>
+      <Button type="secondary" onClick={() => message.warning('You will fail.')}>warning</Button>
+      <Button type="secondary" onClick={() => message.error('You are wrong.')}>error</Button>
+    </div>
   )
 }
 
@@ -30,7 +36,7 @@ import Button from 'earth-ui/lib/Button'
 
 const MessageCustomDuration = () => {
   return (
-    <Button onClick={() => message.danger('操作失败, 10秒后自动关闭', 10)}>10秒后关闭</Button>
+    <Button type="secondary" onClick={() => message.info('操作失败, 10秒后自动关闭')}>10秒后关闭</Button>
   )
 }
 
@@ -42,9 +48,9 @@ import Button from 'earth-ui/lib/Button'
 
 const MessageQueue = () => {
   return (
-    <Button onClick={() => {
+    <Button type="secondary" onClick={() => {
       message.success('操作成功')
-      message.danger('操作失败')
+      message.info('操作失败')
     }}>消息队列</Button>
   )
 }
@@ -57,7 +63,7 @@ import Button from 'earth-ui/lib/Button'
 
 const MessageManual = () => {
   return (
-    <Button onClick={() => message.danger('操作失败, 手动关闭', 0)}>手动关闭</Button>
+    <Button type="secondary" onClick={() => message.info('操作失败, 手动关闭')}>手动关闭</Button>
   )
 }
 
