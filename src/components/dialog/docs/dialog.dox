@@ -45,6 +45,34 @@ class DialogTypes extends Component {
 }
 
 /**
+ * @title null
+ * @renderModel run
+ */
+import dialog from 'earth-ui/lib/dialog'
+import Button from 'earth-ui/lib/Button'
+
+class DialogWarining extends Component {
+  handleClick = () => {
+    dialog.warning('This will delete the thing.', 'Delete It', {
+    	onAccept: function() {
+    		dialog.danger(
+    			'Are you absolutely sure you want to ' +
+    			'*permanently* delete the whole thing?',
+    			'Delete It'
+    		)
+    	}
+    })
+  }
+  render() {
+    return (
+      <div>
+        <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
+      </div>
+    )
+  }
+}
+
+/**
  * @title 自定义按钮文本
  * @desc 可以自定义按钮文本，第二个和第三个 `string` 类型的参数将分别对应 `ACCEPT` 和 `CANCEL` 按钮的文本。
  */
