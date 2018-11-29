@@ -10,16 +10,18 @@ const iconMap = {
 }
 
 const DialogHeader = (props, context) => {
-  const { className, type, ...other } = props
+  const { className, icon, type, ...other } = props
+  const iconType = icon || iconMap[type]
   return (
     <div className={cx(`${prefixCls}-dialog__header`, className)} {...other}>
-      <Icon type={iconMap[type]} className={cx(`${prefixCls}-dialog__header-icon`, `${prefixCls}-dialog__header-icon_${type}`)} />
+      <Icon type={iconType} className={cx(`${prefixCls}-dialog__header-icon`, `${prefixCls}-dialog__header-icon_${type}`)} />
     </div>
   )
 }
 
 DialogHeader.propTypes = {
   className: PropTypes.string,
+  icon: PropTypes.string,
   type: PropTypes.oneOf(['confirm', 'warning', 'danger'])
 }
 

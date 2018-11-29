@@ -67,10 +67,10 @@ module.exports = function (source) {
       title: match
     })
   }, match => {
-    const desc = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    const desc = marked(match).replace(/"+/g, '\'')
     demos[demos.length - 1].desc = desc
   }, match => {
-    const note = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    const note = marked(match).replace(/"+/g, '\'')
     demos[demos.length - 1].note = note
   }, match => {
     const currentDemo = demos[demos.length - 1]

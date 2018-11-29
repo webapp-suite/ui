@@ -30,9 +30,9 @@ let render = props => {
     ReactDOM.render((
       <div>
         <Dialog open={isOpen}>
-          <DialogHeader type={props.type} />
+          <DialogHeader type={props.type} icon={props.options?.icon} />
           <DialogBody>
-            <Markdown html={marked(props.message.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())} />
+            <Markdown html={marked(props.message)} />
           </DialogBody>
           <DialogButtons onClose={handleClose} accpetLabel={props.accpetLabel} cancelLabel={props.cancelLabel} {...props.options} />
         </Dialog>

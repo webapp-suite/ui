@@ -8,7 +8,7 @@ const Markdown = props => {
   return (
     <div
       className={cx('markdown', className)}
-      dangerouslySetInnerHTML={{__html: html}}
+      dangerouslySetInnerHTML={{ __html: html }}
       {...other}
     />
   )
