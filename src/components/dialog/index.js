@@ -1,7 +1,6 @@
 import marked from 'marked'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Markdown from 'widgets/Markdown'
 import * as type from '../../utils/type'
 import Dialog from './Dialog'
 import DialogBody from './DialogBody'
@@ -32,7 +31,10 @@ let render = props => {
         <Dialog open={isOpen}>
           <DialogHeader type={props.type} icon={props.options?.icon} />
           <DialogBody>
-            <Markdown html={marked(props.message)} />
+            <div
+              className={`${prefixCls}-dialog__body-markdown`}
+              dangerouslySetInnerHTML={{ __html: marked(props.message) }}
+            />
           </DialogBody>
           <DialogButtons onClose={handleClose} accpetLabel={props.accpetLabel} cancelLabel={props.cancelLabel} {...props.options} />
         </Dialog>

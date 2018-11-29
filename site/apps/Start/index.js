@@ -1,8 +1,8 @@
-import BackToTop from 'earth-ui/lib/BackToTop'
-import {Col, Row} from 'earth-ui/lib/Layout'
 import React from 'react'
+import BackToTop from 'earth-ui/lib/BackToTop'
+import { Col, Row } from 'earth-ui/lib/Layout'
 import Markdown from 'widgets/Markdown'
-import {backToTop} from '../config'
+import { backToTop } from '../config'
 
 const asyncComponent = fileName => import(`./${fileName}.md`)
 
@@ -13,7 +13,7 @@ export default class extends React.Component {
       md: ''
     }
     asyncComponent(props.routeProps.tab).then(md => {
-      this.setState({md})
+      this.setState({ md })
     })
   }
 

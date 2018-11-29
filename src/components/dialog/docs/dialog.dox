@@ -31,7 +31,7 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogTypes extends Component {
   handleClick = type => {
-    dialog[type]('Dialog Message')
+    dialog[type](`Dialog ${type} message`)
   }
   render() {
     return (
@@ -98,7 +98,7 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogButtonsType extends Component {
   handleClick = () => {
-    dialog.confirm('Will you try?`hm`', 'Join Now', {
+    dialog.confirm('Will you try?', 'Join Now', {
       primary: 'accept',
       focused: 'accept'
     })
@@ -111,7 +111,7 @@ class DialogButtonsType extends Component {
 /**
  * @title 自定义Icon
  * @renderModel run
- * @desc You can point the icon property to an alternative [icon class](/components/Icon-all-icons), but you should stick to the stock icons whenever possible so that the user can easily recognize the dialog type.
+ * @desc 原则上你可以任意更换目前所支持的所有 [Icon](/components/Icon-all-icons)，但是无论何时都应该尽量用常见的图标，以便用户能快速识别对话框类型。
  */
 import dialog from 'earth-ui/lib/dialog'
 import Button from 'earth-ui/lib/Button'

@@ -136,6 +136,20 @@ body.@{prefix-cls}-dialog_open {
   &:last-child {
     margin-bottom: 0;
   }
+  &-markdown {
+    line-height: 22px;
+    a {
+      color: @ui-color-blue;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    p > code {
+      font-family: @ui-fontstack-mono;
+      color: @ui-color-green-dark;
+      font-size: @ui-fontsize-medium;
+    }
+  }
 }
 
 .@{prefix-cls}-dialog__header,
