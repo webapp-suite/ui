@@ -65,9 +65,11 @@ const dialog = {
   /**
    * @public
    * @name dialog.confirm
-   * @param  {string | element} message message 内容，支持 React 元素
-   * @param  {number} [duration] 持续时间，单位ms，为0时手动关闭
-   * @description 成功信息，默认 `1500ms` 后自动关闭
+   * @description confirm 对话框
+   * @param  {string} message 对话框内容，支持简单的 `Markdown`
+   * @param  {string} accpetLabel 接受按钮文本
+   * @param  {string} cancelLabel 取消按钮文本
+   * @param  {Object} options 对话框配置，支持 `icon`, `primary`, `focused` 属性
    */
   confirm () {
     const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
@@ -81,6 +83,15 @@ const dialog = {
     })
   },
 
+  /**
+   * @public
+   * @name dialog.warning
+   * @description warning 对话框
+   * @param  {string} message 对话框内容，支持简单的 `Markdown`
+   * @param  {string} accpetLabel 接受按钮文本
+   * @param  {string} cancelLabel 取消按钮文本
+   * @param  {Object} options 对话框配置，支持 `icon`, `primary`, `focused` 属性
+   */
   warning () {
     const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
     render({
@@ -93,6 +104,15 @@ const dialog = {
     })
   },
 
+  /**
+   * @public
+   * @name dialog.danger
+   * @description danger 对话框
+   * @param  {string} message 对话框内容，支持简单的 `Markdown`
+   * @param  {string} accpetLabel 接受按钮文本
+   * @param  {string} cancelLabel 取消按钮文本
+   * @param  {Object} options 对话框配置，支持 `icon`, `primary`, `focused` 属性
+   */
   danger () {
     const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
     render({
@@ -108,7 +128,7 @@ const dialog = {
   /**
    * @public
    * @name dialog.close
-   * @description 关闭当前 message
+   * @description 关闭当前 dialog
    */
   close () {
     render({ open: false })

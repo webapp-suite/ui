@@ -1,12 +1,24 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Board, BoardBody, BoardHeader } from 'earth-ui/lib/Board'
 import { Col, Row } from 'earth-ui/lib/Layout'
 import { Tab, TabList, TabPanel, Tabs } from 'earth-ui/lib/Tabs'
 import Markdown from 'widgets/Markdown'
-import PropTypes from 'prop-types'
-import React from 'react'
 import Code from 'widgets/Code'
+import * as type from '../../../src/utils/type'
 import './index.less'
+
+function trimCode (code) {
+  if (!type.isString(code)) {
+    return
+  }
+  const snippet = code.split(';')[1]
+  const snippetArray = snippet.split('\n')
+  const lastSnippetItem = snippetArray[snippetArray.length - 1]
+  const indent = lastSnippetItem.length - lastSnippetItem.trim().length
+  return snippetArray.map((v, i) => i === 0 ? v : v.slice(indent)).join('\n')
+}
 
 class Demo extends React.Component {
   constructor (props) {
@@ -86,7 +98,7 @@ class Demo extends React.Component {
                 {children}
               </BoardHeader>
               <BoardBody>
-                <div className="demo__code"><Code lang="jsx">{code}</Code></div>
+                <div className="demo__code"><Code lang="jsx">{trimCode(code)}</Code></div>
               </BoardBody>
             </Board>
             {note && <Markdown html={note} />}
@@ -95,12 +107,12 @@ class Demo extends React.Component {
       )
     }
     const render = {
-      'left': renderInLeft(),
-      'right': renderInRight(),
-      'full': renderInFull(),
-      'run': renderInRun()
+      'left': renderInLeft,
+      'right': renderInRight,
+      'full': renderInFull,
+      'run': renderInRun
     }
-    return render[renderModel]
+    return render[renderModel]()
   }
 }
 

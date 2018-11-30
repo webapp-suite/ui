@@ -53,7 +53,7 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogWarining extends Component {
   handleClick = () => {
-    dialog.warning('This will delete the thing.', 'Delete It', {
+    ;dialog.warning('This will delete the thing.', 'Delete It', {
     	onAccept: function() {
     		dialog.danger(
     			'Are you absolutely sure you want to ' +
@@ -61,7 +61,7 @@ class DialogWarining extends Component {
     			'Delete It'
     		)
     	}
-    })
+    });
   }
   render() {
     return (
@@ -74,6 +74,7 @@ class DialogWarining extends Component {
 
 /**
  * @title 自定义按钮文本
+ * @renderModel run
  * @desc 可以自定义按钮文本，第二个和第三个 `string` 类型的参数将分别对应 `ACCEPT` 和 `CANCEL` 按钮的文本。
  */
 import dialog from 'earth-ui/lib/dialog'
@@ -81,15 +82,16 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogButtonsLabel extends Component {
   handleClick = () => {
-    dialog.confirm('Will you try?', 'Join Now', 'Not Now')
+    ;dialog.confirm('Will you try?', 'Join Now', 'Not Now');
   }
   render() {
-    return <Button type="secondary" onClick={this.handleClick}>Open Dialog</Button>
+    return <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
   }
 }
 
 /**
  * @title 自定义按钮类型
+ * @renderModel run
  * @desc 对话框的按钮默认为 `tertiary` (灰色) 类型, 但你可以将 `ACCEPT` 和 `CANCEL` 按钮定制为 `primary` 类型. 你也可以根据需要去切换默认的聚焦按钮为 `ACCEPT` 还是 `CANCEL` 按钮。
  * @note 在该示例中，没有指定 `CANCEL` 按钮的名称，那么 `options` (`{...}`) 作为第三个参数即可。
  */
@@ -98,13 +100,13 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogButtonsType extends Component {
   handleClick = () => {
-    dialog.confirm('Will you try?', 'Join Now', {
+    ;dialog.confirm('Will you try?', 'Join Now', {
       primary: 'accept',
       focused: 'accept'
-    })
+    });
   }
   render() {
-    return <Button type="secondary" onClick={this.handleClick}>Open Dialog</Button>
+    return <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
   }
 }
 
@@ -118,11 +120,11 @@ import Button from 'earth-ui/lib/Button'
 
 class DialogIcon extends Component {
   handleClick = () => {
-    dialog.confirm('Proceed to Checkout?', 'Check Out', {
+    ;dialog.confirm('Proceed to Checkout?', 'Check Out', {
       icon: 'cart',
       primary: 'accept',
       focused: 'accept'
-    })
+    });
   }
   render() {
     return <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
