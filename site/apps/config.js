@@ -97,6 +97,9 @@ export const nav = [{
     'name': 'dialog',
     'cn': '对话框'
   }, {
+    'name': 'notification',
+    'cn': '通知提醒框'
+  }, {
     'name': 'message',
     'cn': '全局提示'
   }, {
