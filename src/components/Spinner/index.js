@@ -2,8 +2,8 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import omit from '../../utils/omit'
-import './index.less'
 import IndicatorSVG from './IndicatorSVG'
+import './index.less'
 
 // Render indicator
 let defaultIndicator = null

@@ -72,10 +72,12 @@ const Doc = props => {
                 {type}
               </dd>
             )}
-            <dd>
-              <h2>描述</h2>
-              <Markdown html={desc} />
-            </dd>
+            {desc && (
+              <dd>
+                <h2>描述</h2>
+                <Markdown html={desc} />
+              </dd>
+            )}
           </dl>
         )
       })}

@@ -1,7 +1,8 @@
-import classlist from 'classlist'
-import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
+import classlist from 'classlist'
+import omit from '../../utils/omit'
 
 class DialogContainer extends React.Component {
   constructor (props) {
@@ -37,11 +38,11 @@ class DialogContainer extends React.Component {
     this.modalNode.style.transform = `translateY(-${this.relativeValue}px)`
   }
 
-  handleModalClick = e => {
+  handleBackdropClick = e => {
     if (e.target.className === `${prefixCls}-dialog__dialog`) {
-      if (!this.props.lock) {
+      if (!this.props.lock && this.props.backdrop) {
         this.props.close()
-      } else {
+      } else if (this.props.backdrop) {
         const LOCK_CLASSNAME = `${prefixCls}-dialog__dialog-dialog_lock`
         const END_EVENT = 'animationend'
         classlist(this.modalNode).add(LOCK_CLASSNAME)
@@ -55,14 +56,15 @@ class DialogContainer extends React.Component {
   }
 
   render () {
-    const { children, className, lock, modal, ...other } = this.props
+    const { children, className, lock, modal, backdrop, ...other } = this.props
+    const divProps = omit(other, ['close'])
     return (
-      <div className={cx(`${prefixCls}-dialog`, className)} {...other}>
-        <div className={`${prefixCls}-dialog__backdrop`} style={{ zIndex: 3000 }} />
+      <div className={cx(`${prefixCls}-dialog`, className)} {...divProps}>
+        {!!backdrop && <div className={`${prefixCls}-dialog__backdrop`} style={{ zIndex: 3000 }} />}
         <div
           className={`${prefixCls}-dialog__dialog`}
           style={{ zIndex: 3000 }}
-          onClick={this.handleModalClick}
+          onClick={this.handleBackdropClick}
         >
           <div className={`${prefixCls}-dialog__dialog-dialog`} ref={node => (this.modalNode = node)}>
             <div className={`${prefixCls}-dialog__dialog-content`}>
@@ -82,6 +84,7 @@ DialogContainer.childContextTypes = {
 DialogContainer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  backdrop: PropTypes.bool,
   lock: PropTypes.bool,
   modal: PropTypes.object
 }

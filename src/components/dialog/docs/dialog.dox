@@ -2,17 +2,17 @@
  * @title 基本用法
  */
 import dialog from 'earth-ui/lib/dialog'
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import Button from 'earth-ui/lib/Button'
 
 class DialogBasic extends Component {
   handleClick = () => {
     dialog.confirm('Will you try?', {
       onAccept: function() {
-        message.success('Good luck');
+        notification.success('Good luck');
       },
       onCancel: function() {
-        message.success('Come back later');
+        notification.success('Come back later');
       }
     })
   }
@@ -130,5 +130,3 @@ class DialogIcon extends Component {
     return <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
   }
 }
-
-@component dialog

@@ -100,9 +100,6 @@ export const nav = [{
     'name': 'notification',
     'cn': '通知提醒框'
   }, {
-    'name': 'message',
-    'cn': '全局提示'
-  }, {
     'icon': 'retweet',
     'name': 'Board',
     'cn': '面板'

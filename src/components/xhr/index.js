@@ -96,11 +96,11 @@ function xhr (option) {
          * 方法，如果需要可手动调用
          * ```js
          * import xhr from 'earth-ui/lib/xhr'
-         * import message from 'earth-ui/lib/message'
+         * import notification from 'earth-ui/lib/notification'
          *
          * xhr.success = (res, option) => {
          *   if (typeof res !== 'object') {
-         *     message.danger(option.url + ': response data should be JSON')
+         *     notification.error(option.url + ': response data should be JSON')
          *     return
          *   }
          *   switch (res.code) {
@@ -111,7 +111,7 @@ function xhr (option) {
          *       // redirect to '/login'
          *       break
          *     default:
-         *       message.danger(res.message || 'unknown error')
+         *       notification.error(res.message || 'unknown error')
          *   }
          * }
          * ```

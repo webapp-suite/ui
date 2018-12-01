@@ -63,9 +63,10 @@ body.@{prefix-cls}-dialog_open {
   }
   &-content {
     width: @local-variable-dialog-width;
+    background-color: @ui-color-white;
     border-radius: @ui-radius;
     border: 1px solid @ui-color-gray-light;
-    background-color: @ui-color-white;
+    box-shadow: @ui-shadow;
   }
 }
 
@@ -113,24 +114,23 @@ body.@{prefix-cls}-dialog_open {
     line-height: 40px;
     height: 40px;
     width: 40px;
-    &_confirm {
+    &_confirm, &_info {
       color: @ui-color-blue;
     }
     &_warning {
       color: @ui-color-orange;
     }
-    &_danger {
+    &_danger, &_error {
       color: @ui-color-red;
+    }
+    &_success {
+      color: @ui-color-green;
     }
   }
 }
 
-.@{prefix-cls}-dialog__buttons {
-  padding: 0 @ui-unit-double @ui-unit;
-}
-
 .@{prefix-cls}-dialog__body {
-  padding: 0 @ui-unit-double @ui-unit-double;
+  padding: 0 @ui-unit-double @ui-unit-plus;
   max-height: 18.5 * @ui-unit;
   overflow-y: auto;
   &:last-child {
@@ -150,6 +150,10 @@ body.@{prefix-cls}-dialog_open {
       font-size: @ui-fontsize-medium;
     }
   }
+}
+
+.@{prefix-cls}-dialog__buttons {
+  padding: @ui-unit-half @ui-unit-double @ui-unit;
 }
 
 .@{prefix-cls}-dialog__header,

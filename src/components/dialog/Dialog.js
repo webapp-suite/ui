@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import EventPool from '../../utils/EventPool'
 import ToggleNode from '../../utils/ToggleNode'
 import DialogContainer from './DialogContainer'
+import './index.less'
 
 const scrollbarWidth = (() => {
   const scrollDiv = document.createElement('div')
@@ -132,15 +133,19 @@ class Dialog extends React.Component {
       if (dialogContainer) {
         dialogContainer.backUp()
       }
+      this.props.isAutoClose && window.setTimeout(() => {
+        this.close()
+      }, this.props.duration)
     }
     this.renderIntoDocument = () => {
-      const { open, onToggle, onClose, ...other } = this.props
+      const { open, onToggle, onClose, backdrop, lock, isAutoClose, duration, ...other } = this.props
       ReactDOM.render((
         <DialogContainer
           ref={content => (this.content = content)}
           close={this.close}
           modal={this}
-          lock
+          backdrop={backdrop}
+          lock={lock}
           {...other}
         />
       ), this.containerNode, onRendered)
@@ -161,6 +166,18 @@ Dialog.propTypes = {
 
   // 是否打开
   open: PropTypes.bool,
+
+  // 是否有遮罩
+  backdrop: PropTypes.bool,
+
+  // 是否锁定
+  lock: PropTypes.bool,
+
+  // 是否自动关闭
+  isAutoClose: PropTypes.bool,
+
+  // 自动关闭型的持续时间
+  duration: PropTypes.number,
 
   // 切换 open 状态后的回调，参数为切换后的 open 状态，立刻执行，不会等到动画结束后
   onToggle: PropTypes.func,

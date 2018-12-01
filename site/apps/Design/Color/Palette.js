@@ -4,7 +4,7 @@
  * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
  */
 
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
@@ -54,7 +54,7 @@ export default class Palette extends React.Component {
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
-          onCopy={() => message.success(`@ui-color-${colorText} copied: ${this.hexColors[colorText]}`, 2)}
+          onCopy={() => notification.success(`@ui-color-${colorText} copied: ${this.hexColors[colorText]}`, 2000)}
           key={colorText}
         >
           <div

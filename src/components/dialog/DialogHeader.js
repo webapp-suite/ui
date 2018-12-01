@@ -6,7 +6,10 @@ import Icon from '../Icon'
 const iconMap = {
   'confirm': 'question',
   'warning': 'warning',
-  'danger': 'warning'
+  'danger': 'warning',
+  'success': 'accept',
+  'info': 'info',
+  'error': 'warning'
 }
 
 const DialogHeader = (props, context) => {
@@ -22,7 +25,7 @@ const DialogHeader = (props, context) => {
 DialogHeader.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
-  type: PropTypes.oneOf(['confirm', 'warning', 'danger'])
+  type: PropTypes.oneOf(['confirm', 'warning', 'danger', 'success', 'info', 'error'])
 }
 
 DialogHeader.defaultProps = {

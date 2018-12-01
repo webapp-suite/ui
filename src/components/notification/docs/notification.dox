@@ -1,70 +1,110 @@
 /**
- * @title 成功信息
- * @desc `success` 信息提示不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
+ * @title 自动关闭
+ * @desc `success` 类型的通知不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
  */
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import Button from 'earth-ui/lib/Button'
 
-const MessageSuccess = () => {
-  return (
-    <Button type="secondary" onClick={() => message.success('操作成功')}>成功</Button>
-  )
+class NotificationSuccess extends Component {
+  handleClick = () => {
+    notification.success('You did it!')
+  }
+  render () {
+    return <Button type="secondary" onClick={this.handleClick}>success</Button>
+  }
 }
 
 /**
- * @title 失败信息
- * @desc `info`, `warning` 和 `error` 类型的通知需要用户的交互.
+ * @title null
+ * @renderModel run
+ * @desc 你也可以自定义关闭时间，单位 `ms` :
  */
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import Button from 'earth-ui/lib/Button'
 
-const MessageDanger = () => {
+class NotificationDuration extends Component {
+  handleClick = () => {
+    ;notification.success('You did it!', 3000);
+  }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+  }
+}
+
+/**
+ * @title 手动关闭
+ * @desc `info`, `warning` 和 `error` 类型的通知需要用户的确认才能关闭。
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+const NotificationCloseManually = () => {
   return (
     <div>
-      <Button type="secondary" onClick={() => message.info('You can do it.')}>info</Button>
-      <Button type="secondary" onClick={() => message.warning('You will fail.')}>warning</Button>
-      <Button type="secondary" onClick={() => message.error('You are wrong.')}>error</Button>
+      <Button type="secondary" onClick={() => notification.info('You can do it.')}>info</Button>
+      <Button type="secondary" onClick={() => notification.warning('You will fail.')}>warning</Button>
+      <Button type="secondary" onClick={() => notification.error('You are wrong.')}>error</Button>
     </div>
   )
 }
 
 /**
- * @title 自定义关闭时间，单位秒
+ * @title null
+ * @renderModel run
+ * @desc 手动关闭类型的 notification 可以自定义按钮文本。
  */
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import Button from 'earth-ui/lib/Button'
 
-const MessageCustomDuration = () => {
-  return (
-    <Button type="secondary" onClick={() => message.info('操作失败, 10秒后自动关闭')}>10秒后关闭</Button>
-  )
+class NotificationButtonsLabel extends Component {
+  handleClick = () => {
+    ;notification.warning('Beware', 'Understood');
+  }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+  }
+}
+
+/**
+ * @title null
+ * @renderModel run
+ * @desc You can configure a callback for when the Notification gets accepted.
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationNested extends Component {
+  handleClick = () => {
+    ;notification.info('You must accept it.', {
+      onAccept: function() {
+        notification.success('We knew you would.')
+      }
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
+      </div>
+    )
+  }
 }
 
 /**
  * @title 消息队列
+ * @renderModel run
  */
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import Button from 'earth-ui/lib/Button'
 
-const MessageQueue = () => {
-  return (
-    <Button type="secondary" onClick={() => {
-      message.success('操作成功')
-      message.info('操作失败')
-    }}>消息队列</Button>
-  )
+class NotificationQueue extends Component {
+  handleClick = () => {
+      ;notification.success('You did it!')
+       notification.info('You can do it.')
+       notification.warning('You will fail.')
+       notification.error('You are wrong.');
+    }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+  }
 }
-
-/**
- * @title 手动关闭
- */
-import message from 'earth-ui/lib/message'
-import Button from 'earth-ui/lib/Button'
-
-const MessageManual = () => {
-  return (
-    <Button type="secondary" onClick={() => message.info('操作失败, 手动关闭')}>手动关闭</Button>
-  )
-}
-
-@component message

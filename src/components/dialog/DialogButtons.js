@@ -10,11 +10,11 @@ class DialogButtons extends React.Component {
   }
   handleAcceptClick = () => {
     this.handleClose()
-    setTimeout(() => this.props?.onAccept(), 400)
+    setTimeout(() => this.props?.onAccept?.(), 400)
   }
   handleCancelClick = () => {
     this.handleClose()
-    setTimeout(() => this.props?.onCancel(), 400)
+    setTimeout(() => this.props?.onCancel?.(), 400)
   }
   render () {
     const { className, accpetLabel, cancelLabel, primary } = this.props
@@ -23,8 +23,8 @@ class DialogButtons extends React.Component {
     }
     return (
       <div className={cx(`${prefixCls}-dialog__buttons`, className)}>
-        <Button type={btnType['accept'] || 'tertiary'} block onClick={this.handleAcceptClick}>{accpetLabel}</Button>
-        <Button type={btnType['cancel'] || 'tertiary'} block onClick={this.handleCancelClick}>{cancelLabel}</Button>
+        {!!accpetLabel && <Button type={btnType['accept'] || 'tertiary'} block onClick={this.handleAcceptClick}>{accpetLabel}</Button>}
+        {!!cancelLabel && <Button type={btnType['cancel'] || 'tertiary'} block onClick={this.handleCancelClick}>{cancelLabel}</Button>}
       </div>
     )
   }

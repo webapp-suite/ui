@@ -1,81 +1,20 @@
-import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ToggleNode from '../../utils/ToggleNode'
-import Button from '../Button'
+import marked from 'marked'
+import * as type from '../../utils/type'
+import Dialog from '../dialog/Dialog'
+import DialogBody from '../dialog/DialogBody'
+import DialogButtons from '../dialog/DialogButtons'
+import DialogHeader from '../dialog/DialogHeader'
 import './index.less'
 
-class Notification extends React.Component {
-  constructor (props) {
-    super()
-    this.state = {
-      open: props.open
-    }
-    this.prepareClose(props)
-  }
-
-  componentDidMount () {
-    this.toggleNode = new ToggleNode(ReactDOM.findDOMNode(this), `${prefixCls}-message_open`)
-    this.toggleNode.onClose = () => {
-      this.props.onClose && this.props.onClose()
-    }
-    this.toggleNode.open()
-  }
-
-  componentWillReceiveProps (nextProps) {
-    'open' in nextProps && this.setState({ open: nextProps.open })
-    this.prepareClose(nextProps)
-  }
-
-  componentDidUpdate () {
-    this.toggleNode[this.state.open ? 'open' : 'close']()
-  }
-
-  prepareClose (props) {
-    const { duration } = props
-    duration && setTimeout(this.handleClose, duration)
-  }
-
-  handleClose = () => {
-    this.setState({ open: false })
-  }
-
-  render () {
-    const { type, message, btnLabel, duration } = this.props
-    return (
-      <div className={cx(`${prefixCls}-message`, { [`${prefixCls}-message_${type}`]: type })}>
-        {/* <Icon */}
-        {/* className={`${prefixCls}-message__symbol`} */}
-        {/* type={type === 'success' ? 'check' : 'warning'} */}
-        {/* /> */}
-        {message}
-        {btnLabel && duration === 0 && (
-          <Button className={`${prefixCls}-message__button`} onClick={this.handleClose}>
-            {btnLabel}
-          </Button>
-        )}
-      </div>
-    )
-  }
-}
-
-Notification.propTypes = {
-  type: PropTypes.oneOf(['success', 'info', 'warning', 'error']).isRequired,
-  message: PropTypes.node.isRequired,
-  btnLabel: PropTypes.string,
-  duration: PropTypes.number,
-  onClose: PropTypes.func,
-  open: PropTypes.bool
-}
-
 let render = props => {
-  const container = document.createElement('div')
-  document.body.appendChild(container)
+  const container = document.createElement('p')
 
   let isOpen = false
   const messageQueue = []
   const handleClose = () => {
+    // check messageQueue has other notification need rendering when user click top notification.
     isOpen = false
     const head = messageQueue[0] && messageQueue.shift()
     head && render(head)
@@ -84,69 +23,105 @@ let render = props => {
   render = nextProps => {
     props = Object.assign({}, props, nextProps)
     if (isOpen && props.open) {
+      // messageQueue will be [] if there is only one notification.
       return messageQueue.push(props)
     }
     isOpen = props.open
-    ReactDOM.render(<Notification {...props} onClose={handleClose} />, container)
-    props.open || handleClose()
+    const { backdrop, lock, type, accpetLabel, options, message, isAutoClose, duration } = props
+    ReactDOM.render((
+      <Dialog
+        open={isOpen}
+        backdrop={backdrop}
+        lock={lock}
+        isAutoClose={isAutoClose}
+        duration={duration}
+        onClose={handleClose}
+      >
+        <DialogHeader type={type} icon={options?.icon} />
+        <DialogBody>
+          <div
+            className={`${prefixCls}-dialog__body-markdown`}
+            dangerouslySetInnerHTML={{ __html: marked(message) }}
+          />
+        </DialogBody>
+        {!!accpetLabel && <DialogButtons accpetLabel={accpetLabel} {...options} />}
+      </Dialog>
+    ), container)
   }
   render()
 }
 
+const getNotificationParams = args => {
+  const stringArray = []
+  let options = {}
+  let duration = 1500
+  Array.from(args).forEach(v => {
+    type.isObject(v) && (options = v)
+    type.isNumber(v) && (duration = v)
+    type.isString(v) && stringArray.push(v)
+  })
+  return {
+    message: stringArray[0] || 'Notification message must be provided.',
+    accpetLabel: stringArray[1] || 'OK',
+    duration,
+    options
+  }
+}
+
 const notification = {
-
-  /**
-   * @public
-   * @name message.success
-   * @param  {string | element} message message 内容，支持 React 元素
-   * @param  {number} [duration] 持续时间，单位ms，为0时手动关闭
-   * @description 成功信息，默认 `1500ms` 后自动关闭
-   */
-  success (message, btnLabel = '', duration = 1500) {
+  success () {
+    const { message, duration, options } = getNotificationParams(arguments)
     render({
       message,
-      btnLabel,
-      duration,
+      accpetLabel: null,
+      options,
       type: 'success',
+      backdrop: false,
+      lock: false,
+      isAutoClose: true,
+      duration,
       open: true
     })
   },
-
-  info (message, btnLabel = 'OK', duration = 0) {
+  info () {
+    const { message, accpetLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      btnLabel,
-      duration,
+      accpetLabel,
+      options,
       type: 'info',
+      backdrop: true,
+      lock: true,
+      isAutoClose: false,
       open: true
     })
   },
-
-  warning (message, btnLabel = 'OK', duration = 0) {
+  warning () {
+    const { message, accpetLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      btnLabel,
-      duration,
+      accpetLabel,
+      options,
       type: 'warning',
+      backdrop: true,
+      lock: true,
+      isAutoClose: false,
       open: true
     })
   },
-
-  error (message, btnLabel = 'OK', duration = 0) {
+  error () {
+    const { message, accpetLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      btnLabel,
-      duration,
+      accpetLabel,
+      options,
       type: 'error',
+      backdrop: true,
+      lock: true,
+      isAutoClose: false,
       open: true
     })
   },
-
-  /**
-   * @public
-   * @name message.close
-   * @description 关闭当前 message
-   */
   close () {
     render({ open: false })
   }
