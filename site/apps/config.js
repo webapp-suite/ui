@@ -50,7 +50,7 @@ export const nav = [{
   'icon': 'docs-icon-window-application-6',
   'path': 'components',
   'name': 'Layout Components',
-  'cn': '布局组件',
+  'cn': '布局型组件',
   'defaultOpen': false,
   'components': [{
     'icon': 'retweet',
@@ -77,10 +77,26 @@ export const nav = [{
     'cn': '侧栏'
   }]
 }, {
+  'icon': 'docs-icon-video-games-space-invaders-1',
+  'path': 'components',
+  'name': 'Imperative Components',
+  'cn': '命令式组件',
+  'defaultOpen': true,
+  'components': [{
+    'name': 'dialog',
+    'cn': '对话框'
+  }, {
+    'name': 'notification',
+    'cn': '通知提醒框'
+  }, {
+    'name': 'xhr',
+    'cn': 'AJAX请求'
+  }]
+}, {
   'icon': 'docs-icon-modules-1',
   'path': 'components',
-  'name': 'UI Components',
-  'cn': 'UI 组件',
+  'name': 'Declarative Components',
+  'cn': '声明式组件',
   'defaultOpen': true,
   'components': [{
     'icon': 'retweet',
@@ -93,12 +109,6 @@ export const nav = [{
       'label': 'All Icons',
       'doc': 'Icon-all-icons'
     }]
-  }, {
-    'name': 'dialog',
-    'cn': '对话框'
-  }, {
-    'name': 'notification',
-    'cn': '通知提醒框'
   }, {
     'icon': 'retweet',
     'name': 'Board',
@@ -142,9 +152,6 @@ export const nav = [{
   }, {
     'name': 'Upload',
     'cn': '上传'
-  }, {
-    'name': 'xhr',
-    'cn': 'AJAX请求'
   }, {
     'name': 'BackToTop',
     'cn': '回到顶部'
