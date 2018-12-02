@@ -238,11 +238,6 @@ ${demo.mainCode}`
     // `)
   }
 
-  // 生成文档代码
-  const componentsDocs = docs.map(doc => {
-    return `<Doc key="${doc.name}" {...${doc}} />`
-  })
-
   return `
     ${imports.getAll().join('\r\n')}
     ${codes.join('\r\n')}
