@@ -58,8 +58,10 @@ module.exports = function (source) {
   imports.add(`import { Row, Col } from 'earth-ui/lib/Layout'`)
   imports.add(`import Demo from 'widgets/Demo'`)
   imports.add(`import Doc from 'widgets/Doc'`)
+  imports.add(`import Markdown from 'widgets/Markdown'`)
 
   // 获取 DEMO、文档数据
+  let docTopTips = ''
   const demos = []
   const docs = []
   const callbacks = [match => {
@@ -186,10 +188,12 @@ module.exports = function (source) {
     docs.push(doc)
   }, match => {
     demos[demos.length - 1].renderModel = match
+  }, match => {
+    docTopTips = marked(match).replace(/"+/g, '\'')
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
-  source.replace(reg, (match, p1, p2, p3, p4, p5, p6) => {
-    [p1, p2, p3, p4, p5, p6].forEach((match, i) => {
+  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)|@topTips\s(.+)/g
+  source.replace(reg, (match, p1, p2, p3, p4, p5, p6, p7) => {
+    [p1, p2, p3, p4, p5, p6, p7].forEach((match, i) => {
       match && callbacks[i](match)
     })
   })
@@ -239,20 +243,29 @@ ${demo.mainCode}`
     return `<Doc key="${doc.name}" {...${doc}} />`
   })
 
-  return `${imports.getAll().join('\r\n')}
-
-${codes.join('\r\n')}
-
-const docs = ${JSON.stringify(docs)}
-
-export default () => {
-  return (
-  <div>
-    ${layout}
-    <Row>
-      <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
-    </Row>
-   </div>
-  )
-}`
+  return `
+    ${imports.getAll().join('\r\n')}
+    ${codes.join('\r\n')}
+    
+    const docTopTips = ${JSON.stringify(docTopTips)}
+    const docs = ${JSON.stringify(docs)}
+    
+    export default () => {
+      return (
+        <div>
+          {!!docTopTips && (
+            <Row>
+              <Col col="md-16"><Markdown html={docTopTips} /></Col>
+            </Row>
+          )}
+          ${layout}
+          {docs.length > 0 && (
+            <Row>
+              <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+            </Row>
+          )}
+         </div>
+      )
+    }
+  `
 }
