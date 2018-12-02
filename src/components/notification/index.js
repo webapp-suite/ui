@@ -6,7 +6,6 @@ import Dialog from '../dialog/Dialog'
 import DialogBody from '../dialog/DialogBody'
 import DialogButtons from '../dialog/DialogButtons'
 import DialogHeader from '../dialog/DialogHeader'
-import './index.less'
 
 let render = props => {
   const container = document.createElement('p')
