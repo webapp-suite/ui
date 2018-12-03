@@ -61,7 +61,7 @@ module.exports = function (source) {
   imports.add(`import Markdown from 'widgets/Markdown'`)
 
   // 获取 DEMO、文档数据
-  let docTopTips = ''
+  let summary = ''
   const demos = []
   const docs = []
   const callbacks = [match => {
@@ -189,9 +189,9 @@ module.exports = function (source) {
   }, match => {
     demos[demos.length - 1].renderModel = match
   }, match => {
-    docTopTips = marked(match).replace(/"+/g, '\'')
+    summary = marked(match).replace(/"+/g, '\'')
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)|@topTips\s(.+)/g
+  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)|@summary\s(.+)/g
   source.replace(reg, (match, p1, p2, p3, p4, p5, p6, p7) => {
     [p1, p2, p3, p4, p5, p6, p7].forEach((match, i) => {
       match && callbacks[i](match)
@@ -242,15 +242,15 @@ ${demo.mainCode}`
     ${imports.getAll().join('\r\n')}
     ${codes.join('\r\n')}
     
-    const docTopTips = ${JSON.stringify(docTopTips)}
+    const summary = ${JSON.stringify(summary)}
     const docs = ${JSON.stringify(docs)}
     
     export default () => {
       return (
         <div>
-          {!!docTopTips && (
+          {!!summary && (
             <Row>
-              <Col col="md-16"><Markdown html={docTopTips} /></Col>
+              <Col col="md-16"><Markdown html={summary} /></Col>
             </Row>
           )}
           ${layout}
