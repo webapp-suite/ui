@@ -60,9 +60,9 @@ const BoardWithButtons = () => {
   return (
     <Board title="My Board">
       <BoardHeader>
-        <Button type="primary" micro>one</Button>
-        <Button type="secondary" micro>two</Button>
-        <Button type="tertiary" micro onClick={()=> notification.success('Clicked!')}>three</Button>
+        <Button type="primary" micro removeFocus>one</Button>
+        <Button type="secondary" micro removeFocus>two</Button>
+        <Button type="tertiary" onClick={()=> notification.success('Clicked!')} micro removeFocus>three</Button>
       </BoardHeader>
       <BoardBody>
         The classic Board with buttons looks like this.

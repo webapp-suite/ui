@@ -23,7 +23,7 @@ class Button extends React.Component {
     }, 0)
   }
   render () {
-    const { children, className, type, circle, micro, block, icon, focus, ...other } = this.props
+    const { children, className, type, circle, micro, block, icon, focus, removeFocus, ...other } = this.props
     const classNames = cx(
       `${prefixCls}-button`,
       {
@@ -31,6 +31,7 @@ class Button extends React.Component {
         [`${prefixCls}-button_circle`]: circle,
         [`${prefixCls}-button_micro`]: micro,
         [`${prefixCls}-button_block`]: block,
+        [`${prefixCls}-button_nofocus`]: removeFocus,
         [`${prefixCls}-button__icon-only`]: icon && !children
       },
       className
@@ -61,7 +62,10 @@ Button.propTypes = {
   icon: PropTypes.string,
 
   // 按钮是否需要focus（手动控制时用）
-  focus: PropTypes.bool
+  focus: PropTypes.bool,
+
+  // 移除按钮 focus 的效果（自动手动都会失效）
+  removeFocus: PropTypes.bool
 }
 
 export default Button

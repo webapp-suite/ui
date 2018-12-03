@@ -29,7 +29,7 @@ class NotificationDuration extends Component {
     ;notification.success('You did it!', 3000);
   }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
   }
 }
 
@@ -63,7 +63,7 @@ class NotificationButtonsLabel extends Component {
     ;notification.warning('Beware', 'Understood');
   }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
   }
 }
 
@@ -86,7 +86,7 @@ class NotificationNested extends Component {
   render() {
     return (
       <div>
-        <Button type="tertiary" micro onClick={this.handleClick}>run this code</Button>
+        <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
       </div>
     )
   }
@@ -107,6 +107,6 @@ class NotificationQueue extends Component {
        notification.error('You are wrong.');
     }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
   }
 }

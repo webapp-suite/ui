@@ -61,6 +61,12 @@
     vertical-align: middle;
   }
 
+  &_nofocus {
+    &:before {
+      display: none !important;
+    }
+  }
+
   &_primary, &_secondary, &_tertiary, &[disabled] {
     padding: @ui-unit-half;
     border-radius: @ui-unit;
