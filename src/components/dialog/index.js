@@ -33,7 +33,7 @@ let render = props => {
             dangerouslySetInnerHTML={{ __html: marked(props.message) }}
           />
         </DialogBody>
-        <DialogButtons onClose={handleClose} accpetLabel={props.accpetLabel} cancelLabel={props.cancelLabel} {...props.options} />
+        <DialogButtons focused={props.options?.focused} onClose={handleClose} accpetLabel={props.accpetLabel} cancelLabel={props.cancelLabel} {...props.options} />
       </Dialog>
     ), container)
     props.open || handleClose()
@@ -43,10 +43,10 @@ let render = props => {
 
 const getDialogParams = args => {
   const stringArray = []
-  let options = {}
+  let options = { focused: 'cancel' }
   Array.from(args).forEach(v => {
-    type.isObject(v) && (options = v)
     type.isString(v) && stringArray.push(v)
+    type.isObject(v) && Object.assign(options, v)
   })
   return {
     message: stringArray[0] || 'Dialog message must be provided.',

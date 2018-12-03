@@ -43,7 +43,7 @@ let render = props => {
             dangerouslySetInnerHTML={{ __html: marked(message) }}
           />
         </DialogBody>
-        {!!accpetLabel && <DialogButtons accpetLabel={accpetLabel} {...options} />}
+        {!!accpetLabel && <DialogButtons focused={props.options?.focused} accpetLabel={accpetLabel} {...options} />}
       </Dialog>
     ), container)
   }
@@ -52,12 +52,12 @@ let render = props => {
 
 const getNotificationParams = args => {
   const stringArray = []
-  let options = {}
+  let options = { focused: 'accept' }
   let duration = 1500
   Array.from(args).forEach(v => {
-    type.isObject(v) && (options = v)
     type.isNumber(v) && (duration = v)
     type.isString(v) && stringArray.push(v)
+    type.isObject(v) && Object.assign(options, v)
   })
   return {
     message: stringArray[0] || 'Notification message must be provided.',

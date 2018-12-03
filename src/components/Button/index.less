@@ -1,6 +1,8 @@
 @import '~ui-variables';
 @import '~ui-mixins';
 
+@outset: -1.2px;
+
 .mixin-micro-button() {
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
@@ -74,6 +76,12 @@
       position: relative;
       overflow: hidden;
     }
+    &:before {
+      content: '';
+      .ui-mixin-maximize(@outset, @outset, @outset, @outset);
+      border-radius: @ui-unit + 2.5px;
+      border: 2.75px solid transparent;
+    }
   }
 
   &_primary {
@@ -85,6 +93,9 @@
       border-color: @theme-dark;
       background-color: @theme-dark;
     }
+    &:focus:before {
+      border-color: @theme-darker;
+    }
   }
 
   &_secondary {
@@ -95,6 +106,9 @@
       background-color: @theme;
       color: @ui-color-white;
     }
+    &:focus:before {
+      border-color: @theme-dark;
+    }
   }
 
   &_tertiary {
@@ -103,6 +117,9 @@
     border: 1px solid @ui-color-gray-light;
     &:hover {
       background-color: fade(@ui-color-gray-light, 50%);
+    }
+    &:focus:before {
+      border-color: @theme;
     }
   }
 
