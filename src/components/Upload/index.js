@@ -16,7 +16,6 @@ class Upload extends React.Component {
   }
 
   handleClick = e => {
-    if (this.props.button && e.target.localName !== 'button') return
     const fileEl = this.refs.file
     fileEl.value = ''
     fileEl.click()
@@ -44,11 +43,6 @@ class Upload extends React.Component {
         type: file.type,
         state: 0
       })
-
-      // todo: remove
-      xhr.header = {
-        userId: window.runtime ? window.runtime.userId : ''
-      }
 
       ;(function (self, file, index) {
         const fd = new FormData()

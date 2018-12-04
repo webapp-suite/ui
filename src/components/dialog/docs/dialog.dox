@@ -68,7 +68,7 @@ class DialogWarining extends Component {
   render() {
     return (
       <div>
-        <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+        <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
       </div>
     )
   }
@@ -87,7 +87,7 @@ class DialogButtonsLabel extends Component {
     ;dialog.confirm('Will you try?', 'Join Now', 'Not Now');
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
   }
 }
 
@@ -108,7 +108,7 @@ class DialogButtonsType extends Component {
     });
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
   }
 }
 
@@ -129,6 +129,6 @@ class DialogIcon extends Component {
     });
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
   }
 }

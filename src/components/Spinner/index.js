@@ -9,7 +9,7 @@ import './index.less'
 let defaultIndicator = null
 
 function shouldDelay (loading, delay) {
-  return !!loading && !!delay && !isNaN(Number(delay))
+  return !!loading && !!delay && !Number.isNaN(Number(delay))
 }
 
 function renderIndicator (_props) {

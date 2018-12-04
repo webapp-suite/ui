@@ -41,6 +41,7 @@ class DialogButtons extends React.Component {
             type={btnType['accept'] || 'tertiary'}
             onClick={this.handleAcceptClick}
             autoFocus={focused === 'accept'}
+            focus
             block
           >
             {accpetLabel}
@@ -51,6 +52,7 @@ class DialogButtons extends React.Component {
             type={btnType['cancel'] || 'tertiary'}
             onClick={this.handleCancelClick}
             autoFocus={focused === 'cancel'}
+            focus
             block
           >
             {cancelLabel}
@@ -62,7 +64,7 @@ class DialogButtons extends React.Component {
   render () {
     return this.state.open
       ? <FocusTrap>{this.renderButtons(this.props)}</FocusTrap>
-      : this.renderButtons(this.props)
+      : this.renderButtons({ ...this.props, focused: null })
   }
 }
 
@@ -75,7 +77,7 @@ DialogButtons.propTypes = {
   accpetLabel: PropTypes.string,
   cancelLabel: PropTypes.string,
   primary: PropTypes.oneOf(['accept', 'cancel']),
-  focused: PropTypes.oneOf(['accept', 'cancel']),
+  focused: PropTypes.oneOf(['accept', 'cancel', null]),
   onClose: PropTypes.func,
   onAccept: PropTypes.func,
   onCancel: PropTypes.func

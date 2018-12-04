@@ -88,9 +88,6 @@ export const nav = [{
   }, {
     'name': 'notification',
     'cn': '通知提醒框'
-  }, {
-    'name': 'xhr',
-    'cn': 'AJAX请求'
   }]
 }, {
   'icon': 'docs-icon-modules-1',
