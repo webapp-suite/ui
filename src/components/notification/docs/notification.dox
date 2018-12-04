@@ -1,0 +1,112 @@
+@summary > 通知提醒框主要用于事件 **已经** 发生，用户只能被动接受，类似于 JavaScript `alert()` 方法。主要分为自动关闭和手动关闭两大类型，同时文本内容也支持最基础的 markdown 语法。
+
+/**
+ * @title 自动关闭
+ * @desc `success` 类型的通知不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationSuccess extends Component {
+  handleClick = () => {
+    notification.success('You did it!')
+  }
+  render () {
+    return <Button type="secondary" onClick={this.handleClick}>success</Button>
+  }
+}
+
+/**
+ * @title null
+ * @renderModel run
+ * @desc 你也可以自定义关闭时间，单位 `ms` :
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationDuration extends Component {
+  handleClick = () => {
+    ;notification.success('You did it!', 3000);
+  }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+  }
+}
+
+/**
+ * @title 手动关闭
+ * @desc `info`, `warning` 和 `error` 类型的通知需要用户的确认才能关闭。
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+const NotificationCloseManually = () => {
+  return (
+    <div>
+      <Button type="secondary" onClick={() => notification.info('You can do it.')}>info</Button>
+      <Button type="secondary" onClick={() => notification.warning('You will fail.')}>warning</Button>
+      <Button type="secondary" onClick={() => notification.error('You are wrong.')}>error</Button>
+    </div>
+  )
+}
+
+/**
+ * @title null
+ * @renderModel run
+ * @desc 手动关闭类型的 notification 可以自定义 `ACCEPT` 按钮的文本。
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationButtonsLabel extends Component {
+  handleClick = () => {
+    ;notification.warning('Beware', 'Understood');
+  }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+  }
+}
+
+/**
+ * @title null
+ * @renderModel run
+ * @desc 在点击 `ACCEPT` 按钮时候，你可以添加一个回调函数。
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationNested extends Component {
+  handleClick = () => {
+    ;notification.info('You must accept it.', {
+      onAccept: function() {
+        notification.success('We knew you would.')
+      }
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+      </div>
+    )
+  }
+}
+
+/**
+ * @title 消息队列
+ * @renderModel run
+ */
+import notification from 'earth-ui/lib/notification'
+import Button from 'earth-ui/lib/Button'
+
+class NotificationQueue extends Component {
+  handleClick = () => {
+      ;notification.success('You did it!')
+       notification.info('You can do it.')
+       notification.warning('You will fail.')
+       notification.error('You are wrong.');
+    }
+  render () {
+    return <Button type="tertiary" onClick={this.handleClick} micro removeFocus>run this code</Button>
+  }
+}

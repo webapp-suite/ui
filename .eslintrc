@@ -10,18 +10,20 @@
     "jest": true
   },
   "globals": {
-    __CLIENT__: true,
-    __SERVER__: true,
-    __DEVELOPMENT__: true,
-    __DEVTOOLS__: true,
-    runtime: true,
-    jsdom: true,
-    prefixCls: true
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DEVELOPMENT__": true,
+    "__DEVTOOLS__": true,
+    "runtime": true,
+    "jsdom": true,
+    "prefixCls": true
   },
   "parser": "babel-eslint",
   "rules": {
     "jsx-quotes": ["error", "prefer-double"],
-    "react/jsx-no-bind": 0,
-    "react/no-did-update-set-state": 0
+    "no-unused-expressions": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-did-update-set-state": "off",
+    "react/destructuring-assignment": "error"
   }
 }

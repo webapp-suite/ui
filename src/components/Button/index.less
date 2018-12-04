@@ -1,6 +1,8 @@
 @import '~ui-variables';
 @import '~ui-mixins';
 
+@outset: -1.2px;
+
 .mixin-micro-button() {
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
@@ -59,6 +61,12 @@
     vertical-align: middle;
   }
 
+  &_nofocus {
+    &:before {
+      display: none !important;
+    }
+  }
+
   &_primary, &_secondary, &_tertiary, &[disabled] {
     padding: @ui-unit-half;
     border-radius: @ui-unit;
@@ -74,6 +82,12 @@
       position: relative;
       overflow: hidden;
     }
+    &:before {
+      content: '';
+      .ui-mixin-maximize(@outset, @outset, @outset, @outset);
+      border-radius: @ui-unit + 2.5px;
+      border: 2.75px solid transparent;
+    }
   }
 
   &_primary {
@@ -85,6 +99,9 @@
       border-color: @theme-dark;
       background-color: @theme-dark;
     }
+    &:focus:before {
+      border-color: @theme-darker;
+    }
   }
 
   &_secondary {
@@ -95,6 +112,9 @@
       background-color: @theme;
       color: @ui-color-white;
     }
+    &:focus:before {
+      border-color: @theme-dark;
+    }
   }
 
   &_tertiary {
@@ -104,6 +124,9 @@
     &:hover {
       background-color: fade(@ui-color-gray-light, 50%);
     }
+    &:focus:before {
+      border-color: @theme;
+    }
   }
 
   &_micro {
@@ -112,6 +135,10 @@
 
   &_block {
     width: 100%;
+    margin-top: @ui-unit-half;
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__icon-only {

@@ -3,7 +3,7 @@ export const backToTop = {
   topDistance: 10,
   timing: 'easeIn',
   background: 'rgba(73, 73, 73, 1)',
-  hover: {background: 'rgba(43, 43, 43, 1)'},
+  hover: { background: 'rgba(43, 43, 43, 1)' },
   position: {
     bottom: '10%',
     right: '40px'
@@ -50,7 +50,7 @@ export const nav = [{
   'icon': 'docs-icon-window-application-6',
   'path': 'components',
   'name': 'Layout Components',
-  'cn': '布局组件',
+  'cn': '布局型组件',
   'defaultOpen': false,
   'components': [{
     'icon': 'retweet',
@@ -77,10 +77,26 @@ export const nav = [{
     'cn': '侧栏'
   }]
 }, {
+  'icon': 'docs-icon-video-games-space-invaders-1',
+  'path': 'components',
+  'name': 'Imperative Components',
+  'cn': '命令式组件',
+  'defaultOpen': true,
+  'components': [{
+    'name': 'dialog',
+    'cn': '对话框'
+  }, {
+    'name': 'notification',
+    'cn': '通知提醒框'
+  }, {
+    'name': 'xhr',
+    'cn': 'AJAX请求'
+  }]
+}, {
   'icon': 'docs-icon-modules-1',
   'path': 'components',
-  'name': 'UI Components',
-  'cn': 'UI 组件',
+  'name': 'Declarative Components',
+  'cn': '声明式组件',
   'defaultOpen': true,
   'components': [{
     'icon': 'retweet',
@@ -98,20 +114,26 @@ export const nav = [{
     'name': 'Board',
     'cn': '面板'
   }, {
+    'name': 'Tabs',
+    'cn': '选项卡'
+  }, {
     'name': 'Button',
     'cn': '按钮'
-  }, {
-    'name': 'Modal',
-    'cn': '模态框'
-  }, {
-    'name': 'Dropdown',
-    'cn': '下拉菜单'
   }, {
     'name': 'Switch',
     'cn': '开关'
   }, {
+    'name': 'Tooltip',
+    'cn': '提示框'
+  }, {
+    'name': 'TextOverflow',
+    'cn': '文字溢出'
+  }, {
     'name': 'Spinner',
     'cn': '加载中'
+  }, {
+    'name': 'Dropdown',
+    'cn': '下拉菜单'
   }, {
     'name': 'Form',
     'cn': '表单'
@@ -125,26 +147,11 @@ export const nav = [{
     'name': 'ClearableInput',
     'cn': '清空输入框'
   }, {
-    'name': 'Tooltip',
-    'cn': '提示框'
-  }, {
-    'name': 'Tabs',
-    'cn': '选项卡'
-  }, {
-    'name': 'message',
-    'cn': '全局提示'
-  }, {
     'name': 'Fetch',
     'cn': 'AJAX加载管理'
   }, {
     'name': 'Upload',
     'cn': '上传'
-  }, {
-    'name': 'xhr',
-    'cn': 'AJAX请求'
-  }, {
-    'name': 'TextOverflow',
-    'cn': '文字溢出'
   }, {
     'name': 'BackToTop',
     'cn': '回到顶部'

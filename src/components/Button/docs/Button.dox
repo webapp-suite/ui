@@ -46,8 +46,8 @@ import Button from 'earth-ui/lib/Button'
 const ButtonBlock = () => {
   return (
     <div>
-      <Button type="primary" block>Primary</Button><br/><br/>
-      <Button type="secondary" block>Secondary</Button><br/><br/>
+      <Button type="primary" block>Primary</Button>
+      <Button type="secondary" block>Secondary</Button>
       <Button type="tertiary" block>Tertiary</Button>
     </div>
   )

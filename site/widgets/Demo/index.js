@@ -1,12 +1,24 @@
-import cx from 'classnames'
-import {Board, BoardBody, BoardHeader} from 'earth-ui/lib/Board'
-import {Col, Row} from 'earth-ui/lib/Layout'
-import {Tab, TabList, TabPanel, Tabs} from 'earth-ui/lib/Tabs'
-import PropTypes from 'prop-types'
 import React from 'react'
-import Code from 'widgets/Code'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
+import { Board, BoardBody, BoardHeader } from 'earth-ui/lib/Board'
+import { Col, Row } from 'earth-ui/lib/Layout'
+import { Tab, TabList, TabPanel, Tabs } from 'earth-ui/lib/Tabs'
 import Markdown from 'widgets/Markdown'
+import Code from 'widgets/Code'
+import * as type from '../../../src/utils/type'
 import './index.less'
+
+function trimCode (code) {
+  if (!type.isString(code)) {
+    return
+  }
+  const snippet = code.split(';')[1]
+  const snippetArray = snippet.split('\n')
+  const lastSnippetItem = snippetArray[snippetArray.length - 1]
+  const indent = lastSnippetItem.length - lastSnippetItem.trim().length
+  return snippetArray.map((v, i) => i === 0 ? v : v.slice(indent)).join('\n')
+}
 
 class Demo extends React.Component {
   constructor (props) {
@@ -17,7 +29,7 @@ class Demo extends React.Component {
   }
 
   handleToggle = () => {
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open })
   }
 
   render () {
@@ -25,9 +37,9 @@ class Demo extends React.Component {
     const { open } = this.state
     const renderInLeft = () => {
       return (
-        <Row className={cx('demo', {'demo__open': open}, className)}>
+        <Row className={cx('demo', { 'demo__open': open }, className)}>
           <Col col="md-16" className="demo__left">
-            <Markdown html={`<h2>${title}</h2>`} />
+            {title !== 'null' && <Markdown html={`<h2>${title}</h2>`} />}
             {desc && <Markdown html={desc} />}
             <Board theme="simple">
               <Tabs>
@@ -50,7 +62,7 @@ class Demo extends React.Component {
     }
     const renderInRight = () => {
       return (
-        <Row className={cx('demo', 'demo__no-tabs-board', {'demo__open': !open}, className)}>
+        <Row className={cx('demo', 'demo__no-tabs-board', { 'demo__open': !open }, className)}>
           <Col col="md-16" className="demo__left">
             <Markdown html={`<h2>${title}</h2>`} />
             {desc && <Markdown html={desc} />}
@@ -67,7 +79,7 @@ class Demo extends React.Component {
     }
     const renderInFull = () => {
       return (
-        <Row className={cx('demo', {'demo__open': !open}, className)}>
+        <Row className={cx('demo', { 'demo__open': !open }, className)}>
           <Col col="md-24">
             <div className="demo__content">{children}</div>
             {desc && <div className="demo__desc">{desc}</div>}
@@ -75,13 +87,32 @@ class Demo extends React.Component {
         </Row>
       )
     }
-
-    const render = {
-      'left': renderInLeft(),
-      'right': renderInRight(),
-      'full': renderInFull()
+    const renderInRun = () => {
+      return (
+        <Row className={cx('demo', { 'demo__open': !open }, { 'demo__no-title': title === 'null' }, className)}>
+          <Col col="md-16" className="demo__left">
+            {title !== 'null' && <Markdown html={`<h2>${title}</h2>`} />}
+            {desc && <Markdown html={desc} />}
+            <Board theme="simple">
+              <BoardHeader>
+                {children}
+              </BoardHeader>
+              <BoardBody>
+                <div className="demo__code"><Code lang="jsx">{trimCode(code)}</Code></div>
+              </BoardBody>
+            </Board>
+            {note && <Markdown html={note} />}
+          </Col>
+        </Row>
+      )
     }
-    return render[renderModel]
+    const render = {
+      'left': renderInLeft,
+      'right': renderInRight,
+      'full': renderInFull,
+      'run': renderInRun
+    }
+    return render[renderModel]()
   }
 }
 
@@ -92,7 +123,7 @@ Demo.propTypes = {
   desc: PropTypes.string,
   note: PropTypes.string,
   code: PropTypes.string,
-  renderModel: PropTypes.oneOf(['left', 'right', 'full'])
+  renderModel: PropTypes.oneOf(['left', 'right', 'full', 'run'])
 }
 
 export default Demo

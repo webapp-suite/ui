@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import cx from 'classnames'
 import Markdown from 'widgets/Markdown'
 import './index.less'
 
@@ -25,7 +25,7 @@ const Doc = props => {
           <tbody>
             {props.props.map(prop => (
               <tr key={prop.name}>
-                <td className={classnames('doc__prop-name', {
+                <td className={cx('doc__prop-name', {
                   'doc__prop-name--required': prop.required
                 })}>
                   {prop.name}
@@ -72,10 +72,12 @@ const Doc = props => {
                 {type}
               </dd>
             )}
-            <dd>
-              <h2>描述</h2>
-              <Markdown html={desc} />
-            </dd>
+            {desc && (
+              <dd>
+                <h2>描述</h2>
+                <Markdown html={desc} />
+              </dd>
+            )}
           </dl>
         )
       })}

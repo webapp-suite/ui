@@ -4,7 +4,7 @@
  */
 import update from 'react-update'
 import { Form, FormItem, FormSubmit, FormInput, FormSelect, Option, FormTextarea } from 'earth-ui/lib/Form'
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 
 class FormBasic extends Component {
 
@@ -37,7 +37,7 @@ class FormBasic extends Component {
 
   handleSuccess = res => {
     console.log(res)
-    message.success('操作成功！')
+    notification.success('操作成功！')
   }
 
   render() {

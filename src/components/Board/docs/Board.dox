@@ -54,15 +54,15 @@ const BoardWithTitle = () => {
  */
 import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
 import Button from 'earth-ui/lib/Button'
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 
 const BoardWithButtons = () => {
   return (
     <Board title="My Board">
       <BoardHeader>
-        <Button type="primary" micro>one</Button>
-        <Button type="secondary" micro>two</Button>
-        <Button type="tertiary" micro onClick={()=> message.success('Clicked!')}>three</Button>
+        <Button type="primary" micro removeFocus>one</Button>
+        <Button type="secondary" micro removeFocus>two</Button>
+        <Button type="tertiary" onClick={()=> notification.success('Clicked!')} micro removeFocus>three</Button>
       </BoardHeader>
       <BoardBody>
         The classic Board with buttons looks like this.
@@ -77,7 +77,6 @@ const BoardWithButtons = () => {
  */
 import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
 import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
-import message from 'earth-ui/lib/message'
 
 const BoardWithTabs = () => {
   return (

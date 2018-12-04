@@ -15,7 +15,7 @@ const HeaderBarBasic = () => {
  * @renderModel right
  */
 import HeaderBar from 'earth-ui/lib/HeaderBar'
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
 
 const HeaderBarWithTabs = () => {
@@ -24,7 +24,7 @@ const HeaderBarWithTabs = () => {
       <Tabs>
         <TabList>
           <Tab>One</Tab>
-          <Tab onClick={()=>message.success('yes')}>Two</Tab>
+          <Tab onClick={()=>notification.success('yes')}>Two</Tab>
         </TabList>
       </Tabs>
     </HeaderBar>

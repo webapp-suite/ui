@@ -5,12 +5,12 @@
 
 import React, { Component } from 'react'
 import { Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui/lib/Nav'
-import message from 'earth-ui/lib/message'
+import notification from 'earth-ui/lib/notification'
 
 class NavBasic extends Component {
   handleClick = res => {
     console.log(res)
-    message.success(res.title);
+    notification.success(res.title);
   }
   render () {
     return (

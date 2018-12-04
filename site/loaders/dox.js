@@ -58,8 +58,10 @@ module.exports = function (source) {
   imports.add(`import { Row, Col } from 'earth-ui/lib/Layout'`)
   imports.add(`import Demo from 'widgets/Demo'`)
   imports.add(`import Doc from 'widgets/Doc'`)
+  imports.add(`import Markdown from 'widgets/Markdown'`)
 
   // 获取 DEMO、文档数据
+  let summary = ''
   const demos = []
   const docs = []
   const callbacks = [match => {
@@ -67,10 +69,10 @@ module.exports = function (source) {
       title: match
     })
   }, match => {
-    const desc = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    const desc = marked(match).replace(/"+/g, '\'')
     demos[demos.length - 1].desc = desc
   }, match => {
-    const note = marked(match.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim())
+    const note = marked(match).replace(/"+/g, '\'')
     demos[demos.length - 1].note = note
   }, match => {
     const currentDemo = demos[demos.length - 1]
@@ -186,10 +188,12 @@ module.exports = function (source) {
     docs.push(doc)
   }, match => {
     demos[demos.length - 1].renderModel = match
+  }, match => {
+    summary = marked(match).replace(/"+/g, '\'')
   }]
-  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)/g
-  source.replace(reg, (match, p1, p2, p3, p4, p5, p6) => {
-    [p1, p2, p3, p4, p5, p6].forEach((match, i) => {
+  const reg = /@title\s(.+)|@desc\s(.+)|@note\s(.+)|(\nimport [^]+?\n})|@component\s(.+)|@renderModel\s(.+)|@summary\s(.+)/g
+  source.replace(reg, (match, p1, p2, p3, p4, p5, p6, p7) => {
+    [p1, p2, p3, p4, p5, p6, p7].forEach((match, i) => {
       match && callbacks[i](match)
     })
   })
@@ -234,25 +238,29 @@ ${demo.mainCode}`
     // `)
   }
 
-  // 生成文档代码
-  const componentsDocs = docs.map(doc => {
-    return `<Doc key="${doc.name}" {...${doc}} />`
-  })
-
-  return `${imports.getAll().join('\r\n')}
-
-${codes.join('\r\n')}
-
-const docs = ${JSON.stringify(docs)}
-
-export default () => {
-  return (
-  <div>
-    ${layout}
-    <Row>
-      <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
-    </Row>
-   </div>
-  )
-}`
+  return `
+    ${imports.getAll().join('\r\n')}
+    ${codes.join('\r\n')}
+    
+    const summary = ${JSON.stringify(summary)}
+    const docs = ${JSON.stringify(docs)}
+    
+    export default () => {
+      return (
+        <div>
+          {!!summary && (
+            <Row>
+              <Col col="md-16"><Markdown html={summary} /></Col>
+            </Row>
+          )}
+          ${layout}
+          {docs.length > 0 && (
+            <Row>
+              <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+            </Row>
+          )}
+         </div>
+      )
+    }
+  `
 }
