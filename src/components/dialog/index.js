@@ -20,20 +20,21 @@ let render = props => {
 
   render = nextProps => {
     props = Object.assign({}, props, nextProps)
-    if (isOpen && props.open) {
+    const { open, backdrop, lock, type, message, options, accpetLabel, cancelLabel } = props
+    if (isOpen && open) {
       return messageQueue.push(props)
     }
-    isOpen = props.open
+    isOpen = open
     ReactDOM.render((
-      <Dialog open={isOpen} backdrop={props.backdrop} lock={props.lock}>
-        <DialogHeader type={props.type} icon={props.options?.icon} />
+      <Dialog open={isOpen} backdrop={backdrop} lock={lock}>
+        <DialogHeader type={type} icon={options?.icon} />
         <DialogBody>
           <div
             className={`${prefixCls}-dialog__body-markdown`}
-            dangerouslySetInnerHTML={{ __html: marked(props.message) }}
+            dangerouslySetInnerHTML={{ __html: marked(message) }}
           />
         </DialogBody>
-        <DialogButtons focused={props.options?.focused} onClose={handleClose} accpetLabel={props.accpetLabel} cancelLabel={props.cancelLabel} {...props.options} />
+        <DialogButtons focused={options?.focused} onClose={handleClose} accpetLabel={accpetLabel} cancelLabel={cancelLabel} {...options} />
       </Dialog>
     ), container)
     props.open || handleClose()

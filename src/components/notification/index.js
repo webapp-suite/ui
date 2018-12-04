@@ -21,18 +21,18 @@ let render = props => {
 
   render = nextProps => {
     props = Object.assign({}, props, nextProps)
-    if (isOpen && props.open) {
+    const { open, backdrop, lock, type, accpetLabel, options, message, autoClose, duration } = props
+    if (isOpen && open) {
       // messageQueue will be [] if there is only one notification.
       return messageQueue.push(props)
     }
-    isOpen = props.open
-    const { backdrop, lock, type, accpetLabel, options, message, isAutoClose, duration } = props
+    isOpen = open
     ReactDOM.render((
       <Dialog
         open={isOpen}
         backdrop={backdrop}
         lock={lock}
-        isAutoClose={isAutoClose}
+        autoClose={autoClose}
         duration={duration}
         onClose={handleClose}
       >
@@ -43,7 +43,7 @@ let render = props => {
             dangerouslySetInnerHTML={{ __html: marked(message) }}
           />
         </DialogBody>
-        {!!accpetLabel && <DialogButtons focused={props.options?.focused} accpetLabel={accpetLabel} {...options} />}
+        {!!accpetLabel && <DialogButtons focused={options?.focused} accpetLabel={accpetLabel} {...options} />}
       </Dialog>
     ), container)
   }
@@ -77,7 +77,7 @@ const notification = {
       type: 'success',
       backdrop: false,
       lock: false,
-      isAutoClose: true,
+      autoClose: true,
       duration,
       open: true
     })
@@ -91,7 +91,7 @@ const notification = {
       type: 'info',
       backdrop: true,
       lock: true,
-      isAutoClose: false,
+      autoClose: false,
       open: true
     })
   },
@@ -104,7 +104,7 @@ const notification = {
       type: 'warning',
       backdrop: true,
       lock: true,
-      isAutoClose: false,
+      autoClose: false,
       open: true
     })
   },
@@ -117,7 +117,7 @@ const notification = {
       type: 'error',
       backdrop: true,
       lock: true,
-      isAutoClose: false,
+      autoClose: false,
       open: true
     })
   },

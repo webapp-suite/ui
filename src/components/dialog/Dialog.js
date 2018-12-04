@@ -133,12 +133,12 @@ class Dialog extends React.Component {
       if (dialogContainer) {
         dialogContainer.backUp()
       }
-      this.props.isAutoClose && window.setTimeout(() => {
+      this.props.autoClose && window.setTimeout(() => {
         this.close()
       }, this.props.duration)
     }
     this.renderIntoDocument = () => {
-      const { open, onToggle, onClose, backdrop, lock, isAutoClose, duration, ...other } = this.props
+      const { open, onToggle, onClose, backdrop, lock, autoClose, duration, ...other } = this.props
       ReactDOM.render((
         <DialogContainer
           ref={content => (this.content = content)}
@@ -174,7 +174,7 @@ Dialog.propTypes = {
   lock: PropTypes.bool,
 
   // 是否自动关闭
-  isAutoClose: PropTypes.bool,
+  autoClose: PropTypes.bool,
 
   // 自动关闭型的持续时间
   duration: PropTypes.number,
