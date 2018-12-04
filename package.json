@@ -63,7 +63,6 @@
     "classnames": "^2.2.5",
     "focus-trap": "^3.0.0",
     "invariant": "^2.2.2",
-    "justified-layout": "^2.1.1",
     "marked": "^0.5.2",
     "react-avatar-editor": "^10.3.0",
     "react-update": "^0.4.4"

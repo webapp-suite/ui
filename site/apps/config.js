@@ -132,6 +132,9 @@ export const nav = [{
     'name': 'Dropdown',
     'cn': '下拉菜单'
   }, {
+    'name': 'Upload',
+    'cn': '上传'
+  }, {
     'name': 'Form',
     'cn': '表单'
   }, {
@@ -147,9 +150,6 @@ export const nav = [{
     'name': 'Fetch',
     'cn': 'AJAX加载管理'
   }, {
-    'name': 'Upload',
-    'cn': '上传'
-  }, {
     'name': 'BackToTop',
     'cn': '回到顶部'
   }, {
@@ -162,8 +162,5 @@ export const nav = [{
   }, {
     'name': 'AvatarClip',
     'cn': '裁剪头像'
-  }, {
-    'name': 'Gallery',
-    'cn': '图片墙'
   }]
 }]
