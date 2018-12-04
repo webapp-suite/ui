@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import xhr from '../xhr'
+import xhr from '../../utils/xhr'
 import FileList from './FileList'
 import Button from '../Button/index'
 import './index.less'
 
-class Upload extends Component {
+class Upload extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -122,7 +122,7 @@ class Upload extends Component {
     const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
       <div className={cx(`${prefixCls}-upload`, className)} {...other}>
-        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
+        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{ display: 'none' }} />
         <div className={`${prefixCls}-upload__children`} onClick={this.handleClick}>
           {this.props.children}
         </div>

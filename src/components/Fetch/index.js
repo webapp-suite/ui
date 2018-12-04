@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import xhr from '../xhr'
+import xhr from '../../utils/xhr'
 import Spinner from '../Spinner'
 import './index.less'
 
-class Fetch extends Component {
+class Fetch extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -39,7 +39,7 @@ class Fetch extends Component {
           clearTimeout(this.timer)
         },
         success: res => {
-          this.setState({xhr: 'success'})
+          this.setState({ xhr: 'success' })
           callback ? callback(res) : this.handleSuccess(res)
         },
         error: this.handleError
@@ -49,7 +49,7 @@ class Fetch extends Component {
 
   lazyShowLoading () {
     return setTimeout(() => {
-      this.setState({xhr: 'loading'})
+      this.setState({ xhr: 'loading' })
     }, 150)
   }
 
@@ -58,7 +58,7 @@ class Fetch extends Component {
   }
 
   handleError = msg => {
-    this.setState({xhr: 'error', msg})
+    this.setState({ xhr: 'error', msg })
   }
 
   /**
