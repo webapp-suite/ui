@@ -24,6 +24,6 @@
     "no-unused-expressions": "off",
     "react/jsx-no-bind": "off",
     "react/no-did-update-set-state": "off",
-    "react/destructuring-assignment": "error"
+    "react/destructuring-assignment": "warn"
   }
 }
