@@ -12,7 +12,7 @@ class NotificationSuccess extends Component {
     notification.success('You did it!')
   }
   render () {
-    return <Button type="secondary" onClick={this.handleClick}>success</Button>
+    return <Button type="secondary" onClick={this.handleClick} removeFocus>success</Button>
   }
 }
 
