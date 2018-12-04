@@ -8,8 +8,8 @@ import './index.less'
 // Render indicator
 let defaultIndicator = null
 
-function shouldDelay (isLoading, delay) {
-  return !!isLoading && !!delay && !isNaN(Number(delay))
+function shouldDelay (loading, delay) {
+  return !!loading && !!delay && !isNaN(Number(delay))
 }
 
 function renderIndicator (_props) {
@@ -52,9 +52,9 @@ class Spinner extends React.Component {
   constructor (props) {
     super(props)
 
-    const { isLoading, delay } = props
+    const { loading, delay } = props
     this.state = {
-      isLoading: isLoading && !shouldDelay(isLoading, delay)
+      loading: loading && !shouldDelay(loading, delay)
     }
   }
 
@@ -63,8 +63,8 @@ class Spinner extends React.Component {
   }
 
   componentDidMount () {
-    const { isLoading, delay } = this.props
-    if (shouldDelay(isLoading, delay)) {
+    const { loading, delay } = this.props
+    if (shouldDelay(loading, delay)) {
       this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
     }
   }
@@ -79,9 +79,9 @@ class Spinner extends React.Component {
   }
 
   componentDidUpdate () {
-    const currentSpinning = this.state.isLoading
-    const isLoading = this.props.isLoading
-    if (currentSpinning === isLoading) {
+    const currentSpinning = this.state.loading
+    const loading = this.props.loading
+    if (currentSpinning === loading) {
       return
     }
     const { delay } = this.props
@@ -89,48 +89,48 @@ class Spinner extends React.Component {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout)
     }
-    if (currentSpinning && !isLoading) {
+    if (currentSpinning && !loading) {
       // Close spinner
-      this.debounceTimeout = window.setTimeout(() => this.setState({ isLoading }), 300)
+      this.debounceTimeout = window.setTimeout(() => this.setState({ loading }), 300)
       if (this.delayTimeout) {
         clearTimeout(this.delayTimeout)
       }
     } else {
-      if (shouldDelay(isLoading, delay)) {
+      if (shouldDelay(loading, delay)) {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout)
         }
         this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
       } else {
         // Open spinner without delay
-        this.setState({ isLoading })
+        this.setState({ loading })
       }
     }
   }
 
   delayUpdateSpinning = () => {
-    const { isLoading } = this.props
-    if (this.state.isLoading !== isLoading) {
-      this.setState({ isLoading })
+    const { loading } = this.props
+    if (this.state.loading !== loading) {
+      this.setState({ loading })
     }
   };
 
   render () {
     const { className, size, cover, tip, wrapperClassName, ...other } = this.props
-    const { isLoading } = this.state
+    const { loading } = this.state
 
     const spinClassName = cx(`${prefixCls}-spinner__spinner-element`, {
       [`${prefixCls}-spinner__spinner-element_sm`]: size === 'sm',
       [`${prefixCls}-spinner__spinner-element_lg`]: size === 'lg',
       [`${prefixCls}-spinner__spinner-element_white`]: cover === 'white',
       [`${prefixCls}-spinner__spinner-element_black`]: cover === 'black',
-      [`${prefixCls}-spinner__spinner-element_spinning`]: isLoading,
+      [`${prefixCls}-spinner__spinner-element_spinning`]: loading,
       [`${prefixCls}-spinner__spinner-element_show-text`]: !!tip
     }, className)
 
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(other, [
-      'isLoading',
+      'loading',
       'delay',
       'indicator'
     ])
@@ -148,7 +148,7 @@ class Spinner extends React.Component {
         animateClassName += ' ' + wrapperClassName
       }
       const containerClassName = cx(`${prefixCls}-spinner__container`, {
-        [`${prefixCls}-spinner__container_loading`]: isLoading
+        [`${prefixCls}-spinner__container_loading`]: loading
       })
       return (
         <div
@@ -175,7 +175,7 @@ Spinner.propTypes = {
   wrapperClassName: PropTypes.string,
 
   // 是否为加载中状态，默认值为 `true`
-  isLoading: PropTypes.bool,
+  loading: PropTypes.bool,
 
   // 作为包裹元素时，可自定义描述文案
   tip: PropTypes.string,
@@ -191,7 +191,7 @@ Spinner.propTypes = {
 }
 
 Spinner.defaultProps = {
-  isLoading: true,
+  loading: true,
   size: 'default',
   cover: 'white',
   wrapperClassName: ''
