@@ -61,6 +61,7 @@
   "dependencies": {
     "classlist": "^1.0.1",
     "classnames": "^2.2.5",
+    "focus-trap": "^3.0.0",
     "invariant": "^2.2.2",
     "justified-layout": "^2.1.1",
     "marked": "^0.5.2",

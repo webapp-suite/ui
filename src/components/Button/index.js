@@ -10,11 +10,11 @@ class Button extends React.Component {
     this.button = React.createRef()
   }
   componentDidMount () {
-    this.props.focus && this.focus()
+    this.props.autoFocus && this.focus()
   }
 
   componentDidUpdate () {
-    this.props.focus && this.focus()
+    this.props.autoFocus && this.focus()
   }
 
   focus = () => {
@@ -23,7 +23,7 @@ class Button extends React.Component {
     }, 0)
   }
   render () {
-    const { children, className, type, circle, micro, block, icon, focus, removeFocus, ...other } = this.props
+    const { children, className, type, circle, micro, block, icon, autoFocus, removeFocus, ...other } = this.props
     const classNames = cx(
       `${prefixCls}-button`,
       {
@@ -61,8 +61,8 @@ Button.propTypes = {
   // 按钮图标，支持 fontawaresome 图标
   icon: PropTypes.string,
 
-  // 按钮是否需要focus（手动控制时用）
-  focus: PropTypes.bool,
+  // 按钮是否需要自动focus（手动控制时用）
+  autoFocus: PropTypes.bool,
 
   // 移除按钮 focus 的效果（自动手动都会失效）
   removeFocus: PropTypes.bool
