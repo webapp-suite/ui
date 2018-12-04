@@ -8,7 +8,7 @@ const DropdownBasic = () => {
   return (
     <Dropdown>
       <DropdownToggle>
-        <Button>Open</Button>
+        <Button type="secondary">Open Dropdown</Button>
       </DropdownToggle>
       <DropdownMenu>
         Nullam quis risus eget urna mollis
@@ -29,7 +29,7 @@ const DropdownRight = () => {
   return (
     <Dropdown>
       <DropdownToggle>
-        <Button>Open</Button>
+        <Button type="secondary">Open Dropdown</Button>
       </DropdownToggle>
       <DropdownMenu direction="up" align="right">
         Nullam quis risus eget urna mollis
@@ -50,7 +50,7 @@ const DropdownNested = () => {
   return (
     <Dropdown>
       <DropdownToggle>
-        <Button>Open</Button>
+        <Button type="secondary">Open Dropdown</Button>
       </DropdownToggle>
       <DropdownMenu>
         Nullam quis risus eget urna mollis
@@ -81,7 +81,7 @@ const DropdownDisabled = () => {
   return (
     <Dropdown disabled>
       <DropdownToggle>
-        <Button>Open</Button>
+        <Button type="secondary">Open Dropdown</Button>
       </DropdownToggle>
       <DropdownMenu></DropdownMenu>
     </Dropdown>
