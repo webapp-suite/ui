@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Dropdown, DropdownToggle, DropdownMenu } from '../Dropdown'
-import Fetch from '../Fetch'
 import Icon from '../Icon'
 import './index.less'
 
-class SelectDropdown extends Component {
+class SelectDropdown extends React.Component {
   close () {
     this.dropdown.close()
   }
@@ -31,29 +30,11 @@ class SelectDropdown extends Component {
         <DropdownToggle className={cx(`${prefixCls}-select-dropdown`, {
           [`${prefixCls}-select-dropdown__dropdown-toggle_caretable`]: caret
         }, className)} {...other}>
-          {url && hasPropValue ? (
-            <Fetch
-              spinnerHeight={20}
-              defaultHeight={28}
-              url={url}
-              onSuccess={onLoad}
-            >
-              {title}
-            </Fetch>
-          ) : title}
+          {title}
           {caret && <Icon type="caret-down" className={`${prefixCls}-select-dropdown__caret`} />}
         </DropdownToggle>
         <DropdownMenu className={`${prefixCls}-select-dropdown__popover`}>
-          {url && !hasPropValue ? (
-            <Fetch
-              url={url}
-              defaultHeight={30}
-              spinnerHeight={20}
-              onSuccess={onLoad}
-            >
-              {children}
-            </Fetch>
-          ) : children}
+          {children}
         </DropdownMenu>
       </Dropdown>
     )

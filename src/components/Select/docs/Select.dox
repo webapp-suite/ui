@@ -41,23 +41,6 @@ const SelectData = () => {
 }
 
 /**
- * @title url 数据
- */
-import { Select, Option } from 'earth-ui/lib/Select'
-
-const SelectUrl = () => {
-  return (
-    <Select
-      defaultValue={1}
-      url="/data/select.json"
-      render={item => <Option value={item.id}>{item.name}</Option>}
-      defaultOption={<Option>请选择</Option>}
-      width={200}
-    />
-  )
-}
-
-/**
  * @title 可搜索的
  */
 import { Select, Option } from 'earth-ui/lib/Select'

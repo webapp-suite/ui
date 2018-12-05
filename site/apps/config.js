@@ -79,8 +79,8 @@ export const nav = [{
 }, {
   'icon': 'docs-icon-video-games-space-invaders-1',
   'path': 'components',
-  'name': 'Imperative Components',
-  'cn': '命令式组件',
+  'name': 'Function Declarative Components',
+  'cn': '函数声明组件',
   'defaultOpen': true,
   'components': [{
     'name': 'dialog',
@@ -92,8 +92,8 @@ export const nav = [{
 }, {
   'icon': 'docs-icon-modules-1',
   'path': 'components',
-  'name': 'Declarative Components',
-  'cn': '声明式组件',
+  'name': 'Markup Declarative Components',
+  'cn': '模版声明组件',
   'defaultOpen': true,
   'components': [{
     'icon': 'retweet',
@@ -146,9 +146,6 @@ export const nav = [{
   }, {
     'name': 'ClearableInput',
     'cn': '清空输入框'
-  }, {
-    'name': 'Fetch',
-    'cn': 'AJAX加载管理'
   }, {
     'name': 'BackToTop',
     'cn': '回到顶部'
