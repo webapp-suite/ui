@@ -93,7 +93,7 @@ export const nav = [{
   'icon': 'docs-icon-modules-1',
   'path': 'components',
   'name': 'Markup Declarative Components',
-  'cn': '模版声明组件',
+  'cn': '标记声明组件',
   'defaultOpen': true,
   'components': [{
     'icon': 'retweet',

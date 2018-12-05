@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import AvatarClip from 'earth-ui/lib/AvatarClip'
 import AvatarUpload from 'earth-ui/lib/AvatarUpload'
 import Upload from 'earth-ui/lib/Upload'
-import xhr from 'earth-ui/lib/xhr'
+import notification from 'earth-ui/lib/notification'
 
 class ProfileAvatar extends Component {
   constructor (props) {
@@ -50,25 +50,12 @@ class ProfileAvatar extends Component {
   handleSave = dataURL => {
     const blob = this.dataURLtoBlob(dataURL)
 
-    xhr.header = {
-      userId: window.runtime.userId
-    }
-
     const fd = new FormData()
     // API: https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/append
     fd.append('files', blob, 'image.jpg')
-
-    xhr({
-      type: 'post',
-      url: '/api/v1/updateUserAvatar',
-      data: fd,
-      success: data => {
-        this.props.onComplete(data)
-      },
-      error: msg => {
-        console.error('error!', msg)
-      }
-    })
+    // 调用相关http库即可
+    this.onClose()
+    setTimeout(() => notification.success('Upload Successfully.'), 100)
   }
   render () {
     return (
