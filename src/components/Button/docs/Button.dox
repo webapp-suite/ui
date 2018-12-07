@@ -63,8 +63,10 @@ const ButtonIcon = () => {
   return (
     <div>
       <Button icon="delete" />
+      <Button icon="statuschange" type="primary" />
       <Button icon="statuschange" type="secondary" />
       <Button icon="activity" type="secondary">数据分析</Button>
+      <Button icon="statuschange" type="tertiary" />
     </div>
   )
 }
