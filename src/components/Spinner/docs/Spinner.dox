@@ -1,6 +1,6 @@
 /**
  * @title 基本用法
- * @desc 通过 `isLoading` 的值来控制加载效果的显示与隐藏。
+ * @desc 通过 `loading` 的值来控制加载效果的显示与隐藏。
  * @note 该组件会保证加载效果的显示时间至少为 `300ms`，以避免一闪而过的糟糕体验。
  */
 import Spinner from 'earth-ui/lib/Spinner'
@@ -25,7 +25,7 @@ class SpinnerBasic extends React.Component {
           打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner isLoading={this.state.loading}>
+          <Spinner loading={this.state.loading}>
             将被加载效果覆盖
           </Spinner>
         </div>
@@ -60,7 +60,7 @@ class SpinnerTip extends React.Component {
           打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner tip="Loading..." isLoading={this.state.loading}>
+          <Spinner tip="Loading..." loading={this.state.loading}>
             自定义描述文案加载效果
           </Spinner>
         </div>
@@ -96,13 +96,13 @@ class SpinnerCover extends React.Component {
           打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner tip="Loading..." isLoading={this.state.loading}>
+          <Spinner tip="Loading..." loading={this.state.loading}>
             白色背景遮罩的加载效果
           </Spinner>
         </div>
         <br />
         <div style={border}>
-          <Spinner tip="Loading..." cover="black" isLoading={this.state.loading}>
+          <Spinner tip="Loading..." cover="black" loading={this.state.loading}>
             黑色背景遮罩的加载效果
           </Spinner>
         </div>
@@ -172,7 +172,7 @@ class SpinnerIndicator extends React.Component {
           打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
         </div>
         <Border>
-          <Spinner isLoading={this.state.loading} indicator={<Indicator />}>
+          <Spinner loading={this.state.loading} indicator={<Indicator />}>
             自定义指示器
           </Spinner>
         </Border>

@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import update from 'react-update'
 import cx from 'classnames'
 import invariant from 'invariant'
-import xhr from '../../xhr'
+import xhr from '../../../utils/xhr'
 import './index.less'
 
-class Form extends Component {
+class Form extends React.Component {
   constructor (props) {
     super()
     // 存储 FormItem 实例，用于访问 FormItem
@@ -66,7 +66,7 @@ class Form extends Component {
       }
       nextData = update(data, 'set', [name, this.multipleMap[instance.uuid]], value)
     }
-    this.setState({data: nextData})
+    this.setState({ data: nextData })
     this.props.onChange && this.props.onChange(nextData)
   }
 
@@ -154,7 +154,7 @@ class Form extends Component {
 
     const classNames = cx(
       `${prefixCls}-form`,
-      {[`${prefixCls}-form_${size}`]: size}
+      { [`${prefixCls}-form_${size}`]: size }
     )
 
     if (width) {

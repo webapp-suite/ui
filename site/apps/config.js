@@ -79,8 +79,8 @@ export const nav = [{
 }, {
   'icon': 'docs-icon-video-games-space-invaders-1',
   'path': 'components',
-  'name': 'Imperative Components',
-  'cn': '命令式组件',
+  'name': 'Function Declarative Components',
+  'cn': '函数声明组件',
   'defaultOpen': true,
   'components': [{
     'name': 'dialog',
@@ -88,15 +88,12 @@ export const nav = [{
   }, {
     'name': 'notification',
     'cn': '通知提醒框'
-  }, {
-    'name': 'xhr',
-    'cn': 'AJAX请求'
   }]
 }, {
   'icon': 'docs-icon-modules-1',
   'path': 'components',
-  'name': 'Declarative Components',
-  'cn': '声明式组件',
+  'name': 'Markup Declarative Components',
+  'cn': '标记声明组件',
   'defaultOpen': true,
   'components': [{
     'icon': 'retweet',
@@ -135,6 +132,9 @@ export const nav = [{
     'name': 'Dropdown',
     'cn': '下拉菜单'
   }, {
+    'name': 'Upload',
+    'cn': '上传'
+  }, {
     'name': 'Form',
     'cn': '表单'
   }, {
@@ -146,12 +146,6 @@ export const nav = [{
   }, {
     'name': 'ClearableInput',
     'cn': '清空输入框'
-  }, {
-    'name': 'Fetch',
-    'cn': 'AJAX加载管理'
-  }, {
-    'name': 'Upload',
-    'cn': '上传'
   }, {
     'name': 'BackToTop',
     'cn': '回到顶部'
@@ -165,8 +159,5 @@ export const nav = [{
   }, {
     'name': 'AvatarClip',
     'cn': '裁剪头像'
-  }, {
-    'name': 'Gallery',
-    'cn': '图片墙'
   }]
 }]

@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import xhr from '../xhr'
+import xhr from '../../utils/xhr'
 import FileList from './FileList'
 import Button from '../Button/index'
 import './index.less'
 
-class Upload extends Component {
+class Upload extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -16,7 +16,6 @@ class Upload extends Component {
   }
 
   handleClick = e => {
-    if (this.props.button && e.target.localName !== 'button') return
     const fileEl = this.refs.file
     fileEl.value = ''
     fileEl.click()
@@ -44,11 +43,6 @@ class Upload extends Component {
         type: file.type,
         state: 0
       })
-
-      // todo: remove
-      xhr.header = {
-        userId: window.runtime ? window.runtime.userId : ''
-      }
 
       ;(function (self, file, index) {
         const fd = new FormData()
@@ -122,7 +116,7 @@ class Upload extends Component {
     const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
     return (
       <div className={cx(`${prefixCls}-upload`, className)} {...other}>
-        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{display: 'none'}} />
+        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{ display: 'none' }} />
         <div className={`${prefixCls}-upload__children`} onClick={this.handleClick}>
           {this.props.children}
         </div>

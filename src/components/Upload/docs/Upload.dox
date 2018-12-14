@@ -1,16 +1,21 @@
 /**
  * @title 文件上传
  */
-import { Component } from 'react'
 import Upload from 'earth-ui/lib/Upload'
+import Button from 'earth-ui/lib/Button'
 
-class UploadFile extends Component {
+class UploadFile extends React.Component {
+  handleUploading = pre => {
+    console.log('uploading...', pre)
+    return
+  }
+
+  handleComplete = (data, list) => {
+    console.log('complete:', data, 'list:', list)
+  }
 
   render() {
     const props = {
-      button: {
-        name: '文件上传'
-      },
       method: 'post',
       action: '/upload.do',
       onUplading: this.handleUploading,
@@ -20,18 +25,11 @@ class UploadFile extends Component {
     }
     return (
       <div>
-        <Upload {...props} />
+        <Upload {...props}>
+          <Button type="secondary" onClick={this.handleClick}>Upload File</Button>
+        </Upload>
       </div>
     )
-  }
-
-  handleUploading = pre => {
-    console.log('uploading...', pre)
-    return
-  }
-
-  handleComplete = (data, list) => {
-    console.log('complete:', data, 'list:', list)
   }
 }
 
