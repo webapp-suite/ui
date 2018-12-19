@@ -36,7 +36,7 @@ const Detail = props => (
     </div>
     <div className="home__details-content">
       <div className="home__details-content-title">
-        <h2>All-in-one online social fundraising features</h2>
+        <h2>Earth-UI component library features</h2>
       </div>
       <div className="home__details-content-list">
         {details.map(item => (

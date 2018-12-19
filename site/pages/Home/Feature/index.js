@@ -6,7 +6,7 @@ import './index.less'
 const Feature = props => (
   <div className="home__features">
     <div className="home__features-title">
-      <h1>Features</h1>
+      <h1>What we do</h1>
       {/* <p>组件库使用简洁的属性，尽量减少开发者的使用复杂度。</p> */}
     </div>
     <Row className="intro__box intro__box-code">
@@ -26,8 +26,8 @@ const Feature = props => (
                 <polygon points="8.2 9.1 3.6 9.1 2.2 10.5 4.5 12.8 " className="a" />
                 <polygon points="13.5 21.8 14.9 20.4 14.9 15.8 11.2 19.5 " className="a" />
               </svg>
-              <h3>开始</h3>
-              <p>如何安装、使用和配置 Earth UI，以及本地开发 Earth UI 组件等</p>
+              <h3>Efficiency</h3>
+              <p>Build applications faster and easier for users to use.</p>
             </div>
           </div>
           <div className="intro__cell">
@@ -42,8 +42,8 @@ const Feature = props => (
                 <circle cx="7" cy="18" r="1" className="a" />
                 <polygon points="22.5 13 18.3 13.4 14 18 14 21 23.3 19.9 " className="a" />
               </svg>
-              <h3>布局组件</h3>
-              <p>如何使用顶栏、工具栏、低栏、导航栏和侧边栏等构建系统页面</p>
+              <h3>Guideline</h3>
+              <p>For both developers and designers and also the cornerstone of buiding consistent app. </p>
             </div>
           </div>
           <div className="intro__cell">
@@ -65,8 +65,8 @@ const Feature = props => (
                 <path d="M13 12.6l3.4-1.7C16.8 10.7 17 10.4 17 10V6.1l-4 2.2V12.6z" className="a" />
                 <path d="M7 10c0 0.4 0.2 0.7 0.6 0.9l4 2C11.7 13 11.8 13 12 13V8.3l-5-2.3V10z" className="a" />
               </svg>
-              <h3>UI 组件</h3>
-              <p>构建系统页面的基础组件，包括Button、Form、Aside等</p>
+              <h3>Apps</h3>
+              <p>Not only components or pages, apps are more powerful and flexible.</p>
             </div>
           </div>
         </div>

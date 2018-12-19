@@ -26,7 +26,7 @@ class App extends Component {
   }
 }`
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div className="home">
       <Header />
@@ -51,7 +51,7 @@ const HomePage = () => {
             <Col col="md-4" />
             <Col col="md-10" className="home__middle-content">
               <h2>Less is more</h2>
-              <p>一套基于ReactJS的UI组件库，在视觉设计和组件使用上都崇信极简主义的风格。采用声明式和命令式组件在不同场景灵活搭配，更便捷，也更注重中前台的用户体验。</p>
+              <p>A minimalist style in both visual design and component usage. It's more flexible by using declarative components including programatical and markup style in different cases.</p>
             </Col>
           </Row>
         </Center>
@@ -64,4 +64,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default Home

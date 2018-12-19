@@ -29,7 +29,7 @@
       font-size: 34px;
       line-height: 50px;
       font-weight: @ui-fontweight-semibold;
-      font-family: 'Droid Sans';
+      font-family: 'Droid Sans', @ui-fontstack;
     }
     p {
       margin-bottom: 30px;
@@ -76,8 +76,9 @@
       }
     }
     p {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: @ui-fontsize-medium;
+      line-height: 30px;
+      color: @ui-color-slate-lightest;
     }
   }
 }

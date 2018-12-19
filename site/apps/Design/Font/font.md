@@ -49,9 +49,9 @@ Earth UI 定义了 8 个不同尺寸的字体变量以及与之相对应的行�
 | @ui-fontsize-small      |  11 |18 |
 | @ui-fontsize-mini       |  12 |20 |
 | @ui-fontsize            |  14 |22 |
-| @ui-fontsize-medium     |  16 |24 |
-| @ui-fontsize-big        |  18 |26 |
-| @ui-fontsize-xbig       |  24 |32 |
+| @ui-fontsize-medium     |  16 |30 |
+| @ui-fontsize-big        |  18 |36 |
+| @ui-fontsize-xbig       |  24 |42 |
 | @ui-fontsize-xxbig      |  36 |48 |
 | @ui-fontsize-icon       |  22 |30 |
 
