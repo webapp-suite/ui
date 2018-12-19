@@ -4,7 +4,7 @@ import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/lib/Dropdown'
 import Icon from 'earth-ui/lib/Icon'
-import pkg from '../../../package.json'
+import pkg from '../../../../package.json'
 import './index.less'
 
 // TODO: will be replaced in next @reach/router
@@ -31,20 +31,20 @@ const renderNav = () => {
   )
 }
 
-class TopHeader extends React.Component {
+class Header extends React.Component {
   render () {
     return (
       <Row className="header" fluid>
         <Col>
           <Link to="/" className="header__logo">
-            <img src="../../img/earth_text_white.png" className="header__logo-text" />
+            <span className="header__logo-text">EARTHUi</span>
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>
           </Link>
         </Col>
-        <Col className="header__nav">
-          {renderNav()}
-        </Col>
+        {/* <Col className="header__nav"> */}
+        {/* {renderNav()} */}
+        {/* </Col> */}
         <Col right>
           <Dropdown ref="dropdown">
             <DropdownToggle className="header__nav-toggle">
@@ -71,4 +71,4 @@ class TopHeader extends React.Component {
   }
 }
 
-export default TopHeader
+export default Header

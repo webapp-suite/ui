@@ -1,4 +1,4 @@
-import {navigate} from '@reach/router'
+import { navigate } from '@reach/router'
 import React from 'react'
 import './index.less'
 
@@ -15,7 +15,7 @@ const Home = () => {
             </div>
           </section>
         </div>
-        <div className="ts-bg-lite intro__box intro__box-code">
+        <div className="intro__box intro__box-code">
           <section>
             <div className="intro__container intro__head intro__developers">
               <div className="intro__txt">
@@ -92,7 +92,7 @@ const Home = () => {
             </div>
           </section>
         </div>
-        <div className="ts-bg-white intro__box intro__box-design">
+        <div className="intro__box intro__box-design">
           <section>
             <div className="intro__container intro__head intro__designers">
               <div className="intro__img">

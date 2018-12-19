@@ -1,13 +1,13 @@
-import {navigate} from '@reach/router'
+import { navigate } from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import Icon from 'earth-ui/lib/Icon'
-import {Nav, NavItem, NavItemGroup, SubNav} from 'earth-ui/lib/Nav'
-import {Tab, TabList, Tabs} from 'earth-ui/lib/Tabs'
+import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
+import { Tab, TabList, Tabs } from 'earth-ui/lib/Tabs'
 import PropTypes from 'prop-types'
 import React from 'react'
-import {Layout, LayoutContent, LayoutSidebar} from 'widgets/Layout'
+import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
 import Scrollbar from 'widgets/Scrollbar'
-import {nav as components} from '../config.js'
+import { nav as components } from '../config.js'
 import './index.less'
 
 const getTabsByComponentName = (components, componentName) => {
@@ -122,7 +122,7 @@ class Components extends React.Component {
 
   render () {
     const { open } = this.state
-    let {children, '*': childComponentPath} = this.props
+    let { children, '*': childComponentPath } = this.props
     return (
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>

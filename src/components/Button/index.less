@@ -70,7 +70,7 @@
   &_primary, &_secondary, &_tertiary, &[disabled] {
     padding: @ui-unit-half;
     border-radius: @ui-unit;
-    .ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
+    //.ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
     & > span {
       .ui-mixin-button-text();
       .ui-mixin-text-ellipsis();
@@ -105,7 +105,7 @@
   }
 
   &_secondary {
-    background-color: @ui-color-white;
+    background-color: transparent;
     border: 1px solid @theme;
     color: @theme;
     &:hover {

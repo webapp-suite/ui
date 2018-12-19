@@ -52,7 +52,7 @@ Earth UI 定义了 8 个不同尺寸的字体变量以及与之相对应的行�
 | @ui-fontsize-medium     |  16 |24 |
 | @ui-fontsize-big        |  18 |26 |
 | @ui-fontsize-xbig       |  24 |32 |
-| @ui-fontsize-xxbig      |  36 |34 |
+| @ui-fontsize-xxbig      |  36 |48 |
 | @ui-fontsize-icon       |  22 |30 |
 
 在 Earth UI 的视觉体系中，我们建议的主要字体为 `14px`，与之对应的行高为 `22px`。其余的字阶的选择可根据具体情况进行自由的定义。建议在一个系统设计中（展示型页面除外），字阶的选择尽量控制在 `3-5` 种之间，保持克制的原则。
