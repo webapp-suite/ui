@@ -1,4 +1,4 @@
-import { navigate } from '@reach/router'
+import { Link, navigate } from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
@@ -56,7 +56,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      navigate(`/${route}`)
+      navigate(`/app/${route}`)
     }
   }
 
@@ -128,9 +128,9 @@ class Components extends React.Component {
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
             <div className="components__navbar-top">
-              <div className="components__navbar-top-logo">
+              <Link to="/" className="components__navbar-top-logo">
                 <span>EARTHUi</span>
-              </div>
+              </Link>
               <div className="components__navbar-top-close">
                 <Icon type="close" />
               </div>

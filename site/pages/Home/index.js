@@ -34,7 +34,7 @@ const Home = () => {
         <div className="home__banner-center">
           <h1>A minimalism style ui component library based on React.</h1>
           <p>UI components range from simple buttons and icons to fancy datepickers and dropdown menus. The target audience is both developers and designers.</p>
-          <Link to="/start/usage">
+          <Link to="/app/start/usage">
             <Button type="primary" className="home__banner-btn">Get Started</Button>
           </Link>
           <a href="https://github.com/G-Explorer/earth-ui">

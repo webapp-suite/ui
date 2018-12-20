@@ -11,11 +11,6 @@ export const backToTop = {
 }
 
 export const nav = [{
-  'icon': 'docs-icon-interface-information',
-  'path': 'intro',
-  'name': 'intro',
-  'cn': '介绍'
-}, {
   'icon': 'docs-icon-space-rocket',
   'path': 'start',
   'name': 'start',
