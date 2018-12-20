@@ -8,7 +8,9 @@ import App from './apps/index'
 
 const asyncComponent = path => Imported(() => {
   NProgress.start()
-  whenComponentsReady().then(() => NProgress.done())
+  whenComponentsReady().then(() => {
+    path !== '/' && NProgress.done()
+  })
   if (path === '/') {
     return import('./pages/Home')
   }

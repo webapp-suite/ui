@@ -6,18 +6,30 @@
 .home {
   background-color: @ui-color-white;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 100vh;
 }
 
 .home__banner {
+  position: relative;
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
   background-color: @ui-color-gray-lightest;
-  background-image: url('../../img/home_banner.png');
-  background-position: right -220px top -28px;
-  background-size: auto 830px;
-  background-repeat: no-repeat,no-repeat,no-repeat;
+  &-background {
+    position: absolute;
+    height: 830px;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    &-image {
+      position: relative;
+      height: 830px;
+      right: -220px;
+      top: -28px;
+      z-index: 0;
+    }
+  }
   &-center {
     color: @ui-color-black;
     text-align: left;
@@ -48,7 +60,7 @@
 }
 
 .home__middle {
-  background-image: url('../../img/home_middle.png');
+  background-image: url('/img/home_middle.png');
   background-position: left 0 top -2px;
   background-size: 100% auto;
   background-repeat: no-repeat,no-repeat,no-repeat;
