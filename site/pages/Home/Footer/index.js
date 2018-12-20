@@ -33,10 +33,12 @@ class Footer extends PureComponent {
           </div>
         </div>
         <div className="second-line">
-          <div className="left" />
+          <div className="left">
+            <span className="footer__second-line-left-logo">EARTHUi</span>
+          </div>
           <div className="right">
-            <span>苏ICP备15056713号</span>
-            <span>Copyright © Kimi Gao</span>
+            <span>SU ICP NO.15056713</span>
+            <span>© Kimi Gao</span>
           </div>
         </div>
       </footer>

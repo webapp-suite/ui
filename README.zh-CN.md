@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img width="436" src="https://user-images.githubusercontent.com/12554487/40153405-4784fd0e-59bc-11e8-893e-946b246b6076.jpg" alt="earth-ui logo">
+    <img width="300" src="https://user-images.githubusercontent.com/12554487/50267449-39878680-0462-11e9-9f94-344fbfd4ccb6.png" alt="earth-ui logo">
     <br>
     <br>
 </h1>
