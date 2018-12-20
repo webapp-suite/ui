@@ -1,10 +1,13 @@
 <h1 align="center">
-    <img width="300" src="https://user-images.githubusercontent.com/12554487/50267449-39878680-0462-11e9-9f94-344fbfd4ccb6.png" alt="earth-ui logo">
+    <br>
+    <br>
+    <img width="300" src="https://user-images.githubusercontent.com/12554487/50267761-49539a80-0463-11e9-805d-af44524abf47.png" alt="earth-ui logo">
+    <br>
     <br>
     <br>
 </h1>
 
-> A minimalism-style UI component library and React-based implementation.
+> A minimalism style ui component library based on React.
 
 [![build status][travis-image]][travis-url]
 [![npm version][npm-version-image]][npm-version-url]
