@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@reach/router'
+// import { Link } from '@reach/router'
 // import Button from 'earth-ui/lib/Button'
 import { Row, Col } from 'earth-ui/lib/Layout'
 // import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/lib/Dropdown'
@@ -36,11 +36,11 @@ class Header extends React.Component {
     return (
       <Row className="header" fluid>
         <Col>
-          <Link to="/" className="header__logo">
+          <div className="header__logo">
             <span className="header__logo-text">EARTHUi</span>
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>
-          </Link>
+          </div>
         </Col>
         {/* <Col className="header__nav"> */}
         {/* {renderNav()} */}
