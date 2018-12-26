@@ -1,4 +1,6 @@
 import React from 'react'
+import QueueAnim from 'rc-queue-anim'
+import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import Icon from 'earth-ui/lib/Icon'
 import './index.less'
 
@@ -29,7 +31,7 @@ const details = [{
 }]
 
 const Detail = props => (
-  <div className="home__details">
+  <div className="home__details" id="home__details">
     <div className="home__details-background">
       <div className="home__details-background-top" />
       <div className="home__details-background-bottom" />
@@ -38,15 +40,22 @@ const Detail = props => (
       <div className="home__details-content-title">
         <h2>Earth-UI component library features</h2>
       </div>
-      <div className="home__details-content-list">
-        {details.map(item => (
-          <div className="home__details-content-list-item" key={item.icon}>
-            <Icon className="home__details-content-list-item-icon" src={`/svg/icons.svg#${item.icon}`} />
-            <p className="home__details-content-list-item-title">{item.title}</p>
-            <p className="home__details-content-list-item-intro">{item.intro}</p>
-          </div>
-        ))}
-      </div>
+      <ScrollOverPack playScale="0.4" targetId="home" location="home__details">
+        <QueueAnim
+          className="home__details-content-list"
+          key="queue"
+          duration={600}
+          ease={['easeOutQuart', 'easeInQuart']}
+        >
+          {details.map(item => (
+            <div className="home__details-content-list-item" key={item.icon}>
+              <Icon className="home__details-content-list-item-icon" src={`/svg/icons.svg#${item.icon}`} />
+              <p className="home__details-content-list-item-title">{item.title}</p>
+              <p className="home__details-content-list-item-intro">{item.intro}</p>
+            </div>
+          ))}
+        </QueueAnim>
+      </ScrollOverPack>
     </div>
   </div>
 )

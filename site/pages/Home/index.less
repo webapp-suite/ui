@@ -37,6 +37,7 @@
     text-align: left;
     margin-left: @padding-lr;
     font-size: @ui-fontsize-medium;
+    min-height: 336px;
     h1 {
       margin-bottom: 30px;
       width: 400px;
@@ -67,13 +68,14 @@
   background-size: 100% auto;
   background-repeat: no-repeat,no-repeat,no-repeat;
   background-color: @ui-color-white;
+  min-height: 656px;
   > .center {
     padding-top: 22vh;
     padding-bottom: 26vh;
   }
   width: 100%;
   &-code {
-    border-radius: 10px;
+    border-radius: @ui-unit;
     box-shadow: 5px 5px 100px rgba(104, 104, 104, 0.17);
   }
   &-content {

@@ -1,4 +1,6 @@
 import React from 'react'
+import QueueAnim from 'rc-queue-anim'
+import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import NProgress from 'nprogress'
 import { Link } from '@reach/router'
 import Button from 'earth-ui/lib/Button'
@@ -55,7 +57,7 @@ class Home extends React.Component {
       )
     }
     return (
-      <div className="home">
+      <div className="home" id="home">
         <Header />
         <div className="home__banner">
           <div className="home__banner-background">
@@ -66,30 +68,53 @@ class Home extends React.Component {
                 draggable="false"
               />}
           </div>
-          <div className="home__banner-center">
-            <h1>A minimalism style ui component library based on React.</h1>
-            <p>UI components range from simple buttons and icons to fancy datepickers and dropdown menus. The target audience is both developers and designers.</p>
-            <Link to="/app/start/usage">
-              <Button type="primary" className="home__banner-btn">Get Started</Button>
-            </Link>
-            <a href="https://github.com/G-Explorer/earth-ui">
-              <Button type="secondary" className="home__banner-btn">Github</Button>
-            </a>
-          </div>
+          <QueueAnim type="alpha" className="home__banner-center" delay={150}>
+            <QueueAnim className="text-wrapper" key="text" type="bottom">
+              <h1 key="h1">A minimalism style ui component library based on React.</h1>
+              <p key="p">UI components range from simple buttons and icons to fancy datepickers and dropdown menus. The target audience is both developers and designers.</p>
+              <div key="buttons">
+                <Link to="/app/start/usage">
+                  <Button type="primary" className="home__banner-btn">Get Started</Button>
+                </Link>
+                <a href="https://github.com/G-Explorer/earth-ui">
+                  <Button type="secondary" className="home__banner-btn">Github</Button>
+                </a>
+              </div>
+            </QueueAnim>
+          </QueueAnim>
         </div>
-        <div className="home__middle">
+        <div className="home__middle" id="home__middle">
           <Center>
             <Row gutter>
-              <Col col="md-10">
-                <Code className="home__middle-code">{code}</Code>
-              </Col>
+              <ScrollOverPack targetId="home" location="home__middle">
+                <QueueAnim
+                  className="intro__container"
+                  key="code"
+                  duration={600}
+                  type="left"
+                >
+                  <Col col="md-10" key="code">
+                    <Code className="home__middle-code">{code}</Code>
+                  </Col>
+                </QueueAnim>
+              </ScrollOverPack>
               <Col col="md-4" />
-              <Col col="md-10" className="home__middle-content">
-                <h2>Less is more</h2>
-                <p>A minimalist style in both visual design and component usage. It's more flexible by using declarative components including programatical and markup style in different cases.</p>
-              </Col>
+              <ScrollOverPack targetId="home" location="home__middle">
+                <QueueAnim
+                  className="intro__container"
+                  key="intro"
+                  duration={600}
+                  type="right"
+                >
+                  <Col col="md-10" className="home__middle-content" key="content">
+                    <h2>Less is more</h2>
+                    <p>A minimalist style in both visual design and component usage. It's more flexible by using declarative components including programatical and markup style in different cases.</p>
+                  </Col>
+                </QueueAnim>
+              </ScrollOverPack>
             </Row>
           </Center>
+
         </div>
         <Feature />
         <Detail />
