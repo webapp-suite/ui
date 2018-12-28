@@ -1,14 +1,14 @@
-import React from 'react'
+// import { navigate } from '@reach/router'
+import { Row } from 'earth-ui/lib/Layout'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
-import { navigate } from '@reach/router'
-import { Row } from 'earth-ui/lib/Layout'
+import React from 'react'
 import Center from '../Center'
 import './index.less'
 
 const data = [{
   title: 'Efficiency',
-  intro: 'Build applications faster and easier for users to use.',
+  intro: 'Build applications or pages faster and easier for developers.',
   to: '/start/usage',
   svgIcon: (
     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -26,7 +26,7 @@ const data = [{
   )
 }, {
   title: 'Guideline',
-  intro: 'For both developers and designers and also the cornerstone of buiding consistent app.',
+  intro: 'For developers and designers and also the cornerstone of buiding consistent app.',
   to: '/components/Layout',
   svgIcon: (
     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ const data = [{
   )
 }, {
   title: 'Apps',
-  intro: 'Not only components or pages, apps are more powerful and flexible.',
+  intro: 'Beyond components or pages, apps are more powerful and flexible.',
   to: '/components/Icon-usage',
   svgIcon: (
     <svg width="24" height="24" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ const data = [{
   )
 }]
 
-class Feature extends React.PureComponent {
+class Section2 extends React.PureComponent {
   state = {
     hoverKey: null
   };
@@ -82,24 +82,25 @@ class Feature extends React.PureComponent {
   };
   render () {
     return (
-      <div className="home__features" id="home__features">
-        <div className="home__features-title">
-          <h1>What we do</h1>
+      <div className="home__section2" id="home__section2">
+        <div className="home__section2-title">
+          <h1>Overview</h1>
           {/* <p>组件库使用简洁的属性，尽量减少开发者的使用复杂度。</p> */}
         </div>
-        <Row className="home__features-box">
+        <Row className="home__section2-box">
           <Center>
-            <ScrollOverPack targetId="home" location="home__features">
+            <ScrollOverPack playScale="0.4" targetId="home" location="home__section2">
               <QueueAnim
-                className="home__features-box-container"
+                className="home__section2-box-container"
                 key="queue"
                 ease={['easeOutQuart', 'easeInQuart']}
                 leaveReverse
               >
                 {data.map(item => (
-                  <div className="home__features-box-container-cell" key={item.title}>
+                  <div className="home__section2-box-container-cell" key={item.title}>
                     <QueueAnim type="bottom">
-                      <div onClick={() => navigate(item.to)}>
+                      {/* onClick={() => navigate(item.to)} */}
+                      <div>
                         {item.svgIcon}
                         <h3>{item.title}</h3>
                         <p>{item.intro}</p>
@@ -116,4 +117,4 @@ class Feature extends React.PureComponent {
   }
 }
 
-export default Feature
+export default Section2
