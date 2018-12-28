@@ -3,6 +3,7 @@ import HeaderBar from 'earth-ui/lib/HeaderBar'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
 import { Tab, TabList, Tabs } from 'earth-ui/lib/Tabs'
+import Tooltip from 'earth-ui/lib/Tooltip'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
@@ -33,10 +34,14 @@ function renderNavBottom () {
       <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
         className="components__navbar-bottom-user-company">Earthui Corp.</span></div>
     <div className="components__navbar-bottom-logout">
-      <Icon type="logout" className="components__navbar-bottom-logout-icon" />
+      <Tooltip title="Unfinished feature">
+        <Icon type="logout" className="components__navbar-bottom-logout-icon" />
+      </Tooltip>
     </div>
     <div className="components__navbar-bottom-settings">
-      <Icon type="settings" className="components__navbar-bottom-settings-icon" />
+      <Tooltip title="Unfinished feature">
+        <Icon type="settings" className="components__navbar-bottom-settings-icon" />
+      </Tooltip>
     </div>
   </div>
 }
@@ -132,7 +137,9 @@ class Components extends React.Component {
                 <span>EARTHUi</span>
               </Link>
               <div className="components__navbar-top-close">
-                <Icon type="close" />
+                <Tooltip direction="down" title="Unfinished feature">
+                  <Icon type="close" />
+                </Tooltip>
               </div>
             </div>
             <Scrollbar className="components__navbar-scrollbar">
