@@ -8,7 +8,7 @@ import './index.less'
 
 const data = [{
   title: 'Efficiency',
-  intro: 'Make the UI build more easier. Programmatic and markup styles are both supported.',
+  intro: 'Easier to build the UI. Programmatic and markup styles are both supported.',
   to: '/start/usage',
   svgIcon: (
     <svg width="24" height="24" viewBox="0 0 24 24">

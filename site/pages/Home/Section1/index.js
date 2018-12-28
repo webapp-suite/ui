@@ -46,7 +46,7 @@ export default function Section1 () {
               <Col col="md-10" className="home__section1-content" key="content">
                 <h2>Less is more</h2>
                 <p>A minimalist style in both visual design and component usage. It's more flexible by using declarative
-                  components including programatical and markup style in different cases.</p>
+                  components including programmatic and markup style in different cases.</p>
               </Col>
             </QueueAnim>
           </ScrollOverPack>
