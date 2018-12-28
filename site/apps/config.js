@@ -74,7 +74,7 @@ export const nav = [{
 }, {
   'icon': 'docs-icon-video-games-space-invaders-1',
   'path': 'components',
-  'name': 'Programatical Declarative Components',
+  'name': 'Programmatic Declarative Components',
   'cn': '函数声明组件',
   'defaultOpen': true,
   'components': [{
