@@ -19,10 +19,19 @@ Extra checklist:
   * [ ] Update API docs for the component.
   * [ ] Update/Add demo to demonstrate new feature.
   * [ ] Add unit tests for the feature.
+  
+**Relative issue**:
+
+
 
 **Description**:
 
 
 
 *ScreenShots*:
+
+
+
+*Gif*:
+
 

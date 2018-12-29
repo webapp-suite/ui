@@ -84,7 +84,7 @@ class Section2 extends React.PureComponent {
     return (
       <div className="home__section2" id="home__section2">
         <div className="home__section2-title">
-          <h1>Highlights</h1>
+          <h1>Overview</h1>
         </div>
         <Row className="home__section2-box">
           <Center>
