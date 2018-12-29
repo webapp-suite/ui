@@ -1,0 +1,92 @@
+@import "~ui-variables";
+@import "~ui-mixins";
+
+@padding-lr: 9vw;
+
+.home__section2 {
+  padding-top: 0px;
+  padding-bottom: 100px;
+  margin-top: -8vh;
+  &-title {
+    text-align: center;
+    margin: 0 auto @ui-unit-double;
+    h1 {
+      display: inline-block;
+      color: @ui-color-slate-lightest;
+      font-size: 34px;
+      font-weight: @ui-fontweight-semibold;
+      margin: 20px 0;
+      position: relative;
+      padding-bottom: @ui-unit-half;
+      border-bottom: 2px solid @theme;
+    }
+    p {
+      color: #8b97a5;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  &-box {
+    //padding-top: 40px;
+    padding-bottom: 6vh;
+    padding-bottom: @ui-unit-triple;
+    min-height: 330px;
+    &-container {
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      .ui-mixin-reduce(5vw);
+      display: flex;
+      justify-content: space-between;
+      &-cell {
+        vertical-align: top;
+        width: 300px;
+        text-align: center;
+        //cursor: pointer;
+        //border: 1px solid transparent;
+        .ui-mixin-transition(all);
+        padding-top: @ui-unit;
+        padding-bottom: @ui-unit;
+        svg {
+          display: block;
+          text-align: center;
+          width: @ui-unit * 4;
+          height: @ui-unit * 4;
+          margin: 0 105px 20px;
+          rect,
+          circle,
+          polygon,
+          path {
+            fill: @ui-color-blue;
+          }
+        }
+        p {
+          line-height: 28px;
+          color: @ui-color-slate-lighter;
+        }
+        h2 {
+          font-size: 24px;
+          font-weight: 500;
+          color: @ui-color-slate-light;
+          -webkit-font-smoothing: antialiased;
+        }
+        h3 {
+          font-size: @ui-fontsize-big;
+          color: @ui-color-slate;
+          font-weight: @ui-fontweight-medium;
+        }
+        &:hover {
+          //border-color: @ui-color-blue-dark;
+          //border-radius: @ui-radius;
+          svg > * {
+            fill: @ui-color-blue-dark;
+          }
+          h3,
+          p {
+            color: @ui-color-slate;
+          }
+        }
+      }
+    }
+  }
+}

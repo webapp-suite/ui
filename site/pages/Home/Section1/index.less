@@ -1,0 +1,38 @@
+@import "~ui-variables";
+
+.home__section1 {
+  background-image: url('/img/home_middle.png');
+  background-position: left 0 top -2px;
+  background-size: 100% auto;
+  background-repeat: no-repeat,no-repeat,no-repeat;
+  background-color: @ui-color-white;
+  min-height: 656px;
+  > .center {
+    padding-top: 22vh;
+    padding-bottom: 26vh;
+  }
+  width: 100%;
+  &-code {
+    border-radius: @ui-unit;
+    box-shadow: 5px 5px 100px rgba(104, 104, 104, 0.17);
+  }
+  &-content {
+    padding-bottom: @ui-unit;
+    h2 {
+      color: @theme;
+      margin-top: .5em;
+      margin-bottom: 1em;
+      @media (min-width: 320px) {
+        font-size: 24px;
+      }
+      @media (min-width: 960px) {
+        font-size: 36px;
+      }
+    }
+    p {
+      font-size: @ui-fontsize-medium;
+      line-height: @ui-unit-plus;
+      color: @ui-color-slate-lightest;
+    }
+  }
+}

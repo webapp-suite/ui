@@ -1,0 +1,89 @@
+@import "~ui-variables";
+
+@padding-lr: 9vw;
+
+.home__section3 {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 5vh;
+  &-background {
+    height: 900px;
+    background-color: @ui-color-white;
+    &-top {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      top: -200px;
+      height: 600px;
+      background-image: url('/img/home_details_bg-top.png');
+      background-position: left 0 top -2px;
+      background-size: 100% auto;
+      background-repeat: no-repeat,no-repeat,no-repeat;
+      background-color: @ui-color-gray-lightest;
+    }
+    &-bottom {
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+      top: 200px;
+      height: 600px;
+      padding-bottom: 300px;
+      background-image: url('/img/home_details_bg-bottom.png');
+      background-position: left 0 bottom -1px;
+      background-size: 100% auto;
+      background-repeat: no-repeat,no-repeat,no-repeat;
+      background-color: @ui-color-gray-lightest;
+    }
+  }
+  &-content {
+    &-title {
+      position: absolute;
+      z-index: 2;
+      top: -10px;
+      left: @padding-lr;
+      //border: 1px solid blue;
+      h2 {
+        width: 230px;
+        color: @ui-color-slate;
+        line-height: 38px;
+        font-weight: @ui-fontweight-light;
+        font-size: 28px;
+      }
+    }
+    &-list {
+      position: absolute;
+      z-index: 2;
+      top: @ui-unit-half;
+      right: @padding-lr;
+      width: 750px;
+      //border: 1px solid red;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &-item {
+        width: 330px;
+        height: 200px;
+        //border: 1px solid green;
+        margin-bottom: 50px;
+        &-icon svg {
+          transform: scale(2.5);
+          transform-origin: top left;
+          & > * {
+            fill: @ui-color-slate-lightest;
+          }
+        }
+        &-title {
+          margin-top: 80px;
+          font-size: @ui-fontsize-big;
+          color: @ui-color-slate;
+          font-weight: @ui-fontweight-medium;
+        }
+        &-intro {
+          margin-top: 15px;
+          color: @ui-color-gray-darkest;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}

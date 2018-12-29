@@ -7,37 +7,38 @@ class Footer extends PureComponent {
       <footer className="container">
         <div className="first-line">
           <div className="left">
-            <h2>关于组件库</h2>
-            <div className="intro">Earth UI - Earth Project React UI 组件库<br />
-              在视觉设计和组件使用上都崇信极简主义的风格</div>
+            <h2>About Earth-UI</h2>
+            <div className="intro">A minimalism style ui component library based on React</div>
           </div>
           <div className="left">
-            <h2>支付宝赞赏</h2>
+            <h2>Alipay reward</h2>
             <div className="pay">
               <img src="/img/qrcode_alipay.jpg" alt="" />
             </div>
           </div>
           <div className="left">
-            <h2>微信赞赏</h2>
+            <h2>Wechat reward</h2>
             <div className="pay">
               <img src="/img/qrcode_wechat.jpg" alt="" />
             </div>
           </div>
           <div className="right">
-            <h2>帮助</h2>
+            <h2>Help</h2>
             <div className="help">
               <div><a href="https://github.com/G-Explorer/earth-ui">Github</a></div>
-              <div><a href="https://g-explorer.slack.com">Slack 在线讨论</a></div>
-              <div><a href="https://github.com/G-Explorer/earth-ui/issues/new">报告 Bug</a></div>
-              <div><a href="https://github.com/G-Explorer/earth-ui/issues">讨论列表</a></div>
+              <div><a href="https://github.com/G-Explorer/earth-ui/releases">Release Note</a></div>
+              <div><a href="https://github.com/G-Explorer/earth-ui/issues/new">Bug Report</a></div>
+              <div><a href="https://g-explorer.slack.com">Slack Chat</a></div>
             </div>
           </div>
         </div>
         <div className="second-line">
-          <div className="left" />
+          <div className="left">
+            <span className="footer__second-line-left-logo">EARTHUi</span>
+          </div>
           <div className="right">
-            <span>苏ICP备15056713号</span>
-            <span>Copyright © Kimi Gao</span>
+            <span>SU ICP NO.15056713</span>
+            <span>© Kimi Gao</span>
           </div>
         </div>
       </footer>

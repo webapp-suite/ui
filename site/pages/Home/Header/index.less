@@ -1,30 +1,30 @@
 @import "~ui-variables";
 
 @primary-color: @theme;
-@header-padding: 40px;
+@header-padding: 9vw;
 
 .header {
   position: relative;
-  background-color: hsl(0, 0%, 13%);
+  float: left;
+  width: 100%;
+  background-color: transparent;
   padding: 15px @header-padding;
-  color: @ui-color-white;
   transition: all .2s;
-  z-index: @ui-zindex-modal;
+  z-index: @ui-zindex-topbar;
   a {
-    color: @ui-color-white;
+    color: @ui-color-slate-lightest;
     text-decoration: none;
     &:hover {
       color: @primary-color;
       text-decoration: none;
     }
   }
-  .header__logo {
-    display: block;
+  &__logo {
     font-size: 16px;
     font-weight: @ui-fontweight-medium;
     line-height: 30px;
     vertical-align: middle;
-    margin-right: 40px;
+    color: @ui-color-slate-lightest;
     svg {
       width: 30px;
       height: 30px;
@@ -32,22 +32,26 @@
       margin-right: 10px;
       fill: @ui-color-white;
     }
-    img.header__logo-img {
+    .header__logo-img {
       position: relative;
       top: 5px;
       width: 23px;
       margin-right: 10px;
     }
-    img.header__logo-text {
+    .header__logo-text {
       position: relative;
       top: 2px;
       width: 58px;
       margin-right: 10px;
+      font-size: 26px;
+      font-weight: @ui-fontweight;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Eurofighter Expanded";
     }
     sub {
       margin-left: 3px;
       bottom: 2px;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 
