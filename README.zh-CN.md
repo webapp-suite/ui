@@ -1,13 +1,15 @@
 <h1 align="center">
     <br>
     <br>
+    <br>
     <img width="300" src="https://user-images.githubusercontent.com/12554487/50267761-49539a80-0463-11e9-805d-af44524abf47.png" alt="earth-ui logo">
+    <br>
     <br>
     <br>
     <br>
 </h1>
 
-> 一套基于ReactJS的极简风格的UI组件库。
+> :warning: 在 1.0.0 正式发布前，请不要将 earth-ui 用于产线环境。
 
 [![build status][travis-image]][travis-url]
 [![npm version][npm-version-image]][npm-version-url]
