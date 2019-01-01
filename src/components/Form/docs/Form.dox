@@ -1,3 +1,5 @@
+@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+
 /**
  * @title 基本功能
  * @desc 为了方便，FormInput、FormSelect、FormTextarea 自动绑定最近的 FormItem name 属性对应的数据；FormSubmit 触发表单提交，如果不指定 onSubmit 则自动调用 save
