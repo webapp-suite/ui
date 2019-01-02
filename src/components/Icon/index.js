@@ -6,7 +6,7 @@ import './index.less'
 const Icon = props => {
   const { className, type, src, ...other } = props
   return (
-    <i className={cx(`${prefixCls}-icon`, {[`${prefixCls}-icon__${type}`]: type}, className)} {...other}>
+    <i className={cx(`${prefixCls}-icon`, { [`${prefixCls}-icon__${type}`]: type }, className)} {...other}>
       {src && <svg><use xlinkHref={src} /></svg>}
     </i>
   )
