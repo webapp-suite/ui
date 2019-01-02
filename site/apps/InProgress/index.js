@@ -1,13 +1,45 @@
+import NProgress from 'nprogress'
 import React from 'react'
 import './index.less'
 
-const NotFound = (props) => {
-  return (
-    <div className="in-progress">
-      <div className="in-progress__image" />
-      <p>Work in progress...</p>
-    </div>
-  )
+class InProgress extends React.Component {
+  state = {
+    imageStatus: 'loading'
+  }
+
+  handleImageLoaded = () => {
+    this.setState({ imageStatus: 'loaded' })
+    NProgress.done()
+  }
+
+  handleImageErrored = () => {
+    this.setState({ imageStatus: 'failed' })
+    NProgress.done()
+  }
+  render () {
+    if (this.state.imageStatus === 'loading') {
+      return (
+        <img
+          style={{ display: 'none' }}
+          src="/img/in_progress.png"
+          alt="Work in progress"
+          onLoad={this.handleImageLoaded}
+          onError={this.handleImageErrored}
+        />
+      )
+    }
+    return (
+      <div className="in-progress">
+        {this.state.imageStatus === 'loaded' &&
+        <img className="in-progress__image"
+          src="/img/in_progress.png"
+          alt="Work in progress"
+          draggable="false"
+        />}
+        <p>Work in progress...</p>
+      </div>
+    )
+  }
 }
 
-export default NotFound
+export default InProgress
