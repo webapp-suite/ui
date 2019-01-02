@@ -42,6 +42,10 @@
   display: inline-block;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 
+  &:hover > span {
+    text-decoration: underline;
+  }
+
   &:last-child {
     margin-right: 0;
   }
@@ -72,6 +76,11 @@
     padding: @ui-unit-half;
     border-radius: @ui-unit;
     //.ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
+
+    &:hover > span {
+      text-decoration: none;
+    }
+
     & > span {
       .ui-mixin-button-text();
       .ui-mixin-text-ellipsis();
@@ -166,5 +175,4 @@
   color: @ui-color-gray-light;
   border: 1px solid @ui-color-gray-lighter;
   background-color: @ui-color-gray-lightest;
-
 }
