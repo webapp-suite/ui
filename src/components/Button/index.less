@@ -18,9 +18,9 @@
     .ui-mixin-maximize(0-@ui-unit-half,0,0-@ui-unit-half,0);
   }
   > i {
-    font-size: @ui-fontsize-big;
+    font-size: @ui-fontsize-medium;
     &:before {
-      font-size: @ui-fontsize-big;
+      font-size: @ui-fontsize-medium;
     }
   }
   &.ui-is-loading {
@@ -34,7 +34,7 @@
   .ui-mixin-unselectable();
   color: @theme;
   cursor: pointer;
-  min-width: @ui-unit-double;
+  min-width: 82px;
   max-width: 100%;
   margin-right: @ui-unit-half;
   text-align: center;
@@ -63,7 +63,6 @@
     line-height: @ui-unit;
     display: inline-block;
     vertical-align: middle;
-    min-width: @ui-unit-triple;
   }
 
   &_nofocus {
@@ -154,6 +153,10 @@
   &__icon-only {
     width: @ui-unit-double;
     height: @ui-unit-double;
+    min-width: @ui-unit;
+    &.@{prefix-cls}-button_micro {
+      width: @ui-unit;
+    }
   }
 }
 
