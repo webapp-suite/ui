@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import omit from '../../utils/omit'
+import omit from '../_utils/omit'
 import IndicatorSVG from './IndicatorSVG'
 import './index.less'
 

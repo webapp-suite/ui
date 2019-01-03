@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import classlist from 'classlist'
-import omit from '../../utils/omit'
+import omit from '../_utils/omit'
 
 class DialogContainer extends React.Component {
   constructor (props) {

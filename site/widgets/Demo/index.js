@@ -6,7 +6,7 @@ import { Col, Row } from 'earth-ui/lib/Layout'
 import { Tab, TabList, TabPanel, Tabs } from 'earth-ui/lib/Tabs'
 import Markdown from 'widgets/Markdown'
 import Code from 'widgets/Code'
-import * as type from '../../../src/utils/type'
+import * as type from '../../../src/components/_utils/type'
 import './index.less'
 
 function trimCode (code) {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import controlledPropValidator from '../../utils/propValidator/controlled'
+import React, { Component } from 'react'
+import controlledPropValidator from '../_utils/propValidator/controlled'
 import Popover from '../Popover'
 import DropdownMenu from './DropdownMenu'
 import DropdownToggle from './DropdownToggle'
@@ -14,7 +14,7 @@ class Dropdown extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    'open' in nextProps && this.setState({open: nextProps.open})
+    'open' in nextProps && this.setState({ open: nextProps.open })
   }
 
   /**
@@ -23,7 +23,7 @@ class Dropdown extends Component {
    * @description 展开
    */
   open () {
-    this.setState({open: true})
+    this.setState({ open: true })
   }
 
   /**
@@ -32,7 +32,7 @@ class Dropdown extends Component {
    * @description 收起
    */
   close () {
-    this.setState({open: false})
+    this.setState({ open: false })
   }
 
   handleToggle = open => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import xhr from '../../utils/xhr'
+import xhr from '../_utils/xhr'
 import FileList from './FileList'
 import Button from '../Button/index'
 import './index.less'
