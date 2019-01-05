@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/G-Explorer/earth-ui/compare/v0.2.2...v0.3.0) (2019-01-05)
+
+
+### Features
+
+* **all components:** use new design and add some new components ([#27](https://github.com/G-Explorer/earth-ui/issues/27)) ([71465b1](https://github.com/G-Explorer/earth-ui/commit/71465b1))
+* **dialog/notification:** add dialog and notification components ([#33](https://github.com/G-Explorer/earth-ui/issues/33)) ([4cfa535](https://github.com/G-Explorer/earth-ui/commit/4cfa535))
+* **Spinner/Switch:** add spinner and switch components ([#30](https://github.com/G-Explorer/earth-ui/issues/30)) ([e259a52](https://github.com/G-Explorer/earth-ui/commit/e259a52))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/G-Explorer/earth-ui/compare/v0.2.1...v0.2.2) (2018-09-11)
 
