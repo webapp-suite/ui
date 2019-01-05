@@ -1,9 +1,9 @@
 import classlist from 'classlist'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import EventPool from '../../utils/EventPool'
-import ToggleNode from '../../utils/ToggleNode'
+import EventPool from '../_utils/EventPool'
+import ToggleNode from '../_utils/ToggleNode'
 import ModalContent from './ModalContent'
 
 const scrollbarWidth = (() => {
@@ -28,7 +28,7 @@ class Modal extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    'open' in nextProps && this.setState({open: nextProps.open})
+    'open' in nextProps && this.setState({ open: nextProps.open })
   }
 
   shouldComponentUpdate (nextProps, nextState) {
@@ -100,7 +100,7 @@ class Modal extends Component {
    * @description 打开模态框
    */
   open () {
-    this.setState({open: true})
+    this.setState({ open: true })
     this.props.onToggle && this.props.onToggle(true)
   }
 
@@ -111,7 +111,7 @@ class Modal extends Component {
    * @description 关闭模态框
    */
   close = (callback = this.props.onClose) => {
-    this.setState({open: false})
+    this.setState({ open: false })
     this.props.onToggle && this.props.onToggle(false)
     this.closeCallbacks.add(callback)
   }

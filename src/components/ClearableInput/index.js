@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import controlledPropValidator from '../../utils/propValidator/controlled'
+import React, { Component } from 'react'
+import controlledPropValidator from '../_utils/propValidator/controlled'
 import Button from '../Button'
 import Input from '../Input'
 import './index.less'
@@ -18,7 +18,7 @@ class ClearableInput extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    'value' in nextProps && this.setState({value: nextProps.value})
+    'value' in nextProps && this.setState({ value: nextProps.value })
   }
 
   handleClear = e => {

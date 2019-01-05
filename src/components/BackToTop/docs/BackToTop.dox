@@ -1,6 +1,9 @@
+@summary > 该组件正在开发中，暂时无效果。
+
 /**
  * @title 代码演示
  * @desc 在首页滚动页面，右下角即可显示该组件
+ * @renderModel right
  */
 import BackToTop from 'earth-ui/lib/BackToTop'
 

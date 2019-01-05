@@ -58,7 +58,7 @@ Button.propTypes = {
   // 是否为block
   block: PropTypes.bool,
 
-  // 按钮图标，支持 fontawaresome 图标
+  // 按钮图标
   icon: PropTypes.string,
 
   // 按钮是否带 focus 的效果，默认 `false`

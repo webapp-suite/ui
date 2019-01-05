@@ -18,9 +18,9 @@
     .ui-mixin-maximize(0-@ui-unit-half,0,0-@ui-unit-half,0);
   }
   > i {
-    font-size: @ui-fontsize-big;
+    font-size: @ui-fontsize-medium;
     &:before {
-      font-size: @ui-fontsize-big;
+      font-size: @ui-fontsize-medium;
     }
   }
   &.ui-is-loading {
@@ -34,13 +34,17 @@
   .ui-mixin-unselectable();
   color: @theme;
   cursor: pointer;
-  min-width: @ui-unit-double;
+  min-width: 82px;
   max-width: 100%;
   margin-right: @ui-unit-half;
   text-align: center;
   position: relative;
   display: inline-block;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+
+  &:hover > span {
+    text-decoration: underline;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -71,6 +75,11 @@
     padding: @ui-unit-half;
     border-radius: @ui-unit;
     //.ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
+
+    &:hover > span {
+      text-decoration: none;
+    }
+
     & > span {
       .ui-mixin-button-text();
       .ui-mixin-text-ellipsis();
@@ -144,6 +153,10 @@
   &__icon-only {
     width: @ui-unit-double;
     height: @ui-unit-double;
+    min-width: @ui-unit;
+    &.@{prefix-cls}-button_micro {
+      width: @ui-unit;
+    }
   }
 }
 
@@ -165,5 +178,4 @@
   color: @ui-color-gray-light;
   border: 1px solid @ui-color-gray-lighter;
   background-color: @ui-color-gray-lightest;
-
 }

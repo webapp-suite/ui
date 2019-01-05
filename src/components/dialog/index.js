@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import marked from 'marked'
-import * as type from '../../utils/type'
+import * as type from '../_utils/type'
 import Dialog from './Dialog'
 import DialogBody from './DialogBody'
 import DialogButtons from './DialogButtons'

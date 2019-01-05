@@ -9,7 +9,7 @@ import App from './apps/index'
 const asyncComponent = path => Imported(() => {
   NProgress.start()
   whenComponentsReady().then(() => {
-    path !== '/' && NProgress.done()
+    !['/', 'InProgress'].includes(path) && NProgress.done()
   })
   if (path === '/') {
     return import('./pages/Home')
@@ -19,11 +19,24 @@ const asyncComponent = path => Imported(() => {
     : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
 })
 
+const WIP = [
+  'ToolBar',
+  'FooterBar',
+  'SideBar'
+]
+
+const getComponentDoc = component => {
+  if (WIP.includes(component)) {
+    return 'InProgress'
+  }
+  return `${component.split('-')[0]}/docs/${component}.dox`
+}
+
 const Home = () => React.createElement(asyncComponent('/'))
 const Start = routeProps => React.createElement(asyncComponent('Start'), { routeProps: routeProps })
 const Design = routeProps => React.createElement(asyncComponent('Design'), { routeProps: routeProps })
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
-const Dox = routeProps => React.createElement(asyncComponent(`${routeProps.component.split('-')[0]}/docs/${routeProps.component}.dox`))
+const Dox = routeProps => React.createElement(asyncComponent(getComponentDoc(routeProps.component)))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render((

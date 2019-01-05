@@ -72,7 +72,7 @@ export const nav = [{
     'cn': '侧栏'
   }]
 }, {
-  'icon': 'docs-icon-video-games-space-invaders-1',
+  'icon': 'docs-icon-chat-bubble-square-alert-2',
   'path': 'components',
   'name': 'Programmatic Declarative Components',
   'cn': '函数声明组件',
@@ -102,18 +102,14 @@ export const nav = [{
       'doc': 'Icon-all-icons'
     }]
   }, {
-    'icon': 'retweet',
-    'name': 'Board',
-    'cn': '面板'
-  }, {
-    'name': 'Tabs',
-    'cn': '选项卡'
-  }, {
     'name': 'Button',
     'cn': '按钮'
   }, {
     'name': 'Switch',
     'cn': '开关'
+  }, {
+    'name': 'Spinner',
+    'cn': '加载中'
   }, {
     'name': 'Tooltip',
     'cn': '提示框'
@@ -121,8 +117,12 @@ export const nav = [{
     'name': 'TextOverflow',
     'cn': '文字溢出'
   }, {
-    'name': 'Spinner',
-    'cn': '加载中'
+    'icon': 'retweet',
+    'name': 'Board',
+    'cn': '面板'
+  }, {
+    'name': 'Tabs',
+    'cn': '选项卡'
   }, {
     'name': 'Dropdown',
     'cn': '下拉菜单'

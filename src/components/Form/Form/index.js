@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import update from 'react-update'
 import cx from 'classnames'
 import invariant from 'invariant'
-import xhr from '../../../utils/xhr'
+import xhr from '../../_utils/xhr'
 import './index.less'
 
 class Form extends React.Component {

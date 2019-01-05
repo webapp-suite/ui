@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from '../Button'
-import FocusTrap from '../../utils/FocusTrap'
+import FocusTrap from '../_utils/FocusTrap'
 
 class DialogButtons extends React.Component {
   constructor (props) {
