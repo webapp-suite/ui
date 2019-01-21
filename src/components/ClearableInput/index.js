@@ -76,12 +76,11 @@ class ClearableInput extends Component {
         {(!forbidClearable && hasChanged && (value || value === 0 || Number.isNaN(value))) && (
           <Button
             tabIndex="-1"
-            icon="remove"
-            size="sm"
-            transparent
+            icon="close"
             className={`${prefixCls}-clearable-input__clear-btn`}
             disabled={inputProps.disabled}
             onClick={this.handleClear}
+            micro
           />
         )}
       </div>
