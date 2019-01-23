@@ -56,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Button icon="plus">Add</Button>
+          <Button icon="add">Add</Button>
       </div>
     );
   }
@@ -88,8 +88,6 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
   triggerMode: 'click'
 })
 ```
-
-Imperative API modules: [notification][notification-url], [xhr][xhr-url] also support global config, the components which use url-mode to load data and [Form][form-url] are all dependent on xhr. Please refer to their respective documentation for detailed configuration.
 
 > Those APIs will be stateful when global config is set and that's to say the final result is affected by the configuration. So try to configure it at a time and explain it to other developers.
 
@@ -133,9 +131,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
 [zh-CN-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.zh-CN.md
 [tooltip-url]: https://ui.muwenzi.com/components/Tooltip
-[notification-url]: https://ui.muwenzi.com/components/notification
-[xhr-url]: https://ui.muwenzi.com/components/xhr
-[form-url]: https://ui.muwenzi.com/components/Form
 [dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
 [changelog-url]: https://ui.muwenzi.com/changelog
 [contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md

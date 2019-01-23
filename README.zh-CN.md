@@ -56,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Button icon="plus">添加</Button>
+          <Button icon="add">添加</Button>
       </div>
     );
   }
@@ -88,8 +88,6 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
   triggerMode: 'click'
 })
 ```
-
-命令式 API 模块：[notification][notification-url]、[xhr][xhr-url] 也支持全局配置，涉及 url 方式加载数据的组件以及 [Form][form-url] 均依赖 xhr，详细配置请参考其各自文档。
 
 > 全局配置后，这些 API 会变成有状态的，即最终结果受配置影响，所以尽量一次性配置并向其它开发者说明。
 
@@ -133,9 +131,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
 [en-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.md
 [tooltip-url]: https://ui.muwenzi.com/components/Tooltip
-[notification-url]: https://ui.muwenzi.com/components/notification
-[xhr-url]: https://ui.muwenzi.com/components/xhr
-[form-url]: https://ui.muwenzi.com/components/Form
 [dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
 [changelog-url]: https://ui.muwenzi.com/changelog
 [contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
