@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/G-Explorer/earth-ui/compare/v0.3.1...v0.3.2) (2019-01-23)
+
+
+### Bug Fixes
+
+* **babel/runtime:** move [@babel](https://github.com/babel)/runtime to dependencies ([fe0efa1](https://github.com/G-Explorer/earth-ui/commit/fe0efa1))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/G-Explorer/earth-ui/compare/v0.3.0...v0.3.1) (2019-01-23)
 
