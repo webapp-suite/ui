@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/G-Explorer/earth-ui/compare/v0.3.0...v0.3.1) (2019-01-23)
+
+
+### Bug Fixes
+
+* **AvatarClip:** adjust button text position ([d0b21e4](https://github.com/G-Explorer/earth-ui/commit/d0b21e4))
+* **ClearableInput:** adjust close button position in normal input ([a57f7fe](https://github.com/G-Explorer/earth-ui/commit/a57f7fe))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/G-Explorer/earth-ui/compare/v0.2.2...v0.3.0) (2019-01-05)
 
