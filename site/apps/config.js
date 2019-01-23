@@ -121,9 +121,6 @@ export const nav = [{
     'name': 'Board',
     'cn': '面板'
   }, {
-    'name': 'Tabs',
-    'cn': '选项卡'
-  }, {
     'name': 'Dropdown',
     'cn': '下拉菜单'
   }, {
