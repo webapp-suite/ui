@@ -36,7 +36,7 @@ export default class Palette extends React.Component {
 
   render () {
     this.colorNodes = this.colorNodes || {}
-    const { showTitle, direction, color: { name, description, english, chinese } } = this.props
+    const { showTitle, direction, color: { name, english } } = this.props
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette'
     const colors = []
     const colorNameMap = {
@@ -48,7 +48,7 @@ export default class Palette extends React.Component {
       8: '-darker',
       9: '-darkest'
     }
-    const colorName = `${english} / ${chinese}`
+    const colorName = english
     for (let i = 3; i <= 9; i += 1) {
       const colorText = `${name}${colorNameMap[i]}`
       colors.push(
@@ -60,10 +60,9 @@ export default class Palette extends React.Component {
           <div
             key={i}
             ref={(node) => { this.colorNodes[`${name}${colorNameMap[i]}`] = node }}
-            className={`main-color-item palatte-${name}-${i}`}
+            className={`main-color-item palette-${name}-${i}`}
             style={{
               color: (name === 'slate' ? i > 2 : i > 5) ? '#fff' : 'unset'
-              // fontWeight: i === 6 ? 'bold' : 'normal'
             }}
             title="click to copy color"
           >
@@ -80,7 +79,7 @@ export default class Palette extends React.Component {
         {showTitle && (
           <div className="color-title">
             {colorName}
-            <span className="color-description">{description}</span>
+            {/* <span className="color-description">{description}</span> */}
           </div>
         )}
         <div className="main-color">{colors}</div>

@@ -11,37 +11,37 @@ const ColorPalettes = () => {
   const colors = [
     {
       name: 'red',
-      english: 'Dust Red',
+      english: 'Red',
       chinese: '薄暮',
       description: '斗志、奔放'
     },
     {
       name: 'orange',
-      english: 'Sunset Orange',
+      english: 'Orange',
       chinese: '日暮',
       description: '温暖、欢快'
     },
     {
       name: 'yellow',
-      english: 'Sunrise Yellow',
+      english: 'Yellow',
       chinese: '日出',
       description: '出生、阳光'
     },
     {
       name: 'green',
-      english: 'Polar Green',
+      english: 'Green',
       chinese: '极光绿',
       description: '健康、创新'
     },
     {
       name: 'blue',
-      english: 'Daybreak Blue',
+      english: 'Blue',
       chinese: '拂晓蓝',
       description: '包容、科技、普惠'
     },
     {
       name: 'purple',
-      english: 'Golden Purple',
+      english: 'Purple',
       chinese: '酱紫',
       description: '优雅、浪漫'
     },
