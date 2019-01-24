@@ -25,9 +25,9 @@ class Footer extends PureComponent {
           <div className="right">
             <h2>Help</h2>
             <div className="help">
-              <div><a href="https://github.com/G-Explorer/earth-ui">Github</a></div>
-              <div><a href="https://github.com/G-Explorer/earth-ui/releases">Release Note</a></div>
-              <div><a href="https://github.com/G-Explorer/earth-ui/issues/new">Bug Report</a></div>
+              <div><a href="https://github.com/cosmos-x/earth-ui">Github</a></div>
+              <div><a href="https://github.com/cosmos-x/earth-ui/releases">Release Note</a></div>
+              <div><a href="https://github.com/cosmos-x/earth-ui/issues/new">Bug Report</a></div>
               <div><a href="https://g-explorer.slack.com">Slack Chat</a></div>
             </div>
           </div>

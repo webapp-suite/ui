@@ -60,7 +60,7 @@ class Home extends React.Component {
                 <Link to="/app/start/usage">
                   <Button type="primary" className="home__banner-btn">Get Started</Button>
                 </Link>
-                <a href="https://github.com/G-Explorer/earth-ui">
+                <a href="https://github.com/cosmos-x/earth-ui">
                   <Button type="secondary" className="home__banner-btn">Github</Button>
                 </a>
               </div>

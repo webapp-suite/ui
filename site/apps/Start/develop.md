@@ -1,7 +1,7 @@
 ## 本地开发
 
 ```bash
-git clone git@github.com:G-Explorer/earth-ui.git
+git clone git@github.com:cosmos-x/earth-ui.git
 cd earth-ui
 npm i
 npm run site:dev
@@ -16,4 +16,4 @@ npm run create MyComponent
 ```
 查看：http://localhost:3003/components/MyComponent
 
-[dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
+[dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development

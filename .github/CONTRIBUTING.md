@@ -6,17 +6,17 @@ According to our [release schedule](https://ui.muwenzi.com/changelog), we'll cut
 
 ## Bugs
 
-We are using [GitHub Issues](https://github.com/G-Explorer/earth-ui/issues) for bug tracing.
+We are using [GitHub Issues](https://github.com/cosmos-x/earth-ui/issues) for bug tracing.
 
-Before you reporting a bug, please make sure you've searched exists issues, and read our [Create issue.md](https://github.com/G-Explorer/earth-ui/wiki/Create-issue).
+Before you reporting a bug, please make sure you've searched exists issues, and read our [Create issue.md](https://github.com/cosmos-x/earth-ui/wiki/Create-issue).
 
 ## Proposing a Change
 
-If you intend to change the public API or introduce new feature, we also recommend use our [Create issue.md](https://github.com/G-Explorer/earth-ui/wiki/Create-issue) to create a feature request issue.
+If you intend to change the public API or introduce new feature, we also recommend use our [Create issue.md](https://github.com/cosmos-x/earth-ui/wiki/Create-issue) to create a feature request issue.
 
 ## Your First Pull Request
 
-Working on your first Pull Request? You can learn our Contributing [Contributing workflow.md](https://github.com/G-Explorer/earth-ui/wiki/Contributing-workflow):
+Working on your first Pull Request? You can learn our Contributing [Contributing workflow.md](https://github.com/cosmos-x/earth-ui/wiki/Contributing-workflow):
 
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 

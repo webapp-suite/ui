@@ -94,7 +94,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 ## 本地开发
 
 ```bash
-git clone git@github.com:G-Explorer/earth-ui.git
+git clone git@github.com:cosmos-x/earth-ui.git
 cd earth-ui
 npm i
 npm run site:dev
@@ -121,20 +121,20 @@ npm run create MyComponent
 
 MIT © [Kimi Gao](https://github.com/muwenzi)
 
-[travis-url]: https://travis-ci.org/G-Explorer/earth-ui
-[travis-image]: https://img.shields.io/travis/G-Explorer/earth-ui/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/cosmos-x/earth-ui
+[travis-image]: https://img.shields.io/travis/cosmos-x/earth-ui/master.svg?style=flat-square
 [npm-version-url]: https://www.npmjs.com/package/earth-ui
 [npm-version-image]: https://img.shields.io/npm/v/earth-ui.svg?style=flat-square
 [npm-downloads-url]: https://www.npmjs.com/package/earth-ui
 [npm-downloads-image]: https://img.shields.io/npm/dt/earth-ui.svg?style=flat-square
-[license-url]: https://github.com/G-Explorer/earth-ui/blob/master/LICENSE
-[license-image]: https://img.shields.io/github/license/G-Explorer/earth-ui.svg?style=flat-square
-[en-url]: https://github.com/G-Explorer/earth-ui/blob/master/README.md
+[license-url]: https://github.com/cosmos-x/earth-ui/blob/master/LICENSE
+[license-image]: https://img.shields.io/github/license/cosmos-x/earth-ui.svg?style=flat-square
+[en-url]: https://github.com/cosmos-x/earth-ui/blob/master/README.md
 [tooltip-url]: https://ui.muwenzi.com/components/Tooltip
-[dev-instructions-url]: https://github.com/G-Explorer/earth-ui/wiki/Local-development
+[dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
 [changelog-url]: https://ui.muwenzi.com/changelog
-[contributing-url]: https://github.com/G-Explorer/earth-ui/blob/master/.github/CONTRIBUTING.md
-[pr-url]: https://github.com/G-Explorer/earth-ui/pulls
-[issue-url]: https://github.com/G-Explorer/earth-ui/issues
+[contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
+[pr-url]: https://github.com/cosmos-x/earth-ui/pulls
+[issue-url]: https://github.com/cosmos-x/earth-ui/issues
 [create-react-app-url]: https://github.com/facebookincubator/create-react-app
 [create-react-app-user-guide-url]: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md

@@ -59,7 +59,7 @@ class Header extends React.Component {
         {/* </DropdownMenu> */}
         {/* </Dropdown> */}
         {/* <a */}
-        {/* href="https://github.com/G-Explorer/earth-ui" */}
+        {/* href="https://github.com/cosmos-x/earth-ui" */}
         {/* target="_blank" */}
         {/* className="header__github" */}
         {/* > */}
