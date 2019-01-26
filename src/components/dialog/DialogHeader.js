@@ -2,15 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Icon from '../Icon'
-
-const iconMap = {
-  'confirm': 'question',
-  'warning': 'warning',
-  'danger': 'warning',
-  'success': 'accept',
-  'info': 'info',
-  'error': 'warning'
-}
+import { iconMap } from './config'
 
 const DialogHeader = (props, context) => {
   const { className, icon, type, ...other } = props
