@@ -50,12 +50,12 @@ Button.propTypes = {
   className: PropTypes.string,
 
   // 按钮类型
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'accept', 'warning', 'danger']),
 
-  // 是否为微缩
+  // 是否为微型按钮
   micro: PropTypes.bool,
 
-  // 是否为block
+  // 是否为block按钮
   block: PropTypes.bool,
 
   // 按钮图标
