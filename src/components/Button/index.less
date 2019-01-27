@@ -7,7 +7,10 @@
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
   &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_tertiary {
+  &.@{prefix-cls}-button_tertiary,
+  &.@{prefix-cls}-button_accept,
+  &.@{prefix-cls}-button_warning,
+  &.@{prefix-cls}-button_danger {
     .ui-mixin-fixheight(@ui-unit);
     border-radius: @ui-unit-half;
     padding: 0;
@@ -71,7 +74,13 @@
     }
   }
 
-  &_primary, &_secondary, &_tertiary, &[disabled] {
+  &_primary,
+  &_secondary,
+  &_tertiary,
+  &_accept,
+  &_warning,
+  &_danger,
+  &[disabled] {
     padding: @ui-unit-half;
     border-radius: @ui-unit;
     //.ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
@@ -104,7 +113,6 @@
     color: @theme-text;
     border: 1px solid @theme;
     &:hover {
-      color: @theme-text;
       border-color: @theme-dark;
       background-color: @theme-dark;
     }
@@ -118,8 +126,7 @@
     border: 1px solid @theme;
     color: @theme;
     &:hover {
-      background-color: @theme;
-      color: @ui-color-white;
+      background-color: @theme-lightest;
     }
     &:focus:before {
       border-color: @theme-dark;
@@ -135,6 +142,39 @@
     }
     &:focus:before {
       border-color: @theme;
+    }
+  }
+
+  &_accept {
+    background-color: @ui-color-green;
+    color: @ui-color-white;
+    &:hover {
+      background-color: @ui-color-green-dark;
+    }
+    &:focus:before {
+      border-color: @ui-color-green-darker;
+    }
+  }
+  &_warning {
+    background-color: @ui-color-orange;
+    color: @ui-color-white;
+    &:hover {
+      background-color: @ui-color-orange-dark;
+    }
+    &:focus:before {
+      border-color: @ui-color-orange-darker;
+    }
+  }
+
+  &_danger {
+    background-color: @ui-color-red;
+    border: 1px solid @ui-color-red;
+    color: @ui-color-white;
+    &:hover {
+      background-color: @ui-color-red-dark;
+    }
+    &:focus:before {
+      border-color: @ui-color-red-darker;
     }
   }
 

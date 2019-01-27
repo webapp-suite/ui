@@ -8,16 +8,31 @@ const ButtonDefault = () => {
 }
 
 /**
- * @title 按钮类型
+ * @title 主次按钮
  */
 import Button from 'earth-ui/lib/Button'
 
-const ButtonType = () => {
+const ButtonPST = () => {
   return (
     <div>
       <Button type="primary">Primary</Button>
       <Button type="secondary">Secondary</Button>
       <Button type="tertiary">Tertiary</Button>
+    </div>
+  )
+}
+
+/**
+ * @title 颜色按钮
+ */
+import Button from 'earth-ui/lib/Button'
+
+const ButtonColor = () => {
+  return (
+    <div>
+      <Button type="accept">Accept</Button>
+      <Button type="warning">warning</Button>
+      <Button type="danger">Danger</Button>
     </div>
   )
 }
