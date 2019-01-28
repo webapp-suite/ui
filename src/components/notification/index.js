@@ -21,7 +21,7 @@ let render = props => {
 
   render = nextProps => {
     props = Object.assign({}, props, nextProps)
-    const { open, backdrop, lock, type, accpetLabel, options, message, autoClose, duration } = props
+    const { open, backdrop, lock, type, acceptLabel, options, message, autoClose, duration } = props
     if (isOpen && open) {
       // messageQueue will be [] if there is only one notification.
       return messageQueue.push(props)
@@ -43,7 +43,7 @@ let render = props => {
             dangerouslySetInnerHTML={{ __html: marked(message) }}
           />
         </DialogBody>
-        {!!accpetLabel && <DialogButtons focused={options?.focused} accpetLabel={accpetLabel} {...options} />}
+        {!!acceptLabel && <DialogButtons type={type} focused={options?.focused} acceptLabel={acceptLabel} {...options} />}
       </Dialog>
     ), container)
   }
@@ -61,7 +61,7 @@ const getNotificationParams = args => {
   })
   return {
     message: stringArray[0] || 'Notification message must be provided.',
-    accpetLabel: stringArray[1] || 'OK',
+    acceptLabel: stringArray[1] || 'OK',
     duration,
     options
   }
@@ -72,7 +72,7 @@ const notification = {
     const { message, duration, options } = getNotificationParams(arguments)
     render({
       message,
-      accpetLabel: null,
+      acceptLabel: null,
       options,
       type: 'success',
       backdrop: false,
@@ -83,10 +83,10 @@ const notification = {
     })
   },
   info () {
-    const { message, accpetLabel, options } = getNotificationParams(arguments)
+    const { message, acceptLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
       options,
       type: 'info',
       backdrop: true,
@@ -96,10 +96,10 @@ const notification = {
     })
   },
   warning () {
-    const { message, accpetLabel, options } = getNotificationParams(arguments)
+    const { message, acceptLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
       options,
       type: 'warning',
       backdrop: true,
@@ -109,10 +109,10 @@ const notification = {
     })
   },
   error () {
-    const { message, accpetLabel, options } = getNotificationParams(arguments)
+    const { message, acceptLabel, options } = getNotificationParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
       options,
       type: 'error',
       backdrop: true,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from '../Button'
 import FocusTrap from '../_utils/FocusTrap'
+import { typeMap } from './config'
 
 class DialogButtons extends React.Component {
   constructor (props) {
@@ -30,26 +31,23 @@ class DialogButtons extends React.Component {
     setTimeout(() => this.props?.onCancel?.(), 400)
   }
   renderButtons = props => {
-    const { className, accpetLabel, cancelLabel, focused, primary } = props
-    const btnType = {
-      [primary]: 'primary'
-    }
+    const { className, acceptLabel, cancelLabel, focused, type } = props
     return (
       <div className={cx(`${prefixCls}-dialog__buttons`, className)}>
-        {!!accpetLabel &&
+        {!!acceptLabel &&
           <Button
-            type={btnType['accept'] || 'tertiary'}
+            type={typeMap[type]?.btnType || 'tertiary'}
             onClick={this.handleAcceptClick}
             autoFocus={focused === 'accept'}
             focus
             block
           >
-            {accpetLabel}
+            {acceptLabel}
           </Button>
         }
         {!!cancelLabel &&
           <Button
-            type={btnType['cancel'] || 'tertiary'}
+            type="tertiary"
             onClick={this.handleCancelClick}
             autoFocus={focused === 'cancel'}
             focus
@@ -74,9 +72,9 @@ DialogButtons.contextTypes = {
 
 DialogButtons.propTypes = {
   className: PropTypes.string,
-  accpetLabel: PropTypes.string,
+  acceptLabel: PropTypes.string,
   cancelLabel: PropTypes.string,
-  primary: PropTypes.oneOf(['accept', 'cancel']),
+  type: PropTypes.oneOf(['confirm', 'accept', 'warning', 'danger', 'success', 'info', 'error']),
   focused: PropTypes.oneOf(['accept', 'cancel', null]),
   onClose: PropTypes.func,
   onAccept: PropTypes.func,

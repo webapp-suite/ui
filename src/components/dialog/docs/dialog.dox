@@ -25,8 +25,7 @@ class DialogBasic extends Component {
 
 /**
  * @title 对话框种类
- * @desc 按照提示的由弱到强，共提供了 `confirm` , `warning` 和 `danger` 这三种类型的对话框。
- * @note `danger` 类型对话框可以嵌套在 `warning` 类型对话框 `ACCEPT` 里面，让与用户的交互有由弱到强的层次感。
+ * @desc 按照提示的种类，共提供了 `confirm` , `accept`, `warning` 和 `danger` 这四种基础对话框。
  */
 import dialog from 'earth-ui/lib/dialog'
 import Button from 'earth-ui/lib/Button'
@@ -39,6 +38,7 @@ class DialogTypes extends Component {
     return (
       <div>
         <Button type="secondary" onClick={() => this.handleClick('confirm')}>Confirm</Button>
+        <Button type="secondary" onClick={() => this.handleClick('accept')}>Accept</Button>
         <Button type="secondary" onClick={() => this.handleClick('warning')}>Warning</Button>
         <Button type="secondary" onClick={() => this.handleClick('danger')}>Danger</Button>
       </div>
@@ -49,11 +49,12 @@ class DialogTypes extends Component {
 /**
  * @title null
  * @renderModel run
+ * @desc `danger` 类型对话框可以嵌套在 `warning` 类型对话框 `ACCEPT` 里面，让与用户的交互有由弱到强的层次感。
  */
 import dialog from 'earth-ui/lib/dialog'
 import Button from 'earth-ui/lib/Button'
 
-class DialogWarining extends Component {
+class DialogWarning extends Component {
   handleClick = () => {
     ;dialog.warning('This will delete the thing.', 'Delete It', {
     	onAccept: function() {
@@ -92,9 +93,9 @@ class DialogButtonsLabel extends Component {
 }
 
 /**
- * @title 自定义按钮类型
+ * @title 自定义聚焦按钮
  * @renderModel run
- * @desc 对话框的按钮默认为 `tertiary` (灰色) 类型, 但你可以将 `ACCEPT` 和 `CANCEL` 按钮定制为 `primary` 类型. 你也可以根据需要去切换默认的聚焦按钮为 `ACCEPT` 还是 `CANCEL` 按钮。
+ * @desc 对话框的默认的聚焦按钮为 `CANCEL`, 你也可以根据需要去切换 `ACCEPT` 或 `CANCEL` 按钮。
  * @note 在该示例中，没有指定 `CANCEL` 按钮的名称，那么 `options` (`{...}`) 作为第三个参数即可。
  */
 import dialog from 'earth-ui/lib/dialog'
@@ -103,7 +104,6 @@ import Button from 'earth-ui/lib/Button'
 class DialogButtonsType extends Component {
   handleClick = () => {
     ;dialog.confirm('Will you try?', 'Join Now', {
-      primary: 'accept',
       focused: 'accept'
     });
   }
@@ -124,7 +124,6 @@ class DialogIcon extends Component {
   handleClick = () => {
     ;dialog.confirm('Proceed to Checkout?', 'Check Out', {
       icon: 'cart',
-      primary: 'accept',
       focused: 'accept'
     });
   }
