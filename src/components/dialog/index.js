@@ -20,7 +20,7 @@ let render = props => {
 
   render = nextProps => {
     props = Object.assign({}, props, nextProps)
-    const { open, backdrop, lock, type, message, options, accpetLabel, cancelLabel } = props
+    const { open, backdrop, lock, type, message, options, acceptLabel, cancelLabel } = props
     if (isOpen && open) {
       return messageQueue.push(props)
     }
@@ -34,7 +34,14 @@ let render = props => {
             dangerouslySetInnerHTML={{ __html: marked(message) }}
           />
         </DialogBody>
-        <DialogButtons focused={options?.focused} onClose={handleClose} accpetLabel={accpetLabel} cancelLabel={cancelLabel} {...options} />
+        <DialogButtons
+          type={type}
+          focused={options?.focused}
+          onClose={handleClose}
+          acceptLabel={acceptLabel}
+          cancelLabel={cancelLabel}
+          {...options}
+        />
       </Dialog>
     ), container)
     props.open || handleClose()
@@ -51,7 +58,7 @@ const getDialogParams = args => {
   })
   return {
     message: stringArray[0] || 'Dialog message must be provided.',
-    accpetLabel: stringArray[1] || 'OK',
+    acceptLabel: stringArray[1] || 'OK',
     cancelLabel: stringArray[2] || 'CANCEL',
     options
   }
@@ -59,10 +66,10 @@ const getDialogParams = args => {
 
 const dialog = {
   confirm () {
-    const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
       cancelLabel,
       options,
       type: 'confirm',
@@ -71,11 +78,24 @@ const dialog = {
       open: true
     })
   },
-  warning () {
-    const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
+  accept () {
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
+      cancelLabel,
+      options,
+      type: 'accept',
+      backdrop: true,
+      lock: true,
+      open: true
+    })
+  },
+  warning () {
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    render({
+      message,
+      acceptLabel,
       cancelLabel,
       options,
       type: 'warning',
@@ -85,10 +105,10 @@ const dialog = {
     })
   },
   danger () {
-    const { message, accpetLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
     render({
       message,
-      accpetLabel,
+      acceptLabel,
       cancelLabel,
       options,
       type: 'danger',
