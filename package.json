@@ -13,7 +13,7 @@
   "repository": "https://github.com/cosmos-x/earth-ui",
   "homepage": "https://ui.muwenzi.com/",
   "engines": {
-    "node": "^8.12.0",
+    "node": ">=8.12.0",
     "npm": "^6.4.0"
   },
   "files": [
@@ -25,7 +25,7 @@
     "dist": "rimraf dist && webpack --progress --config config/webpack.config.js",
     "site:dist": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
-    "presite:prod": "npm i && npm run site:dist",
+    "presite:prod": "npm ci && npm run site:dist",
     "site:prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
     "create": "node bin/create.js",
     "lint": "eslint src && eslint site",
