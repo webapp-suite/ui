@@ -49,6 +49,7 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
+      "prettier-standard",
       "git add"
     ]
   },
@@ -108,6 +109,7 @@
     "nprogress": "^0.2.0",
     "pm2": "^2.10.1",
     "postcss-loader": "^2.0.8",
+    "prettier-standard": "^9.1.1",
     "prop-types": "^15.6.1",
     "rc-queue-anim": "^1.6.10",
     "rc-scroll-anim": "^2.5.6",
