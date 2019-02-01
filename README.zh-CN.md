@@ -107,7 +107,7 @@ npm run site:dev
 ```bash
 npm run create MyComponent
 ```
-查看：http://localhost:3003/components/MyComponent
+查看：http://localhost:3003/apps/components/MyComponent
 
 ## 更新日志
 
