@@ -44,7 +44,10 @@ if (name) {
     )
   })
 
-  console.log(chalk.green('Build success!'))
+  console.log(
+    chalk.green('Build success!'),
+    `Open: http://localhost:3003/apps/components/${name}`
+  )
 } else {
   console.log(
     chalk.red(
