@@ -107,7 +107,7 @@ Open your browser and visit http://127.0.0.1:3003 , see more at [Development Ins
 ```bash
 npm run create MyComponent
 ```
-Open: http://localhost:3003/components/MyComponent
+Open: http://localhost:3003/apps/components/MyComponent
 
 ## Changelog
 

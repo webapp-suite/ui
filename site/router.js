@@ -41,7 +41,7 @@ const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render((
   <Router>
-    <App path="/app">
+    <App path="/apps">
       <Chrome path="/">
         <Changelog path="/changelog" />
         <Start path="/start/:tab" />

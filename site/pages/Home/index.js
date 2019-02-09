@@ -57,7 +57,7 @@ class Home extends React.Component {
               <p key="p">UI components range from simple buttons and icons to fancy datepickers and dropdown menus. The
                 target audience is both developers and designers.</p>
               <div key="buttons">
-                <Link to="/app/start/usage">
+                <Link to="/apps/start/usage">
                   <Button type="primary" className="home__banner-btn">Get Started</Button>
                 </Link>
                 <a href="https://github.com/cosmos-x/earth-ui">
