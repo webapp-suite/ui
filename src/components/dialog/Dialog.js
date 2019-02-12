@@ -7,17 +7,17 @@ import ToggleNode from '../_utils/ToggleNode'
 import DialogContainer from './DialogContainer'
 import './index.less'
 
-const scrollbarWidth = (() => {
-  const scrollDiv = document.createElement('div')
-  const body = document.body
-
-  scrollDiv.className = `${prefixCls}-dialog__scrollbar-measure`
-  body.appendChild(scrollDiv)
-  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-  body.removeChild(scrollDiv)
-
-  return scrollbarWidth
-})()
+// const scrollbarWidth = (() => {
+//   const scrollDiv = document.createElement('div')
+//   const body = document.body
+//
+//   scrollDiv.className = `${prefixCls}-dialog__scrollbar-measure`
+//   body.appendChild(scrollDiv)
+//   const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
+//   body.removeChild(scrollDiv)
+//
+//   return scrollbarWidth
+// })()
 
 class Dialog extends React.Component {
   constructor (props) {
@@ -62,14 +62,14 @@ class Dialog extends React.Component {
       document.body.removeChild(this.containerNode)
       // TODO 代码和updateBodyState重复，后期优化，有状态组件产生了副作用
       const body = document.body
-      const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
-      const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
+      // const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
+      // const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
       classlist(body).remove(`${prefixCls}-dialog_open`)
-      if (bodyPaddingRight) {
-        body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
-      } else {
-        body.style.paddingRight = ''
-      }
+      // if (bodyPaddingRight) {
+      //   body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
+      // } else {
+      //   body.style.paddingRight = ''
+      // }
     }
   }
 
@@ -78,39 +78,28 @@ class Dialog extends React.Component {
       return
     }
     const body = document.body
-    const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
-    const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
+    // const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
+    // const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
     if (open && !prevOpen) {
       classlist(body).add(`${prefixCls}-dialog_open`)
-      body.style.paddingRight = bodyPaddingRight + _scrollbarWidth + 'px'
+      // body.style.paddingRight = bodyPaddingRight + _scrollbarWidth + 'px'
     } else if (!open && prevOpen) {
       this.closeCallbacks.add(() => {
         classlist(body).remove(`${prefixCls}-dialog_open`)
-        if (bodyPaddingRight) {
-          body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
-        } else {
-          body.style.paddingRight = ''
-        }
+        // if (bodyPaddingRight) {
+        //   body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
+        // } else {
+        //   body.style.paddingRight = ''
+        // }
       })
     }
   }
 
-  /**
-   * @public
-   * @name this.refs.modal.open
-   * @description 打开模态框
-   */
   open () {
     this.setState({ open: true })
     this.props.onToggle && this.props.onToggle(true)
   }
 
-  /**
-   * @public
-   * @name this.refs.modal.close
-   * @param {function} [callback] 关闭后的回调，动画结束后执行
-   * @description 关闭模态框
-   */
   close = (callback = this.props.onClose) => {
     this.setState({ open: false })
     this.props.onToggle && this.props.onToggle(false)
@@ -133,22 +122,36 @@ class Dialog extends React.Component {
       if (dialogContainer) {
         dialogContainer.backUp()
       }
-      this.props.autoClose && window.setTimeout(() => {
-        this.close()
-      }, this.props.duration)
+      this.props.autoClose &&
+        window.setTimeout(() => {
+          this.close()
+        }, this.props.duration)
     }
     this.renderIntoDocument = () => {
-      const { open, onToggle, onClose, backdrop, lock, autoClose, duration, ...other } = this.props
-      ReactDOM.render((
+      const {
+        open,
+        onToggle,
+        onClose,
+        backdrop,
+        lock,
+        autoClose,
+        duration,
+        type,
+        ...other
+      } = this.props
+      ReactDOM.render(
         <DialogContainer
           ref={content => (this.content = content)}
           close={this.close}
-          modal={this}
+          // modal={this}
           backdrop={backdrop}
           lock={lock}
+          type={type}
           {...other}
-        />
-      ), this.containerNode, onRendered)
+        />,
+        this.containerNode,
+        onRendered
+      )
     }
     this.renderIntoDocument()
   }
@@ -163,7 +166,6 @@ Dialog.contextTypes = {
 }
 
 Dialog.propTypes = {
-
   // 是否打开
   open: PropTypes.bool,
 
@@ -183,7 +185,9 @@ Dialog.propTypes = {
   onToggle: PropTypes.func,
 
   // 关闭后的回调，动画结束后执行。如果 close 方法传入回调，则此属性不会触发
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+
+  type: PropTypes.oneOf(['aside', 'dialog', 'notification', 'modal'])
 }
 
 export default Dialog

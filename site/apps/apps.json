@@ -39,7 +39,7 @@
     "icon":"docs-icon-window-application-6",
     "path":"components",
     "name":"Layout Components",
-    "cn":"布局型组件",
+    "cn":"布局类组件",
     "defaultOpen":false,
     "components":[
       {
@@ -76,8 +76,8 @@
   {
     "icon":"docs-icon-chat-bubble-square-alert-2",
     "path":"components",
-    "name":"Programmatic Declarative Components",
-    "cn":"函数声明组件",
+    "name":"Dialog Components",
+    "cn":"弹框类组件",
     "defaultOpen":true,
     "components":[
       {
@@ -87,6 +87,35 @@
       {
         "name":"notification",
         "cn":"通知提醒框"
+      },
+      {
+        "name":"Aside",
+        "cn":"侧边栏"
+      }
+    ]
+  },
+  {
+    "icon":"docs-icon-paragraph-normal",
+    "path":"components",
+    "name":"Form Components",
+    "cn":"表单类组件",
+    "defaultOpen":true,
+    "components":[
+      {
+        "name":"Form",
+        "cn":"表单"
+      },
+      {
+        "name":"Select",
+        "cn":"下拉选择"
+      },
+      {
+        "name":"Input",
+        "cn":"输入框"
+      },
+      {
+        "name":"ClearableInput",
+        "cn":"清空输入框"
       }
     ]
   },
@@ -94,7 +123,7 @@
     "icon":"docs-icon-modules-1",
     "path":"components",
     "name":"Markup Declarative Components",
-    "cn":"标记声明组件",
+    "cn":"其他组件",
     "defaultOpen":true,
     "components":[
       {
@@ -144,22 +173,6 @@
       {
         "name":"Upload",
         "cn":"上传"
-      },
-      {
-        "name":"Form",
-        "cn":"表单"
-      },
-      {
-        "name":"Select",
-        "cn":"下拉选择"
-      },
-      {
-        "name":"Input",
-        "cn":"输入框"
-      },
-      {
-        "name":"ClearableInput",
-        "cn":"清空输入框"
       },
       {
         "name":"BackToTop",

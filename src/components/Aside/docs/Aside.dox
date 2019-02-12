@@ -1,0 +1,66 @@
+@summary > Side-panel used for small user interactions, such as selecting a date.
+
+/**
+ * @title 基本用法
+ * @desc 描述
+ */
+import Aside from 'earth-ui/lib/Aside'
+import Button from 'earth-ui/lib/Button'
+
+class AsideBasic extends Component {
+  state = { isOpen: false }
+  openAside = () => {
+    this.setState({ isOpen: true })
+  }
+  onClose =  () => {
+    this.setState({ isOpen: false })
+  }
+  render () {
+    return (
+      <div>
+        <Button type="secondary" onClick={this.openAside}>Open Aside</Button>
+        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
+          Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket Tradeshift strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. Tradeshift sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+        </Aside>
+      </div>
+    )
+  }
+}
+
+/**
+ * @title 嵌套的侧边栏
+ * @desc 描述
+ */
+import Aside from 'earth-ui/lib/Aside'
+import Button from 'earth-ui/lib/Button'
+
+class StackingAsides extends Component {
+  state = { isOpen: false }
+  openAside = () => {
+    this.setState({ isOpen: true })
+  }
+  openAside2 = () => {
+    this.setState({ isOpen2: true })
+  }
+  onClose =  () => {
+    this.setState({ isOpen: false })
+  }
+  onClose2 =  () => {
+    this.setState({ isOpen2: false })
+  }
+  render () {
+    return (
+      <div>
+        <Button type="secondary" onClick={this.openAside}>Open Stacking Asides</Button>
+        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
+          <Button type="tertiary" onClick={this.openAside2} block>Open Next Aside</Button>
+          <Aside isOpen={this.state.isOpen2} onClose={this.onClose2} title="Aside Title2">
+            testing
+          </Aside>
+        </Aside>
+      </div>
+    )
+  }
+}
+
+@component Aside

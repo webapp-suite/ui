@@ -1,6 +1,6 @@
 @import '~ui-variables';
 
-@duration: .2s;
+@duration: .3s;
 @zIndex: @ui-zindex-dialog;
 @padding-lr: 40px;
 @padding-tb: 30px;
@@ -8,8 +8,36 @@
 @min-width-md: 400px;
 @min-width-lg: 500px;
 @keyframes-dialog-shake: ~"@{prefix-cls}-dialog__dialog-shake";
+@keyframes-dialog-toggle: ~"@{prefix-cls}-dialog__dialog-toggle";
 @local-variable-dialog-width: @ui-width-aside + (@ui-unit-double * 2) - @ui-unit;
 @local-variable-dialog-minus: 1 - @local-variable-dialog-width * 0.5;
+
+@keyframes @keyframes-dialog-shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes @keyframes-dialog-toggle {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
 
 .@{prefix-cls}-dialog__scrollbar-measure {
   position: absolute;
@@ -70,29 +98,30 @@ body.@{prefix-cls}-dialog_open {
   }
 }
 
-@keyframes  @keyframes-dialog-shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
 .@{prefix-cls}-dialog__dialog-dialog {
   opacity: 0;
-  transform: scale(.98) translate3d(0, -10%, 0);
-  transform-origin: top;
-  transition: all @duration;
+  transform: translate3d(100%, 0, 0);
+  //transform-origin: right;
+  //transition: all @duration;
+  animation: @keyframes-dialog-toggle @duration;
+  &-aside {
+    right: 0;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: @ui-width-aside;
+    .@{prefix-cls}-dialog__dialog-content {
+      border-radius: 0;
+      border: none;
+      width: auto;
+    }
+    .@{prefix-cls}-dialog__body {
+      max-height: none;
+      height: 100vh;
+      text-align: left;
+      padding: @ui-unit @ui-unit @ui-unit-triple;
+    }
+  }
 }
 
 .@{prefix-cls}-dialog_sm {
@@ -111,9 +140,9 @@ body.@{prefix-cls}-dialog_open {
   padding: @padding-tb @padding-lr @ui-unit-half;
   &-icon {
     font-size: 40px;
-    line-height: 40px;
-    height: 40px;
-    width: 40px;
+    line-height: @ui-unit-double;
+    height: @ui-unit-double;
+    width: @ui-unit-double;
     &_confirm, &_info {
       color: @ui-color-blue;
     }
@@ -169,6 +198,6 @@ div.@{prefix-cls}-dialog_open {
   }
   .@{prefix-cls}-dialog__dialog-dialog {
     opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }

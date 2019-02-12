@@ -2,6 +2,7 @@
 @import '~ui-mixins';
 
 @width: 100%;
+@height: @ui-unit-triple;
 
 .@{prefix-cls}-headerbar {
   position: relative;
@@ -14,7 +15,7 @@
     &-tool {
       position: relative;
       user-select: none;
-      height: 60px - 1px;
+      height: @height - 1px;
       white-space: nowrap;
       &-item {
         position: absolute;
@@ -29,9 +30,9 @@
         }
         li&-icon {
           .ui-mixin-reduce-l();
-          height: 60px;
-          max-height: 60px;
-          min-height: 60px;
+          height: @height;
+          max-height: @height;
+          min-height: @height;
         }
         &-title {
           label {

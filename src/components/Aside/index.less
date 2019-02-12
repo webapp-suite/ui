@@ -1,0 +1,25 @@
+@import '~ui-variables';
+
+@height: @ui-unit-triple - 1px;
+
+.@{prefix-cls}-aside {
+  &__header {
+    user-select: none;
+    white-space: nowrap;
+    border-bottom: 1px solid @ui-color-gray-light;
+    &-title {
+      width: 265px;
+      display: inline-block;
+      height: @height;
+      max-height: @height;
+      min-height: @height;
+      line-height: @height;
+      vertical-align: middle;
+      padding: 0 @ui-unit;
+      font-size: @ui-fontsize-big;
+    }
+    &-close {
+      top: 3px;
+    }
+  }
+}

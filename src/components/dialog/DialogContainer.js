@@ -16,27 +16,27 @@ class DialogContainer extends React.Component {
     }
   }
 
-  // backUp () {
-  //   this.relativeValue += 20
-  //   this.transform()
-  //   const {dialogContainer} = this.props.modal.context
-  //   if (dialogContainer) {
-  //     dialogContainer.backUp()
-  //   }
-  // }
-  //
-  // goForward () {
-  //   this.relativeValue -= 20
-  //   this.transform()
-  //   const {dialogContainer} = this.props.modal.context
-  //   if (dialogContainer) {
-  //     dialogContainer.goForward()
-  //   }
-  // }
-
-  transform () {
-    this.modalNode.style.transform = `translateY(-${this.relativeValue}px)`
+  backUp () {
+    // this.relativeValue += 20
+    // this.transform()
+    // const { dialogContainer } = this.props.modal.context
+    // if (dialogContainer) {
+    //   dialogContainer.backUp()
+    // }
   }
+
+  goForward () {
+    // this.relativeValue -= 20
+    // this.transform()
+    // const { dialogContainer } = this.props.modal.context
+    // if (dialogContainer) {
+    //   dialogContainer.goForward()
+    // }
+  }
+
+  // transform () {
+  //   this.modalNode.style.transform = `translateY(-${this.relativeValue}px)`
+  // }
 
   handleBackdropClick = e => {
     if (e.target.className === `${prefixCls}-dialog__dialog`) {
@@ -56,17 +56,35 @@ class DialogContainer extends React.Component {
   }
 
   render () {
-    const { children, className, lock, modal, backdrop, ...other } = this.props
+    const {
+      children,
+      className,
+      lock,
+      modal,
+      backdrop,
+      type,
+      ...other
+    } = this.props
     const divProps = omit(other, ['close'])
     return (
       <div className={cx(`${prefixCls}-dialog`, className)} {...divProps}>
-        {!!backdrop && <div className={`${prefixCls}-dialog__backdrop`} style={{ zIndex: 3000 }} />}
+        {!!backdrop && (
+          <div
+            className={`${prefixCls}-dialog__backdrop`}
+            style={{ zIndex: 3000 }}
+          />
+        )}
         <div
           className={`${prefixCls}-dialog__dialog`}
           style={{ zIndex: 3000 }}
           onClick={this.handleBackdropClick}
         >
-          <div className={`${prefixCls}-dialog__dialog-dialog`} ref={node => (this.modalNode = node)}>
+          <div
+            className={cx(`${prefixCls}-dialog__dialog-dialog`, {
+              [`${prefixCls}-dialog__dialog-dialog-${type}`]: type
+            })}
+            ref={node => (this.modalNode = node)}
+          >
             <div className={`${prefixCls}-dialog__dialog-content`}>
               {children}
             </div>
@@ -86,7 +104,8 @@ DialogContainer.propTypes = {
   className: PropTypes.string,
   backdrop: PropTypes.bool,
   lock: PropTypes.bool,
-  modal: PropTypes.object
+  modal: PropTypes.object,
+  type: PropTypes.oneOf(['aside', 'dialog', 'notification', 'modal'])
 }
 
 export default DialogContainer
