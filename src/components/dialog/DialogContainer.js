@@ -68,12 +68,11 @@ class DialogContainer extends React.Component {
     const divProps = omit(other, ['close'])
     return (
       <div className={cx(`${prefixCls}-dialog`, className)} {...divProps}>
-        {!!backdrop && (
-          <div
-            className={`${prefixCls}-dialog__backdrop`}
-            style={{ zIndex: 3000 }}
-          />
-        )}
+        {/* {!!backdrop && ( */}
+        {/* <div */}
+        {/* className={`${prefixCls}-dialog__backdrop`} */}
+        {/* /> */}
+        {/* )} */}
         <div
           className={`${prefixCls}-dialog__dialog`}
           style={{ zIndex: 3000 }}

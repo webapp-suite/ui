@@ -46,6 +46,7 @@ class Dialog extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     this.updateBodyState(this.state.open, prevState.open)
     if (this.state.open) {
+      this.props.backdrop && this.backdropNode && this.backdropNode.open()
       this.renderIntoDocument()
     } else {
       prevState.open && this.toggleModal.close()
@@ -103,10 +104,29 @@ class Dialog extends React.Component {
   close = (callback = this.props.onClose) => {
     this.setState({ open: false })
     this.props.onToggle && this.props.onToggle(false)
+    this.backdropNode.close()
     this.closeCallbacks.add(callback)
   }
 
   renderIntoDocument () {
+    if (this.props.backdrop) {
+      let backdropNode = document.getElementsByClassName(
+        `${prefixCls}-dialog__backdrop`
+      )[0]
+      if (!backdropNode) {
+        backdropNode = document.createElement('div')
+        backdropNode.classList.add(`${prefixCls}-dialog__backdrop`)
+        // backdropNode.addEventListener('click', this.handleBackdropClick)
+        document.body.appendChild(backdropNode)
+      }
+      if (!this.backdropNode) {
+        this.backdropNode = new ToggleNode(
+          backdropNode,
+          `${prefixCls}-dialog__backdrop_open`
+        )
+      }
+      this.backdropNode.open()
+    }
     if (!this.containerNode) {
       this.containerNode = document.createElement('div')
       document.body.appendChild(this.containerNode)

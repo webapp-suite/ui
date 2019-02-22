@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from 'earth-ui/lib/Button'
 import Dialog from '../dialog/Dialog'
 import DialogBody from '../dialog/DialogBody'
 import './index.less'
+
+class AsideCloseButton extends Component {
+  static propTypes = {
+    onClose: PropTypes.func
+  }
+  static contextTypes = {
+    dialogContainer: PropTypes.object
+  }
+  handleClose = () => {
+    this.context?.dialogContainer?.props?.close?.()
+    this.props?.onClose?.()
+  }
+  render () {
+    return (
+      <Button
+        className={`${prefixCls}-aside__header-close`}
+        icon="close"
+        onClick={this.handleClose}
+      />
+    )
+  }
+}
 
 class Aside extends React.Component {
   constructor () {
@@ -25,11 +47,7 @@ class Aside extends React.Component {
         >
           <div className={`${prefixCls}-aside__header`}>
             <div className={`${prefixCls}-aside__header-title`}>{title}</div>
-            <Button
-              className={`${prefixCls}-aside__header-close`}
-              icon="close"
-              onClick={onClose}
-            />
+            <AsideCloseButton onClose={onClose} />
           </div>
           <DialogBody>{children}</DialogBody>
         </Dialog>
