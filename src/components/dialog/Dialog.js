@@ -1,4 +1,4 @@
-// import classlist from 'classlist'
+import classlist from 'classlist'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactDOM, { createPortal } from 'react-dom'
@@ -183,13 +183,62 @@ class Dialog extends React.Component {
   close = () => {
     this.setState({ shouldHideBackdrop: true })
     // this.props.onClose()
-    this.dialogInstance.close(this.props.onClose)
+    // this.dialogInstance.close(this.props.onClose)
+    const openedDialog = document.getElementsByClassName(
+      `${prefixCls}-dialog__dialog_open`
+    )[0]
+    const dialogStacks = document.getElementsByClassName(
+      `${prefixCls}-dialog__dialog`
+    )
+    dialogStacks[0] &&
+      classlist(dialogStacks[0]).add(`${prefixCls}-dialog__dialog_open`)
+    if (openedDialog) {
+      classlist(openedDialog).remove(`${prefixCls}-dialog__dialog_open`)
+      const onTransitionEnd = () => {
+        openedDialog.style.display = 'none'
+        openedDialog.removeEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+        this.props.onClose()
+      }
+      openedDialog.addEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+    } else {
+      this.props.onClose()
+    }
     // debugger
     // this.setState({ open: false })
     // this.props.onToggle && this.props.onToggle(false)
     // this.backdropInstance.close()
     // this.closeCallbacks.add(callback)
     // this.closeCallbacks.free()
+  }
+
+  closeBackdropAndAllDialogs = () => {
+    this.setState({ shouldHideBackdrop: true })
+    // this.props.onClose()
+    // this.dialogInstance.close(this.props.onClose)
+    const openedDialog = document.getElementsByClassName(
+      `${prefixCls}-dialog__dialog_open`
+    )[0]
+    if (openedDialog) {
+      classlist(openedDialog).remove(`${prefixCls}-dialog__dialog_open`)
+      const onTransitionEnd = () => {
+        openedDialog.style.display = 'none'
+        console.log('onTransitionEnd')
+        openedDialog.removeEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+        this.props.onClose()
+      }
+      openedDialog.addEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+    } else {
+      this.props.onClose()
+    }
+  }
+
+  componentWillMount () {
+    const dialogStacks = document.getElementsByClassName(
+      `${prefixCls}-dialog__dialog`
+    )
+    dialogStacks[0] &&
+      classlist(dialogStacks[0]).remove(`${prefixCls}-dialog__dialog_open`)
+    console.log('dialogStacks', dialogStacks)
   }
 
   componentWillUnmount () {
@@ -209,10 +258,9 @@ class Dialog extends React.Component {
     }
     // debugger
     if (this.state.shouldHideBackdrop === false) {
-      console.log('this.dialogInstance.close', this.dialogInstance)
       // this.dialog.style.display = 'none'
-      // this.dialogInstance.close(this.props.onClose)
       this.props.onClose()
+      // this.props.onClose()
     }
   }
 
@@ -229,7 +277,7 @@ class Dialog extends React.Component {
         {...other}
       >
         {!shouldHideBackdrop && !!backdrop && !hasExistedBackdrop && (
-          <Backdrop onClick={this.close} />
+          <Backdrop onClick={this.closeBackdropAndAllDialogs} />
         )}
         {this.props.children}
       </DialogContainer>,

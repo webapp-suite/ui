@@ -7,14 +7,14 @@ import DialogBody from '../dialog/DialogBody'
 import './index.less'
 
 class AsideCloseButton extends Component {
-  static propTypes = {
-    onClose: PropTypes.func
-  }
+  // static propTypes = {
+  //   onClose: PropTypes.func
+  // }
   static contextTypes = {
     dialogContainer: PropTypes.object
   }
   handleClose = () => {
-    this.context?.dialogContainer?.props?.close?.(this.props.onClose)
+    this.context?.dialogContainer?.props?.close?.()
     // this.props?.onClose?.()
   }
   render () {

@@ -14,7 +14,6 @@ class Backdrop extends React.Component {
       <div
         className={`${prefixCls}-dialog__backdrop ${prefixCls}-dialog__backdrop_open`}
         onClick={this.handleClick}
-        ref={backdrop => (this.backdrop = backdrop)}
       />,
       document.body
     )

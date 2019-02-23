@@ -21,17 +21,17 @@ class ToggleNode {
   }
 
   close (callback) {
-    // console.log('close', callback)
-    this.openedClassName && classlist(this.node).remove(this.openedClassName)
-    const onTransitionEnd = () => {
-      this.node.style.display = 'none'
-      this.node.removeEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+    if (classlist(this.node).contains(this.openedClassName)) {
+      classlist(this.node).remove(this.openedClassName)
+      const onTransitionEnd = () => {
+        this.node.style.display = 'none'
+        this.node.removeEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+        callback && callback()
+      }
+      this.node.addEventListener(ToggleNode.END_EVENT, onTransitionEnd)
+    } else {
       callback && callback()
     }
-    this.node.addEventListener(ToggleNode.END_EVENT, onTransitionEnd)
-  }
-  close2 () {
-    this.node.style.display = 'none'
   }
 }
 
