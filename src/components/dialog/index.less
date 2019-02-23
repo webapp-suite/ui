@@ -1,7 +1,6 @@
 @import '~ui-variables';
 
 @duration: .3s;
-@zIndex: @ui-zindex-dialog;
 @padding-lr: 40px;
 @padding-tb: 30px;
 @min-width-sm: 300px;
@@ -9,8 +8,7 @@
 @min-width-lg: 500px;
 @keyframes-dialog-shake: ~"@{prefix-cls}-dialog__dialog-shake";
 @keyframes-dialog-toggle: ~"@{prefix-cls}-dialog__dialog-toggle";
-@local-variable-dialog-width: @ui-width-aside + (@ui-unit-double * 2) - @ui-unit;
-@local-variable-dialog-minus: 1 - @local-variable-dialog-width * 0.5;
+@local-variable-dialog-minus: 1 - @ui-width-aside * 0.5;
 
 @keyframes @keyframes-dialog-shake {
   10%, 90% {
@@ -64,7 +62,7 @@ body.@{prefix-cls}-dialog_open {
   left: 0;
   opacity: 0;
   transition: all @duration;
-  z-index: @zIndex;
+  z-index: @ui-zindex-dialog-cover;
   background-color: @ui-cover;
 }
 
@@ -74,31 +72,58 @@ body.@{prefix-cls}-dialog_open {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: @zIndex;
+  z-index: @ui-zindex-dialog;
   overflow: hidden;
-  &-dialog {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    margin-left: @local-variable-dialog-minus;
-    // TODO: assumed in the chrome, account for menu width
-    margin-left: @local-variable-dialog-minus + 130px;
-    display: table;
-    transition: all @duration;
-    &_lock {
-      animation: @keyframes-dialog-shake .8s;
-    }
-  }
+  top: 20%;
+  left: 50%;
+  margin-left: @local-variable-dialog-minus;
+  // TODO: assumed in the chrome, account for menu width
+  margin-left: @local-variable-dialog-minus + 130px;
+  display: table;
+  transition: all @duration;
   &-content {
-    width: @local-variable-dialog-width;
+    width: @ui-width-aside;
     background-color: @ui-color-white;
     border-radius: @ui-radius;
     border: 1px solid @ui-color-gray-light;
     box-shadow: @ui-shadow;
   }
+  &_lock {
+    animation: @keyframes-dialog-shake .8s;
+  }
 }
+//
+//.@{prefix-cls}-dialog__dialog {
+//  position: fixed;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//  z-index: @zIndex;
+//  overflow: hidden;
+//  &-dialog {
+//    position: absolute;
+//    top: 20%;
+//    left: 50%;
+//    margin-left: @local-variable-dialog-minus;
+//    // TODO: assumed in the chrome, account for menu width
+//    margin-left: @local-variable-dialog-minus + 130px;
+//    display: table;
+//    transition: all @duration;
+//    &_lock {
+//      animation: @keyframes-dialog-shake .8s;
+//    }
+//  }
+//  &-content {
+//    width: @ui-width-aside;
+//    background-color: @ui-color-white;
+//    border-radius: @ui-radius;
+//    border: 1px solid @ui-color-gray-light;
+//    box-shadow: @ui-shadow;
+//  }
+//}
 
-.@{prefix-cls}-dialog__dialog-dialog {
+.@{prefix-cls}-dialog__dialog {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
   //transform-origin: right;
@@ -192,11 +217,9 @@ body.@{prefix-cls}-dialog_open {
   text-align: center;
 }
 
-div.@{prefix-cls}-dialog_open {
-  .@{prefix-cls}-dialog__dialog-dialog {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.@{prefix-cls}-dialog__dialog_open {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .@{prefix-cls}-dialog__backdrop_open {

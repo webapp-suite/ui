@@ -43,7 +43,7 @@ class DialogContainer extends React.Component {
       if (!this.props.lock && this.props.backdrop) {
         this.props.close()
       } else if (this.props.backdrop) {
-        const LOCK_CLASSNAME = `${prefixCls}-dialog__dialog-dialog_lock`
+        const LOCK_CLASSNAME = `${prefixCls}-dialog__dialog_lock`
         const END_EVENT = 'animationend'
         classlist(this.modalNode).add(LOCK_CLASSNAME)
         const onAnimationEnd = () => {
@@ -67,28 +67,14 @@ class DialogContainer extends React.Component {
     } = this.props
     const divProps = omit(other, ['close'])
     return (
-      <div className={cx(`${prefixCls}-dialog`, className)} {...divProps}>
-        {/* {!!backdrop && ( */}
-        {/* <div */}
-        {/* className={`${prefixCls}-dialog__backdrop`} */}
-        {/* /> */}
-        {/* )} */}
-        <div
-          className={`${prefixCls}-dialog__dialog`}
-          style={{ zIndex: 3000 }}
-          onClick={this.handleBackdropClick}
-        >
-          <div
-            className={cx(`${prefixCls}-dialog__dialog-dialog`, {
-              [`${prefixCls}-dialog__dialog-dialog-${type}`]: type
-            })}
-            ref={node => (this.modalNode = node)}
-          >
-            <div className={`${prefixCls}-dialog__dialog-content`}>
-              {children}
-            </div>
-          </div>
-        </div>
+      <div
+        className={cx(`${prefixCls}-dialog__dialog`, {
+          [`${prefixCls}-dialog__dialog-${type}`]: type
+        })}
+        {...divProps}
+        ref={node => (this.modalNode = node)}
+      >
+        <div className={`${prefixCls}-dialog__dialog-content`}>{children}</div>
       </div>
     )
   }

@@ -1,14 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import marked from 'marked'
+// import ReactDOM, { createPortal } from 'react-dom'
+// import marked from 'marked'
 import * as type from '../_utils/type'
-import Dialog from './Dialog'
-import DialogBody from './DialogBody'
-import DialogButtons from './DialogButtons'
-import DialogHeader from './DialogHeader'
+// import Dialog from './Dialog'
+// import DialogBody from './DialogBody'
+// import DialogButtons from './DialogButtons'
+// import DialogHeader from './DialogHeader'
+import DialogPortal from './DialogPortal'
 
 let render = props => {
-  const container = document.createElement('div')
+  // const container = document.createElement('div')
 
   let isOpen = false
   const messageQueue = []
@@ -19,31 +20,11 @@ let render = props => {
   }
 
   render = nextProps => {
-    props = Object.assign({}, props, nextProps)
-    const { open, backdrop, lock, type, message, options, acceptLabel, cancelLabel } = props
+    props = Object.assign({}, props, nextProps, { handleClose })
     if (isOpen && open) {
       return messageQueue.push(props)
     }
-    isOpen = open
-    ReactDOM.render((
-      <Dialog open={isOpen} backdrop={backdrop} lock={lock}>
-        <DialogHeader type={type} icon={options?.icon} />
-        <DialogBody>
-          <div
-            className={`${prefixCls}-dialog__body-markdown`}
-            dangerouslySetInnerHTML={{ __html: marked(message) }}
-          />
-        </DialogBody>
-        <DialogButtons
-          type={type}
-          focused={options?.focused}
-          onClose={handleClose}
-          acceptLabel={acceptLabel}
-          cancelLabel={cancelLabel}
-          {...options}
-        />
-      </Dialog>
-    ), container)
+    React.createElement(DialogPortal, props)
     props.open || handleClose()
   }
   render()
@@ -66,7 +47,9 @@ const getDialogParams = args => {
 
 const dialog = {
   confirm () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -79,7 +62,9 @@ const dialog = {
     })
   },
   accept () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -92,7 +77,9 @@ const dialog = {
     })
   },
   warning () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -105,7 +92,9 @@ const dialog = {
     })
   },
   danger () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,

@@ -14,8 +14,8 @@ class AsideCloseButton extends Component {
     dialogContainer: PropTypes.object
   }
   handleClose = () => {
-    this.context?.dialogContainer?.props?.close?.()
-    this.props?.onClose?.()
+    this.context?.dialogContainer?.props?.close?.(this.props.onClose)
+    // this.props?.onClose?.()
   }
   render () {
     return (
@@ -33,24 +33,19 @@ class Aside extends React.Component {
     super()
     this.state = {}
   }
-
   render () {
     const { className, children, isOpen, title, onClose, ...other } = this.props
     return (
       <div className={cx(`${prefixCls}-aside`, className)}>
-        <Dialog
-          open={isOpen}
-          onClose={onClose}
-          type="aside"
-          backdrop
-          {...other}
-        >
-          <div className={`${prefixCls}-aside__header`}>
-            <div className={`${prefixCls}-aside__header-title`}>{title}</div>
-            <AsideCloseButton onClose={onClose} />
-          </div>
-          <DialogBody>{children}</DialogBody>
-        </Dialog>
+        {!!isOpen && (
+          <Dialog onClose={onClose} type="aside" backdrop {...other}>
+            <div className={`${prefixCls}-aside__header`}>
+              <div className={`${prefixCls}-aside__header-title`}>{title}</div>
+              <AsideCloseButton onClose={onClose} />
+            </div>
+            <DialogBody>{children}</DialogBody>
+          </Dialog>
+        )}
       </div>
     )
   }
