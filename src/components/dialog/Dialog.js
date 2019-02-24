@@ -86,7 +86,7 @@ class Dialog extends React.Component {
       `${prefixCls}-dialog__main_open`
     )[0]
     this.backUp()
-    if (openedDialog) {
+    if (openedDialog && !this.props.autoClose) {
       classlist(openedDialog).remove(`${prefixCls}-dialog__main_open`)
       const onTransitionEnd = () => {
         openedDialog.style.display = 'none'

@@ -16,6 +16,7 @@ class ClassicDialog extends React.Component {
   }
   handleDialogClose = () => {
     this.setState({ isOpen: false })
+    this.props?.onClose?.()
   }
   render () {
     const {
@@ -58,8 +59,23 @@ class ClassicDialog extends React.Component {
 }
 
 let render = props => {
-  const container = document.createElement('div')
-  ReactDOM.render(<ClassicDialog {...props} />, container)
+  let isOpen = false
+  const messageQueue = []
+  const handleClose = () => {
+    isOpen = false
+    const head = messageQueue[0] && messageQueue.shift()
+    head && render(head)
+  }
+  render = nextProps => {
+    props = Object.assign({}, props, nextProps, { onClose: handleClose })
+    if (isOpen) {
+      return messageQueue.push(props)
+    }
+    isOpen = true
+    const container = document.createElement('div')
+    ReactDOM.render(<ClassicDialog {...props} />, container)
+  }
+  render()
 }
 
 const getDialogParams = args => {

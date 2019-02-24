@@ -37,7 +37,7 @@
 
 @keyframes @keyframes-dialog-main-dialog-toggle {
   0% {
-    transform: scale(0.9)
+    transform: scale(0.8)
   }
   100% {
     transform: scale(1)
@@ -83,8 +83,9 @@
     animation: @keyframes-dialog-main-shake .8s;
   }
   &_dialog {
-    transform-origin: 25% 25%;
-    animation: @keyframes-dialog-main-dialog-toggle @ui-transition-now;
+    //forbid animation cuz text shift
+    //transform-origin: 25% 25%;
+    //animation: @keyframes-dialog-main-dialog-toggle @ui-transition-now;
   }
   &_aside {
     right: 0;

@@ -35,27 +35,32 @@ import Aside from 'earth-ui/lib/Aside'
 import Button from 'earth-ui/lib/Button'
 
 class StackingAsides extends Component {
-  state = { isOpen1: false, isOpen2: false }
-  openAside1 = () => {
-    this.setState({ isOpen1: true })
+  state = { isOpen1: false, isOpen2: false, isOpen3: false }
+  openAside = number => {
+    this.setState({ [`isOpen${number}`]: true })
   }
-  openAside2 = () => {
-    this.setState({ isOpen2: true })
-  }
-  closeAside1 =  () => {
-    this.setState({ isOpen1: false })
-  }
-  closeAside2 =  () => {
-    this.setState({ isOpen2: false })
+  closeAside = number => {
+    this.setState({ [`isOpen${number}`]: false })
   }
   render () {
     return (
       <div>
-        <Button type="secondary" onClick={this.openAside1}>Open Stacking Asides</Button>
-        <Aside isOpen={this.state.isOpen1} onClose={this.closeAside1} title="Aside1 Title">
-          <Button type="tertiary" onClick={this.openAside2} block autoFocus>Open Aside 2</Button>
-          <Aside isOpen={this.state.isOpen2} onClose={this.closeAside2} title="Aside2 Title">
-            Aside 2
+        <Button type="secondary" onClick={()=>this.openAside(1)}>
+          Open Stacking Asides
+        </Button>
+        <Aside isOpen={this.state.isOpen1} onClose={()=>this.closeAside(1)} title="Aside One">
+          <Button type="tertiary" onClick={()=>this.openAside(2)} block autoFocus>
+            Open Aside Two
+          </Button>
+          <Aside isOpen={this.state.isOpen2} onClose={()=>this.closeAside(2)} title="Aside Two">
+            <Button type="tertiary" onClick={()=>this.openAside(3)} block autoFocus>
+              Open Aside Three
+            </Button>
+            <Aside isOpen={this.state.isOpen3} onClose={()=>this.closeAside(3)} title="Aside Three">
+              <Button type="primary" onClick={()=>this.closeAside(1)} block autoFocus>
+                Close all asides
+              </Button>
+            </Aside>
           </Aside>
         </Aside>
       </div>
