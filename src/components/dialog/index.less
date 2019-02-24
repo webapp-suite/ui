@@ -1,8 +1,10 @@
 @import '~ui-variables';
+@import '~ui-mixins';
 
 @duration: .3s;
 @keyframes-dialog-main-shake: ~"@{prefix-cls}-dialog__main_shake";
-@keyframes-dialog-main-toggle: ~"@{prefix-cls}-dialog__main_toggle";
+@keyframes-dialog-main-aside-toggle: ~"@{prefix-cls}-dialog__main_aside_toggle";
+@keyframes-dialog-main-dialog-toggle: ~"@{prefix-cls}-dialog__main_dialog_toggle";
 @local-variable-dialog-minus: 1 - @ui-width-aside * 0.5;
 
 @keyframes @keyframes-dialog-main-shake {
@@ -23,12 +25,22 @@
   }
 }
 
-@keyframes @keyframes-dialog-main-toggle {
+@keyframes @keyframes-dialog-main-aside-toggle {
   0% {
     transform: translate3d(100%, 0, 0);
+    .ui-mixin-transform-origin(50%, 50%);
   }
   100% {
     transform: translate3d(0%, 0, 0);
+  }
+}
+
+@keyframes @keyframes-dialog-main-dialog-toggle {
+  0% {
+    transform: scale(0.9)
+  }
+  100% {
+    transform: scale(1)
   }
 }
 
@@ -66,10 +78,13 @@
   // TODO: assumed in the chrome, account for menu width
   margin-left: @local-variable-dialog-minus + 130px;
   display: table;
-  transition: all @duration;
   opacity: 0;
   &_lock {
     animation: @keyframes-dialog-main-shake .8s;
+  }
+  &_dialog {
+    transform-origin: 25% 25%;
+    animation: @keyframes-dialog-main-dialog-toggle @ui-transition-now;
   }
   &_aside {
     right: 0;
@@ -78,7 +93,8 @@
     bottom: 0;
     width: @ui-width-aside;
     transform: translate3d(100%, 0, 0);
-    animation: @keyframes-dialog-main-toggle @duration;
+    transition: all @duration;
+    animation: @keyframes-dialog-main-aside-toggle @duration;
     .@{prefix-cls}-dialog__main-content {
       width: @ui-width-aside;
       border-radius: 0;
@@ -157,5 +173,8 @@
   opacity: 1;
   &.@{prefix-cls}-dialog__main_aside {
     transform: translate3d(0, 0, 0);
+  }
+  &.@{prefix-cls}-dialog__main_dialog {
+    //transform: scale(1) translate3d(0, 0, 0);
   }
 }

@@ -132,7 +132,7 @@ class Dialog extends React.Component {
   render () {
     const { shouldHideBackdrop, hasExistedBackdrop } = this.state
     const { backdrop, lock, type, children, ...other } = this.props
-    const divProps = omit(other, ['lock'])
+    const divProps = omit(other, ['lock', 'autoClose'])
     return createPortal(
       <div
         ref={dialog => (this.dialog = dialog)}
