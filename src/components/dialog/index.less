@@ -1,13 +1,8 @@
 @import '~ui-variables';
 
 @duration: .3s;
-@padding-lr: 40px;
-@padding-tb: 30px;
-@min-width-sm: 300px;
-@min-width-md: 400px;
-@min-width-lg: 500px;
-@keyframes-dialog-shake: ~"@{prefix-cls}-dialog__dialog-shake";
-@keyframes-dialog-toggle: ~"@{prefix-cls}-dialog__dialog-toggle";
+@keyframes-dialog-shake: ~"@{prefix-cls}-dialog__main_shake";
+@keyframes-dialog-toggle: ~"@{prefix-cls}-dialog__main_toggle";
 @local-variable-dialog-minus: 1 - @ui-width-aside * 0.5;
 
 @keyframes @keyframes-dialog-shake {
@@ -37,191 +32,130 @@
   }
 }
 
-.@{prefix-cls}-dialog__scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll;
-}
-
-body.@{prefix-cls}-dialog_open {
-  overflow: hidden;
-}
-
 .@{prefix-cls}-dialog {
   display: none;
   backface-visibility: hidden;
+  &_open {
+    overflow: hidden;
+  }
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    opacity: 0;
+    transition: all @duration;
+    z-index: @ui-zindex-dialog-cover;
+    background-color: @ui-cover;
+    &_open {
+      opacity: 1;
+    }
+  }
 }
 
-.@{prefix-cls}-dialog__backdrop {
+.@{prefix-cls}-dialog__main {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  opacity: 0;
-  transition: all @duration;
-  z-index: @ui-zindex-dialog-cover;
-  background-color: @ui-cover;
-}
-
-.@{prefix-cls}-dialog__dialog {
-  position: fixed;
-  top: 0;
+  top: 20%;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 50%;
   z-index: @ui-zindex-dialog;
   overflow: hidden;
-  top: 20%;
-  left: 50%;
   margin-left: @local-variable-dialog-minus;
   // TODO: assumed in the chrome, account for menu width
   margin-left: @local-variable-dialog-minus + 130px;
   display: table;
   transition: all @duration;
-  &-content {
-    width: @ui-width-aside;
-    background-color: @ui-color-white;
-    border-radius: @ui-radius;
-    border: 1px solid @ui-color-gray-light;
-    box-shadow: @ui-shadow;
-  }
+  opacity: 0;
   &_lock {
     animation: @keyframes-dialog-shake .8s;
   }
-}
-//
-//.@{prefix-cls}-dialog__dialog {
-//  position: fixed;
-//  top: 0;
-//  right: 0;
-//  bottom: 0;
-//  left: 0;
-//  z-index: @zIndex;
-//  overflow: hidden;
-//  &-dialog {
-//    position: absolute;
-//    top: 20%;
-//    left: 50%;
-//    margin-left: @local-variable-dialog-minus;
-//    // TODO: assumed in the chrome, account for menu width
-//    margin-left: @local-variable-dialog-minus + 130px;
-//    display: table;
-//    transition: all @duration;
-//    &_lock {
-//      animation: @keyframes-dialog-shake .8s;
-//    }
-//  }
-//  &-content {
-//    width: @ui-width-aside;
-//    background-color: @ui-color-white;
-//    border-radius: @ui-radius;
-//    border: 1px solid @ui-color-gray-light;
-//    box-shadow: @ui-shadow;
-//  }
-//}
-
-.@{prefix-cls}-dialog__dialog {
-  opacity: 0;
-  transform: translate3d(100%, 0, 0);
-  //transform-origin: right;
-  //transition: all @duration;
-  animation: @keyframes-dialog-toggle @duration;
-  &-aside {
+  &_aside {
     right: 0;
     left: auto;
     top: 0;
     bottom: 0;
     width: @ui-width-aside;
-    .@{prefix-cls}-dialog__dialog-content {
+    transform: translate3d(100%, 0, 0);
+    animation: @keyframes-dialog-toggle @duration;
+    .@{prefix-cls}-dialog__main-content {
+      width: @ui-width-aside;
       border-radius: 0;
       border: none;
       width: auto;
     }
-    .@{prefix-cls}-dialog__body {
+    .@{prefix-cls}-dialog__main-body {
       max-height: none;
       height: 100vh;
       text-align: left;
       padding: @ui-unit @ui-unit @ui-unit-triple;
     }
   }
-}
-
-.@{prefix-cls}-dialog_sm {
-  .@{prefix-cls}-dialog__dialog-dialog {
-    min-width: @min-width-sm;
+  &-content {
+    width: 380px;
+    background-color: @ui-color-white;
+    border-radius: @ui-radius;
+    border: 1px solid @ui-color-gray-light;
+    box-shadow: @ui-shadow;
   }
-}
-
-.@{prefix-cls}-dialog_lg {
-  .@{prefix-cls}-dialog__dialog-dialog {
-    min-width: @min-width-lg;
-  }
-}
-
-.@{prefix-cls}-dialog__header {
-  padding: @padding-tb @padding-lr @ui-unit-half;
-  &-icon {
-    font-size: 40px;
-    line-height: @ui-unit-double;
-    height: @ui-unit-double;
-    width: @ui-unit-double;
-    &_confirm, &_info {
-      color: @ui-color-blue;
-    }
-    &_accept, &_success {
-      color: @ui-color-green;
-    }
-    &_warning {
-      color: @ui-color-orange;
-    }
-    &_danger, &_error {
-      color: @ui-color-red;
-    }
-  }
-}
-
-.@{prefix-cls}-dialog__body {
-  padding: 0 @ui-unit-double @ui-unit-plus;
-  max-height: 18.5 * @ui-unit;
-  overflow-y: auto;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &-markdown {
-    line-height: 22px;
-    a {
-      color: @ui-color-blue;
-      &:hover {
-        text-decoration: underline;
+  &-header {
+    padding: @ui-unit-plus @ui-unit-double @ui-unit-half;
+    &-icon {
+      font-size: 40px;
+      line-height: @ui-unit-double;
+      height: @ui-unit-double;
+      width: @ui-unit-double;
+      &_confirm, &_info {
+        color: @ui-color-blue;
+      }
+      &_accept, &_success {
+        color: @ui-color-green;
+      }
+      &_warning {
+        color: @ui-color-orange;
+      }
+      &_danger, &_error {
+        color: @ui-color-red;
       }
     }
-    p > code {
-      font-family: @ui-fontstack-mono;
-      color: @ui-color-green-dark;
-      font-size: @ui-fontsize-medium;
+  }
+  &-body {
+    padding: 0 @ui-unit-double @ui-unit-plus;
+    max-height: 18.5 * @ui-unit;
+    overflow-y: auto;
+    &:last-child {
+      margin-bottom: 0;
     }
+    &-markdown {
+      line-height: 22px;
+      a {
+        color: @ui-color-blue;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      p > code {
+        font-family: @ui-fontstack-mono;
+        color: @ui-color-green-dark;
+        font-size: @ui-fontsize-medium;
+      }
+    }
+  }
+  &-buttons {
+    padding: @ui-unit-half @ui-unit-double @ui-unit;
+  }
+  &-header,
+  &-body,
+  &-buttons {
+    position: relative;
+    text-align: center;
   }
 }
 
-.@{prefix-cls}-dialog__buttons {
-  padding: @ui-unit-half @ui-unit-double @ui-unit;
-}
-
-.@{prefix-cls}-dialog__header,
-.@{prefix-cls}-dialog__body,
-.@{prefix-cls}-dialog__buttons {
-  position: relative;
-  text-align: center;
-}
-
-.@{prefix-cls}-dialog__dialog_open {
+.@{prefix-cls}-dialog__main_open {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.@{prefix-cls}-dialog__backdrop_open {
-  opacity: 1;
+  &.@{prefix-cls}-dialog__main_aside {
+    transform: translate3d(0, 0, 0);
+  }
 }

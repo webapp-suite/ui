@@ -7,15 +7,11 @@ import DialogBody from '../dialog/DialogBody'
 import './index.less'
 
 class AsideCloseButton extends Component {
-  // static propTypes = {
-  //   onClose: PropTypes.func
-  // }
   static contextTypes = {
-    dialogContainer: PropTypes.object
+    dialog: PropTypes.object
   }
   handleClose = () => {
-    this.context?.dialogContainer?.props?.close?.()
-    // this.props?.onClose?.()
+    this.context?.dialog?.close?.()
   }
   render () {
     return (
@@ -41,7 +37,7 @@ class Aside extends React.Component {
           <Dialog onClose={onClose} type="aside" backdrop {...other}>
             <div className={`${prefixCls}-aside__header`}>
               <div className={`${prefixCls}-aside__header-title`}>{title}</div>
-              <AsideCloseButton onClose={onClose} />
+              <AsideCloseButton />
             </div>
             <DialogBody>{children}</DialogBody>
           </Dialog>

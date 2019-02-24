@@ -5,10 +5,7 @@ import React from 'react'
 const DialogBody = props => {
   const { children, className, ...other } = props
   return (
-    <div
-      className={cx(`${prefixCls}-dialog__body`, className)}
-      {...other}
-    >
+    <div className={cx(`${prefixCls}-dialog__main-body`, className)} {...other}>
       {children}
     </div>
   )

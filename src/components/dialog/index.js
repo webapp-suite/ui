@@ -1,33 +1,65 @@
 import React from 'react'
-// import ReactDOM, { createPortal } from 'react-dom'
-// import marked from 'marked'
+import ReactDOM from 'react-dom'
+import marked from 'marked'
 import * as type from '../_utils/type'
-// import Dialog from './Dialog'
-// import DialogBody from './DialogBody'
-// import DialogButtons from './DialogButtons'
-// import DialogHeader from './DialogHeader'
-import DialogPortal from './DialogPortal'
+import Dialog from './Dialog'
+import DialogBody from './DialogBody'
+import DialogButtons from './DialogButtons'
+import DialogHeader from './DialogHeader'
+
+class ClassicDialog extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      isOpen: true
+    }
+  }
+  handleDialogClose = () => {
+    this.setState({ isOpen: false })
+  }
+  render () {
+    const {
+      backdrop,
+      lock,
+      type,
+      options,
+      acceptLabel,
+      message,
+      cancelLabel
+    } = this.props
+    return (
+      <div>
+        {!!this.state.isOpen && (
+          <Dialog
+            type="dialog"
+            onClose={this.handleDialogClose}
+            backdrop={backdrop}
+            lock={lock}
+          >
+            <DialogHeader type={type} icon={options?.icon} />
+            <DialogBody>
+              <div
+                className={`${prefixCls}-dialog__body-markdown`}
+                dangerouslySetInnerHTML={{ __html: marked(message) }}
+              />
+            </DialogBody>
+            <DialogButtons
+              type={type}
+              focused={options?.focused}
+              acceptLabel={acceptLabel}
+              cancelLabel={cancelLabel}
+              {...options}
+            />
+          </Dialog>
+        )}
+      </div>
+    )
+  }
+}
 
 let render = props => {
-  // const container = document.createElement('div')
-
-  let isOpen = false
-  const messageQueue = []
-  const handleClose = () => {
-    isOpen = false
-    const head = messageQueue[0] && messageQueue.shift()
-    head && render(head)
-  }
-
-  render = nextProps => {
-    props = Object.assign({}, props, nextProps, { handleClose })
-    if (isOpen && open) {
-      return messageQueue.push(props)
-    }
-    React.createElement(DialogPortal, props)
-    props.open || handleClose()
-  }
-  render()
+  const container = document.createElement('div')
+  ReactDOM.render(<ClassicDialog {...props} />, container)
 }
 
 const getDialogParams = args => {
