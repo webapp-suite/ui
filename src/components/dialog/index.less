@@ -1,11 +1,11 @@
 @import '~ui-variables';
 
 @duration: .3s;
-@keyframes-dialog-shake: ~"@{prefix-cls}-dialog__main_shake";
-@keyframes-dialog-toggle: ~"@{prefix-cls}-dialog__main_toggle";
+@keyframes-dialog-main-shake: ~"@{prefix-cls}-dialog__main_shake";
+@keyframes-dialog-main-toggle: ~"@{prefix-cls}-dialog__main_toggle";
 @local-variable-dialog-minus: 1 - @ui-width-aside * 0.5;
 
-@keyframes @keyframes-dialog-shake {
+@keyframes @keyframes-dialog-main-shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
@@ -23,7 +23,7 @@
   }
 }
 
-@keyframes @keyframes-dialog-toggle {
+@keyframes @keyframes-dialog-main-toggle {
   0% {
     transform: translate3d(100%, 0, 0);
   }
@@ -69,7 +69,7 @@
   transition: all @duration;
   opacity: 0;
   &_lock {
-    animation: @keyframes-dialog-shake .8s;
+    animation: @keyframes-dialog-main-shake .8s;
   }
   &_aside {
     right: 0;
@@ -78,7 +78,7 @@
     bottom: 0;
     width: @ui-width-aside;
     transform: translate3d(100%, 0, 0);
-    animation: @keyframes-dialog-toggle @duration;
+    animation: @keyframes-dialog-main-toggle @duration;
     .@{prefix-cls}-dialog__main-content {
       width: @ui-width-aside;
       border-radius: 0;
