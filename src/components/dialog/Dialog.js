@@ -190,8 +190,11 @@ class Dialog extends React.Component {
     const dialogStacks = document.getElementsByClassName(
       `${prefixCls}-dialog__dialog`
     )
-    dialogStacks[0] &&
-      classlist(dialogStacks[0]).add(`${prefixCls}-dialog__dialog_open`)
+    const dialogStacksCount = dialogStacks.length
+    dialogStacksCount > 1 &&
+      classlist(dialogStacks[dialogStacksCount - 2]).add(
+        `${prefixCls}-dialog__dialog_open`
+      )
     if (openedDialog) {
       classlist(openedDialog).remove(`${prefixCls}-dialog__dialog_open`)
       const onTransitionEnd = () => {
@@ -222,7 +225,6 @@ class Dialog extends React.Component {
       classlist(openedDialog).remove(`${prefixCls}-dialog__dialog_open`)
       const onTransitionEnd = () => {
         openedDialog.style.display = 'none'
-        console.log('onTransitionEnd')
         openedDialog.removeEventListener(ToggleNode.END_EVENT, onTransitionEnd)
         this.props.onClose()
       }
@@ -236,9 +238,11 @@ class Dialog extends React.Component {
     const dialogStacks = document.getElementsByClassName(
       `${prefixCls}-dialog__dialog`
     )
-    dialogStacks[0] &&
-      classlist(dialogStacks[0]).remove(`${prefixCls}-dialog__dialog_open`)
-    console.log('dialogStacks', dialogStacks)
+    const dialogStacksCount = dialogStacks.length
+    dialogStacksCount > 0 &&
+      classlist(dialogStacks[dialogStacksCount - 1]).remove(
+        `${prefixCls}-dialog__dialog_open`
+      )
   }
 
   componentWillUnmount () {
