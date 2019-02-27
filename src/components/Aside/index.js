@@ -27,15 +27,29 @@ class AsideCloseButton extends Component {
 class Aside extends React.Component {
   constructor () {
     super()
-    this.state = {}
+    this.state = {
+      hasTabsChildren: false
+    }
   }
+
+  componentWillMount () {
+    React.Children.forEach(this.props.children, child => {
+      child?.type?.name === 'Tabs' && this.setState({ hasTabsChildren: true })
+    })
+  }
+
   render () {
     const { className, children, isOpen, title, onClose, ...other } = this.props
     return (
       <div className={cx(`${prefixCls}-aside`, className)}>
         {!!isOpen && (
           <Dialog onClose={onClose} type="aside" backdrop {...other}>
-            <div className={`${prefixCls}-aside__header`}>
+            <div
+              className={cx(`${prefixCls}-aside__header`, {
+                [`${prefixCls}-aside__header_with-tabs`]: this.state
+                  .hasTabsChildren
+              })}
+            >
               <div className={`${prefixCls}-aside__header-title`}>{title}</div>
               <AsideCloseButton />
             </div>

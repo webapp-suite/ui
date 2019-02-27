@@ -20,7 +20,46 @@ class AsideBasic extends Component {
       <div>
         <Button type="secondary" onClick={this.openAside}>Open Aside</Button>
         <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
-          Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket Tradeshift strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. Tradeshift sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+          Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+        </Aside>
+      </div>
+    )
+  }
+}
+
+/**
+ * @title Adding some tabs
+ * @desc If an Aside contains more than one Panel, you can use TabBar to switch between the panels like in this example:
+ */
+import Aside from 'earth-ui/lib/Aside'
+import Button from 'earth-ui/lib/Button'
+import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+
+class AsideTabs extends Component {
+  state = { isOpen: false }
+  openAside = () => {
+    this.setState({ isOpen: true })
+  }
+  onClose =  () => {
+    this.setState({ isOpen: false })
+  }
+  render () {
+    return (
+      <div>
+        <Button type="secondary" onClick={this.openAside}>Open Aside with Tabs</Button>
+        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Declarative Tabs">
+          <Tabs>
+            <TabList>
+              <Tab>tab 1</Tab>
+              <Tab>tab 2</Tab>
+            </TabList>
+            <TabPanel>
+              Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+            </TabPanel>
+            <TabPanel>
+              EarthUI salami burger mit invoice pastrami, shankle venison meatball pork belly capicola ribeye sirloin doner Aside. Tail kielbasa beef ribs landjaeger pork belly. T-bone pig andouille, doner ham sirloin short ribs meatloaf salami strip steak tenderloin short loin tri-tip pork loin. Pastrami jowl sirloin, kevin jerky filet mignon bacon pork chop brisket pancetta. Spare ribs ground round pork belly pork chop doner swine, fatback bresaola. Picanha beef ribs burgdoggen bacon sausage rump. Porchetta turkey ribeye, tenderloin landjaeger spare ribs strip steak pork belly t-bone. Tenderloin t-bone ham, doner corned beef chuck fatback ground round short ribs tri-tip. Landjaeger ribeye brisket boudin tongue pork kevin frankfurter. Swine capicola filet mignon, cow spare ribs ribeye salami sausage porchetta hamburger short ribs corned beef.
+            </TabPanel>
+          </Tabs>
         </Aside>
       </div>
     )

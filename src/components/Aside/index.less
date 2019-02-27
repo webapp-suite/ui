@@ -21,5 +21,19 @@
     &-close {
       top: 3px;
     }
+    &_with-tabs {
+      padding-bottom: @ui-unit-double;
+    }
+  }
+}
+
+.@{prefix-cls}-dialog__main_aside {
+  .@{prefix-cls}-tabs__list {
+    position: fixed;
+    top: @ui-unit-triple;
+    margin-left: -@ui-unit;
+  }
+  .@{prefix-cls}-tabs__panel {
+    padding-top: 0; // override
   }
 }
