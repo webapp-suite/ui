@@ -63,11 +63,12 @@ class Aside extends React.Component {
 
 Aside.propTypes = {
   className: PropTypes.string,
-  isOpen: PropTypes.bool,
-  onClose: PropTypes.func,
-  onClosed: PropTypes.func,
+  // 是否打开侧边栏
+  isOpen: PropTypes.bool.isRequired,
+  // 侧边栏关闭时回调函数
+  onClose: PropTypes.func.isRequired,
   onOpen: PropTypes.func,
-  onOpened: PropTypes.func,
+  // 侧边栏标题
   title: PropTypes.string
 }
 

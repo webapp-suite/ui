@@ -1,8 +1,9 @@
-@summary > Side-panel used for small user interactions, such as selecting a date.
+@summary > 侧边栏主要是让页面有层级关系，主次分明，把复杂的或者更深入的操作放在侧边栏中，可以使主界面更为简洁高效。
 
 /**
  * @title 基本用法
- * @desc 描述
+ * @desc 侧边栏通过 `isOpen` 属性去控制其打开还是关闭，另外 `onClose` 需要去清空状态，所以这两个属性都为必要属性。
+ * @note `Aside` 组件实际会生成的 Aside 和 Backdrop 两个DOM节点，它们通过 `React Portal` 传递给 body 作为其子元素，但需要注意的是最后渲染出来的 Backdrop 和 Aside 是同级的。关闭 Aside 包括点击 Backdrop 都会自动销毁这两个节点。
  */
 import Aside from 'earth-ui/lib/Aside'
 import Button from 'earth-ui/lib/Button'
@@ -28,8 +29,39 @@ class AsideBasic extends Component {
 }
 
 /**
- * @title Adding some tabs
- * @desc If an Aside contains more than one Panel, you can use TabBar to switch between the panels like in this example:
+ * @title 带Spinner的Aside
+ * @desc 可以将 Spinner 嵌套在 Aside 中使用，这也是异步请求常用的交互方式。
+ */
+import Aside from 'earth-ui/lib/Aside'
+import Button from 'earth-ui/lib/Button'
+import Spinner from 'earth-ui/lib/Spinner'
+
+class AsideSpinner extends Component {
+  state = { isOpen: false, loading: true }
+  openAside = () => {
+    this.setState({ isOpen: true })
+    window.setTimeout(() => this.setState({ loading: false }), 500)
+  }
+  onClose =  () => {
+    this.setState({ isOpen: false, loading: true })
+  }
+  render () {
+   return (
+     <div>
+       <Button type="secondary" onClick={this.openAside}>Open Aside With Spinner</Button>
+       <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
+         <Spinner loading={this.state.loading}>
+           Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+         </Spinner>
+       </Aside>
+     </div>
+   )
+  }
+}
+
+/**
+ * @title 带Tabs的Aside
+ * @desc 如果一个 Aside 包含的内容较多，没有递进关系时，可以使用 Tabs，虽然还是处于一个"平面"上，但能够让用户更加专注其所要处理的内容。使用时将 Tabs 嵌套在 Aside 当中即可，样式会在 Aside 内部自动进行相关调整。
  */
 import Aside from 'earth-ui/lib/Aside'
 import Button from 'earth-ui/lib/Button'
@@ -67,8 +99,9 @@ class AsideTabs extends Component {
 }
 
 /**
- * @title 嵌套的侧边栏
- * @desc 描述
+ * @title 嵌套的Aside
+ * @desc 当侧边的内容比较复杂，具有逻辑上的递进关系的时候可以使用嵌套的Aside，如 Aside 打开是一个列表，列表每一项打开还是一个 Aside。
+ * @note 需要注意的是无论处于嵌套的哪一层 Aside，点击 Backdrop 的时候都会关闭所有 Aside，并且会自动调用每一个 `onClose` 函数去清空所有 Aside 内部 `isOpen` 状态。
  */
 import Aside from 'earth-ui/lib/Aside'
 import Button from 'earth-ui/lib/Button'
