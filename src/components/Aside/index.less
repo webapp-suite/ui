@@ -1,0 +1,39 @@
+@import '~ui-variables';
+
+@height: @ui-unit-triple - 1px;
+
+.@{prefix-cls}-aside {
+  &__header {
+    user-select: none;
+    white-space: nowrap;
+    border-bottom: 1px solid @ui-color-gray-light;
+    &-title {
+      width: 265px;
+      display: inline-block;
+      height: @height;
+      max-height: @height;
+      min-height: @height;
+      line-height: @height;
+      vertical-align: middle;
+      padding: 0 @ui-unit;
+      font-size: @ui-fontsize-big;
+    }
+    &-close {
+      top: 3px;
+    }
+    &_with-tabs {
+      padding-bottom: @ui-unit-double;
+    }
+  }
+}
+
+.@{prefix-cls}-dialog__main_aside {
+  .@{prefix-cls}-tabs__list {
+    position: fixed;
+    top: @ui-unit-triple;
+    margin-left: -@ui-unit;
+  }
+  .@{prefix-cls}-tabs__panel {
+    padding-top: 0; // override
+  }
+}

@@ -1,51 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import marked from 'marked'
 import * as type from '../_utils/type'
-import Dialog from '../dialog/Dialog'
-import DialogBody from '../dialog/DialogBody'
-import DialogButtons from '../dialog/DialogButtons'
-import DialogHeader from '../dialog/DialogHeader'
+import Notification from './Notification'
 
 let render = props => {
-  const container = document.createElement('p')
-
   let isOpen = false
   const messageQueue = []
   const handleClose = () => {
-    // check messageQueue has other notification need rendering when user click top notification.
     isOpen = false
     const head = messageQueue[0] && messageQueue.shift()
     head && render(head)
   }
-
   render = nextProps => {
-    props = Object.assign({}, props, nextProps)
-    const { open, backdrop, lock, type, acceptLabel, options, message, autoClose, duration } = props
-    if (isOpen && open) {
-      // messageQueue will be [] if there is only one notification.
+    props = Object.assign({}, props, nextProps, { onClose: handleClose })
+    if (isOpen) {
       return messageQueue.push(props)
     }
-    isOpen = open
-    ReactDOM.render((
-      <Dialog
-        open={isOpen}
-        backdrop={backdrop}
-        lock={lock}
-        autoClose={autoClose}
-        duration={duration}
-        onClose={handleClose}
-      >
-        <DialogHeader type={type} icon={options?.icon} />
-        <DialogBody>
-          <div
-            className={`${prefixCls}-dialog__body-markdown`}
-            dangerouslySetInnerHTML={{ __html: marked(message) }}
-          />
-        </DialogBody>
-        {!!acceptLabel && <DialogButtons type={type} focused={options?.focused} acceptLabel={acceptLabel} {...options} />}
-      </Dialog>
-    ), container)
+    isOpen = true
+    const container = document.createElement('div')
+    ReactDOM.render(<Notification {...props} />, container)
   }
   render()
 }

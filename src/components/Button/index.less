@@ -193,6 +193,7 @@
     width: @ui-unit-double;
     height: @ui-unit-double;
     min-width: @ui-unit;
+    border-radius: 50%;
     &.@{prefix-cls}-button_micro {
       width: @ui-unit;
     }
@@ -209,6 +210,14 @@
 .@{prefix-cls}-button__icon-only:not(:disabled):not(.@{prefix-cls}-button_primary):not(.@{prefix-cls}-button_secondary) {
   & > i.@{prefix-cls}-icon {
     color: @ui-color-black;
+  }
+}
+
+.@{prefix-cls}-button__icon-only:not(:disabled):not(.@{prefix-cls}-button_primary):not(.@{prefix-cls}-button_secondary):not(.@{prefix-cls}-button_tertiary) {
+  padding: @ui-unit-half;
+  border: 1px solid transparent;
+  &:hover {
+    background-color: fade(@ui-color-gray-light, 50%);
   }
 }
 

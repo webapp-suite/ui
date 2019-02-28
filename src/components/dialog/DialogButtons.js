@@ -6,6 +6,27 @@ import FocusTrap from '../_utils/FocusTrap'
 import { typeMap } from './config'
 
 class DialogButtons extends React.Component {
+  static contextTypes = {
+    dialog: PropTypes.object
+  }
+  static propTypes = {
+    className: PropTypes.string,
+    acceptLabel: PropTypes.string,
+    cancelLabel: PropTypes.string,
+    type: PropTypes.oneOf([
+      'confirm',
+      'accept',
+      'warning',
+      'danger',
+      'success',
+      'info',
+      'error'
+    ]),
+    focused: PropTypes.oneOf(['accept', 'cancel', null]),
+    onClose: PropTypes.func,
+    onAccept: PropTypes.func,
+    onCancel: PropTypes.func
+  }
   constructor (props) {
     super()
     this.state = {
@@ -18,7 +39,7 @@ class DialogButtons extends React.Component {
   }
 
   handleClose = () => {
-    this.context?.dialogContainer?.props?.close?.()
+    this.context?.dialog?.close?.()
     this.props?.onClose?.()
     this.setState({ open: false })
   }
@@ -33,8 +54,8 @@ class DialogButtons extends React.Component {
   renderButtons = props => {
     const { className, acceptLabel, cancelLabel, focused, type } = props
     return (
-      <div className={cx(`${prefixCls}-dialog__buttons`, className)}>
-        {!!acceptLabel &&
+      <div className={cx(`${prefixCls}-dialog__main-buttons`, className)}>
+        {!!acceptLabel && (
           <Button
             type={typeMap[type]?.btnType || 'tertiary'}
             onClick={this.handleAcceptClick}
@@ -44,8 +65,8 @@ class DialogButtons extends React.Component {
           >
             {acceptLabel}
           </Button>
-        }
-        {!!cancelLabel &&
+        )}
+        {!!cancelLabel && (
           <Button
             type="tertiary"
             onClick={this.handleCancelClick}
@@ -55,30 +76,17 @@ class DialogButtons extends React.Component {
           >
             {cancelLabel}
           </Button>
-        }
+        )}
       </div>
     )
   }
   render () {
-    return this.state.open
-      ? <FocusTrap>{this.renderButtons(this.props)}</FocusTrap>
-      : this.renderButtons({ ...this.props, focused: null })
+    return this.state.open ? (
+      <FocusTrap>{this.renderButtons(this.props)}</FocusTrap>
+    ) : (
+      this.renderButtons({ ...this.props, focused: null })
+    )
   }
-}
-
-DialogButtons.contextTypes = {
-  dialogContainer: PropTypes.object
-}
-
-DialogButtons.propTypes = {
-  className: PropTypes.string,
-  acceptLabel: PropTypes.string,
-  cancelLabel: PropTypes.string,
-  type: PropTypes.oneOf(['confirm', 'accept', 'warning', 'danger', 'success', 'info', 'error']),
-  focused: PropTypes.oneOf(['accept', 'cancel', null]),
-  onClose: PropTypes.func,
-  onAccept: PropTypes.func,
-  onCancel: PropTypes.func
 }
 
 export default DialogButtons

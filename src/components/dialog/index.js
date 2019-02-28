@@ -7,9 +7,58 @@ import DialogBody from './DialogBody'
 import DialogButtons from './DialogButtons'
 import DialogHeader from './DialogHeader'
 
-let render = props => {
-  const container = document.createElement('div')
+class ClassicDialog extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      isOpen: true
+    }
+  }
+  handleDialogClose = () => {
+    this.setState({ isOpen: false })
+    this.props?.onClose?.()
+  }
+  render () {
+    const {
+      backdrop,
+      lock,
+      type,
+      options,
+      acceptLabel,
+      message,
+      cancelLabel
+    } = this.props
+    return (
+      <div>
+        {!!this.state.isOpen && (
+          <Dialog
+            type="dialog"
+            onClose={this.handleDialogClose}
+            backdrop={backdrop}
+            lock={lock}
+          >
+            <DialogHeader type={type} icon={options?.icon} />
+            <DialogBody>
+              <div
+                className={`${prefixCls}-dialog__body-markdown`}
+                dangerouslySetInnerHTML={{ __html: marked(message) }}
+              />
+            </DialogBody>
+            <DialogButtons
+              type={type}
+              focused={options?.focused}
+              acceptLabel={acceptLabel}
+              cancelLabel={cancelLabel}
+              {...options}
+            />
+          </Dialog>
+        )}
+      </div>
+    )
+  }
+}
 
+let render = props => {
   let isOpen = false
   const messageQueue = []
   const handleClose = () => {
@@ -17,34 +66,14 @@ let render = props => {
     const head = messageQueue[0] && messageQueue.shift()
     head && render(head)
   }
-
   render = nextProps => {
-    props = Object.assign({}, props, nextProps)
-    const { open, backdrop, lock, type, message, options, acceptLabel, cancelLabel } = props
-    if (isOpen && open) {
+    props = Object.assign({}, props, nextProps, { onClose: handleClose })
+    if (isOpen) {
       return messageQueue.push(props)
     }
-    isOpen = open
-    ReactDOM.render((
-      <Dialog open={isOpen} backdrop={backdrop} lock={lock}>
-        <DialogHeader type={type} icon={options?.icon} />
-        <DialogBody>
-          <div
-            className={`${prefixCls}-dialog__body-markdown`}
-            dangerouslySetInnerHTML={{ __html: marked(message) }}
-          />
-        </DialogBody>
-        <DialogButtons
-          type={type}
-          focused={options?.focused}
-          onClose={handleClose}
-          acceptLabel={acceptLabel}
-          cancelLabel={cancelLabel}
-          {...options}
-        />
-      </Dialog>
-    ), container)
-    props.open || handleClose()
+    isOpen = true
+    const container = document.createElement('div')
+    ReactDOM.render(<ClassicDialog {...props} />, container)
   }
   render()
 }
@@ -66,7 +95,9 @@ const getDialogParams = args => {
 
 const dialog = {
   confirm () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -79,7 +110,9 @@ const dialog = {
     })
   },
   accept () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -92,7 +125,9 @@ const dialog = {
     })
   },
   warning () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
@@ -105,7 +140,9 @@ const dialog = {
     })
   },
   danger () {
-    const { message, acceptLabel, cancelLabel, options } = getDialogParams(arguments)
+    const { message, acceptLabel, cancelLabel, options } = getDialogParams(
+      arguments
+    )
     render({
       message,
       acceptLabel,
