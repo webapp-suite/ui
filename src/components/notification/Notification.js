@@ -1,9 +1,11 @@
 import React from 'react'
 import marked from 'marked'
+import cx from 'classnames'
 import Dialog from '../dialog/Dialog'
 import DialogBody from '../dialog/DialogBody'
 import DialogButtons from '../dialog/DialogButtons'
 import DialogHeader from '../dialog/DialogHeader'
+import './index.less'
 
 class Notification extends React.Component {
   constructor () {
@@ -41,7 +43,10 @@ class Notification extends React.Component {
             <DialogHeader type={type} icon={options?.icon} />
             <DialogBody>
               <div
-                className={`${prefixCls}-dialog__body-markdown`}
+                className={cx(`${prefixCls}-dialog__body-markdown`, {
+                  [`${prefixCls}-dialog__body-markdown_success`]:
+                    type === 'success'
+                })}
                 dangerouslySetInnerHTML={{ __html: marked(message) }}
               />
             </DialogBody>
