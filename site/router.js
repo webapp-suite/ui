@@ -6,24 +6,21 @@ import Imported, { whenComponentsReady } from 'react-imported-component'
 import Chrome from './apps/Chrome'
 import App from './apps/index'
 
-const asyncComponent = path => Imported(() => {
-  NProgress.start()
-  whenComponentsReady().then(() => {
-    !['/', 'InProgress'].includes(path) && NProgress.done()
+const asyncComponent = path =>
+  Imported(() => {
+    NProgress.start()
+    whenComponentsReady().then(() => {
+      !['/', 'InProgress'].includes(path) && NProgress.done()
+    })
+    if (path === '/') {
+      return import('./pages/Home')
+    }
+    return path.match('.dox')
+      ? import(`../src/components/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+      : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
   })
-  if (path === '/') {
-    return import('./pages/Home')
-  }
-  return path.match('.dox')
-    ? import(`../src/components/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
-    : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
-})
 
-const WIP = [
-  'ToolBar',
-  'FooterBar',
-  'SideBar'
-]
+const WIP = ['ToolBar', 'FooterBar', 'SideBar', 'Menu', 'Table', 'Pager']
 
 const getComponentDoc = component => {
   if (WIP.includes(component)) {
@@ -33,13 +30,16 @@ const getComponentDoc = component => {
 }
 
 const Home = () => React.createElement(asyncComponent('/'))
-const Start = routeProps => React.createElement(asyncComponent('Start'), { routeProps: routeProps })
-const Design = routeProps => React.createElement(asyncComponent('Design'), { routeProps: routeProps })
+const Start = routeProps =>
+  React.createElement(asyncComponent('Start'), { routeProps: routeProps })
+const Design = routeProps =>
+  React.createElement(asyncComponent('Design'), { routeProps: routeProps })
 const Changelog = () => React.createElement(asyncComponent('Changelog'))
-const Dox = routeProps => React.createElement(asyncComponent(getComponentDoc(routeProps.component)))
+const Dox = routeProps =>
+  React.createElement(asyncComponent(getComponentDoc(routeProps.component)))
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
-ReactDOM.render((
+ReactDOM.render(
   <Router>
     <App path="/apps">
       <Chrome path="/">
@@ -53,5 +53,6 @@ ReactDOM.render((
     </App>
     <Home path="/" />
     <NotFound default />
-  </Router>
-), document.getElementById('app'))
+  </Router>,
+  document.getElementById('app')
+)
