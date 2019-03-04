@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Button from 'earth-ui/lib/Button'
+import Button from '../Button'
 import Dialog from '../dialog/Dialog'
 import DialogBody from '../dialog/DialogBody'
 import './index.less'
