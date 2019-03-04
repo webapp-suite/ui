@@ -36,11 +36,39 @@
     ]
   },
   {
+    "icon":"docs-icon-cursor-touch-1",
+    "path":"components",
+    "name":"General Components",
+    "cn":"通用组件",
+    "defaultOpen":true,
+    "components":[
+      {
+        "icon":"retweet",
+        "name":"Icon",
+        "cn":"图标",
+        "tabs":[
+          {
+            "label":"Usage",
+            "doc":"Icon-usage"
+          },
+          {
+            "label":"All Icons",
+            "doc":"Icon-all-icons"
+          }
+        ]
+      },
+      {
+        "name":"Button",
+        "cn":"按钮"
+      }
+    ]
+  },
+  {
     "icon":"docs-icon-window-application-6",
     "path":"components",
     "name":"Layout Components",
-    "cn":"布局类组件",
-    "defaultOpen":false,
+    "cn":"布局组件",
+    "defaultOpen":true,
     "components":[
       {
         "icon":"retweet",
@@ -77,7 +105,7 @@
     "icon":"docs-icon-chat-bubble-square-alert-2",
     "path":"components",
     "name":"Dialog Components",
-    "cn":"弹框类组件",
+    "cn":"弹框组件",
     "defaultOpen":true,
     "components":[
       {
@@ -98,7 +126,7 @@
     "icon":"docs-icon-paragraph-normal",
     "path":"components",
     "name":"Form Components",
-    "cn":"表单类组件",
+    "cn":"表单组件",
     "defaultOpen":true,
     "components":[
       {
@@ -116,6 +144,31 @@
       {
         "name":"ClearableInput",
         "cn":"清空输入框"
+      },
+      {
+        "name":"Menu",
+        "cn":"菜单"
+      },
+      {
+        "name":"Switch",
+        "cn":"开关"
+      }
+    ]
+  },
+  {
+    "icon":"docs-icon-grid",
+    "path":"components",
+    "name":"Table Components",
+    "cn":"表格组件",
+    "defaultOpen":true,
+    "components":[
+      {
+        "name":"Table",
+        "cn":"表格"
+      },
+      {
+        "name":"Pager",
+        "cn":"分页器"
       }
     ]
   },
@@ -126,29 +179,6 @@
     "cn":"其他组件",
     "defaultOpen":true,
     "components":[
-      {
-        "icon":"retweet",
-        "name":"Icon",
-        "cn":"图标",
-        "tabs":[
-          {
-            "label":"Usage",
-            "doc":"Icon-usage"
-          },
-          {
-            "label":"All Icons",
-            "doc":"Icon-all-icons"
-          }
-        ]
-      },
-      {
-        "name":"Button",
-        "cn":"按钮"
-      },
-      {
-        "name":"Switch",
-        "cn":"开关"
-      },
       {
         "name":"Spinner",
         "cn":"加载中"
