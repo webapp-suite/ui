@@ -35,12 +35,12 @@ class SubNav extends React.Component {
     const NavIcon = icon && (
       <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
     )
-    const ToggleIcon = (
-      <Icon
-        type="triangleright"
-        className={`${prefixCls}-nav__sub-nav-toggle`}
-      />
-    )
+    // const ToggleIcon = (
+    //   <Icon
+    //     type="triangleright"
+    //     className={`${prefixCls}-nav__sub-nav-toggle`}
+    //   />
+    // )
 
     let indentStyle
 
@@ -81,7 +81,7 @@ class SubNav extends React.Component {
         >
           {NavIcon}
           {title}
-          {ToggleIcon}
+          {/* {ToggleIcon} */}
         </div>
         {open && childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
       </li>

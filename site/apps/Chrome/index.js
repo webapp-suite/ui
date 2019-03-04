@@ -1,9 +1,10 @@
-import { Link, navigate } from '@reach/router'
+// import { Link, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
-import Icon from 'earth-ui/lib/Icon'
+// import Icon from 'earth-ui/lib/Icon'
 import { NavBar, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/NavBar'
 import { Tab, TabList, Tabs } from 'earth-ui/lib/Tabs'
-import Tooltip from 'earth-ui/lib/Tooltip'
+// import Tooltip from 'earth-ui/lib/Tooltip'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
@@ -25,41 +26,41 @@ const getTabsByComponentName = (components, componentName) => {
 
 const routerWithDynamicSegments = ['components/', 'start/', 'design/']
 
-function renderNavBottom () {
-  return (
-    <div className="components__navbar-bottom">
-      <div className="components__navbar-bottom-image">
-        <img
-          className="components__navbar-bottom-image-icon"
-          src="/svg/avatarPlaceholder.svg"
-          alt="MOTUS"
-        />
-      </div>
-      <div className="components__navbar-bottom-user">
-        <span className="components__navbar-bottom-user-name">KIMI GAO</span>
-        <span className="components__navbar-bottom-user-company">
-          Earthui Corp.
-        </span>
-      </div>
-      <div className="components__navbar-bottom-logout">
-        <Tooltip title="Unfinished feature">
-          <Icon
-            type="logout"
-            className="components__navbar-bottom-logout-icon"
-          />
-        </Tooltip>
-      </div>
-      <div className="components__navbar-bottom-settings">
-        <Tooltip title="Unfinished feature">
-          <Icon
-            type="settings"
-            className="components__navbar-bottom-settings-icon"
-          />
-        </Tooltip>
-      </div>
-    </div>
-  )
-}
+// function renderNavBottom () {
+//   return (
+//     <div className="components__navbar-bottom">
+//       <div className="components__navbar-bottom-image">
+//         <img
+//           className="components__navbar-bottom-image-icon"
+//           src="/svg/avatarPlaceholder.svg"
+//           alt="MOTUS"
+//         />
+//       </div>
+//       <div className="components__navbar-bottom-user">
+//         <span className="components__navbar-bottom-user-name">KIMI GAO</span>
+//         <span className="components__navbar-bottom-user-company">
+//           Earthui Corp.
+//         </span>
+//       </div>
+//       <div className="components__navbar-bottom-logout">
+//         <Tooltip title="Unfinished feature">
+//           <Icon
+//             type="logout"
+//             className="components__navbar-bottom-logout-icon"
+//           />
+//         </Tooltip>
+//       </div>
+//       <div className="components__navbar-bottom-settings">
+//         <Tooltip title="Unfinished feature">
+//           <Icon
+//             type="settings"
+//             className="components__navbar-bottom-settings-icon"
+//           />
+//         </Tooltip>
+//       </div>
+//     </div>
+//   )
+// }
 
 class Components extends React.Component {
   constructor (props) {
@@ -171,16 +172,16 @@ class Components extends React.Component {
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
-            <div className="components__navbar-top">
-              <Link to="/" className="components__navbar-top-logo">
-                <span>EARTHUi</span>
-              </Link>
-              <div className="components__navbar-top-close">
-                <Tooltip direction="down" title="Unfinished feature">
-                  <Icon type="close" />
-                </Tooltip>
-              </div>
-            </div>
+            {/* <div className="components__navbar-top"> */}
+            {/* <Link to="/" className="components__navbar-top-logo"> */}
+            {/* <span>EARTHUi</span> */}
+            {/* </Link> */}
+            {/* <div className="components__navbar-top-close"> */}
+            {/* <Tooltip direction="down" title="Unfinished feature"> */}
+            {/* <Icon type="close" /> */}
+            {/* </Tooltip> */}
+            {/* </div> */}
+            {/* </div> */}
             <Scrollbar className="components__navbar-scrollbar">
               <NavBar
                 selectedId={childComponentPath}
@@ -215,7 +216,7 @@ class Components extends React.Component {
                 })}
               </NavBar>
             </Scrollbar>
-            {renderNavBottom()}
+            {/* {renderNavBottom()} */}
           </LayoutSidebar>
           <LayoutContent>
             {childComponentPath && this.renderTitle(childComponentPath)}

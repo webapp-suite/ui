@@ -28,6 +28,7 @@
 
 .@{prefix-cls}-nav__item,
 .@{prefix-cls}-nav__sub-nav {
+  width: 60px;
   background-color: @color-primary-nav-item;
   > .@{prefix-cls}-nav_item-entity,
   > .@{prefix-cls}-nav_sub-nav-entity {
@@ -35,10 +36,10 @@
     color: @theme-text;
     text-decoration: none;
     position: relative;
-    padding: @ui-unit;
+    padding: @ui-unit-quarter;
     cursor: pointer;
     border-radius: 0;
-    font-size: @ui-fontsize;
+    font-size: @ui-fontsize-mini;
     &:hover {
       //&:after {
       //  border-right-color: @primary-color;
@@ -102,6 +103,12 @@
 .@{prefix-cls}-nav__sub-nav_open {
   > ul {
     display: block;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    li > {
+      width: 320px - 60px;
+    }
     //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;
     //background-color: @color-secondary-nav-item;
   }

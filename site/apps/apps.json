@@ -39,7 +39,7 @@
     "icon":"docs-icon-cursor-touch-1",
     "path":"components",
     "name":"General Components",
-    "cn":"通用组件",
+    "cn":"通用",
     "defaultOpen":true,
     "components":[
       {
@@ -67,7 +67,7 @@
     "icon":"docs-icon-window-application-6",
     "path":"components",
     "name":"Layout Components",
-    "cn":"布局组件",
+    "cn":"布局",
     "defaultOpen":false,
     "components":[
       {
@@ -105,7 +105,7 @@
     "icon":"docs-icon-chat-bubble-square-alert-2",
     "path":"components",
     "name":"Dialog Components",
-    "cn":"弹框组件",
+    "cn":"弹框",
     "defaultOpen":false,
     "components":[
       {
@@ -126,7 +126,7 @@
     "icon":"docs-icon-paragraph-normal",
     "path":"components",
     "name":"Form Components",
-    "cn":"表单组件",
+    "cn":"表单",
     "defaultOpen":false,
     "components":[
       {
@@ -159,7 +159,7 @@
     "icon":"docs-icon-grid",
     "path":"components",
     "name":"Table Components",
-    "cn":"表格组件",
+    "cn":"表格",
     "defaultOpen":false,
     "components":[
       {
@@ -176,7 +176,7 @@
     "icon":"docs-icon-modules-1",
     "path":"components",
     "name":"Markup Declarative Components",
-    "cn":"其他组件",
+    "cn":"其他",
     "defaultOpen":false,
     "components":[
       {
