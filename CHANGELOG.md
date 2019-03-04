@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/cosmos-x/earth-ui/compare/v0.3.3...v0.4.0) (2019-03-04)
+
+
+### Features
+* **Aside:** add aside and refactor basic dialog by react portal ([#45](https://github.com/cosmos-x/earth-ui/issues/45)) ([fc14984](https://github.com/cosmos-x/earth-ui/commit/eda4016)), closes [#39](https://github.com/cosmos-x/earth-ui/issues/39)
+* **dialog/notification:** use colorful buttons and add accept type in dialog ([#41]((https://github.com/cosmos-x/earth-ui/issues/41))) ([eda4016](https://github.com/cosmos-x/earth-ui/commit/eda4016)), closes [#38](https://github.com/cosmos-x/earth-ui/issues/38)
+* **Button:** add accept warning and danger button type ([#40](https://github.com/cosmos-x/earth-ui/issues/40)) ([fc14984](https://github.com/cosmos-x/earth-ui/commit/fc14984)), closes [#37](https://github.com/cosmos-x/earth-ui/issues/37)
+
+
+### BREAKING CHANGES
+
+* remove `primary` options in dialog
+
+
+
 <a name="0.3.3"></a>
 ## [0.3.3](https://github.com/cosmos-x/earth-ui/compare/v0.3.2...v0.3.3) (2019-01-23)
 
