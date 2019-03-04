@@ -1,5 +1,6 @@
 import '../styles/index.less'
 
+import './Aside'
 import './Avatar'
 import './AvatarClip'
 import './AvatarUpload'
