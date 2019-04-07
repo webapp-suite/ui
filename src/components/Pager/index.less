@@ -1,0 +1,94 @@
+@import '~ui-variables';
+
+.@{prefix-cls}-pager {
+  &__layout-middle {
+    padding-right: @ui-unit-quarter * 3;
+    text-align: center;
+  }
+  &__go {
+    display: inline-block;
+    vertical-align: middle
+  }
+  &__go-number {
+    width: @ui-unit-double;
+    margin-right: @ui-unit-half;
+  }
+  &__pagination {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 @ui-unit-half 0 0;
+    li {
+      user-select: none;
+      cursor: pointer;
+      display: inline;
+      span {
+        position: relative;
+        float: left;
+        color: @theme;
+        padding: 0;
+        width: @ui-unit-double;
+        text-align: center;
+        line-height: @ui-unit-plus;
+        height: @ui-unit-plus;
+        cursor: default;
+        color: @theme;
+      }
+      a {
+        width: @ui-unit-double;
+        height: @ui-unit-plus;
+        text-align: center;
+        padding: 0;
+        position: relative;
+        float: left;
+        line-height: @ui-unit-plus;
+        vertical-align: middle;
+        font-weight: @ui-fontweight-semibold;
+        color: @theme;
+      }
+      a:hover{
+        color: @theme-dark;
+        text-decoration: none;
+      }
+    }
+    &-li--prev {
+      height: @ui-unit-plus;
+      svg {
+        position: relative;
+        top: @ui-unit-quarter;
+        fill: @theme;
+      }
+    }
+    &-li--next {
+      height: @ui-unit-plus;
+      svg {
+        position: relative;
+        top: @ui-unit-quarter;
+        fill: @theme;
+      }
+    }
+    &-li--first {
+      &:hover{
+        cursor: default;
+      }
+      svg {
+        fill: @ui-color-gray;
+      }
+    }
+    &-li--end {
+      &:hover {
+        cursor: default;
+      }
+      svg {
+        fill: @ui-color-gray;
+      }
+    }
+    li&-li--active a{
+      color: @ui-color-black;
+      font-weight: @ui-fontweight-bold;
+      cursor: default;
+    }
+    li&-li--active a:hover{
+      color: @ui-color-black;
+    }
+  }
+}
