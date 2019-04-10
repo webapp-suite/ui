@@ -20,7 +20,7 @@ const asyncComponent = path =>
       : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
   })
 
-const WIP = ['ToolBar', 'FooterBar', 'SideBar', 'Menu', 'Table', 'Pager']
+const WIP = ['ToolBar', 'FooterBar', 'SideBar', 'Menu', 'Table']
 
 const getComponentDoc = component => {
   if (WIP.includes(component)) {
