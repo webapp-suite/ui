@@ -8,34 +8,35 @@ import './index.less'
 // Render indicator
 let defaultIndicator = null
 
-function shouldDelay (loading, delay) {
-  return !!loading && !!delay && !Number.isNaN(Number(delay))
+function shouldDelay (isLoading, delay) {
+  return !!isLoading && !!delay && !Number.isNaN(Number(delay))
 }
 
 function renderIndicator (_props) {
   const { indicator, size } = _props
   const sizeMap = {
-    'sm': 36,
-    'default': 60,
-    'lg': 96
+    sm: 36,
+    md: 60,
+    lg: 96
   }
   const dotClassName = `${prefixCls}-spinner__spinner-element-indictor`
   if (React.isValidElement(indicator)) {
-    return (
-      <div className={dotClassName}>
-        {indicator}
-      </div>
-    )
+    return <div className={dotClassName}>{indicator}</div>
   }
 
   if (React.isValidElement(defaultIndicator)) {
-    return React.cloneElement((defaultIndicator), {
-      className: cx((defaultIndicator).props.className, dotClassName)
+    return React.cloneElement(defaultIndicator, {
+      className: cx(defaultIndicator.props.className, dotClassName)
     })
   }
 
   return (
-    <div className={cx(dotClassName, `${prefixCls}-spinner__spinner-element-indictor-svg`)}>
+    <div
+      className={cx(
+        dotClassName,
+        `${prefixCls}-spinner__spinner-element-indictor-svg`
+      )}
+    >
       <IndicatorSVG width={sizeMap[size]} height={sizeMap[size]} />
     </div>
   )
@@ -46,15 +47,15 @@ class Spinner extends React.Component {
     defaultIndicator = indicator
   }
 
-  debounceTimeout;
-  delayTimeout;
+  debounceTimeout
+  delayTimeout
 
   constructor (props) {
     super(props)
 
-    const { loading, delay } = props
+    const { isLoading, delay } = props
     this.state = {
-      loading: loading && !shouldDelay(loading, delay)
+      isLoading: isLoading && !shouldDelay(isLoading, delay)
     }
   }
 
@@ -63,8 +64,8 @@ class Spinner extends React.Component {
   }
 
   componentDidMount () {
-    const { loading, delay } = this.props
-    if (shouldDelay(loading, delay)) {
+    const { isLoading, delay } = this.props
+    if (shouldDelay(isLoading, delay)) {
       this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
     }
   }
@@ -79,9 +80,9 @@ class Spinner extends React.Component {
   }
 
   componentDidUpdate () {
-    const currentSpinning = this.state.loading
-    const loading = this.props.loading
-    if (currentSpinning === loading) {
+    const currentSpinning = this.state.isLoading
+    const isLoading = this.props.isLoading
+    if (currentSpinning === isLoading) {
       return
     }
     const { delay } = this.props
@@ -89,57 +90,73 @@ class Spinner extends React.Component {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout)
     }
-    if (currentSpinning && !loading) {
+    if (currentSpinning && !isLoading) {
       // Close spinner
-      this.debounceTimeout = window.setTimeout(() => this.setState({ loading }), 300)
+      this.debounceTimeout = window.setTimeout(
+        () => this.setState({ isLoading }),
+        300
+      )
       if (this.delayTimeout) {
         clearTimeout(this.delayTimeout)
       }
     } else {
-      if (shouldDelay(loading, delay)) {
+      if (shouldDelay(isLoading, delay)) {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout)
         }
         this.delayTimeout = window.setTimeout(this.delayUpdateSpinning, delay)
       } else {
         // Open spinner without delay
-        this.setState({ loading })
+        this.setState({ isLoading })
       }
     }
   }
 
   delayUpdateSpinning = () => {
-    const { loading } = this.props
-    if (this.state.loading !== loading) {
-      this.setState({ loading })
+    const { isLoading } = this.props
+    if (this.state.isLoading !== isLoading) {
+      this.setState({ isLoading })
     }
-  };
+  }
 
   render () {
-    const { className, size, cover, tip, wrapperClassName, ...other } = this.props
-    const { loading } = this.state
+    const {
+      className,
+      size,
+      cover,
+      tip,
+      wrapperClassName,
+      ...other
+    } = this.props
+    const { isLoading } = this.state
 
-    const spinClassName = cx(`${prefixCls}-spinner__spinner-element`, {
-      [`${prefixCls}-spinner__spinner-element_sm`]: size === 'sm',
-      [`${prefixCls}-spinner__spinner-element_lg`]: size === 'lg',
-      [`${prefixCls}-spinner__spinner-element_white`]: cover === 'white',
-      [`${prefixCls}-spinner__spinner-element_black`]: cover === 'black',
-      [`${prefixCls}-spinner__spinner-element_spinning`]: loading,
-      [`${prefixCls}-spinner__spinner-element_show-text`]: !!tip
-    }, className)
+    const spinClassName = cx(
+      `${prefixCls}-spinner__spinner-element`,
+      {
+        [`${prefixCls}-spinner__spinner-element_sm`]: size === 'sm',
+        [`${prefixCls}-spinner__spinner-element_lg`]: size === 'lg',
+        [`${prefixCls}-spinner__spinner-element_white`]: cover === 'white',
+        [`${prefixCls}-spinner__spinner-element_black`]: cover === 'black',
+        [`${prefixCls}-spinner__spinner-element_spinning`]: isLoading,
+        [`${prefixCls}-spinner__spinner-element_show-text`]: !!tip
+      },
+      className
+    )
 
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(other, [
-      'loading',
-      'delay',
-      'indicator'
-    ])
+    const divProps = omit(other, ['isLoading', 'delay', 'indicator'])
 
     const spinElement = (
-      <div className={spinClassName} >
-        {this.isNestedPattern() && <div className={`${prefixCls}-spinner__spinner-element-cover`} />}
+      <div className={spinClassName}>
+        {this.isNestedPattern() && (
+          <div className={`${prefixCls}-spinner__spinner-element-cover`} />
+        )}
         {renderIndicator(this.props)}
-        {tip ? <div className={`${prefixCls}-spinner__spinner-element-text`}>{tip}</div> : null}
+        {tip ? (
+          <div className={`${prefixCls}-spinner__spinner-element-text`}>
+            {tip}
+          </div>
+        ) : null}
       </div>
     )
     if (this.isNestedPattern()) {
@@ -148,18 +165,12 @@ class Spinner extends React.Component {
         animateClassName += ' ' + wrapperClassName
       }
       const containerClassName = cx(`${prefixCls}-spinner__container`, {
-        [`${prefixCls}-spinner__container_loading`]: loading
+        [`${prefixCls}-spinner__container_loading`]: isLoading
       })
       return (
-        <div
-          {...divProps}
-          className={animateClassName}
-          style={null}
-        >
+        <div {...divProps} className={animateClassName} style={null}>
           {spinElement}
-          <div className={containerClassName}>
-            {this.props.children}
-          </div>
+          <div className={containerClassName}>{this.props.children}</div>
         </div>
       )
     }
@@ -175,13 +186,13 @@ Spinner.propTypes = {
   wrapperClassName: PropTypes.string,
 
   // 是否为加载中状态，默认值为 `true`
-  loading: PropTypes.bool,
+  isLoading: PropTypes.bool,
 
   // 作为包裹元素时，可自定义描述文案
   tip: PropTypes.string,
 
-  // 组件大小，默认值为 `default`
-  size: PropTypes.oneOf(['sm', 'default', 'lg']),
+  // 组件大小，默认值为 `md`
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
   // 遮罩的背景风格，默认值为 `white`
   cover: PropTypes.oneOf(['white', 'black']),
@@ -191,8 +202,8 @@ Spinner.propTypes = {
 }
 
 Spinner.defaultProps = {
-  loading: true,
-  size: 'default',
+  isLoading: true,
+  size: 'md',
   cover: 'white',
   wrapperClassName: ''
 }

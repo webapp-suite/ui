@@ -3,10 +3,6 @@
 
 @spinner: ~"@{prefix-cls}-spinner";
 @spinner-element: ~"@{prefix-cls}-spinner__spinner-element";
-@spin-dot-size-sm: 36px;
-@spin-dot-size: 60px;
-@spin-dot-size-lg: 96px;
-@spin-dot-size-base: @spin-dot-size;
 
 .@{spinner-element} {
   position: absolute;
@@ -61,6 +57,17 @@
 
   &_show-text &-text {
     display: block;
+    padding-top: @ui-unit-half;
+  }
+  &_sm {
+    .@{spinner-element}-text {
+      font-size: @ui-fontsize-mini;
+    }
+  }
+  &_lg {
+    .@{spinner-element}-text {
+      font-size: 15px;
+    }
   }
 }
 
@@ -83,32 +90,56 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -@spin-dot-size-base / 2;
-      margin-left: -@spin-dot-size-base / 2;
+      margin-top: -30px;
+      margin-left: -30px;
       z-index: @ui-zindex-spin;
     }
     &-text {
       position: absolute;
       top: 50%;
       width: 100%;
-      padding-top: (@spin-dot-size - @ui-fontsize) / 2 + 4px;
+      padding-top: 27px;
       color: @ui-color-slate;
       z-index: @ui-zindex-spin;
     }
     &_show-text .@{spinner-element}-indictor {
-      .ui-mixin-liftup(@spin-dot-size-base / 2 + 12px);
+      .ui-mixin-liftup(42px);
     }
-    &_sm .@{spinner-element}-text {
-      padding-top: (@spin-dot-size-sm - @ui-fontsize) / 2 + 4px;
+    &_sm {
+      &.@{spinner-element}_show-text {
+        .@{spinner-element}-indictor {
+          .ui-mixin-liftup(27px);
+          margin-left: -17px;
+        }
+      }
+      .@{spinner-element}-indictor {
+        margin-top: -18px;
+        margin-left: -18px;
+      }
+      .@{spinner-element}-text {
+        padding-top: 15px;
+        font-size: @ui-fontsize-mini;
+      }
     }
-    &_lg .@{spinner-element}-text {
-      padding-top: (@spin-dot-size-lg - @ui-fontsize) / 2 + 4px;
-    }
-    &_lg .@{spinner-element}-indictor {
-      i:after {
-        width: 4px;
-        top: 0px;
-        height: 18px;
+    &_lg {
+      &.@{spinner-element}_show-text {
+        .@{spinner-element}-indictor {
+          .ui-mixin-liftup(@ui-unit-triple);
+          margin-left: -45px;
+        }
+      }
+      .@{spinner-element}-indictor {
+        margin-top: -44px;
+        margin-left: -47px;
+        i:after {
+          width: 4px;
+          top: 0px;
+          height: 18px;
+        }
+      }
+      .@{spinner-element}-text {
+        padding-top: 50px;
+        font-size: 15px;
       }
     }
   }

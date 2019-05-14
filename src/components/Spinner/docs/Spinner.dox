@@ -1,15 +1,15 @@
 /**
  * @title 基本用法
- * @desc 通过 `loading` 的值来控制加载效果的显示与隐藏。
+ * @desc 通过 `isLoading` 的值来控制加载效果的显示与隐藏。
  * @note 该组件会保证加载效果的显示时间至少为 `300ms`，以避免一闪而过的糟糕体验。
  */
 import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
 
 class SpinnerBasic extends React.Component {
-  state = { loading: false }
+  state = { isLoading: false }
   toggle = value => {
-    this.setState({ loading: value });
+    this.setState({ isLoading: value });
   }
   render() {
     const border = {
@@ -22,10 +22,10 @@ class SpinnerBasic extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
+          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner loading={this.state.loading}>
+          <Spinner isLoading={this.state.isLoading}>
             将被加载效果覆盖
           </Spinner>
         </div>
@@ -42,9 +42,9 @@ import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
 
 class SpinnerTip extends React.Component {
-  state = { loading: false }
+  state = { isLoading: false }
   toggle = value => {
-    this.setState({ loading: value });
+    this.setState({ isLoading: value });
   }
   render() {
     const border = {
@@ -57,10 +57,10 @@ class SpinnerTip extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
+          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner tip="Loading..." loading={this.state.loading}>
+          <Spinner tip="Loading..." isLoading={this.state.isLoading}>
             自定义描述文案加载效果
           </Spinner>
         </div>
@@ -78,14 +78,14 @@ import Spinner from 'earth-ui/lib/Spinner'
 import Switch from 'earth-ui/lib/Switch'
 
 class SpinnerCover extends React.Component {
-  state = { loading: false }
+  state = { isLoading: false }
   toggle = value => {
-    this.setState({ loading: value });
+    this.setState({ isLoading: value });
   }
   render() {
     const border = {
-      height: '120px',
-      lineHeight: '118px',
+      height: '180px',
+      lineHeight: '178px',
       color: '#aaa',
       textAlign: 'center',
       border: '1px dashed #ccc'
@@ -93,16 +93,16 @@ class SpinnerCover extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
+          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
-          <Spinner tip="Loading..." loading={this.state.loading}>
+          <Spinner tip="Loading..." isLoading={this.state.isLoading}>
             白色背景遮罩的加载效果
           </Spinner>
         </div>
         <br />
         <div style={border}>
-          <Spinner tip="Loading..." cover="black" loading={this.state.loading}>
+          <Spinner tip="Loading..." cover="black" isLoading={this.state.isLoading}>
             黑色背景遮罩的加载效果
           </Spinner>
         </div>
@@ -113,7 +113,7 @@ class SpinnerCover extends React.Component {
 
 /**
  * @title 各种大小
- * @desc 提供了 `sm` / `default` / `lg` 三种尺寸来满足不同场景下的需求。
+ * @desc 提供了 `sm` / `md` / `lg` 三种尺寸来满足不同场景下的需求。
  * @note 对于全局和 Aside 里面的 Spinner 建议使用 `lg` 尺寸，在高度相对高的场景下会有较好的视觉体验。
  */
 import Spinner from 'earth-ui/lib/Spinner'
@@ -121,9 +121,9 @@ import Spinner from 'earth-ui/lib/Spinner'
 const SpinnerSize = () => {
   return (
     <div>
-      <Spinner size="sm" />
-      <Spinner />
-      <Spinner size="lg" />
+      <Spinner size="sm" tip="Loading..."/>
+      <Spinner tip="Loading..."/>
+      <Spinner size="lg" tip="Loading..."/>
     </div>
   )
 }
@@ -136,9 +136,9 @@ import Spinner from 'earth-ui/lib/Spinner'
 import styled, { keyframes } from 'styled-components'
 
 class SpinnerIndicator extends React.Component {
-  state = { loading: false }
+  state = { isLoading: false }
   toggle = value => {
-    this.setState({ loading: value });
+    this.setState({ isLoading: value });
   }
   spinnerKeyFrames = keyframes`
     from {
@@ -169,10 +169,10 @@ class SpinnerIndicator extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.loading} onChange={this.toggle} />
+          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <Border>
-          <Spinner loading={this.state.loading} indicator={<Indicator />}>
+          <Spinner isLoading={this.state.isLoading} indicator={<Indicator />}>
             自定义指示器
           </Spinner>
         </Border>
