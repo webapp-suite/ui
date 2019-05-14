@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import Button from 'earth-ui/lib/Button'
 import { Board, BoardBody, BoardHeader } from 'earth-ui/lib/Board'
 import { Col, Row } from 'earth-ui/lib/Layout'
 import { Tab, TabList, TabPanel, Tabs } from 'earth-ui/lib/Tabs'
@@ -62,15 +63,20 @@ class Demo extends React.Component {
     }
     const renderInRight = () => {
       return (
-        <Row className={cx('demo', 'demo__no-tabs-board', { 'demo__open': !open }, className)}>
+        <Row className={cx('demo', 'demo__no-tabs-board', { 'demo__open': open }, className)}>
           <Col col="md-16" className="demo__left">
             <Markdown html={`<h2>${title}</h2>`} />
             {desc && <Markdown html={desc} />}
             <div className="demo__no-tabs-board-render">{children}</div>
             <Board theme="simple">
-              <BoardBody>
-                <div className="demo__code"><Code lang="jsx">{code}</Code></div>
-              </BoardBody>
+              <BoardHeader>
+                <Button type="tertiary" onClick={this.handleToggle} micro>{`${open ? 'Close' : 'Show'} Code`}</Button>
+              </BoardHeader>
+              {!!open && (
+                <BoardBody>
+                  <div className="demo__code"><Code lang="jsx">{code}</Code></div>
+                </BoardBody>
+              )}
             </Board>
             {note && <Markdown html={note} />}
           </Col>

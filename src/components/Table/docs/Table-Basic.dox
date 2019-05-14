@@ -1,0 +1,60 @@
+/**
+ * @title 基本用法
+ * @desc 描述
+ * @renderModel right
+ */
+import Table from 'earth-ui/lib/Table'
+
+const TableBasic = () => {
+  const columns = [
+    { title: 'title1', dataIndex: 'a', key: 'a', width: 100 },
+    { id: '123', title: 'title2', dataIndex: 'b', key: 'b', width: 100 },
+    { title: 'title3', dataIndex: 'c', key: 'c', width: 200 },
+    {
+      title: 'Operations',
+      dataIndex: '',
+      key: 'd',
+      render() {
+        return <a href="#">Operations</a>;
+      },
+    },
+  ];
+
+  const data = [
+    { a: '123', key: '1' },
+    { a: 'cdd', b: 'edd', key: '2' },
+    { a: '1333', c: 'eee', d: 2, key: '3' },
+  ];
+
+  return (
+    <Table columns={columns} data={data} />
+  )
+}
+
+/**
+ * @title JSX声明式
+ * @desc 描述
+ * @renderModel right
+ */
+import Table, { ColumnGroup, Column } from 'earth-ui/lib/Table'
+
+const TableJSX = () => {
+  const data = [
+    { a: '123', key: '1' },
+    { a: 'cdd', b: 'edd', key: '2' },
+    { a: '1333', c: 'eee', d: 2, key: '3' },
+  ];
+
+  return (
+    <Table data={data}>
+      <ColumnGroup title="Bazinga">
+        <Column title="title1" dataIndex="a" key="a" width={100} />
+        <Column id="123" title="title2" dataIndex="b" key="b" width={100} />
+      </ColumnGroup>
+      <Column title="title3" dataIndex="c" key="c" width={200} />
+      <Column title="Operations" dataIndex="" key="d" render={() => <a href="#">Operations</a>} />
+    </Table>
+  )
+}
+
+@component Table

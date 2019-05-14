@@ -18,7 +18,7 @@ const config = {
   },
   module: {
     rules: [{
-      test: /\.(js|jsx)$/,
+      test: /\.jsx?$/,
       loaders: 'babel-loader',
       include: sourcePath
     }, {
@@ -43,7 +43,8 @@ const config = {
   resolve: {
     alias: {
       'ui-variables': `${sourcePath}/styles/ui-variables.less`,
-      'ui-mixins': `${sourcePath}/styles/ui-mixins.less`
+      'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
+      '_utils': `${sourcePath}/components/_utils`
     }
   },
   externals: {

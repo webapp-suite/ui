@@ -65,7 +65,7 @@ const config = {
         },
         {
           loader: 'markdown-loader',
-          options: {highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang])}
+          options: { highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang]) }
         }
       ]
     }, {
@@ -86,11 +86,12 @@ const config = {
     ],
     alias: {
       'earth-ui/lib': `${sourcePath}/components`,
-      'widgets': `${sitePath}/widgets`,
       'ui-variables': `${sourcePath}/styles/ui-variables.less`,
       'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
+      '_utils': `${sourcePath}/components/_utils`,
       'ui': `${sourcePath}/styles/index.less`,
-      'dox': `${sitePath}/styles/index.less`
+      'dox': `${sitePath}/styles/index.less`,
+      'widgets': `${sitePath}/widgets`
     }
   },
   externals: {

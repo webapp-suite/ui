@@ -164,7 +164,17 @@
     "components":[
       {
         "name":"Table",
-        "cn":"表格"
+        "cn":"表格",
+        "tabs":[
+          {
+            "label":"Basic",
+            "doc":"Table-Basic"
+          },
+          {
+            "label":"Select",
+            "doc":"Table-Select"
+          }
+        ]
       },
       {
         "name":"Pager",

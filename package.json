@@ -63,10 +63,13 @@
     "classlist": "^1.0.1",
     "classnames": "^2.2.5",
     "focus-trap": "^3.0.0",
+    "hoist-non-react-statics": "^3.3.0",
     "invariant": "^2.2.2",
     "marked": "^0.5.2",
     "react-avatar-editor": "^10.3.0",
-    "react-update": "^0.4.4"
+    "react-update": "^0.4.4",
+    "shallowequal": "^1.1.0",
+    "warning": "^4.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -115,10 +118,10 @@
     "prop-types": "^15.6.1",
     "rc-queue-anim": "^1.6.10",
     "rc-scroll-anim": "^2.5.6",
-    "react": "^16.6.3",
+    "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.1",
     "react-custom-scrollbars": "^4.2.1",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.8.6",
     "react-hot-loader": "^4.3.12",
     "react-imported-component": "^5.2.3",
     "rimraf": "^2.6.2",
