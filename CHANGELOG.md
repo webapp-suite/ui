@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/cosmos-x/earth-ui/compare/v0.4.0...v0.4.1) (2019-05-14)
+
+
+### Bug Fixes
+
+* **Spinner:** text position issue in lg Spinner ([a5f6b57](https://github.com/cosmos-x/earth-ui/commit/a5f6b57))
+
+
+### BREAKING CHANGES
+
+* **Spinner:** replace `loading` with `isLoading`
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/cosmos-x/earth-ui/compare/v0.3.3...v0.4.0) (2019-03-04)
 
