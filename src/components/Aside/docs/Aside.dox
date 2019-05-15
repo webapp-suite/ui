@@ -37,20 +37,20 @@ import Button from 'earth-ui/lib/Button'
 import Spinner from 'earth-ui/lib/Spinner'
 
 class AsideSpinner extends Component {
-  state = { isOpen: false, loading: true }
+  state = { isOpen: false, isLoading: true }
   openAside = () => {
     this.setState({ isOpen: true })
-    window.setTimeout(() => this.setState({ loading: false }), 500)
+    window.setTimeout(() => this.setState({ isLoading: false }), 500)
   }
   onClose =  () => {
-    this.setState({ isOpen: false, loading: true })
+    this.setState({ isOpen: false, isLoading: true })
   }
   render () {
    return (
      <div>
        <Button type="secondary" onClick={this.openAside}>Open Aside With Spinner</Button>
        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
-         <Spinner loading={this.state.loading}>
+         <Spinner isLoading={this.state.isLoading}>
            Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
          </Spinner>
        </Aside>

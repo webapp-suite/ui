@@ -84,8 +84,8 @@ class SpinnerCover extends React.Component {
   }
   render() {
     const border = {
-      height: '180px',
-      lineHeight: '178px',
+      height: '120px',
+      lineHeight: '118px',
       color: '#aaa',
       textAlign: 'center',
       border: '1px dashed #ccc'

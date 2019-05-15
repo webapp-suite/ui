@@ -40,7 +40,7 @@
     "path":"components",
     "name":"General Components",
     "cn":"通用组件",
-    "defaultOpen":true,
+    "defaultOpen":false,
     "components":[
       {
         "icon":"retweet",
@@ -68,7 +68,7 @@
     "path":"components",
     "name":"Layout Components",
     "cn":"布局组件",
-    "defaultOpen":true,
+    "defaultOpen":false,
     "components":[
       {
         "icon":"retweet",
@@ -106,7 +106,7 @@
     "path":"components",
     "name":"Dialog Components",
     "cn":"弹框组件",
-    "defaultOpen":true,
+    "defaultOpen":false,
     "components":[
       {
         "name":"dialog",
@@ -127,7 +127,7 @@
     "path":"components",
     "name":"Form Components",
     "cn":"表单组件",
-    "defaultOpen":true,
+    "defaultOpen":false,
     "components":[
       {
         "name":"Form",
@@ -160,7 +160,7 @@
     "path":"components",
     "name":"Table Components",
     "cn":"表格组件",
-    "defaultOpen":true,
+    "defaultOpen":false,
     "components":[
       {
         "name":"Table",
