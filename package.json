@@ -29,7 +29,7 @@
     "site:prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
     "create": "node bin/create.js",
     "lint": "eslint src && eslint site",
-    "fix": "eslint src --fix eslint site --fix",
+    "fix": "eslint src --fix && eslint site --fix",
     "test": "jest --config=config/jest.config.json",
     "coverage": "coveralls",
     "commit": "git-cz",
@@ -53,7 +53,7 @@
       "git add"
     ]
   },
-  "browserslist": "defaults",
+  "browserslist": ["defaults"],
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
