@@ -16,4 +16,6 @@ npm run create MyComponent
 ```
 查看：http://localhost:3003/apps/components/MyComponent
 
+## 属性命名规范
+
 [dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
