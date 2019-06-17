@@ -1,4 +1,4 @@
-import { Link, navigate } from '@reach/router'
+import { Link } from '@reach/router'
 import HeaderBar from 'earth-ui/lib/HeaderBar'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
 import Scrollbar from 'widgets/Scrollbar'
+import { navigate } from '../../HashRouter'
 import { nav as components } from '../config.js'
 import './index.less'
 
