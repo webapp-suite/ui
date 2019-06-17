@@ -32,7 +32,7 @@ class Home extends React.Component {
       return (
         <img
           style={{ display: 'none' }}
-          src="/img/home_banner.png"
+          src="./img/home_banner.png"
           alt="background image"
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
@@ -46,7 +46,7 @@ class Home extends React.Component {
           <div className="home__banner-background">
             {this.state.imageStatus === 'loaded' &&
             <img className="home__banner-background-image"
-              src="/img/home_banner.png"
+              src="./img/home_banner.png"
               alt="background image"
               draggable="false"
             />}

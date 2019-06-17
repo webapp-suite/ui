@@ -28,7 +28,7 @@ const routerWithDynamicSegments = ['components/', 'start/', 'design/']
 function renderNavBottom () {
   return <div className="components__navbar-bottom">
     <div className="components__navbar-bottom-image">
-      <img className="components__navbar-bottom-image-icon" src="/svg/avatarPlaceholder.svg" alt="MOTUS" />
+      <img className="components__navbar-bottom-image-icon" src="./svg/avatarPlaceholder.svg" alt="MOTUS" />
     </div>
     <div className="components__navbar-bottom-user">
       <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
@@ -85,7 +85,7 @@ class Components extends React.Component {
     return (
       <HeaderBar
         className="components__title"
-        icon="/svg/appLogo.svg"
+        icon="./svg/appLogo.svg"
         title={title}
       >
         {!!tabs && (
@@ -105,7 +105,7 @@ class Components extends React.Component {
     if (position === 'outside') {
       const id = item.tabs ? `${item.path}/${item.tabs[0].doc}` : item.name
       return (
-        <NavItem id={id} key={item.name} title={item.cn} icon={`/svg/icons.svg#${item.icon}`} />
+        <NavItem id={id} key={item.name} title={item.cn} icon={`./svg/icons.svg#${item.icon}`} />
       )
     }
     const nameAfterSlash = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
@@ -155,7 +155,7 @@ class Components extends React.Component {
                     return this.renderNavItem(item, 'outside')
                   }
                   return (
-                    <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen} icon={`/svg/icons.svg#${item.icon}`}>
+                    <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen} icon={`./svg/icons.svg#${item.icon}`}>
                       {item.components.map(itemGroup => {
                         if (itemGroup.group) {
                           return this.renderNavItemGroup(itemGroup)

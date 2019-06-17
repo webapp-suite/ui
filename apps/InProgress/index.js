@@ -21,7 +21,7 @@ class InProgress extends React.Component {
       return (
         <img
           style={{ display: 'none' }}
-          src="/img/in_progress.png"
+          src="./img/in_progress.png"
           alt="Work in progress"
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
@@ -32,7 +32,7 @@ class InProgress extends React.Component {
       <div className="in-progress">
         {this.state.imageStatus === 'loaded' &&
         <img className="in-progress__image"
-          src="/img/in_progress.png"
+          src="./img/in_progress.png"
           alt="Work in progress"
           draggable="false"
         />}
