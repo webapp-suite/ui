@@ -44,24 +44,35 @@ class Home extends React.Component {
         <Header />
         <div className="home__banner">
           <div className="home__banner-background">
-            {this.state.imageStatus === 'loaded' &&
-            <img className="home__banner-background-image"
-              src="./img/home_banner.png"
-              alt="background image"
-              draggable="false"
-            />}
+            {this.state.imageStatus === 'loaded' && (
+              <img
+                className="home__banner-background-image"
+                src="./img/home_banner.png"
+                alt="background image"
+                draggable="false"
+              />
+            )}
           </div>
           <QueueAnim type="alpha" className="home__banner-center" delay={150}>
             <QueueAnim className="text-wrapper" key="text" type="bottom">
-              <h1 key="h1">A minimalism style ui component library based on React.</h1>
-              <p key="p">UI components range from simple buttons and icons to fancy datepickers and dropdown menus. The
-                target audience is both developers and designers.</p>
+              <h1 key="h1">
+                A minimalism style ui component library based on React.
+              </h1>
+              <p key="p">
+                UI components range from simple buttons and icons to fancy
+                datepickers and dropdown menus. The target audience is both
+                developers and designers.
+              </p>
               <div key="buttons">
                 <Link to="/apps/start/usage">
-                  <Button type="primary" className="home__banner-btn">Get Started</Button>
+                  <Button type="primary" className="home__banner-btn">
+                    Get Started
+                  </Button>
                 </Link>
                 <a href="https://github.com/cosmos-x/earth-ui">
-                  <Button type="secondary" className="home__banner-btn">Github</Button>
+                  <Button type="secondary" className="home__banner-btn">
+                    Github
+                  </Button>
                 </a>
               </div>
             </QueueAnim>

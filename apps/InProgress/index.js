@@ -30,12 +30,14 @@ class InProgress extends React.Component {
     }
     return (
       <div className="in-progress">
-        {this.state.imageStatus === 'loaded' &&
-        <img className="in-progress__image"
-          src="./img/in_progress.png"
-          alt="Work in progress"
-          draggable="false"
-        />}
+        {this.state.imageStatus === 'loaded' && (
+          <img
+            className="in-progress__image"
+            src="./img/in_progress.png"
+            alt="Work in progress"
+            draggable="false"
+          />
+        )}
         <p>Work in progress...</p>
       </div>
     )

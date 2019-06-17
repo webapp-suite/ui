@@ -27,24 +27,39 @@ const getTabsByComponentName = (components, componentName) => {
 const routerWithDynamicSegments = ['components/', 'start/', 'design/']
 
 function renderNavBottom () {
-  return <div className="components__navbar-bottom">
-    <div className="components__navbar-bottom-image">
-      <img className="components__navbar-bottom-image-icon" src="./svg/avatarPlaceholder.svg" alt="MOTUS" />
+  return (
+    <div className="components__navbar-bottom">
+      <div className="components__navbar-bottom-image">
+        <img
+          className="components__navbar-bottom-image-icon"
+          src="./svg/avatarPlaceholder.svg"
+          alt="MOTUS"
+        />
+      </div>
+      <div className="components__navbar-bottom-user">
+        <span className="components__navbar-bottom-user-name">KIMI GAO</span>
+        <span className="components__navbar-bottom-user-company">
+          Earthui Corp.
+        </span>
+      </div>
+      <div className="components__navbar-bottom-logout">
+        <Tooltip title="Unfinished feature">
+          <Icon
+            type="logout"
+            className="components__navbar-bottom-logout-icon"
+          />
+        </Tooltip>
+      </div>
+      <div className="components__navbar-bottom-settings">
+        <Tooltip title="Unfinished feature">
+          <Icon
+            type="settings"
+            className="components__navbar-bottom-settings-icon"
+          />
+        </Tooltip>
+      </div>
     </div>
-    <div className="components__navbar-bottom-user">
-      <span className="components__navbar-bottom-user-name">KIMI GAO</span><span
-        className="components__navbar-bottom-user-company">Earthui Corp.</span></div>
-    <div className="components__navbar-bottom-logout">
-      <Tooltip title="Unfinished feature">
-        <Icon type="logout" className="components__navbar-bottom-logout-icon" />
-      </Tooltip>
-    </div>
-    <div className="components__navbar-bottom-settings">
-      <Tooltip title="Unfinished feature">
-        <Icon type="settings" className="components__navbar-bottom-settings-icon" />
-      </Tooltip>
-    </div>
-  </div>
+  )
 }
 
 class Components extends React.Component {
@@ -77,8 +92,15 @@ class Components extends React.Component {
 
   renderTitle (docName) {
     const nameBeforeSlash = docName.split('/')[0]
-    const nameAfterSlash = routerWithDynamicSegments.some(v => docName.includes(v)) ? docName.split('/')[1] : docName
-    const componentName = (nameBeforeSlash === 'components' ? nameAfterSlash : nameBeforeSlash).split('-')[0]
+    const nameAfterSlash = routerWithDynamicSegments.some(v =>
+      docName.includes(v)
+    )
+      ? docName.split('/')[1]
+      : docName
+    const componentName = (nameBeforeSlash === 'components'
+      ? nameAfterSlash
+      : nameBeforeSlash
+    ).split('-')[0]
     const component = this.componentsMap[componentName]
     const { name = '', cn = '' } = component || {}
     const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
@@ -92,8 +114,18 @@ class Components extends React.Component {
         {!!tabs && (
           <Tabs activeKey={nameAfterSlash}>
             <TabList>
-              {!!tabs.length && tabs.map(tab => <Tab activeKey={tab.doc} key={tab.doc}
-                onClick={() => this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}>{tab.label}</Tab>)}
+              {!!tabs.length &&
+                tabs.map(tab => (
+                  <Tab
+                    activeKey={tab.doc}
+                    key={tab.doc}
+                    onClick={() =>
+                      this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
+                    }
+                  >
+                    {tab.label}
+                  </Tab>
+                ))}
             </TabList>
           </Tabs>
         )}
@@ -106,14 +138,21 @@ class Components extends React.Component {
     if (position === 'outside') {
       const id = item.tabs ? `${item.path}/${item.tabs[0].doc}` : item.name
       return (
-        <NavItem id={id} key={item.name} title={item.cn} icon={`./svg/icons.svg#${item.icon}`} />
+        <NavItem
+          id={id}
+          key={item.name}
+          title={item.cn}
+          icon={`./svg/icons.svg#${item.icon}`}
+        />
       )
     }
-    const nameAfterSlash = (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
+    const nameAfterSlash =
+      (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
     const id = path ? `${path}/${nameAfterSlash}` : nameAfterSlash
     return (
       <NavItem id={id} key={item.name}>
-        <span>{item.name}</span><span className="chinese">{item.cn}</span>
+        <span>{item.name}</span>
+        <span className="chinese">{item.cn}</span>
       </NavItem>
     )
   }
@@ -156,12 +195,21 @@ class Components extends React.Component {
                     return this.renderNavItem(item, 'outside')
                   }
                   return (
-                    <SubNav key={item.name} title={item.cn} defaultOpen={item.defaultOpen} icon={`./svg/icons.svg#${item.icon}`}>
+                    <SubNav
+                      key={item.name}
+                      title={item.cn}
+                      defaultOpen={item.defaultOpen}
+                      icon={`./svg/icons.svg#${item.icon}`}
+                    >
                       {item.components.map(itemGroup => {
                         if (itemGroup.group) {
                           return this.renderNavItemGroup(itemGroup)
                         }
-                        return this.renderNavItem(itemGroup, 'inside', item.path)
+                        return this.renderNavItem(
+                          itemGroup,
+                          'inside',
+                          item.path
+                        )
                       })}
                     </SubNav>
                   )
