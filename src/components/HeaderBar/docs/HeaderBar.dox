@@ -6,7 +6,7 @@ import HeaderBar from 'earth-ui/lib/HeaderBar'
 
 const HeaderBarBasic = () => {
   return (
-    <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar" />
+    <HeaderBar icon="./svg/appLogo.svg" title="HeaderBar" />
   )
 }
 
@@ -20,7 +20,7 @@ import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
 
 const HeaderBarWithTabs = () => {
   return (
-    <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar">
+    <HeaderBar icon="./svg/appLogo.svg" title="HeaderBar">
       <Tabs>
         <TabList>
           <Tab>One</Tab>
@@ -42,7 +42,7 @@ import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
 class TabsDynamic extends Component {
   render() {
     return (
-      <HeaderBar icon="/svg/appLogo.svg" title="HeaderBar">
+      <HeaderBar icon="./svg/appLogo.svg" title="HeaderBar">
         <Tabs dynamic>
           <TabList newTab={{name: `My New Tab`, closeable: true}}>
               <Tab key="A" closeable>Closeable One</Tab>

@@ -10,10 +10,6 @@
         "doc":"usage"
       },
       {
-        "label":"配置",
-        "doc":"config"
-      },
-      {
         "label":"开发",
         "doc":"develop"
       }
@@ -43,7 +39,6 @@
     "defaultOpen":false,
     "components":[
       {
-        "icon":"retweet",
         "name":"Icon",
         "cn":"图标",
         "tabs":[
@@ -60,6 +55,26 @@
       {
         "name":"Button",
         "cn":"按钮"
+      },
+      {
+        "name":"Spinner",
+        "cn":"加载器"
+      },
+      {
+        "name":"Pager",
+        "cn":"分页器"
+      },
+      {
+        "name":"Actions",
+        "cn":"操作"
+      },
+      {
+        "name":"Search",
+        "cn":"搜索"
+      },
+      {
+        "name":"Tabs",
+        "cn":"标签页"
       }
     ]
   },
@@ -71,33 +86,24 @@
     "defaultOpen":false,
     "components":[
       {
-        "icon":"retweet",
         "name":"Layout",
         "cn":"布局"
       },
       {
-        "icon":"retweet",
-        "name":"HeaderBar",
+        "name":"Header",
         "cn":"顶栏"
       },
       {
-        "icon":"retweet",
+        "name":"Footer",
+        "cn":"底栏"
+      },
+      {
         "name":"ToolBar",
         "cn":"工具栏"
       },
       {
-        "icon":"retweet",
-        "name":"FooterBar",
-        "cn":"底栏"
-      },
-      {
-        "name":"Nav",
-        "cn":"导航栏"
-      },
-      {
-        "icon":"retweet",
         "name":"SideBar",
-        "cn":"侧栏"
+        "cn":"侧边栏"
       }
     ]
   },
@@ -114,11 +120,15 @@
       },
       {
         "name":"notification",
-        "cn":"通知提醒框"
+        "cn":"通知框"
+      },
+      {
+        "name":"Modal",
+        "cn":"模态框"
       },
       {
         "name":"Aside",
-        "cn":"侧边栏"
+        "cn":"侧边框"
       }
     ]
   },
@@ -134,24 +144,20 @@
         "cn":"表单"
       },
       {
-        "name":"Select",
-        "cn":"下拉选择"
-      },
-      {
-        "name":"Input",
-        "cn":"输入框"
-      },
-      {
-        "name":"ClearableInput",
-        "cn":"清空输入框"
-      },
-      {
         "name":"Menu",
         "cn":"菜单"
       },
       {
+        "name":"Dropdown",
+        "cn":"下拉菜单"
+      },
+      {
         "name":"Switch",
         "cn":"开关"
+      },
+      {
+        "name":"DatePicker",
+        "cn":"日期选择器"
       }
     ]
   },
@@ -165,10 +171,6 @@
       {
         "name":"Table",
         "cn":"表格"
-      },
-      {
-        "name":"Pager",
-        "cn":"分页器"
       }
     ]
   },
@@ -179,35 +181,6 @@
     "cn":"其他组件",
     "defaultOpen":true,
     "components":[
-      {
-        "name":"Spinner",
-        "cn":"加载中"
-      },
-      {
-        "name":"Tooltip",
-        "cn":"提示框"
-      },
-      {
-        "name":"TextOverflow",
-        "cn":"文字溢出"
-      },
-      {
-        "icon":"retweet",
-        "name":"Board",
-        "cn":"面板"
-      },
-      {
-        "name":"Dropdown",
-        "cn":"下拉菜单"
-      },
-      {
-        "name":"Upload",
-        "cn":"上传"
-      },
-      {
-        "name":"BackToTop",
-        "cn":"回到顶部"
-      },
       {
         "name":"Avatar",
         "cn":"头像",
@@ -220,6 +193,42 @@
       {
         "name":"AvatarClip",
         "cn":"裁剪头像"
+      },
+      {
+        "name":"BackToTop",
+        "cn":"回到顶部"
+      },
+      {
+        "name":"Board",
+        "cn":"面板"
+      },
+      {
+        "name":"Card",
+        "cn":"卡片"
+      },
+      {
+        "name":"Note",
+        "cn":"备注"
+      },
+      {
+        "name":"Tag",
+        "cn":"标签"
+      },
+      {
+        "name":"TextOverflow",
+        "cn":"文字溢出"
+      },
+      {
+        "name":"Time",
+        "cn":"时间"
+      },
+      {
+        "name":"Tooltip",
+        "cn":"提示贴"
+      },
+      {
+        "name":"Upload",
+        "cn":"上传"
       }
     ]
   }

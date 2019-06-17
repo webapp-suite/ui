@@ -14,26 +14,31 @@
   "homepage": "https://ui.muwenzi.com/",
   "engines": {
     "node": ">=8.12.0",
-    "npm": "^6.4.0"
+    "npm": ">=6.4.0"
   },
   "files": [
     "dist",
     "lib"
   ],
   "scripts": {
+    "****** DEV *****": "",
+    "create": "node bin/create.js",
+    "start": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
+    "****** DIST *****": "",
+    "build": "npm run lib && npm run dist",
     "lib": "rimraf lib && NODE_ENV=production babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js",
     "dist": "rimraf dist && webpack --progress --config config/webpack.config.js",
-    "site:dist": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js",
-    "site:dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
-    "presite:prod": "npm ci && npm run site:dist",
-    "site:prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
-    "create": "node bin/create.js",
+    "****** RELEASE *****": "",
+    "release": "npm run lib && npm run dist && standard-version",
+    "gh-pages": "rimraf site/dist && SITE_ENV=production webpack --progress --config config/webpack.config.site.js && node bin/deploy.js",
+    "****** LINT *****": "",
+    "fix": "eslint src --fix && eslint site --fix",
     "lint": "eslint src && eslint site",
-    "fix": "eslint src --fix eslint site --fix",
-    "test": "jest --config=config/jest.config.json",
+    "****** TEST *****": "",
     "coverage": "coveralls",
-    "commit": "git-cz",
-    "release": "npm run lib && npm run dist && standard-version"
+    "test": "jest --config=config/jest.config.json",
+    "****** OTHERS *****": "",
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
@@ -64,7 +69,7 @@
     "classnames": "^2.2.5",
     "focus-trap": "^3.0.0",
     "invariant": "^2.2.2",
-    "marked": "^0.5.2",
+    "marked": "^0.6.2",
     "react-avatar-editor": "^10.3.0",
     "react-update": "^0.4.4"
   },
@@ -93,8 +98,10 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.10",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "gh-pages": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-replace": "^1.0.0",
+    "hash-source": "^1.0.4",
     "html-loader": "^0.5.5",
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",

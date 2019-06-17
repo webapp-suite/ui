@@ -100,7 +100,7 @@ npm i
 npm run site:dev
 ```
 
-Open your browser and visit http://127.0.0.1:3003 , see more at [Development Instructions][dev-instructions-url] .
+Open your browser and visit http://localhost:3003 , see more at [Development Instructions][dev-instructions-url] .
 
 #### Create a new component
 

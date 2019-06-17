@@ -1,8 +1,9 @@
-import { Redirect, Router } from '@reach/router'
+import { Redirect, Router, LocationProvider } from '@reach/router'
 import NProgress from 'nprogress'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Imported, { whenComponentsReady } from 'react-imported-component'
+import { HashRouter } from './HashRouter'
 import Chrome from './apps/Chrome'
 import App from './apps/index'
 
@@ -20,7 +21,23 @@ const asyncComponent = path =>
       : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
   })
 
-const WIP = ['ToolBar', 'FooterBar', 'SideBar', 'Menu', 'Table', 'Pager']
+const WIP = [
+  'ToolBar',
+  'Header',
+  'Footer',
+  'SideBar',
+  'Form',
+  'Menu',
+  'Table',
+  'Tag',
+  'Modal',
+  'Note',
+  'Search',
+  'DatePicker',
+  'Card',
+  'Time',
+  'Actions'
+]
 
 const getComponentDoc = component => {
   if (WIP.includes(component)) {
@@ -40,19 +57,21 @@ const Dox = routeProps =>
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render(
-  <Router>
-    <App path="/apps">
-      <Chrome path="/">
-        <Changelog path="/changelog" />
-        <Start path="/start/:tab" />
-        <Design path="/design/:tab" />
-        <Dox path="/components/:component" />
-      </Chrome>
-      {/* from means relative path, to means abs path */}
-      <Redirect noThrow from="/" to="/" />
-    </App>
-    <Home path="/" />
-    <NotFound default />
-  </Router>,
+  <LocationProvider history={HashRouter}>
+    <Router>
+      <App path="/apps">
+        <Chrome path="/">
+          <Changelog path="/changelog" />
+          <Start path="/start/:tab" />
+          <Design path="/design/:tab" />
+          <Dox path="/components/:component" />
+        </Chrome>
+        {/* from means relative path, to means abs path */}
+        <Redirect noThrow from="/" to="/" />
+      </App>
+      <Home path="/" />
+      <NotFound default />
+    </Router>
+  </LocationProvider>,
   document.getElementById('app')
 )
