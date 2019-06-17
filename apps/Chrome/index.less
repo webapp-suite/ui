@@ -1,0 +1,112 @@
+@import "~ui-variables";
+@import "~ui-mixins";
+@import "~dox";
+
+.components {
+  &__navbar-top {
+    height: @ui-unit-triple;
+    line-height: @ui-unit-triple;
+    border-bottom: 1px solid @ui-color-slate;
+    width: @ui-width-aside;
+    color: @ui-color-white;
+    position: fixed;
+    background-color: @ui-color-slate-light;
+    z-index: @ui-zindex-topbar;
+    &-logo {
+      float: left;
+      span {
+        position: relative;
+        left: 80px;
+        font-size: 23px;
+        font-weight: @ui-fontweight;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Eurofighter Expanded";
+        color: @ui-color-white;
+        &:hover {
+          color: @theme;
+        }
+      }
+    }
+    &-close {
+      float: right;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  &__navbar-scrollbar {
+  }
+  &__navbar-menu {
+  }
+  &__navbar-bottom {
+    height: @ui-unit-triple;
+    line-height: @ui-unit-triple;
+    border-top: 1px solid @ui-color-slate;
+    width: @ui-width-aside;
+    color: @ui-color-white;
+    position: fixed;
+    background-color: @ui-color-slate-light;
+    z-index: @ui-zindex-topbar;
+    bottom: 0;
+    user-select: none;
+    &-image {
+      float: left;
+      height: @ui-unit-triple;
+      width: @ui-unit-triple;
+      &-icon {
+        margin: @ui-unit-half @ui-unit-plus @ui-unit-half @ui-unit-half;
+        width: @ui-unit-double;
+        height: @ui-unit-double;
+        border-radius: 50% 50%;
+      }
+    }
+    &-user {
+      transition: opacity .2925s cubic-bezier(0,0,.2,1);
+      padding: @ui-unit-half 0 @ui-unit-half @ui-unit-half;
+      height: @ui-unit-triple;
+      width: 80px;
+      float: left;
+      width: ~'calc(100% - 180px)';
+      &-name, &-company {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+        line-height: @ui-unit;
+        min-height: @ui-unit;
+      }
+      &-name {
+        font-weight: @ui-fontweight-bold;
+      }
+      &-company {
+        font-size: @ui-fontsize-mini;
+      }
+    }
+    &-settings, &-logout {
+      float: right;
+      width: @ui-unit-triple;
+      height: @ui-unit-triple;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  &__title {
+    .earthui-headerbar__bars-tool-item-title {
+      text-transform: capitalize;
+    }
+  }
+  &__content-wrapper {
+    height: ~'calc(100vh - @{ui-unit-triple})';
+    overflow-y: scroll;
+  }
+  &__content {
+    padding: 70px @ui-unit-triple 140px;
+  }
+}
+
+.scrollbar {
+  top: @ui-unit-triple;
+  bottom: @ui-unit-triple;
+  background-color: @ui-color-slate-light;
+}

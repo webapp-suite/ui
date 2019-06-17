@@ -1,0 +1,63 @@
+@import "~ui-variables";
+@import "~ui-mixins";
+
+@padding-lr: 9vw;
+
+.home {
+  background-color: @ui-color-white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.home__banner {
+  position: relative;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: @ui-color-gray-lightest;
+  &-background {
+    position: absolute;
+    height: 830px;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    &-image {
+      position: relative;
+      height: 830px;
+      right: -220px;
+      top: -28px;
+      z-index: 0;
+      user-select: none;
+    }
+  }
+  &-center {
+    position: relative;
+    color: @ui-color-black;
+    text-align: left;
+    margin-left: @padding-lr;
+    font-size: @ui-fontsize-medium;
+    min-height: 336px;
+    h1 {
+      margin-bottom: 30px;
+      width: 400px;
+      font-size: 34px;
+      line-height: 50px;
+      font-weight: @ui-fontweight-semibold;
+      font-family: 'Droid Sans', @ui-fontstack;
+    }
+    p {
+      margin-bottom: 30px;
+      width: 450px;
+      line-height: 30px;
+      color: @ui-color-slate-lightest;
+    }
+  }
+  &-btn {
+    width: 190px;
+    height: 56px;
+    font-size: 18px;
+    margin-right: @ui-unit !important;
+    border-radius: 28px;
+  }
+}

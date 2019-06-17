@@ -1,0 +1,141 @@
+@import "~ui-variables";
+@import "~ui-mixins";
+@import "../Code/index.less";
+
+.markdown {
+  line-height: 22px;
+  a {
+    color: @ui-color-blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  li {
+    margin-left: @ui-unit-half * 1.5;
+    margin-bottom: @ui-unit-quarter;
+  }
+  h2 {
+    border-bottom: 1px solid @ui-color-gray-light;
+    padding-bottom: @ui-unit-half * 1.5;
+    line-height: 22px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h6 {
+    color: #777;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: @ui-fontweight;
+    margin-top: 35px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+  hr {
+    border: 1px solid #e6e6e6;
+  }
+  pre {
+    display: block;
+    margin: 0;
+    margin-bottom: @ui-unit;
+    padding: 0;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    color: @ui-color-black;
+    direction: ltr;
+    text-align: left;
+    .dox-mixin-stripes();
+    overflow-y: visible;
+    overflow-x: auto;
+    code {
+      font-size: 14px;
+      display: block;
+      padding: @ui-unit;
+      line-height: 20px;
+    }
+  }
+  pre + p {
+    margin-top: @ui-unit;
+  }
+  p > code,
+  li > code,
+  td > code,
+  h1 > code,
+  h2 > code,
+  h3 > code,
+  h4 > code,
+  h5 > code,
+  h6 > code,
+  blockquote > code {
+    font-family: @ui-fontstack-mono;
+    color: @ui-color-green-dark;
+    font-size: @ui-fontsize-medium;
+  }
+  blockquote {
+    background-color: lighten(@ui-color-gray-lightest, 4%);
+    border-left: 4px solid @ui-color-gray-light;
+    padding: @ui-unit-half @ui-unit;
+    font-style: italic;
+    margin-bottom: @ui-unit;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  table {
+    background-color: #fafafa;
+  }
+  table tr th,
+  table tr td {
+    border: 1px solid #e6e6e6;
+  }
+  table tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  img {
+    width: 100%;
+    margin-bottom: @ui-unit;
+  }
+  table {
+    width: 100%;
+    border: 1px solid #dedede;
+    margin: 15px auto;
+    border-collapse: collapse;
+    empty-cells: show;
+  }
+
+  table th,
+  table td {
+    height: 35px;
+    border: 1px solid @ui-color-gray-darkest;
+    padding: 0 10px;
+  }
+  table th {
+    font-weight: @ui-fontweight-medium;
+    text-align: center !important;
+    background-color: #eff3f5;
+  }
+  table tbody {
+    tr:nth-child(odd) {
+      background-color: @ui-color-white;
+    }
+    tr:nth-child(even) {
+      background-color: #fafbfc;
+    }
+  }
+  table tr:hover {
+    background: #efefef;
+  }
+}

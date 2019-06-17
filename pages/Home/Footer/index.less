@@ -1,0 +1,111 @@
+@import '~ui-variables';
+
+@background-color: @ui-color-white;
+@group-title-color: @ui-color-slate-dark;
+@item-color: @ui-color-slate-light;
+@left-right-length: 9vw;
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: @background-color;
+  color: @ui-color-white;
+  //border-top: rgba(235, 235, 235, 1) 1px solid;
+  .first-line, .second-line {
+    overflow: hidden;
+  }
+  h2 {
+    color: @group-title-color;
+    display: inline-block;
+    font-size: @ui-fontsize-medium;
+    font-weight: @ui-fontweight-medium;
+    font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 60px;
+    //line-height: 50px;
+    vertical-align: middle;
+    margin-bottom: 30px;
+    border-bottom: 2px solid @ui-color-gray-lightest;
+  }
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+  .intro, .pay, .help {
+    color: @item-color;
+    font-size: @ui-fontsize;
+    max-width: 342px;
+    margin-right: 70px;
+    cursor: default;
+    img {
+      width: 80px;
+      height: 80px;
+      display: inline-block;
+      vertical-align: middle;
+      -moz-background-size: 100% 100%;
+      background-size: 100% 100%;
+      margin-right: 10px;
+    }
+  }
+  .intro {
+    line-height: 25px;
+    color: @item-color;
+    padding-right: 100px;
+    font-weight: @ui-fontweight-medium;
+  }
+  .help {
+    margin-right: 0;
+    div {
+      margin-bottom: 15px;
+      a {
+        text-decoration: none;
+        color: @item-color;
+        &:hover {
+          color: @theme;
+        }
+      }
+    }
+  }
+  .first-line {
+    margin: 0 @left-right-length;
+    padding: 16px 0;
+    border-bottom: 1px solid @ui-color-gray-lighter;
+  }
+  .second-line {
+    margin: 0 @left-right-length;
+    padding: 16px 0;
+    font-size: @ui-fontsize;
+    color: @item-color;
+    cursor: default;
+    line-height: 32px;
+    span {
+      line-height: 32px;
+    }
+    .left span {
+      display: inline-table;
+      margin-right: 5px;
+      &.footer__second-line-left-logo {
+        color: @ui-color-slate-lightest;
+        font-weight: @ui-fontweight;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Eurofighter Expanded";
+      }
+    }
+    .right span {
+      display: inline-table;
+      &:after {
+        content: '';
+        display: inline-block;
+        text-align: center;
+        width: @ui-unit-quarter
+      }
+      &:last-child {
+        &:after {
+          content: '';
+          width: 0;
+        }
+      }
+    }
+  }
+}
