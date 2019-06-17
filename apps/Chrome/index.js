@@ -61,7 +61,7 @@ class Components extends React.Component {
 
   switchRoute (route) {
     if (route) {
-      navigate(`/apps/${route}`)
+      navigate(`/${route}`)
     }
   }
 
