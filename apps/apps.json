@@ -28,6 +28,10 @@
       {
         "label":"字体",
         "doc":"font"
+      },
+      {
+        "label":"排列",
+        "doc":"arrange"
       }
     ]
   },
