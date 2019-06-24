@@ -1,0 +1,17 @@
+@import '~ui-variables';
+@import '~ui-mixins';
+
+@width: 100%;
+@height: @ui-unit-triple;
+
+.@{prefix-cls}-toolbar {
+  position: relative;
+  z-index: @ui-zindex-topbar;
+  width: 100%;
+  background-color: @ui-color-white;
+  border-bottom: 1px solid @ui-color-gray-light;
+  .ui-mixin-transition(opacity);
+  &__bars {
+
+  }
+}

@@ -1,0 +1,48 @@
+/**
+ * @title 带 Tabs 的 ToolBar
+ * @renderModel right
+ */
+import ToolBar from 'earth-ui/lib/ToolBar'
+import notification from 'earth-ui/lib/notification'
+import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+
+const ToolBarWithTabs = () => {
+  return (
+    <ToolBar>
+      <Tabs>
+        <TabList>
+          <Tab>One</Tab>
+          <Tab onClick={()=>notification.success('yes')}>Two</Tab>
+        </TabList>
+      </Tabs>
+    </ToolBar>
+  )
+}
+
+
+/**
+ * @title 动态页签
+ * @renderModel right
+ */
+import ToolBar from 'earth-ui/lib/ToolBar'
+import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+
+class TabsDynamic extends Component {
+  render() {
+    return (
+      <ToolBar>
+        <Tabs dynamic>
+          <TabList newTab={{name: `My New Tab`, closeable: true}}>
+              <Tab key="A" closeable>Closeable One</Tab>
+              <Tab key="B" closeable>Closeable Two</Tab>
+          </TabList>
+        </Tabs>
+      </ToolBar>
+    )
+  }
+}
+
+@component ToolBar
+@component Tabs/Tabs
+@component Tabs/TabList
+@component Tabs/Tab

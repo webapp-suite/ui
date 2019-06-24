@@ -22,7 +22,6 @@ const asyncComponent = path =>
   })
 
 const WIP = [
-  'ToolBar',
   'Header',
   'Footer',
   'SideBar',
