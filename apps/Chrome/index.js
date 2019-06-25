@@ -1,8 +1,9 @@
 import { Link } from '@reach/router'
-import HeaderBar from 'earth-ui/lib/HeaderBar'
+import Header from 'earth-ui/lib/Header'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
 import { Tab, TabList, Tabs } from 'earth-ui/lib/Tabs'
+import ToolBar from 'earth-ui/lib/ToolBar'
 import Tooltip from 'earth-ui/lib/Tooltip'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -106,30 +107,33 @@ class Components extends React.Component {
     const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
     const tabs = getTabsByComponentName(components, name)
     return (
-      <HeaderBar
-        className="components__title"
-        icon="./svg/appLogo.svg"
-        title={title}
-      >
+      <div>
+        <Header
+          className="components__title"
+          icon="./svg/app_logo_bg_blue.svg"
+          title={title}
+        />
         {!!tabs && (
-          <Tabs activeKey={nameAfterSlash}>
-            <TabList>
-              {!!tabs.length &&
-                tabs.map(tab => (
-                  <Tab
-                    activeKey={tab.doc}
-                    key={tab.doc}
-                    onClick={() =>
-                      this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
-                    }
-                  >
-                    {tab.label}
-                  </Tab>
-                ))}
-            </TabList>
-          </Tabs>
+          <ToolBar>
+            <Tabs activeKey={nameAfterSlash}>
+              <TabList>
+                {!!tabs.length &&
+                  tabs.map(tab => (
+                    <Tab
+                      activeKey={tab.doc}
+                      key={tab.doc}
+                      onClick={() =>
+                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
+                      }
+                    >
+                      {tab.label}
+                    </Tab>
+                  ))}
+              </TabList>
+            </Tabs>
+          </ToolBar>
         )}
-      </HeaderBar>
+      </div>
     )
   }
 
