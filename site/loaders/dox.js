@@ -130,6 +130,7 @@ module.exports = function (source) {
         if (type.indexOf('oneOfType') === 0) {
           type = type.match(/PropTypes\.\w+/g).join(' | ').replace(/PropTypes\./g, '')
         } else if (type.indexOf('oneOf') === 0) {
+          // TODO: oneOf cannot include \n and must be one line.
           type = new Function('return ' + type.match(/\[.*?]/)[0] + '.join(" | ")')()
         }
         doc.props.push({
