@@ -4,12 +4,46 @@
 @width: 100%;
 @height: @ui-unit-triple;
 
-.@{prefix-cls}-headerbar {
+.@{prefix-cls}-header {
   position: relative;
   z-index: @ui-zindex-topbar;
   width: 100%;
-  background-color: @ui-color-white;
+  color: @ui-color-white;
   border-bottom: 1px solid @ui-color-gray-light;
+  &--white {
+    color: @ui-color-black;
+    background-color: @ui-color-white;
+  }
+  &--blue {
+    background-color: @ui-color-blue;
+  }
+  &--red {
+    background-color: @ui-color-red;
+  }
+  &--orange {
+    background-color: @ui-color-orange;
+  }
+  &--yellow {
+    background-color: @ui-color-yellow;
+  }
+  &--green {
+    background-color: @ui-color-green;
+  }
+  &--purple {
+    background-color: @ui-color-purple;
+  }
+  &--pink {
+    background-color: @ui-color-pink;
+  }
+  &--gray {
+    background-color: @ui-color-gray;
+  }
+  &--slate {
+    background-color: @ui-color-slate;
+  }
+  &--black {
+    background-color: @ui-color-black;
+  }
   .ui-mixin-transition(opacity);
   &__bars {
     &-tool {

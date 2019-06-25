@@ -1,0 +1,25 @@
+/**
+ * @title 基本功能
+ * @renderModel right
+ */
+import Header from 'earth-ui/lib/Header'
+
+const HeaderBasic = () => {
+  return (
+    <Header icon="./svg/app_logo_bg_blue.svg" title="Header" />
+  )
+}
+
+/**
+ * @title 更换背景色
+ * @renderModel right
+ */
+import Header from 'earth-ui/lib/Header'
+
+const ColorfulHeader = () => {
+  return (
+    <Header icon="./svg/app_logo_bg_white.svg" title="Header" color="blue" />
+  )
+}
+
+@component Header

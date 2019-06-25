@@ -1,0 +1,41 @@
+/**
+ * @title Header 背景色画廊
+ * @renderModel full
+ */
+import Header from 'earth-ui/lib/Header'
+
+const ColorfulHeader = () => {
+  const colors = [
+    'white',
+    'blue',
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'purple',
+    'pink',
+    'gray',
+    'slate',
+    'black'
+  ]
+  const ul = {
+    // marginTop: -20
+  }
+  const li = {
+    width: '100%',
+    listStyle: 'none',
+    marginBottom: 20
+  }
+  if (window.matchMedia('(min-width:1800px)').matches) {
+    ul.columnCount = 6
+  }
+  return (
+    <ul style={ul}>
+      {colors.map(color =>
+        <li style={li} key={color}>
+          <Header icon={`./svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
+        </li>
+      )}
+    </ul>
+  )
+}

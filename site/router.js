@@ -22,7 +22,6 @@ const asyncComponent = path =>
   })
 
 const WIP = [
-  'Header',
   'Footer',
   'SideBar',
   'Form',

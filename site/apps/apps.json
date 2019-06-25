@@ -47,11 +47,11 @@
         "cn":"图标",
         "tabs":[
           {
-            "label":"Usage",
+            "label":"使用",
             "doc":"Icon-usage"
           },
           {
-            "label":"All Icons",
+            "label":"所有图标",
             "doc":"Icon-all-icons"
           }
         ]
@@ -95,7 +95,17 @@
       },
       {
         "name":"Header",
-        "cn":"顶栏"
+        "cn":"顶栏",
+        "tabs":[
+          {
+            "label":"使用",
+            "doc":"Header-usage"
+          },
+          {
+            "label":"画廊",
+            "doc":"Header-gallery"
+          }
+        ]
       },
       {
         "name":"Footer",

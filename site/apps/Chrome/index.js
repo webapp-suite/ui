@@ -1,5 +1,5 @@
 import { Link } from '@reach/router'
-import HeaderBar from 'earth-ui/lib/HeaderBar'
+import Header from 'earth-ui/lib/Header'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
 import { Tab, TabList, Tabs } from 'earth-ui/lib/Tabs'
@@ -108,9 +108,9 @@ class Components extends React.Component {
     const tabs = getTabsByComponentName(components, name)
     return (
       <div>
-        <HeaderBar
+        <Header
           className="components__title"
-          icon="./svg/appLogo.svg"
+          icon="./svg/app_logo_bg_blue.svg"
           title={title}
         />
         {!!tabs && (
