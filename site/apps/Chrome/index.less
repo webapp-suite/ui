@@ -97,11 +97,13 @@
     }
   }
   &__content-wrapper {
-    height: ~'calc(100vh - @{ui-unit-triple})';
     overflow-y: scroll;
   }
   &__content {
     padding: 70px @ui-unit-triple 140px;
+    &-top {
+      flex-shrink: 0;
+    }
   }
 }
 
