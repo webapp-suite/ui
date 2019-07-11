@@ -107,7 +107,7 @@ class Components extends React.Component {
     const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
     const tabs = getTabsByComponentName(components, name)
     return (
-      <div>
+      <div className="components__content-top">
         <Header
           className="components__title"
           icon="./svg/app_logo_bg_blue.svg"
