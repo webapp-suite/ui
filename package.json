@@ -36,8 +36,8 @@
     "fix": "eslint src --fix && eslint site --fix",
     "lint": "eslint src && eslint site",
     "****** TEST *****": "",
-    "coverage": "coveralls",
     "test": "jest --config=config/jest.config.json",
+    "report-coverage": "codecov",
     "****** OTHERS *****": "",
     "commit": "git-cz"
   },
@@ -90,6 +90,7 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "chalk": "^2.4.2",
+    "codecov": "^3.5.0",
     "commitizen": "^2.9.6",
     "compression": "^1.7.2",
     "css-loader": "^0.28.7",
