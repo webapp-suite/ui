@@ -9,5 +9,7 @@ script:
   - npm run lib
   - npm run dist
   - npm run site:dist
+after_success:
+  - npm run report-coverage
 notifications:
-    slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
+  slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
