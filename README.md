@@ -47,12 +47,6 @@ For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/
 
 ## ➤ How to run it
 
-Use Gitpod, a free online dev environment for GitHub.
-
-[![Open in Gitpod][gitpod-image]][gitpod-image]
-
-Or clone locally:
-
 ```bash
 git clone git@github.com:cosmos-x/earth-ui.git
 cd earth-ui
@@ -73,6 +67,8 @@ Open: http://localhost:3003/apps/components/MyComponent
 
 We welcome all contributions. Please read our [CONTRIBUTING.md][contributing-url] first. You can submit any ideas as [Pull Requests][open-prs-url] or as [GitHub issues][open-issues-url]. If you'd like to improve code, check out the [Development Instructions][dev-instructions-url] and have a good time! :)
 
+---
+
 ## ➤ Changelog
 
 [CHANGELOG][changelog-url]
@@ -91,7 +87,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [last-commit-image]: https://badgen.net/github/last-commit/cosmos-x/earth-ui
 [contributors-image]: https://badgen.net/github/contributors/cosmos-x/earth-ui
 [license-image]: https://badgen.net/npm/license/earth-ui
-[gitpod-image]: https://gitpod.io/button/open-in-gitpod.svg
 
 [travis-url]: https://travis-ci.org/cosmos-x/earth-ui
 [codecov-url]: https://codecov.io/gh/cosmos-x/earth-ui
@@ -103,7 +98,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [last-commit-url]: https://github.com/cosmos-x/earth-ui/commits/master
 [contributors-url]: https://github.com/cosmos-x/earth-ui/graphs/contributors
 [license-url]: https://github.com/cosmos-x/earth-ui/blob/master/LICENSE
-[gitpod-url]: https://gitpod.io/#https://github.com/cosmos-x/earth-ui
 [dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
-[changelog-url]: https://ui.muwenzi.com/changelog
+[changelog-url]: https://github.com/cosmos-x/earth-ui/releases
 [contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
