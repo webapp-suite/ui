@@ -33,7 +33,7 @@ const ColorfulHeader = () => {
     <ul style={ul}>
       {colors.map(color =>
         <li style={li} key={color}>
-          <Header icon={`./svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
+          <Header icon={`/svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
         </li>
       )}
     </ul>

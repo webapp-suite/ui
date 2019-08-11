@@ -20,7 +20,7 @@ const config = {
     path: outputPath,
     filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
     chunkFilename: '[id]' + (isProduction ? '.[hash]' : '') + '.js',
-    publicPath: '/earth-ui/dist/'
+    publicPath: '/dist/'
   },
   module: {
     rules: [

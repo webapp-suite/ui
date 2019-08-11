@@ -42,8 +42,8 @@ After cloning earth-ui, run `npm install` to fetch its dependencies. Then, you c
 1. `npm test` runs the complete test suite.
 1. `npm run lib` creates lib and transform into es5.
 1. `npm run dist` creates packed css and js of earth-ui.
-1. `npm run site:dev` runs earth-ui website locally.
-1. `npm run site:prod` runs earth-ui website in production env.
+1. `npm run dev` runs earth-ui website locally.
+1. `npm run prod` runs earth-ui website in production env.
 1. `npm run create` creates a new basic component.
 1. `npm run lint` checks the code style.
 1. `npm run fix` fixes the code style.

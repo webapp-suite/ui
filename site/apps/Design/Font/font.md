@@ -31,7 +31,7 @@
 基于电脑显示器阅读距离（50 cm）以及最佳阅读角度（0.3），我们将默认的 `@ui-fontsize` 由浏览器默认的的 `12px` 上升至 `14px`，以保证在多数常用显示器上的用户阅读效率最佳。
 
 <div>
-  <img src="/earth-ui/img/main_font-size.png" />
+  <img src="/img/main_font-size.png" />
 </div>
 
 ## 字阶与行高
@@ -39,7 +39,7 @@
 字阶和行高决定着一套字体系统的动态与秩序之美。字阶是指一系列有规律的不同尺寸的字体。行高可以理解为一个包裹在字体外面的无形的盒子。
 
 <div>
-  <img src="/earth-ui/img/font-size_font-weight.png" />
+  <img src="/img/font-size_font-weight.png" />
 </div>
 
 Earth UI 定义了 8 个不同尺寸的字体变量以及与之相对应的行高。

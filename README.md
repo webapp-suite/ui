@@ -97,7 +97,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 git clone git@github.com:cosmos-x/earth-ui.git
 cd earth-ui
 npm i
-npm run site:dev
+npm run dev
 ```
 
 Open your browser and visit http://localhost:3003 , see more at [Development Instructions][dev-instructions-url] .
