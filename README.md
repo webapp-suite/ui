@@ -1,30 +1,42 @@
 <h1 align="center">
     <br>
-    <br>
-    <br>
     <img width="300" src="https://user-images.githubusercontent.com/12554487/50267761-49539a80-0463-11e9-805d-af44524abf47.png" alt="earth-ui logo">
-    <br>
-    <br>
-    <br>
     <br>
 </h1>
 
+<p align="center">
+  Simple Style React UI Components for Web 
+    <a href="https://ui.muwenzi.com">
+      https://ui.muwenzi.com
+    </a>
+</p>
+
+<div align="center">
+
+[![Build Status][travis-image]][travis-url]
+[![Codecov][codecov-image]][codecov-url]
+[![Npm Version][npm-version-image]][npm-version-url]
+[![Downloads Per Month][npm-downloads-image]][npm-downloads-url]
+[![Dependencies][dependencies-image]][dependencies-url]
+[![Open Issues][open-issues-image]][open-issues-url]
+[![Open PRs][open-prs-image]][open-prs-url]
+[![Contributors][contributors-image]][contributors-url]
+[![License][license-image]][license-url]
+[![Last Commit][last-commit-image]][last-commit-url]
+
+</div>
+
 > :warning: Please do not use earth-ui in production env before 1.0.0 released.
 
-[![build status][travis-image]][travis-url]
-[![npm version][npm-version-image]][npm-version-url]
-[![npm downloads][npm-downloads-image]][npm-downloads-url]
-[![license][license-image]][license-url]
+## ➤ How to use it
 
-English | [简体中文][zh-CN-url]
+- Install the package
 
-## Install
-
-```bash
+```sh
 npm i earth-ui
 ```
 
-## Basic usage
+- Import the component
 
 ```jsx
 import Button from 'earth-ui/lib/Button';
@@ -33,65 +45,9 @@ import 'earth-ui/dist/earth-ui.min.css';
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-## Use in create-react-app
+For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/start/usage) in our documentation.
 
-[create-react-app][create-react-app-url] is one of the best React application development tools. We are going to use `earth-ui` within it.
-
-First of all, you need install `create-react-app`, [see more][create-react-app-url] .
-
-Now we install `earth-ui` from yarn or npm.
-
-```bash
-yarn add earth-ui
-```
-
-Modify `src/App.js`, import Button component from `earth-ui`.
-
-```jsx
-import React, { Component } from 'react';
-import './App.css';
-import Button from 'earth-ui/lib/Button';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-          <Button icon="add">Add</Button>
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-Add `earth-ui/dist/earth-ui.min.css` at the top of `src/App.css` .
-
-```css
-@import '~earth-ui/dist/earth-ui.min.css';
-
-.App {
-  text-align: center;
-}
-
-...
-```
-
-Ok, you should now see a button displayed on the page. Next you can choose any components of `earth-ui` to develop your application. Visit other workflows of `create-react-app` at its [User Guide][create-react-app-user-guide-url] .
-
-## Global config
-
-Just override or extend `defaultProps`, using [Tooltip][tooltip-url] as an example:
-
-```jsx
-Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
-  triggerMode: 'click'
-})
-```
-
-> Those APIs will be stateful when global config is set and that's to say the final result is affected by the configuration. So try to configure it at a time and explain it to other developers.
-
-## Development
+## ➤ How to run it
 
 ```bash
 git clone git@github.com:cosmos-x/earth-ui.git
@@ -102,39 +58,46 @@ npm run dev
 
 Open your browser and visit http://localhost:3003 , see more at [Development Instructions][dev-instructions-url] .
 
-#### Create a new component
+## ➤ How to create new component
 
 ```bash
 npm run create MyComponent
 ```
 Open: http://localhost:3003/apps/components/MyComponent
 
-## Changelog
+## ➤ How to contribute
+
+We welcome all contributions. Please read our [CONTRIBUTING.md][contributing-url] first. You can submit any ideas as [Pull Requests][open-prs-url] or as [GitHub issues][open-issues-url]. If you'd like to improve code, check out the [Development Instructions][dev-instructions-url] and have a good time! :)
+
+## ➤ Changelog
 
 [CHANGELOG][changelog-url]
 
-## Contributing
-
-We welcome all contributions. Please read our [CONTRIBUTING.md][contributing-url] first. You can submit any ideas as [Pull Requests][pr-url] or as [GitHub issues][issue-url]. If you'd like to improve code, check out the [Development Instructions][dev-instructions-url] and have a good time! :)
-
-## License
+## ➤ License
 
 MIT © [Kimi Gao](https://github.com/muwenzi)
 
+[travis-image]: https://badgen.net/travis/cosmos-x/earth-ui
+[codecov-image]: https://codecov.io/gh/cosmos-x/earth-ui/branch/master/graph/badge.svg
+[npm-version-image]: https://badgen.net/npm/v/earth-ui?icon=npm
+[npm-downloads-image]: https://badgen.net/npm/dm/earth-ui
+[dependencies-image]: https://badgen.net/david/dep/cosmos-x/earth-ui
+[open-issues-image]: https://badgen.net/github/open-issues/cosmos-x/earth-ui
+[open-prs-image]: https://badgen.net/github/open-prs/cosmos-x/earth-ui
+[last-commit-image]: https://badgen.net/github/last-commit/cosmos-x/earth-ui
+[contributors-image]: https://badgen.net/github/contributors/cosmos-x/earth-ui
+[license-image]: https://badgen.net/npm/license/earth-ui
+
 [travis-url]: https://travis-ci.org/cosmos-x/earth-ui
-[travis-image]: https://img.shields.io/travis/cosmos-x/earth-ui/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/cosmos-x/earth-ui
 [npm-version-url]: https://www.npmjs.com/package/earth-ui
-[npm-version-image]: https://img.shields.io/npm/v/earth-ui.svg?style=flat-square
 [npm-downloads-url]: https://www.npmjs.com/package/earth-ui
-[npm-downloads-image]: https://img.shields.io/npm/dt/earth-ui.svg?style=flat-square
+[dependencies-url]: https://david-dm.org/cosmos-x/earth-ui
+[open-issues-url]: https://github.com/cosmos-x/earth-ui/issues
+[open-prs-url]: https://github.com/cosmos-x/earth-ui/pulls
+[last-commit-url]: https://github.com/cosmos-x/earth-ui/commits/master
+[contributors-url]: https://github.com/cosmos-x/earth-ui/graphs/contributors
 [license-url]: https://github.com/cosmos-x/earth-ui/blob/master/LICENSE
-[license-image]: https://img.shields.io/github/license/cosmos-x/earth-ui.svg?style=flat-square
-[zh-CN-url]: https://github.com/cosmos-x/earth-ui/blob/master/README.zh-CN.md
-[tooltip-url]: https://ui.muwenzi.com/components/Tooltip
 [dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
 [changelog-url]: https://ui.muwenzi.com/changelog
 [contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
-[pr-url]: https://github.com/cosmos-x/earth-ui/pulls
-[issue-url]: https://github.com/cosmos-x/earth-ui/issues
-[create-react-app-url]: https://github.com/facebookincubator/create-react-app
-[create-react-app-user-guide-url]: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md
