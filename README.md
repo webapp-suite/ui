@@ -2,7 +2,6 @@
     <br>
     <img width="300" src="https://user-images.githubusercontent.com/12554487/50267761-49539a80-0463-11e9-805d-af44524abf47.png" alt="earth-ui logo">
     <br>
-    <br>
 </h1>
 
 <p align="center">
@@ -18,8 +17,7 @@
 [![Codecov][codecov-image]][codecov-url]
 [![Npm Version][npm-version-image]][npm-version-url]
 [![Downloads Per Month][npm-downloads-image]][npm-downloads-url]
-[![Dependencies][dependencies-image]][dependencies-url]
-
+[![Dependencies][dependencies-image]][dependencies-url]  
 [![Open Issues][open-issues-image]][open-issues-url]
 [![Open PRs][open-prs-image]][open-prs-url]
 [![Contributors][contributors-image]][contributors-url]
@@ -28,13 +26,11 @@
 
 </div>
 
-> Please do not use earth-ui in production env before 1.0.0 released.
-
 ## ➤ How to use it
 
 - Install the package
 
-```sh
+```bash
 npm i earth-ui
 ```
 
@@ -50,6 +46,12 @@ ReactDOM.render(<Button>Name</Button>, mountNode);
 For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/start/usage) in our documentation.
 
 ## ➤ How to run it
+
+Use Gitpod, a free online dev environment for GitHub.
+
+[![Open in Gitpod][gitpod-image]][gitpod-image]
+
+Or clone locally:
 
 ```bash
 git clone git@github.com:cosmos-x/earth-ui.git
@@ -89,6 +91,7 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [last-commit-image]: https://badgen.net/github/last-commit/cosmos-x/earth-ui
 [contributors-image]: https://badgen.net/github/contributors/cosmos-x/earth-ui
 [license-image]: https://badgen.net/npm/license/earth-ui
+[gitpod-image]: https://gitpod.io/button/open-in-gitpod.svg
 
 [travis-url]: https://travis-ci.org/cosmos-x/earth-ui
 [codecov-url]: https://codecov.io/gh/cosmos-x/earth-ui
@@ -100,6 +103,7 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [last-commit-url]: https://github.com/cosmos-x/earth-ui/commits/master
 [contributors-url]: https://github.com/cosmos-x/earth-ui/graphs/contributors
 [license-url]: https://github.com/cosmos-x/earth-ui/blob/master/LICENSE
+[gitpod-url]: https://gitpod.io/#https://github.com/cosmos-x/earth-ui
 [dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
 [changelog-url]: https://ui.muwenzi.com/changelog
 [contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
