@@ -23,7 +23,7 @@
   "scripts": {
     "****** DEV *****": "",
     "create": "node bin/create.js",
-    "start": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
+    "dev": "webpack --progress --config config/webpack.config.site.js && node-dev site/server.js",
     "****** DIST *****": "",
     "build": "npm run lib && npm run dist",
     "lib": "rimraf lib && NODE_ENV=production babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js",
@@ -32,6 +32,8 @@
     "****** RELEASE *****": "",
     "release": "npm run lib && npm run dist && standard-version",
     "gh-pages": "npm run site:dist && node bin/deploy.js",
+    "preprod": "npm ci && npm run site:dist",
+    "prod": "SITE_ENV=production pm2 start site/server.js --name earth-ui",
     "****** LINT *****": "",
     "fix": "eslint src --fix && eslint site --fix",
     "lint": "eslint src && eslint site",
@@ -48,8 +50,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "postcommit": "git update-index --again"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
@@ -102,10 +103,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.10",
     "friendly-errors-webpack-plugin": "^1.6.1",
-    "gh-pages": "^2.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-replace": "^1.0.0",
-    "hash-source": "^1.0.4",
     "html-loader": "^0.5.5",
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",

@@ -1,4 +1,4 @@
-import { Link } from '@reach/router'
+import { Link, navigate } from '@reach/router'
 import Header from 'earth-ui/lib/Header'
 import Icon from 'earth-ui/lib/Icon'
 import { Nav, NavItem, NavItemGroup, SubNav } from 'earth-ui/lib/Nav'
@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
 import Scrollbar from 'widgets/Scrollbar'
-import { navigate } from '../../HashRouter'
 import { nav as components } from '../config.js'
 import './index.less'
 
@@ -33,8 +32,8 @@ function renderNavBottom () {
       <div className="components__navbar-bottom-image">
         <img
           className="components__navbar-bottom-image-icon"
-          src="./svg/avatarPlaceholder.svg"
-          alt="MOTUS"
+          src="/svg/avatarPlaceholder.svg"
+          alt="Avatar"
         />
       </div>
       <div className="components__navbar-bottom-user">
@@ -110,7 +109,7 @@ class Components extends React.Component {
       <div className="components__content-top">
         <Header
           className="components__title"
-          icon="./svg/app_logo_bg_blue.svg"
+          icon="/svg/app_logo_bg_blue.svg"
           title={title}
         />
         {!!tabs && (
@@ -146,7 +145,7 @@ class Components extends React.Component {
           id={id}
           key={item.name}
           title={item.cn}
-          icon={`./svg/icons.svg#${item.icon}`}
+          icon={`/svg/icons.svg#${item.icon}`}
         />
       )
     }
@@ -203,7 +202,7 @@ class Components extends React.Component {
                       key={item.name}
                       title={item.cn}
                       defaultOpen={item.defaultOpen}
-                      icon={`./svg/icons.svg#${item.icon}`}
+                      icon={`/svg/icons.svg#${item.icon}`}
                     >
                       {item.components.map(itemGroup => {
                         if (itemGroup.group) {

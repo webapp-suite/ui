@@ -15,13 +15,13 @@ class Footer extends PureComponent {
           <div className="left">
             <h2>Alipay reward</h2>
             <div className="pay">
-              <img src="./img/qrcode_alipay.jpg" alt="" />
+              <img src="/img/qrcode_alipay.jpg" alt="" />
             </div>
           </div>
           <div className="left">
             <h2>Wechat reward</h2>
             <div className="pay">
-              <img src="./img/qrcode_wechat.jpg" alt="" />
+              <img src="/img/qrcode_wechat.jpg" alt="" />
             </div>
           </div>
           <div className="right">

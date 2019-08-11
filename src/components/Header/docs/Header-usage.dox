@@ -6,7 +6,7 @@ import Header from 'earth-ui/lib/Header'
 
 const HeaderBasic = () => {
   return (
-    <Header icon="./svg/app_logo_bg_blue.svg" title="Header" />
+    <Header icon="/svg/app_logo_bg_blue.svg" title="Header" />
   )
 }
 
@@ -18,7 +18,7 @@ import Header from 'earth-ui/lib/Header'
 
 const ColorfulHeader = () => {
   return (
-    <Header icon="./svg/app_logo_bg_white.svg" title="Header" color="blue" />
+    <Header icon="/svg/app_logo_bg_white.svg" title="Header" color="blue" />
   )
 }
 
