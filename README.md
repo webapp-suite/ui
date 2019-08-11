@@ -2,6 +2,7 @@
     <br>
     <img width="300" src="https://user-images.githubusercontent.com/12554487/50267761-49539a80-0463-11e9-805d-af44524abf47.png" alt="earth-ui logo">
     <br>
+    <br>
 </h1>
 
 <p align="center">
@@ -18,15 +19,15 @@
 [![Npm Version][npm-version-image]][npm-version-url]
 [![Downloads Per Month][npm-downloads-image]][npm-downloads-url]
 [![Dependencies][dependencies-image]][dependencies-url]
+[![License][license-image]][license-url]
 [![Open Issues][open-issues-image]][open-issues-url]
 [![Open PRs][open-prs-image]][open-prs-url]
 [![Contributors][contributors-image]][contributors-url]
-[![License][license-image]][license-url]
 [![Last Commit][last-commit-image]][last-commit-url]
 
 </div>
 
-> :warning: Please do not use earth-ui in production env before 1.0.0 released.
+> Please do not use earth-ui in production env before 1.0.0 released.
 
 ## ➤ How to use it
 
