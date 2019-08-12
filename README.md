@@ -22,6 +22,7 @@
 [![Open PRs][open-prs-image]][open-prs-url]
 [![Contributors][contributors-image]][contributors-url]
 [![License][license-image]][license-url]
+[![Slack][slack-image]][slack-url]
 [![Last Commit][last-commit-image]][last-commit-url]
 
 </div>
@@ -83,7 +84,7 @@ We welcome all contributions. Please read our [CONTRIBUTING.md][contributing-url
 
 MIT © [Kimi Gao](https://github.com/muwenzi)
 
-[travis-image]: https://badgen.net/travis/cosmos-x/earth-ui
+[travis-image]: https://badgen.net/travis/cosmos-x/earth-ui?icon=travis&label=build
 [codecov-image]: https://codecov.io/gh/cosmos-x/earth-ui/branch/master/graph/badge.svg
 [npm-version-image]: https://badgen.net/npm/v/earth-ui?icon=npm
 [npm-downloads-image]: https://badgen.net/npm/dm/earth-ui
@@ -93,6 +94,7 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [last-commit-image]: https://badgen.net/github/last-commit/cosmos-x/earth-ui
 [contributors-image]: https://badgen.net/github/contributors/cosmos-x/earth-ui
 [license-image]: https://badgen.net/npm/license/earth-ui
+[slack-image]: https://badgen.net/badge/icon/slack?icon=slack&label
 
 [travis-url]: https://travis-ci.org/cosmos-x/earth-ui
 [codecov-url]: https://codecov.io/gh/cosmos-x/earth-ui
@@ -105,5 +107,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [contributors-url]: https://github.com/cosmos-x/earth-ui/graphs/contributors
 [license-url]: https://github.com/cosmos-x/earth-ui/blob/master/LICENSE
 [dev-instructions-url]: https://github.com/cosmos-x/earth-ui/wiki/Local-development
-[changelog-url]: https://github.com/cosmos-x/earth-ui/releases
+[changelog-url]: https://github.com/cosmos-x/earth-ui/blob/master/CHANGELOG.md
 [contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
+[slack-url]: https://g-explorer.slack.com
