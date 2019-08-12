@@ -2,7 +2,7 @@ The following is a set of guidelines for contributing to earth-ui. Please spend 
 
 ## Branch Organization
 
-According to our [release schedule](https://ui.muwenzi.com/changelog), we'll cut a `feature` branch (e.g. `feature-0.2` for 0.2 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
+According to our [release schedule](https://github.com/cosmos-x/earth-ui/releases), we'll cut a `feature` branch (e.g. `feature-0.2` for 0.2 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
 ## Bugs
 
