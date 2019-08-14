@@ -14,5 +14,6 @@
   "setupFiles": ["./setupTests.js"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "coverageDirectory": "../coverage/",
-  "collectCoverage": true
+  "collectCoverage": true,
+  "collectCoverageFrom": ["../src/**/*.{js}"]
 }
