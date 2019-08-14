@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-// import { findDOMNode } from 'react-dom'
-// import TestUtils from 'react-dom/test-utils'
+import { findDOMNode } from 'react-dom'
+import TestUtils from 'react-dom/test-utils'
 import { Nav, SubNav, NavItemGroup, NavItem } from '../index'
 
 // Object.defineProperty(window.location, 'href', {
@@ -10,7 +10,7 @@ import { Nav, SubNav, NavItemGroup, NavItem } from '../index'
 // })
 
 describe('Nav', () => {
-  const wrapper = shallow(
+  const wrapper = (
     <Nav selectedId="1">
       <SubNav id="2" defaultOpen>
         <NavItemGroup>
@@ -20,14 +20,16 @@ describe('Nav', () => {
       </SubNav>
     </Nav>
   )
-  // it('should defaultOpen works', () => {
-  //   jsdom.reconfigure({
-  //     href: '/'
-  //   })
-  //   const instance = TestUtils.renderIntoDocument(wrapper)
-  //   expect(findDOMNode(instance).querySelector('li').className).toContain('open')
-  // })
+  it('should defaultOpen works', () => {
+    jsdom.reconfigure({
+      href: '/'
+    })
+    const instance = TestUtils.renderIntoDocument(wrapper)
+    expect(findDOMNode(instance).querySelector('li').className).toContain(
+      'open'
+    )
+  })
   it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(shallow(wrapper)).toMatchSnapshot()
   })
 })

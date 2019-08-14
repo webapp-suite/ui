@@ -1,5 +1,5 @@
 import React from 'react'
-import {findDOMNode} from 'react-dom'
+import { findDOMNode } from 'react-dom'
 import TestUtils from 'react-dom/test-utils'
 import Switch from '../index'
 
@@ -33,9 +33,7 @@ describe('Switch', () => {
   })
 
   it('should labelOff works', () => {
-    const instance = TestUtils.renderIntoDocument(
-      <Switch labelOff="0" />
-    )
+    const instance = TestUtils.renderIntoDocument(<Switch labelOff="0" />)
     expect(findDOMNode(instance).textContent).toBe('0')
   })
 })

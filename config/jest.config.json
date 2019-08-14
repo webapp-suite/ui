@@ -15,5 +15,5 @@
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "coverageDirectory": "../coverage/",
   "collectCoverage": true,
-  "collectCoverageFrom": ["../src/**/*.{js}"]
+  "collectCoverageFrom": ["../src/components/**/*.{js}"]
 }
