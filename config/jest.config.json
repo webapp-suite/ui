@@ -13,7 +13,7 @@
   },
   "setupFiles": ["./setupTests.js"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
-  "coverageDirectory": "../coverage/",
   "collectCoverage": true,
-  "collectCoverageFrom": ["../src/components/**/*.{js}"]
+  "collectCoverageFrom": ["../src/components/**/*.{js,jsx,ts,tsx}"],
+  "coverageDirectory": "../coverage/"
 }

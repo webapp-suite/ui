@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from 'enzyme'
 import { findDOMNode } from 'react-dom'
 import TestUtils from 'react-dom/test-utils'
 import { Nav, SubNav, NavItemGroup, NavItem } from '../index'
@@ -30,6 +30,6 @@ describe('Nav', () => {
     )
   })
   it('should render correctly', () => {
-    expect(shallow(wrapper)).toMatchSnapshot()
+    expect(render(wrapper)).toMatchSnapshot()
   })
 })

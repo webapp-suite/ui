@@ -2,24 +2,52 @@
 
 exports[`Nav should render correctly 1`] = `
 <div
-  className="true-nav"
+  class="true-nav"
 >
   <ul>
-    <SubNav
-      defaultOpen={true}
+    <li
+      class="true-nav__sub-nav true-nav__sub-nav_open"
       id="2"
-      indent={24}
-      key=".0"
     >
-      <NavItemGroup>
-        <NavItem
-          id="3"
+      <div
+        class="true-nav_sub-nav-entity"
+        style="padding-left:24px"
+      >
+        <i
+          class="true-icon true-icon__triangleright true-nav__sub-nav-toggle"
         />
-        <NavItem
-          id="4"
-        />
-      </NavItemGroup>
-    </SubNav>
+      </div>
+      <ul>
+        <li
+          class="true-nav__item-group"
+        >
+          <div
+            class="true-nav__item-group-title"
+            style="padding-left:32px"
+          />
+          <ul>
+            <li
+              class="true-nav__item"
+              id="3"
+            >
+              <div
+                class="true-nav_item-entity"
+                style="padding-left:48px"
+              />
+            </li>
+            <li
+              class="true-nav__item"
+              id="4"
+            >
+              <div
+                class="true-nav_item-entity"
+                style="padding-left:48px"
+              />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </div>
 `;
