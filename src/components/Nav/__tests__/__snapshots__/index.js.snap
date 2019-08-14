@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should render correctly 1`] = `
+<div
+  className="true-nav"
+>
+  <ul>
+    <SubNav
+      defaultOpen={true}
+      id="2"
+      indent={24}
+      key=".0"
+    >
+      <NavItemGroup>
+        <NavItem
+          id="3"
+        />
+        <NavItem
+          id="4"
+        />
+      </NavItemGroup>
+    </SubNav>
+  </ul>
+</div>
+`;

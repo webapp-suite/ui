@@ -11,6 +11,8 @@
   "globals": {
     "prefixCls": true
   },
+  "setupFiles": ["./setupTests.js"],
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
   "coverageDirectory": "../coverage/",
   "collectCoverage": true
 }
