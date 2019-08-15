@@ -1,19 +1,18 @@
 {
-  "roots": ["<rootDir>/../"],
   "testEnvironment": "jest-environment-jsdom-global",
-  "testMatch": ["**/src/**/__tests__/**/*.(js|jsx|ts|tsx)?(x)", "**/?(*.)(spec|test).(js|jsx|ts|tsx)?(x)"],
+  "testMatch": ["**/src/**/__tests__/**/*.[jt]s?(x)", "**/src/**/?(*.)+(spec|test).[jt]s?(x)"],
   "testURL": "http://localhost",
   "transform": {
-    "^.+\\.js$": "babel-jest",
+    "^.+\\.(jsx?|tsx?)$": "babel-jest",
     "^.+\\.(css|scss|less)$": "jest-css-modules"
   },
   "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"],
   "globals": {
     "prefixCls": true
   },
-  "setupFiles": ["./setupTests.js"],
+  "setupFiles": ["./config/setupTests.js"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "collectCoverage": true,
-  "collectCoverageFrom": ["../src/components/**/*.{js,jsx,ts,tsx}"],
-  "coverageDirectory": "../coverage/"
+  "collectCoverageFrom": ["src/components/**/*.{js,jsx,ts,tsx}"],
+  "coverageDirectory": "./coverage/"
 }
