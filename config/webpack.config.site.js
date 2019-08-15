@@ -86,6 +86,10 @@ const config = {
       {
         test: /\.dox$/,
         loader: 'babel-loader!dox-loader'
+      },
+      {
+        test: /\.snap$/,
+        loader: 'ignore-loader'
       }
     ]
   },

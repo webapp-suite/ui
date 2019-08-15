@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import './index.less'
 
-// remove this after created
-const prefixCls = 'earthui'
-
 class Switch extends React.Component {
   constructor (props) {
     super()
@@ -14,18 +11,28 @@ class Switch extends React.Component {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-    'on' in nextProps && this.setState({on: nextProps.on})
+  static getDerivedStateFromProps (nextProps, prevState) {
+    if ('on' in nextProps) {
+      return { on: nextProps.on }
+    }
+    return prevState
   }
 
   handleChange = e => {
     e.stopPropagation()
-    this.setState({on: e.target.checked})
+    this.setState({ on: e.target.checked })
     this.props.onChange && this.props.onChange(e.target.checked)
   }
 
   render () {
-    const { className, defaultOn, onChange, labelOn, labelOff, ...other } = this.props
+    const {
+      className,
+      defaultOn,
+      onChange,
+      labelOn,
+      labelOff,
+      ...other
+    } = this.props
     const { on } = this.state
 
     delete other.on
@@ -33,7 +40,9 @@ class Switch extends React.Component {
     return (
       <label className={cx(`${prefixCls}-switch`, className)} {...other}>
         <input type="checkbox" checked={on} onChange={this.handleChange} />
-        <span className={`${prefixCls}-switch__text`}>{on ? labelOn : labelOff}</span>
+        <span className={`${prefixCls}-switch__text`}>
+          {on ? labelOn : labelOff}
+        </span>
       </label>
     )
   }

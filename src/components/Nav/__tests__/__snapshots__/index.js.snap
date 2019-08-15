@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should render correctly 1`] = `
+<div
+  class="true-nav"
+>
+  <ul>
+    <li
+      class="true-nav__sub-nav true-nav__sub-nav_open"
+      id="2"
+    >
+      <div
+        class="true-nav_sub-nav-entity"
+        style="padding-left:24px"
+      >
+        <i
+          class="true-icon true-icon__triangleright true-nav__sub-nav-toggle"
+        />
+      </div>
+      <ul>
+        <li
+          class="true-nav__item-group"
+        >
+          <div
+            class="true-nav__item-group-title"
+            style="padding-left:32px"
+          />
+          <ul>
+            <li
+              class="true-nav__item"
+              id="3"
+            >
+              <div
+                class="true-nav_item-entity"
+                style="padding-left:48px"
+              />
+            </li>
+            <li
+              class="true-nav__item"
+              id="4"
+            >
+              <div
+                class="true-nav_item-entity"
+                style="padding-left:48px"
+              />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;

@@ -17,28 +17,44 @@ const config = {
     libraryTarget: 'umd'
   },
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      loaders: 'babel-loader',
-      include: sourcePath
-    }, {
-      test: /\.less$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader?minimize=true', 'postcss-loader?config.path=config/postcss.config.js', 'less-loader?javascriptEnabled=true']
-      }),
-      include: sourcePath
-    }, {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader?config.path=config/postcss.config.js']
-      }),
-      include: sourcePath
-    }, {
-      test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-      use: ['url-loader']
-    }]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loaders: 'babel-loader',
+        include: sourcePath
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?minimize=true',
+            'postcss-loader?config.path=config/postcss.config.js',
+            'less-loader?javascriptEnabled=true'
+          ]
+        }),
+        include: sourcePath
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'postcss-loader?config.path=config/postcss.config.js'
+          ]
+        }),
+        include: sourcePath
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        use: ['url-loader']
+      },
+      {
+        test: /\.snap$/,
+        loader: 'ignore-loader'
+      }
+    ]
   },
   resolve: {
     alias: {
@@ -47,7 +63,7 @@ const config = {
     }
   },
   externals: {
-    'react': {
+    react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
@@ -68,7 +84,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'prefixCls': JSON.stringify('earthui')
+      prefixCls: JSON.stringify('earthui')
     }),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
