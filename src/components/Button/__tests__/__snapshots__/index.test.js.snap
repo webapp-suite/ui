@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render Chinese characters correctly 1`] = `
+<button
+  class="true-button true-button_nofocus"
+  type="button"
+>
+  <span>
+    添加
+  </span>
+</button>
+`;
+
+exports[`Button should render correctly 1`] = `
+<button
+  class="true-button true-button_nofocus"
+  type="button"
+>
+  <span>
+    OK
+  </span>
+</button>
+`;
+
+exports[`Button should render icon correctly 1`] = `
+<button
+  class="true-button true-button_nofocus"
+  type="button"
+>
+  <i
+    class="true-icon true-icon__add"
+  />
+  <span>
+    添加
+  </span>
+</button>
+`;
+
+exports[`Button should render icon correctly 2`] = `
+<button
+  class="true-button true-button_nofocus"
+  type="button"
+>
+  <span>
+    <i
+      class="true-icon true-icon__add"
+    />
+    添加
+  </span>
+</button>
+`;
