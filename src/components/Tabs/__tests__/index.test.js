@@ -36,7 +36,10 @@ describe('Tabs', () => {
         <TabPanel>b</TabPanel>
       </Tabs>
     )
-    expect(findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)[1].className).toContain('active')
+    expect(
+      findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)[1]
+        .className
+    ).toContain('active')
   })
 
   it('should activeKey works', () => {
@@ -50,7 +53,10 @@ describe('Tabs', () => {
         <TabPanel activeKey="b">b</TabPanel>
       </Tabs>
     )
-    expect(findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)[1].className).toContain('active')
+    expect(
+      findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)[1]
+        .className
+    ).toContain('active')
   })
 
   it('should onChange works', () => {
@@ -65,7 +71,9 @@ describe('Tabs', () => {
         <TabPanel>b</TabPanel>
       </Tabs>
     )
-    TestUtils.Simulate.click(findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab > a`))
+    TestUtils.Simulate.click(
+      findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab > a`)
+    )
     expect(handleChange).toBeCalledWith(0, undefined)
   })
 
@@ -80,7 +88,9 @@ describe('Tabs', () => {
         <TabPanel>b</TabPanel>
       </Tabs>
     )
-    expect(findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab-close`)).not.toBeNull()
+    expect(
+      findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab-close`)
+    ).not.toBeNull()
   })
 
   it('should onClose works', () => {
@@ -95,7 +105,9 @@ describe('Tabs', () => {
         <TabPanel>b</TabPanel>
       </Tabs>
     )
-    TestUtils.Simulate.click(findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab-close`))
+    TestUtils.Simulate.click(
+      findDOMNode(instance).querySelector(`.${prefixCls}-tabs__tab-close`)
+    )
     expect(onClose).toBeCalledWith(0, undefined)
   })
 
@@ -108,7 +120,7 @@ describe('Tabs', () => {
         }
       }
       componentDidMount () {
-        this.setState({activeIndex: 1})
+        this.setState({ activeIndex: 1 })
       }
       render () {
         const { activeIndex } = this.state
@@ -125,8 +137,12 @@ describe('Tabs', () => {
       }
     }
     const instance = TestUtils.renderIntoDocument(<App />)
-    const tabNodes = findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)
-    const panelNodes = findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__panel`)
+    const tabNodes = findDOMNode(instance).querySelectorAll(
+      `.${prefixCls}-tabs__tab`
+    )
+    const panelNodes = findDOMNode(instance).querySelectorAll(
+      `.${prefixCls}-tabs__panel`
+    )
     expect(tabNodes[0].className).not.toContain('active')
     expect(tabNodes[1].className).toContain('active')
     expect(panelNodes[0].className).not.toContain('active')
@@ -142,7 +158,7 @@ describe('Tabs', () => {
         }
       }
       componentDidMount () {
-        this.setState({activeKey: 1})
+        this.setState({ activeKey: 1 })
       }
       render () {
         const { activeKey } = this.state
@@ -159,8 +175,12 @@ describe('Tabs', () => {
       }
     }
     const instance = TestUtils.renderIntoDocument(<App />)
-    const tabNodes = findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__tab`)
-    const panelNodes = findDOMNode(instance).querySelectorAll(`.${prefixCls}-tabs__panel`)
+    const tabNodes = findDOMNode(instance).querySelectorAll(
+      `.${prefixCls}-tabs__tab`
+    )
+    const panelNodes = findDOMNode(instance).querySelectorAll(
+      `.${prefixCls}-tabs__panel`
+    )
     expect(tabNodes[0].className).not.toContain('active')
     expect(tabNodes[1].className).toContain('active')
     expect(panelNodes[0].className).not.toContain('active')
