@@ -150,11 +150,10 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
-    "webpack-dashboard": "^3.1.0",
-    "webpack-dev-middleware": "^2.0.6",
-    "webpack-hot-middleware": "^2.21.0",
-    "webpack-livereload-plugin": "^1.0.0",
-    "webpack-merge": "^4.1.2"
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-livereload-plugin": "^2.2.0",
+    "webpack-merge": "^4.2.2"
   },
   "bugs": {
     "url": "https://github.com/cosmos-x/earth-ui/issues"

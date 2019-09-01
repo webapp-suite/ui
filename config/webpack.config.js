@@ -17,7 +17,6 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'umd'
   },
-  mode: 'development',
   module: {
     rules: [
       {
