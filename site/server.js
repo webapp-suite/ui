@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, './')))
 //   reqDomain.run(next)
 // })
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   const webpack = require('webpack')
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const WebpackConfig = require('../config/webpack.config.site')
