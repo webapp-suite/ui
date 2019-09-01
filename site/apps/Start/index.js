@@ -3,17 +3,18 @@ import BackToTop from 'earth-ui/lib/BackToTop'
 import { Col, Row } from 'earth-ui/lib/Layout'
 import Markdown from 'widgets/Markdown'
 import { backToTop } from '../config'
+import PropTypes from 'prop-types'
 
 const asyncComponent = fileName => import(`./${fileName}.md`)
 
-export default class extends React.Component {
+class Start extends React.Component {
   constructor (props) {
     super()
     this.state = {
       md: ''
     }
     asyncComponent(props.routeProps.tab).then(md => {
-      this.setState({ md })
+      this.setState({ md: md.default })
     })
   }
 
@@ -30,3 +31,8 @@ export default class extends React.Component {
     )
   }
 }
+Start.propTypes = {
+  routeProps: PropTypes.object
+}
+
+export default Start
