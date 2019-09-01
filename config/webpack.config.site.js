@@ -131,7 +131,11 @@ const config = {
     'react-dom': 'ReactDOM',
     'prop-types': 'PropTypes'
   },
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      prefixCls: JSON.stringify('earthui')
+    })
+  ],
   optimization: {}
 }
 
@@ -143,12 +147,6 @@ if (!isProduction) {
     new FriendlyErrorsWebpackPlugin()
   )
 }
-
-config.plugins.push(
-  new webpack.DefinePlugin({
-    prefixCls: JSON.stringify('earthui')
-  })
-)
 
 // Generate index.html in 'site' dir
 config.plugins.push({

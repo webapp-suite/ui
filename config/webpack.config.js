@@ -19,6 +19,7 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'umd'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -107,13 +108,12 @@ const config = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        uglifyOptions: {
-          parallel: true,
-          sourceMap: true
-        }
+        parallel: true,
+        sourceMap: true
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
+          map: true,
           preset: ['default', { discardComments: { removeAll: true } }]
         }
       })
