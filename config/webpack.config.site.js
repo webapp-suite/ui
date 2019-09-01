@@ -1,14 +1,16 @@
+const fs = require('fs')
 const webpack = require('webpack')
 const path = require('path')
 const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
-const fs = require('fs')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 const Prism = require('../site/3rdParty/prism/prism.js')
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../site/dist')
 
-const isProduction = process.env.SITE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 
 rimraf.sync(outputPath)
 
@@ -26,17 +28,19 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-          // babelrc: false,
-          // extends: 'config/.babelrc'
-        },
+        use: ['babel-loader'],
         exclude: /node_modules/
       },
       {
         test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: 'file-loader?name=files/[hash].[ext]'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'files/[hash].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
@@ -50,9 +54,8 @@ const config = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: 'config/postcss.config.js'
-              }
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
             }
           },
           {
@@ -65,8 +68,21 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader:
-          'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js'
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          }
+        ]
       },
       {
         test: /\.md$/,
@@ -85,11 +101,11 @@ const config = {
       },
       {
         test: /\.dox$/,
-        loader: 'babel-loader!dox-loader'
+        use: ['babel-loader', 'dox-loader']
       },
       {
         test: /\.snap$/,
-        loader: 'ignore-loader'
+        use: ['ignore-loader']
       }
     ]
   },
@@ -115,54 +131,41 @@ const config = {
     'react-dom': 'ReactDOM',
     'prop-types': 'PropTypes'
   },
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      prefixCls: JSON.stringify('earthui')
+    })
+  ],
+  optimization: {}
 }
 
-if (isProduction) {
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      'process.env': {
-        SITE_ENV: JSON.stringify('production')
-      }
-    })
-  )
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      output: {
-        comments: false
-      }
-    })
-  )
-} else {
+if (!isProduction) {
   config.plugins.push(
     new LiveReloadPlugin({
       appendScriptTag: true
-    })
+    }),
+    new FriendlyErrorsWebpackPlugin()
   )
 }
 
-config.plugins.push(
-  new webpack.DefinePlugin({
-    prefixCls: JSON.stringify('earthui')
-  })
-)
-
 // Generate index.html in 'site' dir
-config.plugins.push(function () {
-  this.plugin('done', function (statsData) {
-    const stats = statsData.toJson()
-    let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
-    const distPath =
-      config.output.publicPath +
-      'site.' +
-      (isProduction ? stats.hash + '.' : '') +
-      'js'
-    html = html.replace(/(<script src=").*?dist.*?(")/, '$1' + distPath + '$2')
-    fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
-  })
+config.plugins.push({
+  apply: compiler => {
+    compiler.hooks.done.tap('ChangeHtmlScript', statsData => {
+      const stats = statsData.toJson()
+      let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
+      const distPath =
+        config.output.publicPath +
+        'site.' +
+        (isProduction ? stats.hash + '.' : '') +
+        'js'
+      html = html.replace(
+        /(<script src=").*?dist.*?(")/,
+        '$1' + distPath + '$2'
+      )
+      fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
+    })
+  }
 })
 
 module.exports = config

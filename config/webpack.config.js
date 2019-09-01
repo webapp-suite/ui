@@ -1,7 +1,10 @@
 const path = require('path')
 const rimraf = require('rimraf')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../dist')
 const entryName = `earth-ui.min`
@@ -16,34 +19,48 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'umd'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loaders: 'babel-loader',
+        use: ['babel-loader'],
         include: sourcePath
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?minimize=true',
-            'postcss-loader?config.path=config/postcss.config.js',
-            'less-loader?javascriptEnabled=true'
-          ]
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ],
         include: sourcePath
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'postcss-loader?config.path=config/postcss.config.js'
-          ]
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          }
+        ],
         include: sourcePath
       },
       {
@@ -52,7 +69,7 @@ const config = {
       },
       {
         test: /\.snap$/,
-        loader: 'ignore-loader'
+        use: ['ignore-loader']
       }
     ]
   },
@@ -86,13 +103,22 @@ const config = {
     new webpack.DefinePlugin({
       prefixCls: JSON.stringify('earthui')
     }),
-    new ExtractTextPlugin('[name].css'),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        properties: false
-      }
-    })
-  ]
+    new MiniCssExtractPlugin('[name].css')
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: true,
+          preset: ['default', { discardComments: { removeAll: true } }]
+        }
+      })
+    ]
+  }
 }
 
 config.entry[entryName] = [`${sourcePath}/components/index.js`]
