@@ -35,7 +35,10 @@ if (process.env.NODE_ENV === 'development') {
       stats: {
         colors: true,
         profile: true
-      }
+      },
+      // you can remove this line for more log about webpack
+      // note: https://github.com/webpack/webpack-dev-middleware#loglevel
+      logLevel: 'silent'
     })
   )
 }

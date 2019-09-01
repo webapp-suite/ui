@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const path = require('path')
 const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const Prism = require('../site/3rdParty/prism/prism.js')
 const sitePath = path.resolve(__dirname, '../site')
@@ -138,7 +139,8 @@ if (!isProduction) {
   config.plugins.push(
     new LiveReloadPlugin({
       appendScriptTag: true
-    })
+    }),
+    new FriendlyErrorsWebpackPlugin()
   )
 }
 
@@ -149,18 +151,23 @@ config.plugins.push(
 )
 
 // Generate index.html in 'site' dir
-config.plugins.push(function () {
-  this.plugin('done', function (statsData) {
-    const stats = statsData.toJson()
-    let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
-    const distPath =
-      config.output.publicPath +
-      'site.' +
-      (isProduction ? stats.hash + '.' : '') +
-      'js'
-    html = html.replace(/(<script src=").*?dist.*?(")/, '$1' + distPath + '$2')
-    fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
-  })
+config.plugins.push({
+  apply: compiler => {
+    compiler.hooks.done.tap('ChangeHtmlScript', statsData => {
+      const stats = statsData.toJson()
+      let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
+      const distPath =
+        config.output.publicPath +
+        'site.' +
+        (isProduction ? stats.hash + '.' : '') +
+        'js'
+      html = html.replace(
+        /(<script src=").*?dist.*?(")/,
+        '$1' + distPath + '$2'
+      )
+      fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
+    })
+  }
 })
 
 module.exports = config
