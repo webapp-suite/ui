@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/cosmos-x/earth-ui.git"
   },
+  "bugs": {
+    "url": "https://github.com/cosmos-x/earth-ui/issues"
+  },
   "homepage": "https://ui.muwenzi.com/",
   "engines": {
     "node": ">=12.0.0",
@@ -23,6 +26,9 @@
     "dist",
     "lib"
   ],
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "****** DEV *****": "",
     "create": "node bin/create.js",
@@ -99,7 +105,6 @@
     "commitizen": "^2.9.6",
     "compression": "^1.7.2",
     "css-loader": "^3.2.0",
-    "cssnano": "^4.1.10",
     "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -128,6 +133,7 @@
     "multiparty": "^4.1.3",
     "node-dev": "^3.1.3",
     "nprogress": "^0.2.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pm2": "^2.10.1",
     "postcss-loader": "^3.0.0",
     "prettier-standard": "^9.1.1",
@@ -153,14 +159,5 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-livereload-plugin": "^2.2.0",
     "webpack-merge": "^4.2.2"
-  },
-  "bugs": {
-    "url": "https://github.com/cosmos-x/earth-ui/issues"
-  },
-  "bin": {
-    "earth-ui": "create.js"
-  },
-  "directories": {
-    "lib": "lib"
   }
 }

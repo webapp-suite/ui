@@ -30,7 +30,7 @@ if (process.env.NODE_ENV !== 'production') {
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const WebpackConfig = require('../config/webpack.config.site')
   app.use(
-    webpackDevMiddleware(webpack(WebpackConfig), {
+    webpackDevMiddleware(webpack({ ...WebpackConfig, mode: 'development' }), {
       publicPath: WebpackConfig.output.publicPath,
       stats: {
         colors: true,

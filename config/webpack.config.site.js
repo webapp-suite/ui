@@ -1,8 +1,9 @@
+const fs = require('fs')
 const webpack = require('webpack')
 const path = require('path')
 const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
-const fs = require('fs')
+const autoprefixer = require('autoprefixer')
 const Prism = require('../site/3rdParty/prism/prism.js')
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
@@ -26,17 +27,19 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-          // babelrc: false,
-          // extends: 'config/.babelrc'
-        },
+        use: ['babel-loader'],
         exclude: /node_modules/
       },
       {
         test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: 'file-loader?name=files/[hash].[ext]'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'files/[hash].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
@@ -50,9 +53,8 @@ const config = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: 'config/postcss.config.js'
-              }
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
             }
           },
           {
@@ -65,8 +67,21 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader:
-          'style-loader!css-loader!postcss-loader?config.path=config/postcss.config.js'
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          }
+        ]
       },
       {
         test: /\.md$/,
@@ -85,11 +100,11 @@ const config = {
       },
       {
         test: /\.dox$/,
-        loader: 'babel-loader!dox-loader'
+        use: ['babel-loader', 'dox-loader']
       },
       {
         test: /\.snap$/,
-        loader: 'ignore-loader'
+        use: ['ignore-loader']
       }
     ]
   },

@@ -3,6 +3,8 @@ const rimraf = require('rimraf')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../dist')
 const entryName = `earth-ui.min`
@@ -29,8 +31,19 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader?config.path=./config/postcss.config.js',
-          'less-loader?javascriptEnabled=true'
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
         ],
         include: sourcePath
       },
@@ -39,7 +52,13 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader?config.path=./config/postcss.config.js'
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [autoprefixer({})]
+            }
+          }
         ],
         include: sourcePath
       },
@@ -91,6 +110,11 @@ const config = {
         uglifyOptions: {
           parallel: true,
           sourceMap: true
+        }
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }]
         }
       })
     ]
