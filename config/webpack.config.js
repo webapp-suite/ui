@@ -21,7 +21,7 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loaders: 'babel-loader',
+        use: ['babel-loader'],
         include: sourcePath
       },
       {
@@ -29,7 +29,7 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader?config.path=config/postcss.config.js',
+          'postcss-loader?config.path=./config/postcss.config.js',
           'less-loader?javascriptEnabled=true'
         ],
         include: sourcePath
@@ -39,7 +39,7 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader?config.path=config/postcss.config.js'
+          'postcss-loader?config.path=./config/postcss.config.js'
         ],
         include: sourcePath
       },
@@ -49,7 +49,7 @@ const config = {
       },
       {
         test: /\.snap$/,
-        loader: 'ignore-loader'
+        use: ['ignore-loader']
       }
     ]
   },
@@ -89,7 +89,8 @@ const config = {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
-          compress: false
+          parallel: true,
+          sourceMap: true
         }
       })
     ]
