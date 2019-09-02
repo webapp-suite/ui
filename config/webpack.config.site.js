@@ -136,7 +136,9 @@ const config = {
       prefixCls: JSON.stringify('earthui')
     })
   ],
-  optimization: {}
+  optimization: {
+    minimize: false
+  }
 }
 
 if (!isProduction) {
