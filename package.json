@@ -10,6 +10,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cosmos-x/earth-ui.git"
@@ -34,9 +35,7 @@
     "create": "node scripts/create.js",
     "dev": "NODE_ENV=development node-dev site/server.js",
     "****** DIST *****": "",
-    "build": "npm run lib && npm run dist",
-    "lib": "rimraf lib && NODE_ENV=production babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js",
-    "dist": "rimraf dist && webpack --progress --mode=production --config config/webpack.config.js",
+    "build": "node build/build.js",
     "site:dist": "rimraf site/dist && NODE_ENV=production webpack --progress --mode=production --config config/webpack.config.site.js ",
     "****** RELEASE *****": "",
     "release": "npm run lib && npm run dist && standard-version",
@@ -80,7 +79,7 @@
   "dependencies": {
     "classlist": "^1.0.1",
     "classnames": "^2.2.5",
-    "focus-trap": "^3.0.0",
+    "focus-trap": "^5.0.2",
     "invariant": "^2.2.2",
     "marked": "^0.7.0",
     "react-avatar-editor": "^10.3.0",
