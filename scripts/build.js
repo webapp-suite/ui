@@ -10,7 +10,7 @@ console.log('\nBuilding ES modules ...')
 exec(
   'rimraf es && babel src/components -d es --ignore "src/**/__tests__" && gulp trim:es --gulpfile config/gulpfile.js',
   {
-    BABEL_ENV: 'es',
+    BABEL_ENV: false,
     NODE_ENV: 'production'
   }
 )
@@ -26,5 +26,6 @@ exec(
 
 console.log('\nBuilding UMD min files ...')
 exec('rimraf dist && webpack --progress --config config/webpack.config.js', {
+  BABEL_ENV: 'cjs',
   NODE_ENV: 'production'
 })

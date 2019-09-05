@@ -21,9 +21,10 @@ const config = {
   output: {
     path: outputPath,
     filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
-    chunkFilename: '[id]' + (isProduction ? '.[hash]' : '') + '.js',
+    chunkFilename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
     publicPath: '/dist/'
   },
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {

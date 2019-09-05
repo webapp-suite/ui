@@ -23,21 +23,24 @@
     "node": ">=12.0.0",
     "npm": ">=6.9.0"
   },
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "dist",
     "lib",
     "es"
   ],
-  "directories": {
-    "lib": "lib"
-  },
+  "sideEffects": [
+    "dist/*"
+  ],
   "scripts": {
     "****** DEV *****": "",
     "create": "node scripts/create.js",
     "dev": "NODE_ENV=development node-dev site/server.js",
     "****** BUILD *****": "",
     "build": "node scripts/build.js",
-    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --mode=production --config config/webpack.config.site.js ",
+    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config config/webpack.config.site.js ",
     "****** RELEASE *****": "",
     "release": "npm run build && standard-version",
     "gh-pages": "npm run build:site && node scripts/deploy.js",
@@ -158,11 +161,5 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-livereload-plugin": "^2.2.0",
     "webpack-merge": "^4.2.2"
-  },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "*.less"
-  ]
+  }
 }

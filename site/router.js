@@ -13,11 +13,11 @@ const asyncComponent = path =>
       !['/', 'InProgress'].includes(path) && NProgress.done()
     })
     if (path === '/') {
-      return import('./pages/Home')
+      return import('./pages/Home' /* webpackChunkName: '[request]' */)
     }
     return path.match('.dox')
-      ? import(`../src/components/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
-      : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+      ? import(`../src/components/${path}` /* webpackChunkName: '[request]' */)
+      : import(`./apps/${path}` /* webpackChunkName: '[request]' */)
   })
 
 const WIP = [
