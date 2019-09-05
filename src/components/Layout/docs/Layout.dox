@@ -1,9 +1,7 @@
 /**
  * @title 基本功能
  */
-import { Layout } from 'earth-ui'
-
-const { Row, Col } = Layout
+import { Row, Col } from 'earth-ui'
 
 const LayoutBasic = () => {
   return (
@@ -17,9 +15,7 @@ const LayoutBasic = () => {
 /**
  * @title 带间隔
  */
-import { Layout } from 'earth-ui'
-
-const { Row, Col } = Layout
+import { Row, Col } from 'earth-ui'
 
 const LayoutGutter = () => {
   return (

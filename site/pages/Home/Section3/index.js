@@ -1,4 +1,4 @@
-import Icon from 'earth-ui/lib/Icon'
+import { Icon } from 'earth-ui'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'

@@ -2,12 +2,7 @@
  * @title 点击更换头像进行裁剪
  */
 import React, { Component } from 'react'
-import {
-  AvatarClip,
-  AvatarUpload,
-  Upload,
-  notification
-} from 'earth-ui'
+import { AvatarClip, AvatarUpload, Upload, notification } from 'earth-ui'
 
 class ProfileAvatar extends Component {
   constructor (props) {

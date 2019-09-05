@@ -1,5 +1,5 @@
 import React from 'react'
-import BackToTop from 'earth-ui/lib/BackToTop'
+import { BackToTop } from 'earth-ui'
 import Markdown from 'widgets/Markdown'
 import html from '../../../CHANGELOG.md'
 import { backToTop } from '../config'

@@ -5,16 +5,7 @@
  * @desc 为了方便，FormInput、FormSelect、FormTextarea 自动绑定最近的 FormItem name 属性对应的数据；FormSubmit 触发表单提交，如果不指定 onSubmit 则自动调用 save
  */
 import update from 'react-update'
-import {
-  notification,
-  Option,
-  Form,
-  FormItem,
-  FormSubmit,
-  FormInput,
-  FormSelect,
-  FormTextarea
- } from 'earth-ui'
+import { notification, Option, Form, FormItem, FormSubmit, FormInput, FormSelect, FormTextarea } from 'earth-ui'
 
 class FormBasic extends Component {
 

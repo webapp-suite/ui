@@ -52,7 +52,7 @@ const BoardWithTitle = () => {
  * @title 带按钮的面板
  * @renderModel right
  */
-import { Board, BoardHeader, BoardBody } from 'earth-ui'
+import { Board, BoardHeader, BoardBody, Button } from 'earth-ui'
 
 const BoardWithButtons = () => {
   return (
@@ -73,15 +73,7 @@ const BoardWithButtons = () => {
  * @title 带Tab的面板
  * @renderModel right
  */
-import {
-  Board,
-  BoardHeader,
-  BoardBody,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanel
-} from 'earth-ui'
+import { Board, BoardHeader, BoardBody, Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
 const BoardWithTabs = () => {
   return (

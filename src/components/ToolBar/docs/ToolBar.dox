@@ -2,9 +2,7 @@
  * @title 带 Tabs 的 ToolBar
  * @renderModel right
  */
-import { ToolBar, notification, Tabs } from 'earth-ui'
-
-const { Tabs, TabList, Tab } = Tabs
+import { ToolBar, notification, Tabs, TabList, Tab } from 'earth-ui'
 
 const ToolBarWithTabs = () => {
   return (

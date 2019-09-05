@@ -1,6 +1,5 @@
 import React from 'react'
-import BackToTop from 'earth-ui/lib/BackToTop'
-import { Col, Row } from 'earth-ui/lib/Layout'
+import { Col, Row, BackToTop } from 'earth-ui'
 import Markdown from 'widgets/Markdown'
 import { backToTop } from '../config'
 import PropTypes from 'prop-types'
