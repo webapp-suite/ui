@@ -158,5 +158,11 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-livereload-plugin": "^2.2.0",
     "webpack-merge": "^4.2.2"
-  }
+  },
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ]
 }
