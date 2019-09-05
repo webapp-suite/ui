@@ -1,3 +1,8 @@
 {
-  "presets": [ "./config/babelPreset" ]
+  "presets": [ "./config/babelPreset" ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining"
+  ]
 }
