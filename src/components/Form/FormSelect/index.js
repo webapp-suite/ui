@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Select, Option } from '../../Select'
+import { Select } from '../../Select'
 
 const FormSelect = (props, context) => {
   const { children, className, onChange, ...other } = props
@@ -29,4 +29,4 @@ FormSelect.contextTypes = {
   formItem: PropTypes.object.isRequired
 }
 
-export { FormSelect, Option }
+export default FormSelect

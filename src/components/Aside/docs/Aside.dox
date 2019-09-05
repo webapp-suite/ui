@@ -60,9 +60,7 @@ class AsideSpinner extends Component {
  * @title 带Tabs的Aside
  * @desc 如果一个 Aside 包含的内容较多，没有递进关系时，可以使用 Tabs，虽然还是处于一个"平面"上，但能够让用户更加专注其所要处理的内容。使用时将 Tabs 嵌套在 Aside 当中即可，样式会在 Aside 内部自动进行相关调整。
  */
-import { Aside, Button, Tabs } from 'earth-ui'
-
-const { Tabs, TabList, Tab, TabPanel } = Tabs
+import { Aside, Button, Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
 class AsideTabs extends Component {
   state = { isOpen: false }

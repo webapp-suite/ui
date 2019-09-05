@@ -3,9 +3,7 @@
 /**
  * @title 基本功能
  */
-import { Dropdown, Button } from 'earth-ui'
-
-const { Dropdown, DropdownToggle, DropdownMenu } = Dropdown
+import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownBasic = () => {
   return (
@@ -25,9 +23,7 @@ const DropdownBasic = () => {
 /**
  * @title 自定义方向、对齐方式
  */
-import { Dropdown, Button } from 'earth-ui'
-
-const { Dropdown, DropdownToggle, DropdownMenu } = Dropdown
+import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownRight = () => {
   return (
@@ -47,9 +43,7 @@ const DropdownRight = () => {
 /**
  * @title 嵌套的
  */
-import { Dropdown, Button } from 'earth-ui'
-
-const { Dropdown, DropdownToggle, DropdownMenu } = Dropdown
+import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownNested = () => {
   return (
@@ -79,9 +73,7 @@ const DropdownNested = () => {
 /**
  * @title 不可用的
  */
-import { Dropdown, Button } from 'earth-ui'
-
-const { Dropdown, DropdownToggle, DropdownMenu } = Dropdown
+import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownDisabled = () => {
   return (

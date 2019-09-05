@@ -4,9 +4,7 @@
  */
 
 import React, { Component } from 'react'
-import { notification, Nav } from 'earth-ui'
-
-const { Nav, SubNav, NavItemGroup, NavItem } = Nav
+import { notification, Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui'
 
 class NavBasic extends Component {
   handleClick = res => {

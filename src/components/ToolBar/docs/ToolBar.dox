@@ -24,9 +24,7 @@ const ToolBarWithTabs = () => {
  * @title 动态页签
  * @renderModel right
  */
-import { ToolBar, Tabs } from 'earth-ui'
-
-const { Tabs, TabList, Tab } = Tabs
+import { ToolBar, Tabs, TabList, Tab } from 'earth-ui'
 
 class TabsDynamic extends Component {
   render() {

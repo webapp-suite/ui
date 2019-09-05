@@ -1,7 +1,5 @@
-import Tabs from './Tabs'
-import TabList from './TabList'
-import Tab from './Tab'
-import TabPanel from './TabPanel'
 import './index.less'
-
-export default { Tabs, TabList, Tab, TabPanel }
+export { default as Tabs } from './Tabs'
+export { default as TabList } from './TabList'
+export { default as Tab } from './Tab'
+export { default as TabPanel } from './TabPanel'
