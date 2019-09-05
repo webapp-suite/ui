@@ -6,8 +6,7 @@ cache:
     - "node_modules"
 script:
   - npm test
-  - npm run lib
-  - npm run dist
+  - npm run build
   - npm run site:dist
 after_success:
   - npm run report-coverage

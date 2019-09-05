@@ -8,24 +8,23 @@ const exec = (command, extraEnv) =>
 
 console.log('\nBuilding ES modules ...')
 exec(
-  'rimraf es && NODE_ENV=production babel src -d es --ignore __tests__ && gulp --gulpfile config/gulpfile.js',
+  'rimraf es && babel src -d es --ignore __tests__ && gulp --gulpfile config/gulpfile.js',
   {
-    BABEL_ENV: 'es'
+    BABEL_ENV: 'es',
+    NODE_ENV: 'production'
   }
 )
 
 console.log('\nBuilding CommonJS modules ...')
 exec(
-  'rimraf lib && NODE_ENV=production  babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js',
+  'rimraf lib && babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js',
   {
-    BABEL_ENV: 'cjs'
+    BABEL_ENV: 'cjs',
+    NODE_ENV: 'production'
   }
 )
 
 console.log('\nBuilding UMD modules ...')
-exec(
-  'rimraf dist && webpack --progress --mode=production --config config/webpack.config.js',
-  {
-    BABEL_ENV: 'cjs'
-  }
-)
+exec('rimraf dist && webpack --progress --config config/webpack.config.js', {
+  NODE_ENV: 'production'
+})

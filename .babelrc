@@ -1,11 +1,3 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/react"
-  ],
-  "plugins": [
-    "@babel/plugin-syntax-dynamic-import",
-    ["@babel/plugin-proposal-class-properties", { "loose": false }],
-    ["@babel/plugin-proposal-optional-chaining", { "loose": false }]
-  ]
+  "presets": [ "./build/babel-preset" ]
 }
