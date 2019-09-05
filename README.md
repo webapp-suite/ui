@@ -37,8 +37,10 @@ npm i earth-ui
 
 - Import the component
 
+earth-ui supports ES6 tree shaking by default
+
 ```jsx
-import Button from 'earth-ui/lib/Button';
+import { Button } from 'earth-ui';
 import 'earth-ui/dist/earth-ui.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
