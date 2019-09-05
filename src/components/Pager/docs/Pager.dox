@@ -2,7 +2,7 @@
  * @title 基本用法
  * @desc As you can see, the Pager has no default outline and this will make it easier to embed into other components.
  */
-import Pager from 'earth-ui/lib/Pager'
+import { Pager } from 'earth-ui'
 
 class PagerBasic extends Component {
   onSelect = page => {

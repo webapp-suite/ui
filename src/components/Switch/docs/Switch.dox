@@ -1,7 +1,7 @@
 /**
  * @title 基本功能
  */
-import Switch from 'earth-ui/lib/Switch'
+import { Switch } from 'earth-ui'
 
 const SwitchBasic = () => {
   return <Switch defaultOn />
@@ -10,7 +10,7 @@ const SwitchBasic = () => {
 /**
  * @title 带文字
  */
-import Switch from 'earth-ui/lib/Switch'
+import { Switch } from 'earth-ui'
 
 const SwitchWithLabel = () => {
   return <Switch labelOn="打开" labelOff="关闭" />

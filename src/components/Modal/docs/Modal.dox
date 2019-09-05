@@ -1,8 +1,9 @@
 /**
  * @title 基本功能
  */
-import { Modal, ModalHeader, ModalBody } from 'earth-ui/lib/Modal'
-import Button from 'earth-ui/lib/Button'
+import { Button, Modal } from 'earth-ui'
+
+const { Modal, ModalHeader, ModalBody } = Modal
 
 class ModalBasic extends Component {
   handleOpen = () => {
@@ -28,8 +29,9 @@ class ModalBasic extends Component {
  * @title 锁定的
  * @desc 点击半透明背景不会自动关闭
  */
-import { Modal, ModalHeader, ModalBody } from 'earth-ui/lib/Modal'
-import Button from 'earth-ui/lib/Button'
+import { Button, Modal } from 'earth-ui'
+
+const { Modal, ModalHeader, ModalBody } = Modal
 
 class ModalLock extends Component {
   handleOpen = () => {
@@ -54,8 +56,9 @@ class ModalLock extends Component {
 /**
  * @title 嵌套的
  */
-import { Modal, ModalHeader, ModalBody } from 'earth-ui/lib/Modal'
-import Button from 'earth-ui/lib/Button'
+import { Button, Modal } from 'earth-ui'
+
+const { Modal, ModalHeader, ModalBody } = Modal
 
 class ModalNested extends Component {
   handleOpen = () => {

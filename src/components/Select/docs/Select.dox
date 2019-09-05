@@ -3,7 +3,9 @@
 /**
  * @title 基本功能
  */
-import { Select, Option } from 'earth-ui/lib/Select'
+import { Select } from 'earth-ui'
+
+const { Select, Option } = Select
 
 const SelectBasic = () => {
   return (
@@ -19,7 +21,9 @@ const SelectBasic = () => {
 /**
  * @title data 数据
  */
-import { Select, Option } from 'earth-ui/lib/Select'
+import { Select } from 'earth-ui'
+
+const { Select, Option } = Select
 
 const SelectData = () => {
   const data = [{
@@ -45,7 +49,9 @@ const SelectData = () => {
 /**
  * @title 可搜索的
  */
-import { Select, Option } from 'earth-ui/lib/Select'
+import { Select } from 'earth-ui'
+
+const { Select, Option } = Select
 
 const SelectSearchable = () => {
   return (
@@ -62,7 +68,10 @@ const SelectSearchable = () => {
  * @title 禁用
  */
 
-import { Select, Option } from 'earth-ui/lib/Select'
+import { Select } from 'earth-ui'
+
+const { Select, Option } = Select
+
 const SelectDisabled = () => {
   return (
     <Select disabled width={200}>

@@ -3,4 +3,4 @@ import DropdownToggle from './DropdownToggle'
 import DropdownMenu from './DropdownMenu'
 import './index.less'
 
-export { Dropdown, DropdownToggle, DropdownMenu }
+export default { Dropdown, DropdownToggle, DropdownMenu }

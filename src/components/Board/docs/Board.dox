@@ -3,7 +3,9 @@
  * @desc Board 组件提供 `theme` 属性，可以选择两种的主题风格：`classic` / `simple`，默认为 `classic` 即白色背景带边框的风格。
  * @renderModel right
  */
-import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+import { Board } from 'earth-ui'
+
+const { Board, BoardHeader, BoardBody } = Board
 
 const BoardBasic = () => {
   return (
@@ -27,7 +29,9 @@ const BoardBasic = () => {
  * @desc 在 BoardHeader 上通过 `title` 属性可以自定义标题，同样也支持两种可选的主题风格。
  * @renderModel right
  */
-import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
+import { Board } from 'earth-ui'
+
+const { Board, BoardHeader, BoardBody } = Board
 
 const BoardWithTitle = () => {
   return (
@@ -52,9 +56,9 @@ const BoardWithTitle = () => {
  * @title 带按钮的面板
  * @renderModel right
  */
-import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
-import Button from 'earth-ui/lib/Button'
-import notification from 'earth-ui/lib/notification'
+import { Board, Button, notification } from 'earth-ui'
+
+const { Board, BoardHeader, BoardBody } = Board
 
 const BoardWithButtons = () => {
   return (
@@ -75,8 +79,10 @@ const BoardWithButtons = () => {
  * @title 带Tab的面板
  * @renderModel right
  */
-import { Board, BoardHeader, BoardBody } from 'earth-ui/lib/Board'
-import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+import { Board, Tabs } from 'earth-ui'
+
+const { Board, BoardHeader, BoardBody } = Board
+const { Tabs, TabList, Tab, TabPanel } = Tabs
 
 const BoardWithTabs = () => {
   return (

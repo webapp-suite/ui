@@ -3,8 +3,7 @@
  * @desc 通过 `isLoading` 的值来控制加载效果的显示与隐藏。
  * @note 该组件会保证加载效果的显示时间至少为 `300ms`，以避免一闪而过的糟糕体验。
  */
-import Spinner from 'earth-ui/lib/Spinner'
-import Switch from 'earth-ui/lib/Switch'
+import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerBasic extends React.Component {
   state = { isLoading: false }
@@ -38,8 +37,7 @@ class SpinnerBasic extends React.Component {
  * @title 自定义描述文案
  * @desc 通过 `tip` 属性来自定义描述文案。
  */
-import Spinner from 'earth-ui/lib/Spinner'
-import Switch from 'earth-ui/lib/Switch'
+import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerTip extends React.Component {
   state = { isLoading: false }
@@ -74,8 +72,7 @@ class SpinnerTip extends React.Component {
  * @desc 当前提供了 `cover` 属性以选择加载背景效果的表现。
  * @note 默认的 `cover` 是白色背景遮罩。
  */
-import Spinner from 'earth-ui/lib/Spinner'
-import Switch from 'earth-ui/lib/Switch'
+import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerCover extends React.Component {
   state = { isLoading: false }
@@ -116,7 +113,7 @@ class SpinnerCover extends React.Component {
  * @desc 提供了 `sm` / `md` / `lg` 三种尺寸来满足不同场景下的需求。
  * @note 对于全局和 Aside 里面的 Spinner 建议使用 `lg` 尺寸，在高度相对高的场景下会有较好的视觉体验。
  */
-import Spinner from 'earth-ui/lib/Spinner'
+import { Spinner } from 'earth-ui'
 
 const SpinnerSize = () => {
   return (
@@ -132,7 +129,7 @@ const SpinnerSize = () => {
  * @title 自定义指示器
  * @desc 可以通过 `indicator` 属性使用自定义指示器，需要传入一个组件实例。
  */
-import Spinner from 'earth-ui/lib/Spinner'
+import { Spinner } from 'earth-ui'
 import styled, { keyframes } from 'styled-components'
 
 class SpinnerIndicator extends React.Component {

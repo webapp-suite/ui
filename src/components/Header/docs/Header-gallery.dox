@@ -2,7 +2,7 @@
  * @title Header 背景色画廊
  * @renderModel full
  */
-import Header from 'earth-ui/lib/Header'
+import { Header } from 'earth-ui'
 
 const ColorfulHeader = () => {
   const colors = [

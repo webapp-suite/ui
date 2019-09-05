@@ -118,7 +118,7 @@ const config = {
     extensions: ['.js', '.jsx'],
     modules: [sitePath, 'node_modules'],
     alias: {
-      'earth-ui/lib': `${sourcePath}/components`,
+      'earth-ui': `${sourcePath}/components`,
       widgets: `${sitePath}/widgets`,
       'ui-variables': `${sourcePath}/styles/ui-variables.less`,
       'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,

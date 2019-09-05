@@ -5,7 +5,7 @@ import FormInput from './FormInput'
 import { FormSelect, Option } from './FormSelect'
 import FormTextarea from './FormTextarea'
 
-export {
+export default {
   Form,
   FormItem,
   FormSubmit,

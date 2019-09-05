@@ -2,7 +2,8 @@
  * @title 基本功能
  * @renderModel right
  */
-import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+import { Tabs } from 'earth-ui'
+const { Tabs, TabList, Tab, TabPanel } = Tabs
 
 const TabsBasic = () => {
   return (
@@ -21,8 +22,8 @@ const TabsBasic = () => {
  * @title 页签模式
  * @renderModel right
  */
-import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
-import Button from 'earth-ui/lib/Button'
+import { Tabs, Button } from 'earth-ui'
+const { Tabs, TabList, Tab, TabPanel } = Tabs
 
 class TabsDynamic extends Component {
 

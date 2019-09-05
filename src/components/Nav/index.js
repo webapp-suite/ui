@@ -4,4 +4,4 @@ import NavItemGroup from './NavItemGroup'
 import NavItem from './NavItem'
 import './index.less'
 
-export { Nav, SubNav, NavItemGroup, NavItem }
+export default { Nav, SubNav, NavItemGroup, NavItem }

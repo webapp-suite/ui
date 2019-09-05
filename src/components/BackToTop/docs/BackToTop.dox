@@ -5,7 +5,7 @@
  * @desc 在首页滚动页面，右下角即可显示该组件
  * @renderModel right
  */
-import BackToTop from 'earth-ui/lib/BackToTop'
+import { BackToTop } from 'earth-ui'
 
 const BackToTopBasic = () => {
   const config = {

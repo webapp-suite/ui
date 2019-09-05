@@ -5,8 +5,7 @@
  * @desc 侧边栏通过 `isOpen` 属性去控制其打开还是关闭，另外 `onClose` 需要去清空状态，所以这两个属性都为必要属性。
  * @note `Aside` 组件实际会生成的 Aside 和 Backdrop 两个DOM节点，它们通过 `React Portal` 传递给 body 作为其子元素，但需要注意的是最后渲染出来的 Backdrop 和 Aside 是同级的。关闭 Aside 包括点击 Backdrop 都会自动销毁这两个节点。
  */
-import Aside from 'earth-ui/lib/Aside'
-import Button from 'earth-ui/lib/Button'
+import { Aside, Button } from 'earth-ui'
 
 class AsideBasic extends Component {
   state = { isOpen: false }
@@ -32,9 +31,7 @@ class AsideBasic extends Component {
  * @title 带Spinner的Aside
  * @desc 可以将 Spinner 嵌套在 Aside 中使用，这也是异步请求常用的交互方式。
  */
-import Aside from 'earth-ui/lib/Aside'
-import Button from 'earth-ui/lib/Button'
-import Spinner from 'earth-ui/lib/Spinner'
+import { Aside, Button, Spinner } from 'earth-ui'
 
 class AsideSpinner extends Component {
   state = { isOpen: false, isLoading: true }
@@ -63,9 +60,9 @@ class AsideSpinner extends Component {
  * @title 带Tabs的Aside
  * @desc 如果一个 Aside 包含的内容较多，没有递进关系时，可以使用 Tabs，虽然还是处于一个"平面"上，但能够让用户更加专注其所要处理的内容。使用时将 Tabs 嵌套在 Aside 当中即可，样式会在 Aside 内部自动进行相关调整。
  */
-import Aside from 'earth-ui/lib/Aside'
-import Button from 'earth-ui/lib/Button'
-import { Tabs, TabList, Tab, TabPanel } from 'earth-ui/lib/Tabs'
+import { Aside, Button, Tabs } from 'earth-ui'
+
+const { Tabs, TabList, Tab, TabPanel } = Tabs
 
 class AsideTabs extends Component {
   state = { isOpen: false }
@@ -103,8 +100,7 @@ class AsideTabs extends Component {
  * @desc 当侧边的内容比较复杂，具有逻辑上的递进关系的时候可以使用嵌套的Aside，如 Aside 打开是一个列表，列表每一项打开还是一个 Aside。
  * @note 需要注意的是无论处于嵌套的哪一层 Aside，点击 Backdrop 的时候都会关闭所有 Aside，并且会自动调用每一个 `onClose` 函数去清空所有 Aside 内部 `isOpen` 状态。
  */
-import Aside from 'earth-ui/lib/Aside'
-import Button from 'earth-ui/lib/Button'
+import { Aside, Button } from 'earth-ui'
 
 class StackingAsides extends Component {
   state = { isOpen1: false, isOpen2: false, isOpen3: false }
