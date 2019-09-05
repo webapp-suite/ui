@@ -44,7 +44,7 @@ import 'earth-ui/dist/earth-ui.min.css';
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-> Note: earth-ui supports ES6 tree shaking by default
+> Note: earth-ui supports ES6 tree shaking by default.
 
 For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/start/usage) in our documentation.
 
