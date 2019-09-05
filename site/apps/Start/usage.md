@@ -6,14 +6,14 @@ npm i earth-ui
 
 ## 基础使用
 
-默认支持基于 ES module 的 tree shaking，直接 `import` 即可。
-
 ```jsx
 import { Button } from 'earth-ui';
 import 'earth-ui/dist/earth-ui.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
+
+> 默认支持基于 ES module 的 tree shaking，直接 `import` 即可。
 
 ## 在 create-react-app 中使用
 
