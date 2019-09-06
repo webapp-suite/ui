@@ -7,26 +7,24 @@ let option = process.argv.slice(2)
 let name = option[0]
 
 if (name) {
-  let dir = path.join(__dirname, `../src/components/${name}`)
+  let componentDir = path.join(__dirname, '../src/components')
   let template = path.join(__dirname, 'template')
 
-  // TODO: replace with fs.mkdirSync(`${dir}/docs`, { recursive: true }) after node-10.12.0
-  // https://nodejs.org/api/fs.html#fs_fs_mkdirsync_path_options
-  fs.mkdirSync(dir)
-  fs.mkdirSync(`${dir}/docs`)
+  // after node-10.12.0: https://nodejs.org/api/fs.html#fs_fs_mkdirsync_path_options
+  fs.mkdirSync(`${componentDir}/${name}/docs`, { recursive: true })
 
   let files = [
     {
       source: `${template}/index.js`,
-      target: `${dir}/index.js`
+      target: `${componentDir}/${name}/index.js`
     },
     {
       source: `${template}/index.less`,
-      target: `${dir}/index.less`
+      target: `${componentDir}/${name}/index.less`
     },
     {
       source: `${template}/dox.js`,
-      target: `${dir}/docs/${name}.dox`
+      target: `${componentDir}/${name}/docs/${name}.dox`
     }
   ]
 
@@ -43,6 +41,15 @@ if (name) {
       _template(fs.readFileSync(item.source, 'utf8'))(context)
     )
   })
+
+  try {
+    fs.appendFileSync(`${componentDir}/index.js`, `export { default as ${name} } from './${name}'\n`)
+    console.log('Updated component/index.js')
+  } catch (err) {
+    console.log(chalk.red(
+      'Errors occur when update component/index.js'
+    ))
+  }
 
   console.log(
     chalk.green('Build success!'),
