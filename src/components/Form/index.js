@@ -1,16 +1,6 @@
-import Form from './Form'
-import FormItem from './FormItem'
-import FormSubmit from './FormSubmit'
-import FormInput from './FormInput'
-import { FormSelect, Option } from './FormSelect'
-import FormTextarea from './FormTextarea'
-
-export {
-  Form,
-  FormItem,
-  FormSubmit,
-  FormInput,
-  FormSelect,
-  Option,
-  FormTextarea
-}
+export { default as Form } from './Form'
+export { default as FormItem } from './FormItem'
+export { default as FormSubmit } from './FormSubmit'
+export { default as FormInput } from './FormInput'
+export { default as FormSelect } from './FormSelect'
+export { default as FormTextarea } from './FormTextarea'

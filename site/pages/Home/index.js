@@ -1,6 +1,5 @@
 import { Link } from '@reach/router'
-import BackToTop from 'earth-ui/lib/BackToTop'
-import Button from 'earth-ui/lib/Button'
+import { Button, BackToTop } from 'earth-ui'
 import NProgress from 'nprogress'
 import QueueAnim from 'rc-queue-anim'
 import React from 'react'

@@ -43,4 +43,5 @@ jspm_packages
 # Project
 dist/
 lib/
+es/
 site/dist/

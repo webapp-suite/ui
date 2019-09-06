@@ -20,10 +20,11 @@ const config = {
   },
   output: {
     path: outputPath,
-    filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
-    chunkFilename: '[id]' + (isProduction ? '.[hash]' : '') + '.js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/dist/'
   },
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
@@ -118,7 +119,7 @@ const config = {
     extensions: ['.js', '.jsx'],
     modules: [sitePath, 'node_modules'],
     alias: {
-      'earth-ui/lib': `${sourcePath}/components`,
+      'earth-ui': `${sourcePath}/components`,
       widgets: `${sitePath}/widgets`,
       'ui-variables': `${sourcePath}/styles/ui-variables.less`,
       'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
@@ -154,13 +155,8 @@ if (!isProduction) {
 config.plugins.push({
   apply: compiler => {
     compiler.hooks.done.tap('ChangeHtmlScript', statsData => {
-      const stats = statsData.toJson()
       let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
-      const distPath =
-        config.output.publicPath +
-        'site.' +
-        (isProduction ? stats.hash + '.' : '') +
-        'js'
+      const distPath = config.output.publicPath + 'site.js'
       html = html.replace(
         /(<script src=").*?dist.*?(")/,
         '$1' + distPath + '$2'

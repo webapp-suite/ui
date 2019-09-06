@@ -2,9 +2,7 @@
  * @title 带 Tabs 的 ToolBar
  * @renderModel right
  */
-import ToolBar from 'earth-ui/lib/ToolBar'
-import notification from 'earth-ui/lib/notification'
-import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+import { ToolBar, notification, Tabs, TabList, Tab } from 'earth-ui'
 
 const ToolBarWithTabs = () => {
   return (
@@ -24,8 +22,7 @@ const ToolBarWithTabs = () => {
  * @title 动态页签
  * @renderModel right
  */
-import ToolBar from 'earth-ui/lib/ToolBar'
-import { Tabs, TabList, Tab } from 'earth-ui/lib/Tabs'
+import { ToolBar, Tabs, TabList, Tab } from 'earth-ui'
 
 class TabsDynamic extends Component {
   render() {

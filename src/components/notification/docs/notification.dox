@@ -4,8 +4,7 @@
  * @title 自动关闭
  * @desc `success` 类型的通知不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 class NotificationSuccess extends Component {
   handleClick = () => {
@@ -21,8 +20,7 @@ class NotificationSuccess extends Component {
  * @renderModel run
  * @desc 你也可以自定义关闭时间，单位 `ms` :
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 class NotificationDuration extends Component {
   handleClick = () => {
@@ -37,8 +35,7 @@ class NotificationDuration extends Component {
  * @title 手动关闭
  * @desc `info`, `warning` 和 `error` 类型的通知需要用户的确认才能关闭。
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 const NotificationCloseManually = () => {
   return (
@@ -55,8 +52,7 @@ const NotificationCloseManually = () => {
  * @renderModel run
  * @desc 手动关闭类型的 notification 可以自定义 `ACCEPT` 按钮的文本。
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 class NotificationButtonsLabel extends Component {
   handleClick = () => {
@@ -72,8 +68,7 @@ class NotificationButtonsLabel extends Component {
  * @renderModel run
  * @desc 在点击 `ACCEPT` 按钮时候，你可以添加一个回调函数。
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 class NotificationNested extends Component {
   handleClick = () => {
@@ -96,8 +91,7 @@ class NotificationNested extends Component {
  * @title 消息队列
  * @renderModel run
  */
-import notification from 'earth-ui/lib/notification'
-import Button from 'earth-ui/lib/Button'
+import { notification, Button } from 'earth-ui'
 
 class NotificationQueue extends Component {
   handleClick = () => {

@@ -4,7 +4,7 @@
  * @title 基本功能
  * @desc 改变默认值或初始值的时候出现清除按钮
  */
-import ClearableInput from 'earth-ui/lib/ClearableInput'
+import { ClearableInput } from 'earth-ui'
 
 const ClearableInputBasic = () => {
   return (
@@ -15,7 +15,7 @@ const ClearableInputBasic = () => {
 /**
  * @title 禁用
  */
-import ClearableInput from 'earth-ui/lib/ClearableInput'
+import { ClearableInput } from 'earth-ui'
 
 const ClearableInputDisabled = () => {
   return (

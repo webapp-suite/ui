@@ -1,6 +1,4 @@
 import './index.less'
-import Modal from './Modal'
-import ModalHeader from './ModalHeader'
-import ModalBody from './ModalBody'
-
-export { Modal, ModalHeader, ModalBody }
+export { default as Modal } from './Modal'
+export { default as ModalHeader } from './ModalHeader'
+export { default as ModalBody } from './ModalBody'

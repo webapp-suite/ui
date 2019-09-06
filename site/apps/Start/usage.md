@@ -7,11 +7,13 @@ npm i earth-ui
 ## 基础使用
 
 ```jsx
-import Button from 'earth-ui/lib/Button';
+import { Button } from 'earth-ui';
 import 'earth-ui/dist/earth-ui.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
+
+> 默认支持基于 ES module 的 tree shaking，直接 `import` 即可。
 
 ## 在 create-react-app 中使用
 
@@ -19,18 +21,18 @@ ReactDOM.render(<Button>Name</Button>, mountNode);
 
 首先，需要在命令行中安装 `create-react-app` 工具，[详细安装说明][create-react-app-url] 。
 
-现在从 yarn 或 npm 安装并引入 `earth-ui` 。
+现在从 npmn 或  yar安装并引入 `earth-ui` 。
 
 ```bash
-yarn add earth-ui
+npm i earth-ui
 ```
 
 修改 `src/App.js`，引入 `earth-ui` 的按钮组件。
 
 ```jsx
 import React, { Component } from 'react';
+import { Button } from 'earth-ui';
 import './App.css';
-import Button from 'earth-ui/lib/Button';
 
 class App extends Component {
   render() {

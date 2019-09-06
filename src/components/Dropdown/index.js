@@ -1,6 +1,4 @@
-import Dropdown from './Dropdown'
-import DropdownToggle from './DropdownToggle'
-import DropdownMenu from './DropdownMenu'
 import './index.less'
-
-export { Dropdown, DropdownToggle, DropdownMenu }
+export { default as Dropdown } from './Dropdown'
+export { default as DropdownToggle } from './DropdownToggle'
+export { default as DropdownMenu } from './DropdownMenu'

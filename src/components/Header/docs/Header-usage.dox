@@ -2,7 +2,7 @@
  * @title 基本功能
  * @renderModel right
  */
-import Header from 'earth-ui/lib/Header'
+import { Header } from 'earth-ui'
 
 const HeaderBasic = () => {
   return (
@@ -14,7 +14,7 @@ const HeaderBasic = () => {
  * @title 更换背景色
  * @renderModel right
  */
-import Header from 'earth-ui/lib/Header'
+import { Header } from 'earth-ui'
 
 const ColorfulHeader = () => {
   return (

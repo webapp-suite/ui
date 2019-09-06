@@ -2,8 +2,7 @@
  * @title All Icons
  * @renderModel full
  */
-import Icon from 'earth-ui/lib/Icon'
-import Button from 'earth-ui/lib/Button'
+import { Icon, Button } from 'earth-ui'
 
 const IconBasic = () => {
   const allIcons = [

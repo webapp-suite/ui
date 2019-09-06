@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Row, Col } from 'earth-ui/lib/Layout'
-import Button from 'earth-ui/lib/Button'
+import { Row, Col, Button } from 'earth-ui'
 import './index.less'
 
 class Layout extends Component {
@@ -24,7 +23,7 @@ class Layout extends Component {
   render () {
     const { open, className, children } = this.props
     return (
-      <Row fluid className={cx('layout', {'layout--open': open}, className)}>
+      <Row fluid className={cx('layout', { 'layout--open': open }, className)}>
         {children}
       </Row>
     )

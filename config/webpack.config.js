@@ -19,6 +19,7 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'umd'
   },
+  mode: process.env.NODE_ENV,
   devtool: 'source-map',
   module: {
     rules: [

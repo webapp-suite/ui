@@ -10,6 +10,7 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cosmos-x/earth-ui.git"
@@ -22,26 +23,28 @@
     "node": ">=12.0.0",
     "npm": ">=6.9.0"
   },
-  "files": [
-    "dist",
-    "lib"
-  ],
   "directories": {
     "lib": "lib"
   },
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "sideEffects": [
+    "dist/*"
+  ],
   "scripts": {
     "****** DEV *****": "",
     "create": "node scripts/create.js",
     "dev": "NODE_ENV=development node-dev site/server.js",
-    "****** DIST *****": "",
-    "build": "npm run lib && npm run dist",
-    "lib": "rimraf lib && NODE_ENV=production babel src -d lib --ignore __tests__ && gulp --gulpfile config/gulpfile.js",
-    "dist": "rimraf dist && webpack --progress --mode=production --config config/webpack.config.js",
-    "site:dist": "rimraf site/dist && NODE_ENV=production webpack --progress --mode=production --config config/webpack.config.site.js ",
+    "****** BUILD *****": "",
+    "build": "node scripts/build.js",
+    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config config/webpack.config.site.js ",
     "****** RELEASE *****": "",
-    "release": "npm run lib && npm run dist && standard-version",
-    "gh-pages": "npm run site:dist && node scripts/deploy.js",
-    "preprod": "npm ci && npm run site:dist",
+    "release": "npm run build && standard-version",
+    "gh-pages": "npm run build:site && node scripts/deploy.js",
+    "preprod": "npm ci && npm run build:site",
     "prod": "NODE_ENV=production pm2 start site/server.js --name earth-ui",
     "****** LINT *****": "",
     "fix": "eslint src --fix && eslint site --fix",
@@ -80,7 +83,7 @@
   "dependencies": {
     "classlist": "^1.0.1",
     "classnames": "^2.2.5",
-    "focus-trap": "^3.0.0",
+    "focus-trap": "^5.0.2",
     "invariant": "^2.2.2",
     "marked": "^0.7.0",
     "react-avatar-editor": "^10.3.0",

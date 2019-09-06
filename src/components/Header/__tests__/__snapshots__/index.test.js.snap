@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render Chinese characters correctly 1`] = `
+<header
+  class="true-header true-header--white"
+>
+  <ul
+    class="true-header__bars"
+  >
+    <li
+      class="true-header__bars-tool"
+    >
+      <menu
+        class="true-header__bars-tool-item"
+      >
+        <li
+          class="true-header__bars-tool-item-icon"
+        >
+          <img
+            alt="icon"
+            height="40"
+            width="40"
+          />
+        </li>
+        <li
+          class="true-header__bars-tool-item-title"
+        >
+          <label>
+            测试
+          </label>
+        </li>
+      </menu>
+    </li>
+  </ul>
+</header>
+`;
+
+exports[`Header should render correctly 1`] = `
+<header
+  class="true-header true-header--white"
+>
+  <ul
+    class="true-header__bars"
+  >
+    <li
+      class="true-header__bars-tool"
+    >
+      <menu
+        class="true-header__bars-tool-item"
+      >
+        <li
+          class="true-header__bars-tool-item-icon"
+        >
+          <img
+            alt="icon"
+            height="40"
+            width="40"
+          />
+        </li>
+        <li
+          class="true-header__bars-tool-item-title"
+        >
+          <label>
+            Header
+          </label>
+        </li>
+      </menu>
+    </li>
+  </ul>
+</header>
+`;

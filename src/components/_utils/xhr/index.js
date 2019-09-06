@@ -69,7 +69,9 @@ function xhr (option) {
     if (request.readyState === 4) {
       if (request.status.toString().slice(0, 1) === '2') {
         let response = request.responseText
-        if (request.getResponseHeader('Content-Type').includes('application/json')) {
+        if (
+          request.getResponseHeader('Content-Type').includes('application/json')
+        ) {
           response = JSON.parse(response)
         }
 
@@ -95,8 +97,8 @@ function xhr (option) {
          * @description 全局成功回调，在 dataFilter 后执行，此方法会覆盖单独的 success
          * 方法，如果需要可手动调用
          * ```js
-         * import xhr from 'earth-ui/lib/xhr'
-         * import notification from 'earth-ui/lib/notification'
+         * import xhr from 'earth-ui/lib/_utils/xhr'
+         * import { notification } from 'earth-ui'
          *
          * xhr.success = (res, option) => {
          *   if (typeof res !== 'object') {
@@ -139,7 +141,8 @@ function xhr (option) {
 
   let sendData = option.data
 
-  const isObject = obj => Object.prototype.toString.call(obj) === '[object Object]'
+  const isObject = obj =>
+    Object.prototype.toString.call(obj) === '[object Object]'
   const isArray = arr => Array.isArray(arr)
 
   let sendDataStr = ''
@@ -155,17 +158,23 @@ function xhr (option) {
 
   const link = option.url.includes('?') ? '&' : '?'
 
-  request.open(option.type, option.url + (sendDataStr && link + sendDataStr), option.hasOwnProperty('async') ? option.async : true)
+  request.open(
+    option.type,
+    option.url + (sendDataStr && link + sendDataStr),
+    option.hasOwnProperty('async') ? option.async : true
+  )
 
   if (!['get', 'GET'].includes(option.type) && isObject(sendData)) {
     sendData = Object.assign({}, sendData)
-    sendData = Object.keys(sendData).map(key => {
-      let value = sendData[key]
-      if (isArray(value) || isObject(value)) {
-        value = JSON.stringify(value)
-      }
-      return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-    }).join('&')
+    sendData = Object.keys(sendData)
+      .map(key => {
+        let value = sendData[key]
+        if (isArray(value) || isObject(value)) {
+          value = JSON.stringify(value)
+        }
+        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      })
+      .join('&')
 
     request.setRequestHeader(
       'Content-Type',

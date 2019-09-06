@@ -1,7 +1,5 @@
-import Nav from './Nav'
-import SubNav from './SubNav'
-import NavItemGroup from './NavItemGroup'
-import NavItem from './NavItem'
 import './index.less'
-
-export { Nav, SubNav, NavItemGroup, NavItem }
+export { default as Nav } from './Nav'
+export { default as SubNav } from './SubNav'
+export { default as NavItemGroup } from './NavItemGroup'
+export { default as NavItem } from './NavItem'
