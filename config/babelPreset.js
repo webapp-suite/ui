@@ -1,5 +1,5 @@
-const BABEL_ENV = process.env.BABEL_ENV
-const modules = BABEL_ENV === undefined ? 'auto' : BABEL_ENV
+const BABEL_MODULES = process.env.BABEL_MODULES
+const modules = BABEL_MODULES === undefined ? 'auto' : BABEL_MODULES
 
 module.exports = () => ({
   presets: [

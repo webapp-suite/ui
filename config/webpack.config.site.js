@@ -20,8 +20,8 @@ const config = {
   },
   output: {
     path: outputPath,
-    filename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
-    chunkFilename: '[name]' + (isProduction ? '.[hash]' : '') + '.js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/dist/'
   },
   mode: process.env.NODE_ENV,
@@ -155,13 +155,8 @@ if (!isProduction) {
 config.plugins.push({
   apply: compiler => {
     compiler.hooks.done.tap('ChangeHtmlScript', statsData => {
-      const stats = statsData.toJson()
       let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
-      const distPath =
-        config.output.publicPath +
-        'site.' +
-        (isProduction ? stats.hash + '.' : '') +
-        'js'
+      const distPath = config.output.publicPath + 'site.js'
       html = html.replace(
         /(<script src=").*?dist.*?(")/,
         '$1' + distPath + '$2'

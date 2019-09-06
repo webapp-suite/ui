@@ -10,7 +10,7 @@ console.log('\nBuilding ES modules ...')
 exec(
   'rimraf es && babel src/components -d es --ignore "src/**/__tests__" && gulp trim:es --gulpfile config/gulpfile.js',
   {
-    BABEL_ENV: false,
+    BABEL_MODULES: false,
     NODE_ENV: 'production'
   }
 )
@@ -19,13 +19,13 @@ console.log('\nBuilding CommonJS modules ...')
 exec(
   'rimraf lib && babel src/components -d lib --ignore "src/**/__tests__" && gulp trim:lib --gulpfile config/gulpfile.js',
   {
-    BABEL_ENV: 'cjs',
+    BABEL_MODULES: 'commonjs',
     NODE_ENV: 'production'
   }
 )
 
 console.log('\nBuilding UMD min files ...')
 exec('rimraf dist && webpack --progress --config config/webpack.config.js', {
-  BABEL_ENV: 'cjs',
+  BABEL_MODULES: 'commonjs',
   NODE_ENV: 'production'
 })
