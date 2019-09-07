@@ -1,8 +1,8 @@
 /**
- * @title 基本用法
- * @desc 描述
+ * @title Basic Usage
+ * @desc Description
  */
-import <%= name %> from 'earth-ui/lib/<%= name %>'
+import { <%= name %> } from 'earth-ui'
 
 const <%= name %>Basic = () => {
   return (
