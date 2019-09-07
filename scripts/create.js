@@ -44,10 +44,10 @@ if (name) {
 
   try {
     fs.appendFileSync(`${componentDir}/index.js`, `export { default as ${name} } from './${name}'\n`)
-    console.log('Updated component/index.js')
+    console.log('Updated components/index.js')
   } catch (err) {
     console.log(chalk.red(
-      'Errors occur when update component/index.js'
+      'Errors occur when update components/index.js'
     ))
   }
 
