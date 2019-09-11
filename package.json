@@ -40,7 +40,7 @@
     "dev": "NODE_ENV=development node-dev site/server.js",
     "****** BUILD *****": "",
     "build": "node scripts/build.js",
-    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config config/webpack.config.site.js ",
+    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
     "****** RELEASE *****": "",
     "release": "npm run build && standard-version",
     "gh-pages": "npm run build:site && node scripts/deploy.js",
