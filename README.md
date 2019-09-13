@@ -17,7 +17,8 @@
 [![Codecov][codecov-image]][codecov-url]
 [![Npm Version][npm-version-image]][npm-version-url]
 [![Downloads Per Month][npm-downloads-image]][npm-downloads-url]
-[![Dependencies][dependencies-image]][dependencies-url]  
+[![Dependencies][dependencies-image]][dependencies-url] [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcosmos-x%2Fearth-ui.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcosmos-x%2Fearth-ui?ref=badge_shield)
+ 
 [![Open Issues][open-issues-image]][open-issues-url]
 [![Open PRs][open-prs-image]][open-prs-url]
 [![Contributors][contributors-image]][contributors-url]
@@ -112,3 +113,6 @@ MIT © [Kimi Gao](https://github.com/muwenzi)
 [changelog-url]: https://github.com/cosmos-x/earth-ui/blob/master/CHANGELOG.md
 [contributing-url]: https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md
 [slack-url]: https://g-explorer.slack.com
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcosmos-x%2Fearth-ui.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcosmos-x%2Fearth-ui?ref=badge_large)
