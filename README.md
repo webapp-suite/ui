@@ -97,7 +97,7 @@ We use [GitHub Releases][github-release-url] to manage our releases, including t
 
 [![FOSSA Status][fossa-status-image]][fossa-status-url]
 
-All files on the Earth UI github repository are subject to the [MIT license][license-scan-url]. Please read the [LICENSE][license-url] file at the root of the project.
+All files on the Earth UI github repository are subject to the [MIT][license-url] license.
 
 [travis-image]: https://badgen.net/travis/cosmos-x/earth-ui?icon=travis&label=build
 [codecov-image]: https://badgen.net/codecov/c/github/cosmos-x/earth-ui/?icon=codecov
