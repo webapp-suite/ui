@@ -1,14 +1,20 @@
 language: node_js
 node_js:
-  - "12.8.0"
+  - "12.10.0"
 cache:
   directories:
     - "node_modules"
+before_script:
+  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 script:
   - npm test
   - npm run build
   - npm run build:site
+  - fossa init
+  - fossa analyze
 after_success:
   - npm run report-coverage
+  - fossa test
 notifications:
   slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
+  webhooks: https://app.fossa.io/hooks/travisci
