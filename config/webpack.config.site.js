@@ -1,4 +1,3 @@
-const fs = require('fs')
 const webpack = require('webpack')
 const path = require('path')
 const rimraf = require('rimraf')
@@ -24,7 +23,7 @@ const config = {
     chunkFilename: '[name].js',
     publicPath: '/dist/'
   },
-  mode: process.env.NODE_ENV,
+  mode: 'development',
   module: {
     rules: [
       {
@@ -150,20 +149,5 @@ if (!isProduction) {
     new FriendlyErrorsWebpackPlugin()
   )
 }
-
-// Generate index.html in 'site' dir
-config.plugins.push({
-  apply: compiler => {
-    compiler.hooks.done.tap('ChangeHtmlScript', statsData => {
-      let html = fs.readFileSync(`${sitePath}/index.html`, 'utf8')
-      const distPath = config.output.publicPath + 'site.js'
-      html = html.replace(
-        /(<script src=").*?dist.*?(")/,
-        '$1' + distPath + '$2'
-      )
-      fs.writeFileSync(path.join(`${sitePath}/index.html`), html)
-    })
-  }
-})
 
 module.exports = config
