@@ -14,7 +14,5 @@ script:
   - fossa analyze
 after_success:
   - npm run report-coverage
-  - fossa test
 notifications:
   slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
-  webhooks: https://app.fossa.io/hooks/travisci
