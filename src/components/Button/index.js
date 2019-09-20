@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import omit from '../_utils/omit'
 import Icon from '../Icon'
 import './index.less'
 
@@ -25,10 +24,6 @@ class Button extends React.Component {
     }, 0)
   }
 
-  handleClick = e => {
-    this.props.loading ? e.preventDefault() : this.props.onClick(e)
-  }
-
   render () {
     const {
       children,
@@ -40,9 +35,9 @@ class Button extends React.Component {
       icon,
       autoFocus,
       focus,
+      disabled,
       ...other
     } = this.props
-    const otherProps = omit(other, ['onClick'])
     const classNames = cx(
       `${prefixCls}-button`,
       {
@@ -61,7 +56,8 @@ class Button extends React.Component {
         className={classNames}
         ref={this.button}
         onClick={this.handleClick}
-        {...otherProps}
+        disabled={disabled || loading}
+        {...other}
       >
         {icon && <Icon type={icon} />}
         {children && <span>{children}</span>}
@@ -73,17 +69,9 @@ class Button extends React.Component {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  onClick: PropTypes.func,
 
   // 按钮类型
-  type: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'tertiary',
-    'accept',
-    'warning',
-    'danger'
-  ]),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'accept', 'warning', 'danger']),
 
   // 是否为微型按钮
   micro: PropTypes.bool,
@@ -91,8 +79,11 @@ Button.propTypes = {
   // 是否为block按钮
   block: PropTypes.bool,
 
-  // initialize a spinner
+  // Initialize a spinner
   loading: PropTypes.bool,
+
+  // Disabled button
+  disabled: PropTypes.bool,
 
   // 按钮图标
   icon: PropTypes.string,
