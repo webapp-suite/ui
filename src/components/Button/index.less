@@ -3,6 +3,15 @@
 
 @outset: -1.2px;
 
+@keyframes ui-button-loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: @ui-unit-double @ui-unit-double;
+  }
+}
+
 .mixin-micro-button() {
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
@@ -196,6 +205,41 @@
     border-radius: 50%;
     &.@{prefix-cls}-button_micro {
       width: @ui-unit;
+    }
+  }
+
+  &--loading {
+    &,
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      cursor: default;
+    }
+    & > * {
+      visibility: hidden;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      visibility: visible;
+      left: 0;
+      top: @ui-unit-half;
+      right: 0;
+      bottom: @ui-unit-half;
+      background-image: linear-gradient(
+              -45deg,
+              hsla(198, 20%, 83%, 0.65) 25%,
+              hsla(200, 21%, 92%, 0.65) 25%,
+              hsla(200, 21%, 92%, 0.65) 50%,
+              hsla(198, 20%, 83%, 0.65) 50%,
+              hsla(198, 20%, 83%, 0.65) 75%,
+              hsla(200, 21%, 92%, 0.65) 75%,
+              hsla(200, 21%, 92%, 0.65)
+      );
+      background-size: @ui-unit-double @ui-unit-double;
+      border-radius: inherit;
+      animation: ui-button-loading 1s linear infinite;
     }
   }
 }

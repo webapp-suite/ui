@@ -87,6 +87,21 @@ const ButtonIcon = () => {
 }
 
 /**
+ * @title Loading Button
+ * @desc Assign the `loading` attribute to Button to initialize a spinner.
+ */
+import { Button } from 'earth-ui';
+import { useState, useEffect } from 'react';
+
+const LoadingButton = () => {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 5000);
+    })
+    return <Button type="primary" loading={loading} onClick={() => {console.log('ok');setLoading(true);}}>Show Loading</Button>;
+}
+
+/**
  * @title 不可用的
  */
 import { Button } from 'earth-ui'

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import omit from '../_utils/omit'
 import Icon from '../Icon'
 import './index.less'
 
@@ -9,6 +10,7 @@ class Button extends React.Component {
     super(props)
     this.button = React.createRef()
   }
+
   componentDidMount () {
     this.props.autoFocus && this.focus()
   }
@@ -22,13 +24,30 @@ class Button extends React.Component {
       this.button.current.focus()
     }, 0)
   }
+
+  handleClick = e => {
+    this.props.loading ? e.preventDefault() : this.props.onClick(e)
+  }
+
   render () {
-    const { children, className, type, circle, micro, block, icon, autoFocus, focus, ...other } = this.props
+    const {
+      children,
+      className,
+      type,
+      loading,
+      micro,
+      block,
+      icon,
+      autoFocus,
+      focus,
+      ...other
+    } = this.props
+    const otherProps = omit(other, ['onClick'])
     const classNames = cx(
       `${prefixCls}-button`,
       {
         [`${prefixCls}-button_${type}`]: type,
-        [`${prefixCls}-button_circle`]: circle,
+        [`${prefixCls}-button--loading`]: loading,
         [`${prefixCls}-button_micro`]: micro,
         [`${prefixCls}-button_block`]: block,
         [`${prefixCls}-button_nofocus`]: !focus && !autoFocus,
@@ -37,7 +56,13 @@ class Button extends React.Component {
       className
     )
     return (
-      <button type="button" className={classNames} ref={this.button} {...other}>
+      <button
+        type="button"
+        className={classNames}
+        ref={this.button}
+        onClick={this.handleClick}
+        {...otherProps}
+      >
         {icon && <Icon type={icon} />}
         {children && <span>{children}</span>}
       </button>
@@ -48,15 +73,26 @@ class Button extends React.Component {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 
   // 按钮类型
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'accept', 'warning', 'danger']),
+  type: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'tertiary',
+    'accept',
+    'warning',
+    'danger'
+  ]),
 
   // 是否为微型按钮
   micro: PropTypes.bool,
 
   // 是否为block按钮
   block: PropTypes.bool,
+
+  // initialize a spinner
+  loading: PropTypes.bool,
 
   // 按钮图标
   icon: PropTypes.string,
