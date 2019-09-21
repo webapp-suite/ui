@@ -55,7 +55,6 @@ class Button extends React.Component {
         type="button"
         className={classNames}
         ref={this.button}
-        onClick={this.handleClick}
         disabled={disabled || loading}
         {...other}
       >
