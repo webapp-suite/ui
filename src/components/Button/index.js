@@ -9,6 +9,7 @@ class Button extends React.Component {
     super(props)
     this.button = React.createRef()
   }
+
   componentDidMount () {
     this.props.autoFocus && this.focus()
   }
@@ -22,13 +23,26 @@ class Button extends React.Component {
       this.button.current.focus()
     }, 0)
   }
+
   render () {
-    const { children, className, type, circle, micro, block, icon, autoFocus, focus, ...other } = this.props
+    const {
+      children,
+      className,
+      type,
+      loading,
+      micro,
+      block,
+      icon,
+      autoFocus,
+      focus,
+      disabled,
+      ...other
+    } = this.props
     const classNames = cx(
       `${prefixCls}-button`,
       {
         [`${prefixCls}-button_${type}`]: type,
-        [`${prefixCls}-button_circle`]: circle,
+        [`${prefixCls}-button--loading`]: loading,
         [`${prefixCls}-button_micro`]: micro,
         [`${prefixCls}-button_block`]: block,
         [`${prefixCls}-button_nofocus`]: !focus && !autoFocus,
@@ -37,7 +51,13 @@ class Button extends React.Component {
       className
     )
     return (
-      <button type="button" className={classNames} ref={this.button} {...other}>
+      <button
+        type="button"
+        className={classNames}
+        ref={this.button}
+        disabled={disabled || loading}
+        {...other}
+      >
         {icon && <Icon type={icon} />}
         {children && <span>{children}</span>}
       </button>
@@ -57,6 +77,12 @@ Button.propTypes = {
 
   // 是否为block按钮
   block: PropTypes.bool,
+
+  // Initialize a spinner
+  loading: PropTypes.bool,
+
+  // Disabled button
+  disabled: PropTypes.bool,
 
   // 按钮图标
   icon: PropTypes.string,

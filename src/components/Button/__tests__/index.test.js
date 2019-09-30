@@ -54,4 +54,22 @@ describe('Button', () => {
     })
     wrapper.update()
   })
+  it('should render loading button correctly', () => {
+    const wrapper = mount(
+      <Button type="primary" loading>
+        Show Loading
+      </Button>
+    )
+    expect(wrapper.find('button').hasClass('true-button--loading')).toBe(true)
+  })
+  it('should not trigger event function when button is loading', () => {
+    const handleClick = jest.fn()
+    const wrapper = mount(
+      <Button onClick={handleClick} loading>
+        OK
+      </Button>
+    )
+    wrapper.simulate('click')
+    expect(handleClick).not.toBeCalled()
+  })
 })

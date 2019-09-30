@@ -3,6 +3,12 @@
 
 @outset: -1.2px;
 
+.ui-mixin-keyframes(
+  move-progress-bar,
+  {background-position: 0 0;},
+  {background-position: @ui-unit-double @ui-unit-double;}
+);
+
 .mixin-micro-button() {
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
@@ -24,11 +30,6 @@
     font-size: @ui-fontsize-medium;
     &:before {
       font-size: @ui-fontsize-medium;
-    }
-  }
-  &.ui-is-loading {
-    &:after {
-      margin: @ui-unit-half 0;
     }
   }
 }
@@ -178,7 +179,7 @@
   }
 
   &_micro {
-    .mixin-micro-button()
+    .mixin-micro-button();
   }
 
   &_block {
@@ -196,6 +197,36 @@
     border-radius: 50%;
     &.@{prefix-cls}-button_micro {
       width: @ui-unit;
+    }
+  }
+  // Loading bar...............................................................
+  &--loading {
+    &,
+    &:hover {
+      background-color: transparent !important;
+      border-color: transparent !important;
+      cursor: default !important;
+    }
+    & > * {
+      visibility: hidden;
+    }
+    &:after {
+      content: '';
+      background-size: @ui-unit-double @ui-unit-double;
+      border-radius: inherit;
+      visibility: visible;
+      .ui-mixin-maximize();
+      .ui-mixin-progress-bar-gradient(
+        fade(@ui-color-gray-light, 65%),
+        fade(@ui-color-gray-lighter, 65%)
+      );
+      .ui-mixin-animation(move-progress-bar, 1s, linear, infinite);
+      margin: @ui-unit-half;
+    }
+    &.@{prefix-cls}-button_micro {
+      &:after {
+        zoom: .36;
+      }
     }
   }
 }

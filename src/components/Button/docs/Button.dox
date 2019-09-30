@@ -87,6 +87,23 @@ const ButtonIcon = () => {
 }
 
 /**
+ * @title Loading Button
+ * @desc Assign the `loading` attribute to Button to initialize a spinner. Click event will be disabled, open the browser console you will see more logs.
+ */
+import { Button } from 'earth-ui';
+import { useState } from 'react';
+
+const LoadingButton = () => {
+    const [loading, setLoading] = useState(false);
+    const handleClick = () => {
+        console.log('clicked!');
+        setLoading(true);
+        setTimeout(() => setLoading(false), 5000);
+    }
+    return <Button type="primary" loading={loading} onClick={handleClick}>Show Loading</Button>;
+}
+
+/**
  * @title 不可用的
  */
 import { Button } from 'earth-ui'
