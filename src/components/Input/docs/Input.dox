@@ -1,31 +1,64 @@
-@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+@summary > Input is a controlled component, it **always shows React binding value**. Under normal circumstances, input event should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
 
 /**
- * @title 尺寸
+ * @title Normal / Readonly / Disabled
+ */
+import { Input } from 'earth-ui'
+
+const InputNormal = () => {
+  return (
+    <div>
+      <Input placeholder="Please input text here" width={460} />
+      <br/>
+      <Input value="Readonly text" width={460} readonly />
+      <br/>
+      <Input value="Disabled Text" width={460} disabled />
+    </div>
+  )
+}
+
+/**
+ * @title Icon
+ */
+import { Input } from 'earth-ui'
+import { Icon } from 'earth-ui'
+
+const InputIcon = () => {
+  return (
+    <div>
+      <Input prefix={<Icon type="calendar"/>} placeholder="Please input text" width={460} />
+      <br/>
+      <Input suffix={<Icon type="calendar"/>} placeholder="Please input text" width={460} />
+    </div>
+  )
+}
+
+/**
+ * @title Size
  */
 import { Input } from 'earth-ui'
 
 const InputSize = () => {
   return (
     <div>
-      <Input placeholder="小尺寸" size="sm" width={460} />
-      <br/><br/>
-      <Input placeholder="默认尺寸" width={460} />
-      <br/><br/>
-      <Input placeholder="大尺寸" size="lg" width={460} />
+      <Input suffix={<Icon type="calendar"/>} placeholder="Small" size="sm" width={460} />
+      <br/>
+      <Input suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={460} />
+      <br/>
+      <Input suffix={<Icon type="calendar"/>} placeholder="Large" size="lg" width={460} />
     </div>
   )
 }
 
 /**
- * @title 不可用
+ * @title Clearable
  */
 import { Input } from 'earth-ui'
 
-const InputDisabled = () => {
+const InputClearable = () => {
   return (
     <div>
-      <Input placeholder="不可用" width={460} disabled />
+      <Input placeholder="Disabled Text" width={460} disabled />
     </div>
   )
 }

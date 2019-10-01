@@ -154,20 +154,24 @@
     "defaultOpen":false,
     "components":[
       {
-        "name":"Form",
-        "cn":"表单"
+        "name":"Switch",
+        "cn":"开关"
       },
       {
-        "name":"Menu",
-        "cn":"菜单"
+        "name":"Input",
+        "cn":"输入框"
       },
       {
         "name":"Dropdown",
         "cn":"下拉菜单"
       },
       {
-        "name":"Switch",
-        "cn":"开关"
+        "name":"Form",
+        "cn":"表单"
+      },
+      {
+        "name":"Menu",
+        "cn":"菜单"
       },
       {
         "name":"DatePicker",
