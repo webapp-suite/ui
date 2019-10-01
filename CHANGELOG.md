@@ -1,6 +1,22 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.6.0](https://github.com/cosmos-x/earth-ui/compare/v0.5.0...v0.6.0) (2019-10-01)
+
+
+### Features
+
+* **Button:** add loading attribute to button to initialize a spinner ([#76](https://github.com/cosmos-x/earth-ui/issues/76)) ([221b0c5](https://github.com/cosmos-x/earth-ui/commit/221b0c5)), closes [#61](https://github.com/cosmos-x/earth-ui/issues/61)
+
+### Notable changes
+
+* **webpack:**
+  * use latest stable webpack@4 ([#56](https://github.com/cosmos-x/earth-ui/pull/56))
+  * support webpack tree shaking ([#63](https://github.com/cosmos-x/earth-ui/pull/63))
+* **deps:**
+  * classlist: update to 2.0.0 ([#69](https://github.com/cosmos-x/earth-ui/pull/69))
+  * react-avatar-editor: update to 11.0.7 ([#69](https://github.com/cosmos-x/earth-ui/pull/69))
 
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/cosmos-x/earth-ui/compare/v0.4.1...v0.5.0) (2019-08-11)
