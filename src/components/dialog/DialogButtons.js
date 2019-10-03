@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Button from '../Button'
-import FocusTrap from '../_utils/FocusTrap'
 import { typeMap } from './config'
 
 class DialogButtons extends React.Component {
   static contextTypes = {
     dialog: PropTypes.object
   }
+
   static propTypes = {
     className: PropTypes.string,
     acceptLabel: PropTypes.string,
@@ -22,11 +22,11 @@ class DialogButtons extends React.Component {
       'info',
       'error'
     ]),
-    focused: PropTypes.oneOf(['accept', 'cancel', null]),
     onClose: PropTypes.func,
     onAccept: PropTypes.func,
     onCancel: PropTypes.func
   }
+
   constructor (props) {
     super()
     this.state = {
@@ -43,24 +43,25 @@ class DialogButtons extends React.Component {
     this.props?.onClose?.()
     this.setState({ open: false })
   }
+
   handleAcceptClick = () => {
     this.handleClose()
     setTimeout(() => this.props?.onAccept?.(), 400)
   }
+
   handleCancelClick = () => {
     this.handleClose()
     setTimeout(() => this.props?.onCancel?.(), 400)
   }
-  renderButtons = props => {
-    const { className, acceptLabel, cancelLabel, focused, type } = props
+
+  render () {
+    const { className, acceptLabel, cancelLabel, type } = this.props
     return (
       <div className={cx(`${prefixCls}-dialog__main-buttons`, className)}>
         {!!acceptLabel && (
           <Button
             type={typeMap[type]?.btnType || 'secondary'}
             onClick={this.handleAcceptClick}
-            autoFocus={focused === 'accept'}
-            focus
             block
           >
             {acceptLabel}
@@ -70,21 +71,12 @@ class DialogButtons extends React.Component {
           <Button
             type="secondary"
             onClick={this.handleCancelClick}
-            autoFocus={focused === 'cancel'}
-            focus
             block
           >
             {cancelLabel}
           </Button>
         )}
       </div>
-    )
-  }
-  render () {
-    return this.state.open ? (
-      <FocusTrap>{this.renderButtons(this.props)}</FocusTrap>
-    ) : (
-      this.renderButtons({ ...this.props, focused: null })
     )
   }
 }

@@ -82,7 +82,6 @@
   "dependencies": {
     "classlist": "^2.0.0",
     "classnames": "^2.2.5",
-    "focus-trap": "^5.0.2",
     "invariant": "^2.2.2",
     "marked": "^0.7.0",
     "react-avatar-editor": "^11.0.7",

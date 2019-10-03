@@ -115,15 +115,15 @@ class StackingAsides extends Component {
           OPEN STACKING ASIDES
         </Button>
         <Aside isOpen={this.state.isOpen1} onClose={()=>this.closeAside(1)} title="Aside One">
-          <Button ghost type="primary" onClick={()=>this.openAside(2)} block autoFocus>
+          <Button ghost type="primary" onClick={()=>this.openAside(2)} block>
             OPEN ASIDE TWO
           </Button>
           <Aside isOpen={this.state.isOpen2} onClose={()=>this.closeAside(2)} title="Aside Two">
-            <Button ghost type="primary" onClick={()=>this.openAside(3)} block autoFocus>
+            <Button ghost type="primary" onClick={()=>this.openAside(3)} block>
               OPEN ASIDE THREE
             </Button>
             <Aside isOpen={this.state.isOpen3} onClose={()=>this.closeAside(3)} title="Aside Three">
-              <Button type="primary" onClick={()=>this.closeAside(1)} block autoFocus>
+              <Button type="primary" onClick={()=>this.closeAside(1)} block>
                 CLOSE ALL ASIDES
               </Button>
             </Aside>

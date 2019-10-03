@@ -4,42 +4,20 @@ import cx from 'classnames'
 import Icon from '../Icon'
 import './index.less'
 
-class Button extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.button = React.createRef()
-  // }
-
-  // componentDidMount () {
-  //   this.props.autoFocus && this.focus()
-  // }
-  //
-  // componentDidUpdate () {
-  //   this.props.autoFocus && this.focus()
-  // }
-
-  // focus = () => {
-  //   window.setTimeout(() => {
-  //     this.button.current.focus()
-  //   }, 0)
-  // }
-
-  render () {
-    const {
-      children,
-      className,
-      type,
-      loading,
-      size,
-      block,
-      ghost,
-      icon,
-      autoFocus,
-      focus,
-      disabled,
-      ...other
-    } = this.props
-    const classNames = cx(
+function Button (props) {
+  const {
+    children,
+    className,
+    type,
+    loading,
+    size,
+    block,
+    ghost,
+    icon,
+    disabled,
+    ...other
+  } = props
+  const classNames = cx(
       `${prefixCls}-button`,
       {
         [`${prefixCls}-button_${type}`]: type,
@@ -47,40 +25,36 @@ class Button extends React.Component {
         [`${prefixCls}-button--ghost`]: ghost,
         [`${prefixCls}-button--loading`]: loading,
         [`${prefixCls}-button_block`]: block,
-        // [`${prefixCls}-button_nofocus`]: !focus && !autoFocus,
         [`${prefixCls}-button__icon-only`]: icon && !children
       },
       className
-    )
-    if (icon && children) {
-      return (
-        <button
-          type="button"
-          className={classNames}
-          ref={this.button}
-          disabled={disabled || loading}
-          {...other}
-        >
-          <div>
-            <Icon type={icon} />
-            <span>{children}</span>
-          </div>
-        </button>
-      )
-    }
+  )
+  if (icon && children) {
     return (
       <button
         type="button"
         className={classNames}
-        ref={this.button}
         disabled={disabled || loading}
         {...other}
       >
-        {icon && <Icon type={icon} />}
-        {children && <span>{children}</span>}
+        <div>
+          <Icon type={icon} />
+          <span>{children}</span>
+        </div>
       </button>
     )
   }
+  return (
+    <button
+      type="button"
+      className={classNames}
+      disabled={disabled || loading}
+      {...other}
+    >
+      {icon && <Icon type={icon} />}
+      {children && <span>{children}</span>}
+    </button>
+  )
 }
 
 Button.propTypes = {
@@ -106,19 +80,12 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 
   // 按钮图标
-  icon: PropTypes.string,
-
-  // 按钮是否带 focus 的效果，默认 `false`
-  focus: PropTypes.bool,
-
-  // 按钮是否自动为 focus 状态，默认 `false`
-  autoFocus: PropTypes.bool
+  icon: PropTypes.string
 }
 
 Button.defaultProps = {
   type: 'secondary',
-  // focus: true,
-  autoFocus: false
+  size: 'md'
 }
 
 export default Button

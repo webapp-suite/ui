@@ -1,8 +1,6 @@
 @import '~ui-variables';
 @import '~ui-mixins';
 
-@outset: -1.2px;
-
 .ui-mixin-keyframes(
   move-progress-bar,
   {background-position: 0 0;},
@@ -50,15 +48,10 @@
   &_accept,
   &_warning,
   &_danger {
-    min-width: 82px;
-    padding: @ui-unit-half - 1px;
-    border-radius: @ui-unit;
-
     &:hover span {
       text-decoration: none;
     }
-
-    & span {
+    span {
       .ui-mixin-button-text();
       .ui-mixin-text-ellipsis();
       padding: 0 @ui-unit-half;
@@ -66,12 +59,6 @@
       word-wrap: normal;
       overflow: hidden;
     }
-    //&:before {
-    //  content: '';
-    //  .ui-mixin-maximize(@outset, @outset, @outset, @outset);
-    //  border-radius: @ui-unit + 2.5px;
-    //  border: 2.75px solid transparent;
-    //}
   }
 
   &_primary {
@@ -109,6 +96,7 @@
     //  border-color: @ui-color-green-darker;
     //}
   }
+
   &_warning {
     color: @ui-color-white;
     border: 1px solid @ui-color-orange;
@@ -257,7 +245,6 @@
 // Size.........................................................................
 
 .@{prefix-cls}-button--sm {
-  &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
   &.@{prefix-cls}-button_secondary,
   &.@{prefix-cls}-button_accept,
@@ -280,9 +267,20 @@
   }
 }
 
+.@{prefix-cls}-button--md {
+  &.@{prefix-cls}-button_primary,
+  &.@{prefix-cls}-button_secondary,
+  &.@{prefix-cls}-button_accept,
+  &.@{prefix-cls}-button_warning,
+  &.@{prefix-cls}-button_danger {
+    min-width: 82px;
+    padding: @ui-unit-half - 1px;
+    border-radius: @ui-unit;
+  }
+}
+
 .@{prefix-cls}-button--lg {
   margin-right: @ui-unit;
-  &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
   &.@{prefix-cls}-button_secondary,
   &.@{prefix-cls}-button_accept,
@@ -365,14 +363,20 @@
 // Icon Button..................................................................
 
 .@{prefix-cls}-button__icon-only {
-  width: @ui-unit-double;
-  height: @ui-unit-double;
-  min-width: @ui-unit;
-  border-radius: 50%;
+  &.@{prefix-cls}-button_primary,
+  &.@{prefix-cls}-button_secondary,
+  &.@{prefix-cls}-button_accept,
+  &.@{prefix-cls}-button_warning,
+  &.@{prefix-cls}-button_danger {
+    width: @ui-unit-double;
+    height: @ui-unit-double;
+    min-width: @ui-unit;
+    border-radius: 50%;
+  }
   &.@{prefix-cls}-button--sm {
     width: @ui-unit;
   }
-  & i.@{prefix-cls}-icon {
+  i.@{prefix-cls}-icon {
     .ui-mixin-reduce-l(0);
     font-size: @ui-fontsize-icon;
   }
