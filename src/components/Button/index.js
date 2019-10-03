@@ -5,24 +5,24 @@ import Icon from '../Icon'
 import './index.less'
 
 class Button extends React.Component {
-  constructor (props) {
-    super(props)
-    this.button = React.createRef()
-  }
+  // constructor (props) {
+  //   super(props)
+  //   this.button = React.createRef()
+  // }
 
-  componentDidMount () {
-    this.props.autoFocus && this.focus()
-  }
+  // componentDidMount () {
+  //   this.props.autoFocus && this.focus()
+  // }
+  //
+  // componentDidUpdate () {
+  //   this.props.autoFocus && this.focus()
+  // }
 
-  componentDidUpdate () {
-    this.props.autoFocus && this.focus()
-  }
-
-  focus = () => {
-    window.setTimeout(() => {
-      this.button.current.focus()
-    }, 0)
-  }
+  // focus = () => {
+  //   window.setTimeout(() => {
+  //     this.button.current.focus()
+  //   }, 0)
+  // }
 
   render () {
     const {
@@ -30,8 +30,9 @@ class Button extends React.Component {
       className,
       type,
       loading,
-      micro,
+      size,
       block,
+      ghost,
       icon,
       autoFocus,
       focus,
@@ -42,14 +43,31 @@ class Button extends React.Component {
       `${prefixCls}-button`,
       {
         [`${prefixCls}-button_${type}`]: type,
+        [`${prefixCls}-button--${size}`]: size,
+        [`${prefixCls}-button--ghost`]: ghost,
         [`${prefixCls}-button--loading`]: loading,
-        [`${prefixCls}-button_micro`]: micro,
         [`${prefixCls}-button_block`]: block,
-        [`${prefixCls}-button_nofocus`]: !focus && !autoFocus,
+        // [`${prefixCls}-button_nofocus`]: !focus && !autoFocus,
         [`${prefixCls}-button__icon-only`]: icon && !children
       },
       className
     )
+    if (icon && children) {
+      return (
+        <button
+          type="button"
+          className={classNames}
+          ref={this.button}
+          disabled={disabled || loading}
+          {...other}
+        >
+          <div>
+            <Icon type={icon} />
+            <span>{children}</span>
+          </div>
+        </button>
+      )
+    }
     return (
       <button
         type="button"
@@ -70,10 +88,13 @@ Button.propTypes = {
   className: PropTypes.string,
 
   // 按钮类型
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'accept', 'warning', 'danger']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'accept', 'warning', 'danger', 'link', 'text']),
 
   // 是否为微型按钮
-  micro: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+
+  // 是否为ghost按钮
+  ghost: PropTypes.bool,
 
   // 是否为block按钮
   block: PropTypes.bool,
@@ -95,7 +116,8 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  focus: false,
+  type: 'secondary',
+  // focus: true,
   autoFocus: false
 }
 

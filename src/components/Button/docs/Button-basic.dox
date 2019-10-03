@@ -1,0 +1,130 @@
+/**
+ * @title Type
+ */
+import { Button } from 'earth-ui'
+
+const ButtonType = () => {
+  return (
+    <>
+      <Button type="primary">PRIMARY</Button>
+      <Button type="secondary">SECONDARY</Button>
+      <Button type="accept">ACCEPT</Button>
+      <Button type="warning">WARNING</Button>
+      <Button type="danger">DANGER</Button>
+      <Button type="text">TEXT</Button>
+      <Button type="link">LINK</Button>
+    </>
+  )
+}
+
+/**
+ * @title Ghost
+ */
+import { Button } from 'earth-ui'
+
+const ButtonGhost = () => {
+  return (
+    <>
+      <Button ghost type="primary">PRIMARY</Button>
+      <Button ghost type="secondary">SECONDARY</Button>
+      <Button ghost type="accept">ACCEPT</Button>
+      <Button ghost type="warning">WARNING</Button>
+      <Button ghost type="danger">DANGER</Button>
+      <Button ghost type="text">TEXT</Button>
+      <Button ghost type="link">LINK</Button>
+    </>
+  )
+}
+
+/**
+ * @title Loading Button
+ * @desc Assign the `loading` attribute to Button to initialize a spinner. Click event will be disabled, open the browser console you will see more logs.
+ */
+import { Button } from 'earth-ui';
+import { useState } from 'react';
+
+const LoadingButton = () => {
+    const [loading, setLoading] = useState(false);
+    const handleClick = () => {
+        console.log('clicked!');
+        setLoading(true);
+        setTimeout(() => setLoading(false), 5000);
+    }
+    return <Button type="primary" loading={loading} onClick={handleClick}>SHOW LOADING</Button>;
+}
+
+/**
+ * @title Block Button
+ * @desc block属性将使按钮适合其父宽度
+ */
+import { Button } from 'earth-ui'
+
+const ButtonBlock = () => {
+  return (
+    <>
+      <Button type="primary" block>PRIMARY</Button>
+      <Button type="secondary" block>SECONDARY</Button>
+    </>
+  )
+}
+
+/**
+ * @title Size
+ */
+import { Button } from 'earth-ui'
+
+const ButtonMicro = () => {
+  return (
+    <>
+      <Button type="primary" size="sm">PRIMARY</Button>
+      <Button type="secondary" size="sm">SECONDARY</Button>
+      <br/><br/>
+      <Button type="primary" size="md">PRIMARY</Button>
+      <Button type="secondary" size="md">SECONDARY</Button>
+      <br/><br/>
+      <Button type="primary" size="lg">PRIMARY</Button>
+      <Button type="secondary" size="lg">SECONDARY</Button>
+    </>
+  )
+}
+
+/**
+ * @title 图标按钮
+ * @desc 如果需要自定义图标位置，结合使用 Icon 组件
+ */
+import { Button } from 'earth-ui'
+
+const ButtonIcon = () => {
+  return (
+    <>
+      <Button icon="statuschange" type="primary" />
+      <Button icon="statuschange" type="primary" ghost />
+      <Button icon="statuschange" type="secondary" />
+      <Button icon="statuschange" type="secondary" ghost />
+      <Button icon="activity" type="secondary">DATA ANALYSIS</Button>
+      <Button icon="statuschange" type="text">Refresh</Button>
+    </>
+  )
+}
+
+/**
+ * @title Disabled
+ */
+import { Button } from 'earth-ui'
+
+const ButtonDisabled = () => {
+  return (
+    <>
+      <Button disabled type="primary">PRIMARY</Button>
+      <Button disabled type="secondary">SECONDARY</Button>
+      <Button disabled type="accept">ACCEPT</Button>
+      <Button disabled type="text">TEXT</Button>
+      <Button disabled type="link">LINK</Button>
+      <br/><br/>
+      <Button icon="statuschange" disabled />
+      <Button icon="activity" type="primary" ghost disabled>DATA ANALYSIS</Button>
+    </>
+  )
+}
+
+@component Button

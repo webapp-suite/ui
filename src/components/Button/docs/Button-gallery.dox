@@ -1,0 +1,106 @@
+/**
+ * @title Button Gallery
+ * @renderModel full
+ */
+import { Button } from 'earth-ui'
+
+const ButtonType = () => {
+  return (
+    <div>
+      <div style={{border: '1px solid hsl(198, 20%, 83%, .4)'}}>
+        <div style={{backgroundColor: '#eff3f5', padding: '15px 15px 15px 30px'}}>
+          <strong style={{marginRight: '58px'}}>Type</strong>
+          <Button type="primary">PRIMARY</Button>
+          <Button type="secondary">SECONDARY</Button>
+          <Button type="accept">ACCEPT</Button>
+          <Button type="warning">WARNING</Button>
+          <Button type="danger">DANGER</Button>
+          <Button type="text">TEXT</Button>
+          <Button type="link">LINK</Button>
+        </div>
+        <div style={{backgroundColor: '#eff3f5', padding: '15px 15px 15px 30px'}}>
+          <strong style={{marginRight: '50px'}}>Ghost</strong>
+          <Button ghost type="primary">PRIMARY</Button>
+          <Button ghost type="secondary">SECONDARY</Button>
+          <Button ghost type="accept">ACCEPT</Button>
+          <Button ghost type="warning">WARNING</Button>
+          <Button ghost type="danger">DANGER</Button>
+          <Button ghost type="text">TEXT</Button>
+          <Button ghost type="link">LINK</Button>
+        </div>
+        <div style={{backgroundColor: '#eff3f5', padding: '15px 15px 15px 30px'}}>
+          <strong style={{marginRight: '30px'}}>Disabled</strong>
+          <Button disabled type="primary">PRIMARY</Button>
+          <Button disabled type="secondary">SECONDARY</Button>
+          <Button disabled type="accept">ACCEPT</Button>
+          <Button disabled type="warning">WARNING</Button>
+          <Button disabled type="danger">DANGER</Button>
+          <Button disabled type="text">TEXT</Button>
+          <Button disabled type="link">LINK</Button>
+        </div>
+      </div>
+      <br/>
+      <div style={{backgroundColor: '#fff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '58px'}}>Type</strong>
+        <Button type="primary">PRIMARY</Button>
+        <Button type="secondary">SECONDARY</Button>
+        <Button type="accept">ACCEPT</Button>
+        <Button type="warning">WARNING</Button>
+        <Button type="danger">DANGER</Button>
+        <Button type="text">TEXT</Button>
+        <Button type="link">LINK</Button>
+      </div>
+      <div style={{backgroundColor: '#fff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '50px'}}>Ghost</strong>
+        <Button ghost type="primary">PRIMARY</Button>
+        <Button ghost type="secondary">SECONDARY</Button>
+        <Button ghost type="accept">ACCEPT</Button>
+        <Button ghost type="warning">WARNING</Button>
+        <Button ghost type="danger">DANGER</Button>
+        <Button ghost type="text">TEXT</Button>
+        <Button ghost type="link">LINK</Button>
+      </div>
+      <div style={{backgroundColor: '#fff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '30px'}}>Disabled</strong>
+        <Button disabled type="primary">PRIMARY</Button>
+        <Button disabled type="secondary">SECONDARY</Button>
+        <Button disabled type="accept">ACCEPT</Button>
+        <Button disabled type="warning">WARNING</Button>
+        <Button disabled type="danger">DANGER</Button>
+        <Button disabled type="text">TEXT</Button>
+        <Button disabled type="link">LINK</Button>
+      </div>
+      <br/>
+      <div className={`${prefixCls}-bg-colorful`} style={{backgroundColor: '#00aeff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '58px', color: '#fff'}}>Type</strong>
+        <Button type="primary">PRIMARY</Button>
+        <Button type="secondary">SECONDARY</Button>
+        <Button type="accept">ACCEPT</Button>
+        <Button type="warning">WARNING</Button>
+        <Button type="danger">DANGER</Button>
+        <Button type="text">TEXT</Button>
+        <Button type="link">LINK</Button>
+      </div>
+      <div className={`${prefixCls}-bg-colorful`} style={{backgroundColor: '#00aeff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '50px', color: '#fff'}}>Ghost</strong>
+        <Button ghost type="primary">PRIMARY</Button>
+        <Button ghost type="secondary">SECONDARY</Button>
+        <Button ghost type="accept">ACCEPT</Button>
+        <Button ghost type="warning">WARNING</Button>
+        <Button ghost type="danger">DANGER</Button>
+        <Button ghost type="text">TEXT</Button>
+        <Button ghost type="link">LINK</Button>
+      </div>
+      <div className={`${prefixCls}-bg-colorful`} style={{backgroundColor: '#00aeff', padding: '15px 15px 15px 30px'}}>
+        <strong style={{marginRight: '30px', color: '#fff'}}>Disabled</strong>
+        <Button disabled type="primary">PRIMARY</Button>
+        <Button disabled type="secondary">SECONDARY</Button>
+        <Button disabled type="accept">ACCEPT</Button>
+        <Button disabled type="warning">WARNING</Button>
+        <Button disabled type="danger">DANGER</Button>
+        <Button disabled type="text">TEXT</Button>
+        <Button disabled type="link">LINK</Button>
+      </div>
+    </div>
+  )
+}

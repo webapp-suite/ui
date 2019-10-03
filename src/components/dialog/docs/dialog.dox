@@ -17,7 +17,7 @@ class DialogBasic extends Component {
     })
   }
   render() {
-    return <Button type="secondary" onClick={this.handleClick}>Open Dialog</Button>
+    return <Button type="primary" onClick={this.handleClick} ghost>OPEN DIALOG</Button>
   }
 }
 
@@ -34,10 +34,10 @@ class DialogTypes extends Component {
   render() {
     return (
       <div>
-        <Button type="secondary" onClick={() => this.handleClick('confirm')}>Confirm</Button>
-        <Button type="secondary" onClick={() => this.handleClick('accept')}>Accept</Button>
-        <Button type="secondary" onClick={() => this.handleClick('warning')}>Warning</Button>
-        <Button type="secondary" onClick={() => this.handleClick('danger')}>Danger</Button>
+        <Button type="primary" onClick={() => this.handleClick('confirm')} ghost>CONFIRM</Button>
+        <Button type="primary" onClick={() => this.handleClick('accept')} ghost>ACCEPT</Button>
+        <Button type="primary" onClick={() => this.handleClick('warning')} ghost>WARNING</Button>
+        <Button type="primary" onClick={() => this.handleClick('danger')} ghost>DANGER</Button>
       </div>
     )
   }
@@ -65,7 +65,7 @@ class DialogWarning extends Component {
   render() {
     return (
       <div>
-        <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+        <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
       </div>
     )
   }
@@ -80,10 +80,10 @@ import { dialog, Button } from 'earth-ui'
 
 class DialogButtonsLabel extends Component {
   handleClick = () => {
-    ;dialog.confirm('Will you try?', 'Join Now', 'Not Now');
+    ;dialog.confirm('Will you try?', 'JOIN NOW', 'NOT NOW');
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -97,12 +97,12 @@ import { dialog, Button } from 'earth-ui'
 
 class DialogButtonsType extends Component {
   handleClick = () => {
-    ;dialog.confirm('Will you try?', 'Join Now', {
+    ;dialog.confirm('Will you try?', 'JOIN NOW', {
       focused: 'accept'
     });
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -115,12 +115,12 @@ import { dialog, Button } from 'earth-ui'
 
 class DialogIcon extends Component {
   handleClick = () => {
-    ;dialog.confirm('Proceed to Checkout?', 'Check Out', {
+    ;dialog.confirm('Proceed to Checkout?', 'CHECK OUT', {
       icon: 'cart',
       focused: 'accept'
     });
   }
   render() {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }

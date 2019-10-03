@@ -9,11 +9,257 @@
   {background-position: @ui-unit-double @ui-unit-double;}
 );
 
-.mixin-micro-button() {
+.@{prefix-cls}-button {
+  .ui-mixin-unselectable();
+  cursor: pointer;
+  max-width: 100%;
+  margin-right: @ui-unit-half;
+  align-items: center;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  & i.@{prefix-cls}-icon {
+    .ui-mixin-reduce-l();
+    margin-right: 0;
+    font-size: 20px;
+    line-height: @ui-fontsize;
+    vertical-align: middle;
+  }
+
+  &_block {
+    width: 100%;
+    margin-top: @ui-unit-half;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// Type.........................................................................
+
+.@{prefix-cls}-button {
+  &_primary,
+  &_secondary,
+  &_accept,
+  &_warning,
+  &_danger {
+    min-width: 82px;
+    padding: @ui-unit-half - 1px;
+    border-radius: @ui-unit;
+
+    &:hover span {
+      text-decoration: none;
+    }
+
+    & span {
+      .ui-mixin-button-text();
+      .ui-mixin-text-ellipsis();
+      padding: 0 @ui-unit-half;
+      white-space: nowrap;
+      word-wrap: normal;
+      overflow: hidden;
+    }
+    //&:before {
+    //  content: '';
+    //  .ui-mixin-maximize(@outset, @outset, @outset, @outset);
+    //  border-radius: @ui-unit + 2.5px;
+    //  border: 2.75px solid transparent;
+    //}
+  }
+
+  &_primary {
+    color: @theme-text;
+    border: 1px solid @theme;
+    background-color: @theme;
+    &:hover {
+      background-color: @theme-dark;
+    }
+    //&:focus:before {
+    //  border-color: @theme-darker;
+    //}
+  }
+
+  &_secondary {
+    color: @ui-color-black;
+    border: 1px solid @ui-color-gray-light;
+    background-color: fade(@ui-color-white, 50%);
+    &:hover {
+      background-color: fade(@ui-color-gray-light, 50%);
+    }
+    //&:focus:before {
+    //  border-color: @theme;
+    //}
+  }
+
+  &_accept {
+    color: @ui-color-white;
+    border: 1px solid @ui-color-green;
+    background-color: @ui-color-green;
+    &:hover {
+      background-color: @ui-color-green-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-green-darker;
+    //}
+  }
+  &_warning {
+    color: @ui-color-white;
+    border: 1px solid @ui-color-orange;
+    background-color: @ui-color-orange;
+    &:hover {
+      background-color: @ui-color-orange-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-orange-darker;
+    //}
+  }
+
+  &_danger {
+    color: @ui-color-white;
+    border: 1px solid @ui-color-red;
+    background-color: @ui-color-red;
+    &:hover {
+      background-color: @ui-color-red-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-red-darker;
+    //}
+  }
+
+  &_link, &_text {
+    color: @theme;
+    background-color: transparent !important;
+    border: none !important;
+    margin-left: @ui-unit-half !important;
+    &:first-child {
+      margin-left: 0 !important;
+    }
+    &:hover {
+      color: @theme-dark;
+    }
+    i.@{prefix-cls}-icon {
+      font-size: @ui-fontsize;
+      padding-left: 0;
+    }
+    div i {
+      padding-right: @ui-unit-quarter;
+    }
+  }
+
+  &_link:hover span {
+    text-decoration: underline;
+  }
+}
+
+
+// Ghost Button.................................................................
+
+.@{prefix-cls}-button--ghost {
+  &.@{prefix-cls}-button {
+    background-color: transparent;
+  }
+  &.@{prefix-cls}-button_primary {
+    border: 1px solid @theme;
+    color: @theme;
+    &:hover {
+      color: @theme-dark;
+      border-color: @theme-dark;
+    }
+    //&:focus:before {
+    //  border-color: @theme;
+    //}
+  }
+  &.@{prefix-cls}-button_secondary {
+    border: 1px solid @ui-color-gray-light;
+    color: @ui-color-black;
+    &:hover {
+      color: black;
+      border-color: @ui-color-gray-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-gray;
+    //}
+  }
+  &.@{prefix-cls}-button_accept {
+    border: 1px solid @ui-color-green;
+    color: @ui-color-green;
+    &:hover {
+      border-color: @ui-color-green-dark;;
+      color: @ui-color-green-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-green;
+    //}
+  }
+  &.@{prefix-cls}-button_warning {
+    border: 1px solid @ui-color-orange;
+    color: @ui-color-orange;
+    &:hover {
+      color: @ui-color-orange-dark;
+      border-color: @ui-color-orange-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-orange;
+    //}
+  }
+  &.@{prefix-cls}-button_danger {
+    border: 1px solid @ui-color-red;
+    color: @ui-color-red;
+    &:hover {
+      color: @ui-color-red-dark;
+      border-color: @ui-color-red-dark;
+    }
+    //&:focus:before {
+    //  border-color: @ui-color-red;
+    //}
+  }
+}
+
+// Loading bar..................................................................
+
+.@{prefix-cls}-button--loading {
+  &,
+  &:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    cursor: default !important;
+  }
+  & > * {
+    visibility: hidden;
+  }
+  &:after {
+    content: '';
+    background-size: @ui-unit-double @ui-unit-double;
+    border-radius: inherit;
+    visibility: visible;
+    .ui-mixin-maximize();
+    .ui-mixin-progress-bar-gradient(
+            fade(@ui-color-gray-light, 65%),
+            fade(@ui-color-gray-lighter, 65%)
+    );
+    .ui-mixin-animation(move-progress-bar, 1s, linear, infinite);
+    margin: @ui-unit-half;
+  }
+  &.@{prefix-cls}-button--sm {
+    &:after {
+      zoom: .36;
+    }
+  }
+}
+
+// Size.........................................................................
+
+.@{prefix-cls}-button--sm {
   &.@{prefix-cls}-button,
   &.@{prefix-cls}-button_primary,
   &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_tertiary,
   &.@{prefix-cls}-button_accept,
   &.@{prefix-cls}-button_warning,
   &.@{prefix-cls}-button_danger {
@@ -26,7 +272,7 @@
   &:not(:disabled):after {
     .ui-mixin-maximize(0-@ui-unit-half,0,0-@ui-unit-half,0);
   }
-  > i {
+  i {
     font-size: @ui-fontsize-medium;
     &:before {
       font-size: @ui-fontsize-medium;
@@ -34,227 +280,121 @@
   }
 }
 
-.@{prefix-cls}-button {
-  .ui-mixin-unselectable();
-  color: @theme;
-  cursor: pointer;
-  min-width: 82px;
-  max-width: 100%;
-  margin-right: @ui-unit-half;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
-
-  &:hover > span {
-    text-decoration: underline;
+.@{prefix-cls}-button--lg {
+  margin-right: @ui-unit;
+  &.@{prefix-cls}-button,
+  &.@{prefix-cls}-button_primary,
+  &.@{prefix-cls}-button_secondary,
+  &.@{prefix-cls}-button_accept,
+  &.@{prefix-cls}-button_warning,
+  &.@{prefix-cls}-button_danger {
+    .ui-mixin-fixheight(@ui-unit-plus);
+    border-radius: 28px;
+    padding: 24px;
+    font-size: @ui-fontsize-big;
+    min-width: @ui-unit-plus;
   }
+}
 
-  &:last-child {
-    margin-right: 0;
+// Colorful background..........................................................
+
+.@{prefix-cls}-bg-colorful .@{prefix-cls}-button {
+  background-color: @ui-color-white;
+  border: 1px solid @ui-color-white;
+  &:hover {
+    background-color: @ui-color-white;
   }
-
-  & > i.@{prefix-cls}-icon {
-    .ui-mixin-reduce-l();
-    margin-right: 0;
-    font-size: 20px;
-    + span {
-      top: -1px;
-    }
-  }
-
-  & > span {
-    line-height: @ui-unit;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  &_nofocus {
-    &:before {
-      display: none !important;
-    }
-  }
-
-  &_primary,
-  &_secondary,
-  &_tertiary,
-  &_accept,
-  &_warning,
-  &_danger,
-  &[disabled] {
-    padding: @ui-unit-half;
-    border-radius: @ui-unit;
-    //.ui-mixin-fixheight(@ui-unit-double); // IE10 may otherwise grow on focus :/
-
-    &:hover > span {
-      text-decoration: none;
-    }
-
-    & > span {
-      .ui-mixin-button-text();
-      .ui-mixin-text-ellipsis();
-      padding: 0 @ui-unit-half;
-      line-height: @ui-unit - 2px;
-      margin-top: -2px;
-      white-space: nowrap;
-      word-wrap: normal;
-      position: relative;
-      overflow: hidden;
-    }
-    &:before {
-      content: '';
-      .ui-mixin-maximize(@outset, @outset, @outset, @outset);
-      border-radius: @ui-unit + 2.5px;
-      border: 2.75px solid transparent;
-    }
-  }
-
-  &_primary {
-    background-color: @theme;
-    color: @theme-text;
-    border: 1px solid @theme;
-    &:hover {
-      border-color: @theme-dark;
-      background-color: @theme-dark;
-    }
-    &:focus:before {
-      border-color: @theme-darker;
-    }
-  }
-
-  &_secondary {
-    background-color: transparent;
-    border: 1px solid @theme;
-    color: @theme;
-    &:hover {
-      background-color: @theme-lightest;
-    }
-    &:focus:before {
-      border-color: @theme-dark;
-    }
-  }
-
-  &_tertiary {
-    background-color: fade(@ui-color-white, 50%);
-    color: @ui-color-black;
-    border: 1px solid @ui-color-gray-light;
-    &:hover {
-      background-color: fade(@ui-color-gray-light, 50%);
-    }
-    &:focus:before {
-      border-color: @theme;
-    }
-  }
-
-  &_accept {
-    background-color: @ui-color-green;
+  &_link, &_text {
     color: @ui-color-white;
     &:hover {
-      background-color: @ui-color-green-dark;
+      color: fade(@ui-color-white, 70%);
     }
-    &:focus:before {
-      border-color: @ui-color-green-darker;
+  }
+  &[disabled] {
+    background-color: fade(@ui-color-white, 30%);
+    border: 1px solid fade(@ui-color-white, 0%);
+    color: fade(@ui-color-white, 40%);
+    &:hover {
+      background-color: fade(@ui-color-white, 30%);
+      border: 1px solid fade(@ui-color-white, 0%);
+      color: fade(@ui-color-white, 40%);
+    }
+  }
+  &_primary {
+    color: @ui-color-black;
+    border: 1px solid @ui-color-white;
+    background-color: @ui-color-white;
+    &:hover {
+      border: 1px solid @ui-color-white;
+      color: fade(@ui-color-black, 70%);
+    }
+  }
+  &_secondary {
+    color: @ui-color-white;
+    border: 1px solid @ui-color-white;
+    background-color: transparent;
+    &:hover {
+      color: @ui-color-white;
+      border: 1px solid fade(@ui-color-white, 30%);
+      background-color: fade(@ui-color-white, 30%);
+    }
+  }
+  &_accept {
+    color: @ui-color-green;
+    &:hover {
+      color: fade(@ui-color-green, 70%);
+      border: 1px solid @ui-color-white;
     }
   }
   &_warning {
-    background-color: @ui-color-orange;
-    color: @ui-color-white;
+    color: @ui-color-orange;
     &:hover {
-      background-color: @ui-color-orange-dark;
-    }
-    &:focus:before {
-      border-color: @ui-color-orange-darker;
+      color: fade(@ui-color-orange, 70%);
+      border: 1px solid @ui-color-white;
     }
   }
-
   &_danger {
-    background-color: @ui-color-red;
-    color: @ui-color-white;
+    color: @ui-color-red;
     &:hover {
-      background-color: @ui-color-red-dark;
-    }
-    &:focus:before {
-      border-color: @ui-color-red-darker;
-    }
-  }
-
-  &_micro {
-    .mixin-micro-button();
-  }
-
-  &_block {
-    width: 100%;
-    margin-top: @ui-unit-half;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  &__icon-only {
-    width: @ui-unit-double;
-    height: @ui-unit-double;
-    min-width: @ui-unit;
-    border-radius: 50%;
-    &.@{prefix-cls}-button_micro {
-      width: @ui-unit;
-    }
-  }
-  // Loading bar...............................................................
-  &--loading {
-    &,
-    &:hover {
-      background-color: transparent !important;
-      border-color: transparent !important;
-      cursor: default !important;
-    }
-    & > * {
-      visibility: hidden;
-    }
-    &:after {
-      content: '';
-      background-size: @ui-unit-double @ui-unit-double;
-      border-radius: inherit;
-      visibility: visible;
-      .ui-mixin-maximize();
-      .ui-mixin-progress-bar-gradient(
-        fade(@ui-color-gray-light, 65%),
-        fade(@ui-color-gray-lighter, 65%)
-      );
-      .ui-mixin-animation(move-progress-bar, 1s, linear, infinite);
-      margin: @ui-unit-half;
-    }
-    &.@{prefix-cls}-button_micro {
-      &:after {
-        zoom: .36;
-      }
+      color: fade(@ui-color-red, 70%);
+      border: 1px solid @ui-color-white;
     }
   }
 }
 
+// Icon Button..................................................................
+
 .@{prefix-cls}-button__icon-only {
-  & > i.@{prefix-cls}-icon {
+  width: @ui-unit-double;
+  height: @ui-unit-double;
+  min-width: @ui-unit;
+  border-radius: 50%;
+  &.@{prefix-cls}-button--sm {
+    width: @ui-unit;
+  }
+  & i.@{prefix-cls}-icon {
     .ui-mixin-reduce-l(0);
     font-size: @ui-fontsize-icon;
   }
 }
 
-.@{prefix-cls}-button__icon-only:not(:disabled):not(.@{prefix-cls}-button_primary):not(.@{prefix-cls}-button_secondary) {
-  & > i.@{prefix-cls}-icon {
-    color: @ui-color-black;
-  }
-}
-
-.@{prefix-cls}-button__icon-only:not(:disabled):not(.@{prefix-cls}-button_primary):not(.@{prefix-cls}-button_secondary):not(.@{prefix-cls}-button_tertiary) {
-  padding: @ui-unit-half;
-  border: 1px solid transparent;
-  &:hover {
-    background-color: fade(@ui-color-gray-light, 50%);
-  }
-}
+// Disabled ....................................................................
 
 .@{prefix-cls}-button[disabled] {
   cursor: not-allowed;
-  color: @ui-color-gray-light;
+  color: fade(@ui-color-gray, 80%);
   border: 1px solid @ui-color-gray-lighter;
-  background-color: @ui-color-gray-lightest;
+  background-color: @ui-color-gray-lighter;
+  &:hover {
+    color: fade(@ui-color-gray, 80%);
+    border: 1px solid @ui-color-gray-lighter;
+    background-color: @ui-color-gray-lighter;
+  }
+}
+
+.@{prefix-cls}-button_link[disabled], .@{prefix-cls}-button_text[disabled] {
+  margin-left: @ui-unit-half;
+  &:first-child {
+    margin-left: 0;
+  }
 }

@@ -1,4 +1,4 @@
-import { Link } from '@reach/router'
+import { navigate } from '@reach/router'
 import { Button, BackToTop } from 'earth-ui'
 import NProgress from 'nprogress'
 import QueueAnim from 'rc-queue-anim'
@@ -26,6 +26,7 @@ class Home extends React.Component {
     this.setState({ imageStatus: 'failed' })
     NProgress.done()
   }
+
   render () {
     if (this.state.imageStatus === 'loading') {
       return (
@@ -63,14 +64,12 @@ class Home extends React.Component {
                 developers and designers.
               </p>
               <div key="buttons">
-                <Link to="/apps/start/usage">
-                  <Button type="primary" className="home__banner-btn">
-                    Get Started
-                  </Button>
-                </Link>
+                <Button type="primary" size="lg" onClick={() => navigate('/apps/start/usage')}>
+                  GET STARTED
+                </Button>
                 <a href="https://github.com/cosmos-x/earth-ui">
-                  <Button type="secondary" className="home__banner-btn">
-                    Github
+                  <Button type="primary" size="lg" ghost>
+                    GITHUB
                   </Button>
                 </a>
               </div>

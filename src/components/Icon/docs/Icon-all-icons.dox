@@ -139,7 +139,7 @@ const IconBasic = () => {
     <ul style={ul}>
       {allIcons.sort().map(icon =>
         <li style={li} key={icon}>
-          <Button icon={icon} type="tertiary" />
+          <Button icon={icon} type="secondary" />
           <span>{icon}</span>
         </li>
       )}

@@ -57,7 +57,7 @@ class DialogButtons extends React.Component {
       <div className={cx(`${prefixCls}-dialog__main-buttons`, className)}>
         {!!acceptLabel && (
           <Button
-            type={typeMap[type]?.btnType || 'tertiary'}
+            type={typeMap[type]?.btnType || 'secondary'}
             onClick={this.handleAcceptClick}
             autoFocus={focused === 'accept'}
             focus
@@ -68,7 +68,7 @@ class DialogButtons extends React.Component {
         )}
         {!!cancelLabel && (
           <Button
-            type="tertiary"
+            type="secondary"
             onClick={this.handleCancelClick}
             autoFocus={focused === 'cancel'}
             focus
