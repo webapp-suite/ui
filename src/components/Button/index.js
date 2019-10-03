@@ -20,11 +20,11 @@ function Button (props) {
   const classNames = cx(
       `${prefixCls}-button`,
       {
-        [`${prefixCls}-button_${type}`]: type,
+        [`${prefixCls}-button--${type}`]: type,
         [`${prefixCls}-button--${size}`]: size,
         [`${prefixCls}-button--ghost`]: ghost,
         [`${prefixCls}-button--loading`]: loading,
-        [`${prefixCls}-button_block`]: block,
+        [`${prefixCls}-button--block`]: block,
         [`${prefixCls}-button__icon-only`]: icon && !children
       },
       className

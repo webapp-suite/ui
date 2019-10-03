@@ -31,7 +31,7 @@
     vertical-align: middle;
   }
 
-  &_block {
+  &--block {
     width: 100%;
     margin-top: @ui-unit-half;
     &:first-child {
@@ -43,11 +43,11 @@
 // Type.........................................................................
 
 .@{prefix-cls}-button {
-  &_primary,
-  &_secondary,
-  &_accept,
-  &_warning,
-  &_danger {
+  &--primary,
+  &--secondary,
+  &--accept,
+  &--warning,
+  &--danger {
     &:hover span {
       text-decoration: none;
     }
@@ -61,7 +61,7 @@
     }
   }
 
-  &_primary {
+  &--primary {
     color: @theme-text;
     border: 1px solid @theme;
     background-color: @theme;
@@ -73,7 +73,7 @@
     //}
   }
 
-  &_secondary {
+  &--secondary {
     color: @ui-color-black;
     border: 1px solid @ui-color-gray-light;
     background-color: fade(@ui-color-white, 50%);
@@ -85,7 +85,7 @@
     //}
   }
 
-  &_accept {
+  &--accept {
     color: @ui-color-white;
     border: 1px solid @ui-color-green;
     background-color: @ui-color-green;
@@ -97,7 +97,7 @@
     //}
   }
 
-  &_warning {
+  &--warning {
     color: @ui-color-white;
     border: 1px solid @ui-color-orange;
     background-color: @ui-color-orange;
@@ -109,7 +109,7 @@
     //}
   }
 
-  &_danger {
+  &--danger {
     color: @ui-color-white;
     border: 1px solid @ui-color-red;
     background-color: @ui-color-red;
@@ -121,7 +121,7 @@
     //}
   }
 
-  &_link, &_text {
+  &--link, &--text {
     color: @theme;
     background-color: transparent !important;
     border: none !important;
@@ -141,7 +141,7 @@
     }
   }
 
-  &_link:hover span {
+  &--link:hover span {
     text-decoration: underline;
   }
 }
@@ -153,7 +153,7 @@
   &.@{prefix-cls}-button {
     background-color: transparent;
   }
-  &.@{prefix-cls}-button_primary {
+  &.@{prefix-cls}-button--primary {
     border: 1px solid @theme;
     color: @theme;
     &:hover {
@@ -164,7 +164,7 @@
     //  border-color: @theme;
     //}
   }
-  &.@{prefix-cls}-button_secondary {
+  &.@{prefix-cls}-button--secondary {
     border: 1px solid @ui-color-gray-light;
     color: @ui-color-black;
     &:hover {
@@ -175,7 +175,7 @@
     //  border-color: @ui-color-gray;
     //}
   }
-  &.@{prefix-cls}-button_accept {
+  &.@{prefix-cls}-button--accept {
     border: 1px solid @ui-color-green;
     color: @ui-color-green;
     &:hover {
@@ -186,7 +186,7 @@
     //  border-color: @ui-color-green;
     //}
   }
-  &.@{prefix-cls}-button_warning {
+  &.@{prefix-cls}-button--warning {
     border: 1px solid @ui-color-orange;
     color: @ui-color-orange;
     &:hover {
@@ -197,7 +197,7 @@
     //  border-color: @ui-color-orange;
     //}
   }
-  &.@{prefix-cls}-button_danger {
+  &.@{prefix-cls}-button--danger {
     border: 1px solid @ui-color-red;
     color: @ui-color-red;
     &:hover {
@@ -245,11 +245,11 @@
 // Size.........................................................................
 
 .@{prefix-cls}-button--sm {
-  &.@{prefix-cls}-button_primary,
-  &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_accept,
-  &.@{prefix-cls}-button_warning,
-  &.@{prefix-cls}-button_danger {
+  &.@{prefix-cls}-button--primary,
+  &.@{prefix-cls}-button--secondary,
+  &.@{prefix-cls}-button--accept,
+  &.@{prefix-cls}-button--warning,
+  &.@{prefix-cls}-button--danger {
     .ui-mixin-fixheight(@ui-unit);
     border-radius: @ui-unit-half;
     padding: 0;
@@ -268,11 +268,11 @@
 }
 
 .@{prefix-cls}-button--md {
-  &.@{prefix-cls}-button_primary,
-  &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_accept,
-  &.@{prefix-cls}-button_warning,
-  &.@{prefix-cls}-button_danger {
+  &.@{prefix-cls}-button--primary,
+  &.@{prefix-cls}-button--secondary,
+  &.@{prefix-cls}-button--accept,
+  &.@{prefix-cls}-button--warning,
+  &.@{prefix-cls}-button--danger {
     min-width: 82px;
     padding: @ui-unit-half - 1px;
     border-radius: @ui-unit;
@@ -281,11 +281,11 @@
 
 .@{prefix-cls}-button--lg {
   margin-right: @ui-unit;
-  &.@{prefix-cls}-button_primary,
-  &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_accept,
-  &.@{prefix-cls}-button_warning,
-  &.@{prefix-cls}-button_danger {
+  &.@{prefix-cls}-button--primary,
+  &.@{prefix-cls}-button--secondary,
+  &.@{prefix-cls}-button--accept,
+  &.@{prefix-cls}-button--warning,
+  &.@{prefix-cls}-button--danger {
     .ui-mixin-fixheight(@ui-unit-plus);
     border-radius: 28px;
     padding: 24px;
@@ -302,7 +302,7 @@
   &:hover {
     background-color: @ui-color-white;
   }
-  &_link, &_text {
+  &--link, &--text {
     color: @ui-color-white;
     &:hover {
       color: fade(@ui-color-white, 70%);
@@ -318,7 +318,7 @@
       color: fade(@ui-color-white, 40%);
     }
   }
-  &_primary {
+  &--primary {
     color: @ui-color-black;
     border: 1px solid @ui-color-white;
     background-color: @ui-color-white;
@@ -327,7 +327,7 @@
       color: fade(@ui-color-black, 70%);
     }
   }
-  &_secondary {
+  &--secondary {
     color: @ui-color-white;
     border: 1px solid @ui-color-white;
     background-color: transparent;
@@ -337,21 +337,21 @@
       background-color: fade(@ui-color-white, 30%);
     }
   }
-  &_accept {
+  &--accept {
     color: @ui-color-green;
     &:hover {
       color: fade(@ui-color-green, 70%);
       border: 1px solid @ui-color-white;
     }
   }
-  &_warning {
+  &--warning {
     color: @ui-color-orange;
     &:hover {
       color: fade(@ui-color-orange, 70%);
       border: 1px solid @ui-color-white;
     }
   }
-  &_danger {
+  &--danger {
     color: @ui-color-red;
     &:hover {
       color: fade(@ui-color-red, 70%);
@@ -363,11 +363,11 @@
 // Icon Button..................................................................
 
 .@{prefix-cls}-button__icon-only {
-  &.@{prefix-cls}-button_primary,
-  &.@{prefix-cls}-button_secondary,
-  &.@{prefix-cls}-button_accept,
-  &.@{prefix-cls}-button_warning,
-  &.@{prefix-cls}-button_danger {
+  &.@{prefix-cls}-button--primary,
+  &.@{prefix-cls}-button--secondary,
+  &.@{prefix-cls}-button--accept,
+  &.@{prefix-cls}-button--warning,
+  &.@{prefix-cls}-button--danger {
     width: @ui-unit-double;
     height: @ui-unit-double;
     min-width: @ui-unit;
@@ -396,7 +396,7 @@
   }
 }
 
-.@{prefix-cls}-button_link[disabled], .@{prefix-cls}-button_text[disabled] {
+.@{prefix-cls}-button--link[disabled], .@{prefix-cls}-button--text[disabled] {
   margin-left: @ui-unit-half;
   &:first-child {
     margin-left: 0;
