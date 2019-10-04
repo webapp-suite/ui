@@ -1,13 +1,14 @@
 /**
  * @title Type
+ * @desc The `default` and `primary` buttons are used in most cases, you can also use other types in specific scenarios.
  */
 import { Button } from 'earth-ui'
 
 const ButtonType = () => {
   return (
     <>
+      <Button>DEFAULT</Button>
       <Button type="primary">PRIMARY</Button>
-      <Button type="secondary">SECONDARY</Button>
       <Button type="accept">ACCEPT</Button>
       <Button type="warning">WARNING</Button>
       <Button type="danger">DANGER</Button>
@@ -19,14 +20,15 @@ const ButtonType = () => {
 
 /**
  * @title Ghost
+ * @desc The `ghost` style button is commonly used in the place where you don't want the button to stand out.
  */
 import { Button } from 'earth-ui'
 
 const ButtonGhost = () => {
   return (
     <>
+      <Button ghost>DEFAULT</Button>
       <Button ghost type="primary">PRIMARY</Button>
-      <Button ghost type="secondary">SECONDARY</Button>
       <Button ghost type="accept">ACCEPT</Button>
       <Button ghost type="warning">WARNING</Button>
       <Button ghost type="danger">DANGER</Button>
@@ -38,24 +40,24 @@ const ButtonGhost = () => {
 
 /**
  * @title Loading Button
- * @desc Assign the `loading` attribute to Button to initialize a spinner. Click event will be disabled, open the browser console you will see more logs.
+ * @desc Assign the `loading` property to Button to initialize a spinner. Click event will be disabled when button is loading state, open the browser console you will see more logs.
  */
-import { Button } from 'earth-ui';
-import { useState } from 'react';
+import { Button } from 'earth-ui'
+import { useState } from 'react'
 
 const LoadingButton = () => {
-    const [loading, setLoading] = useState(false);
-    const handleClick = () => {
-        console.log('clicked!');
-        setLoading(true);
-        setTimeout(() => setLoading(false), 5000);
-    }
-    return <Button type="primary" loading={loading} onClick={handleClick}>SHOW LOADING</Button>;
+  const [loading, setLoading] = useState(false)
+  const handleClick = () => {
+    console.log('clicked!')
+    setLoading(true)
+    setTimeout(() => setLoading(false), 5000)
+  }
+  return <Button type="primary" loading={loading} onClick={handleClick}>SHOW LOADING</Button>
 }
 
 /**
  * @title Block Button
- * @desc block属性将使按钮适合其父宽度
+ * @desc The `block` property will make the button fit to its parent width.
  */
 import { Button } from 'earth-ui'
 
@@ -63,13 +65,14 @@ const ButtonBlock = () => {
   return (
     <>
       <Button type="primary" block>PRIMARY</Button>
-      <Button type="secondary" block>SECONDARY</Button>
+      <Button block>DEFAULT</Button>
     </>
   )
 }
 
 /**
  * @title Size
+ * @desc Besides default `md` size, Button component provides three additional sizes for you to choose among different scenarios.
  */
 import { Button } from 'earth-ui'
 
@@ -77,20 +80,20 @@ const ButtonMicro = () => {
   return (
     <>
       <Button type="primary" size="sm">PRIMARY</Button>
-      <Button type="secondary" size="sm">SECONDARY</Button>
+      <Button size="sm">DEFAULT</Button>
       <br/><br/>
       <Button type="primary" size="md">PRIMARY</Button>
-      <Button type="secondary" size="md">SECONDARY</Button>
+      <Button size="md">DEFAULT</Button>
       <br/><br/>
       <Button type="primary" size="lg">PRIMARY</Button>
-      <Button type="secondary" size="lg">SECONDARY</Button>
+      <Button size="lg">DEFAULT</Button>
     </>
   )
 }
 
 /**
- * @title 图标按钮
- * @desc 如果需要自定义图标位置，结合使用 Icon 组件
+ * @title Icon
+ * @desc Use icons to add more meaning to Button. You can use icon alone to save some space, or use it with text.
  */
 import { Button } from 'earth-ui'
 
@@ -99,9 +102,9 @@ const ButtonIcon = () => {
     <>
       <Button icon="statuschange" type="primary" />
       <Button icon="statuschange" type="primary" ghost />
-      <Button icon="statuschange" type="secondary" />
-      <Button icon="statuschange" type="secondary" ghost />
-      <Button icon="activity" type="secondary">DATA ANALYSIS</Button>
+      <Button icon="statuschange" />
+      <Button icon="statuschange" ghost />
+      <Button icon="activity">DATA ANALYSIS</Button>
       <Button icon="statuschange" type="text">Refresh</Button>
     </>
   )
@@ -109,6 +112,7 @@ const ButtonIcon = () => {
 
 /**
  * @title Disabled
+ * @desc The `disabled` attribute determines if the button is disabled.
  */
 import { Button } from 'earth-ui'
 
@@ -116,7 +120,7 @@ const ButtonDisabled = () => {
   return (
     <>
       <Button disabled type="primary">PRIMARY</Button>
-      <Button disabled type="secondary">SECONDARY</Button>
+      <Button disabled>DEFAULT</Button>
       <Button disabled type="accept">ACCEPT</Button>
       <Button disabled type="text">TEXT</Button>
       <Button disabled type="link">LINK</Button>

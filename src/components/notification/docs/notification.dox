@@ -27,7 +27,7 @@ class NotificationDuration extends Component {
     ;notification.success('You did it!', 3000);
   }
   render () {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -59,7 +59,7 @@ class NotificationButtonsLabel extends Component {
     ;notification.warning('Beware', 'UNDERSTOOD');
   }
   render () {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -81,7 +81,7 @@ class NotificationNested extends Component {
   render() {
     return (
       <div>
-        <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+        <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
       </div>
     )
   }
@@ -101,6 +101,6 @@ class NotificationQueue extends Component {
        notification.error('You are wrong.');
     }
   render () {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }

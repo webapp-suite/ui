@@ -18,7 +18,6 @@ class AsideCloseButton extends Component {
       <Button
         className={`${prefixCls}-aside__header-close`}
         icon="close"
-        type="secondary"
         onClick={this.handleClose}
       />
     )

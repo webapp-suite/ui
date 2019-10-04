@@ -69,7 +69,6 @@ class DialogButtons extends React.Component {
         )}
         {!!cancelLabel && (
           <Button
-            type="secondary"
             onClick={this.handleCancelClick}
             block
           >

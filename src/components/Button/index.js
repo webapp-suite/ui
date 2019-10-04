@@ -61,31 +61,34 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // 按钮类型
-  type: PropTypes.oneOf(['primary', 'secondary', 'accept', 'warning', 'danger', 'link', 'text']),
+  // button type
+  type: PropTypes.oneOf(['primary', 'accept', 'warning', 'danger', 'link', 'text']),
 
-  // 是否为微型按钮
+  // button size, default `md`
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
-  // 是否为ghost按钮
+  // determine whether it's a ghost button
   ghost: PropTypes.bool,
 
-  // 是否为block按钮
+  // determine whether it's a block button
   block: PropTypes.bool,
 
-  // Initialize a spinner
+  // determine whether it's loading
   loading: PropTypes.bool,
 
-  // Disabled button
+  // disable the button
   disabled: PropTypes.bool,
 
-  // 按钮图标
+  // icon type name
   icon: PropTypes.string
 }
 
 Button.defaultProps = {
-  type: 'secondary',
-  size: 'md'
+  size: 'md',
+  ghost: false,
+  block: false,
+  loading: false,
+  disabled: false
 }
 
 export default Button

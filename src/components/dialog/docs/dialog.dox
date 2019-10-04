@@ -65,7 +65,7 @@ class DialogWarning extends Component {
   render() {
     return (
       <div>
-        <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+        <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
       </div>
     )
   }
@@ -83,7 +83,7 @@ class DialogButtonsLabel extends Component {
     ;dialog.confirm('Will you try?', 'JOIN NOW', 'NOT NOW');
   }
   render() {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -101,6 +101,6 @@ class DialogIcon extends Component {
     });
   }
   render() {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }

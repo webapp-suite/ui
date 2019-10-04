@@ -19,6 +19,20 @@
   justify-content: center;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 
+  &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
+    &:hover span {
+      text-decoration: none;
+    }
+    span {
+      .ui-mixin-button-text();
+      .ui-mixin-text-ellipsis();
+      padding: 0 @ui-unit-half;
+      white-space: nowrap;
+      word-wrap: normal;
+      overflow: hidden;
+    }
+  }
+
   &:last-child {
     margin-right: 0;
   }
@@ -43,22 +57,11 @@
 // Type.........................................................................
 
 .@{prefix-cls}-button {
-  &--primary,
-  &--secondary,
-  &--accept,
-  &--warning,
-  &--danger {
-    &:hover span {
-      text-decoration: none;
-    }
-    span {
-      .ui-mixin-button-text();
-      .ui-mixin-text-ellipsis();
-      padding: 0 @ui-unit-half;
-      white-space: nowrap;
-      word-wrap: normal;
-      overflow: hidden;
-    }
+  color: @ui-color-black;
+  border: 1px solid @ui-color-gray-light;
+  background-color: fade(@ui-color-white, 50%);
+  &:hover {
+    background-color: fade(@ui-color-gray-light, 50%);
   }
 
   &--primary {
@@ -68,21 +71,6 @@
     &:hover {
       background-color: @theme-dark;
     }
-    //&:focus:before {
-    //  border-color: @theme-darker;
-    //}
-  }
-
-  &--secondary {
-    color: @ui-color-black;
-    border: 1px solid @ui-color-gray-light;
-    background-color: fade(@ui-color-white, 50%);
-    &:hover {
-      background-color: fade(@ui-color-gray-light, 50%);
-    }
-    //&:focus:before {
-    //  border-color: @theme;
-    //}
   }
 
   &--accept {
@@ -92,9 +80,6 @@
     &:hover {
       background-color: @ui-color-green-dark;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-green-darker;
-    //}
   }
 
   &--warning {
@@ -104,9 +89,6 @@
     &:hover {
       background-color: @ui-color-orange-dark;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-orange-darker;
-    //}
   }
 
   &--danger {
@@ -116,9 +98,6 @@
     &:hover {
       background-color: @ui-color-red-dark;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-red-darker;
-    //}
   }
 
   &--link, &--text {
@@ -149,64 +128,47 @@
 
 // Ghost Button.................................................................
 
-.@{prefix-cls}-button--ghost {
-  &.@{prefix-cls}-button {
-    background-color: transparent;
+.@{prefix-cls}-button--ghost.@{prefix-cls}-button {
+  color: @ui-color-black;
+  border: 1px solid @ui-color-gray-light;
+  background-color: transparent;
+  &:hover {
+    background-color: fade(@ui-color-gray-light, 50%);
   }
-  &.@{prefix-cls}-button--primary {
+  &--primary {
     border: 1px solid @theme;
     color: @theme;
     &:hover {
-      color: @theme-dark;
-      border-color: @theme-dark;
+      color: @theme;
+      background-color: fade(@theme, 20%);
     }
-    //&:focus:before {
-    //  border-color: @theme;
-    //}
   }
-  &.@{prefix-cls}-button--secondary {
-    border: 1px solid @ui-color-gray-light;
-    color: @ui-color-black;
-    &:hover {
-      color: black;
-      border-color: @ui-color-gray-dark;
-    }
-    //&:focus:before {
-    //  border-color: @ui-color-gray;
-    //}
-  }
-  &.@{prefix-cls}-button--accept {
+  &--accept {
     border: 1px solid @ui-color-green;
     color: @ui-color-green;
     &:hover {
-      border-color: @ui-color-green-dark;;
-      color: @ui-color-green-dark;
+      color: @ui-color-green;
+      background-color: fade(@ui-color-green, 20%);;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-green;
-    //}
   }
-  &.@{prefix-cls}-button--warning {
+  &--warning {
     border: 1px solid @ui-color-orange;
     color: @ui-color-orange;
     &:hover {
-      color: @ui-color-orange-dark;
-      border-color: @ui-color-orange-dark;
+      color: @ui-color-orange;
+      background-color: fade(@ui-color-orange, 20%);;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-orange;
-    //}
   }
-  &.@{prefix-cls}-button--danger {
+  &--danger {
     border: 1px solid @ui-color-red;
     color: @ui-color-red;
     &:hover {
-      color: @ui-color-red-dark;
-      border-color: @ui-color-red-dark;
+      color: @ui-color-red;
+      background-color: fade(@ui-color-red, 20%);;
     }
-    //&:focus:before {
-    //  border-color: @ui-color-red;
-    //}
+  }
+  &--link, &--text {
+    color: @theme;
   }
 }
 
@@ -245,11 +207,7 @@
 // Size.........................................................................
 
 .@{prefix-cls}-button--sm {
-  &.@{prefix-cls}-button--primary,
-  &.@{prefix-cls}-button--secondary,
-  &.@{prefix-cls}-button--accept,
-  &.@{prefix-cls}-button--warning,
-  &.@{prefix-cls}-button--danger {
+  &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
     .ui-mixin-fixheight(@ui-unit);
     border-radius: @ui-unit-half;
     padding: 0;
@@ -268,11 +226,7 @@
 }
 
 .@{prefix-cls}-button--md {
-  &.@{prefix-cls}-button--primary,
-  &.@{prefix-cls}-button--secondary,
-  &.@{prefix-cls}-button--accept,
-  &.@{prefix-cls}-button--warning,
-  &.@{prefix-cls}-button--danger {
+  &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
     min-width: 82px;
     padding: @ui-unit-half - 1px;
     border-radius: @ui-unit;
@@ -281,11 +235,7 @@
 
 .@{prefix-cls}-button--lg {
   margin-right: @ui-unit;
-  &.@{prefix-cls}-button--primary,
-  &.@{prefix-cls}-button--secondary,
-  &.@{prefix-cls}-button--accept,
-  &.@{prefix-cls}-button--warning,
-  &.@{prefix-cls}-button--danger {
+  &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
     .ui-mixin-fixheight(@ui-unit-plus);
     border-radius: 28px;
     padding: 24px;
@@ -297,10 +247,48 @@
 // Colorful background..........................................................
 
 .@{prefix-cls}-bg-colorful .@{prefix-cls}-button {
-  background-color: @ui-color-white;
+  color: @ui-color-white;
   border: 1px solid @ui-color-white;
+  background-color: transparent;
   &:hover {
+    color: @ui-color-white;
+    border: 1px solid fade(@ui-color-white, 30%);
+    background-color: fade(@ui-color-white, 30%);
+  }
+  &--primary {
+    color: @ui-color-black;
     background-color: @ui-color-white;
+    &:hover {
+      color: fade(@ui-color-black, 70%);
+      background-color: @ui-color-white;
+    }
+  }
+  &--accept {
+    color: @ui-color-green;
+    background-color: @ui-color-white;
+    &:hover {
+      color: fade(@ui-color-green, 70%);
+      border: 1px solid @ui-color-white;
+      background-color: @ui-color-white;
+    }
+  }
+  &--warning {
+    color: @ui-color-orange;
+    background-color: @ui-color-white;
+    &:hover {
+      color: fade(@ui-color-orange, 70%);
+      border: 1px solid @ui-color-white;
+      background-color: @ui-color-white;
+    }
+  }
+  &--danger {
+    color: @ui-color-red;
+    background-color: @ui-color-white;
+    &:hover {
+      color: fade(@ui-color-red, 70%);
+      border: 1px solid @ui-color-white;
+      background-color: @ui-color-white;
+    }
   }
   &--link, &--text {
     color: @ui-color-white;
@@ -318,56 +306,12 @@
       color: fade(@ui-color-white, 40%);
     }
   }
-  &--primary {
-    color: @ui-color-black;
-    border: 1px solid @ui-color-white;
-    background-color: @ui-color-white;
-    &:hover {
-      border: 1px solid @ui-color-white;
-      color: fade(@ui-color-black, 70%);
-    }
-  }
-  &--secondary {
-    color: @ui-color-white;
-    border: 1px solid @ui-color-white;
-    background-color: transparent;
-    &:hover {
-      color: @ui-color-white;
-      border: 1px solid fade(@ui-color-white, 30%);
-      background-color: fade(@ui-color-white, 30%);
-    }
-  }
-  &--accept {
-    color: @ui-color-green;
-    &:hover {
-      color: fade(@ui-color-green, 70%);
-      border: 1px solid @ui-color-white;
-    }
-  }
-  &--warning {
-    color: @ui-color-orange;
-    &:hover {
-      color: fade(@ui-color-orange, 70%);
-      border: 1px solid @ui-color-white;
-    }
-  }
-  &--danger {
-    color: @ui-color-red;
-    &:hover {
-      color: fade(@ui-color-red, 70%);
-      border: 1px solid @ui-color-white;
-    }
-  }
 }
 
 // Icon Button..................................................................
 
 .@{prefix-cls}-button__icon-only {
-  &.@{prefix-cls}-button--primary,
-  &.@{prefix-cls}-button--secondary,
-  &.@{prefix-cls}-button--accept,
-  &.@{prefix-cls}-button--warning,
-  &.@{prefix-cls}-button--danger {
+  &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
     width: @ui-unit-double;
     height: @ui-unit-double;
     min-width: @ui-unit;

@@ -59,8 +59,8 @@ const BoardWithButtons = () => {
     <Board title="My Board">
       <BoardHeader>
         <Button type="primary" size="sm">one</Button>
-        <Button type="secondary" size="sm">two</Button>
-        <Button type="secondary" onClick={()=> notification.success('Clicked!')} size="sm">three</Button>
+        <Button size="sm">two</Button>
+        <Button onClick={()=> notification.success('Clicked!')} size="sm">three</Button>
       </BoardHeader>
       <BoardBody>
         The classic Board with buttons looks like this.
