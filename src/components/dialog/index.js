@@ -14,10 +14,12 @@ class ClassicDialog extends React.Component {
       isOpen: true
     }
   }
+
   handleDialogClose = () => {
     this.setState({ isOpen: false })
     this.props?.onClose?.()
   }
+
   render () {
     const {
       backdrop,
@@ -46,7 +48,6 @@ class ClassicDialog extends React.Component {
             </DialogBody>
             <DialogButtons
               type={type}
-              focused={options?.focused}
               acceptLabel={acceptLabel}
               cancelLabel={cancelLabel}
               {...options}
@@ -80,7 +81,7 @@ let render = props => {
 
 const getDialogParams = args => {
   const stringArray = []
-  let options = { focused: 'cancel' }
+  const options = {}
   Array.from(args).forEach(v => {
     type.isString(v) && stringArray.push(v)
     type.isObject(v) && Object.assign(options, v)

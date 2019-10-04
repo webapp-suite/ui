@@ -88,25 +88,6 @@ class DialogButtonsLabel extends Component {
 }
 
 /**
- * @title 自定义聚焦按钮
- * @renderModel run
- * @desc 对话框的默认的聚焦按钮为 `CANCEL`, 你也可以根据需要去切换 `ACCEPT` 或 `CANCEL` 按钮。
- * @note 在该示例中，没有指定 `CANCEL` 按钮的名称，那么 `options` (`{...}`) 作为第三个参数即可。
- */
-import { dialog, Button } from 'earth-ui'
-
-class DialogButtonsType extends Component {
-  handleClick = () => {
-    ;dialog.confirm('Will you try?', 'JOIN NOW', {
-      focused: 'accept'
-    });
-  }
-  render() {
-    return <Button type="secondary" onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
-  }
-}
-
-/**
  * @title 自定义Icon
  * @renderModel run
  * @desc 原则上你可以任意更换目前所支持的所有 [Icon](/components/Icon-all-icons)，但是无论何时都应该尽量用常见的图标，以便用户能快速识别对话框类型。
@@ -116,8 +97,7 @@ import { dialog, Button } from 'earth-ui'
 class DialogIcon extends Component {
   handleClick = () => {
     ;dialog.confirm('Proceed to Checkout?', 'CHECK OUT', {
-      icon: 'cart',
-      focused: 'accept'
+      icon: 'cart'
     });
   }
   render() {

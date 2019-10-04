@@ -54,8 +54,8 @@ class DialogButtons extends React.Component {
     setTimeout(() => this.props?.onCancel?.(), 400)
   }
 
-  render () {
-    const { className, acceptLabel, cancelLabel, type } = this.props
+  renderButtons = props => {
+    const { className, acceptLabel, cancelLabel, type } = props
     return (
       <div className={cx(`${prefixCls}-dialog__main-buttons`, className)}>
         {!!acceptLabel && (
@@ -77,6 +77,14 @@ class DialogButtons extends React.Component {
           </Button>
         )}
       </div>
+    )
+  }
+
+  render () {
+    return this.state.open ? (
+      <div>{this.renderButtons(this.props)}</div>
+    ) : (
+      this.renderButtons(this.props)
     )
   }
 }
