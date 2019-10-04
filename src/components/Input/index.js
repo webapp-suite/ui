@@ -1,84 +1,88 @@
-import React, { Component } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
 import './index.less'
 
-class Input extends Component {
-  /**
-   * @public
-   * @name this.refs.input.focus
-   * @description Same as `HTMLInputElement.focus()`
-   */
-  focus () {
-    this.refs.input.focus()
+function Input (props) {
+  const [value, setValue] = useState('')
+  const handleClick = () => {
+    setValue('')
   }
 
-  /**
-   * @public
-   * @name this.refs.input.select
-   * @description Same as `HTMLInputElement.select()`
-   */
-  select () {
-    this.refs.input.select()
+  const valueChange = (e) => {
+    setValue(e.target.value)
   }
+  const {
+    className,
+    size,
+    width,
+    prefix,
+    suffix,
+    readonly,
+    clearable,
+    ...other
+  } = props
 
-  render () {
-    const {
-      className,
-      size,
-      width,
-      prefix,
-      suffix,
-      readonly,
-      ...other
-    } = this.props
-    const classNames = cx(
-      `${prefixCls}-input`,
-      {
-        [`${prefixCls}-input--${size}`]: size,
-        [`${prefixCls}-input--prefix`]: prefix,
-        [`${prefixCls}-input--suffix`]: suffix || readonly
-      },
-      className
-    )
-    if (width) {
-      other.style = Object.assign(other.style || {}, { width })
-    }
-    if (prefix || suffix) {
-      return (
-        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-          {prefix && (
-            <span className={`${prefixCls}-input__affix-wrapper--prefix`}>
-              {prefix}
-            </span>
-          )}
-          <input ref="input" className={classNames} {...other} />
-          {suffix && (
-            <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-              {suffix}
-            </span>
-          )}
-        </div>
-      )
-    }
-    if (readonly) {
-      return (
-        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-          <input
-            ref="input"
-            className={classNames}
-            readOnly={readonly}
-            {...other}
-          />
-          <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-            <Icon type="locked" />
+  const classNames = cx(
+    `${prefixCls}-input`,
+    {
+      [`${prefixCls}-input--${size}`]: size,
+      [`${prefixCls}-input--prefix`]: prefix,
+      [`${prefixCls}-input--suffix`]: suffix || readonly || clearable
+    },
+    className
+  )
+  if (width) {
+    other.style = Object.assign(other.style || {}, { width })
+  }
+  if (prefix || suffix) {
+    return (
+      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+        {prefix && (
+          <span className={`${prefixCls}-input__affix-wrapper--prefix`}>
+            {prefix}
           </span>
-        </div>
-      )
-    }
-    return <input ref="input" className={classNames} {...other} />
+        )}
+        <input className={classNames} {...other} />
+        {suffix && (
+          <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+            {suffix}
+          </span>
+        )}
+      </div>
+    )
   }
+  if (readonly) {
+    return (
+      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+        <input
+          className={classNames}
+          readOnly={readonly}
+          {...other}
+        />
+        <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+          <Icon type="locked" />
+        </span>
+      </div>
+    )
+  }
+  if (clearable) {
+    return (
+      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+        <input
+          className={classNames}
+          value={value}
+          onChange={valueChange}
+          {...other}
+        />
+        {value && <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+          <Icon type='remove' onClick={() => handleClick('')} />
+        </span>}
+      </div>
+    )
+  }
+  return <input className={classNames} {...other} />
 }
 
 Input.propTypes = {
@@ -114,6 +118,8 @@ Input.propTypes = {
   prefix: PropTypes.element,
 
   suffix: PropTypes.element,
+
+  clearable: PropTypes.bool,
 
   customProp ({ value, onChange }) {
     if (value && !onChange) {
