@@ -58,7 +58,7 @@ import { Input } from 'earth-ui'
 const InputClearable = () => {
   return (
     <div>
-      <Input placeholder="Please input text here" width={460} clearable={true} />
+      <Input placeholder="Please input text here" width={460} clearable/>
     </div>
   )
 }

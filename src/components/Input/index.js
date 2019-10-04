@@ -77,7 +77,7 @@ function Input (props) {
           {...other}
         />
         {value && <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-          <Icon type='remove' onClick={() => handleClick('')} />
+          <Icon type="remove" onClick={() => handleClick('')} />
         </span>}
       </div>
     )
