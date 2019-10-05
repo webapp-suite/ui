@@ -1,64 +1,89 @@
 @summary > Input is a controlled component, it **always shows React binding value**. Under normal circumstances, input event should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
 
 /**
- * @title Normal / Readonly / Disabled
+ * @title Basic usage
+ * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
  */
 import { Input } from 'earth-ui'
+import { Row, Col } from 'earth-ui'
 
 const InputNormal = () => {
   return (
     <div>
-      <Input placeholder="Please input text here" width={460} />
+      <Input placeholder="Please input text here" width={456} />
       <br/>
-      <Input value="Readonly text" width={460} readonly />
+      <Row>
+        <Col col="md-14">
+          <Input placeholder="Please input text here" />
+        </Col>
+      </Row>
+    </div>
+  )
+}
+
+/**
+ * @title Readonly / Disabled
+ * @desc Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
+ */
+import { Input } from 'earth-ui'
+
+const InputRD = () => {
+  return (
+    <div>
+      <Input value="Readonly text" width={456} readonly />
       <br/>
-      <Input value="Disabled Text" width={460} disabled />
+      <Input value="Disabled Text" width={456} disabled />
     </div>
   )
 }
 
 /**
  * @title Icon
+ * @desc To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
  */
-import { Input } from 'earth-ui'
-import { Icon } from 'earth-ui'
+import { Input, Icon, Tooltip } from 'earth-ui'
 
 const InputIcon = () => {
   return (
     <div>
-      <Input prefix={<Icon type="calendar"/>} placeholder="Please input text" width={460} />
+      <Input prefix={<Icon type="search"/>} placeholder="Please input text" width={456} />
       <br/>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Please input text" width={460} />
+      <Input
+        suffix={<Tooltip direction="up" title="this is hint"><Icon type="question" /></Tooltip>}
+        placeholder="Please input text" width={456}
+      />
     </div>
   )
 }
 
 /**
  * @title Size
+ * @desc Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
  */
 import { Input } from 'earth-ui'
 
 const InputSize = () => {
   return (
     <div>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Small" size="sm" width={460} />
+      <Input suffix={<Icon type="calendar"/>} placeholder="Small" size="sm" width={456} />
       <br/>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={460} />
+      <Input suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={456} />
       <br/>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Large" size="lg" width={460} />
+      <Input suffix={<Icon type="calendar"/>} placeholder="Large" size="lg" width={456} />
     </div>
   )
 }
 
 /**
  * @title Clearable
+ * @desc Make the Input `clearable` with the clearable attribute.
  */
 import { Input } from 'earth-ui'
 
 const InputClearable = () => {
   return (
     <div>
-      <Input placeholder="Please input text here" width={460} clearable/>
+      <Input placeholder="Please input text here" width={456} clearable/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
@@ -10,7 +10,7 @@ function Input (props) {
     setValue('')
   }
 
-  const valueChange = (e) => {
+  const valueChange = e => {
     setValue(e.target.value)
   }
   const {
@@ -56,11 +56,7 @@ function Input (props) {
   if (readonly) {
     return (
       <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-        <input
-          className={classNames}
-          readOnly={readonly}
-          {...other}
-        />
+        <input className={classNames} readOnly={readonly} {...other} />
         <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
           <Icon type="locked" />
         </span>
@@ -76,9 +72,11 @@ function Input (props) {
           onChange={valueChange}
           {...other}
         />
-        {value && <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-          <Icon type="remove" onClick={() => handleClick('')} />
-        </span>}
+        {value && (
+          <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+            <Icon type="remove" onClick={() => handleClick('')} />
+          </span>
+        )}
       </div>
     )
   }
@@ -109,16 +107,19 @@ Input.propTypes = {
   // whether Input is disabled
   disabled: PropTypes.bool,
 
-  // whether Input is disabled
+  // whether Input is readonly
   readonly: PropTypes.bool,
 
   // same as native input placeholder
   placeholder: PropTypes.string,
 
+  // the prefix icon for the Input
   prefix: PropTypes.element,
 
+  // the suffix icon for the Input
   suffix: PropTypes.element,
 
+  // make the input clearable
   clearable: PropTypes.bool,
 
   customProp ({ value, onChange }) {
