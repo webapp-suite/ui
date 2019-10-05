@@ -4,23 +4,61 @@ import cx from 'classnames'
 import Icon from '../Icon'
 import './index.less'
 
+function fixControlledValue (value) {
+  if (typeof value === 'undefined' || value === null) {
+    return ''
+  }
+  return value
+}
+
 function Input (props) {
-  const [value, setValue] = useState('')
-  const handleClick = () => {
-    setValue('')
+  const input = React.createRef()
+  const [value, setValueHook] = useState(
+    typeof props.value === 'undefined' ? props.defaultValue : props.value
+  )
+  const setValue = (value, e, callback) => {
+    if (!('value' in props)) {
+      setValueHook(value)
+      typeof callback === 'function' && callback()
+    }
+    const { onChange } = props
+    if (onChange) {
+      let event = e
+      if (e.type === 'click') {
+        // click clear icon
+        event = Object.create(e)
+        event.target = input.current
+        event.currentTarget = input.current
+        const originalInputValue = input.current.value
+        // change input value cause e.target.value should be '' when clear input
+        input.current.value = ''
+        onChange(event)
+        // reset input value
+        input.current.value = originalInputValue
+        return
+      }
+      onChange(event)
+    }
+  }
+  const handleChange = e => {
+    setValue(e.target.value, e)
+  }
+  const handleClear = e => {
+    setValue('', e, () => {
+      input.current.focus()
+    })
   }
 
-  const valueChange = e => {
-    setValue(e.target.value)
-  }
   const {
     className,
     size,
+    onChange,
     width,
     prefix,
     suffix,
     readonly,
     clearable,
+    defaultValue,
     ...other
   } = props
 
@@ -44,7 +82,13 @@ function Input (props) {
             {prefix}
           </span>
         )}
-        <input className={classNames} {...other} />
+        <input
+          className={classNames}
+          value={fixControlledValue(value)}
+          onChange={handleChange}
+          ref={input}
+          {...other}
+        />
         {suffix && (
           <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
             {suffix}
@@ -56,7 +100,14 @@ function Input (props) {
   if (readonly) {
     return (
       <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-        <input className={classNames} readOnly={readonly} {...other} />
+        <input
+          className={classNames}
+          readOnly={readonly}
+          {...other}
+          value={fixControlledValue(value)}
+          onChange={handleChange}
+          ref={input}
+        />
         <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
           <Icon type="locked" />
         </span>
@@ -68,19 +119,28 @@ function Input (props) {
       <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
         <input
           className={classNames}
-          value={value}
-          onChange={valueChange}
+          value={fixControlledValue(value)}
+          onChange={handleChange}
+          ref={input}
           {...other}
         />
-        {value && (
+        {value && !other.disabled && (
           <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-            <Icon type="remove" onClick={() => handleClick('')} />
+            <Icon type="remove" onClick={handleClear} />
           </span>
         )}
       </div>
     )
   }
-  return <input className={classNames} {...other} />
+  return (
+    <input
+      className={classNames}
+      value={fixControlledValue(value)}
+      onChange={handleChange}
+      ref={input}
+      {...other}
+    />
+  )
 }
 
 Input.propTypes = {
