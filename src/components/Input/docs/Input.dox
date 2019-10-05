@@ -2,15 +2,21 @@
 
 /**
  * @title Basic usage
- * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
+ * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`. The `Input` do not support `defaultValue` and uncontrolled mode, please do not use it.
  */
 import { Input } from 'earth-ui'
 import { Row, Col } from 'earth-ui'
+import { useState } from 'react'
 
 const InputNormal = () => {
+  const [value, setValue] = useState('123')
+  const inputRef = React.createRef()
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
   return (
     <div>
-      <Input placeholder="Please input text here" width={456} />
+      <Input value={value} onChange={handleChange} width={456} />
       <br/>
       <Row>
         <Col col="md-14">
@@ -75,17 +81,20 @@ const InputSize = () => {
 }
 
 /**
- * @title Clearable
- * @desc Make the Input `clearable` with the clearable attribute.
+ * @title Clear
+ * @desc Triggers when the Input is cleared by clicking the clear button
  */
 import { Input } from 'earth-ui'
 
 const InputClearable = () => {
-  return (
-    <div>
-      <Input placeholder="Please input text here" width={456} clearable/>
-    </div>
-  )
+  const [value, setValue] = useState('123')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+  const handleClear = e => {
+    setValue('')
+  }
+  return <Input value={value} onChange={handleChange} onClear={handleClear} width={456} />
 }
 
 @component Input

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
+import omit from '../_utils/omit'
 import './index.less'
 
 function fixControlledValue (value) {
@@ -11,136 +12,151 @@ function fixControlledValue (value) {
   return value
 }
 
-function Input (props) {
-  const input = React.createRef()
-  const [value, setValueHook] = useState(
-    typeof props.value === 'undefined' ? props.defaultValue : props.value
-  )
-  const setValue = (value, e, callback) => {
-    if (!('value' in props)) {
-      setValueHook(value)
-      typeof callback === 'function' && callback()
+class Input extends React.Component {
+  constructor (props) {
+    super(props)
+    this.input = React.createRef()
+    this.state = {
+      value: props.value || ''
     }
-    const { onChange } = props
-    if (onChange) {
-      let event = e
-      if (e.type === 'click') {
-        // click clear icon
-        event = Object.create(e)
-        event.target = input.current
-        event.currentTarget = input.current
-        const originalInputValue = input.current.value
-        // change input value cause e.target.value should be '' when clear input
-        input.current.value = ''
-        onChange(event)
-        // reset input value
-        input.current.value = originalInputValue
-        return
+  }
+
+  static getDerivedStateFromProps (nextProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
       }
-      onChange(event)
+    }
+    return null
+  }
+
+  setValue = (value, e, callback) => {
+    if (!('value' in this.props)) {
+      this.setState({ value }, callback)
+    }
+    this.props.onChange && this.props.onChange(e)
+  }
+
+  handleChange = e => {
+    this.setValue(e.target.value, e)
+  }
+
+  handleClear = e => {
+    if (this.props.onClear) {
+      this.props.onClear(e)
+      this.focus()
     }
   }
-  const handleChange = e => {
-    setValue(e.target.value, e)
-  }
-  const handleClear = e => {
-    setValue('', e, () => {
-      input.current.focus()
-    })
+
+  focus () {
+    this.input.current.focus()
   }
 
-  const {
-    className,
-    size,
-    onChange,
-    width,
-    prefix,
-    suffix,
-    readonly,
-    clearable,
-    defaultValue,
-    ...other
-  } = props
+  blur () {
+    this.input.current.blur()
+  }
 
-  const classNames = cx(
-    `${prefixCls}-input`,
-    {
-      [`${prefixCls}-input--${size}`]: size,
-      [`${prefixCls}-input--prefix`]: prefix,
-      [`${prefixCls}-input--suffix`]: suffix || readonly || clearable
-    },
-    className
-  )
-  if (width) {
-    other.style = Object.assign(other.style || {}, { width })
+  select () {
+    this.input.current.select()
   }
-  if (prefix || suffix) {
-    return (
-      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-        {prefix && (
-          <span className={`${prefixCls}-input__affix-wrapper--prefix`}>
-            {prefix}
-          </span>
-        )}
-        <input
-          className={classNames}
-          value={fixControlledValue(value)}
-          onChange={handleChange}
-          ref={input}
-          {...other}
-        />
-        {suffix && (
+
+  render () {
+    const {
+      className,
+      size,
+      onChange,
+      width,
+      prefix,
+      suffix,
+      readonly,
+      onClear,
+      ...other
+    } = this.props
+
+    const otherProps = omit(other, ['defaultValue'])
+
+    const { value } = this.state
+
+    const classNames = cx(
+      `${prefixCls}-input`,
+      {
+        [`${prefixCls}-input--${size}`]: size,
+        [`${prefixCls}-input--prefix`]: prefix,
+        [`${prefixCls}-input--suffix`]: suffix || readonly || onClear
+      },
+      className
+    )
+    if (width) {
+      otherProps.style = Object.assign(otherProps.style || {}, { width })
+    }
+    if (prefix || suffix) {
+      return (
+        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+          {prefix && (
+            <span className={`${prefixCls}-input__affix-wrapper--prefix`}>
+              {prefix}
+            </span>
+          )}
+          <input
+            {...otherProps}
+            className={classNames}
+            value={fixControlledValue(value)}
+            onChange={this.handleChange}
+            ref={this.input}
+          />
+          {suffix && (
+            <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+              {suffix}
+            </span>
+          )}
+        </div>
+      )
+    }
+    if (readonly) {
+      return (
+        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+          <input
+            {...otherProps}
+            className={classNames}
+            readOnly={readonly}
+            value={fixControlledValue(value)}
+            onChange={this.handleChange}
+            ref={this.input}
+          />
           <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-            {suffix}
+            <Icon type="locked" />
           </span>
-        )}
-      </div>
-    )
-  }
-  if (readonly) {
+        </div>
+      )
+    }
+    if (onClear) {
+      return (
+        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+          <input
+            {...otherProps}
+            className={classNames}
+            value={fixControlledValue(value)}
+            onChange={this.handleChange}
+            ref={this.input}
+          />
+          {value && !otherProps.disabled && (
+            <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
+              <Icon type="remove" onClick={this.handleClear} />
+            </span>
+          )}
+        </div>
+      )
+    }
     return (
-      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-        <input
-          className={classNames}
-          readOnly={readonly}
-          {...other}
-          value={fixControlledValue(value)}
-          onChange={handleChange}
-          ref={input}
-        />
-        <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-          <Icon type="locked" />
-        </span>
-      </div>
+      <input
+        {...otherProps}
+        className={classNames}
+        value={fixControlledValue(value)}
+        onChange={this.handleChange}
+        ref={this.input}
+      />
     )
   }
-  if (clearable) {
-    return (
-      <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
-        <input
-          className={classNames}
-          value={fixControlledValue(value)}
-          onChange={handleChange}
-          ref={input}
-          {...other}
-        />
-        {value && !other.disabled && (
-          <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
-            <Icon type="remove" onClick={handleClear} />
-          </span>
-        )}
-      </div>
-    )
-  }
-  return (
-    <input
-      className={classNames}
-      value={fixControlledValue(value)}
-      onChange={handleChange}
-      ref={input}
-      {...other}
-    />
-  )
 }
 
 Input.propTypes = {
@@ -148,9 +164,6 @@ Input.propTypes = {
 
   // binding value
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  // default input value
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   // riggers when the icon inside Input value change
   onChange: PropTypes.func,
@@ -179,8 +192,8 @@ Input.propTypes = {
   // the suffix icon for the Input
   suffix: PropTypes.element,
 
-  // make the input clearable
-  clearable: PropTypes.bool,
+  // triggers when the Input is cleared by clicking the clear button
+  onClear: PropTypes.func,
 
   customProp ({ value, onChange }) {
     if (value && !onChange) {
