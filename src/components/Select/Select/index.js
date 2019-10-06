@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import dataFilter from '../../_utils/dataFilter'
 import shouldComponentUpdate from '../../_utils/shouldComponentUpdate'
-import ClearableInput from '../../ClearableInput'
+import Input from '../../Input'
 import SelectDropdown from '../../SelectDropdown'
 import TextOverflow from '../../TextOverflow'
 import './index.less'
@@ -73,19 +73,29 @@ class Select extends Component {
   }
 
   handleDropToggle = open => {
-    this.props.searchable && open && setTimeout(() => {
-      this.refs.clearableInput && this.refs.clearableInput.focus()
-    }, 0)
+    this.props.searchable &&
+      open &&
+      setTimeout(() => {
+        this.refs.clearableInput && this.refs.clearableInput.focus()
+      }, 0)
   }
 
   getOptionsWithProps (onMatch) {
     const { children, render, defaultOption } = this.props
     let res
     if (children) {
-      res = React.Children.map(children, this.getOptionWithProps.bind(this, onMatch))
+      res = React.Children.map(
+        children,
+        this.getOptionWithProps.bind(this, onMatch)
+      )
     } else {
       res = this.state.data.map((item, i) => {
-        return this.getOptionWithProps(onMatch, render.call(this, item, i), i, item)
+        return this.getOptionWithProps(
+          onMatch,
+          render.call(this, item, i),
+          i,
+          item
+        )
       })
     }
     if (defaultOption) {
@@ -116,7 +126,10 @@ class Select extends Component {
     return options.filter(option => {
       const { value, children } = option.props
       if (!value && value !== 0) return false
-      return children.indexOf(searchValue) !== -1 || String(value).indexOf(searchValue) !== -1
+      return (
+        children.indexOf(searchValue) !== -1 ||
+        String(value).indexOf(searchValue) !== -1
+      )
     })
   }
 
@@ -132,8 +145,20 @@ class Select extends Component {
 
   render () {
     const {
-      children, className, defaultValue, onChange, data, dataFilter, defaultOption, size,
-      placeholder, searchPlaceholder, searchable, noOptionsContent, noMatchingContent, ...other
+      children,
+      className,
+      defaultValue,
+      onChange,
+      data,
+      dataFilter,
+      defaultOption,
+      size,
+      placeholder,
+      searchPlaceholder,
+      searchable,
+      noOptionsContent,
+      noMatchingContent,
+      ...other
     } = this.props
     const { value, searchValue } = this.state
 
@@ -141,13 +166,19 @@ class Select extends Component {
     delete other.render
 
     let title = null
-    let optionsWithProps = this.getOptionsWithProps(children => (title = children))
+    let optionsWithProps = this.getOptionsWithProps(
+      children => (title = children)
+    )
     optionsWithProps = this.filterBySearchValue(optionsWithProps)
     optionsWithProps = this.shouldSearchable(optionsWithProps)
 
-    const classNames = cx(`${prefixCls}-select`, {
-      [`${prefixCls}-select_${size}`]: size
-    }, className)
+    const classNames = cx(
+      `${prefixCls}-select`,
+      {
+        [`${prefixCls}-select_${size}`]: size
+      },
+      className
+    )
 
     const optionsClassNames = cx(`${prefixCls}-select__options`, {
       [`${prefixCls}-select__options_${size}`]: size
@@ -180,7 +211,7 @@ class Select extends Component {
         {...other}
       >
         {searchable && (
-          <ClearableInput
+          <Input
             ref="clearableInput"
             className={`${prefixCls}-select__search-input`}
             value={searchValue}
@@ -190,8 +221,12 @@ class Select extends Component {
           />
         )}
         <ul className={optionsClassNames}>
-          {optionsWithProps && optionsWithProps.length ? optionsWithProps : (
-            <li className={`${prefixCls}-select__option`}>{noOptionsContent}</li>
+          {optionsWithProps && optionsWithProps.length ? (
+            optionsWithProps
+          ) : (
+            <li className={`${prefixCls}-select__option`}>
+              {noOptionsContent}
+            </li>
           )}
         </ul>
       </SelectDropdown>
@@ -207,7 +242,6 @@ Select.defaultProps = {
 }
 
 Select.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,
@@ -262,7 +296,9 @@ Select.propTypes = {
 
   customProp ({ value, onChange, url, render }) {
     if (value && !onChange) {
-      return new Error('You provided a `value` prop without an `onChange` handler')
+      return new Error(
+        'You provided a `value` prop without an `onChange` handler'
+      )
     }
     if (url && !render) {
       return new Error('You provided a `url` prop without an `render` handler')
