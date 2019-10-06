@@ -31,7 +31,7 @@ class Input extends React.Component {
   }
 
   handleFocus = v => {
-    this.setState({ icon: v })
+    this.setState({ focus: v })
   }
 
   handleMouseEnter = v => {
@@ -119,7 +119,7 @@ class Input extends React.Component {
       )
     }
     if (onClear) {
-      const { icon, mouseEnter } = this.state
+      const { focus, mouseEnter } = this.state
       return (
         <div
           className={`${prefixCls}-input__affix-wrapper`}
@@ -136,7 +136,7 @@ class Input extends React.Component {
             onFocus={() => this.handleFocus(true)}
             ref={this.input}
           />
-          {value && (icon || mouseEnter) && !otherProps.disabled && (
+          {value && (focus || mouseEnter) && !otherProps.disabled && (
             <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
               <Icon type="remove" onClick={this.handleClear} />
             </span>
