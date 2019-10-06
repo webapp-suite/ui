@@ -13,6 +13,10 @@ class Input extends React.Component {
   constructor (props) {
     super(props)
     this.input = React.createRef()
+    this.state = {
+      focus: true,
+      mouseEnter: true
+    }
   }
 
   handleChange = e => {
@@ -24,6 +28,14 @@ class Input extends React.Component {
       this.props.onClear(e)
       this.focus()
     }
+  }
+
+  handleFocus = v => {
+    this.setState({ icon: v })
+  }
+
+  handleMouseEnter = v => {
+    this.setState({ mouseEnter: v })
   }
 
   focus () {
@@ -107,16 +119,24 @@ class Input extends React.Component {
       )
     }
     if (onClear) {
+      const { icon, mouseEnter } = this.state
       return (
-        <div className={`${prefixCls}-input__affix-wrapper`} style={{ width }}>
+        <div
+          className={`${prefixCls}-input__affix-wrapper`}
+          style={{ width }}
+          onMouseEnter={() => this.handleMouseEnter(true)}
+          onMouseLeave={() => this.handleMouseEnter(false)}
+        >
           <input
             {...otherProps}
             className={classNames}
             value={fixControlledValue(value)}
             onChange={this.handleChange}
+            onBlur={() => this.handleFocus(false)}
+            onFocus={() => this.handleFocus(true)}
             ref={this.input}
           />
-          {value && !otherProps.disabled && (
+          {value && (icon || mouseEnter) && !otherProps.disabled && (
             <span className={`${prefixCls}-input__affix-wrapper--suffix`}>
               <Icon type="remove" onClick={this.handleClear} />
             </span>
