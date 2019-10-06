@@ -56,7 +56,7 @@ describe('Input basic usage', () => {
 
 describe('Input clearable', () => {
   const state = { value: '111' }
-  const handleClear = e => {}
+  const handleClear = jest.fn()
 
   it('should hide icon when input have not focus and mouseenter', () => {
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
@@ -69,7 +69,7 @@ describe('Input clearable', () => {
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
     wrapper.find('input').simulate('focus')
     expect(wrapper.find('input').getDOMNode().value).toEqual('111')
-    expect(wrapper.find('.true-icon').exists()).toEqual(true)
+    expect(wrapper.find('.true-icon').exists()).toBeTruthy()
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -86,7 +86,7 @@ describe('Input clearable', () => {
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
     wrapper.find('div').simulate('mouseenter')
     expect(wrapper.find('input').getDOMNode().value).toEqual('111')
-    expect(wrapper.find('.true-icon').exists()).toEqual(true)
+    expect(wrapper.find('.true-icon').exists()).toBeTruthy()
     expect(wrapper).toMatchSnapshot()
   })
 

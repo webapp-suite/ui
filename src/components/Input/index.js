@@ -14,8 +14,8 @@ class Input extends React.Component {
     super(props)
     this.input = React.createRef()
     this.state = {
-      focus: true,
-      mouseEnter: true
+      focus: false,
+      mouseEnter: false
     }
   }
 
