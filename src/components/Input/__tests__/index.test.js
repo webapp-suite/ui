@@ -36,6 +36,7 @@ describe('Input basic usage', () => {
       expect(wrapper).toMatchSnapshot()
     })
   })
+
   it('should change value when input other value', () => {
     const state = { value: '111' }
     const handleChange = e => {

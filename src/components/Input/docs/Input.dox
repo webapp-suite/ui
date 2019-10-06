@@ -1,8 +1,8 @@
-@summary > Input is a controlled component, it **always shows React binding value**. Under normal circumstances, input event should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
+@summary > Input is a controlled component and **does not support** `defaultValue` which is uncontrolled, it **always shows React binding value**. Under normal circumstances, input `onChange` should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
 
 /**
  * @title Basic usage
- * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`. The `Input` does not support `defaultValue` and uncontrolled mode, please do not use it otherwise it will do not work.
+ * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
  */
 import { Input } from 'earth-ui'
 import { Row, Col } from 'earth-ui'
@@ -10,7 +10,6 @@ import { useState } from 'react'
 
 const InputNormal = () => {
   const [value, setValue] = useState('')
-  const inputRef = React.createRef()
   const handleChange = e => {
     setValue(e.target.value)
   }
@@ -91,7 +90,7 @@ const InputClearable = () => {
   const handleChange = e => {
     setValue(e.target.value)
   }
-  const handleClear = e => {
+  const handleClear = () => {
     setValue('')
   }
   return (
