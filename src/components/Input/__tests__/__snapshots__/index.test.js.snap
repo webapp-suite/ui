@@ -114,6 +114,8 @@ exports[`Input clearable should clear value correctly when click clear icon 1`] 
 >
   <div
     className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     style={
       Object {
         "width": "100%",
@@ -122,7 +124,9 @@ exports[`Input clearable should clear value correctly when click clear icon 1`] 
   >
     <input
       className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       style={
         Object {
           "width": "100%",
@@ -130,6 +134,76 @@ exports[`Input clearable should clear value correctly when click clear icon 1`] 
       }
       type="text"
       value=""
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should hide icon correctly when input blur 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should hide icon when input have not focus and mouseenter 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
     />
   </div>
 </Input>
@@ -145,6 +219,8 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 >
   <div
     className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     style={
       Object {
         "width": "100%",
@@ -153,7 +229,9 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
   >
     <input
       className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       style={
         Object {
           "width": "100%",
@@ -175,6 +253,8 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 >
   <div
     className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     style={
       Object {
         "width": "100%",
@@ -183,7 +263,9 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
   >
     <input
       className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       style={
         Object {
           "width": "100%",
@@ -206,6 +288,8 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 >
   <div
     className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     style={
       Object {
         "width": "100%",
@@ -214,7 +298,9 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
   >
     <input
       className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       style={
         Object {
           "width": "100%",
@@ -227,7 +313,7 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 </Input>
 `;
 
-exports[`Input clearable should show icon when onClear prop exists 1`] = `
+exports[`Input clearable should show icon correctly when input focus 1`] = `
 <Input
   onClear={[Function]}
   size="md"
@@ -237,6 +323,8 @@ exports[`Input clearable should show icon when onClear prop exists 1`] = `
 >
   <div
     className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     style={
       Object {
         "width": "100%",
@@ -245,7 +333,9 @@ exports[`Input clearable should show icon when onClear prop exists 1`] = `
   >
     <input
       className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       style={
         Object {
           "width": "100%",
@@ -267,6 +357,89 @@ exports[`Input clearable should show icon when onClear prop exists 1`] = `
         />
       </Icon>
     </span>
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should show icon correctly when mouse enter input boundary 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
+    <span
+      className="true-input__affix-wrapper--suffix"
+    >
+      <Icon
+        onClick={[Function]}
+        type="remove"
+      >
+        <i
+          className="true-icon true-icon__remove"
+          onClick={[Function]}
+        />
+      </Icon>
+    </span>
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should show icon correctly when mouse leave input boundary 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
   </div>
 </Input>
 `;

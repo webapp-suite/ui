@@ -58,13 +58,44 @@ describe('Input clearable', () => {
   const state = { value: '111' }
   const handleClear = e => {}
 
-  it('should show icon when onClear prop exists', () => {
-    const handleClear = e => {
-      wrapper.setProps({ value: '' })
-    }
+  it('should hide icon when input have not focus and mouseenter', () => {
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
     expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('.true-icon').exists()).toBeFalsy()
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should show icon correctly when input focus', () => {
+    const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('input').simulate('focus')
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
     expect(wrapper.find('.true-icon').exists()).toEqual(true)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should hide icon correctly when input blur', () => {
+    const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('input').simulate('focus')
+    wrapper.find('input').simulate('blur')
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('.true-icon').exists()).toBeFalsy()
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should show icon correctly when mouse enter Input boundary', () => {
+    const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('div').simulate('mouseenter')
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('.true-icon').exists()).toEqual(true)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should show icon correctly when mouse leave Input boundary', () => {
+    const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('div').simulate('mouseenter')
+    wrapper.find('div').simulate('mouseleave')
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('.true-icon').exists()).toBeFalsy()
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -86,6 +117,7 @@ describe('Input clearable', () => {
       wrapper.setProps({ value: '' })
     }
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('input').simulate('focus')
     wrapper
       .find('.true-icon')
       .at(0)
@@ -97,6 +129,7 @@ describe('Input clearable', () => {
 
   it('should focus input after clear', () => {
     const wrapper = mount(<Input value={state.value} onClear={handleClear} />)
+    wrapper.find('input').simulate('focus')
     wrapper
       .find('.true-icon')
       .at(0)
