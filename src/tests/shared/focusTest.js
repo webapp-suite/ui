@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-export default function focusTest (Component, tagName) {
+export default function focusTest (Component) {
   describe('focus and blur', () => {
     beforeAll(() => {
       jest.useFakeTimers()
@@ -26,10 +26,7 @@ export default function focusTest (Component, tagName) {
       const wrapper = mount(<Component onFocus={handleFocus} />, {
         attachTo: container
       })
-      wrapper
-        .find(tagName)
-        .instance()
-        .focus()
+      wrapper.instance().focus()
       jest.runAllTimers()
       expect(handleFocus).toHaveBeenCalled()
     })
@@ -39,15 +36,9 @@ export default function focusTest (Component, tagName) {
       const wrapper = mount(<Component onBlur={handleBlur} />, {
         attachTo: container
       })
-      wrapper
-        .find(tagName)
-        .instance()
-        .focus()
+      wrapper.instance().focus()
       jest.runAllTimers()
-      wrapper
-        .find(tagName)
-        .instance()
-        .blur()
+      wrapper.instance().blur()
       jest.runAllTimers()
       expect(handleBlur).toHaveBeenCalled()
     })

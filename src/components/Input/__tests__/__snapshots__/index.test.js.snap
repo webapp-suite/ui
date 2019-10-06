@@ -1,10 +1,238 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input clearable should change type when click 1`] = `
+exports[`Input basic usage should change value when input other value 1`] = `
 <Input
-  clearable={true}
+  onChange={[Function]}
   size="md"
   type="text"
+  value="222"
+  width="100%"
+>
+  <input
+    className="true-input true-input--md"
+    onChange={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value="222"
+  />
+</Input>
+`;
+
+exports[`Input basic usage should set empty string if value is undefined, null 1`] = `
+<Input
+  size="md"
+  type="text"
+  value={null}
+  width="100%"
+>
+  <input
+    className="true-input true-input--md"
+    onChange={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value=""
+  />
+</Input>
+`;
+
+exports[`Input basic usage should set empty string if value is undefined, null 2`] = `
+<Input
+  size="md"
+  type="text"
+  width="100%"
+>
+  <input
+    className="true-input true-input--md"
+    onChange={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value=""
+  />
+</Input>
+`;
+
+exports[`Input basic usage should set width to 100% as default 1`] = `
+<Input
+  size="md"
+  type="text"
+  value="123"
+  width="100%"
+>
+  <input
+    className="true-input true-input--md"
+    onChange={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value="123"
+  />
+</Input>
+`;
+
+exports[`Input basic usage should support specific px width 1`] = `
+<Input
+  size="md"
+  type="text"
+  width={456}
+>
+  <input
+    className="true-input true-input--md"
+    onChange={[Function]}
+    style={
+      Object {
+        "width": 456,
+      }
+    }
+    type="text"
+    value=""
+  />
+</Input>
+`;
+
+exports[`Input clearable should clear value correctly when click clear icon 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value=""
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value=""
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should not show icon if value is undefined, null or empty string 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value={null}
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value=""
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should not show icon if value is undefined, null or empty string 2`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value=""
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should not show icon if value is undefined, null or empty string 3`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value=""
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value=""
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input clearable should show icon when onClear prop exists 1`] = `
+<Input
+  onClear={[Function]}
+  size="md"
+  type="text"
+  value="111"
   width="100%"
 >
   <div
@@ -40,238 +268,5 @@ exports[`Input clearable should change type when click 1`] = `
       </Icon>
     </span>
   </div>
-</Input>
-`;
-
-exports[`Input clearable should change type when click 2`] = `
-<Input
-  clearable={true}
-  size="md"
-  type="text"
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value=""
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if defaultValue is undefined, null or empty string 1`] = `
-<Input
-  clearable={true}
-  defaultValue={null}
-  size="md"
-  type="text"
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value=""
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if defaultValue is undefined, null or empty string 2`] = `
-<Input
-  clearable={true}
-  size="md"
-  type="text"
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value=""
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if defaultValue is undefined, null or empty string 3`] = `
-<Input
-  clearable={true}
-  defaultValue=""
-  size="md"
-  type="text"
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value=""
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if value is undefined, null or empty string 1`] = `
-<Input
-  clearable={true}
-  size="md"
-  type="text"
-  value={null}
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value={null}
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if value is undefined, null or empty string 2`] = `
-<Input
-  clearable={true}
-  size="md"
-  type="text"
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input clearable should not show icon if value is undefined, null or empty string 3`] = `
-<Input
-  clearable={true}
-  size="md"
-  type="text"
-  value=""
-  width="100%"
->
-  <div
-    className="true-input__affix-wrapper"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <input
-      className="true-input true-input--md true-input--suffix"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-      type="text"
-      value=""
-    />
-  </div>
-</Input>
-`;
-
-exports[`Input should support width 1`] = `
-<Input
-  size="md"
-  type="text"
-  width={456}
->
-  <input
-    className="true-input true-input--md"
-    onChange={[Function]}
-    style={
-      Object {
-        "width": 456,
-      }
-    }
-    type="text"
-    value=""
-  />
 </Input>
 `;

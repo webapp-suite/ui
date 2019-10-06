@@ -6,39 +6,17 @@ import omit from '../_utils/omit'
 import './index.less'
 
 function fixControlledValue (value) {
-  if (typeof value === 'undefined' || value === null) {
-    return ''
-  }
-  return value
+  return value || ''
 }
 
 class Input extends React.Component {
   constructor (props) {
     super(props)
     this.input = React.createRef()
-    this.state = {
-      value: props.value || ''
-    }
-  }
-
-  static getDerivedStateFromProps (nextProps) {
-    if ('value' in nextProps) {
-      return {
-        value: nextProps.value
-      }
-    }
-    return null
-  }
-
-  setValue = (value, e, callback) => {
-    if (!('value' in this.props)) {
-      this.setState({ value }, callback)
-    }
-    this.props.onChange && this.props.onChange(e)
   }
 
   handleChange = e => {
-    this.setValue(e.target.value, e)
+    this.props.onChange && this.props.onChange(e)
   }
 
   handleClear = e => {
@@ -62,6 +40,7 @@ class Input extends React.Component {
 
   render () {
     const {
+      value,
       className,
       size,
       onChange,
@@ -74,8 +53,6 @@ class Input extends React.Component {
     } = this.props
 
     const otherProps = omit(other, ['defaultValue'])
-
-    const { value } = this.state
 
     const classNames = cx(
       `${prefixCls}-input`,
