@@ -67,7 +67,7 @@ exports[`Input basic usage should set width to 100% as default 1`] = `
 <Input
   size="md"
   type="text"
-  value="123"
+  value="111"
   width="100%"
 >
   <input
@@ -79,7 +79,7 @@ exports[`Input basic usage should set width to 100% as default 1`] = `
       }
     }
     type="text"
-    value="123"
+    value="111"
   />
 </Input>
 `;
@@ -104,7 +104,7 @@ exports[`Input basic usage should support specific px width 1`] = `
 </Input>
 `;
 
-exports[`Input clearable should clear value correctly when click clear icon 1`] = `
+exports[`Input clear should clear value correctly when click clear icon 1`] = `
 <Input
   onClear={[Function]}
   size="md"
@@ -139,7 +139,7 @@ exports[`Input clearable should clear value correctly when click clear icon 1`] 
 </Input>
 `;
 
-exports[`Input clearable should hide icon correctly when input blur 1`] = `
+exports[`Input clear should hide icon correctly when input blur 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -174,7 +174,7 @@ exports[`Input clearable should hide icon correctly when input blur 1`] = `
 </Input>
 `;
 
-exports[`Input clearable should hide icon when input have not focus and mouseenter 1`] = `
+exports[`Input clear should hide icon when input have not focus and mouseenter 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -209,7 +209,7 @@ exports[`Input clearable should hide icon when input have not focus and mouseent
 </Input>
 `;
 
-exports[`Input clearable should not show icon if value is undefined, null or empty string 1`] = `
+exports[`Input clear should not show icon if value is undefined, null or empty string 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -244,7 +244,7 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 </Input>
 `;
 
-exports[`Input clearable should not show icon if value is undefined, null or empty string 2`] = `
+exports[`Input clear should not show icon if value is undefined, null or empty string 2`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -278,7 +278,7 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 </Input>
 `;
 
-exports[`Input clearable should not show icon if value is undefined, null or empty string 3`] = `
+exports[`Input clear should not show icon if value is undefined, null or empty string 3`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -313,7 +313,7 @@ exports[`Input clearable should not show icon if value is undefined, null or emp
 </Input>
 `;
 
-exports[`Input clearable should show icon correctly when input focus 1`] = `
+exports[`Input clear should show icon correctly when input focus 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -361,7 +361,7 @@ exports[`Input clearable should show icon correctly when input focus 1`] = `
 </Input>
 `;
 
-exports[`Input clearable should show icon correctly when mouse enter Input boundary 1`] = `
+exports[`Input clear should show icon correctly when mouse enter Input boundary 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"
@@ -409,7 +409,7 @@ exports[`Input clearable should show icon correctly when mouse enter Input bound
 </Input>
 `;
 
-exports[`Input clearable should show icon correctly when mouse leave Input boundary 1`] = `
+exports[`Input clear should show icon correctly when mouse leave Input boundary 1`] = `
 <Input
   onClear={[MockFunction]}
   size="md"

@@ -18,8 +18,14 @@ describe('Input basic usage', () => {
   focusTest(Input)
   mountTest(Input)
 
+  it('should have no error when value prop without onChange handler', () => {
+    // value means default value in this case
+    mount(<Input value="111" />)
+    expect(errorSpy).not.toHaveBeenCalled()
+  })
+
   it('should set width to 100% as default', () => {
-    const wrapper = mount(<Input value="123" />)
+    const wrapper = mount(<Input value="111" />) // should
     expect(wrapper.find('input').prop('style').width).toBe('100%')
     expect(wrapper).toMatchSnapshot()
   })
@@ -54,7 +60,7 @@ describe('Input basic usage', () => {
 // describe('Input Icon', () => {})
 // describe('Input Size', () => {})
 
-describe('Input clearable', () => {
+describe('Input clear', () => {
   const state = { value: '111' }
   const handleClear = jest.fn()
 

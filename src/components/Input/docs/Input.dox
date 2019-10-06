@@ -47,15 +47,29 @@ const InputRD = () => {
  * @desc To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
  */
 import { Input, Icon, Tooltip } from 'earth-ui'
+import { useState } from 'react'
 
 const InputIcon = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
   return (
     <div>
-      <Input prefix={<Icon type="search"/>} placeholder="Please input text" width={456} />
+      <Input
+        prefix={<Icon type="search"/>}
+        value={value}
+        onChange={handleChange}
+        placeholder="Please input text"
+        width={456}
+      />
       <br/>
       <Input
         suffix={<Tooltip direction="up" title="this is hint"><Icon type="question" /></Tooltip>}
-        placeholder="Please input text" width={456}
+        value={value}
+        onChange={handleChange}
+        placeholder="Please input text"
+        width={456}
       />
     </div>
   )
@@ -66,15 +80,20 @@ const InputIcon = () => {
  * @desc Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
  */
 import { Input } from 'earth-ui'
+import { useState } from 'react'
 
 const InputSize = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
   return (
     <div>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Small" size="sm" width={456} />
+      <Input size="sm" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Small" width={456} />
       <br/>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={456} />
+      <Input size="md" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={456} />
       <br/>
-      <Input suffix={<Icon type="calendar"/>} placeholder="Large" size="lg" width={456} />
+      <Input size="lg" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Large" width={456} />
     </div>
   )
 }
@@ -84,6 +103,7 @@ const InputSize = () => {
  * @desc Triggers when the Input is cleared by clicking the clear button
  */
 import { Input } from 'earth-ui'
+import { useState } from 'react'
 
 const InputClearable = () => {
   const [value, setValue] = useState('')
@@ -95,9 +115,9 @@ const InputClearable = () => {
   }
   return (
     <Input
+      onClear={handleClear}
       value={value}
       onChange={handleChange}
-      onClear={handleClear}
       placeholder="Please input text"
       width={456}
     />
