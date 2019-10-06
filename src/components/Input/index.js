@@ -55,7 +55,6 @@ class Input extends React.Component {
       value,
       className,
       size,
-      onChange,
       width,
       prefix,
       suffix,
@@ -64,7 +63,7 @@ class Input extends React.Component {
       ...other
     } = this.props
 
-    const otherProps = omit(other, ['defaultValue'])
+    const otherProps = omit(other, ['defaultValue', 'onChange'])
 
     const classNames = cx(
       `${prefixCls}-input`,
@@ -172,7 +171,7 @@ Input.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
   // the length of input, unit as px, default `100%`
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   // whether Input is disabled
   disabled: PropTypes.bool,
@@ -190,15 +189,7 @@ Input.propTypes = {
   suffix: PropTypes.element,
 
   // triggers when the Input is cleared by clicking the clear button
-  onClear: PropTypes.func,
-
-  customProp ({ value, onChange }) {
-    if (value && !onChange) {
-      return new Error(
-        'You provided a `value` prop without an `onChange` handler'
-      )
-    }
-  }
+  onClear: PropTypes.func
 }
 
 Input.defaultProps = {
