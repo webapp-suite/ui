@@ -38,14 +38,29 @@ class Input extends React.Component {
     this.setState({ mouseEnter: v })
   }
 
+  /**
+   * @public
+   * @name ref.current.focus
+   * @description Same as HTMLInputElement.focus()
+   */
   focus () {
     this.input.current.focus()
   }
 
+  /**
+   * @public
+   * @name ref.current.blur
+   * @description Same as HTMLInputElement.blur()
+   */
   blur () {
     this.input.current.blur()
   }
 
+  /**
+   * @public
+   * @name ref.current.select
+   * @description Same as HTMLInputElement.select()
+   */
   select () {
     this.input.current.select()
   }
