@@ -443,3 +443,188 @@ exports[`Input clear should show icon correctly when mouse leave Input boundary 
   </div>
 </Input>
 `;
+
+exports[`Input disabled should have disabled prop on native input 1`] = `
+<Input
+  disabled={true}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <input
+    className="true-input true-input--md"
+    disabled={true}
+    onChange={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value="111"
+  />
+</Input>
+`;
+
+exports[`Input icon should show prefix icon correctly when have prefix render props 1`] = `
+<Input
+  prefix={
+    <Icon
+      type="search"
+    />
+  }
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <span
+      className="true-input__affix-wrapper--prefix"
+    >
+      <Icon
+        type="search"
+      >
+        <i
+          className="true-icon true-icon__search"
+        />
+      </Icon>
+    </span>
+    <input
+      className="true-input true-input--md true-input--prefix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
+  </div>
+</Input>
+`;
+
+exports[`Input icon should show suffix icon correctly when have suffix render props 1`] = `
+<Input
+  size="md"
+  suffix={
+    <Tooltip
+      align="middle"
+      direction="up"
+      title="this is hint"
+      triggerMode="hover"
+    >
+      <Icon
+        type="question"
+      />
+    </Tooltip>
+  }
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
+    <span
+      className="true-input__affix-wrapper--suffix"
+    >
+      <Tooltip
+        align="middle"
+        direction="up"
+        title="this is hint"
+        triggerMode="hover"
+      >
+        <Popover
+          align="middle"
+          className="true-tooltip__popover"
+          content="this is hint"
+          direction="up"
+          triggerMode="hover"
+        >
+          <Icon
+            className="true-popover__trigger"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            type="question"
+          >
+            <i
+              className="true-icon true-icon__question true-popover__trigger"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            />
+          </Icon>
+        </Popover>
+      </Tooltip>
+    </span>
+  </div>
+</Input>
+`;
+
+exports[`Input readonly should have readonly prop on native input 1`] = `
+<Input
+  readonly={true}
+  size="md"
+  type="text"
+  value="111"
+  width="100%"
+>
+  <div
+    className="true-input__affix-wrapper"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <input
+      className="true-input true-input--md true-input--suffix"
+      onChange={[Function]}
+      readOnly={true}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="text"
+      value="111"
+    />
+    <span
+      className="true-input__affix-wrapper--suffix"
+    >
+      <Icon
+        type="locked"
+      >
+        <i
+          className="true-icon true-icon__locked"
+        />
+      </Icon>
+    </span>
+  </div>
+</Input>
+`;

@@ -1,6 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import Input from '..'
+import Tooltip from '../../Tooltip'
+import Icon from '../../Icon'
 import focusTest from '../../../tests/shared/focusTest'
 import mountTest from '../../../tests/shared/mountTest'
 
@@ -55,10 +57,93 @@ describe('Input basic usage', () => {
   })
 })
 
-// todo
-// describe('Input Readonly / Disabled', () => {})
-// describe('Input Icon', () => {})
-// describe('Input Size', () => {})
+describe('Input readonly', () => {
+  const state = { value: '111' }
+
+  it('should have readonly prop on native input', () => {
+    const wrapper = mount(<Input value={state.value} readonly />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.prop('readonly')).toBeTruthy()
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('Input disabled', () => {
+  const state = { value: '111' }
+
+  it('should have disabled prop on native input', () => {
+    const wrapper = mount(<Input value={state.value} disabled />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.prop('disabled')).toBeTruthy()
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('Input icon', () => {
+  const state = { value: '111' }
+
+  it('should show prefix icon correctly when have prefix render props', () => {
+    const wrapper = mount(
+      <Input value={state.value} prefix={<Icon type="search" />} />
+    )
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('.true-icon').exists()).toBeTruthy()
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should show suffix icon correctly when have suffix render props', () => {
+    const wrapper = mount(
+      <Input
+        value={state.value}
+        suffix={
+          <Tooltip direction="up" title="this is hint">
+            <Icon type="question" />
+          </Tooltip>
+        }
+      />
+    )
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(
+      wrapper.find('.true-icon.true-popover__trigger').exists()
+    ).toBeTruthy()
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+describe('Input size', () => {
+  const state = { value: '111' }
+
+  it('should show sm size correctly', () => {
+    const wrapper = mount(<Input value={state.value} size="sm" />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('input').hasClass('true-input--sm')).toBeTruthy()
+  })
+
+  it('should show md size correctly', () => {
+    const wrapper = mount(<Input value={state.value} size="md" />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('input').hasClass('true-input--md')).toBeTruthy()
+  })
+
+  it('should show lg size correctly', () => {
+    const wrapper = mount(<Input value={state.value} size="lg" />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('input').hasClass('true-input--lg')).toBeTruthy()
+  })
+
+  it('should show md size when have not set size', () => {
+    const wrapper = mount(<Input value={state.value} />)
+    expect(wrapper.find('input').getDOMNode().value).toEqual('111')
+    expect(wrapper.find('input').hasClass('true-input--md')).toBeTruthy()
+  })
+
+  it('should have error when have set invalid size', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+    errorSpy.mockReset()
+    mount(<Input value={state.value} size="abc" />)
+    expect(errorSpy).toHaveBeenCalled()
+    errorSpy.mockRestore()
+  })
+})
 
 describe('Input clear', () => {
   const state = { value: '111' }
