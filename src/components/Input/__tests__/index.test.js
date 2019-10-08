@@ -109,6 +109,7 @@ describe('Input icon', () => {
     expect(wrapper).toMatchSnapshot()
   })
 })
+
 describe('Input size', () => {
   const state = { value: '111' }
 
