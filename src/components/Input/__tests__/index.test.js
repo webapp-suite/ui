@@ -27,7 +27,7 @@ describe('Input basic usage', () => {
   })
 
   it('should set width to 100% as default', () => {
-    const wrapper = mount(<Input value="111" />) // should
+    const wrapper = mount(<Input value="111" />)
     expect(wrapper.find('input').prop('style').width).toBe('100%')
     expect(wrapper).toMatchSnapshot()
   })
