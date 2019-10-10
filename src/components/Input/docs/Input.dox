@@ -1,32 +1,126 @@
-@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+@summary > Input is a controlled component and **does not support** `defaultValue` which is uncontrolled, it **always shows React binding value**. Under normal circumstances, input `onChange` should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
 
 /**
- * @title 尺寸
+ * @title Basic usage
+ * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
  */
 import { Input } from 'earth-ui'
+import { Row, Col } from 'earth-ui'
+import { useState } from 'react'
 
-const InputSize = () => {
+const InputNormal = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
   return (
     <div>
-      <Input placeholder="小尺寸" size="sm" width={460} />
-      <br/><br/>
-      <Input placeholder="默认尺寸" width={460} />
-      <br/><br/>
-      <Input placeholder="大尺寸" size="lg" width={460} />
+      <Input value={value} onChange={handleChange} placeholder="Please input text here" width={456} />
+      <br/>
+      <Row>
+        <Col col="md-14">
+          <Input value={value} onChange={handleChange} placeholder="Please input text here" />
+        </Col>
+      </Row>
     </div>
   )
 }
 
 /**
- * @title 不可用
+ * @title Readonly / Disabled
+ * @desc Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
  */
 import { Input } from 'earth-ui'
 
-const InputDisabled = () => {
+const InputRD = () => {
   return (
     <div>
-      <Input placeholder="不可用" width={460} disabled />
+      <Input value="Readonly text" width={456} readonly />
+      <br/>
+      <Input value="Disabled Text" width={456} disabled />
     </div>
+  )
+}
+
+/**
+ * @title Icon
+ * @desc To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
+ */
+import { Input, Icon, Tooltip } from 'earth-ui'
+import { useState } from 'react'
+
+const InputIcon = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+  return (
+    <div>
+      <Input
+        prefix={<Icon type="search"/>}
+        value={value}
+        onChange={handleChange}
+        placeholder="Please input text"
+        width={456}
+      />
+      <br/>
+      <Input
+        suffix={<Tooltip direction="up" title="this is hint"><Icon type="question" /></Tooltip>}
+        value={value}
+        onChange={handleChange}
+        placeholder="Please input text"
+        width={456}
+      />
+    </div>
+  )
+}
+
+/**
+ * @title Size
+ * @desc Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
+ */
+import { Input } from 'earth-ui'
+import { useState } from 'react'
+
+const InputSize = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+  return (
+    <div>
+      <Input size="sm" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Small" width={456} />
+      <br/>
+      <Input size="md" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Medium(default)" width={456} />
+      <br/>
+      <Input size="lg" value={value} onChange={handleChange} suffix={<Icon type="calendar"/>} placeholder="Large" width={456} />
+    </div>
+  )
+}
+
+/**
+ * @title Clear
+ * @desc Triggers when the Input is cleared by clicking the clear button
+ */
+import { Input } from 'earth-ui'
+import { useState } from 'react'
+
+const InputClearable = () => {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+  const handleClear = () => {
+    setValue('')
+  }
+  return (
+    <Input
+      onClear={handleClear}
+      value={value}
+      onChange={handleChange}
+      placeholder="Please input text"
+      width={456}
+    />
   )
 }
 
