@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
 import './index.less'
 
 function Button (props) {
-  const btnRef = React.createRef()
   const {
     children,
     className,
@@ -16,12 +15,8 @@ function Button (props) {
     ghost,
     icon,
     disabled,
-    autoFocus,
     ...other
   } = props
-  useEffect(() => {
-    autoFocus && btnRef.current.focus()
-  })
   const classNames = cx(
     `${prefixCls}-button`,
     {
@@ -40,7 +35,6 @@ function Button (props) {
         type="button"
         className={classNames}
         disabled={disabled || loading}
-        ref={btnRef}
         {...other}
       >
         <div>
@@ -55,7 +49,6 @@ function Button (props) {
       type="button"
       className={classNames}
       disabled={disabled || loading}
-      ref={btnRef}
       {...other}
     >
       {icon && <Icon type={icon} />}
@@ -69,14 +62,7 @@ Button.propTypes = {
   className: PropTypes.string,
 
   // button type
-  type: PropTypes.oneOf([
-    'primary',
-    'accept',
-    'warning',
-    'danger',
-    'link',
-    'text'
-  ]),
+  type: PropTypes.oneOf(['primary', 'accept', 'warning', 'danger', 'link', 'text']),
 
   // button size, default `md`
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
@@ -94,10 +80,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 
   // icon type name
-  icon: PropTypes.string,
-
-  // same as native button's `autofocus`
-  autoFocus: PropTypes.bool
+  icon: PropTypes.string
 }
 
 Button.defaultProps = {

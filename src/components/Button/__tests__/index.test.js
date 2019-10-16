@@ -46,14 +46,6 @@ describe('Button', () => {
     const wrapper = render(<Button disabled>OK</Button>)
     expect(wrapper.prop('disabled')).toBe(true)
   })
-  it('should render autoFocus button correctly', () => {
-    const wrapper = mount(<Button autoFocus>OK</Button>)
-    expect(wrapper).toMatchSnapshot()
-    wrapper.setProps({
-      children: 'CANCEL'
-    })
-    wrapper.update()
-  })
   it('should render loading button correctly', () => {
     const wrapper = mount(
       <Button type="primary" loading>
