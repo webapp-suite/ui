@@ -68,8 +68,7 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier-standard",
-      "git add"
+      "prettier-standard"
     ]
   },
   "browserslist": [
