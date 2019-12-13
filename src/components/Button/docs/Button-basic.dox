@@ -103,6 +103,8 @@ const ButtonIcon = () => {
       <Button icon="statuschange" type="primary" />
       <Button icon="statuschange" type="primary" ghost />
       <Button icon="statuschange" />
+      <Button icon="add" />
+      <Button icon="statuschange" size="sm" />
       <Button icon="statuschange" ghost />
       <Button icon="activity">DATA ANALYSIS</Button>
       <Button icon="statuschange" type="text">Refresh</Button>

@@ -332,7 +332,10 @@
     border-radius: 50%;
   }
   &.@{prefix-cls}-button--sm {
-    width: @ui-unit;
+    width: @ui-unit !important;
+    i.@{prefix-cls}-icon:before {
+      font-size: 13px;
+    }
   }
   i.@{prefix-cls}-icon {
     .ui-mixin-reduce-l(0);
