@@ -67,7 +67,7 @@ class TabsDynamic extends Component {
           {tabs.map((item, i) => (
             <Tab key={item.id}>{item.name}</Tab>)
           )}
-          <Button transparent icon="add" onClick={this.handleAdd} />
+          <Button ghost icon="add" onClick={this.handleAdd} />
         </TabList>
         {tabs.map((item, i) => (
           <TabPanel key={item.id}>{`我是${item.name}`}</TabPanel>

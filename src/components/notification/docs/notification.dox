@@ -11,7 +11,7 @@ class NotificationSuccess extends Component {
     notification.success('You did it!')
   }
   render () {
-    return <Button type="secondary" onClick={this.handleClick}>success</Button>
+    return <Button type="primary" onClick={this.handleClick} ghost>SUCCESS</Button>
   }
 }
 
@@ -27,7 +27,7 @@ class NotificationDuration extends Component {
     ;notification.success('You did it!', 3000);
   }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -40,9 +40,9 @@ import { notification, Button } from 'earth-ui'
 const NotificationCloseManually = () => {
   return (
     <div>
-      <Button type="secondary" onClick={() => notification.info('You can do it.')}>info</Button>
-      <Button type="secondary" onClick={() => notification.warning('You will fail.')}>warning</Button>
-      <Button type="secondary" onClick={() => notification.error('You are wrong.')}>error</Button>
+      <Button type="primary" onClick={() => notification.info('You can do it.')} ghost>INFO</Button>
+      <Button type="primary" onClick={() => notification.warning('You will fail.')} ghost>WARNING</Button>
+      <Button type="primary" onClick={() => notification.error('You are wrong.')} ghost>ERROR</Button>
     </div>
   )
 }
@@ -56,10 +56,10 @@ import { notification, Button } from 'earth-ui'
 
 class NotificationButtonsLabel extends Component {
   handleClick = () => {
-    ;notification.warning('Beware', 'Understood');
+    ;notification.warning('Beware', 'UNDERSTOOD');
   }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }
 
@@ -81,7 +81,7 @@ class NotificationNested extends Component {
   render() {
     return (
       <div>
-        <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+        <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
       </div>
     )
   }
@@ -101,6 +101,6 @@ class NotificationQueue extends Component {
        notification.error('You are wrong.');
     }
   render () {
-    return <Button type="tertiary" onClick={this.handleClick} micro>run this code</Button>
+    return <Button onClick={this.handleClick} size="sm">RUN THIS CODE</Button>
   }
 }

@@ -49,7 +49,6 @@ class FormSubmit extends React.Component {
     const { process } = this.state
     return (
       <Button
-        type="secondary"
         className={cx(`${prefixCls}-form__submit`, className)}
         onClick={this.handleClick}
         disabled={process}

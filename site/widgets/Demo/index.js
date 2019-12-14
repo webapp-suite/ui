@@ -61,8 +61,8 @@ class Demo extends React.Component {
               <Tabs>
                 <BoardHeader>
                   <TabList>
-                    <Tab>渲染</Tab>
-                    <Tab>代码</Tab>
+                    <Tab>Render</Tab>
+                    <Tab>Code</Tab>
                   </TabList>
                 </BoardHeader>
                 <BoardBody>

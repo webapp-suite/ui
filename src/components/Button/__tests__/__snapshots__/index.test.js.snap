@@ -2,7 +2,7 @@
 
 exports[`Button should render Chinese characters correctly 1`] = `
 <button
-  class="true-button true-button_nofocus"
+  class="true-button true-button--md"
   type="button"
 >
   <span>
@@ -11,25 +11,9 @@ exports[`Button should render Chinese characters correctly 1`] = `
 </button>
 `;
 
-exports[`Button should render autoFocus button correctly 1`] = `
-<Button
-  autoFocus={true}
-  focus={false}
->
-  <button
-    className="true-button"
-    type="button"
-  >
-    <span>
-      OK
-    </span>
-  </button>
-</Button>
-`;
-
 exports[`Button should render correctly 1`] = `
 <button
-  class="true-button true-button_nofocus"
+  class="true-button true-button--md"
   type="button"
 >
   <span>
@@ -40,21 +24,23 @@ exports[`Button should render correctly 1`] = `
 
 exports[`Button should render icon correctly 1`] = `
 <button
-  class="true-button true-button_nofocus"
+  class="true-button true-button--md"
   type="button"
 >
-  <i
-    class="true-icon true-icon__add"
-  />
-  <span>
-    添加
-  </span>
+  <div>
+    <i
+      class="true-icon true-icon__add"
+    />
+    <span>
+      添加
+    </span>
+  </div>
 </button>
 `;
 
 exports[`Button should render icon correctly 2`] = `
 <button
-  class="true-button true-button_nofocus"
+  class="true-button true-button--md"
   type="button"
 >
   <span>

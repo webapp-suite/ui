@@ -452,7 +452,7 @@ const NotFound = props => {
         <Button type="primary" onClick={() => navigate('/')}>
           Go To Home
         </Button>
-        <Button type="tertiary" onClick={() => window.history.back()}>
+        <Button onClick={() => window.history.back()}>
           Go Back
         </Button>
       </div>

@@ -49,7 +49,7 @@ class Tab extends React.Component {
             closeable && (
               <Button
                 icon="close"
-                micro
+                size="sm"
                 className={`${prefixCls}-tabs__tab-close`}
                 onClick={this.onClose.bind(this, index)}
               />

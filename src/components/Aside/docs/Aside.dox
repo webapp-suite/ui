@@ -18,7 +18,7 @@ class AsideBasic extends Component {
   render () {
     return (
       <div>
-        <Button type="secondary" onClick={this.openAside}>Open Aside</Button>
+        <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE</Button>
         <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
           Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
         </Aside>
@@ -45,7 +45,7 @@ class AsideSpinner extends Component {
   render () {
    return (
      <div>
-       <Button type="secondary" onClick={this.openAside}>Open Aside With Spinner</Button>
+       <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE WITH SPINNER</Button>
        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
          <Spinner isLoading={this.state.isLoading}>
            Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
@@ -73,7 +73,7 @@ class AsideTabs extends Component {
   render () {
     return (
       <div>
-        <Button type="secondary" onClick={this.openAside}>Open Aside with Tabs</Button>
+        <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE WITH TABS</Button>
         <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Declarative Tabs">
           <Tabs>
             <TabList>
@@ -111,20 +111,20 @@ class StackingAsides extends Component {
   render () {
     return (
       <div>
-        <Button type="secondary" onClick={()=>this.openAside(1)}>
-          Open Stacking Asides
+        <Button ghost type="primary" onClick={()=>this.openAside(1)}>
+          OPEN STACKING ASIDES
         </Button>
         <Aside isOpen={this.state.isOpen1} onClose={()=>this.closeAside(1)} title="Aside One">
-          <Button type="tertiary" onClick={()=>this.openAside(2)} block autoFocus>
-            Open Aside Two
+          <Button ghost type="primary" onClick={()=>this.openAside(2)} block>
+            OPEN ASIDE TWO
           </Button>
           <Aside isOpen={this.state.isOpen2} onClose={()=>this.closeAside(2)} title="Aside Two">
-            <Button type="tertiary" onClick={()=>this.openAside(3)} block autoFocus>
-              Open Aside Three
+            <Button ghost type="primary" onClick={()=>this.openAside(3)} block>
+              OPEN ASIDE THREE
             </Button>
             <Aside isOpen={this.state.isOpen3} onClose={()=>this.closeAside(3)} title="Aside Three">
-              <Button type="primary" onClick={()=>this.closeAside(1)} block autoFocus>
-                Close all asides
+              <Button type="primary" onClick={()=>this.closeAside(1)} block>
+                CLOSE ALL ASIDES
               </Button>
             </Aside>
           </Aside>

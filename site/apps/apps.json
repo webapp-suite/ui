@@ -58,7 +58,17 @@
       },
       {
         "name":"Button",
-        "cn":"按钮"
+        "cn":"按钮",
+        "tabs":[
+          {
+            "label":"Basic",
+            "doc":"Button-basic"
+          },
+          {
+            "label":"Gallery",
+            "doc":"Button-gallery"
+          }
+        ]
       },
       {
         "name":"Spinner",

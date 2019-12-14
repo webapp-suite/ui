@@ -25,7 +25,7 @@ class UploadFile extends React.Component {
     return (
       <div>
         <Upload {...props}>
-          <Button type="secondary" onClick={this.handleClick}>Upload File</Button>
+          <Button onClick={this.handleClick}>Upload File</Button>
         </Upload>
       </div>
     )
