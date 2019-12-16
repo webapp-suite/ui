@@ -5,7 +5,7 @@ import Avatar from '../Avatar'
 import './index.less'
 
 class AvatarUpload extends Component {
-  _handleClick = e => {
+  handleClick = e => {
     const onClick = this.props.onClick
     if (onClick) {
       onClick(e)
@@ -13,32 +13,41 @@ class AvatarUpload extends Component {
   }
 
   render () {
-    let {shape, size, src, className, text} = this.props
+    const { shape, size, src, className, text } = this.props
     return (
       <div className={`${prefixCls}-avatar-upload`}>
         {src
-          ? <div className={`${prefixCls}-avatar-upload__update`}>
-            <Avatar src={src} shape={shape} size={size} onClick={this._handleClick} />
-            <div onClick={this._handleClick}
-              className={cx(
+          ? (
+            <div className={`${prefixCls}-avatar-upload__update`}>
+              <Avatar src={src} shape={shape} size={size} onClick={this.handleClick} />
+              <div
+                onClick={this.handleClick}
+                className={cx(
                 `${prefixCls}-avatar-upload__cover`,
                 {
                   [`${prefixCls}-avatar-upload__cover_${shape}`]: shape,
                   [`${prefixCls}-avatar-upload__cover_${size}`]: size
                 },
                 className
-              )}>{text}</div>
-          </div>
-          : <div onClick={this._handleClick}
-            className={cx(
+                )}
+              >{text}
+              </div>
+            </div>
+          )
+          : (
+            <div
+              onClick={this.handleClick}
+              className={cx(
               `${prefixCls}-avatar-upload__first`,
               {
                 [`${prefixCls}-avatar-upload__shallow-cover_${shape}`]: shape,
                 [`${prefixCls}-avatar-upload__shallow-cover_${size}`]: size
               },
               className
-            )}>{text}</div>
-        }
+              )}
+            >{text}
+            </div>
+          )}
       </div>
     )
   }
@@ -47,19 +56,19 @@ class AvatarUpload extends Component {
 AvatarUpload.propTypes = {
   className: PropTypes.string,
 
-  // 头像的形状，默认`circle`，可选`square`
+  // The shape of avatar, default value is `circle`
   shape: PropTypes.oneOf(['square', 'circle']),
 
-  // 输入框大小
+  // The size of avatar
   size: PropTypes.oneOf(['lg', 'xl']),
 
-  // 头像图片的地址
+  // The url of image
   src: PropTypes.string,
 
-  // 头像中间说明文字/hover状态下的说明文字
+  // The caption of avatar when hovering the avatar
   text: PropTypes.string,
 
-  // 点击头像事件
+  // The callback of clicking avatar
   onClick: PropTypes.func
 }
 

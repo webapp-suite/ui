@@ -28,7 +28,7 @@ BoardHeader.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // 面板名称
+  // The title of Board
   title: PropTypes.string
 }
 

@@ -18,7 +18,7 @@ class TabList extends React.Component {
     }
   }
 
-  addNewTab = e => {
+  handleAddNewTab = e => {
     e.preventDefault()
     const id = Math.random().toString(16).slice(2, 6)
     const { newTab } = this.props
@@ -37,10 +37,12 @@ class TabList extends React.Component {
 
   render () {
     const { className, newTab, ...other } = this.props
-    return <ul className={cx(`${prefixCls}-tabs__list`, className)} {...other}>
-      {this.props.children}
-      {!!newTab && <Button size="sm" icon="add" onClick={this.addNewTab} />}
-    </ul>
+    return (
+      <ul className={cx(`${prefixCls}-tabs__list`, className)} {...other}>
+        {this.props.children}
+        {!!newTab && <Button size="sm" icon="add" onClick={this.handleAddNewTab} />}
+      </ul>
+    )
   }
 }
 
@@ -55,10 +57,11 @@ TabList.contextTypes = {
 TabList.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  // 新增 tab 的属性定义
+  // The definition of new tab
   newTab: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    id: PropTypes.string
+    id: PropTypes.string,
+    closeable: PropTypes.bool
   })
 }
 

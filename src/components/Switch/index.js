@@ -51,19 +51,19 @@ class Switch extends React.Component {
 Switch.propTypes = {
   className: PropTypes.string,
 
-  // 是否打开
+  // Whether to be on
   on: PropTypes.bool,
 
-  // 初始化是否打开（不可控）
+  // Whether to be on by default (uncontrolled)
   defaultOn: PropTypes.bool,
 
-  // 切换后的回调，参数为是否打开
+  // The callback after switching, param: (whether to be on)
   onChange: PropTypes.func,
 
-  // 打开状态下显示的内容
+  // The text of Switch which is on
   labelOn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 关闭状态下显示的内容
+  // The text of Switch which is off
   labelOff: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   customProp ({ on, onChange }) {

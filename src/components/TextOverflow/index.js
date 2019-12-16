@@ -40,10 +40,10 @@ TextOverflow.propTypes = {
 
   children: PropTypes.element.isRequired,
 
-  // 提示框位置方向，默认 `up`
+  // The direction of tips, default value is `up`
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
 
-  // 提示框对齐方式，默认 `middle`
+  // The alignment of tips, default value is `middle`
   align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'middle'])
 }
 

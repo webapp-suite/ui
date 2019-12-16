@@ -52,11 +52,11 @@ class Upload extends React.Component {
           url: self.props.action,
           data: fd,
           beforeSend (xhr) {
-            // 侦查当前附件上传情况
+            // Detect the current attachment uploading situation
             xhr.upload.onprogress = function (evt) {
               const loaded = evt.loaded
               const tot = evt.total
-              const per = Math.floor(100 * loaded / tot) // 已经上传的百分比
+              const per = Math.floor(100 * loaded / tot) // Percentage that has been uploaded
               const list = self.state.list.slice(0)
               const f = list[index]
               f.percent = per
@@ -121,13 +121,11 @@ class Upload extends React.Component {
           {this.props.children}
         </div>
         {button && button.name &&
-          <Button {...button} onClick={this.handleClick}>{button.name}</Button>
-        }
+          <Button {...button} onClick={this.handleClick}>{button.name}</Button>}
         {showFileList &&
           <div className={`${prefixCls}-upload__listbox`}>
             <FileList data={this.state.list} onRemove={this.handleRemove} />
-          </div>
-        }
+          </div>}
       </div>
     )
   }
@@ -139,10 +137,10 @@ Upload.propTypes = {
 
   className: PropTypes.string,
 
-  // 上传的地址
+  // The url of uploading
   action: PropTypes.string,
 
-  // 上传按钮内容和样式
+  // The configuration of button for uploading
   button: PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
@@ -152,21 +150,21 @@ Upload.propTypes = {
     transparent: PropTypes.bool
   }),
 
-  // 上传文件名称，默认为files
+  // The name of uploaded file, default value is `files`
   fileName: PropTypes.string,
 
-  // 是否支持多选文件，ie10+ 支持。开启后按住 ctrl 可选择多个文件。
+  // Whether to support multi-selection, ie10+ supports, press ctrl can select multi files after enabled。
   multiple: PropTypes.bool,
 
-  // 文件上传进行中事件
+  // The callback of the progress of uploading
   onUplading: PropTypes.func,
 
   onUpload: PropTypes.func,
 
-  // 上传文件完成时的回调函数，前提用户没有自定义onUpload方法方可生效
+  // The callback of having uploaded, it works if the user does not have a custom onUpload method
   onComplete: PropTypes.func,
 
-  // 是否显示文件上传列表
+  // Whether to show file list
   showFileList: PropTypes.bool
 
 }

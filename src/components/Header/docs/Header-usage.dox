@@ -1,5 +1,5 @@
 /**
- * @title 基本功能
+ * @title Basic Usage
  * @renderModel right
  */
 import { Header } from 'earth-ui'
@@ -11,7 +11,7 @@ const HeaderBasic = () => {
 }
 
 /**
- * @title 更换背景色
+ * @title Background color
  * @renderModel right
  */
 import { Header } from 'earth-ui'

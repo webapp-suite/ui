@@ -22,7 +22,7 @@ class AvatarClip extends Component {
     this.setState({ scale })
   }
 
-  onClose = () => {
+  handleClose = () => {
     this.props.onClose && this.props.onClose()
   }
 
@@ -35,10 +35,10 @@ class AvatarClip extends Component {
   render () {
     const { image, width, height, border, color, cropButtonName, open } = this.props
     return (
-      <Modal open={open} onClose={this.onClose} lock>
+      <Modal open={open} onClose={this.handleClose} lock>
         <ModalBody>
-          <h3 className={`${prefixCls}-avatar-clip__title`}>编辑头像</h3>
-          <div className={`${prefixCls}-avatar-clip__subtitle`}>调整头像尺寸和位置</div>
+          <h3 className={`${prefixCls}-avatar-clip__title`}>Edit Avatar</h3>
+          <div className={`${prefixCls}-avatar-clip__subtitle`}>Adjust avatar size and position</div>
           <div className={`${prefixCls}-avatar-clip__content`}>
             <div className={`${prefixCls}-avatar-clip__edit`}>
               <AvatarEditor
@@ -78,31 +78,31 @@ class AvatarClip extends Component {
 }
 
 AvatarClip.propTypes = {
-  // 需要进行裁剪头像的地址
+  // The url of image
   image: PropTypes.string.isRequired,
 
-  // 保存裁剪头像的回调函数
+  // The callback of saving avatar
   onSave: PropTypes.func.isRequired,
 
-  // 关闭裁剪对话框的回调函数
+  // The callback of closing avatar
   onClose: PropTypes.func,
 
-  // 是否打开头像裁剪对话框
+  // Whether to open the modal of cropping avatar
   open: PropTypes.bool,
 
-  // 裁剪对话框确认裁剪按钮名称，默认`Close`
+  // The name of the button for cropping, default value is `SAVE`
   cropButtonName: PropTypes.string,
 
-  // 需要裁剪的宽度，默认`160`
+  // The width of cropping, default value is `160`
   width: PropTypes.number,
 
-  // 需要裁剪的宽度，默认`160`
+  // The height of cropping, default value is `160`
   height: PropTypes.number,
 
-  // 裁剪头像时遮罩边框大小，默认`40`
+  // The border of mask for cropping, default value is `40`
   border: PropTypes.number,
 
-  // 裁剪对话框文字颜色，默认`[248, 249, 250, 0.9]`
+  // The color of text for cropping, default value is `[248, 249, 250, 0.9]`
   color: PropTypes.arrayOf(PropTypes.number)
 }
 
@@ -111,7 +111,7 @@ AvatarClip.defaultProps = {
   height: 160,
   border: 40,
   color: [248, 249, 250, 0.9],
-  closeButtonName: 'Close'
+  cropButtonName: 'SAVE'
 }
 
 export default AvatarClip

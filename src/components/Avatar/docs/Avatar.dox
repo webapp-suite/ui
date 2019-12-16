@@ -1,5 +1,5 @@
 /**
- * @title 默认样式
+ * @title Basic Usage
  */
 import { Avatar } from 'earth-ui'
 
@@ -8,7 +8,7 @@ const AvatarBasic = () => {
 }
 
 /**
- * @title 头像尺寸
+ * @title Size
  */
 import { Avatar } from 'earth-ui'
 
@@ -24,7 +24,7 @@ const AvatarSize = () => {
 }
 
 /**
- * @title 方形头像
+ * @title Shape
  */
 import { Avatar } from 'earth-ui'
 

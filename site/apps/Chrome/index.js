@@ -19,8 +19,10 @@ import Scrollbar from 'widgets/Scrollbar'
 import { nav as components } from '../config.js'
 import './index.less'
 
+const firstUpperCase = str => str.replace(/\b(\w)(\w*)/g, ($0, $1, $2) => $1.toUpperCase() + $2.toLowerCase())
+
 const getTabsByComponentName = (components, componentName) => {
-  for (let c of components) {
+  for (const c of components) {
     if (c.name === componentName) {
       return c.tabs
     }
@@ -91,11 +93,11 @@ class Components extends React.Component {
   handleItemClick = props => {
     this.toggle(false)
     this.switchRoute(props.id)
-  }
+  };
 
   handleTabClick = doc => {
     this.switchRoute(doc)
-  }
+  };
 
   renderTitle (docName) {
     const nameBeforeSlash = docName.split('/')[0]
@@ -104,13 +106,16 @@ class Components extends React.Component {
     )
       ? docName.split('/')[1]
       : docName
-    const componentName = (nameBeforeSlash === 'components'
+    let componentName = (nameBeforeSlash === 'components'
       ? nameAfterSlash
       : nameBeforeSlash
     ).split('-')[0]
+    if (componentName === 'start') {
+      componentName = 'get started'
+    }
     const component = this.componentsMap[componentName]
-    const { name = '', cn = '' } = component || {}
-    const title = name === 'intro' ? 'Earth UI' : `${name} ${cn}`
+    const { name = '' } = component || {}
+    const title = name === 'intro' ? 'Earth UI' : name
     const tabs = getTabsByComponentName(components, name)
     return (
       <div className="components__content-top">
@@ -129,10 +134,9 @@ class Components extends React.Component {
                       activeKey={tab.doc}
                       key={tab.doc}
                       onClick={() =>
-                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
-                      }
+                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}
                     >
-                      {tab.label}
+                      {firstUpperCase(tab.label)}
                     </Tab>
                   ))}
               </TabList>
@@ -151,7 +155,7 @@ class Components extends React.Component {
         <NavItem
           id={id}
           key={item.name}
-          title={item.cn}
+          title={firstUpperCase(item.name)}
           icon={`/svg/icons.svg#${item.icon}`}
         />
       )
@@ -162,7 +166,7 @@ class Components extends React.Component {
     return (
       <NavItem id={id} key={item.name}>
         <span>{item.name}</span>
-        <span className="chinese">{item.cn}</span>
+        {/* <span className="chinese">{item.cn}</span> */}
       </NavItem>
     )
   }
@@ -177,7 +181,7 @@ class Components extends React.Component {
 
   render () {
     const { open } = this.state
-    let { children, '*': childComponentPath } = this.props
+    const { children, '*': childComponentPath } = this.props
     return (
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
@@ -207,7 +211,7 @@ class Components extends React.Component {
                   return (
                     <SubNav
                       key={item.name}
-                      title={item.cn}
+                      title={firstUpperCase(item.name)}
                       defaultOpen={item.defaultOpen}
                       icon={`/svg/icons.svg#${item.icon}`}
                     >

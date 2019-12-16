@@ -120,7 +120,7 @@ class Pager extends React.Component {
           pages[1] = this.createPageEl(2)
         } else {
           pages[1] = (
-            <li key={'d1'}>
+            <li key="d1">
               <span>...</span>
             </li>
           )
@@ -139,7 +139,7 @@ class Pager extends React.Component {
       } else {
         pages[0] = this.createPageEl(1)
         pages[1] = (
-          <li key={'d1'}>
+          <li key="d1">
             <span>...</span>
           </li>
         )
@@ -242,19 +242,19 @@ Pager.defaultProps = {
 }
 
 Pager.propTypes = {
-  // 总条目数
+  // Total count of items
   totalItems: PropTypes.number.isRequired,
 
-  // 每页显示条数，默认每页 `20` 条
+  // The count of items per page, default value is `20`
   itemsPerPage: PropTypes.number,
 
-  // 当前页码，从 `1` 开始，默认第 `1` 页
+  // Current page number, starting with `1`, default value is `1`
   currentPage: PropTypes.number,
 
-  // 连续页码显示的最大个数，默认为 `4` 个
+  // Maximum number of consecutive page Numbers displayed, default value is `4`
   maxSerialPages: PropTypes.number,
 
-  // 页码选中事件， 参数返回被选中的页码
+  // The event of the selected page number, param is the the of selected page
   onSelect: PropTypes.func
 }
 

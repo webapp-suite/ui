@@ -21,10 +21,10 @@ Col.propTypes = {
 
   className: PropTypes.string,
 
-  // 布局规则，共24栏栅，例如col="md-6 sm-24"
+  // Total 24 cols, such as `col="md-6 sm-24"`
   col: PropTypes.string,
 
-  // 是否右浮动
+  // Whether to align right
   right: PropTypes.bool
 }
 

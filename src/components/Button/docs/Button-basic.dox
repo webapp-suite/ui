@@ -50,7 +50,7 @@ const LoadingButton = () => {
   const handleClick = () => {
     console.log('clicked!')
     setLoading(true)
-    setTimeout(() => setLoading(false), 5000)
+    setTimeout(() => setLoading(false), 2000)
   }
   return <Button type="primary" loading={loading} onClick={handleClick}>SHOW LOADING</Button>
 }

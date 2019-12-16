@@ -38,13 +38,13 @@ Header.propTypes = {
 
   children: PropTypes.node,
 
-  // Header 左侧的 icon
+  // The left icon of Header
   icon: PropTypes.string,
 
-  // Header 标题
+  // The title of Header
   title: PropTypes.string,
 
-  // Header 背景色，默认 white
+  // The background color of Header, default value is `white`
   color: PropTypes.oneOf(['blue', 'red', 'orange', 'yellow', 'green', 'purple', 'pink', 'gray', 'slate', 'black', 'white'])
 }
 

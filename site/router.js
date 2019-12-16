@@ -43,7 +43,9 @@ const WIP = [
   'DatePicker',
   'Card',
   'Time',
-  'Actions'
+  'Actions',
+  'Dropdown',
+  'BackToTop'
 ]
 
 const getComponentDoc = component => {

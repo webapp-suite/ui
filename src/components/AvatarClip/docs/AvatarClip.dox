@@ -1,5 +1,5 @@
 /**
- * @title 点击更换头像进行裁剪
+ * @title Crop Avatar
  */
 import React, { Component } from 'react'
 import { AvatarClip, AvatarUpload, Upload, notification } from 'earth-ui'
@@ -27,7 +27,7 @@ class ProfileAvatar extends Component {
 
     reader.readAsDataURL(file)
   }
-  // 当对话框点击X按钮时候回调
+  // The callback of clicking the button: X
   onClose = () => {
     this.setState({
       cropperOpen: false
@@ -50,7 +50,7 @@ class ProfileAvatar extends Component {
     const fd = new FormData()
     // API: https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/append
     fd.append('files', blob, 'image.jpg')
-    // 调用相关http库即可
+    // The placeholder for asynchronous requests
     this.onClose()
     setTimeout(() => notification.success('Upload Successfully.'), 100)
   }
@@ -58,14 +58,14 @@ class ProfileAvatar extends Component {
     return (
       <div>
         <Upload onUpload={this.onUpload}>
-          <AvatarUpload size="lg" text="更换头像" src="https://avatars0.githubusercontent.com/u/12554487"/>
+          <AvatarUpload size="lg" text="Update" src="https://avatars0.githubusercontent.com/u/12554487"/>
         </Upload>
         {this.state.cropperOpen &&
           <AvatarClip
             open={this.state.cropperOpen}
             onSave={this.handleSave}
             onClose={this.onClose}
-            cropButtonName="保存"
+            cropButtonName="SAVE"
             image={this.state.img}
             width={160}
             height={160}

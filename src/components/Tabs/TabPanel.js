@@ -77,7 +77,9 @@ TabPanel.contextTypes = {
 }
 
 TabPanel.propTypes = {
-  // 与 Tabs activeKey 对应
+  children: PropTypes.any,
+  className: PropTypes.string,
+  // Corresponds to the Tabs `activeKey`
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 

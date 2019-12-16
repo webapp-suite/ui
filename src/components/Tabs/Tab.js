@@ -9,7 +9,7 @@ class Tab extends React.Component {
     e.preventDefault()
     const tabs = this.context.tabs
     if (!('activeKey' in this.props)) {
-      tabs.setState({activeIndex: index})
+      tabs.setState({ activeIndex: index })
     }
     tabs.props.onChange && tabs.props.onChange(index, this.props.activeKey)
   }
@@ -40,10 +40,12 @@ class Tab extends React.Component {
       isActive = index === tabs.state.activeIndex
     }
     return (
-      <li className={cx(`${prefixCls}-tabs__tab`, {
-        [`${prefixCls}-tabs__tab_active`]: isActive
-      }, className)} {...other}>
-        <a href="" onClick={this.handleClick.bind(this, index)} draggable="false" >
+      <li
+        className={cx(`${prefixCls}-tabs__tab`, {
+          [`${prefixCls}-tabs__tab_active`]: isActive
+        }, className)} {...other}
+      >
+        <a href="" onClick={this.handleClick.bind(this, index)} draggable="false">
           <span className={`${prefixCls}-tabs__tab-content`}>{children}</span>
           {
             closeable && (
@@ -67,10 +69,12 @@ Tab.contextTypes = {
 }
 
 Tab.propTypes = {
-  // 与 Tabs activeKey 对应
+  children: PropTypes.node,
+  className: PropTypes.string,
+  // Corresponds to the Tabs `activeKey`
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // 是否显示关闭按钮，默认`false`
+  // Whether to display the close button, default value is `false`
   closeable: PropTypes.bool
 }
 

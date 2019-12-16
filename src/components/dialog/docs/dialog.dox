@@ -1,7 +1,7 @@
-@summary > 对话框主要用于事件 **即将** 发生，需要用户进行选择是否继续操作，类似于 JavaScript `comfirm()` 方法。支持多种类型的对话框和部分自定义配置项，同时文本内容也支持最基础的 markdown 语法。
+@summary > Dialogs are used for `upcoming` events that require the user to choose whether to proceed, similar to the JavaScript `comfirm()` method. Various types of dialogs and custom configuration are supported while text content also supports the basic markdown syntax.
 
 /**
- * @title 基本用法
+ * @title Basic Usage
  */
 import { dialog, notification, Button } from 'earth-ui'
 
@@ -22,8 +22,8 @@ class DialogBasic extends Component {
 }
 
 /**
- * @title 对话框种类
- * @desc 按照提示的种类，共提供了 `confirm` , `accept`, `warning` 和 `danger` 这四种基础对话框。
+ * @title Type
+ * @desc There are four basic dialogs including `confirm`, `accept`, `warning` and `danger`.
  */
 import { dialog, Button } from 'earth-ui'
 
@@ -46,18 +46,18 @@ class DialogTypes extends Component {
 /**
  * @title null
  * @renderModel run
- * @desc `danger` 类型对话框可以嵌套在 `warning` 类型对话框 `ACCEPT` 里面，让与用户的交互有由弱到强的层次感。
+ * @desc The `danger` type dialog can be nested in the `warning` type dialog, so that the interaction will have a sense of hierarchy from weak to strong.
  */
 import { dialog, Button } from 'earth-ui'
 
 class DialogWarning extends Component {
   handleClick = () => {
-    ;dialog.warning('This will delete the thing.', 'Delete It', {
+    ;dialog.warning('This will delete the thing.', 'DELETE IT ?', {
     	onAccept: function() {
     		dialog.danger(
     			'Are you absolutely sure you want to ' +
     			'*permanently* delete the whole thing?',
-    			'Delete It'
+    			'CONFIRM'
     		)
     	}
     });
@@ -72,9 +72,9 @@ class DialogWarning extends Component {
 }
 
 /**
- * @title 自定义按钮文本
+ * @title Custom Text of Button
  * @renderModel run
- * @desc 可以自定义按钮文本，第二个和第三个 `string` 类型的参数将分别对应 `ACCEPT` 和 `CANCEL` 按钮的文本。
+ * @desc You can customize the button text. The second and third arguments of `string` type will correspond to the text of the `ACCEPT` and `CANCEL` buttons respectively.
  */
 import { dialog, Button } from 'earth-ui'
 
@@ -88,9 +88,9 @@ class DialogButtonsLabel extends Component {
 }
 
 /**
- * @title 自定义Icon
+ * @title Custom Icon
  * @renderModel run
- * @desc 原则上你可以任意更换目前所支持的所有 [Icon](/components/Icon-all-icons)，但是无论何时都应该尽量用常见的图标，以便用户能快速识别对话框类型。
+ * @desc You can change any supported [Icon](/components/Icon-all-icons), but use common icons whenever possible so that the users can quickly recognize which type of dialog is.
  */
 import { dialog, Button } from 'earth-ui'
 

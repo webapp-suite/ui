@@ -51,7 +51,11 @@ class Footer extends PureComponent {
             <span className="footer__second-line-left-logo">EARTHUi</span>
           </div>
           <div className="right">
-            <span>SU ICP NO.15056713</span>
+            <span>
+              <a href="http://beian.miit.gov.cn/" style={{ color: 'hsl(199, 20%, 22%)' }}>
+                SU ICP NO.15056713-1
+              </a>
+            </span>
             <span>© Kimi Gao</span>
           </div>
         </div>

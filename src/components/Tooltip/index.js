@@ -29,16 +29,16 @@ Tooltip.propTypes = {
 
   children: PropTypes.element.isRequired,
 
-  // 提示框显示内容，可以是文本字符串，也可以是 React 元素
+  // The title of tooltips
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 提示框触发方式，默认 `hover`
+  // The mode of triggering tooltips, default value is `hover`
   triggerMode: PropTypes.oneOf(['hover', 'click']),
 
-  // 提示框位置方向，默认 `up`
+  // The direction of tooltips, default value is `up`
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
 
-  // 提示框对齐方式，默认 `middle`
+  // The alignment of tooltips, default value is `middle`
   align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'middle'])
 }
 

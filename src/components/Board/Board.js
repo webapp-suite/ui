@@ -15,7 +15,7 @@ Board.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // 面板样式风格，默认 `classic`
+  // The theme style of Board, default value is `classic`
   theme: PropTypes.oneOf(['classic', 'simple'])
 }
 

@@ -1,50 +1,50 @@
-字体是体系化界面设计中最基本的构成之一。
+Font is one of the most basic foundational part of a interface design system.
 
-我们的用户通过文本来理解内容和完成工作，科学的字体系统将大大提升用户的阅读体验及工作效率。Earth UI 字体方案，是基于『动态秩序』的设计原则，在视觉体系中定义字体系统，我们建议从下面五个方面出发：
+Text is the major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The typography system of Earth UI is based on the design principle of `dynamic order`. While defining the font system for a visual system, we propose to start from the following five aspects:
 
-1. 字体家族
-1. 主字体大小
-1. 字阶与行高
-1. 字重
-1. 字体颜色
+1. Font Family
+2. Base Font Size
+3. Font Scale & Line Height
+4. Font Weight
+5. Font Color
 
-## 字体家族
+## Font Family
 
-优秀的字体系统首先是要选择合适的字体家族。Earth UI 的字体家族中优先使用 Google 委托 Steve Matteson 设计的无衬线字体 [Open Sans](https://zh.wikipedia.org/wiki/Open_Sans)，然后是系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
+In order to implement a good font system, the first thing is to choose an appropriate font family. Earth UI prefers the *[Open Sans](https://fonts.google.com/specimen/Open+Sans)* font which is a humanist sans-serif typeface designed by Steve Matteson and commissioned by Google. Then it uses the system default font family and also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
 @ui-fontstack: 'Open Sans', 'Helvetica Neue', 'Lucida Grande', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
 ```
 
-对于代码的显示，优先使用 Ubuntu 字体系列：
+For code display, use the `Ubuntu Mono` font first:
 
 ```css
 @ui-fontstack-mono: 'Ubuntu Mono', 'Menlo', 'Monaco', 'Consolas', 'Bitstream Vera Sans Mono', monospace;
 ```
 
-另外，数字经常需要进行纵向对比展示，我们单独将数字的字体 [font-variant-numeric](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) 设置为 `tabular-nums`，使其为等宽字体。
+In addition, in a lot of applications, numbers often need to be displayed vertically. We set the CSS property `font-variant-numeric` to `tabular-nums;` to use [tabular figures](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures).
 
-> 参考 https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
+> References: https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
 
-## 主字体大小
+## Base Font Size
 
-基于电脑显示器阅读距离（50 cm）以及最佳阅读角度（0.3），我们将默认的 `@ui-fontsize` 由浏览器默认的的 `12px` 上升至 `14px`，以保证在多数常用显示器上的用户阅读效率最佳。
+We have updated the base font size from the default size of browser `12px` to `14px` to ensure the best user reading efficiency on most common monitors based on display screen reading distance (50 cm) and optimal reading angle (0.3).
 
-<div>
-  <img src="/img/main_font-size.png" />
+<div align="center">
+  <img width="600" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/dDpCbv.jpg'/>
 </div>
 
-## 字阶与行高
+## Font Scale & Line Height
 
-字阶和行高决定着一套字体系统的动态与秩序之美。字阶是指一系列有规律的不同尺寸的字体。行高可以理解为一个包裹在字体外面的无形的盒子。
+The font scale and line height determine the beauty of the dynamics and order of a font system. Font scale refers to a series of font with different sizes. Line height can be understood as an invisible box wrapped outside the font.
 
-<div>
-  <img src="/img/font-size_font-weight.png" />
+<div align="center">
+  <img width="600" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/PAnlsN.jpg'/>
 </div>
 
-Earth UI 定义了 8 个不同尺寸的字体变量以及与之相对应的行高。
+Earth UI has defined 8 different font sizes and corresponding line heights.
 
-|    字体变量    | 数值 | 行高 |
+|    Variables    | Font Size | Line Height |
 | ---------- | --- | --- |
 | @ui-fontsize-small      |  11 |18 |
 | @ui-fontsize-mini       |  12 |20 |
@@ -55,31 +55,31 @@ Earth UI 定义了 8 个不同尺寸的字体变量以及与之相对应的行�
 | @ui-fontsize-xxbig      |  36 |48 |
 | @ui-fontsize-icon       |  22 |30 |
 
-在 Earth UI 的视觉体系中，我们建议的主要字体为 `14px`，与之对应的行高为 `22px`。其余的字阶的选择可根据具体情况进行自由的定义。建议在一个系统设计中（展示型页面除外），字阶的选择尽量控制在 `3-5` 种之间，保持克制的原则。
+In the visual system of Earth UI, our recommended base font size is `14px`, and its corresponding line height is `22px`. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 
-## 字重
+## Font Weight
 
-字重的选择同样基于秩序、稳定、克制的原则。多数情况下，只出现 默认（即 `regular`） 以及 `medium` 的两种字体重量，分别对应代码中的 `400` 和 `500`。在英文字体加粗的情况下会采用 `semibold` 的字体重量，对应代码中的 `600`。
+The choice of font weight is also based on the principles of order, stability, and restraint. In most cases, just `regular(400)` and `medium(500)` should be enough. In the case of bold English words, `semibold(600)` could be used.
 
-|    名称    | 数值 | 示例 | 场景 |
+|    Variables    | Font Weight | Example | Scenarios |
 | ---------- | --- | --- | --- |
-| @ui-fontweight-light        |  300 | <span style="font-weight: 300">字 Font</span> | 细 |
-| @ui-fontweight              |  400 | <span style="font-weight: 400">字 Font</span> | 正常 |
-| @ui-fontweight-medium       |  500 | <span style="font-weight: 500">字</span> | 中文加粗 |
-| @ui-fontweight-semibold     |  600 | <span style="font-weight: 600">Font</span> | 英文加粗 |
-| @ui-fontweight-bold         |  700 | <span style="font-weight: 700">字 Font</span> | 最粗 |
+| @ui-fontweight-light        |  300 | <span style="font-weight: 300">字 Font</span> | light |
+| @ui-fontweight              |  400 | <span style="font-weight: 400">字 Font</span> | regular |
+| @ui-fontweight-medium       |  500 | <span style="font-weight: 500">字 Font</span> | medium |
+| @ui-fontweight-semibold     |  600 | <span style="font-weight: 600">字 Font</span> | semibold |
+| @ui-fontweight-bold         |  700 | <span style="font-weight: 700">字 Font</span> | bold |
 
-## 字体颜色
+## Font Color
 
-文本颜色如果和背景颜色太接近就会难以阅读。考虑到无障碍设计的需求，我们参考了 [WCAG](https://www.w3.org/Translations/WCAG20-zh/) (Web Content Accessibility Guidelines) 的标准，将正文文本、标题和背景色之间保持在了 `7:1` 以上的 `AAA` 级对比度。
+Text will be difficult to read if it is too close to the background color. To achieve barrier-free design, we follow the [WCAG](https://www.w3.org/TR/WCAG20/) (Web Content Accessibility Guidelines) standard, which maintains an `AAA` level of contrast ratio, i.e. `7:1` or more between body text, title, and background color.
 
 <table class="font-color-table">
 <thead>
 <tr>
-<th>颜色类型</th>
-<th>白色背景</th>
-<th class="backgorund-light">浅色背景</th>
-<th class="backgorund-dark">深色背景</th>
+<th>Type</th>
+<th>White Background</th>
+<th class="backgorund-light">Light Background</th>
+<th class="backgorund-dark">Dark Background</th>
 </tr>
 </thead>
 <tbody>
@@ -163,10 +163,10 @@ table.font-color-table th {
 }
 </style>
 
-## 建议
+## Advanced Tips
 
-字体系统的构建，是『动态秩序之美』的第一步。在实际的设计中，我们还有三点建议：
+The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips：
 
-1. **建立体系化的设计思路：**在同一个系统的 UI 设计中先建立体系化的设计思路，对主、次、辅助、标题、展示等类别的字体做统一的规划，再落地到具体场景中进行微调。建立体系化的设计思路有助于强化横向字体落地的一致性，提高字体应用的性价比，减少不必要的样式浪费。
-1. **少即是多：**在视觉展现上能够用尽量少的样式去实现设计目的。避免毫无意义的使用大量字阶、颜色、字重强调视觉重点或对比关系。
-1. **尝试让字体像音符一样跳跃：**在需要拉开差距的时候可以尝试在字阶表中跳跃的选择字体大小，会令字阶之间产生一种微妙的韵律感。
+1. **Establish a systematic design thinking**: In the UI design of the same system, a systematic design thinking should be first established. The primary, secondary, auxiliary, title, display, and other types of fonts are planned in a unified manner. And then make any necessary fine tuning according to the specific situation. The establishment of a systematic design approach helps to increase the consistency of horizontal font landing, improve the cost-effectiveness of font uses, and avoid unnecessary style waste.
+2. **Less is more**：Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
+3. **Try to make font scale dance like a note**: When you need to expand any gap, you can try to choose the size of the font to jump in the font scale table, which will create a subtle rhythm between the word scales.
