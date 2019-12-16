@@ -35,7 +35,6 @@ TextOverflow.defaultProps = {
 }
 
 TextOverflow.propTypes = {
-
   className: PropTypes.string,
 
   children: PropTypes.element.isRequired,

@@ -16,38 +16,43 @@ class AvatarUpload extends Component {
     const { shape, size, src, className, text } = this.props
     return (
       <div className={`${prefixCls}-avatar-upload`}>
-        {src
-          ? (
-            <div className={`${prefixCls}-avatar-upload__update`}>
-              <Avatar src={src} shape={shape} size={size} onClick={this.handleClick} />
-              <div
-                onClick={this.handleClick}
-                className={cx(
+        {src ? (
+          <div className={`${prefixCls}-avatar-upload__update`}>
+            <Avatar
+              src={src}
+              shape={shape}
+              size={size}
+              onClick={this.handleClick}
+            />
+            <div
+              onClick={this.handleClick}
+              className={cx(
                 `${prefixCls}-avatar-upload__cover`,
                 {
                   [`${prefixCls}-avatar-upload__cover_${shape}`]: shape,
                   [`${prefixCls}-avatar-upload__cover_${size}`]: size
                 },
                 className
-                )}
-              >{text}
-              </div>
+              )}
+            >
+              {text}
             </div>
-          )
-          : (
-            <div
-              onClick={this.handleClick}
-              className={cx(
+          </div>
+        ) : (
+          <div
+            onClick={this.handleClick}
+            className={cx(
               `${prefixCls}-avatar-upload__first`,
               {
                 [`${prefixCls}-avatar-upload__shallow-cover_${shape}`]: shape,
                 [`${prefixCls}-avatar-upload__shallow-cover_${size}`]: size
               },
               className
-              )}
-            >{text}
-            </div>
-          )}
+            )}
+          >
+            {text}
+          </div>
+        )}
       </div>
     )
   }

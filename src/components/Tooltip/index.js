@@ -24,7 +24,6 @@ Tooltip.defaultProps = {
 }
 
 Tooltip.propTypes = {
-
   className: PropTypes.string,
 
   children: PropTypes.element.isRequired,

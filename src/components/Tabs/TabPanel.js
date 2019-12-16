@@ -54,10 +54,11 @@ class TabPanel extends React.Component {
     const { children, className, activeKey, ...other } = this.props
     const { tabs } = this.context
 
-    'activeKey' in tabs.props && invariant(
-      'activeKey' in this.props,
-      'You set `activeKey` for `Tabs` but no `activeKey` for `TabPanel`'
-    )
+    'activeKey' in tabs.props &&
+      invariant(
+        'activeKey' in this.props,
+        'You set `activeKey` for `Tabs` but no `activeKey` for `TabPanel`'
+      )
 
     // Should not render and unmount when not acitve
     if (this.active) {

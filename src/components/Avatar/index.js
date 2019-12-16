@@ -18,12 +18,12 @@ class Avatar extends Component {
         src={src}
         onClick={this.handleClick}
         className={cx(
-        `${prefixCls}-avatar`,
-        {
-          [`${prefixCls}-avatar__img_${shape}`]: shape,
-          [`${prefixCls}-avatar__img_${size}`]: size
-        },
-        className
+          `${prefixCls}-avatar`,
+          {
+            [`${prefixCls}-avatar__img_${shape}`]: shape,
+            [`${prefixCls}-avatar__img_${size}`]: size
+          },
+          className
         )}
         {...others}
       />

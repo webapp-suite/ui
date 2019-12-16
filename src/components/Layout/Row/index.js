@@ -21,7 +21,6 @@ const Row = props => {
 }
 
 Row.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,

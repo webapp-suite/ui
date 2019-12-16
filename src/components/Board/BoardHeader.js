@@ -9,7 +9,8 @@ const rerangeChildren = children => {
   const buttonList = []
   const tabList = []
   children.forEach(elem => {
-    React.isValidElement(elem) && (elem?.type?.name === 'Button' ? buttonList : tabList).push(elem)
+    React.isValidElement(elem) &&
+      (elem?.type?.name === 'Button' ? buttonList : tabList).push(elem)
   })
   return tabList.concat(buttonList.reverse())
 }
@@ -17,8 +18,17 @@ const rerangeChildren = children => {
 const BoardHeader = props => {
   const { children, className, title, ...other } = props
   return (
-    <div className={cx(`${prefixCls}-board__header`, `${prefixCls}-board__header`, className)} {...other}>
-      {title && <div className={`${prefixCls}-board__header-title`}>{title}</div>}
+    <div
+      className={cx(
+        `${prefixCls}-board__header`,
+        `${prefixCls}-board__header`,
+        className
+      )}
+      {...other}
+    >
+      {title && (
+        <div className={`${prefixCls}-board__header-title`}>{title}</div>
+      )}
       {rerangeChildren(children)}
     </div>
   )

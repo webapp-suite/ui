@@ -19,7 +19,11 @@ import Scrollbar from 'widgets/Scrollbar'
 import { nav as components } from '../config.js'
 import './index.less'
 
-const firstUpperCase = str => str.replace(/\b(\w)(\w*)/g, ($0, $1, $2) => $1.toUpperCase() + $2.toLowerCase())
+const firstUpperCase = str =>
+  str.replace(
+    /\b(\w)(\w*)/g,
+    ($0, $1, $2) => $1.toUpperCase() + $2.toLowerCase()
+  )
 
 const getTabsByComponentName = (components, componentName) => {
   for (const c of components) {
@@ -93,11 +97,11 @@ class Components extends React.Component {
   handleItemClick = props => {
     this.toggle(false)
     this.switchRoute(props.id)
-  };
+  }
 
   handleTabClick = doc => {
     this.switchRoute(doc)
-  };
+  }
 
   renderTitle (docName) {
     const nameBeforeSlash = docName.split('/')[0]
@@ -134,7 +138,8 @@ class Components extends React.Component {
                       activeKey={tab.doc}
                       key={tab.doc}
                       onClick={() =>
-                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}
+                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
+                      }
                     >
                       {firstUpperCase(tab.label)}
                     </Tab>

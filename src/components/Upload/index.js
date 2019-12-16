@@ -43,7 +43,6 @@ class Upload extends React.Component {
         type: file.type,
         state: 0
       })
-
       ;(function (self, file, index) {
         const fd = new FormData()
         fd.append(self.props.fileName || 'files', file)
@@ -56,7 +55,7 @@ class Upload extends React.Component {
             xhr.upload.onprogress = function (evt) {
               const loaded = evt.loaded
               const tot = evt.total
-              const per = Math.floor(100 * loaded / tot) // Percentage that has been uploaded
+              const per = Math.floor((100 * loaded) / tot) // Percentage that has been uploaded
               const list = self.state.list.slice(0)
               const f = list[index]
               f.percent = per
@@ -113,26 +112,49 @@ class Upload extends React.Component {
   }
 
   render () {
-    const { className, action, fileName, multiple, onUplading, onComplete, showFileList, button, onUpload, ...other } = this.props
+    const {
+      className,
+      action,
+      fileName,
+      multiple,
+      onUplading,
+      onComplete,
+      showFileList,
+      button,
+      onUpload,
+      ...other
+    } = this.props
     return (
       <div className={cx(`${prefixCls}-upload`, className)} {...other}>
-        <input ref="file" onChange={this.handleChange} type="file" multiple={!!multiple} style={{ display: 'none' }} />
-        <div className={`${prefixCls}-upload__children`} onClick={this.handleClick}>
+        <input
+          ref="file"
+          onChange={this.handleChange}
+          type="file"
+          multiple={!!multiple}
+          style={{ display: 'none' }}
+        />
+        <div
+          className={`${prefixCls}-upload__children`}
+          onClick={this.handleClick}
+        >
           {this.props.children}
         </div>
-        {button && button.name &&
-          <Button {...button} onClick={this.handleClick}>{button.name}</Button>}
-        {showFileList &&
+        {button && button.name && (
+          <Button {...button} onClick={this.handleClick}>
+            {button.name}
+          </Button>
+        )}
+        {showFileList && (
           <div className={`${prefixCls}-upload__listbox`}>
             <FileList data={this.state.list} onRemove={this.handleRemove} />
-          </div>}
+          </div>
+        )}
       </div>
     )
   }
 }
 
 Upload.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,
@@ -166,7 +188,6 @@ Upload.propTypes = {
 
   // Whether to show file list
   showFileList: PropTypes.bool
-
 }
 
 export default Upload

@@ -17,21 +17,21 @@ class Tab extends React.Component {
   onClose (index, e) {
     e.preventDefault()
     e.stopPropagation()
-    const _onClose = this.context.tabs.props.onClose || this.context.tablist.onClose
+    const _onClose =
+      this.context.tabs.props.onClose || this.context.tablist.onClose
     _onClose && _onClose(index, this.props.activeKey)
   }
 
   render () {
-    const {
-      children, className, activeKey, closeable, ...other
-    } = this.props
+    const { children, className, activeKey, closeable, ...other } = this.props
     const { tabs } = this.context
     const index = tabs.tabCount++
 
-    'activeKey' in tabs.props && invariant(
-      'activeKey' in this.props,
-      'You set `activeKey` for Tabs but no `activeKey` for Tab'
-    )
+    'activeKey' in tabs.props &&
+      invariant(
+        'activeKey' in this.props,
+        'You set `activeKey` for Tabs but no `activeKey` for Tab'
+      )
 
     let isActive
     if ('activeKey' in this.props) {
@@ -41,22 +41,29 @@ class Tab extends React.Component {
     }
     return (
       <li
-        className={cx(`${prefixCls}-tabs__tab`, {
-          [`${prefixCls}-tabs__tab_active`]: isActive
-        }, className)} {...other}
-      >
-        <a href="" onClick={this.handleClick.bind(this, index)} draggable="false">
-          <span className={`${prefixCls}-tabs__tab-content`}>{children}</span>
+        className={cx(
+          `${prefixCls}-tabs__tab`,
           {
-            closeable && (
-              <Button
-                icon="close"
-                size="sm"
-                className={`${prefixCls}-tabs__tab-close`}
-                onClick={this.onClose.bind(this, index)}
-              />
-            )
-          }
+            [`${prefixCls}-tabs__tab_active`]: isActive
+          },
+          className
+        )}
+        {...other}
+      >
+        <a
+          href=""
+          onClick={this.handleClick.bind(this, index)}
+          draggable="false"
+        >
+          <span className={`${prefixCls}-tabs__tab-content`}>{children}</span>
+          {closeable && (
+            <Button
+              icon="close"
+              size="sm"
+              className={`${prefixCls}-tabs__tab-close`}
+              onClick={this.onClose.bind(this, index)}
+            />
+          )}
         </a>
       </li>
     )

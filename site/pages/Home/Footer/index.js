@@ -52,7 +52,10 @@ class Footer extends PureComponent {
           </div>
           <div className="right">
             <span>
-              <a href="http://beian.miit.gov.cn/" style={{ color: 'hsl(199, 20%, 22%)' }}>
+              <a
+                href="http://beian.miit.gov.cn/"
+                style={{ color: 'hsl(199, 20%, 22%)' }}
+              >
                 SU ICP NO.15056713-1
               </a>
             </span>

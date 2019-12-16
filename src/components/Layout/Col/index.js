@@ -13,7 +13,11 @@ const Col = props => {
     },
     className
   )
-  return <div className={classNames} {...other}>{children}</div>
+  return (
+    <div className={classNames} {...other}>
+      {children}
+    </div>
+  )
 }
 
 Col.propTypes = {

@@ -5,7 +5,14 @@ import cx from 'classnames'
 const Board = props => {
   const { children, className, theme, ...other } = props
   return (
-    <div className={cx(`${prefixCls}-board`, `${prefixCls}-board_${theme}`, className)} {...other}>
+    <div
+      className={cx(
+        `${prefixCls}-board`,
+        `${prefixCls}-board_${theme}`,
+        className
+      )}
+      {...other}
+    >
       {children}
     </div>
   )

@@ -16,12 +16,13 @@ class Tabs extends React.Component {
     }
   }
 
-  changeActiveIndex = (activeIndex) => {
+  changeActiveIndex = activeIndex => {
     this.setState({ activeIndex })
   }
 
   componentWillReceiveProps (nextProps) {
-    'activeIndex' in nextProps && this.setState({ activeIndex: nextProps.activeIndex || 0 })
+    'activeIndex' in nextProps &&
+      this.setState({ activeIndex: nextProps.activeIndex || 0 })
   }
 
   componentWillUpdate () {
@@ -36,7 +37,13 @@ class Tabs extends React.Component {
 
   render () {
     const {
-      children, className, activeIndex, activeKey, onChange, onClose, ...other
+      children,
+      className,
+      activeIndex,
+      activeKey,
+      onChange,
+      onClose,
+      ...other
     } = this.props
     return (
       <div className={cx(`${prefixCls}-tabs`, className)} {...other}>
@@ -68,10 +75,14 @@ Tabs.propTypes = {
 
   customProp (props) {
     if (('activeIndex' in props || 'activeKey' in props) && !props.onChange) {
-      return new Error('You provided `activeIndex` or `activeKey` prop without an `onChange` handler')
+      return new Error(
+        'You provided `activeIndex` or `activeKey` prop without an `onChange` handler'
+      )
     }
     if ('activeIndex' in props && 'activeKey' in props) {
-      return new Error('`activeIndex` and `activeKey` can\'t exist at the same time')
+      return new Error(
+        "`activeIndex` and `activeKey` can't exist at the same time"
+      )
     }
   }
 }
