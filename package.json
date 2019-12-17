@@ -145,7 +145,7 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.6.3",
-    "react-imported-component": "^5.5.3",
+    "react-imported-component": "^6.2.0",
     "rimraf": "^3.0.0",
     "standard": "^14.1.0",
     "standard-version": "^7.0.0",
