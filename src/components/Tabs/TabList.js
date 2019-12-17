@@ -18,12 +18,18 @@ class TabList extends React.Component {
     }
   }
 
-  addNewTab = e => {
+  handleAddNewTab = e => {
     e.preventDefault()
-    const id = Math.random().toString(16).slice(2, 6)
+    const id = Math.random()
+      .toString(16)
+      .slice(2, 6)
     const { newTab } = this.props
     const { children } = this.state
-    const newTabElement = <Tab key={id} closeable={newTab.closeable || false}>{newTab.name}</Tab>
+    const newTabElement = (
+      <Tab key={id} closeable={newTab.closeable || false}>
+        {newTab.name}
+      </Tab>
+    )
     this.context.tabs.setState({ activeIndex: this.context.tabs.tabCount })
     this.context.tabs.tabCount = this.context.tabs.panelCount = 0
     this.setState({ children: children.concat(newTabElement) })
@@ -31,16 +37,22 @@ class TabList extends React.Component {
 
   onClose = (index, activeKey) => {
     const { children } = this.state
-    this.setState({ children: children.filter(c => children.indexOf(c) !== index) })
+    this.setState({
+      children: children.filter(c => children.indexOf(c) !== index)
+    })
     this.context.tabs.changeActiveIndex(children.length - 2)
   }
 
   render () {
     const { className, newTab, ...other } = this.props
-    return <ul className={cx(`${prefixCls}-tabs__list`, className)} {...other}>
-      {this.props.children}
-      {!!newTab && <Button size="sm" icon="add" onClick={this.addNewTab} />}
-    </ul>
+    return (
+      <ul className={cx(`${prefixCls}-tabs__list`, className)} {...other}>
+        {this.props.children}
+        {!!newTab && (
+          <Button size="sm" icon="add" onClick={this.handleAddNewTab} />
+        )}
+      </ul>
+    )
   }
 }
 
@@ -55,10 +67,11 @@ TabList.contextTypes = {
 TabList.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  // 新增 tab 的属性定义
+  // The definition of new tab
   newTab: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    id: PropTypes.string
+    id: PropTypes.string,
+    closeable: PropTypes.bool
   })
 }
 

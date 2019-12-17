@@ -21,15 +21,14 @@ const Row = props => {
 }
 
 Row.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,
 
-  // 是否带间隔
+  // Whether to have gutter
   gutter: PropTypes.bool,
 
-  // 是否流式布局，按内容自适应自左向右布局
+  // Whether is fluid
   fluid: PropTypes.bool
 }
 

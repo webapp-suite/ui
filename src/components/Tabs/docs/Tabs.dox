@@ -1,5 +1,5 @@
 /**
- * @title 基本功能
+ * @title Basic usage
  * @renderModel right
  */
 import { Tabs, TabList, Tab, TabPanel } from 'earth-ui'
@@ -18,7 +18,7 @@ const TabsBasic = () => {
 }
 
 /**
- * @title 页签模式
+ * @title Add or Close Tabs
  * @renderModel right
  */
 import { Tabs, TabList, Tab, TabPanel, Button } from 'earth-ui'
@@ -29,10 +29,10 @@ class TabsDynamic extends Component {
     this.state = {
       tabs: [{
         id: 'A',
-        name: '新建页签A'
+        name: 'Tab A'
       }, {
         id: 'B',
-        name: '新建页签B'
+        name: 'Tab B'
       }]
     }
   }
@@ -49,7 +49,7 @@ class TabsDynamic extends Component {
     const id = Math.random().toString(16).slice(2, 6)
     tabs.push({
       id,
-      name: `新建页签${id}`
+      name: `Tab ${id}`
     })
     this.setState({ tabs, activeIndex: tabs.length - 1 })
   }
@@ -70,7 +70,7 @@ class TabsDynamic extends Component {
           <Button ghost icon="add" onClick={this.handleAdd} />
         </TabList>
         {tabs.map((item, i) => (
-          <TabPanel key={item.id}>{`我是${item.name}`}</TabPanel>
+          <TabPanel key={item.id}>{`This is ${item.name}`}</TabPanel>
         ))}
       </Tabs>
     )

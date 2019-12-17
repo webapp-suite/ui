@@ -5,7 +5,14 @@ import cx from 'classnames'
 const Board = props => {
   const { children, className, theme, ...other } = props
   return (
-    <div className={cx(`${prefixCls}-board`, `${prefixCls}-board_${theme}`, className)} {...other}>
+    <div
+      className={cx(
+        `${prefixCls}-board`,
+        `${prefixCls}-board_${theme}`,
+        className
+      )}
+      {...other}
+    >
       {children}
     </div>
   )
@@ -15,7 +22,7 @@ Board.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // 面板样式风格，默认 `classic`
+  // The theme style of Board, default value is `classic`
   theme: PropTypes.oneOf(['classic', 'simple'])
 }
 

@@ -1,5 +1,5 @@
 /**
- * @title 基本功能
+ * @title Basic Usage
  */
 import { Tooltip, Icon } from 'earth-ui'
 
@@ -15,7 +15,7 @@ const TooltipBasic = () => {
 }
 
 /**
- * @title click 方式触发
+ * @title Trigger by Click
  */
 import { Tooltip, Icon } from 'earth-ui'
 

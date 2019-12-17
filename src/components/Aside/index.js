@@ -10,9 +10,11 @@ class AsideCloseButton extends Component {
   static contextTypes = {
     dialog: PropTypes.object
   }
+
   handleClose = () => {
     this.context?.dialog?.close?.()
   }
+
   render () {
     return (
       <Button
@@ -62,13 +64,14 @@ class Aside extends React.Component {
 }
 
 Aside.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
-  // 是否打开侧边栏
+  // Whether to open Aside
   isOpen: PropTypes.bool.isRequired,
-  // 侧边栏关闭时回调函数
+  // The callback of closing Aside
   onClose: PropTypes.func.isRequired,
   onOpen: PropTypes.func,
-  // 侧边栏标题
+  // The title of Aside
   title: PropTypes.string
 }
 

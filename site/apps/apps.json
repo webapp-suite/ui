@@ -2,16 +2,16 @@
   {
     "icon":"docs-icon-space-rocket",
     "path":"start",
-    "name":"start",
+    "name":"get started",
     "cn":"开始",
     "tabs":[
       {
-        "label":"使用",
+        "label":"usage",
         "doc":"usage"
       },
       {
-        "label":"开发",
-        "doc":"develop"
+        "label":"development",
+        "doc":"development"
       }
     ]
   },
@@ -22,15 +22,15 @@
     "cn":"设计",
     "tabs":[
       {
-        "label":"颜色",
+        "label":"color",
         "doc":"color"
       },
       {
-        "label":"字体",
+        "label":"font",
         "doc":"font"
       },
       {
-        "label":"排列",
+        "label":"Arrangement",
         "doc":"arrange"
       }
     ]
@@ -38,7 +38,7 @@
   {
     "icon":"docs-icon-cursor-touch-1",
     "path":"components",
-    "name":"General Components",
+    "name":"General",
     "cn":"通用组件",
     "defaultOpen":false,
     "components":[
@@ -47,11 +47,11 @@
         "cn":"图标",
         "tabs":[
           {
-            "label":"使用",
+            "label":"usage",
             "doc":"Icon-usage"
           },
           {
-            "label":"所有图标",
+            "label":"all icons",
             "doc":"Icon-all-icons"
           }
         ]
@@ -95,7 +95,7 @@
   {
     "icon":"docs-icon-window-application-6",
     "path":"components",
-    "name":"Layout Components",
+    "name":"Layout",
     "cn":"布局组件",
     "defaultOpen":false,
     "components":[
@@ -108,11 +108,11 @@
         "cn":"顶栏",
         "tabs":[
           {
-            "label":"使用",
+            "label":"usage",
             "doc":"Header-usage"
           },
           {
-            "label":"画廊",
+            "label":"gallery",
             "doc":"Header-gallery"
           }
         ]
@@ -134,7 +134,7 @@
   {
     "icon":"docs-icon-chat-bubble-square-alert-2",
     "path":"components",
-    "name":"Dialog Components",
+    "name":"Dialog",
     "cn":"弹框组件",
     "defaultOpen":false,
     "components":[
@@ -159,7 +159,7 @@
   {
     "icon":"docs-icon-paragraph-normal",
     "path":"components",
-    "name":"Form Components",
+    "name":"Form",
     "cn":"表单组件",
     "defaultOpen":false,
     "components":[
@@ -192,7 +192,7 @@
   {
     "icon":"docs-icon-grid",
     "path":"components",
-    "name":"Table Components",
+    "name":"Table",
     "cn":"表格组件",
     "defaultOpen":false,
     "components":[
@@ -205,7 +205,7 @@
   {
     "icon":"docs-icon-modules-1",
     "path":"components",
-    "name":"Markup Declarative Components",
+    "name":"Others",
     "cn":"其他组件",
     "defaultOpen":true,
     "components":[

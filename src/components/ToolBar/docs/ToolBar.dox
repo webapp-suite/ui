@@ -1,5 +1,5 @@
 /**
- * @title 带 Tabs 的 ToolBar
+ * @title The ToolBar with Tabs
  * @renderModel right
  */
 import { ToolBar, notification, Tabs, TabList, Tab } from 'earth-ui'
@@ -19,7 +19,7 @@ const ToolBarWithTabs = () => {
 
 
 /**
- * @title 动态页签
+ * @title Dynamic Tabs
  * @renderModel right
  */
 import { ToolBar, Tabs, TabList, Tab } from 'earth-ui'

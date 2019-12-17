@@ -1,19 +1,19 @@
 /**
- * @title 第一次上传头像
+ * @title Upload Avatar
  */
 import { AvatarUpload } from 'earth-ui'
 
 const AvatarUploadFirst = () => {
-  return <AvatarUpload size="lg" text="设置头像" onClick={() => confirm('示意：上传头像？')} />
+  return <AvatarUpload size="lg" text="Upload" onClick={() => confirm('e.g. Upload Avatar?')} />
 }
 
 /**
- * @title 更新已经上传的头像
+ * @title Update Avatar
  */
 import { AvatarUpload } from 'earth-ui'
 
 const AvatarUploadUpdate = () => {
-  return <AvatarUpload size="lg" text="更换头像" src="https://avatars0.githubusercontent.com/u/12554487" onClick={() => confirm('示意：更换头像？')} />
+  return <AvatarUpload size="lg" text="Update Avatar" src="https://avatars0.githubusercontent.com/u/12554487" onClick={() => confirm('e.g. Update Avatar')} />
 }
 
 @component AvatarUpload

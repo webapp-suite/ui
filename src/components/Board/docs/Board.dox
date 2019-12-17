@@ -1,6 +1,6 @@
 /**
- * @title 基本用法
- * @desc Board 组件提供 `theme` 属性，可以选择两种的主题风格：`classic` / `simple`，默认为 `classic` 即白色背景带边框的风格。
+ * @title Basic Usage
+ * @desc Board provides the `theme` property which allows you to choose between two theme styles: `classic` and `simple`. The default value is `classic` which is the style of white background with borders.
  * @renderModel right
  */
 import { Board, BoardHeader, BoardBody } from 'earth-ui'
@@ -23,8 +23,8 @@ const BoardBasic = () => {
 }
 
 /**
- * @title 带标题的面板
- * @desc 在 BoardHeader 上通过 `title` 属性可以自定义标题，同样也支持两种可选的主题风格。
+ * @title Board with Title
+ * @desc The `title` property on the `BoardHeader` allows you to customize the title and also supports all theme styles.
  * @renderModel right
  */
 import { Board, BoardHeader, BoardBody } from 'earth-ui'
@@ -49,7 +49,7 @@ const BoardWithTitle = () => {
 }
 
 /**
- * @title 带按钮的面板
+ * @title Board with Buttons
  * @renderModel right
  */
 import { Board, BoardHeader, BoardBody, Button } from 'earth-ui'
@@ -70,7 +70,7 @@ const BoardWithButtons = () => {
 }
 
 /**
- * @title 带Tab的面板
+ * @title Board with Tabs
  * @renderModel right
  */
 import { Board, BoardHeader, BoardBody, Tabs, TabList, Tab, TabPanel } from 'earth-ui'

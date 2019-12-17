@@ -20,14 +20,14 @@ const asyncComponent = path =>
     }
     return path.match('.dox')
       ? import(
-        /* webpackExclude: /__tests__/ */
-        /* webpackChunkName: '[request]' */
-        `../src/components/${path}`
-      )
+          /* webpackExclude: /__tests__/ */
+          /* webpackChunkName: '[request]' */
+          `../src/components/${path}`
+        )
       : import(
-        /* webpackChunkName: '[request]' */
-        `./apps/${path}`
-      )
+          /* webpackChunkName: '[request]' */
+          `./apps/${path}`
+        )
   })
 
 const WIP = [
@@ -43,7 +43,9 @@ const WIP = [
   'DatePicker',
   'Card',
   'Time',
-  'Actions'
+  'Actions',
+  'Dropdown',
+  'BackToTop'
 ]
 
 const getComponentDoc = component => {

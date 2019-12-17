@@ -1,9 +1,9 @@
-@summary > 侧边栏主要是让页面有层级关系，主次分明，把复杂的或者更深入的操作放在侧边栏中，可以使主界面更为简洁高效。
+@summary > Aside is mainly used to make the page hierarchical. Putting complex or deeper operations in the aside can make the main page more concise.
 
 /**
- * @title 基本用法
- * @desc 侧边栏通过 `isOpen` 属性去控制其打开还是关闭，另外 `onClose` 需要去清空状态，所以这两个属性都为必要属性。
- * @note `Aside` 组件实际会生成的 Aside 和 Backdrop 两个DOM节点，它们通过 `React Portal` 传递给 body 作为其子元素，但需要注意的是最后渲染出来的 Backdrop 和 Aside 是同级的。关闭 Aside 包括点击 Backdrop 都会自动销毁这两个节点。
+ * @title Basic Usage
+ * @desc Aside controls whether it is turned on or off by the `isOpen` property, and the `onClose` property is used to clear the state, so both properties are required.
+ * @note `Aside` actually generates two DOM nodes, one is Aside and the other is Backdrop which is passed to the body as its children through the `React Portal` API, but it should be noted that the final rendered context is the same as the Aside. Closing the Aside including clicking the Backdrop will automatically destroy both nodes.
  */
 import { Aside, Button } from 'earth-ui'
 
@@ -20,7 +20,7 @@ class AsideBasic extends Component {
       <div>
         <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE</Button>
         <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
-          Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit.
         </Aside>
       </div>
     )
@@ -28,8 +28,8 @@ class AsideBasic extends Component {
 }
 
 /**
- * @title 带Spinner的Aside
- * @desc 可以将 Spinner 嵌套在 Aside 中使用，这也是异步请求常用的交互方式。
+ * @title Aside with Spinner
+ * @desc You can use a Spinner nested inside an Aside which is also a common way to wait the asynchronous requests.
  */
 import { Aside, Button, Spinner } from 'earth-ui'
 
@@ -48,7 +48,7 @@ class AsideSpinner extends Component {
        <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE WITH SPINNER</Button>
        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
          <Spinner isLoading={this.state.isLoading}>
-           Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit.
          </Spinner>
        </Aside>
      </div>
@@ -57,8 +57,8 @@ class AsideSpinner extends Component {
 }
 
 /**
- * @title 带Tabs的Aside
- * @desc 如果一个 Aside 包含的内容较多，没有递进关系时，可以使用 Tabs，虽然还是处于一个"平面"上，但能够让用户更加专注其所要处理的内容。使用时将 Tabs 嵌套在 Aside 当中即可，样式会在 Aside 内部自动进行相关调整。
+ * @title Aside with Tabs
+ * @desc If the Aside contains a lot of content and doesn't have a hierarchical relationship, you can use Tabs which allows the user to focus on what they're working on even if it's still on the same Aside. You can use the Tabs nested in the Aside and the style will be automatically adjusted within the Aside.
  */
 import { Aside, Button, Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
@@ -81,10 +81,10 @@ class AsideTabs extends Component {
               <Tab>tab 2</Tab>
             </TabList>
             <TabPanel>
-              Bacon ipsum dolor sit pölsesnack, jerky pork belly short loin sausage andouille kevin capicola ham hamburger doner. Shank prosciutto flank kevin ribeye short ribs swine ham pork porchetta spare ribs kielbasa beef ribs. Prosciutto pancetta shank boudin. Corned beef shoulder capicola, turducken prosciutto pork belly sirloin shankle brisket chuck leberkas tail beef. Sirloin meatloaf pastrami beef ribs. Ball tip pastrami landjaeger, brisket EarthUI strip steak short loin pancetta meatball corned beef tenderloin beef ribs spare ribs. EarthUI sausage strip steak ham, ribeye pork loin meatball turkey corned beef shoulder. Leberkas jerky sirloin boudin, turducken ham hock pastrami. Doner pig boudin sausage, ball tip leberkas ground round beef jowl kielbasa tongue shankle spare ribs tail shoulder. Fatback pork kielbasa ham, doner pig short loin short ribs pancetta. Pancetta jerky biltong short loin capicola beef. Pork belly strip steak venison brisket shoulder beef filet mignon shank tenderloin tri-tip ground round shankle cow.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit.
             </TabPanel>
             <TabPanel>
-              EarthUI salami burger mit invoice pastrami, shankle venison meatball pork belly capicola ribeye sirloin doner Aside. Tail kielbasa beef ribs landjaeger pork belly. T-bone pig andouille, doner ham sirloin short ribs meatloaf salami strip steak tenderloin short loin tri-tip pork loin. Pastrami jowl sirloin, kevin jerky filet mignon bacon pork chop brisket pancetta. Spare ribs ground round pork belly pork chop doner swine, fatback bresaola. Picanha beef ribs burgdoggen bacon sausage rump. Porchetta turkey ribeye, tenderloin landjaeger spare ribs strip steak pork belly t-bone. Tenderloin t-bone ham, doner corned beef chuck fatback ground round short ribs tri-tip. Landjaeger ribeye brisket boudin tongue pork kevin frankfurter. Swine capicola filet mignon, cow spare ribs ribeye salami sausage porchetta hamburger short ribs corned beef.
+              Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa.
             </TabPanel>
           </Tabs>
         </Aside>
@@ -94,13 +94,13 @@ class AsideTabs extends Component {
 }
 
 /**
- * @title 嵌套的Aside
- * @desc 当侧边的内容比较复杂，具有逻辑上的递进关系的时候可以使用嵌套的Aside，如 Aside 打开是一个列表，列表每一项打开还是一个 Aside。
- * @note 需要注意的是无论处于嵌套的哪一层 Aside，点击 Backdrop 的时候都会关闭所有 Aside，并且会自动调用每一个 `onClose` 函数去清空所有 Aside 内部 `isOpen` 状态。
+ * @title Nested Asides
+ * @desc You should use nested Asides when the content of Aside is more complex or they have logical relationship, such as the content of the first Aside is a list item and it's another Aside when each item opens.
+ * @note It should be noted that no matter which layer of Aside is, all Asides will be closed when clicking the Backdrop. It will automatically call each `onClose` function to clear `isOpen` state of all Asides.
  */
 import { Aside, Button } from 'earth-ui'
 
-class StackingAsides extends Component {
+class NestedAsides extends Component {
   state = { isOpen1: false, isOpen2: false, isOpen3: false }
   openAside = number => {
     this.setState({ [`isOpen${number}`]: true })
@@ -112,15 +112,15 @@ class StackingAsides extends Component {
     return (
       <div>
         <Button ghost type="primary" onClick={()=>this.openAside(1)}>
-          OPEN STACKING ASIDES
+          OPEN NESTED ASIDES
         </Button>
         <Aside isOpen={this.state.isOpen1} onClose={()=>this.closeAside(1)} title="Aside One">
           <Button ghost type="primary" onClick={()=>this.openAside(2)} block>
-            OPEN ASIDE TWO
+            OPEN SECOND ASIDE
           </Button>
           <Aside isOpen={this.state.isOpen2} onClose={()=>this.closeAside(2)} title="Aside Two">
             <Button ghost type="primary" onClick={()=>this.openAside(3)} block>
-              OPEN ASIDE THREE
+              OPEN THIRD ASIDE
             </Button>
             <Aside isOpen={this.state.isOpen3} onClose={()=>this.closeAside(3)} title="Aside Three">
               <Button type="primary" onClick={()=>this.closeAside(1)} block>

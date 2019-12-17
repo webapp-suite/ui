@@ -1,7 +1,7 @@
 /**
- * @title 基本用法
- * @desc 通过 `isLoading` 的值来控制加载效果的显示与隐藏。
- * @note 该组件会保证加载效果的显示时间至少为 `300ms`，以避免一闪而过的糟糕体验。
+ * @title Basic Usage
+ * @desc The display and hiding of loading effects are controlled by the value of `isLoading`.
+ * @note This component will ensure that the loading display time is at least `300ms` to avoid the bad experience as "flash".
  */
 import { Spinner, Switch } from 'earth-ui'
 
@@ -21,11 +21,11 @@ class SpinnerBasic extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
           <Spinner isLoading={this.state.isLoading}>
-            将被加载效果覆盖
+            Will be overridden by the load effect
           </Spinner>
         </div>
       </div>
@@ -34,8 +34,8 @@ class SpinnerBasic extends React.Component {
 }
 
 /**
- * @title 自定义描述文案
- * @desc 通过 `tip` 属性来自定义描述文案。
+ * @title Custom description
+ * @desc The description of spinner could be changed by the `tip` property。
  */
 import { Spinner, Switch } from 'earth-ui'
 
@@ -55,11 +55,11 @@ class SpinnerTip extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
           <Spinner tip="Loading..." isLoading={this.state.isLoading}>
-            自定义描述文案加载效果
+            Custom description
           </Spinner>
         </div>
       </div>
@@ -68,9 +68,9 @@ class SpinnerTip extends React.Component {
 }
 
 /**
- * @title 黑白背景
- * @desc 当前提供了 `cover` 属性以选择加载背景效果的表现。
- * @note 默认的 `cover` 是白色背景遮罩。
+ * @title Black and White Background
+ * @desc The `cover` property is currently provided to select the performance of the spinner background.
+ * @note The default `cover` is white background.
  */
 import { Spinner, Switch } from 'earth-ui'
 
@@ -90,17 +90,17 @@ class SpinnerCover extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <div style={border}>
           <Spinner tip="Loading..." isLoading={this.state.isLoading}>
-            白色背景遮罩的加载效果
+            White background
           </Spinner>
         </div>
         <br />
         <div style={border}>
           <Spinner tip="Loading..." cover="black" isLoading={this.state.isLoading}>
-            黑色背景遮罩的加载效果
+            Black background
           </Spinner>
         </div>
       </div>
@@ -109,9 +109,9 @@ class SpinnerCover extends React.Component {
 }
 
 /**
- * @title 各种大小
- * @desc 提供了 `sm` / `md` / `lg` 三种尺寸来满足不同场景下的需求。
- * @note 对于全局和 Aside 里面的 Spinner 建议使用 `lg` 尺寸，在高度相对高的场景下会有较好的视觉体验。
+ * @title Size
+ * @desc There are three different sizes such as `sm`, `md` and `lg` to meet the requirements in different scenarios.
+ * @note For the global Spinner and the Spinner inside the Aside, it is recommended to use the `lg` size, which will provide a good visual experience in the scene with relatively high height.
  */
 import { Spinner } from 'earth-ui'
 
@@ -126,8 +126,8 @@ const SpinnerSize = () => {
 }
 
 /**
- * @title 自定义指示器
- * @desc 可以通过 `indicator` 属性使用自定义指示器，需要传入一个组件实例。
+ * @title Custom Indicator
+ * @desc You can create a custom indicator with the `indicator` property, which need passing a react instance.
  */
 import { Spinner } from 'earth-ui'
 import styled, { keyframes } from 'styled-components'
@@ -166,11 +166,11 @@ class SpinnerIndicator extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          打开 Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
         </div>
         <Border>
           <Spinner isLoading={this.state.isLoading} indicator={<Indicator />}>
-            自定义指示器
+            Custom Indicator
           </Spinner>
         </Border>
       </div>

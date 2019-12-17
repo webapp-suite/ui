@@ -1,5 +1,5 @@
 /**
- * @title 基本功能
+ * @title Basic Usage
  */
 import { Switch } from 'earth-ui'
 
@@ -8,12 +8,12 @@ const SwitchBasic = () => {
 }
 
 /**
- * @title 带文字
+ * @title Text
  */
 import { Switch } from 'earth-ui'
 
 const SwitchWithLabel = () => {
-  return <Switch labelOn="打开" labelOff="关闭" />
+  return <Switch labelOn="On" labelOff="Off" />
 }
 
 @component Switch

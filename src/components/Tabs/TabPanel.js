@@ -54,10 +54,11 @@ class TabPanel extends React.Component {
     const { children, className, activeKey, ...other } = this.props
     const { tabs } = this.context
 
-    'activeKey' in tabs.props && invariant(
-      'activeKey' in this.props,
-      'You set `activeKey` for `Tabs` but no `activeKey` for `TabPanel`'
-    )
+    'activeKey' in tabs.props &&
+      invariant(
+        'activeKey' in this.props,
+        'You set `activeKey` for `Tabs` but no `activeKey` for `TabPanel`'
+      )
 
     // Should not render and unmount when not acitve
     if (this.active) {
@@ -77,7 +78,9 @@ TabPanel.contextTypes = {
 }
 
 TabPanel.propTypes = {
-  // 与 Tabs activeKey 对应
+  children: PropTypes.any,
+  className: PropTypes.string,
+  // Corresponds to the Tabs `activeKey`
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 

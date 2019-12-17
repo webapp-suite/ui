@@ -1,5 +1,5 @@
 /**
- * @title 基本用法
+ * @title Basic Usage
  * @desc As you can see, the Pager has no default outline and this will make it easier to embed into other components.
  */
 import { Pager } from 'earth-ui'

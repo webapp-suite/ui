@@ -1,5 +1,5 @@
 /**
- * @title Header 背景色画廊
+ * @title Header Gallery
  * @renderModel full
  */
 import { Header } from 'earth-ui'

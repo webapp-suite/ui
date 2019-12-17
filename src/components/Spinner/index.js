@@ -179,26 +179,30 @@ class Spinner extends React.Component {
 }
 
 Spinner.propTypes = {
-  // Spinner自身样式类属性
+  children: PropTypes.node,
+  // Spinner's own class property
   className: PropTypes.string,
 
-  // Spinner包裹的最外层样式类属性
+  // The outermost class property of the Spinner wrapper
   wrapperClassName: PropTypes.string,
 
-  // 是否为加载中状态，默认值为 `true`
+  // Whether is loading, default value is `true`
   isLoading: PropTypes.bool,
 
-  // 作为包裹元素时，可自定义描述文案
+  // Customize the description
   tip: PropTypes.string,
 
-  // 组件大小，默认值为 `md`
+  // The sizes, default value is `md`
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
-  // 遮罩的背景风格，默认值为 `white`
+  // The style of backdrop, default value is `white`
   cover: PropTypes.oneOf(['white', 'black']),
 
-  // 加载指示器
-  indicator: PropTypes.node
+  // Loading indicator
+  indicator: PropTypes.node,
+
+  // The delay time of Spinner, default value is `300`
+  delay: PropTypes.number
 }
 
 Spinner.defaultProps = {

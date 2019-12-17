@@ -1,8 +1,8 @@
-@summary > 通知提醒框主要用于事件 **已经** 发生，用户只能被动接受，类似于 JavaScript `alert()` 方法。主要分为自动关闭和手动关闭两大类型，同时文本内容也支持最基础的 markdown 语法。
+@summary > notification is mainly used for the event `has occurred`. The users can only choose to accept. It's similar to the JavaScript `alert()` method. There are two main types: automatic closing and manual closing notification, while text content also supports the basic markdown syntax.
 
 /**
- * @title 自动关闭
- * @desc `success` 类型的通知不需要和用户进行交互确认，默认 `1500ms` 后自动关闭。
+ * @title Automatically Close
+ * @desc The `success` notification do not require the confirmation of user and will be automatically closed by default after`1500ms`.
  */
 import { notification, Button } from 'earth-ui'
 
@@ -18,7 +18,7 @@ class NotificationSuccess extends Component {
 /**
  * @title null
  * @renderModel run
- * @desc 你也可以自定义关闭时间，单位 `ms` :
+ * @desc You can also customize the delay time of closing notification, unit is `ms` :
  */
 import { notification, Button } from 'earth-ui'
 
@@ -32,8 +32,8 @@ class NotificationDuration extends Component {
 }
 
 /**
- * @title 手动关闭
- * @desc `info`, `warning` 和 `error` 类型的通知需要用户的确认才能关闭。
+ * @title Manually Close
+ * @desc The notifications of type `info`, `warning`, and `error` require user confirmation to close.
  */
 import { notification, Button } from 'earth-ui'
 
@@ -50,7 +50,7 @@ const NotificationCloseManually = () => {
 /**
  * @title null
  * @renderModel run
- * @desc 手动关闭类型的 notification 可以自定义 `ACCEPT` 按钮的文本。
+ * @desc The notification which can be manually closed allows you to customize the text of the `ACCEPT` button。
  */
 import { notification, Button } from 'earth-ui'
 
@@ -66,7 +66,7 @@ class NotificationButtonsLabel extends Component {
 /**
  * @title null
  * @renderModel run
- * @desc 在点击 `ACCEPT` 按钮时候，你可以添加一个回调函数。
+ * @desc You can add a callback when you click the `ACCEPT` button.
  */
 import { notification, Button } from 'earth-ui'
 
@@ -88,7 +88,7 @@ class NotificationNested extends Component {
 }
 
 /**
- * @title 消息队列
+ * @title Notification Queue
  * @renderModel run
  */
 import { notification, Button } from 'earth-ui'
