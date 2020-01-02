@@ -114,7 +114,7 @@
     "eslint-config-standard-react": "^9.2.0",
     "eslint-plugin-react": "^7.11.1",
     "express": "^4.16.3",
-    "file-loader": "^4.2.0",
+    "file-loader": "^5.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.0.0",
