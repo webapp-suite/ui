@@ -135,7 +135,7 @@
     "node-dev": "^4.0.0",
     "nprogress": "^0.2.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "pm2": "^3.5.1",
+    "pm2": "^4.2.1",
     "postcss-loader": "^3.0.0",
     "prettier-standard": "^16.1.0",
     "prop-types": "^15.6.1",
