@@ -45,19 +45,7 @@ Header.propTypes = {
   title: PropTypes.string,
 
   // The background color of Header, default value is `white`
-  color: PropTypes.oneOf([
-    'blue',
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'purple',
-    'pink',
-    'gray',
-    'slate',
-    'black',
-    'white'
-  ])
+  color: PropTypes.oneOf(['blue', 'red', 'orange', 'yellow', 'green', 'purple', 'pink', 'gray', 'slate', 'black', 'white'])
 }
 
 Header.defaultProps = {
