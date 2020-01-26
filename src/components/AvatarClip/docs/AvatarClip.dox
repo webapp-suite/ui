@@ -10,7 +10,7 @@ class ProfileAvatar extends Component {
     this.state = {
       cropperOpen: false,
       img: null,
-      imgSrc: 'https://avatars0.githubusercontent.com/u/12554487'
+      imgSrc: 'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg'
     }
   }
   onUpload = files => {
@@ -58,7 +58,7 @@ class ProfileAvatar extends Component {
     return (
       <div>
         <Upload onUpload={this.onUpload}>
-          <AvatarUpload size="lg" text="Update" src="https://avatars0.githubusercontent.com/u/12554487"/>
+          <AvatarUpload size="lg" text="Update" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg"/>
         </Upload>
         {this.state.cropperOpen &&
           <AvatarClip
