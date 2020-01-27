@@ -1,0 +1,5 @@
+import './index.less'
+export { default as NavBar2 } from './NavBar'
+export { default as SubNav2 } from './SubNav'
+export { default as NavItemGroup2 } from './NavItemGroup'
+export { default as NavItem2 } from './NavItem'
