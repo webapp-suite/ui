@@ -23,7 +23,7 @@ class NavBasic extends Component {
           <NavItem2 id="4" title="NavItem 2" />
           <NavItem2 id="5" title="NavItem 3" />
         </SubNav2>
-        <SubNav2 icon="/svg/icons.svg#docs-icon-modules-1" title="Sub Navigation 3" defaultOpen>
+        <SubNav2 icon="/svg/icons.svg#docs-icon-modules-1" title="Sub Navigation 3">
           <NavItemGroup2 title="NavItemGroup A">
             <NavItem2 id="6" title="NavItem 1" />
             <NavItem2 id="7" title="NavItem 2" />

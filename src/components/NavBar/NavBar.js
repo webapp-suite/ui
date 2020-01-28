@@ -7,7 +7,8 @@ class NavBar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      selectedId: props.selectedId || ''
+      selectedId: props.selectedId,
+      collapsed: props.collapsed || false
     }
   }
 
@@ -19,11 +20,16 @@ class NavBar extends Component {
 
   handleSubNavClick (props) {
     this.setState({ selectedId: props.id })
+    this.setState({ collapsed: false })
   }
 
   handleItemClick (props, e) {
     this.setState({ selectedId: props.id })
     this.props.onItemClick && this.props.onItemClick(props, e)
+  }
+
+  handleMenuClick = () => {
+    this.setState({ collapsed: !this.state.collapsed })
   }
 
   render () {
@@ -36,21 +42,23 @@ class NavBar extends Component {
       other.style = Object.assign(other.style || {}, { width })
     }
 
-    // const childrenWithNewProps = React.Children.map(children, child => {
-    //   return React.cloneElement(child, {
-    //     indent
-    //   })
-    // })
+    const childrenWithNewProps = React.Children.map(children, child => {
+      return React.cloneElement(child, {
+        collapsed: this.state.collapsed
+      })
+    })
+
+    const menuStatus = this.state.collapsed ? 'on' : 'off'
 
     return (
       <div className={cx(`${prefixCls}-nav-bar`, className)} {...other}>
         <ul className={cx(`${prefixCls}-nav-bar__left-icon`)}>
-          <li className={`${prefixCls}-nav-bar__left-icon-menu-off`}>
+          <li className={`${prefixCls}-nav-bar__left-icon-menu-${menuStatus}`} onClick={this.handleMenuClick}>
             <div className={`${prefixCls}-nav-bar__sub-nav-entity`}>
-              <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src="/svg/icons.svg#navigation-menu-off" />
+              <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src={`/svg/icons.svg#navigation-menu-${menuStatus}`} />
             </div>
           </li>
-          {children}
+          {childrenWithNewProps}
         </ul>
       </div>
     )
@@ -70,7 +78,7 @@ NavBar.propTypes = {
   // 当前选中的导航项的 id
   selectedId: PropTypes.string.isRequired,
 
-  // 导航是否收起状态
+  // Whether to open sub navigation
   collapsed: PropTypes.bool,
 
   // 导航缩进宽度
@@ -83,8 +91,8 @@ NavBar.propTypes = {
   onItemClick: PropTypes.func
 }
 
-// NavBar.defaultProps = {
-//   indent: 24
-// }
+NavBar.defaultProps = {
+  selectedId: ''
+}
 
 export default NavBar

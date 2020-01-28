@@ -7,7 +7,7 @@ class SubNav extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      open: props.defaultOpen || false
+      open: !props.collapsed
     }
   }
 
@@ -30,37 +30,29 @@ class SubNav extends React.Component {
     this.props.onClick && this.props.onClick(e)
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.setState({ open: !nextProps.collapsed })
+  }
+
   render () {
     const { open } = this.state
-    const { children, className, defaultOpen, icon, title, indent, ...other } = this.props
+    const { children, className, icon, title, ...other } = this.props
 
     const NavIcon = icon && <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src={icon} />
-    const ToggleIcon = <Icon type="triangleright" className={`${prefixCls}-nav-bar__sub-nav-toggle`} />
-
     let indentStyle
 
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
     const selectedId = this.context.nav.state.selectedId
     let active = false
-    const childrenWithNewProps = React.Children.map(children, child => {
+    React.Children.forEach(children, child => {
       if (child.type.name === 'NavItemGroup') {
         if (React.Children.toArray(child.props.children).some(v => selectedId === v?.props?.id)) {
           active = true
         }
-        return React.cloneElement(child, {
-          indent: indent + 8
-        })
       }
       if (child.type.name === 'NavItem') {
-        // debugger
         if (selectedId === child?.props?.id) {
           active = true
         }
-        return React.cloneElement(child, {
-          indent: indent * 2
-        })
       }
     })
 
@@ -81,10 +73,10 @@ class SubNav extends React.Component {
         {...other}
       >
         <div className={`${prefixCls}-nav-bar__sub-nav-entity`} onClick={this.handleClickIcon} style={indentStyle}>{NavIcon}</div>
-        {open && active && childrenWithNewProps && (
+        {open && active && children && (
           <div className={`${prefixCls}-nav-bar__sub-nav-right`}>
-            <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}{ToggleIcon}</div>
-            <ul>{childrenWithNewProps}</ul>
+            <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}</div>
+            <ul>{children}</ul>
           </div>
         )}
       </li>
@@ -99,7 +91,7 @@ SubNav.contextTypes = {
 SubNav.propTypes = {
   className: PropTypes.string,
 
-  indent: PropTypes.number,
+  collapsed: PropTypes.bool,
 
   // 二级导航的导航项
   children: PropTypes.node.isRequired,
@@ -111,10 +103,7 @@ SubNav.propTypes = {
   onClick: PropTypes.func,
 
   // 二级导航项图标，参考 Icon 组件 type 属性
-  icon: PropTypes.string,
-
-  // 初始化是否展开（不可控）
-  defaultOpen: PropTypes.bool
+  icon: PropTypes.string
 }
 
 export default SubNav
