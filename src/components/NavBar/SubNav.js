@@ -83,7 +83,7 @@ class SubNav extends React.Component {
         <div className={`${prefixCls}-nav-bar__sub-nav-entity`} onClick={this.handleClickIcon} style={indentStyle}>{NavIcon}</div>
         {open && active && childrenWithNewProps && (
           <div className={`${prefixCls}-nav-bar__sub-nav-right`}>
-            <div>{title}{ToggleIcon}</div>
+            <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}{ToggleIcon}</div>
             <ul>{childrenWithNewProps}</ul>
           </div>
         )}

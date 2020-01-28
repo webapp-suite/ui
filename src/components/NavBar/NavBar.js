@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import Icon from '../Icon'
 
 class NavBar extends Component {
   constructor (props) {
@@ -43,7 +44,14 @@ class NavBar extends Component {
 
     return (
       <div className={cx(`${prefixCls}-nav-bar`, className)} {...other}>
-        <ul className={cx(`${prefixCls}-nav-bar__left-icon`)}>{children}</ul>
+        <ul className={cx(`${prefixCls}-nav-bar__left-icon`)}>
+          <li className={`${prefixCls}-nav-bar__left-icon-menu-off`}>
+            <div className={`${prefixCls}-nav-bar__sub-nav-entity`}>
+              <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src="/svg/icons.svg#navigation-menu-off" />
+            </div>
+          </li>
+          {children}
+        </ul>
       </div>
     )
   }

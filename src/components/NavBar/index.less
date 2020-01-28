@@ -30,19 +30,26 @@
 }
 
 .@{prefix-cls}-nav-bar__item,
-.@{prefix-cls}-nav-bar__sub-nav {
-  > .@{prefix-cls}-nav-bar_item-entity,
+.@{prefix-cls}-nav-bar__sub-nav,
+.@{prefix-cls}-nav-bar__left-icon-menu-off {
   > .@{prefix-cls}-nav-bar__sub-nav-entity {
     display: block;
     color: @theme-text;
     text-decoration: none;
     position: relative;
-    padding: @ui-unit;
     cursor: pointer;
-    border-radius: 0;
+    padding: @ui-unit;
     font-size: @ui-fontsize;
   }
   > .@{prefix-cls}-nav-bar_item-entity {
+    display: block;
+    color: @theme-text;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    padding: @ui-unit-half;
+    border-radius: @ui-radius;
+    font-size: @ui-fontsize;
     &:hover {
       background-color: @color-hover-nav-item;
       text-decoration: none;
@@ -58,14 +65,24 @@
   .@{prefix-cls}-nav-bar__item {
     border-left: 0;
     border-right: 0;
+    margin-bottom: 2px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   .@{prefix-cls}-nav-bar__item-group {
     cursor: default;
     .@{prefix-cls}-nav-bar__item-group-title {
-      color: @theme-text;
+      color: @ui-color-gray;
       font-size: @ui-fontsize;
       line-height: 1.5;
-      padding: 8px 16px;
+      padding-top: @ui-unit;
+      padding-bottom: @ui-unit-half;
+    }
+    &:first-child {
+      .@{prefix-cls}-nav-bar__item-group-title {
+        padding-top: 0;
+      }
     }
   }
 }
@@ -82,6 +99,30 @@
     left: 65px;
     width: 300px;
     background-color: @color-secondary-nav-item;
+    padding: 25px 15px;
+    &-title {
+      font-size: @ui-fontsize-big;
+      font-weight: @ui-fontweight-semibold;
+      margin-bottom: 19px;
+    }
+  }
+}
+
+.@{prefix-cls}-nav-bar__left-icon-menu-off {
+  > .@{prefix-cls}-nav-bar__sub-nav-entity {
+    padding-top: 27px;
+    padding-left: 24px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid @ui-color-slate-darkest;
+    .@{prefix-cls}-nav-bar__sub-nav-icon {
+      &:hover {
+        color: @color-hover-nav-item;
+      }
+
+      svg {
+        //transform: scale(1.1);
+      }
+    }
   }
 }
 
