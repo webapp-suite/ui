@@ -30,6 +30,10 @@ class SubNav extends React.Component {
     this.props.onClick && this.props.onClick(e)
   }
 
+  handleClose = e => {
+    this.setState({ open: false })
+  }
+
   componentWillReceiveProps (nextProps) {
     this.setState({ open: !nextProps.collapsed })
   }
@@ -76,6 +80,7 @@ class SubNav extends React.Component {
         {open && active && children && (
           <div className={`${prefixCls}-nav-bar__sub-nav-right`}>
             <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}</div>
+            <Icon className={`${prefixCls}-nav-bar__sub-nav-right-close`} onClick={this.handleClose} type="close" />
             <ul>{children}</ul>
           </div>
         )}

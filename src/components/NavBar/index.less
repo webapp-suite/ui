@@ -1,6 +1,6 @@
 @import "~ui-variables";
 
-@width: 65px;
+@width: @ui-unit-triple;
 @color-primary-nav-item: @ui-color-slate;
 @color-secondary-nav-item: @ui-color-slate-light;
 @color-hover-nav-item: @ui-color-gray-darker;
@@ -11,7 +11,7 @@
   user-select: none;
   font-weight: @ui-fontweight-medium;
   //todo
-  height: 600px;
+  height: 800px;
   ul {
     margin: 0;
     padding: 0;
@@ -31,15 +31,17 @@
 
 .@{prefix-cls}-nav-bar__item,
 .@{prefix-cls}-nav-bar__sub-nav,
-.@{prefix-cls}-nav-bar__left-icon-menu-on,
-.@{prefix-cls}-nav-bar__left-icon-menu-off {
+.@{prefix-cls}-nav-bar__left-icon-menu {
   > .@{prefix-cls}-nav-bar__sub-nav-entity {
     display: block;
     color: @theme-text;
     text-decoration: none;
     position: relative;
     cursor: pointer;
-    padding: @ui-unit;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-right: @ui-unit;
+    padding-left: @ui-unit;
     font-size: @ui-fontsize;
   }
   > .@{prefix-cls}-nav-bar_item-entity {
@@ -48,7 +50,7 @@
     text-decoration: none;
     position: relative;
     cursor: pointer;
-    padding: @ui-unit-half;
+    padding: @ui-unit-half - 2px;
     border-radius: @ui-radius;
     font-size: @ui-fontsize;
     &:hover {
@@ -97,30 +99,37 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 65px;
+    left: @width;
     width: 300px;
     background-color: @color-secondary-nav-item;
-    padding: 25px 15px;
+    padding: 20px 15px;
     transition: all 1s ease-out;
     &-title {
-      font-size: @ui-fontsize-big;
+      font-size: @ui-fontsize-medium;
       font-weight: @ui-fontweight-semibold;
       margin-bottom: 19px;
+    }
+    &-close {
+      position: absolute;
+      cursor: pointer;
+      right: 15px;
+      top: @ui-unit-plus;
     }
   }
 }
 
-.@{prefix-cls}-nav-bar__left-icon-menu-on,
-.@{prefix-cls}-nav-bar__left-icon-menu-off {
+.@{prefix-cls}-nav-bar__left-icon-menu {
   > .@{prefix-cls}-nav-bar__sub-nav-entity {
-    padding-top: 27px;
-    padding-left: 24px;
-    padding-bottom: 13px;
+    cursor: default;
+    padding: @ui-unit-half;
+    text-align: center;
+    height: @width;
+    line-height: @width;
+    vertical-align: middle;
     border-bottom: 1px solid @ui-color-slate-darkest;
-    .@{prefix-cls}-nav-bar__sub-nav-icon {
-      &:hover {
-        color: @ui-color-white;
-      }
+    .@{prefix-cls}-nav-bar__sub-nav-logo {
+      width: @ui-unit-double;
+      height: @ui-unit-double;
     }
   }
 }
@@ -142,7 +151,7 @@
   svg {
     width: 24px !important;
     height: 24px !important;
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
 }
 

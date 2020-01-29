@@ -13,7 +13,7 @@ class NavBasic extends Component {
   }
   render () {
     return (
-      <NavBar2 selectedId="7" onItemClick={this.handleClick}>
+      <NavBar2 selectedId="7" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/paypal_payments.svg">
         <SubNav2 icon="/svg/icons.svg#docs-icon-space-rocket" title="Sub Navigation 1">
           <NavItem2 id="1" title="NavItem 1" />
           <NavItem2 id="2" title="NavItem 2" />
