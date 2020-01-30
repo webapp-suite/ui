@@ -32,7 +32,7 @@ class Home extends React.Component {
       return (
         <img
           style={{ display: 'none' }}
-          src="/img/home_banner.png"
+          src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/home_banner.png"
           alt="background image"
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
@@ -47,7 +47,7 @@ class Home extends React.Component {
             {this.state.imageStatus === 'loaded' && (
               <img
                 className="home__banner-background-image"
-                src="/img/home_banner.png"
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/home_banner.png"
                 alt="background image"
                 draggable="false"
               />
@@ -64,7 +64,11 @@ class Home extends React.Component {
                 developers and designers.
               </p>
               <div key="buttons">
-                <Button type="primary" size="lg" onClick={() => navigate('/apps/start/usage')}>
+                <Button
+                  type="primary"
+                  size="lg"
+                  onClick={() => navigate('/apps/start/usage')}
+                >
                   GET STARTED
                 </Button>
                 <a href="https://github.com/cosmos-x/earth-ui">

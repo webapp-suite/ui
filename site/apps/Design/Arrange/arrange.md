@@ -5,7 +5,7 @@ The arrangement scheme of Earth UI is based on the principle of `50:50`, and we 
 ## Recommended Arrangement
 
 <div>
-  <img width="100%" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/KK4B9S.jpg' style="border: 1px solid #cbd7dc"/>
+  <img width="750" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/KK4B9S.jpg' style="border: 1px solid #cbd7dc"/>
 </div>
 
 We divided the entire view except for the left navigation into five parts:

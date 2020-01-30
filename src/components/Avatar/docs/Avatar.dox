@@ -4,7 +4,7 @@
 import { Avatar } from 'earth-ui'
 
 const AvatarBasic = () => {
-  return <Avatar src="https://avatars0.githubusercontent.com/u/12554487" />
+  return <Avatar src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
 }
 
 /**
@@ -15,10 +15,10 @@ import { Avatar } from 'earth-ui'
 const AvatarSize = () => {
   return (
     <div>
-      <Avatar size="xl" src="https://avatars0.githubusercontent.com/u/12554487" />
-      <Avatar size="lg" src="https://avatars0.githubusercontent.com/u/12554487" />
-      <Avatar src="https://avatars0.githubusercontent.com/u/12554487" />
-      <Avatar size="sm" src="https://avatars0.githubusercontent.com/u/12554487" />
+      <Avatar size="xl" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
+      <Avatar size="lg" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
+      <Avatar src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
+      <Avatar size="sm" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
     </div>
   )
 }
@@ -29,7 +29,7 @@ const AvatarSize = () => {
 import { Avatar } from 'earth-ui'
 
 const ButtonIcon = () => {
-  return <Avatar shape="square" src="https://avatars0.githubusercontent.com/u/12554487" />
+  return <Avatar shape="square" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" />
 }
 
 @component Avatar
