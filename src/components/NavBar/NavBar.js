@@ -43,14 +43,15 @@ class NavBar extends Component {
 
     return (
       <div className={cx(`${prefixCls}-nav-bar`, className)} {...other}>
-        <ul className={cx(`${prefixCls}-nav-bar__left-icon`)}>
-          <li className={`${prefixCls}-nav-bar__left-icon-menu`}>
-            <div className={`${prefixCls}-nav-bar__sub-nav-entity`}>
-              <img className={`${prefixCls}-nav-bar__sub-nav-logo`} src={logoUrl} alt="Logo" />
+        <ul className={cx(`${prefixCls}-nav-bar__left`)}>
+          <li className={`${prefixCls}-nav-bar__left-icon`}>
+            <div className={`${prefixCls}-nav-bar__left-icon-wrapper`}>
+              <img className={`${prefixCls}-nav-bar__left-icon-top-logo`} src={logoUrl} alt="Logo" />
             </div>
           </li>
           {children}
         </ul>
+        <div className={`${prefixCls}-nav-bar__sub-nav-container`} id={`${prefixCls}-nav-bar__sub-nav-container`} />
       </div>
     )
   }

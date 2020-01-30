@@ -5,20 +5,20 @@ import cx from 'classnames'
 class NavItemGroup extends React.Component {
   render () {
     const { children, className, title, indent, ...other } = this.props
-    let indentStyle
-
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
-    const childrenWithNewProps = React.Children.map(children, child => {
-      return React.cloneElement(child, {
-        indent: (indent - 8) * 2
-      })
-    })
+    // let indentStyle
+    //
+    // if (indent) {
+    //   indentStyle = { paddingLeft: `${indent}px` }
+    // }
+    // const childrenWithNewProps = React.Children.map(children, child => {
+    //   return React.cloneElement(child, {
+    //     indent: (indent - 8) * 2
+    //   })
+    // })
     return (
       <li className={cx(`${prefixCls}-nav-bar__item-group`, className)} {...other}>
-        <div className={`${prefixCls}-nav-bar__item-group-title`} style={indentStyle}>{title}</div>
-        {childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
+        <div className={`${prefixCls}-nav-bar__item-group-title`}>{title}</div>
+        {children && <ul>{children}</ul>}
       </li>
     )
   }

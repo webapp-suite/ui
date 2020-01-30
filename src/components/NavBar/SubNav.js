@@ -1,4 +1,5 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Icon from '../Icon'
@@ -9,6 +10,7 @@ class SubNav extends React.Component {
     this.state = {
       open: !props.collapsed
     }
+    this.container = document.createElement('div')
   }
 
   handleClickIcon = e => {
@@ -38,12 +40,19 @@ class SubNav extends React.Component {
     this.setState({ open: !nextProps.collapsed })
   }
 
+  componentDidMount () {
+    document.getElementById(`${prefixCls}-nav-bar__sub-nav-container`)?.appendChild(this.container)
+  }
+
+  componentWillMount () {
+    document.getElementById(`${prefixCls}-nav-bar__sub-nav-container`)?.removeChild(this.container)
+  }
+
   render () {
     const { open } = this.state
     const { children, className, icon, title, ...other } = this.props
 
     const NavIcon = icon && <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src={icon} />
-    let indentStyle
 
     const selectedId = this.context.nav.state.selectedId
     let active = false
@@ -59,30 +68,42 @@ class SubNav extends React.Component {
         }
       }
     })
-
-    // Child nodes are no longer rendered when the nav item is closed.
     return (
       <li
         onClick={this.handleClick}
         className={cx(
           `${prefixCls}-nav-bar__sub-nav`,
-          {
-            [`${prefixCls}-nav-bar__sub-nav_open`]: open
-          },
-          {
-            [`${prefixCls}-nav-bar__sub-nav--active`]: active
-          },
           className
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav-bar__sub-nav-entity`} onClick={this.handleClickIcon} style={indentStyle}>{NavIcon}</div>
-        {open && active && children && (
-          <div className={`${prefixCls}-nav-bar__sub-nav-right`}>
+        <div
+          className={cx(
+            `${prefixCls}-nav-bar__left-icon-wrapper`,
+            {
+              [`${prefixCls}-nav-bar__left-icon-wrapper--active`]: active
+            },
+            className
+          )}
+          onClick={this.handleClickIcon}
+        >
+          {NavIcon}
+        </div>
+        {open && active && children && createPortal(
+          <div
+            className={cx(
+              `${prefixCls}-nav-bar__sub-nav-right`,
+              {
+                [`${prefixCls}-nav-bar__sub-nav-right--open`]: open
+              }
+            )}
+          >
             <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}</div>
             <Icon className={`${prefixCls}-nav-bar__sub-nav-right-close`} onClick={this.handleClose} type="close" />
             <ul>{children}</ul>
           </div>
+          ,
+          this.container
         )}
       </li>
     )
@@ -95,8 +116,6 @@ SubNav.contextTypes = {
 
 SubNav.propTypes = {
   className: PropTypes.string,
-
-  collapsed: PropTypes.bool,
 
   // 二级导航的导航项
   children: PropTypes.node.isRequired,

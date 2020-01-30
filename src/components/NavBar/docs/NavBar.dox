@@ -13,31 +13,31 @@ class NavBasic extends Component {
   }
   render () {
     return (
-      <NavBar2 selectedId="7" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/paypal_payments.svg">
-        <SubNav2 icon="/svg/icons.svg#docs-icon-space-rocket" title="Sub Navigation 1">
-          <NavItem2 id="1" title="NavItem 1" />
-          <NavItem2 id="2" title="NavItem 2" />
-        </SubNav2>
-        <SubNav2 icon="/svg/icons.svg#docs-icon-paint-palette" title="Sub Navigation 2">
-          <NavItem2 id="3" title="NavItem 1" />
-          <NavItem2 id="4" title="NavItem 2" />
-          <NavItem2 id="5" title="NavItem 3" />
-        </SubNav2>
-        <SubNav2 icon="/svg/icons.svg#docs-icon-modules-1" title="Sub Navigation 3">
-          <NavItemGroup2 title="NavItemGroup A">
-            <NavItem2 id="6" title="NavItem 1" />
-            <NavItem2 id="7" title="NavItem 2" />
-          </NavItemGroup2>
-          <NavItemGroup2 title="NavItemGroup B">
-            <NavItem2 id="8" title="NavItem 3" />
-            <NavItem2 id="9" title="NavItem 4" />
-          </NavItemGroup2>
-        </SubNav2>
-        <SubNav2 icon="/svg/icons.svg#navigation-apps-management" title="Sub Navigation 4">
-          <NavItem2 id="10" title="NavItem 1" />
-          <NavItem2 id="11" title="NavItem 2" />
-        </SubNav2>
-      </NavBar2>
+      <div style={{display: 'flex', height: 800}}>
+          <NavBar2 selectedId="7" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/paypal_payments.svg">
+            <NavItem2 id="1" icon="/svg/icons.svg#docs-icon-space-rocket" title="NavItem 1" />
+            <SubNav2 icon="/svg/icons.svg#docs-icon-paint-palette" title="Sub Navigation 2">
+              <NavItem2 id="3" title="NavItem 1" />
+              <NavItem2 id="4" title="NavItem 2" />
+              <NavItem2 id="5" title="NavItem 3" />
+            </SubNav2>
+            <SubNav2 icon="/svg/icons.svg#docs-icon-modules-1" title="Sub Navigation 3">
+              <NavItemGroup2 title="NavItemGroup A">
+                <NavItem2 id="6" title="NavItem 1" />
+                <NavItem2 id="7" title="NavItem 2" />
+              </NavItemGroup2>
+              <NavItemGroup2 title="NavItemGroup B">
+                <NavItem2 id="8" title="NavItem 3" />
+                <NavItem2 id="9" title="NavItem 4" />
+              </NavItemGroup2>
+            </SubNav2>
+            <SubNav2 icon="/svg/icons.svg#navigation-apps-management" title="Sub Navigation 4">
+              <NavItem2 id="10" title="NavItem 1" />
+              <NavItem2 id="11" title="NavItem 2" />
+            </SubNav2>
+          </NavBar2>
+          <div style={{border: '2px solid red', width: 700}}>Main content</div>
+      </div>
     )
   }
 }

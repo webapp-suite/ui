@@ -26,15 +26,15 @@ class NavItem extends React.Component {
 
   render () {
     const { active } = this.state
-    const { children, className, icon, title, indent, ...other } = this.props
+    const { children, className, icon, title, ...other } = this.props
 
     const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav-bar__item-icon`} src={icon} />
 
-    let indentStyle
-
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
+    // let indentStyle
+    //
+    // if (indent) {
+    //   indentStyle = { paddingLeft: `${indent}px` }
+    // }
 
     return (
       <li
@@ -42,13 +42,13 @@ class NavItem extends React.Component {
         className={cx(
           `${prefixCls}-nav-bar__item`,
           {
-            [`${prefixCls}-nav-bar__item_active`]: active
+            [`${prefixCls}-nav-bar__item--active`]: active
           },
           className
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav-bar_item-entity`} style={indentStyle}>{NavIcon}{title}{children}</div>
+        <div className={`${prefixCls}-nav-bar_item-entity`}>{NavIcon}{title}{children}</div>
       </li>
     )
   }
