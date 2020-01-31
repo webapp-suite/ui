@@ -48,7 +48,7 @@ class NavItem extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav-bar__item-wrapper`}>{NavIcon}{title}{children}</div>
+        <div className={`${prefixCls}-nav-bar__item-wrapper`}>{NavIcon}<span className={`${prefixCls}-nav-bar__item-wrapper-text`}>{title}{children}</span></div>
       </li>
     )
   }
