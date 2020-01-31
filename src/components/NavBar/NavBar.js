@@ -22,8 +22,8 @@ class NavBar extends Component {
     }
   }
 
-  handleSubNavClick (props) {
-    this.setState({ selectedId: props.id })
+  handleSubNavClick (props, e) {
+    this.handleItemClick(props, e)
   }
 
   handleItemClick (props, e) {
@@ -32,21 +32,17 @@ class NavBar extends Component {
   }
 
   render () {
-    const { children, className, width, logoUrl, ...other } = this.props
+    const { children, className, logoUrl, ...other } = this.props
 
     delete other.selectedId
     delete other.onItemClick
-
-    if (width) {
-      other.style = Object.assign(other.style || {}, { width })
-    }
 
     return (
       <div className={cx(`${prefixCls}-nav-bar`, className)} {...other}>
         <ul className={cx(`${prefixCls}-nav-bar__left`)}>
           <li className={`${prefixCls}-nav-bar__left-top`}>
             <div className={`${prefixCls}-nav-bar__left-top-wrapper`}>
-              <img className={`${prefixCls}-nav-bar__left-top-logo`} src={logoUrl} alt="Logo" />
+              <img className={`${prefixCls}-nav-bar__left-top-logo`} src={logoUrl} alt="" />
             </div>
           </li>
           {children}
@@ -71,9 +67,6 @@ NavBar.propTypes = {
 
   // 当前选中的导航项的 id
   selectedId: PropTypes.string.isRequired,
-
-  // 导航宽度
-  width: PropTypes.number,
 
   // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象
   onItemClick: PropTypes.func

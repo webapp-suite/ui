@@ -2,6 +2,7 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+// import Tooltip from '../Tooltip'
 import Icon from '../Icon'
 
 class SubNav extends React.Component {
@@ -17,11 +18,11 @@ class SubNav extends React.Component {
     e.preventDefault()
     for (const child of React.Children.toArray(this.props.children)) {
       if (child.type.name === 'NavItemGroup') {
-        this.context.nav.handleSubNavClick(child.props.children[0].props)
+        this.context.nav.handleSubNavClick(child.props.children[0].props, e)
         break
       }
       if (child.type.name === 'NavItem') {
-        this.context.nav.handleSubNavClick(child.props)
+        this.context.nav.handleSubNavClick(child.props, e)
         break
       }
     }
@@ -44,7 +45,7 @@ class SubNav extends React.Component {
     document.getElementById(`${prefixCls}-nav-bar__sub-nav-container`)?.appendChild(this.container)
   }
 
-  componentWillMount () {
+  componentWillUnmount () {
     document.getElementById(`${prefixCls}-nav-bar__sub-nav-container`)?.removeChild(this.container)
   }
 
@@ -87,6 +88,7 @@ class SubNav extends React.Component {
           )}
           onClick={this.handleClickIcon}
         >
+          {/* <Tooltip direction="right" title={title}>{NavIcon}</Tooltip> */}
           {NavIcon}
         </div>
         {open && active && children && createPortal(
@@ -99,7 +101,7 @@ class SubNav extends React.Component {
             )}
           >
             <div className={`${prefixCls}-nav-bar__sub-nav-title`}>{title}</div>
-            <Icon className={`${prefixCls}-nav-bar__sub-nav-close-btn`} onClick={this.handleClose} type="close" />
+            {/* <Icon className={`${prefixCls}-nav-bar__sub-nav-close-btn`} onClick={this.handleClose} type="close" /> */}
             <ul>{children}</ul>
           </div>
           ,

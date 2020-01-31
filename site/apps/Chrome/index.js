@@ -1,21 +1,18 @@
-import { Link, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 import {
-  Nav,
-  NavItem,
-  NavItemGroup,
-  SubNav,
+  NavBar2 as Nav,
+  NavItem2 as NavItem,
+  NavItemGroup2 as NavItemGroup,
+  SubNav2 as SubNav,
   Header,
-  Icon,
   Tab,
   TabList,
   Tabs,
-  ToolBar,
-  Tooltip
+  ToolBar
 } from 'earth-ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
-import Scrollbar from 'widgets/Scrollbar'
 import { nav as components } from '../config.js'
 import './index.less'
 
@@ -38,42 +35,6 @@ const getTabsByComponentName = (components, componentName) => {
 }
 
 const routerWithDynamicSegments = ['components/', 'start/', 'design/']
-
-function renderNavBottom () {
-  return (
-    <div className="components__navbar-bottom">
-      <div className="components__navbar-bottom-image">
-        <img
-          className="components__navbar-bottom-image-icon"
-          src="/svg/avatarPlaceholder.svg"
-          alt="Avatar"
-        />
-      </div>
-      <div className="components__navbar-bottom-user">
-        <span className="components__navbar-bottom-user-name">KIMI GAO</span>
-        <span className="components__navbar-bottom-user-company">
-          Earthui Corp.
-        </span>
-      </div>
-      <div className="components__navbar-bottom-logout">
-        <Tooltip title="Unfinished feature">
-          <Icon
-            type="logout"
-            className="components__navbar-bottom-logout-icon"
-          />
-        </Tooltip>
-      </div>
-      <div className="components__navbar-bottom-settings">
-        <Tooltip title="Unfinished feature">
-          <Icon
-            type="settings"
-            className="components__navbar-bottom-settings-icon"
-          />
-        </Tooltip>
-      </div>
-    </div>
-  )
-}
 
 class Components extends React.Component {
   constructor (props) {
@@ -138,8 +99,7 @@ class Components extends React.Component {
                       activeKey={tab.doc}
                       key={tab.doc}
                       onClick={() =>
-                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)
-                      }
+                        this.handleTabClick(`${nameBeforeSlash}/${tab.doc}`)}
                     >
                       {firstUpperCase(tab.label)}
                     </Tab>
@@ -176,10 +136,10 @@ class Components extends React.Component {
     )
   }
 
-  renderNavItemGroup (itemGroup) {
+  renderNavItemGroup (itemGroup, position, path) {
     return (
       <NavItemGroup title={itemGroup.group} key={itemGroup.group}>
-        {itemGroup.components.map(component => this.renderNavItem(component))}
+        {itemGroup.components.map(component => this.renderNavItem(component, position, path))}
       </NavItemGroup>
     )
   }
@@ -191,51 +151,41 @@ class Components extends React.Component {
       <div className="components">
         <Layout open={open} onToggle={open => this.toggle(open)}>
           <LayoutSidebar>
-            <div className="components__navbar-top">
-              <Link to="/" className="components__navbar-top-logo">
-                <span>EARTHUi</span>
-              </Link>
-              <div className="components__navbar-top-close">
-                <Tooltip direction="down" title="Unfinished feature">
-                  <Icon type="close" />
-                </Tooltip>
-              </div>
-            </div>
-            <Scrollbar className="components__navbar-scrollbar">
-              <Nav
-                selectedId={childComponentPath}
-                onItemClick={this.handleItemClick}
-                width={320}
-                indent={20}
-                className="components__navbar-menu"
-              >
-                {components.map(item => {
-                  if (!item.components) {
-                    return this.renderNavItem(item, 'outside')
-                  }
-                  return (
-                    <SubNav
-                      key={item.name}
-                      title={firstUpperCase(item.name)}
-                      defaultOpen={item.defaultOpen}
-                      icon={`/svg/icons.svg#${item.icon}`}
-                    >
-                      {item.components.map(itemGroup => {
-                        if (itemGroup.group) {
-                          return this.renderNavItemGroup(itemGroup)
-                        }
-                        return this.renderNavItem(
+            <Nav
+              selectedId={childComponentPath}
+              onItemClick={this.handleItemClick}
+              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/earth-ui-logo-v2.svg"
+              className="components__navbar-menu"
+            >
+              {components.map(item => {
+                if (!item.components) {
+                  return this.renderNavItem(item, 'outside')
+                }
+                return (
+                  <SubNav
+                    key={item.name}
+                    title={firstUpperCase(item.name)}
+                    // defaultOpen={item.defaultOpen}
+                    icon={`/svg/icons.svg#${item.icon}`}
+                  >
+                    {item.components.map(itemGroup => {
+                      if (itemGroup.group) {
+                        return this.renderNavItemGroup(
                           itemGroup,
                           'inside',
                           item.path
                         )
-                      })}
-                    </SubNav>
-                  )
-                })}
-              </Nav>
-            </Scrollbar>
-            {renderNavBottom()}
+                      }
+                      return this.renderNavItem(
+                        itemGroup,
+                        'inside',
+                        item.path
+                      )
+                    })}
+                  </SubNav>
+                )
+              })}
+            </Nav>
           </LayoutSidebar>
           <LayoutContent>
             {childComponentPath && this.renderTitle(childComponentPath)}
