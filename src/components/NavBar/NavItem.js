@@ -28,7 +28,7 @@ class NavItem extends React.Component {
     const { active } = this.state
     const { children, className, icon, title, ...other } = this.props
 
-    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav-bar__item-icon`} src={icon} />
+    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav-bar__item-wrapper-icon`} src={icon} />
 
     // let indentStyle
     //
@@ -48,7 +48,7 @@ class NavItem extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav-bar_item-entity`}>{NavIcon}{title}{children}</div>
+        <div className={`${prefixCls}-nav-bar__item-wrapper`}>{NavIcon}{title}{children}</div>
       </li>
     )
   }

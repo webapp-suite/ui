@@ -32,7 +32,7 @@ class SubNav extends React.Component {
     this.props.onClick && this.props.onClick(e)
   }
 
-  handleClose = e => {
+  handleClose = () => {
     this.setState({ open: false })
   }
 
@@ -52,7 +52,7 @@ class SubNav extends React.Component {
     const { open } = this.state
     const { children, className, icon, title, ...other } = this.props
 
-    const NavIcon = icon && <Icon className={`${prefixCls}-nav-bar__sub-nav-icon`} src={icon} />
+    const NavIcon = icon && <Icon className={`${prefixCls}-nav-bar__left-icon-wrapper-core`} src={icon} />
 
     const selectedId = this.context.nav.state.selectedId
     let active = false
@@ -72,7 +72,7 @@ class SubNav extends React.Component {
       <li
         onClick={this.handleClick}
         className={cx(
-          `${prefixCls}-nav-bar__sub-nav`,
+          `${prefixCls}-nav-bar__left-icon`,
           className
         )}
         {...other}
@@ -92,14 +92,14 @@ class SubNav extends React.Component {
         {open && active && children && createPortal(
           <div
             className={cx(
-              `${prefixCls}-nav-bar__sub-nav-right`,
+              `${prefixCls}-nav-bar__sub-nav`,
               {
-                [`${prefixCls}-nav-bar__sub-nav-right--open`]: open
+                [`${prefixCls}-nav-bar__sub-nav--open`]: open
               }
             )}
           >
-            <div className={`${prefixCls}-nav-bar__sub-nav-right-title`}>{title}</div>
-            <Icon className={`${prefixCls}-nav-bar__sub-nav-right-close`} onClick={this.handleClose} type="close" />
+            <div className={`${prefixCls}-nav-bar__sub-nav-title`}>{title}</div>
+            <Icon className={`${prefixCls}-nav-bar__sub-nav-close-btn`} onClick={this.handleClose} type="close" />
             <ul>{children}</ul>
           </div>
           ,
