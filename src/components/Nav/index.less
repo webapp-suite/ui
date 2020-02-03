@@ -7,9 +7,104 @@
 @color-active-nav-item: @theme;
 
 .@{prefix-cls}-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   user-select: none;
   font-weight: @ui-fontweight-medium;
-  width: @width;
+  width: @ui-width-aside;
+  transition: width .2s ease-in;
+  background-color: @ui-color-slate-light;
+  &__top {
+    height: @ui-unit-triple;
+    width: @ui-width-aside;;
+    line-height: @ui-unit-triple;
+    border-bottom: 1px solid @ui-color-slate;
+    color: @ui-color-white;
+    background-color: @ui-color-slate-light;
+    &-logo {
+      float: left;
+      span {
+        position: relative;
+        left: 80px;
+        font-size: 23px;
+        font-weight: @ui-fontweight;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Eurofighter Expanded";
+        color: @ui-color-white;
+        &:hover {
+          color: @theme;
+        }
+      }
+    }
+    &-close {
+      float: right;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  &__bottom {
+    height: @ui-unit-triple;
+    line-height: @ui-unit-triple;
+    border-top: 1px solid @ui-color-slate;
+    width: @ui-width-aside;
+    color: @ui-color-white;
+    position: absolute;
+    bottom: 0;
+    //position: fixed;
+    background-color: @ui-color-slate-light;
+    //z-index: @ui-zindex-topbar;
+    //bottom: 0;
+    user-select: none;
+    &-image {
+      float: left;
+      height: @ui-unit-triple;
+      width: @ui-unit-triple;
+      &-icon {
+        margin: @ui-unit-half @ui-unit-plus @ui-unit-half @ui-unit-half;
+        width: @ui-unit-double;
+        height: @ui-unit-double;
+        border-radius: 50% 50%;
+      }
+    }
+    &-user {
+      transition: opacity .2925s cubic-bezier(0,0,.2,1);
+      padding: @ui-unit-half 0 @ui-unit-half @ui-unit-half;
+      height: @ui-unit-triple;
+      width: 80px;
+      float: left;
+      width: ~'calc(100% - 180px)';
+      &-name, &-company {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+        line-height: @ui-unit;
+        min-height: @ui-unit;
+      }
+      &-name {
+        font-weight: @ui-fontweight-bold;
+      }
+      &-company {
+        font-size: @ui-fontsize-mini;
+      }
+    }
+    &-settings, &-logout {
+      float: right;
+      width: @ui-unit-triple;
+      height: @ui-unit-triple;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  &__scrollbar {
+    height: calc(~"100vh - 120px");
+    //top: @ui-unit-triple !important;
+    //bottom: @ui-unit-triple !important;
+    //background-color: @ui-color-slate-light;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -19,12 +114,25 @@
   }
   > ul {
     padding: 0;
+    width: 320px;
+    //display: flex;
+    //flex-direction: column;
     //> .@{prefix-cls}-nav__item,
     //> .@{prefix-cls}-nav__sub-nav {
     //  border-bottom: 1px solid @ui-color-slate;
     //}
   }
 }
+
+//.@{prefix-cls}-nav--open {
+//  width: @width;
+//  .@{prefix-cls}-nav__top {
+//    width: @ui-width-aside;
+//  }
+//  .@{prefix-cls}-nav__bottom {
+//    width: @ui-width-aside;
+//  }
+//}
 
 .@{prefix-cls}-nav__item,
 .@{prefix-cls}-nav__sub-nav {

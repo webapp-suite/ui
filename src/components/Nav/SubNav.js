@@ -11,9 +11,9 @@ class SubNav extends React.Component {
     }
   }
 
-  toggle = e => {
+  handleToggle = e => {
     e.preventDefault()
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open })
   }
 
   handleClick = e => {
@@ -22,10 +22,25 @@ class SubNav extends React.Component {
 
   render () {
     const { open } = this.state
-    const { children, className, defaultOpen, icon, title, indent, ...other } = this.props
+    const {
+      children,
+      className,
+      defaultOpen,
+      icon,
+      title,
+      indent,
+      ...other
+    } = this.props
 
-    const NavIcon = icon && <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
-    const ToggleIcon = <Icon type="triangleright" className={`${prefixCls}-nav__sub-nav-toggle`} />
+    const NavIcon = icon && (
+      <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
+    )
+    const ToggleIcon = (
+      <Icon
+        type="triangleright"
+        className={`${prefixCls}-nav__sub-nav-toggle`}
+      />
+    )
 
     let indentStyle
 
@@ -59,7 +74,15 @@ class SubNav extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_sub-nav-entity`} onClick={this.toggle} style={indentStyle}>{NavIcon}{title}{ToggleIcon}</div>
+        <div
+          className={`${prefixCls}-nav_sub-nav-entity`}
+          onClick={this.handleToggle}
+          style={indentStyle}
+        >
+          {NavIcon}
+          {title}
+          {ToggleIcon}
+        </div>
         {open && childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
       </li>
     )
