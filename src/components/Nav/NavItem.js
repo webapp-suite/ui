@@ -19,7 +19,7 @@ class NavItem extends React.Component {
 
   handleClick = e => {
     this.props.onClick && this.props.onClick(e)
-    const props = {...this.props}
+    const props = { ...this.props }
     delete props.indent
     this.context.nav.handleItemClick(props, e)
   }
@@ -28,11 +28,13 @@ class NavItem extends React.Component {
     const { active } = this.state
     const { children, className, icon, title, indent, ...other } = this.props
 
-    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav__item-icon`} src={icon} />
+    const NavIcon = icon && (
+      <Icon type={icon} className={`${prefixCls}-nav__item-icon`} src={icon} />
+    )
 
     let indentStyle
 
-    if (indent) {
+    if (indent && !this.context.nav.state.collapsed) {
       indentStyle = { paddingLeft: `${indent}px` }
     }
 
@@ -48,7 +50,13 @@ class NavItem extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_item-entity`} style={indentStyle}>{NavIcon}{title}{children}</div>
+        <div className={`${prefixCls}-nav_item-entity`} style={indentStyle}>
+          {NavIcon}
+          <span className={`${prefixCls}-nav_item-entity-text`}>
+            {title}
+            {children}
+          </span>
+        </div>
       </li>
     )
   }
@@ -59,7 +67,6 @@ NavItem.contextTypes = {
 }
 
 NavItem.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,

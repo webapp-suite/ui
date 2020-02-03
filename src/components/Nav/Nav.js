@@ -4,6 +4,21 @@ import cx from 'classnames'
 import Scrollbar from '../Scrollbar'
 import Button from '../Button'
 
+const MenuSVG = () => (
+  <svg
+    width="22"
+    height="22"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`${prefixCls}-nav__menu-svg`}
+  >
+    <g fill="#FFF" fillRule="evenodd">
+      <path d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z" />
+      <rect y="9" width="22" height="4" rx="1" />
+      <rect y="18" width="22" height="4" rx="1" />
+    </g>
+  </svg>
+)
+
 function renderNavBottom () {
   return (
     <div className={`${prefixCls}-nav__bottom`}>
@@ -47,7 +62,7 @@ class Nav extends Component {
     super()
     this.state = {
       selectedId: props.selectedId || '',
-      open: true
+      collapsed: true
     }
   }
 
@@ -62,12 +77,12 @@ class Nav extends Component {
     this.props.onItemClick && this.props.onItemClick(props, e)
   }
 
-  handleClose = () => {
-    this.setState({ open: false })
+  handleCollapseToggle (collapsed) {
+    this.setState({ collapsed })
   }
 
   render () {
-    const { open } = this.state
+    const { collapsed } = this.state
     const { children, className, width, indent, ...other } = this.props
 
     delete other.selectedId
@@ -87,13 +102,17 @@ class Nav extends Component {
       <div
         className={cx(
           `${prefixCls}-nav`,
-          { [`${prefixCls}-nav--open`]: open },
+          { [`${prefixCls}-nav--collapsed`]: collapsed },
           className
         )}
         {...other}
       >
         <div className={`${prefixCls}-nav__top`}>
-          <div className={`${prefixCls}-nav__top-logo`}>
+          <div
+            className={`${prefixCls}-nav__top-logo`}
+            onClick={() => this.handleCollapseToggle(false)}
+          >
+            <MenuSVG />
             <span>EARTHUi</span>
           </div>
           <Button
@@ -101,7 +120,7 @@ class Nav extends Component {
               `${prefixCls}-nav__btn-icon`,
               `${prefixCls}-nav__top-close-btn`
             )}
-            onClick={this.handleClose}
+            onClick={() => this.handleCollapseToggle(true)}
             icon="close"
           />
         </div>

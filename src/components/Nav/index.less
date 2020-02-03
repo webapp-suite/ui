@@ -1,10 +1,12 @@
 @import "~ui-variables";
 
-@width: 276px;
-@color-primary-nav-item: @ui-color-slate-light;
-@color-secondary-nav-item: @ui-color-slate;
+@nav-width: 360px;
+@color-primary-nav-item: #232e33;
+@color-secondary-nav-item: @ui-color-slate-dark;
 @color-hover-nav-item: @ui-color-gray-darker;
 @color-active-nav-item: @theme;
+@transition-duration: @ui-transition-fast;
+@transition-timing-function: cubic-bezier(0,0,.2,1);
 
 .@{prefix-cls}-nav {
   position: relative;
@@ -12,26 +14,43 @@
   flex-direction: column;
   user-select: none;
   font-weight: @ui-fontweight-medium;
-  width: @ui-width-aside;
-  transition: width .2s ease-in;
-  background-color: @ui-color-slate-light;
+  width: @nav-width;
+  transition: width @transition-duration @transition-timing-function;
+  background-color: @color-primary-nav-item;
+  //&__menu-svg {
+  //  cursor: pointer;
+  //}
   &__top {
     height: @ui-unit-triple;
-    width: @ui-width-aside;;
     line-height: @ui-unit-triple;
-    border-bottom: 1px solid @ui-color-slate;
+    border-bottom: 1px solid @ui-color-slate-darkest;
     color: @ui-color-white;
-    background-color: @ui-color-slate-light;
+    background-color: @color-primary-nav-item;
     &-logo {
       float: left;
+      //text-align: center;
+      cursor: pointer;
+      .@{prefix-cls}-nav__menu-svg {
+        //position: relative;
+        visibility: hidden;
+        transition-property: visibility, margin-left;
+        transition-duration: .01s;
+        transition-timing-function: @transition-timing-function;
+        margin-top: 18px;
+        margin-left: 45px;
+        transform: scale(0.9);
+      }
       span {
         position: relative;
-        left: 80px;
+        left: 30px;
+        top: -2px;
         font-size: 23px;
         font-weight: @ui-fontweight;
         -webkit-font-smoothing: antialiased;
         font-family: "Eurofighter Expanded";
         color: @ui-color-white;
+        visibility: visible;
+        transition: visibility .02s @transition-timing-function;
         &:hover {
           color: @theme;
         }
@@ -46,34 +65,33 @@
   &__bottom {
     height: @ui-unit-triple;
     line-height: @ui-unit-triple;
-    border-top: 1px solid @ui-color-slate;
-    width: @ui-width-aside;
+    border-top: 1px solid @ui-color-slate-darkest;
     color: @ui-color-white;
     position: absolute;
     bottom: 0;
-    //position: fixed;
-    background-color: @ui-color-slate-light;
-    //z-index: @ui-zindex-topbar;
-    //bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: @color-primary-nav-item;
     user-select: none;
     &-image {
       float: left;
       height: @ui-unit-triple;
       width: @ui-unit-triple;
       &-icon {
-        margin: @ui-unit-half @ui-unit-plus @ui-unit-half @ui-unit-half;
+        margin: @ui-unit-half;
         width: @ui-unit-double;
         height: @ui-unit-double;
         border-radius: 50% 50%;
       }
     }
     &-user {
-      transition: opacity .2925s cubic-bezier(0,0,.2,1);
+      transition: opacity @transition-duration @transition-timing-function;
       padding: @ui-unit-half 0 @ui-unit-half @ui-unit-half;
       height: @ui-unit-triple;
       width: 80px;
       float: left;
       width: ~'calc(100% - 180px)';
+      opacity: 1;
       &-name, &-company {
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -90,6 +108,7 @@
       }
     }
     &-settings, &-logout {
+      opacity: 1;
       float: right;
       width: @ui-unit-triple;
       height: @ui-unit-triple;
@@ -101,7 +120,7 @@
     height: calc(~"100vh - 120px");
     //top: @ui-unit-triple !important;
     //bottom: @ui-unit-triple !important;
-    //background-color: @ui-color-slate-light;
+    //background-color: @color-primary-nav-item;
   }
   ul {
     margin: 0;
@@ -129,23 +148,71 @@
   background-color: transparent;
   cursor: pointer;
   &:hover {
-    background-color: fade(@ui-color-slate, 60%);
+    background-color: fade(@ui-color-slate-darkest, 40%);
   }
 }
 
-//.@{prefix-cls}-nav--open {
-//  width: @width;
-//  .@{prefix-cls}-nav__top {
-//    width: @ui-width-aside;
-//  }
-//  .@{prefix-cls}-nav__bottom {
-//    width: @ui-width-aside;
-//  }
-//}
+.@{prefix-cls}-nav--collapsed {
+  width: @ui-unit-triple;
+  .@{prefix-cls}-nav__bottom-user {
+    opacity: 0 !important;
+  }
+  .@{prefix-cls}-nav__bottom-settings {
+    opacity: 0 !important;
+  }
+  .@{prefix-cls}-nav__top {
+    //width: @ui-unit-triple;
+    //text-align: center;
+    &-logo {
+      .@{prefix-cls}-nav__menu-svg {
+        margin-left: 19px;
+        visibility: visible;
+      }
+      span {
+        visibility: hidden;
+      }
+    }
+  }
+  //.@{prefix-cls}-nav__bottom {
+  //  width: @ui-unit-triple;
+  //}
+  .@{prefix-cls}-nav_sub-nav-entity,
+  .@{prefix-cls}-nav_item-entity {
+    &-text {
+      //display: none;
+    }
+  }
+  .@{prefix-cls}-nav__sub-nav_open {
+    > ul {
+      width: 0;
+      display: none;
+    }
+  }
+  .@{prefix-cls}-nav__item-icon,
+  .@{prefix-cls}-nav__sub-nav-icon {
+    //margin-right: 0;
+    //width: 24px;
+    //height: 24px;
+    //text-align: center;
+  }
+  .@{prefix-cls}-nav__item,
+  .@{prefix-cls}-nav__sub-nav {
+    //overflow-x: hidden;
+    > .@{prefix-cls}-nav_item-entity,
+    > .@{prefix-cls}-nav_sub-nav-entity {
+      //width: 60px;
+      height: 60px;
+    }
+  }
+  .@{prefix-cls}-nav__sub-nav-toggle {
+    opacity: 0;
+  }
+}
 
 .@{prefix-cls}-nav__item,
 .@{prefix-cls}-nav__sub-nav {
   background-color: @color-primary-nav-item;
+  white-space: nowrap;
   > .@{prefix-cls}-nav_item-entity,
   > .@{prefix-cls}-nav_sub-nav-entity {
     display: block;
@@ -199,8 +266,8 @@
 
 .@{prefix-cls}-nav__item-icon,
 .@{prefix-cls}-nav__sub-nav-icon {
-  margin-right: 10px;
-  width: 1em;
+  margin-right: 20px;
+  //width: 1em;
   text-align: center;
 }
 
@@ -209,7 +276,9 @@
   right: 20px;
   top: 50%;
   //margin-top: -6px;
-  transition: transform .2s;
+  transition-property: transform, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: @transition-timing-function;
   font-size: 12px;
   //transform: scale(.8);
 }

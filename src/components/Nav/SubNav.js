@@ -80,14 +80,20 @@ class SubNav extends React.Component {
           style={indentStyle}
         >
           {NavIcon}
-          {title}
-          {ToggleIcon}
+          <span className={`${prefixCls}-nav_sub-nav-entity-text`}>
+            {title}
+            {ToggleIcon}
+          </span>
         </div>
         {open && childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
       </li>
     )
   }
 }
+
+// SubNav.contextTypes = {
+//   nav: PropTypes.object
+// }
 
 SubNav.propTypes = {
   className: PropTypes.string,
