@@ -37,12 +37,10 @@
         }
       }
     }
-    &-close {
+    &-close-btn {
       float: right;
-      width: 60px;
-      height: 60px;
-      text-align: center;
-      cursor: pointer;
+      top: 10px;
+      right: 10px;
     }
   }
   &__bottom {
@@ -121,6 +119,17 @@
     //> .@{prefix-cls}-nav__sub-nav {
     //  border-bottom: 1px solid @ui-color-slate;
     //}
+  }
+}
+
+.@{prefix-cls}-nav__btn-icon {
+  padding: @ui-unit-half;
+  border: 1px solid transparent;
+  color: @theme-text;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: fade(@ui-color-slate, 60%);
   }
 }
 

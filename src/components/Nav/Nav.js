@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Icon from '../Icon'
 import Scrollbar from '../Scrollbar'
+import Button from '../Button'
 
 function renderNavBottom () {
   return (
@@ -21,15 +21,21 @@ function renderNavBottom () {
         </span>
       </div>
       <div className={`${prefixCls}-nav__bottom-logout`}>
-        <Icon
-          type="logout"
-          className={`${prefixCls}-nav__bottom-logout-icon`}
+        <Button
+          icon="logout"
+          className={cx(
+            `${prefixCls}-nav__btn-icon`,
+            `${prefixCls}-nav__bottom-logout-icon`
+          )}
         />
       </div>
       <div className={`${prefixCls}-nav__bottom-settings`}>
-        <Icon
-          type="settings"
-          className={`${prefixCls}-nav__bottom-settings-icon`}
+        <Button
+          icon="settings"
+          className={cx(
+            `${prefixCls}-nav__btn-icon`,
+            `${prefixCls}-nav__bottom-settings-icon`
+          )}
         />
       </div>
     </div>
@@ -90,9 +96,14 @@ class Nav extends Component {
           <div className={`${prefixCls}-nav__top-logo`}>
             <span>EARTHUi</span>
           </div>
-          <div className={`${prefixCls}-nav__top-close`}>
-            <Icon onClick={this.handleClose} type="close" />
-          </div>
+          <Button
+            className={cx(
+              `${prefixCls}-nav__btn-icon`,
+              `${prefixCls}-nav__top-close-btn`
+            )}
+            onClick={this.handleClose}
+            icon="close"
+          />
         </div>
         <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
           <ul>{childrenWithNewProps}</ul>

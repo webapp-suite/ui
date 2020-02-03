@@ -31,6 +31,7 @@ class NavBasic extends Component {
             </NavItemGroup>
           </SubNav>
         </Nav>
+        <div style={{border: '2px solid red', width: 700}}>Main content</div>
       </div>
     )
   }
