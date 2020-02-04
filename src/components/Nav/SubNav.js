@@ -17,6 +17,9 @@ class SubNav extends React.Component {
   }
 
   handleClick = e => {
+    if (this.context.nav.state.collapsed) {
+      this.context.nav.setState({ collapsed: false })
+    }
     this.props.onClick && this.props.onClick(e)
   }
 
@@ -91,9 +94,9 @@ class SubNav extends React.Component {
   }
 }
 
-// SubNav.contextTypes = {
-//   nav: PropTypes.object
-// }
+SubNav.contextTypes = {
+  nav: PropTypes.object
+}
 
 SubNav.propTypes = {
   className: PropTypes.string,
