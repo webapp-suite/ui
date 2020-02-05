@@ -1,12 +1,34 @@
 @import "~ui-variables";
 
 @nav-width: 330px;
+@color-menu-border: @ui-color-slate-darkest;
+@color-menu-shadow-border: #0e1315;
 @color-primary-nav-item: #232e33;
 @color-secondary-nav-item: @ui-color-slate-dark;
 @color-hover-nav-item: @ui-color-gray-darker;
 @color-active-nav-item: @theme;
 @transition-duration: @ui-transition-fast;
 @transition-timing-function: cubic-bezier(0,0,.2,1);
+
+.mixin-shadow() {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: @ui-unit-half;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(44, 44, 44, 0) 100%);
+  border-bottom: 1px solid @color-menu-shadow-border;
+}
+.mixin-top-shadow() {
+  .mixin-shadow();
+  top: 0;
+  transform: rotate(-180deg);
+}
+.mixin-bottom-shadow() {
+  .mixin-shadow();
+  bottom: 0;
+}
 
 .@{prefix-cls}-nav {
   position: relative;
@@ -23,7 +45,7 @@
   &__top {
     height: @ui-unit-triple;
     line-height: @ui-unit-triple;
-    border-bottom: 1px solid @ui-color-slate-darkest;
+    border-bottom: 1px solid @color-menu-border;
     color: @ui-color-white;
     background-color: @color-primary-nav-item;
     &-logo {
@@ -65,7 +87,7 @@
   &__bottom {
     height: @ui-unit-triple;
     line-height: @ui-unit-triple;
-    border-top: 1px solid @ui-color-slate-darkest;
+    border-top: 1px solid @color-menu-border;
     color: @ui-color-white;
     position: absolute;
     bottom: 0;
@@ -244,6 +266,13 @@
   }
   > ul {
     display: none;
+    position: relative;
+    &:before {
+      .mixin-top-shadow();
+    }
+    &:after {
+      .mixin-bottom-shadow();
+    }
   }
   .@{prefix-cls}-nav__item {
     background-color: @color-secondary-nav-item;
