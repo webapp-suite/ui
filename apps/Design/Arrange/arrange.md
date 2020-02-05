@@ -1,14 +1,14 @@
-组件的排列决定了页面最基本的视觉体验。
+The arrangement of components determines the basic visual experience of the page.
 
-Earth UI 排列方案，是基于『50:50 均衡』的设计原则，将灵活性和一致性进行了50:50的均衡设计。既考虑组件排列灵活性，还考虑排列风格的一致性，对一些组件的排列位置进行了相应的限制。
+The arrangement scheme of Earth UI is based on the principle of `50:50`, and we carry out a `50:50` design based on flexibility and consistency. Considering not only the flexibility of the arrangement of components, but also the consistency of the arrangement style, the arrangement position of some components is also limited accordingly.
 
-## 推荐排列
+## Recommended Arrangement
 
 <div>
-  <img src="https://user-images.githubusercontent.com/12554487/60014448-a4d14000-96b3-11e9-8d7f-b40ca05a1090.png" style="border: 1px solid #cbd7dc" />
+  <img width="750" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/KK4B9S.jpg' style="border: 1px solid #cbd7dc"/>
 </div>
 
-我们将整个视图（除左侧导航外）划分为五大部分：
+We divided the entire view except for the left navigation into five parts:
 
 1. Header
 2. ToolBar

@@ -9,7 +9,6 @@
 .layout__sidebar {
   position: relative;
   background-color: @ui-color-slate;
-  width: @ui-width-aside;
   flex-shrink: 0;
   transition: all .2s;
   font-weight: @ui-fontweight-medium;
@@ -22,10 +21,11 @@
 
 .layout__content {
   flex-grow: 1;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: hsl(195, 19%, 92%);
+  background-color: @ui-color-gray-lightest;
 }
 
 .layout__toggle {

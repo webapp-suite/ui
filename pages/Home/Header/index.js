@@ -1,9 +1,9 @@
 import React from 'react'
 // import { Link } from '@reach/router'
-// import Button from 'earth-ui/lib/Button'
-import { Row, Col } from 'earth-ui/lib/Layout'
-// import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui/lib/Dropdown'
-// import Icon from 'earth-ui/lib/Icon'
+import { Row, Col } from 'earth-ui'
+// import { Button } from 'earth-ui'
+// import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui'
+// import { Icon } from 'earth-ui'
 import pkg from '../../../../package.json'
 import './index.less'
 

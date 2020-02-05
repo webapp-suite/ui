@@ -16,12 +16,13 @@ class InProgress extends React.Component {
     this.setState({ imageStatus: 'failed' })
     NProgress.done()
   }
+
   render () {
     if (this.state.imageStatus === 'loading') {
       return (
         <img
           style={{ display: 'none' }}
-          src="./img/in_progress.png"
+          src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/in_progress.png"
           alt="Work in progress"
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
@@ -33,7 +34,7 @@ class InProgress extends React.Component {
         {this.state.imageStatus === 'loaded' && (
           <img
             className="in-progress__image"
-            src="./img/in_progress.png"
+            src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/in_progress.png"
             alt="Work in progress"
             draggable="false"
           />

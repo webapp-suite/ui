@@ -15,13 +15,13 @@ class Footer extends PureComponent {
           <div className="left">
             <h2>Alipay reward</h2>
             <div className="pay">
-              <img src="./img/qrcode_alipay.jpg" alt="" />
+              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_alipay.jpg" alt="qrcode_alipay" />
             </div>
           </div>
           <div className="left">
             <h2>Wechat reward</h2>
             <div className="pay">
-              <img src="./img/qrcode_wechat.jpg" alt="" />
+              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_wechat.jpg" alt="qrcode_wechat" />
             </div>
           </div>
           <div className="right">
@@ -51,7 +51,14 @@ class Footer extends PureComponent {
             <span className="footer__second-line-left-logo">EARTHUi</span>
           </div>
           <div className="right">
-            <span>SU ICP NO.15056713</span>
+            <span>
+              <a
+                href="http://beian.miit.gov.cn/"
+                style={{ color: 'hsl(199, 20%, 22%)' }}
+              >
+                SU ICP NO.15056713-1
+              </a>
+            </span>
             <span>© Kimi Gao</span>
           </div>
         </div>

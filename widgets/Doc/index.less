@@ -10,6 +10,7 @@
     p {
       margin-top: 0;
       margin-bottom: 0;
+      font-family: 'Menlo', 'Monaco', 'Consolas', 'Bitstream Vera Sans Mono', monospace;
       font-size: 13px;
       font-weight: @ui-fontweight;
     }
@@ -33,7 +34,7 @@
     width: 100%;
     border-spacing: 0;
     padding: 0 @ui-unit @ui-unit;
-    background-color: @ui-color-gray-lightest;
+    background-color: lighten(@ui-color-gray-lightest, 4%);
     border: 1px solid #e8e8e8;
     border-top-color: transparent;
     border-bottom-left-radius: @ui-radius;
@@ -55,8 +56,9 @@
     }
     thead {
       th {
+        padding-top: @ui-unit;
         font-size: @ui-fontsize;
-        font-weight: @ui-fontweight-medium;
+        font-weight: @ui-fontweight-bold;
       }
     }
   }

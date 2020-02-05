@@ -1,4 +1,4 @@
-import { Col, Row } from 'earth-ui/lib/Layout'
+import { Col, Row } from 'earth-ui'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'
@@ -7,7 +7,7 @@ import Center from '../Center'
 import './index.less'
 
 const code = `
-import Button from 'earth-ui/lib/Button'
+import { Button } from 'earth-ui'
 
 class App extends Component {
 
@@ -26,11 +26,7 @@ export default function Section1 () {
       <Center>
         <Row gutter>
           <ScrollOverPack targetId="home" location="home__section1">
-            <QueueAnim
-              key="code"
-              duration={600}
-              type="left"
-            >
+            <QueueAnim key="code" duration={600} type="left">
               <Col col="md-10" key="code">
                 <Code className="home__section1-code">{code}</Code>
               </Col>
@@ -38,15 +34,14 @@ export default function Section1 () {
           </ScrollOverPack>
           <Col col="md-4" />
           <ScrollOverPack targetId="home" location="home__section1">
-            <QueueAnim
-              key="intro"
-              duration={600}
-              type="right"
-            >
+            <QueueAnim key="intro" duration={600} type="right">
               <Col col="md-10" className="home__section1-content" key="content">
                 <h2>Less is more</h2>
-                <p>A minimalist style in both visual design and component usage. It's more flexible by using declarative
-                  components including programmatic and markup style in different cases.</p>
+                <p>
+                  A minimalist style in both visual design and component usage.
+                  It's more flexible by using declarative components including
+                  programmatic and markup style in different cases.
+                </p>
               </Col>
             </QueueAnim>
           </ScrollOverPack>

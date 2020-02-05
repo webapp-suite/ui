@@ -1,6 +1,5 @@
-import { Link } from '@reach/router'
-import BackToTop from 'earth-ui/lib/BackToTop'
-import Button from 'earth-ui/lib/Button'
+import { navigate } from '@reach/router'
+import { Button, BackToTop } from 'earth-ui'
 import NProgress from 'nprogress'
 import QueueAnim from 'rc-queue-anim'
 import React from 'react'
@@ -27,12 +26,13 @@ class Home extends React.Component {
     this.setState({ imageStatus: 'failed' })
     NProgress.done()
   }
+
   render () {
     if (this.state.imageStatus === 'loading') {
       return (
         <img
           style={{ display: 'none' }}
-          src="./img/home_banner.png"
+          src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/home_banner.png"
           alt="background image"
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
@@ -47,7 +47,7 @@ class Home extends React.Component {
             {this.state.imageStatus === 'loaded' && (
               <img
                 className="home__banner-background-image"
-                src="./img/home_banner.png"
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/home_banner.png"
                 alt="background image"
                 draggable="false"
               />
@@ -64,14 +64,16 @@ class Home extends React.Component {
                 developers and designers.
               </p>
               <div key="buttons">
-                <Link to="/apps/start/usage">
-                  <Button type="primary" className="home__banner-btn">
-                    Get Started
-                  </Button>
-                </Link>
+                <Button
+                  type="primary"
+                  size="lg"
+                  onClick={() => navigate('/apps/start/usage')}
+                >
+                  GET STARTED
+                </Button>
                 <a href="https://github.com/cosmos-x/earth-ui">
-                  <Button type="secondary" className="home__banner-btn">
-                    Github
+                  <Button type="primary" size="lg" ghost>
+                    GITHUB
                   </Button>
                 </a>
               </div>

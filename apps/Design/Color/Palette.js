@@ -4,12 +4,12 @@
  * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
  */
 
-import notification from 'earth-ui/lib/notification'
+import { notification } from 'earth-ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-const rgbToHex = (rgbString) => {
+const rgbToHex = rgbString => {
   const rgb = rgbString.match(/\d+/g)
   let r = parseInt(rgb[0], 10).toString(16)
   let g = parseInt(rgb[1], 10).toString(16)
@@ -23,8 +23,10 @@ const rgbToHex = (rgbString) => {
 export default class Palette extends React.Component {
   componentDidMount () {
     this.hexColors = {}
-    Object.keys(this.colorNodes).forEach((key) => {
-      const computedColor = getComputedStyle(this.colorNodes[key])['background-color']
+    Object.keys(this.colorNodes).forEach(key => {
+      const computedColor = getComputedStyle(this.colorNodes[key])[
+        'background-color'
+      ]
       if (computedColor.indexOf('rgba') >= 0) {
         this.hexColors[key] = computedColor
       } else {
@@ -36,8 +38,13 @@ export default class Palette extends React.Component {
 
   render () {
     this.colorNodes = this.colorNodes || {}
-    const { showTitle, direction, color: { name, english } } = this.props
-    const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette'
+    const {
+      showTitle,
+      direction,
+      color: { name, english }
+    } = this.props
+    const className =
+      direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette'
     const colors = []
     const colorNameMap = {
       3: '-lightest',
@@ -54,12 +61,19 @@ export default class Palette extends React.Component {
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
-          onCopy={() => notification.success(`@ui-color-${colorText} copied: ${this.hexColors[colorText]}`, 2000)}
+          onCopy={() =>
+            notification.success(
+              `@ui-color-${colorText} copied: ${this.hexColors[colorText]}`,
+              2000
+            )
+          }
           key={colorText}
         >
           <div
             key={i}
-            ref={(node) => { this.colorNodes[`${name}${colorNameMap[i]}`] = node }}
+            ref={node => {
+              this.colorNodes[`${name}${colorNameMap[i]}`] = node
+            }}
             className={`main-color-item palette-${name}-${i}`}
             style={{
               color: (name === 'slate' ? i > 2 : i > 5) ? '#fff' : 'unset'
@@ -67,9 +81,11 @@ export default class Palette extends React.Component {
             title="click to copy color"
           >
             <span className="main-color-text">{colorText}</span>
-            {this.hexColors
-              ? <span className="main-color-value">{this.hexColors[colorText]}</span>
-              : null}
+            {this.hexColors ? (
+              <span className="main-color-value">
+                {this.hexColors[colorText]}
+              </span>
+            ) : null}
           </div>
         </CopyToClipboard>
       )

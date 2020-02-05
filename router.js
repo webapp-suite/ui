@@ -1,9 +1,8 @@
-import { Redirect, Router, LocationProvider } from '@reach/router'
+import { Redirect, Router } from '@reach/router'
 import NProgress from 'nprogress'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Imported, { whenComponentsReady } from 'react-imported-component'
-import { HashRouter } from './HashRouter'
 import Chrome from './apps/Chrome'
 import App from './apps/index'
 
@@ -14,11 +13,21 @@ const asyncComponent = path =>
       !['/', 'InProgress'].includes(path) && NProgress.done()
     })
     if (path === '/') {
-      return import('./pages/Home')
+      return import(
+        /* webpackChunkName: '[request]' */
+        './pages/Home'
+      )
     }
     return path.match('.dox')
-      ? import(`../src/components/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
-      : import(`./apps/${path}` /* webpackChunkName: 'chunk-[request][index]' */)
+      ? import(
+          /* webpackExclude: /__tests__/ */
+          /* webpackChunkName: '[request]' */
+          `../src/components/${path}`
+        )
+      : import(
+          /* webpackChunkName: '[request]' */
+          `./apps/${path}`
+        )
   })
 
 const WIP = [
@@ -34,7 +43,9 @@ const WIP = [
   'DatePicker',
   'Card',
   'Time',
-  'Actions'
+  'Actions',
+  'Dropdown',
+  'BackToTop'
 ]
 
 const getComponentDoc = component => {
@@ -55,21 +66,19 @@ const Dox = routeProps =>
 const NotFound = () => React.createElement(asyncComponent('NotFound'))
 
 ReactDOM.render(
-  <LocationProvider history={HashRouter}>
-    <Router>
-      <App path="/apps">
-        <Chrome path="/">
-          <Changelog path="/changelog" />
-          <Start path="/start/:tab" />
-          <Design path="/design/:tab" />
-          <Dox path="/components/:component" />
-        </Chrome>
-        {/* from means relative path, to means abs path */}
-        <Redirect noThrow from="/" to="/" />
-      </App>
-      <Home path="/" />
-      <NotFound default />
-    </Router>
-  </LocationProvider>,
+  <Router>
+    <App path="/apps">
+      <Chrome path="/">
+        <Changelog path="/changelog" />
+        <Start path="/start/:tab" />
+        <Design path="/design/:tab" />
+        <Dox path="/components/:component" />
+      </Chrome>
+      {/* from means relative path, to means abs path */}
+      <Redirect noThrow from="/" to="/" />
+    </App>
+    <Home path="/" />
+    <NotFound default />
+  </Router>,
   document.getElementById('app')
 )

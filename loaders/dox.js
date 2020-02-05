@@ -32,7 +32,7 @@ const imports = {
         }
       })
       if (hasNewVariate) {
-        match[1] = match[1].replace(/^\s*,|\{\s*,|,\s*\}/g, '')
+        match[1] = match[1].replace(/^{[\s*,]*/g, '{ ')
         imports.list.push(`import ${match[1]} from${match[2]}`)
       }
     }
@@ -55,7 +55,7 @@ module.exports = function (source) {
 
   // 依赖的公共模块
   imports.add(`import React, { Component } from 'react'`)
-  imports.add(`import { Row, Col } from 'earth-ui/lib/Layout'`)
+  imports.add(`import { Row, Col } from 'earth-ui'`)
   imports.add(`import Demo from 'widgets/Demo'`)
   imports.add(`import Doc from 'widgets/Doc'`)
   imports.add(`import Markdown from 'widgets/Markdown'`)

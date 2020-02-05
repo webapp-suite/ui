@@ -1,4 +1,4 @@
-import Icon from 'earth-ui/lib/Icon'
+import { Icon } from 'earth-ui'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'
@@ -64,7 +64,7 @@ const Section3 = props => (
             <div className="home__section3-content-list-item" key={item.icon}>
               <Icon
                 className="home__section3-content-list-item-icon"
-                src={`./svg/icons.svg#${item.icon}`}
+                src={`/svg/icons.svg#${item.icon}`}
               />
               <p className="home__section3-content-list-item-title">
                 {item.title}

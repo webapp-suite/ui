@@ -1,42 +1,44 @@
-## 安装
+## Install
 
 ```bash
 npm i earth-ui
 ```
 
-## 基础使用
+## Basic Usage
 
 ```jsx
-import Button from 'earth-ui/lib/Button';
+import { Button } from 'earth-ui';
 import 'earth-ui/dist/earth-ui.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-## 在 create-react-app 中使用
+> Note: earth-ui supports ES6 tree shaking by default.
 
-[create-react-app][create-react-app-url] 是业界最优秀的 React 应用开发工具之一，我们会尝试在 `create-react-app` 创建的工程中使用 `earth-ui` 组件。
+## Use in create-react-app
 
-首先，需要在命令行中安装 `create-react-app` 工具，[详细安装说明][create-react-app-url] 。
+[create-react-app][create-react-app-url] is an out of the box starter of react application and we will try to use the `earth-ui` library in projects created by `create-reaction-app` as following:
 
-现在从 yarn 或 npm 安装并引入 `earth-ui` 。
+First, you need to install the `create-reaction-app` cli, see more at [Installation Instruction][create-react-app-url].
+
+Then, install `earth-ui` by `npm` or `yarn`.
 
 ```bash
-yarn add earth-ui
+npm i earth-ui
 ```
 
-修改 `src/App.js`，引入 `earth-ui` 的按钮组件。
+Modify `src/App.js` and import the Button from `earth-ui`.
 
 ```jsx
 import React, { Component } from 'react';
+import { Button } from 'earth-ui';
 import './App.css';
-import Button from 'earth-ui/lib/Button';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <Button icon="add">添加</Button>
+          <Button icon="add">ADD</Button>
       </div>
     );
   }
@@ -45,7 +47,7 @@ class App extends Component {
 export default App;
 ```
 
-修改 `src/App.css`，在文件顶部引入 `earth-ui/dist/earth-ui.min.css` 。
+Modify `src/App.css` and import `earth-ui/dist/earth-ui.min.css` at the top.
 
 ```css
 @import '~earth-ui/dist/earth-ui.min.css';
@@ -57,11 +59,11 @@ export default App;
 ...
 ```
 
-现在你应该能看到页面上已经有了 `earth-ui` 的按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程可以参考 [User Guide][create-react-app-user-guide-url] .
+As for now, you could see the Button on the page and you can also add other components to the application. More details, please refer to [User Guide][create-react-app-user-guide-url].
 
-## 组件全局配置
+## Global Configuration
 
-覆盖或扩展 `defaultProps` 即可，以 [Tooltip][tooltip-url] 为例:
+Use `defaultProps` prop to override or extend the configuration of component globally, as the following example:
 
 ```jsx
 Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
@@ -69,7 +71,7 @@ Tooltip.defaultProps = Object.assign(Tooltip.defaultProps || {}, {
 })
 ```
 
-> 全局配置后，这些 API 会变成有状态的，即最终结果受配置影响，所以尽量一次性配置并向其它开发者说明。
+> After the global configuration has been set, these apis become stateful which means the final results are affected by the configuration, so try to configure them all at once and point out them to other developers.
 
 [tooltip-url]: /#/components/Tooltip
 [create-react-app-url]: https://github.com/facebookincubator/create-react-app
