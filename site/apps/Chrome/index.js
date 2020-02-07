@@ -156,7 +156,7 @@ class Components extends React.Component {
               selectedId={childComponentPath}
               onItemClick={this.handleItemClick}
               className="components__nav"
-              indent={20}
+              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
             >
               {components.map(item => {
                 if (!item.components) {

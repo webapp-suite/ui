@@ -14,13 +14,13 @@ class NavBasic extends Component {
   render () {
     return (
       <div style={{display: 'flex', height: 800}}>
-        <Nav selectedId="1" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/paypal_payments.svg">
-          <NavItem id="1" icon="envelope-o" title="NavItem 1" />
-          <SubNav icon="th" title="SubNav 1" defaultOpen>
+        <Nav selectedId="1" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg">
+          <NavItem id="1" icon="discovery" title="NavItem 1" />
+          <SubNav icon="calendar" title="SubNav 1" defaultOpen>
             <NavItem id="2" title="NavItem 2" />
             <NavItem id="3" title="NavItem 3" />
           </SubNav>
-          <SubNav icon="th" title="SubNav 2" defaultOpen>
+          <SubNav icon="apps" title="SubNav 2" defaultOpen>
             <NavItemGroup title="NavItemGroup 1">
               <NavItem id="4" title="NavItem 4" />
               <NavItem id="5" title="NavItem 5" />
@@ -31,7 +31,7 @@ class NavBasic extends Component {
             </NavItemGroup>
           </SubNav>
         </Nav>
-        <div style={{border: '2px solid red', width: 700}}>Main content</div>
+        <div style={{border: '2px solid red', width: '100%'}}>Main content</div>
       </div>
     )
   }

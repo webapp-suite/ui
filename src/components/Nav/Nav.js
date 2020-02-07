@@ -4,13 +4,8 @@ import cx from 'classnames'
 import Scrollbar from '../Scrollbar'
 import Button from '../Button'
 
-const MenuSVG = () => (
-  <svg
-    width="22"
-    height="22"
-    xmlns="http://www.w3.org/2000/svg"
-    className={`${prefixCls}-nav__menu-svg`}
-  >
+const MenuIcon = ({ className }) => (
+  <svg width="22" height="22" className={className}>
     <g fill="#FFF" fillRule="evenodd">
       <path d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z" />
       <rect y="9" width="22" height="4" rx="1" />
@@ -18,6 +13,10 @@ const MenuSVG = () => (
     </g>
   </svg>
 )
+
+MenuIcon.propTypes = {
+  className: PropTypes.string
+}
 
 function renderNavBottom () {
   return (
@@ -83,7 +82,7 @@ class Nav extends Component {
 
   render () {
     const { collapsed } = this.state
-    const { children, className, width, indent, ...other } = this.props
+    const { children, className, width, logoUrl, ...other } = this.props
 
     delete other.selectedId
     delete other.onItemClick
@@ -91,12 +90,6 @@ class Nav extends Component {
     if (width) {
       other.style = Object.assign(other.style || {}, { width })
     }
-
-    const childrenWithNewProps = React.Children.map(children, child => {
-      return React.cloneElement(child, {
-        indent
-      })
-    })
 
     return (
       <div
@@ -109,23 +102,33 @@ class Nav extends Component {
       >
         <div className={`${prefixCls}-nav__top`}>
           <div
-            className={`${prefixCls}-nav__top-logo`}
+            className={`${prefixCls}-nav__top-left-container`}
             onClick={() => this.handleCollapseToggle(false)}
           >
-            <MenuSVG />
-            <span>EARTHUi</span>
+            <MenuIcon
+              className={`${prefixCls}-nav__top-left-container-menu-icon`}
+            />
           </div>
-          <Button
-            className={cx(
-              `${prefixCls}-nav__btn-icon`,
-              `${prefixCls}-nav__top-close-btn`
-            )}
-            onClick={() => this.handleCollapseToggle(true)}
-            icon="close"
-          />
+          <div className={`${prefixCls}-nav__top-center-container`}>
+            <img
+              className={`${prefixCls}-nav__top-center-container-logo`}
+              src={logoUrl}
+              alt="Logo"
+            />
+          </div>
+          <div className={`${prefixCls}-nav__top-right-container`}>
+            <Button
+              className={cx(
+                `${prefixCls}-nav__btn-icon`,
+                `${prefixCls}-nav__top-right-container-close-icon`
+              )}
+              onClick={() => this.handleCollapseToggle(true)}
+              icon="close"
+            />
+          </div>
         </div>
         <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
-          <ul>{childrenWithNewProps}</ul>
+          <ul>{children}</ul>
         </Scrollbar>
         {renderNavBottom()}
       </div>
@@ -142,14 +145,13 @@ Nav.propTypes = {
 
   className: PropTypes.string,
 
+  logoUrl: PropTypes.string,
+
   // 当前选中的导航项的 id
   selectedId: PropTypes.string.isRequired,
 
   // 导航是否收起状态
   collapsed: PropTypes.bool,
-
-  // 导航缩进宽度
-  indent: PropTypes.number,
 
   // 导航宽度
   width: PropTypes.number,

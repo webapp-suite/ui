@@ -28,15 +28,17 @@ class NavItem extends React.Component {
     const { active } = this.state
     const { children, className, icon, title, indent, ...other } = this.props
 
-    const NavIcon = icon && (
-      <Icon type={icon} className={`${prefixCls}-nav__item-icon`} src={icon} />
+    const NavIcon = /\//.test(icon) ? (
+      <Icon className={`${prefixCls}-nav__item-icon`} src={icon} />
+    ) : (
+      <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
     )
 
-    let indentStyle
-
-    if (indent && !this.context.nav.state.collapsed) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
+    // let indentStyle
+    //
+    // if (indent && !this.context.nav.state.collapsed) {
+    //   indentStyle = { paddingLeft: `${indent}px` }
+    // }
 
     return (
       <li
@@ -50,7 +52,7 @@ class NavItem extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_item-entity`} style={indentStyle}>
+        <div className={`${prefixCls}-nav_item-entity`}>
           {NavIcon}
           <span className={`${prefixCls}-nav_item-entity-text`}>
             {title}

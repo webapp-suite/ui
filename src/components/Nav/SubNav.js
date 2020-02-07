@@ -31,12 +31,13 @@ class SubNav extends React.Component {
       defaultOpen,
       icon,
       title,
-      indent,
       ...other
     } = this.props
 
-    const NavIcon = icon && (
+    const NavIcon = /\//.test(icon) ? (
       <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
+    ) : (
+      <Icon type={icon} className={`${prefixCls}-nav__sub-nav-icon`} />
     )
     const ToggleIcon = (
       <Icon
@@ -44,25 +45,6 @@ class SubNav extends React.Component {
         className={`${prefixCls}-nav__sub-nav-toggle`}
       />
     )
-
-    let indentStyle
-
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
-
-    const childrenWithNewProps = React.Children.map(children, child => {
-      if (child.type.name === 'NavItemGroup') {
-        return React.cloneElement(child, {
-          indent: indent + 8
-        })
-      }
-      if (child.type.name === 'NavItem') {
-        return React.cloneElement(child, {
-          indent: indent * 2
-        })
-      }
-    })
 
     // Child nodes are no longer rendered when the nav item is closed.
     return (
@@ -80,7 +62,6 @@ class SubNav extends React.Component {
         <div
           className={`${prefixCls}-nav_sub-nav-entity`}
           onClick={this.handleToggle}
-          style={indentStyle}
         >
           {NavIcon}
           <span className={`${prefixCls}-nav_sub-nav-entity-text`}>
@@ -88,7 +69,7 @@ class SubNav extends React.Component {
             {ToggleIcon}
           </span>
         </div>
-        {open && childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
+        {open && children && <ul>{children}</ul>}
       </li>
     )
   }
@@ -100,8 +81,6 @@ SubNav.contextTypes = {
 
 SubNav.propTypes = {
   className: PropTypes.string,
-
-  indent: PropTypes.number,
 
   // 二级导航的导航项
   children: PropTypes.node.isRequired,
