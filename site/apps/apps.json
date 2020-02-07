@@ -132,7 +132,7 @@
     ]
   },
   {
-    "icon":"docs-icon-chat-bubble-square-alert-2",
+    "icon":"docs-icon-dialog",
     "path":"components",
     "name":"Dialog",
     "cn":"弹框组件",
