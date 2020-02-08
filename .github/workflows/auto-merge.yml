@@ -1,0 +1,24 @@
+name: auto-merge
+
+on:
+  check_suite:
+    types:
+      - completed
+  pull_request:
+    types:
+      - edited
+      - labeled
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+      - unlabeled
+      - unlocked
+
+jobs:
+  merge-dependabot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ridedott/merge-me-action@master
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN_PLUS }}"
