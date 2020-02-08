@@ -61,7 +61,8 @@ class Nav extends Component {
     super()
     this.state = {
       selectedId: props.selectedId || '',
-      collapsed: true
+      collapsed: true,
+      collapsedTrigger: ''
     }
   }
 
@@ -77,7 +78,10 @@ class Nav extends Component {
   }
 
   handleCollapseToggle (collapsed) {
-    this.setState({ collapsed })
+    this.setState({
+      collapsed,
+      collapsedTrigger: collapsed ? 'close-icon' : 'menu-icon'
+    })
   }
 
   render () {
@@ -158,10 +162,6 @@ Nav.propTypes = {
 
   // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象
   onItemClick: PropTypes.func
-}
-
-Nav.defaultProps = {
-  indent: 24
 }
 
 export default Nav

@@ -4,6 +4,13 @@ import cx from 'classnames'
 import Icon from '../Icon'
 
 class NavItem extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      active: false
+    }
+  }
+
   setActiveState (props) {
     const active = this.context.nav.state.selectedId === props.id
     this.setState({ active })
@@ -19,9 +26,7 @@ class NavItem extends React.Component {
 
   handleClick = e => {
     this.props.onClick && this.props.onClick(e)
-    const props = { ...this.props }
-    delete props.indent
-    this.context.nav.handleItemClick(props, e)
+    this.context.nav.handleItemClick(this.props, e)
   }
 
   render () {
@@ -33,12 +38,6 @@ class NavItem extends React.Component {
     ) : (
       <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
     )
-
-    // let indentStyle
-    //
-    // if (indent && !this.context.nav.state.collapsed) {
-    //   indentStyle = { paddingLeft: `${indent}px` }
-    // }
 
     return (
       <li

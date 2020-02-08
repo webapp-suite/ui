@@ -221,6 +221,9 @@
   .@{prefix-cls}-nav__item,
   .@{prefix-cls}-nav__sub-nav {
     //overflow-x: hidden;
+    &--active {
+      background-color: @theme;
+    }
     > .@{prefix-cls}-nav_item-entity,
     > .@{prefix-cls}-nav_sub-nav-entity {
       //width: 60px;
@@ -235,6 +238,7 @@
 .@{prefix-cls}-nav__item,
 .@{prefix-cls}-nav__sub-nav {
   background-color: @color-primary-nav-item;
+  transition: background-color @ui-transition-now @ui-timing-easeinsine;
   white-space: nowrap;
   > .@{prefix-cls}-nav_item-entity,
   > .@{prefix-cls}-nav_sub-nav-entity {

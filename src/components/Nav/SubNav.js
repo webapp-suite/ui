@@ -5,9 +5,11 @@ import Icon from '../Icon'
 
 class SubNav extends React.Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = {
-      open: props.defaultOpen || false
+      open: false,
+      active: false,
+      newChildren: props.children
     }
   }
 
@@ -18,21 +20,56 @@ class SubNav extends React.Component {
 
   handleClick = e => {
     if (this.context.nav.state.collapsed) {
-      this.context.nav.setState({ collapsed: false })
+      this.context.nav.setState({
+        collapsed: false,
+        collapsedTrigger: 'sub-nav-icon'
+      })
+      this.setState({ open: true })
     }
     this.props.onClick && this.props.onClick(e)
   }
 
+  componentDidUpdate (nextProps, nextState) {
+    // Close all sub navs when click close-icon button on the right top
+    if (this.context.nav.state.collapsed && this.state.open) {
+      this.setState({ open: false })
+    }
+  }
+
+  componentWillReceiveProps (
+    nextProps,
+    {
+      nav: {
+        state: { selectedId, collapsedTrigger }
+      }
+    }
+  ) {
+    for (const child of this.props.children) {
+      if (child.type.name === 'NavItem') {
+        if (child.props.id === selectedId) {
+          this.setState({ active: true })
+          !this.state.open &&
+            collapsedTrigger === 'menu-icon' &&
+            this.setState({ open: true })
+          return
+        }
+      }
+      if (child.type.name === 'NavItemGroup') {
+        for (const item of child.props.children) {
+          if (item.props.id === selectedId) {
+            this.setState({ active: true })
+            !this.state.open && this.setState({ open: true })
+            return
+          }
+        }
+      }
+    }
+    this.setState({ active: false })
+  }
+
   render () {
-    const { open } = this.state
-    const {
-      children,
-      className,
-      defaultOpen,
-      icon,
-      title,
-      ...other
-    } = this.props
+    const { open, active, newChildren } = this.state
+    const { className, icon, title, ...other } = this.props
 
     const NavIcon = /\//.test(icon) ? (
       <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
@@ -53,7 +90,8 @@ class SubNav extends React.Component {
         className={cx(
           `${prefixCls}-nav__sub-nav`,
           {
-            [`${prefixCls}-nav__sub-nav_open`]: open
+            [`${prefixCls}-nav__sub-nav_open`]: open,
+            [`${prefixCls}-nav__sub-nav--active`]: active
           },
           className
         )}
@@ -69,7 +107,7 @@ class SubNav extends React.Component {
             {ToggleIcon}
           </span>
         </div>
-        {open && children && <ul>{children}</ul>}
+        {open && newChildren && <ul>{newChildren}</ul>}
       </li>
     )
   }
@@ -92,10 +130,7 @@ SubNav.propTypes = {
   onClick: PropTypes.func,
 
   // 二级导航项图标，参考 Icon 组件 type 属性
-  icon: PropTypes.string,
-
-  // 初始化是否展开（不可控）
-  defaultOpen: PropTypes.bool
+  icon: PropTypes.string
 }
 
 export default SubNav

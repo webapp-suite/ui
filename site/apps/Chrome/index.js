@@ -166,7 +166,6 @@ class Components extends React.Component {
                   <SubNav
                     key={item.name}
                     title={firstUpperCase(item.name)}
-                    defaultOpen={item.defaultOpen}
                     icon={`/svg/icons.svg#${item.icon}`}
                   >
                     {item.components.map(itemGroup => {
