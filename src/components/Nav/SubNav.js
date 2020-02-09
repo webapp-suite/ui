@@ -36,18 +36,17 @@ class SubNav extends React.Component {
     }
   }
 
-  componentWillReceiveProps (
-    nextProps,
-    {
-      nav: {
-        state: { selectedId, collapsedTrigger }
-      }
+  activateOrOpenSubNav = ({
+    nav: {
+      state: { selectedId, collapsedTrigger }
     }
-  ) {
+  }) => {
     for (const child of this.props.children) {
       if (child.type.name === 'NavItem') {
         if (child.props.id === selectedId) {
+          // Make the current SubNav active if one of children is active
           this.setState({ active: true })
+          // Make the active NavItem's corresponding SubNav open if click menu icon
           !this.state.open &&
             collapsedTrigger === 'menu-icon' &&
             this.setState({ open: true })
@@ -57,14 +56,32 @@ class SubNav extends React.Component {
       if (child.type.name === 'NavItemGroup') {
         for (const item of child.props.children) {
           if (item.props.id === selectedId) {
+            // Make the current SubNav active if one of children is active
             this.setState({ active: true })
-            !this.state.open && this.setState({ open: true })
+            // Make the active NavItem's corresponding SubNav open if click menu icon
+            !this.state.open &&
+              collapsedTrigger === 'menu-icon' &&
+              this.setState({ open: true })
             return
           }
         }
       }
     }
     this.setState({ active: false })
+  }
+
+  /**
+   * Called by props and context changes such as `this.context.nav`
+   */
+  componentWillReceiveProps (nextProps, nextContext) {
+    this.activateOrOpenSubNav(nextContext)
+  }
+
+  /**
+   * Called after the component mounted
+   */
+  componentDidMount () {
+    this.activateOrOpenSubNav(this.context)
   }
 
   render () {
