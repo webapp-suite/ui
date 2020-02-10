@@ -11,10 +11,27 @@ class NavBasic extends Component {
     console.log(res)
     notification.success(res.title);
   }
+  handleSettingClick = () => {
+    notification.success('Setting Clicked!');
+  }
+  handleLogoutClick = () => {
+    notification.success('Logout Clicked!');
+  }
   render () {
     return (
       <div style={{display: 'flex', height: 600}}>
-        <Nav selectedId="1" onItemClick={this.handleClick} logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg">
+        <Nav
+          selectedId="1"
+          onItemClick={this.handleClick}
+          onSettingClick={this.handleSettingClick}
+          onLogoutClick={this.handleLogoutClick}
+          user={{
+            avatar: 'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
+            name: 'KIMI GAO',
+            company: 'Github Earth '
+          }}
+          logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
+        >
           <NavItem id="1" icon="discovery" title="NavItem 1" />
           <SubNav icon="calendar" title="SubNav 1">
             <NavItem id="2" title="NavItem 2" />

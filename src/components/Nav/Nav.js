@@ -18,25 +18,28 @@ MenuIcon.propTypes = {
   className: PropTypes.string
 }
 
-function renderNavBottom () {
+function renderNavBottom ({ user, onSettingClick, onLogoutClick }) {
   return (
     <div className={`${prefixCls}-nav__bottom`}>
       <div className={`${prefixCls}-nav__bottom-image`}>
         <img
           className={`${prefixCls}-nav__bottom-image-icon`}
-          src="/svg/avatarPlaceholder.svg"
+          src={user.avatar}
           alt="Avatar"
         />
       </div>
       <div className={`${prefixCls}-nav__bottom-user`}>
-        <span className={`${prefixCls}-nav__bottom-user-name`}>KIMI GAO</span>
+        <span className={`${prefixCls}-nav__bottom-user-name`}>
+          {user.name}
+        </span>
         <span className={`${prefixCls}-nav__bottom-user-company`}>
-          Earthui Corp.
+          {user.company}
         </span>
       </div>
       <div className={`${prefixCls}-nav__bottom-logout`}>
         <Button
           icon="logout"
+          onClick={e => onLogoutClick(e)}
           className={cx(
             `${prefixCls}-nav__btn-icon`,
             `${prefixCls}-nav__bottom-logout-icon`
@@ -46,6 +49,7 @@ function renderNavBottom () {
       <div className={`${prefixCls}-nav__bottom-settings`}>
         <Button
           icon="settings"
+          onClick={e => onSettingClick(e)}
           className={cx(
             `${prefixCls}-nav__btn-icon`,
             `${prefixCls}-nav__bottom-settings-icon`
@@ -54,6 +58,17 @@ function renderNavBottom () {
       </div>
     </div>
   )
+}
+
+renderNavBottom.propTypes = {
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    company: PropTypes.string
+  }),
+
+  onSettingClick: PropTypes.func,
+  onLogoutClick: PropTypes.func
 }
 
 class Nav extends Component {
@@ -90,6 +105,9 @@ class Nav extends Component {
 
     delete other.selectedId
     delete other.onItemClick
+    delete other.user
+    delete other.onSettingClick
+    delete other.onLogoutClick
 
     if (width) {
       other.style = Object.assign(other.style || {}, { width })
@@ -134,7 +152,7 @@ class Nav extends Component {
         <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
           <ul>{children}</ul>
         </Scrollbar>
-        {renderNavBottom()}
+        {renderNavBottom(this.props)}
       </div>
     )
   }

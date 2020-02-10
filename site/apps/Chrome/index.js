@@ -8,7 +8,8 @@ import {
   Tab,
   TabList,
   Tabs,
-  ToolBar
+  ToolBar,
+  notification
 } from 'earth-ui'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -58,6 +59,14 @@ class Components extends React.Component {
   handleItemClick = props => {
     this.toggle(false)
     this.switchRoute(props.id)
+  }
+
+  handleLogoutClick = () => {
+    this.switchRoute('/')
+  }
+
+  handleSettingClick = () => {
+    notification.success('Coming soon!')
   }
 
   handleTabClick = doc => {
@@ -130,7 +139,7 @@ class Components extends React.Component {
       (item.tabs && item.tabs.length && item.tabs[0].doc) || item.name
     const id = path ? `${path}/${nameAfterSlash}` : nameAfterSlash
     return (
-      <NavItem id={id} key={item.name}>
+      <NavItem id={id} key={id}>
         <span>{item.name}</span>
         {/* <span className="chinese">{item.cn}</span> */}
       </NavItem>
@@ -155,7 +164,15 @@ class Components extends React.Component {
             <Nav
               selectedId={childComponentPath}
               onItemClick={this.handleItemClick}
+              onSettingClick={this.handleSettingClick}
+              onLogoutClick={this.handleLogoutClick}
               className="components__nav"
+              user={{
+                avatar:
+                  'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
+                name: 'KIMI GAO',
+                company: 'Github Earth '
+              }}
               logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
             >
               {components.map(item => {
