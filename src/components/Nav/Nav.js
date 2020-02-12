@@ -1,75 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Scrollbar from '../Scrollbar'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import Button from '../Button'
-
-const MenuIcon = ({ className }) => (
-  <svg width="22" height="22" className={className}>
-    <g fill="#FFF" fillRule="evenodd">
-      <path d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z" />
-      <rect y="9" width="22" height="4" rx="1" />
-      <rect y="18" width="22" height="4" rx="1" />
-    </g>
-  </svg>
-)
-
-MenuIcon.propTypes = {
-  className: PropTypes.string
-}
-
-function renderNavBottom ({ user, onSettingClick, onLogoutClick }) {
-  return (
-    <div className={`${prefixCls}-nav__bottom`}>
-      <div className={`${prefixCls}-nav__bottom-image`}>
-        <img
-          className={`${prefixCls}-nav__bottom-image-icon`}
-          src={user.avatar}
-          alt="Avatar"
-        />
-      </div>
-      <div className={`${prefixCls}-nav__bottom-user`}>
-        <span className={`${prefixCls}-nav__bottom-user-name`}>
-          {user.name}
-        </span>
-        <span className={`${prefixCls}-nav__bottom-user-company`}>
-          {user.company}
-        </span>
-      </div>
-      <div className={`${prefixCls}-nav__bottom-logout`}>
-        <Button
-          icon="logout"
-          onClick={e => onLogoutClick(e)}
-          className={cx(
-            `${prefixCls}-nav__btn-icon`,
-            `${prefixCls}-nav__bottom-logout-icon`
-          )}
-        />
-      </div>
-      <div className={`${prefixCls}-nav__bottom-settings`}>
-        <Button
-          icon="settings"
-          onClick={e => onSettingClick(e)}
-          className={cx(
-            `${prefixCls}-nav__btn-icon`,
-            `${prefixCls}-nav__bottom-settings-icon`
-          )}
-        />
-      </div>
-    </div>
-  )
-}
-
-renderNavBottom.propTypes = {
-  user: PropTypes.shape({
-    avatar: PropTypes.string,
-    name: PropTypes.string,
-    company: PropTypes.string
-  }),
-
-  onSettingClick: PropTypes.func,
-  onLogoutClick: PropTypes.func
-}
+import Scrollbar from '../Scrollbar'
+import { MenuIcon } from './MenuIcon'
+import NavBottom from './NavBottom'
 
 class Nav extends Component {
   constructor (props) {
@@ -156,7 +91,7 @@ class Nav extends Component {
         <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
           <ul>{children}</ul>
         </Scrollbar>
-        {renderNavBottom(this.props)}
+        <NavBottom {...this.props} />
       </div>
     )
   }

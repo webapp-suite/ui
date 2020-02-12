@@ -143,7 +143,7 @@ SubNav.propTypes = {
   // The click event of each SubNav
   onClick: PropTypes.func,
 
-  // SubNav icon, see `Icon` component type property
+  // SubNav icon, support `Icon` component or svg url
   icon: PropTypes.string
 }
 

@@ -81,7 +81,7 @@ NavItem.propTypes = {
   // Click the navigation item will call this function
   onClick: PropTypes.func,
 
-  // Navigation item icon, see `Icon` component type property
+  // Navigation item icon, support `Icon` component or svg url
   icon: PropTypes.string
 }
 
