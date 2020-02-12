@@ -110,7 +110,11 @@ class Nav extends Component {
     delete other.onLogoutClick
 
     if (width) {
-      other.style = Object.assign(other.style || {}, { width })
+      if (collapsed) {
+        delete other?.style?.width
+      } else {
+        other.style = Object.assign(other.style || {}, { width })
+      }
     }
 
     return (
@@ -164,21 +168,21 @@ Nav.childContextTypes = {
 
 Nav.propTypes = {
   children: PropTypes.node,
-
   className: PropTypes.string,
 
-  logoUrl: PropTypes.string,
-
-  // 当前选中的导航项的 id
+  // The id of active nav item
   selectedId: PropTypes.string.isRequired,
 
-  // 导航是否收起状态
+  // The url of logo image such as svg, png
+  logoUrl: PropTypes.string,
+
+  // Whether the navigation is collapsed
   collapsed: PropTypes.bool,
 
-  // 导航宽度
+  // The width of expanded navigation, default value is `330px`
   width: PropTypes.number,
 
-  // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象
+  // The click event of each NavItem, the parameters are the current NavItem props and event object
   onItemClick: PropTypes.func
 }
 
