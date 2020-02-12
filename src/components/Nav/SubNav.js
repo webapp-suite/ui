@@ -134,16 +134,16 @@ SubNav.contextTypes = {
 SubNav.propTypes = {
   className: PropTypes.string,
 
-  // 二级导航的导航项
+  // The children of SubNav which can be NavItem or NavItemGroup
   children: PropTypes.node.isRequired,
 
-  // 二级导航标题，可以是文本字符串，也可以是 React 元素
+  // The title of SubNav which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击二级导航项调用此函数
+  // The click event of each SubNav
   onClick: PropTypes.func,
 
-  // 二级导航项图标，参考 Icon 组件 type 属性
+  // SubNav icon, see `Icon` component type property
   icon: PropTypes.string
 }
 

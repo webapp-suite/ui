@@ -31,7 +31,7 @@ class NavItem extends React.Component {
 
   render () {
     const { active } = this.state
-    const { children, className, icon, title, indent, ...other } = this.props
+    const { children, className, icon, title, ...other } = this.props
 
     const NavItemIcon = /\//.test(icon) ? (
       <Icon className={`${prefixCls}-nav__item-icon`} src={icon} />
@@ -72,18 +72,16 @@ NavItem.propTypes = {
 
   className: PropTypes.string,
 
-  indent: PropTypes.number,
-
-  // id of navigation item
+  // The id of navigation item
   id: PropTypes.string.isRequired,
 
-  // 导航项标题，可以是文本字符串，也可以是 React 元素
+  // Navigation item title which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击导航项调用此函数
+  // Click the navigation item will call this function
   onClick: PropTypes.func,
 
-  // 导航项图标，参考 Icon 组件 type 属性
+  // Navigation item icon, see `Icon` component type property
   icon: PropTypes.string
 }
 

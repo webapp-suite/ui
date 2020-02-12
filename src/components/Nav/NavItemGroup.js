@@ -17,10 +17,10 @@ class NavItemGroup extends React.Component {
 NavItemGroup.propTypes = {
   className: PropTypes.string,
 
-  // 分组的导航项项
+  // NavItem list
   children: PropTypes.node.isRequired,
 
-  // 分组导航标题，可以是文本字符串，也可以是 React 元素
+  // The title of NavItemGroup which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 }
 
