@@ -8,6 +8,7 @@
 @color-secondary-nav-item: @ui-color-slate-dark;
 @color-hover-nav-item: @ui-color-gray-darker;
 @color-active-nav-item: @theme;
+@color-item-group-title: #888;
 @transition-duration: @ui-transition-fast;
 @transition-timing-function: cubic-bezier(0,0,.2,1);
 
@@ -94,9 +95,8 @@
       transition: opacity @transition-duration @transition-timing-function;
       padding: @ui-unit-half 0 @ui-unit-half @ui-unit-half;
       height: @ui-unit-triple;
-      width: 80px;
       float: left;
-      width: ~'calc(100% - 180px)';
+      width: ~'calc(100% - 170px)';
       opacity: 1;
       &-name, &-company {
         text-overflow: ellipsis;
@@ -120,6 +120,9 @@
       height: @ui-unit-triple;
       text-align: center;
       cursor: pointer;
+    }
+    &-settings {
+      margin-right: -@ui-unit-half;
     }
   }
   &__scrollbar {
@@ -229,7 +232,7 @@
   .@{prefix-cls}-nav__item-group {
     cursor: default;
     .@{prefix-cls}-nav__item-group-title {
-      color: @ui-color-gray-dark;
+      color: @color-item-group-title;
       font-size: 13px;
       padding: @ui-unit 15px 15px 25px;
     }
