@@ -171,7 +171,7 @@ class Components extends React.Component {
                 avatar:
                   'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
                 name: 'KIMI GAO',
-                company: 'Github Earth '
+                company: 'Earth React UI'
               }}
               logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
             >

@@ -88,16 +88,10 @@ class SubNav extends React.Component {
     const { open, active, newChildren } = this.state
     const { className, icon, title, ...other } = this.props
 
-    const NavIcon = /\//.test(icon) ? (
-      <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
+    const SubNavIcon = /\//.test(icon) ? (
+      <Icon className={`${prefixCls}-nav__sub-nav-title-icon`} src={icon} />
     ) : (
-      <Icon type={icon} className={`${prefixCls}-nav__sub-nav-icon`} />
-    )
-    const ToggleIcon = (
-      <Icon
-        type="triangleright"
-        className={`${prefixCls}-nav__sub-nav-toggle`}
-      />
+      <Icon type={icon} className={`${prefixCls}-nav__sub-nav-title-icon`} />
     )
 
     // Child nodes are no longer rendered when the nav item is closed.
@@ -107,7 +101,7 @@ class SubNav extends React.Component {
         className={cx(
           `${prefixCls}-nav__sub-nav`,
           {
-            [`${prefixCls}-nav__sub-nav_open`]: open,
+            [`${prefixCls}-nav__sub-nav--open`]: open,
             [`${prefixCls}-nav__sub-nav--active`]: active
           },
           className
@@ -115,13 +109,16 @@ class SubNav extends React.Component {
         {...other}
       >
         <div
-          className={`${prefixCls}-nav_sub-nav-entity`}
+          className={`${prefixCls}-nav_sub-nav-title`}
           onClick={this.handleToggle}
         >
-          {NavIcon}
-          <span className={`${prefixCls}-nav_sub-nav-entity-text`}>
+          {SubNavIcon}
+          <span>
             {title}
-            {ToggleIcon}
+            <Icon
+              type="triangleright"
+              className={`${prefixCls}-nav__sub-nav-title-toggle`}
+            />
           </span>
         </div>
         {open && newChildren && <ul>{newChildren}</ul>}

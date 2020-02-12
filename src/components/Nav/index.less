@@ -1,4 +1,5 @@
 @import "~ui-variables";
+@import "mixin";
 
 @nav-width: 330px;
 @color-menu-border: @ui-color-slate-darkest;
@@ -9,27 +10,6 @@
 @color-active-nav-item: @theme;
 @transition-duration: @ui-transition-fast;
 @transition-timing-function: cubic-bezier(0,0,.2,1);
-
-.mixin-shadow() {
-  display: block;
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: @ui-unit-half;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(44, 44, 44, 0) 100%);
-  border-bottom: 1px solid @color-menu-shadow-border;
-}
-.mixin-top-shadow() {
-  .mixin-shadow();
-  top: 0;
-  transform: rotate(-180deg);
-}
-.mixin-bottom-shadow() {
-  .mixin-shadow();
-  bottom: 0;
-  border-bottom-color: transparent;
-}
 
 .@{prefix-cls}-nav {
   position: relative;
@@ -183,7 +163,7 @@
       opacity: 0;
     }
   }
-  .@{prefix-cls}-nav__sub-nav_open {
+  .@{prefix-cls}-nav__sub-nav--open {
     > ul {
       width: 0;
       display: none;
@@ -196,11 +176,11 @@
       background-color: @theme;
     }
     > .@{prefix-cls}-nav_item-entity,
-    > .@{prefix-cls}-nav_sub-nav-entity {
+    > .@{prefix-cls}-nav_sub-nav-title {
       height: @ui-unit-triple;
     }
   }
-  .@{prefix-cls}-nav__sub-nav-toggle {
+  .@{prefix-cls}-nav__sub-nav-title-toggle {
     opacity: 0;
   }
 }
@@ -210,8 +190,8 @@
   background-color: @color-primary-nav-item;
   transition: background-color @ui-transition-now linear;
   white-space: nowrap;
-  > .@{prefix-cls}-nav_item-entity,
-  > .@{prefix-cls}-nav_sub-nav-entity {
+  > .@{prefix-cls}-nav_item-title,
+  > .@{prefix-cls}-nav_sub-nav-title {
     display: block;
     position: relative;
     color: @theme-text;
@@ -257,12 +237,12 @@
 }
 
 .@{prefix-cls}-nav__item-icon,
-.@{prefix-cls}-nav__sub-nav-icon {
+.@{prefix-cls}-nav__sub-nav-title-icon {
   margin-right: @ui-unit;
   text-align: center;
 }
 
-.@{prefix-cls}-nav__sub-nav-toggle {
+.@{prefix-cls}-nav__sub-nav-title-toggle {
   position: absolute;
   right: @ui-unit;
   top: 50%;
@@ -272,25 +252,25 @@
   font-size: @ui-fontsize-mini;
 }
 
-.@{prefix-cls}-nav__sub-nav_open {
+.@{prefix-cls}-nav__sub-nav--open {
   > ul {
     display: block;
   }
-  .@{prefix-cls}-nav__sub-nav-toggle {
+  .@{prefix-cls}-nav__sub-nav-title-toggle {
     transform: rotate(90deg);
   }
 }
 
 //.@{prefix-cls}-nav__sub-nav {
-//  .@{prefix-cls}-nav__item_active {
-//    .@{prefix-cls}-nav_item-entity {
+//  .@{prefix-cls}-nav__item--active {
+//    .@{prefix-cls}-nav_item-title {
 //      z-index: 1;
 //    }
 //  }
 //}
 
-.@{prefix-cls}-nav__item_active {
-  > .@{prefix-cls}-nav_item-entity {
+.@{prefix-cls}-nav__item--active {
+  > .@{prefix-cls}-nav_item-title {
     color: @theme-text;
     background-color: @theme;
   }

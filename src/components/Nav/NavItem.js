@@ -33,7 +33,7 @@ class NavItem extends React.Component {
     const { active } = this.state
     const { children, className, icon, title, indent, ...other } = this.props
 
-    const NavIcon = /\//.test(icon) ? (
+    const NavItemIcon = /\//.test(icon) ? (
       <Icon className={`${prefixCls}-nav__item-icon`} src={icon} />
     ) : (
       <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
@@ -45,15 +45,15 @@ class NavItem extends React.Component {
         className={cx(
           `${prefixCls}-nav__item`,
           {
-            [`${prefixCls}-nav__item_active`]: active
+            [`${prefixCls}-nav__item--active`]: active
           },
           className
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_item-entity`}>
-          {NavIcon}
-          <span className={`${prefixCls}-nav_item-entity-text`}>
+        <div className={`${prefixCls}-nav_item-title`}>
+          {NavItemIcon}
+          <span>
             {title}
             {children}
           </span>
@@ -74,7 +74,7 @@ NavItem.propTypes = {
 
   indent: PropTypes.number,
 
-  // 导航项 id
+  // id of navigation item
   id: PropTypes.string.isRequired,
 
   // 导航项标题，可以是文本字符串，也可以是 React 元素
