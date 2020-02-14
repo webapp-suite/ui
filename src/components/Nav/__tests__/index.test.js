@@ -4,6 +4,14 @@ import { Nav, SubNav, NavItemGroup, NavItem } from '..'
 
 describe('<Nav>', () => {
   const navClassName = 'true-nav'
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+  afterEach(() => {
+    errorSpy.mockReset()
+  })
+
+  afterAll(() => {
+    errorSpy.mockRestore()
+  })
   it('should render successfully when there are only NavItems in Nav', () => {
     const wrapper = (
       <Nav selectedId="1">
@@ -62,5 +70,14 @@ describe('<Nav>', () => {
         .find(`.${navClassName}`)
         .hasClass(`.${navClassName}--collapsed`)
     ).toBeFalsy()
+  })
+  it('should throw error when there is no selectedId prop', () => {
+    const wrapper = (
+      <Nav collapsed>
+        <NavItem id="1" />
+      </Nav>
+    )
+    render(wrapper)
+    expect(errorSpy.mock.calls.length).toBe(1)
   })
 })
