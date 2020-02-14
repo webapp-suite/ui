@@ -1,35 +1,66 @@
 import React from 'react'
 import { render } from 'enzyme'
-import { findDOMNode } from 'react-dom'
-import TestUtils from 'react-dom/test-utils'
-import { Nav, SubNav, NavItemGroup, NavItem } from '../index'
+import { Nav, SubNav, NavItemGroup, NavItem } from '..'
 
-// Object.defineProperty(window.location, 'href', {
-//   writable: true,
-//   value: '/'
-// })
-
-describe('Nav', () => {
-  const wrapper = (
-    <Nav selectedId="1">
-      <SubNav id="2" defaultOpen>
-        <NavItemGroup>
+describe('<Nav>', () => {
+  const navClassName = 'true-nav'
+  it('should render successfully when there are only NavItems in Nav', () => {
+    const wrapper = (
+      <Nav selectedId="1">
+        <NavItem id="1" />
+        <NavItem id="2" />
+      </Nav>
+    )
+    expect(render(wrapper)).toMatchSnapshot()
+  })
+  it('should render successfully when there are SubNavs in Nav', () => {
+    const wrapper = (
+      <Nav selectedId="1">
+        <SubNav>
+          <NavItem id="2" />
+          <NavItem id="3" />
+        </SubNav>
+      </Nav>
+    )
+    expect(render(wrapper)).toMatchSnapshot()
+  })
+  it('should render successfully when there are NavItemGroup in SubNav', () => {
+    const wrapper = (
+      <Nav selectedId="1">
+        <NavItem id="1" />
+        <NavItem id="2" />
+        <SubNav>
           <NavItem id="3" />
           <NavItem id="4" />
-        </NavItemGroup>
-      </SubNav>
-    </Nav>
-  )
-  it('should defaultOpen works', () => {
-    jsdom.reconfigure({
-      href: '/'
-    })
-    const instance = TestUtils.renderIntoDocument(wrapper)
-    expect(findDOMNode(instance).querySelector('li').className).toContain(
-      'open'
+        </SubNav>
+        <SubNav>
+          <NavItemGroup>
+            <NavItem id="4" />
+            <NavItem id="5" />
+          </NavItemGroup>
+        </SubNav>
+      </Nav>
     )
-  })
-  it('should render correctly', () => {
     expect(render(wrapper)).toMatchSnapshot()
+  })
+  it('should keep Nav collapsed when there is no collapsed prop on Nav', () => {
+    const wrapper = (
+      <Nav selectedId="1">
+        <NavItem id="1" />
+      </Nav>
+    )
+    expect(render(wrapper).find(`.${navClassName}--collapsed`)).toBeTruthy()
+  })
+  it('should keep Nav open when set collapsed prop to be false on Nav', () => {
+    const wrapper = (
+      <Nav selectedId="1" collapsed>
+        <NavItem id="1" />
+      </Nav>
+    )
+    expect(
+      render(wrapper)
+        .find(`.${navClassName}`)
+        .hasClass(`.${navClassName}--collapsed`)
+    ).toBeFalsy()
   })
 })

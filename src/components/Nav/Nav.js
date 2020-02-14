@@ -8,10 +8,10 @@ import NavBottom from './NavBottom'
 
 class Nav extends Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = {
       selectedId: props.selectedId || '',
-      collapsed: true,
+      collapsed: this.props.collapsed,
       collapsedTrigger: ''
     }
   }
@@ -43,6 +43,7 @@ class Nav extends Component {
     delete other.user
     delete other.onSettingClick
     delete other.onLogoutClick
+    delete other.collapsed
 
     if (width) {
       if (collapsed) {
@@ -119,6 +120,10 @@ Nav.propTypes = {
 
   // The click event of each NavItem, the parameters are the current NavItem props and event object
   onItemClick: PropTypes.func
+}
+
+Nav.defaultProps = {
+  collapsed: true
 }
 
 export default Nav

@@ -9,16 +9,16 @@ export default function NavBottom ({ user, onSettingClick, onLogoutClick }) {
       <div className={`${prefixCls}-nav__bottom-image`}>
         <img
           className={`${prefixCls}-nav__bottom-image-icon`}
-          src={user.avatar}
+          src={user?.avatar}
           alt="Avatar"
         />
       </div>
       <div className={`${prefixCls}-nav__bottom-user`}>
         <span className={`${prefixCls}-nav__bottom-user-name`}>
-          {user.name}
+          {user?.name}
         </span>
         <span className={`${prefixCls}-nav__bottom-user-company`}>
-          {user.company}
+          {user?.company}
         </span>
       </div>
       <div className={`${prefixCls}-nav__bottom-logout`}>
