@@ -36,13 +36,20 @@ class Nav extends Component {
 
   render () {
     const { collapsed } = this.state
-    const { children, className, width, logoUrl, ...other } = this.props
+    const {
+      children,
+      className,
+      width,
+      logoUrl,
+      user,
+      onSettingClick,
+      onLogoutClick,
+      ...other
+    } = this.props
 
     delete other.selectedId
     delete other.onItemClick
     delete other.user
-    delete other.onSettingClick
-    delete other.onLogoutClick
     delete other.collapsed
 
     if (width) {
@@ -92,7 +99,11 @@ class Nav extends Component {
         <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
           <ul>{children}</ul>
         </Scrollbar>
-        <NavBottom {...this.props} />
+        <NavBottom
+          user={user}
+          onSettingClick={onSettingClick}
+          onLogoutClick={onLogoutClick}
+        />
       </div>
     )
   }
@@ -118,8 +129,21 @@ Nav.propTypes = {
   // The width of expanded navigation, default value is `330px`
   width: PropTypes.number,
 
+  // User information
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    company: PropTypes.string
+  }),
+
   // The click event of each NavItem, the parameters are the current NavItem props and event object
-  onItemClick: PropTypes.func
+  onItemClick: PropTypes.func,
+
+  // The click event of setting button
+  onSettingClick: PropTypes.func,
+
+  // The click event of logout button
+  onLogoutClick: PropTypes.func
 }
 
 Nav.defaultProps = {

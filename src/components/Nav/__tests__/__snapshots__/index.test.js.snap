@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 1`] = `
+exports[`<Nav> basic features should render successfully when there are NavItemGroup in SubNav 1`] = `
 <div
   class="true-nav true-nav--collapsed"
 >
@@ -73,7 +73,7 @@ exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 
             id="1"
           >
             <div
-              class="true-nav_item-title"
+              class="true-nav__item-title"
             >
               <i
                 class="true-icon true-nav__item-icon"
@@ -86,7 +86,7 @@ exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 
             id="2"
           >
             <div
-              class="true-nav_item-title"
+              class="true-nav__item-title"
             >
               <i
                 class="true-icon true-nav__item-icon"
@@ -98,7 +98,7 @@ exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 
             class="true-nav__sub-nav"
           >
             <div
-              class="true-nav_sub-nav-title"
+              class="true-nav__sub-nav-title"
             >
               <i
                 class="true-icon true-nav__sub-nav-title-icon"
@@ -114,7 +114,7 @@ exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 
             class="true-nav__sub-nav"
           >
             <div
-              class="true-nav_sub-nav-title"
+              class="true-nav__sub-nav-title"
             >
               <i
                 class="true-icon true-nav__sub-nav-title-icon"
@@ -194,7 +194,7 @@ exports[`<Nav> should render successfully when there are NavItemGroup in SubNav 
 </div>
 `;
 
-exports[`<Nav> should render successfully when there are SubNavs in Nav 1`] = `
+exports[`<Nav> basic features should render successfully when there are SubNavs in Nav 1`] = `
 <div
   class="true-nav true-nav--collapsed"
 >
@@ -266,7 +266,7 @@ exports[`<Nav> should render successfully when there are SubNavs in Nav 1`] = `
             class="true-nav__sub-nav"
           >
             <div
-              class="true-nav_sub-nav-title"
+              class="true-nav__sub-nav-title"
             >
               <i
                 class="true-icon true-nav__sub-nav-title-icon"
@@ -346,7 +346,7 @@ exports[`<Nav> should render successfully when there are SubNavs in Nav 1`] = `
 </div>
 `;
 
-exports[`<Nav> should render successfully when there are only NavItems in Nav 1`] = `
+exports[`<Nav> basic features should render successfully when there are only NavItems in Nav 1`] = `
 <div
   class="true-nav true-nav--collapsed"
 >
@@ -419,7 +419,7 @@ exports[`<Nav> should render successfully when there are only NavItems in Nav 1`
             id="1"
           >
             <div
-              class="true-nav_item-title"
+              class="true-nav__item-title"
             >
               <i
                 class="true-icon true-nav__item-icon"
@@ -432,7 +432,7 @@ exports[`<Nav> should render successfully when there are only NavItems in Nav 1`
             id="2"
           >
             <div
-              class="true-nav_item-title"
+              class="true-nav__item-title"
             >
               <i
                 class="true-icon true-nav__item-icon"

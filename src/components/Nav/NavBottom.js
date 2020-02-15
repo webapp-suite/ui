@@ -51,7 +51,6 @@ NavBottom.propTypes = {
     name: PropTypes.string,
     company: PropTypes.string
   }),
-
   onSettingClick: PropTypes.func,
   onLogoutClick: PropTypes.func
 }

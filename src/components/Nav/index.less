@@ -178,8 +178,8 @@
     &--active {
       background-color: @theme;
     }
-    > .@{prefix-cls}-nav_item-entity,
-    > .@{prefix-cls}-nav_sub-nav-title {
+    > .@{prefix-cls}-nav__item-entity,
+    > .@{prefix-cls}-nav__sub-nav-title {
       height: @ui-unit-triple;
     }
   }
@@ -193,8 +193,8 @@
   background-color: @color-primary-nav-item;
   transition: background-color @ui-transition-now linear;
   white-space: nowrap;
-  > .@{prefix-cls}-nav_item-title,
-  > .@{prefix-cls}-nav_sub-nav-title {
+  > .@{prefix-cls}-nav__item-title,
+  > .@{prefix-cls}-nav__sub-nav-title {
     display: block;
     position: relative;
     color: @theme-text;
@@ -266,14 +266,14 @@
 
 //.@{prefix-cls}-nav__sub-nav {
 //  .@{prefix-cls}-nav__item--active {
-//    .@{prefix-cls}-nav_item-title {
+//    .@{prefix-cls}-nav__item-title {
 //      z-index: 1;
 //    }
 //  }
 //}
 
 .@{prefix-cls}-nav__item--active {
-  > .@{prefix-cls}-nav_item-title {
+  > .@{prefix-cls}-nav__item-title {
     color: @theme-text;
     background-color: @theme;
   }

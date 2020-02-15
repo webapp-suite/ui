@@ -8,8 +8,7 @@ class SubNav extends React.Component {
     super(props)
     this.state = {
       open: false,
-      active: false,
-      newChildren: props.children
+      active: false
     }
   }
 
@@ -41,6 +40,9 @@ class SubNav extends React.Component {
       state: { selectedId, collapsedTrigger }
     }
   }) => {
+    if (!Array.isArray(this.props.children)) {
+      return
+    }
     for (const child of this.props.children) {
       if (child.type.name === 'NavItem') {
         if (child.props.id === selectedId) {
@@ -85,8 +87,8 @@ class SubNav extends React.Component {
   }
 
   render () {
-    const { open, active, newChildren } = this.state
-    const { className, icon, title, ...other } = this.props
+    const { open, active } = this.state
+    const { className, icon, title, children, ...other } = this.props
 
     const SubNavIcon = /\//.test(icon) ? (
       <Icon className={`${prefixCls}-nav__sub-nav-title-icon`} src={icon} />
@@ -109,7 +111,7 @@ class SubNav extends React.Component {
         {...other}
       >
         <div
-          className={`${prefixCls}-nav_sub-nav-title`}
+          className={`${prefixCls}-nav__sub-nav-title`}
           onClick={this.handleToggle}
         >
           {SubNavIcon}
@@ -121,7 +123,7 @@ class SubNav extends React.Component {
             />
           </span>
         </div>
-        {open && newChildren && <ul>{newChildren}</ul>}
+        {open && children && <ul>{children}</ul>}
       </li>
     )
   }
@@ -135,7 +137,7 @@ SubNav.propTypes = {
   className: PropTypes.string,
 
   // The children of SubNav which can be NavItem or NavItemGroup
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 
   // The title of SubNav which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

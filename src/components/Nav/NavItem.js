@@ -51,7 +51,7 @@ class NavItem extends React.Component {
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_item-title`}>
+        <div className={`${prefixCls}-nav__item-title`}>
           {NavItemIcon}
           <span>
             {title}
@@ -81,7 +81,7 @@ NavItem.propTypes = {
   // Click the navigation item will call this function
   onClick: PropTypes.func,
 
-  // Navigation item icon, support `Icon` component or svg url
+  // Navigation item icon, support `Icon` component or svg url. It's not recommended.
   icon: PropTypes.string
 }
 
