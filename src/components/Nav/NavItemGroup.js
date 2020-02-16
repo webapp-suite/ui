@@ -18,7 +18,7 @@ NavItemGroup.propTypes = {
   className: PropTypes.string,
 
   // NavItem list
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 
   // The title of NavItemGroup which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
