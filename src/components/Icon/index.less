@@ -39,7 +39,7 @@ i {
       height: 24px;
       float: left;
       margin-top: -2px;
-
+      margin-left: -2px;
       path {
         fill: currentColor;
       }
@@ -459,7 +459,6 @@ i {
 .@{prefix-cls}-icon__arrowleft:before,
 .@{prefix-cls}-icon__back:before,
 .@{prefix-cls}-icon__arrowright:before,
-.@{prefix-cls}-icon__logout:before,
 .@{prefix-cls}-icon__arrowup:before,
 .@{prefix-cls}-icon__apps:before,
 .@{prefix-cls}-icon__settings:before,
@@ -507,12 +506,17 @@ i {
 
 // Top Fixes .......................................................................
 
-.@{prefix-cls}-icon__close:before,
-.@{prefix-cls}-icon__checked-alt:before,
-.@{prefix-cls}-icon__remove:before,
-.@{prefix-cls}-icon__industry:before {
-  //top: px;
+.@{prefix-cls}-icon__close:before {
+  top: -1px;
 }
+
+.@{prefix-cls}-icon__logout:before {
+  top: 1.3px;
+}
+.@{prefix-cls}-icon__settings:before {
+  top: 1.4px;
+}
+
 .@{prefix-cls}-icon__previously-requested:before,
 .@{prefix-cls}-icon__preview:before,
 .@{prefix-cls}-icon__view:before,
@@ -532,7 +536,6 @@ i {
 .@{prefix-cls}-icon__heart:before,
 .@{prefix-cls}-icon__send:before,
 .@{prefix-cls}-icon__apps:before,
-.@{prefix-cls}-icon__settings:before,
 .@{prefix-cls}-icon__addfilter:before{
   top: 2px;
 }

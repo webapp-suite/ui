@@ -1,12 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import Button from '../Button'
+import Scrollbar from '../Scrollbar'
+import { MenuIcon } from './MenuIcon'
+import NavBottom from './NavBottom'
 
 class Nav extends Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = {
-      selectedId: props.selectedId || ''
+      selectedId: props.selectedId || '',
+      collapsed: this.props.collapsed,
+      collapsedTrigger: ''
     }
   }
 
@@ -17,29 +23,87 @@ class Nav extends Component {
   }
 
   handleItemClick (props, e) {
-    this.setState({selectedId: props.id})
+    this.setState({ selectedId: props.id })
     this.props.onItemClick && this.props.onItemClick(props, e)
   }
 
+  handleCollapseToggle (collapsed) {
+    this.setState({
+      collapsed,
+      collapsedTrigger: collapsed ? 'close-icon' : 'menu-icon'
+    })
+  }
+
   render () {
-    const { children, className, width, indent, ...other } = this.props
+    const { collapsed } = this.state
+    const {
+      children,
+      className,
+      width,
+      logoUrl,
+      user,
+      onSettingClick,
+      onLogoutClick,
+      ...other
+    } = this.props
 
     delete other.selectedId
     delete other.onItemClick
+    delete other.user
+    delete other.collapsed
 
     if (width) {
-      other.style = Object.assign(other.style || {}, { width })
+      if (collapsed) {
+        delete other?.style?.width
+      } else {
+        other.style = Object.assign(other.style || {}, { width })
+      }
     }
 
-    const childrenWithNewProps = React.Children.map(children, child => {
-      return React.cloneElement(child, {
-        indent
-      })
-    })
-
     return (
-      <div className={cx(`${prefixCls}-nav`, className)} {...other}>
-        <ul>{childrenWithNewProps}</ul>
+      <div
+        className={cx(
+          `${prefixCls}-nav`,
+          { [`${prefixCls}-nav--collapsed`]: collapsed },
+          className
+        )}
+        {...other}
+      >
+        <div className={`${prefixCls}-nav__top`}>
+          <div
+            className={`${prefixCls}-nav__top-left-container`}
+            onClick={() => this.handleCollapseToggle(false)}
+          >
+            <MenuIcon
+              className={`${prefixCls}-nav__top-left-container-menu-icon`}
+            />
+          </div>
+          <div className={`${prefixCls}-nav__top-center-container`}>
+            <img
+              className={`${prefixCls}-nav__top-center-container-logo`}
+              src={logoUrl}
+              alt="Logo"
+            />
+          </div>
+          <div className={`${prefixCls}-nav__top-right-container`}>
+            <Button
+              className={cx(
+                `${prefixCls}-nav__btn-icon`,
+                `${prefixCls}-nav__top-right-container-close-icon`
+              )}
+              onClick={() => this.handleCollapseToggle(true)}
+              icon="close"
+            />
+          </div>
+        </div>
+        <Scrollbar className={`${prefixCls}-nav__scrollbar`}>
+          <ul>{children}</ul>
+        </Scrollbar>
+        <NavBottom
+          user={user}
+          onSettingClick={onSettingClick}
+          onLogoutClick={onLogoutClick}
+        />
       </div>
     )
   }
@@ -50,29 +114,40 @@ Nav.childContextTypes = {
 }
 
 Nav.propTypes = {
-
   children: PropTypes.node,
-
   className: PropTypes.string,
 
-  // 当前选中的导航项的 id
+  // The id of active nav item
   selectedId: PropTypes.string.isRequired,
 
-  // 导航是否收起状态
+  // The url of logo image such as svg, png
+  logoUrl: PropTypes.string,
+
+  // Whether the navigation is collapsed
   collapsed: PropTypes.bool,
 
-  // 导航缩进宽度
-  indent: PropTypes.number,
-
-  // 导航宽度
+  // The width of expanded navigation, default value is `330px`
   width: PropTypes.number,
 
-  // 叶子节点 NavItem 点击事件，参数为当前 NavItem 的 props 以及 event 对象
-  onItemClick: PropTypes.func
+  // User information
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    company: PropTypes.string
+  }),
+
+  // The click event of each NavItem, the parameters are the current NavItem props and event object
+  onItemClick: PropTypes.func,
+
+  // The click event of setting button
+  onSettingClick: PropTypes.func,
+
+  // The click event of logout button
+  onLogoutClick: PropTypes.func
 }
 
 Nav.defaultProps = {
-  indent: 24
+  collapsed: true
 }
 
 export default Nav

@@ -18,7 +18,7 @@ const dataList = [
       'Make the layout more convenient and consistent. Follow the current design trend, also keep simple and rigorous.'
   },
   {
-    icon: 'docs-icon-chat-bubble-square-alert-2',
+    icon: 'docs-icon-dialog',
     title: 'Programmatic Declarative Components',
     intro:
       'This kind of components can build UI quickly without requiring developers’ too much attention to style and typo.'

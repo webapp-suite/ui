@@ -4,6 +4,13 @@ import cx from 'classnames'
 import Icon from '../Icon'
 
 class NavItem extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      active: false
+    }
+  }
+
   setActiveState (props) {
     const active = this.context.nav.state.selectedId === props.id
     this.setState({ active })
@@ -19,22 +26,18 @@ class NavItem extends React.Component {
 
   handleClick = e => {
     this.props.onClick && this.props.onClick(e)
-    const props = {...this.props}
-    delete props.indent
-    this.context.nav.handleItemClick(props, e)
+    this.context.nav.handleItemClick(this.props, e)
   }
 
   render () {
     const { active } = this.state
-    const { children, className, icon, title, indent, ...other } = this.props
+    const { children, className, icon, title, ...other } = this.props
 
-    const NavIcon = icon && <Icon type={icon} className={`${prefixCls}-nav__item-icon`} src={icon} />
-
-    let indentStyle
-
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
-    }
+    const NavItemIcon = /\//.test(icon) ? (
+      <Icon className={`${prefixCls}-nav__item-icon`} src={icon} />
+    ) : (
+      <Icon type={icon} className={`${prefixCls}-nav__item-icon`} />
+    )
 
     return (
       <li
@@ -42,13 +45,19 @@ class NavItem extends React.Component {
         className={cx(
           `${prefixCls}-nav__item`,
           {
-            [`${prefixCls}-nav__item_active`]: active
+            [`${prefixCls}-nav__item--active`]: active
           },
           className
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_item-entity`} style={indentStyle}>{NavIcon}{title}{children}</div>
+        <div className={`${prefixCls}-nav__item-title`}>
+          {NavItemIcon}
+          <span>
+            {title}
+            {children}
+          </span>
+        </div>
       </li>
     )
   }
@@ -59,23 +68,20 @@ NavItem.contextTypes = {
 }
 
 NavItem.propTypes = {
-
   children: PropTypes.node,
 
   className: PropTypes.string,
 
-  indent: PropTypes.number,
-
-  // 导航项 id
+  // The id of navigation item
   id: PropTypes.string.isRequired,
 
-  // 导航项标题，可以是文本字符串，也可以是 React 元素
+  // Navigation item title which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击导航项调用此函数
+  // Click the navigation item will call this function
   onClick: PropTypes.func,
 
-  // 导航项图标，参考 Icon 组件 type 属性
+  // Navigation item icon, support `Icon` component or svg url. It's not recommended.
   icon: PropTypes.string
 }
 

@@ -1,53 +1,517 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nav should render correctly 1`] = `
-<div
-  class="true-nav"
->
-  <ul>
-    <li
-      class="true-nav__sub-nav true-nav__sub-nav_open"
-      id="2"
+exports[`<Nav> basic features should render successfully when there are NavItemGroup in SubNav 1`] = `
+Object {
+  "container": <div>
+    <div
+      class="true-nav true-nav--collapsed"
     >
       <div
-        class="true-nav_sub-nav-entity"
-        style="padding-left:24px"
+        class="true-nav__top"
       >
-        <i
-          class="true-icon true-icon__triangleright true-nav__sub-nav-toggle"
-        />
+        <div
+          class="true-nav__top-left-container"
+        >
+          <svg
+            class="true-nav__top-left-container-menu-icon"
+            height="22"
+            width="22"
+          >
+            <g
+              fill="#FFF"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z"
+              />
+              <rect
+                height="4"
+                rx="1"
+                width="22"
+                y="9"
+              />
+              <rect
+                height="4"
+                rx="1"
+                width="22"
+                y="18"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="true-nav__top-center-container"
+        >
+          <img
+            alt="Logo"
+            class="true-nav__top-center-container-logo"
+          />
+        </div>
+        <div
+          class="true-nav__top-right-container"
+        >
+          <button
+            class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__top-right-container-close-icon"
+            type="button"
+          >
+            <i
+              class="true-icon true-icon__close"
+            />
+          </button>
+        </div>
       </div>
-      <ul>
-        <li
-          class="true-nav__item-group"
+      <div
+        class="true-scrollbar true-nav__scrollbar"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
         >
           <div
-            class="true-nav__item-group-title"
-            style="padding-left:32px"
+            style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: 0px; margin-bottom: 0px;"
+          >
+            <ul>
+              <li
+                class="true-nav__item true-nav__item--active"
+                id="1"
+              >
+                <div
+                  class="true-nav__item-title"
+                >
+                  <i
+                    class="true-icon true-nav__item-icon"
+                  />
+                  <span />
+                </div>
+              </li>
+              <li
+                class="true-nav__item"
+                id="2"
+              >
+                <div
+                  class="true-nav__item-title"
+                >
+                  <i
+                    class="true-icon true-nav__item-icon"
+                  />
+                  <span />
+                </div>
+              </li>
+              <li
+                class="true-nav__sub-nav"
+              >
+                <div
+                  class="true-nav__sub-nav-title"
+                >
+                  <i
+                    class="true-icon true-nav__sub-nav-title-icon"
+                  />
+                  <span>
+                    <i
+                      class="true-icon true-icon__triangleright true-nav__sub-nav-title-toggle"
+                    />
+                  </span>
+                </div>
+              </li>
+              <li
+                class="true-nav__sub-nav"
+              >
+                <div
+                  class="true-nav__sub-nav-title"
+                >
+                  <i
+                    class="true-icon true-nav__sub-nav-title-icon"
+                  />
+                  <span>
+                    <i
+                      class="true-icon true-icon__triangleright true-nav__sub-nav-title-toggle"
+                    />
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            style="position: absolute; height: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              class="thumb-vertical"
+              style="position: relative; display: block; width: 100%; background-color: rgba(90, 90, 90, 0.8); border-radius: inherit;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="true-nav__bottom"
+      >
+        <div
+          class="true-nav__bottom-image"
+        >
+          <img
+            alt="Avatar"
+            class="true-nav__bottom-image-icon"
           />
+        </div>
+        <div
+          class="true-nav__bottom-user"
+        >
+          <span
+            class="true-nav__bottom-user-name"
+          />
+          <span
+            class="true-nav__bottom-user-company"
+          />
+        </div>
+        <div
+          class="true-nav__bottom-logout"
+        >
+          <button
+            class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-logout-icon"
+            type="button"
+          >
+            <i
+              class="true-icon true-icon__logout"
+            />
+          </button>
+        </div>
+        <div
+          class="true-nav__bottom-settings"
+        >
+          <button
+            class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-settings-icon"
+            type="button"
+          >
+            <i
+              class="true-icon true-icon__settings"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+}
+`;
+
+exports[`<Nav> basic features should render successfully when there are SubNavs in Nav 1`] = `
+<div>
+  <div
+    class="true-nav true-nav--collapsed"
+  >
+    <div
+      class="true-nav__top"
+    >
+      <div
+        class="true-nav__top-left-container"
+      >
+        <svg
+          class="true-nav__top-left-container-menu-icon"
+          height="22"
+          width="22"
+        >
+          <g
+            fill="#FFF"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z"
+            />
+            <rect
+              height="4"
+              rx="1"
+              width="22"
+              y="9"
+            />
+            <rect
+              height="4"
+              rx="1"
+              width="22"
+              y="18"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="true-nav__top-center-container"
+      >
+        <img
+          alt="Logo"
+          class="true-nav__top-center-container-logo"
+        />
+      </div>
+      <div
+        class="true-nav__top-right-container"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__top-right-container-close-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__close"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="true-scrollbar true-nav__scrollbar"
+    >
+      <div
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: 0px; margin-bottom: 0px;"
+        >
           <ul>
             <li
-              class="true-nav__item"
-              id="3"
+              class="true-nav__sub-nav"
             >
               <div
-                class="true-nav_item-entity"
-                style="padding-left:48px"
-              />
+                class="true-nav__sub-nav-title"
+              >
+                <i
+                  class="true-icon true-nav__sub-nav-title-icon"
+                />
+                <span>
+                  <i
+                    class="true-icon true-icon__triangleright true-nav__sub-nav-title-toggle"
+                  />
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          style="position: absolute; height: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+        >
+          <div
+            style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+          />
+        </div>
+        <div
+          style="position: absolute; width: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+        >
+          <div
+            class="thumb-vertical"
+            style="position: relative; display: block; width: 100%; background-color: rgba(90, 90, 90, 0.8); border-radius: inherit;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="true-nav__bottom"
+    >
+      <div
+        class="true-nav__bottom-image"
+      >
+        <img
+          alt="Avatar"
+          class="true-nav__bottom-image-icon"
+        />
+      </div>
+      <div
+        class="true-nav__bottom-user"
+      >
+        <span
+          class="true-nav__bottom-user-name"
+        />
+        <span
+          class="true-nav__bottom-user-company"
+        />
+      </div>
+      <div
+        class="true-nav__bottom-logout"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-logout-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__logout"
+          />
+        </button>
+      </div>
+      <div
+        class="true-nav__bottom-settings"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-settings-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__settings"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Nav> basic features should render successfully when there are only NavItems in Nav 1`] = `
+<div>
+  <div
+    class="true-nav true-nav--collapsed"
+  >
+    <div
+      class="true-nav__top"
+    >
+      <div
+        class="true-nav__top-left-container"
+      >
+        <svg
+          class="true-nav__top-left-container-menu-icon"
+          height="22"
+          width="22"
+        >
+          <g
+            fill="#FFF"
+            fill-rule="evenodd"
+          >
+            <path
+              d="M0 1.01A1 1 0 0 1 1.002 0h19.996A1 1 0 0 1 22 1.01v1.98A1 1 0 0 1 20.998 4H1.002A1 1 0 0 1 0 2.99V1.01z"
+            />
+            <rect
+              height="4"
+              rx="1"
+              width="22"
+              y="9"
+            />
+            <rect
+              height="4"
+              rx="1"
+              width="22"
+              y="18"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="true-nav__top-center-container"
+      >
+        <img
+          alt="Logo"
+          class="true-nav__top-center-container-logo"
+        />
+      </div>
+      <div
+        class="true-nav__top-right-container"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__top-right-container-close-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__close"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="true-scrollbar true-nav__scrollbar"
+    >
+      <div
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: 0px; margin-bottom: 0px;"
+        >
+          <ul>
+            <li
+              class="true-nav__item true-nav__item--active"
+              id="1"
+            >
+              <div
+                class="true-nav__item-title"
+              >
+                <i
+                  class="true-icon true-nav__item-icon"
+                />
+                <span />
+              </div>
             </li>
             <li
               class="true-nav__item"
-              id="4"
+              id="2"
             >
               <div
-                class="true-nav_item-entity"
-                style="padding-left:48px"
-              />
+                class="true-nav__item-title"
+              >
+                <i
+                  class="true-icon true-nav__item-icon"
+                />
+                <span />
+              </div>
             </li>
           </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
+        </div>
+        <div
+          style="position: absolute; height: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+        >
+          <div
+            style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+          />
+        </div>
+        <div
+          style="position: absolute; width: 6px; transition: opacity 200ms; opacity: 0; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+        >
+          <div
+            class="thumb-vertical"
+            style="position: relative; display: block; width: 100%; background-color: rgba(90, 90, 90, 0.8); border-radius: inherit;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="true-nav__bottom"
+    >
+      <div
+        class="true-nav__bottom-image"
+      >
+        <img
+          alt="Avatar"
+          class="true-nav__bottom-image-icon"
+        />
+      </div>
+      <div
+        class="true-nav__bottom-user"
+      >
+        <span
+          class="true-nav__bottom-user-name"
+        />
+        <span
+          class="true-nav__bottom-user-company"
+        />
+      </div>
+      <div
+        class="true-nav__bottom-logout"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-logout-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__logout"
+          />
+        </button>
+      </div>
+      <div
+        class="true-nav__bottom-settings"
+      >
+        <button
+          class="true-button true-button--md true-button__icon-only true-nav__btn-icon true-nav__bottom-settings-icon"
+          type="button"
+        >
+          <i
+            class="true-icon true-icon__settings"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;

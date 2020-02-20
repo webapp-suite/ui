@@ -5,46 +5,96 @@ import Icon from '../Icon'
 
 class SubNav extends React.Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = {
-      open: props.defaultOpen || false
+      open: false,
+      active: false
     }
   }
 
-  toggle = e => {
+  handleToggle = e => {
     e.preventDefault()
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open })
   }
 
   handleClick = e => {
+    if (this.context.nav.state.collapsed) {
+      this.context.nav.setState({
+        collapsed: false,
+        collapsedTrigger: 'sub-nav-icon'
+      })
+      this.setState({ open: true })
+    }
     this.props.onClick && this.props.onClick(e)
   }
 
-  render () {
-    const { open } = this.state
-    const { children, className, defaultOpen, icon, title, indent, ...other } = this.props
-
-    const NavIcon = icon && <Icon className={`${prefixCls}-nav__sub-nav-icon`} src={icon} />
-    const ToggleIcon = <Icon type="triangleright" className={`${prefixCls}-nav__sub-nav-toggle`} />
-
-    let indentStyle
-
-    if (indent) {
-      indentStyle = { paddingLeft: `${indent}px` }
+  componentDidUpdate (nextProps, nextState) {
+    // Close all sub navs when click close-icon button on the right top
+    if (this.context.nav.state.collapsed && this.state.open) {
+      this.setState({ open: false })
     }
+  }
 
-    const childrenWithNewProps = React.Children.map(children, child => {
-      if (child.type.name === 'NavItemGroup') {
-        return React.cloneElement(child, {
-          indent: indent + 8
-        })
-      }
+  activateOrOpenSubNav = ({
+    nav: {
+      state: { selectedId, collapsedTrigger }
+    }
+  }) => {
+    if (!Array.isArray(this.props.children)) {
+      return
+    }
+    for (const child of this.props.children) {
       if (child.type.name === 'NavItem') {
-        return React.cloneElement(child, {
-          indent: indent * 2
-        })
+        if (child.props.id === selectedId) {
+          // Make the current SubNav active if one of children is active
+          this.setState({ active: true })
+          // Make the active NavItem's corresponding SubNav open if click menu icon
+          !this.state.open &&
+            collapsedTrigger === 'menu-icon' &&
+            this.setState({ open: true })
+          return
+        }
       }
-    })
+      if (child.type.name === 'NavItemGroup') {
+        for (const item of child.props.children) {
+          if (item.props.id === selectedId) {
+            // Make the current SubNav active if one of children is active
+            this.setState({ active: true })
+            // Make the active NavItem's corresponding SubNav open if click menu icon
+            !this.state.open &&
+              collapsedTrigger === 'menu-icon' &&
+              this.setState({ open: true })
+            return
+          }
+        }
+      }
+    }
+    this.setState({ active: false })
+  }
+
+  /**
+   * Called by props and context changes such as `this.context.nav`
+   */
+  componentWillReceiveProps (nextProps, nextContext) {
+    this.activateOrOpenSubNav(nextContext)
+  }
+
+  /**
+   * Called after the component mounted
+   */
+  componentDidMount () {
+    this.activateOrOpenSubNav(this.context)
+  }
+
+  render () {
+    const { open, active } = this.state
+    const { className, icon, title, children, ...other } = this.props
+
+    const SubNavIcon = /\//.test(icon) ? (
+      <Icon className={`${prefixCls}-nav__sub-nav-title-icon`} src={icon} />
+    ) : (
+      <Icon type={icon} className={`${prefixCls}-nav__sub-nav-title-icon`} />
+    )
 
     // Child nodes are no longer rendered when the nav item is closed.
     return (
@@ -53,38 +103,50 @@ class SubNav extends React.Component {
         className={cx(
           `${prefixCls}-nav__sub-nav`,
           {
-            [`${prefixCls}-nav__sub-nav_open`]: open
+            [`${prefixCls}-nav__sub-nav--open`]: open,
+            [`${prefixCls}-nav__sub-nav--active`]: active
           },
           className
         )}
         {...other}
       >
-        <div className={`${prefixCls}-nav_sub-nav-entity`} onClick={this.toggle} style={indentStyle}>{NavIcon}{title}{ToggleIcon}</div>
-        {open && childrenWithNewProps && <ul>{childrenWithNewProps}</ul>}
+        <div
+          className={`${prefixCls}-nav__sub-nav-title`}
+          onClick={this.handleToggle}
+        >
+          {SubNavIcon}
+          <span>
+            {title}
+            <Icon
+              type="triangleright"
+              className={`${prefixCls}-nav__sub-nav-title-toggle`}
+            />
+          </span>
+        </div>
+        {open && children && <ul>{children}</ul>}
       </li>
     )
   }
 }
 
+SubNav.contextTypes = {
+  nav: PropTypes.object
+}
+
 SubNav.propTypes = {
   className: PropTypes.string,
 
-  indent: PropTypes.number,
+  // The children of SubNav which can be NavItem or NavItemGroup
+  children: PropTypes.node,
 
-  // 二级导航的导航项
-  children: PropTypes.node.isRequired,
-
-  // 二级导航标题，可以是文本字符串，也可以是 React 元素
+  // The title of SubNav which can be a text string or a React element
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // 点击二级导航项调用此函数
+  // The click event of each SubNav
   onClick: PropTypes.func,
 
-  // 二级导航项图标，参考 Icon 组件 type 属性
-  icon: PropTypes.string,
-
-  // 初始化是否展开（不可控）
-  defaultOpen: PropTypes.bool
+  // SubNav icon, support `Icon` component or svg url
+  icon: PropTypes.string
 }
 
 export default SubNav

@@ -1,8 +1,10 @@
 {
   "extends": [
     "standard",
-    "standard-react"
+    "standard-react",
+    "plugin:testing-library/react"
   ],
+  "plugins": ["testing-library"],
   "env": {
     "browser": true,
     "node": true,

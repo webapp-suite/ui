@@ -1,5 +1,5 @@
 /**
- * @title 基本功能
+ * @title Basic Usage
  * @renderModel right
  */
 
@@ -11,25 +11,45 @@ class NavBasic extends Component {
     console.log(res)
     notification.success(res.title);
   }
+  handleSettingClick = () => {
+    notification.success('Setting Clicked!');
+  }
+  handleLogoutClick = () => {
+    notification.success('Logout Clicked!');
+  }
   render () {
     return (
-      <Nav selectedId="1" width={240} onItemClick={this.handleClick}>
-        <NavItem id="1" icon="envelope-o" title="NavItem 1" />
-        <SubNav icon="th" title="SubNav 1" defaultOpen>
-          <NavItem id="2" title="NavItem 2" />
-          <NavItem id="3" title="NavItem 3" />
-        </SubNav>
-        <SubNav icon="th" title="SubNav 2" defaultOpen>
-          <NavItemGroup title="NavItemGroup 1">
-            <NavItem id="4" title="NavItem 4" />
-            <NavItem id="5" title="NavItem 5" />
-          </NavItemGroup>
-          <NavItemGroup title="NavItemGroup 2">
-            <NavItem id="7" title="NavItem 7" />
-            <NavItem id="8" title="NavItem 8" />
-          </NavItemGroup>
-        </SubNav>
-      </Nav>
+      <div style={{display: 'flex', height: 600}}>
+        <Nav
+          selectedId="1"
+          onItemClick={this.handleClick}
+          onSettingClick={this.handleSettingClick}
+          onLogoutClick={this.handleLogoutClick}
+          user={{
+            avatar: 'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
+            name: 'KIMI GAO',
+            company: 'Earth React UI'
+          }}
+          logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
+        >
+          <NavItem id="1" icon="discovery" title="NavItem 1" />
+          <SubNav icon="calendar" title="SubNav 1">
+            <NavItem id="2" title="NavItem 2" />
+            <NavItem id="3" title="NavItem 3" />
+          </SubNav>
+          <SubNav icon="apps" title="SubNav 2">
+            <NavItemGroup title="NavItemGroup 1">
+              <NavItem id="4" title="NavItem 4" />
+              <NavItem id="5" title="NavItem 5" />
+            </NavItemGroup>
+            <NavItemGroup title="NavItemGroup 2">
+              <NavItem id="7" title="NavItem 7" />
+              <NavItem id="8" title="NavItem 8" />
+            </NavItemGroup>
+          </SubNav>
+        </Nav>
+        <div style={{border: '2px solid red', width: '100%'}}>Main content</div>
+      </div>
     )
   }
 }
