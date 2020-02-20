@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/cosmos-x/earth-ui/compare/v0.7.0...v0.7.1) (2020-02-20)
+
+
+### Bug Fixes
+
+* **deps:** react-custom-scrollbars missing ([c123603](https://github.com/cosmos-x/earth-ui/commit/c123603819214f6910a301b462d97e82d1cff518))
+
 ## [0.7.0](https://github.com/cosmos-x/earth-ui/compare/v0.6.0...v0.7.0) (2020-02-20)
 
 
