@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/cosmos-x/earth-ui/compare/v0.6.0...v0.7.0) (2020-02-20)
+
+
+### Features
+
+* **input:** add new input component ([#77](https://github.com/cosmos-x/earth-ui/issues/77)) ([653de93](https://github.com/cosmos-x/earth-ui/commit/653de93744bab75d10688260220244c2ffce8b78)), closes [#62](https://github.com/cosmos-x/earth-ui/issues/62)
+* **Nav:** make the Nav can collapsed and opened ([#197](https://github.com/cosmos-x/earth-ui/issues/197)) ([98aa328](https://github.com/cosmos-x/earth-ui/commit/98aa328b606a41dac8bcb83f45672a9bf9cae16e))
+
 ## [0.6.0](https://github.com/cosmos-x/earth-ui/compare/v0.5.0...v0.6.0) (2019-10-01)
 
 
