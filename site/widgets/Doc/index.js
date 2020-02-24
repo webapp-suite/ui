@@ -20,7 +20,7 @@ const Doc = props => {
             <tr>
               <th>Property</th>
               <th>Type</th>
-              {/* <th>默认</th> */}
+              <th>Default</th>
               <th>Description</th>
             </tr>
           </thead>
@@ -35,7 +35,7 @@ const Doc = props => {
                   {prop.name}
                 </td>
                 <td className="doc__prop-type">{prop.type}</td>
-                {/* <td className="doc__prop-type">{props.defaultProps}</td> */}
+                <td className="doc__prop-type">{prop.default || '-'}</td>
                 <td>
                   <Markdown html={prop.desc} />
                 </td>

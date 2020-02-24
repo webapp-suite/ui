@@ -18,7 +18,7 @@ const asyncComponent = path =>
         './pages/Home'
       )
     }
-    return path.match('.dox')
+    return path.match(/\.dox|\.mdx/)
       ? import(
           /* webpackExclude: /__tests__/ */
           /* webpackChunkName: '[request]' */
@@ -51,6 +51,9 @@ const WIP = [
 const getComponentDoc = component => {
   if (WIP.includes(component)) {
     return 'InProgress'
+  }
+  if (component === 'Test') {
+    return `${component}/docs/${component}.mdx`
   }
   return `${component.split('-')[0]}/docs/${component}.dox`
 }
