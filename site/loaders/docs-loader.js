@@ -117,7 +117,7 @@ export default ({...props}) => {
 }
 
 ${content}
-  `
+`
 
   return res
 }

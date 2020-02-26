@@ -10,7 +10,7 @@ module.exports = () => (tree, file) => {
         /(?:var|let|const|class|function)\s(\w+)/
       )[1]
       node.value = `
-      <Example renderModel="${node.meta || 'left'}" code="${code}">
+      <Example renderModel="${node.meta || 'left'}" code={\`${code}\`}>
         <${componentName} />
       </Example>
     `
