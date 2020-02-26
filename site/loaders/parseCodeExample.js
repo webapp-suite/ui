@@ -7,7 +7,7 @@ module.exports = () => (tree, file) => {
       /** get example component name */
       const code = node.value
       const componentName = node.value.match(
-        /(?:let|const|class|function)\s(\w+)/
+        /(?:var|let|const|class|function)\s(\w+)/
       )[1]
       node.value = `
       <Example renderModel="${node.meta || 'left'}" code="${code}">

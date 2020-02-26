@@ -4,8 +4,8 @@ const reactDocs = require('react-docgen')
 const matter = require('gray-matter')
 const imports = require('./imports')
 
-const getSourceCode = compnentName => {
-  let dir = path.join(__dirname, '../../src/components/' + compnentName)
+const getSourceCode = componentName => {
+  let dir = path.join(__dirname, '../../src/components/' + componentName)
   try {
     if (fs.statSync(dir).isDirectory()) {
       dir += '/index.js'
@@ -97,9 +97,12 @@ module.exports = async function (source) {
   })
 
   const res = `
-${imports.getAll().join('\r\n')}
-const docs = ${JSON.stringify(docs)}
-export ${componentsFromExample[2]}
+${imports.getAll().join('\n\n')}
+
+export ${componentsFromExample.join('\n\nexport ')}
+
+export const docs = ${JSON.stringify(docs)}
+
 export default ({...props}) => {
   return (
     <div>
@@ -112,6 +115,7 @@ export default ({...props}) => {
     </div>
   )
 }
+
 ${content}
   `
 
