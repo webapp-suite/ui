@@ -44,8 +44,8 @@ class Example extends React.Component {
     const { open } = this.state
     const renderInLeft = () => {
       return (
-        <Row className={cx('demo', { demo__open: open }, className)}>
-          <Col col="md-16" className="demo__left">
+        <Row className={cx('example', { example__open: open }, className)}>
+          <Col col="md-32" className="example__left">
             <Board theme="simple">
               <Tabs>
                 <BoardHeader>
@@ -55,10 +55,10 @@ class Example extends React.Component {
                   </TabList>
                 </BoardHeader>
                 <BoardBody>
-                  <TabPanel tab="One" className="demo__content">
+                  <TabPanel tab="One" className="example__content">
                     {children}
                   </TabPanel>
-                  <TabPanel tab="Two" className="demo__code">
+                  <TabPanel tab="Two" className="example__code">
                     <Code lang="jsx">{code}</Code>
                   </TabPanel>
                 </BoardBody>
@@ -72,17 +72,17 @@ class Example extends React.Component {
       return (
         <Row
           className={cx(
-            'demo',
-            'demo__no-tabs-board',
-            { demo__open: !open },
+            'example',
+            'example__no-tabs-board',
+            { example__open: !open },
             className
           )}
         >
-          <Col col="md-16" className="demo__left">
-            <div className="demo__no-tabs-board-render">{children}</div>
+          <Col col="md-32" className="example__left">
+            <div className="example__no-tabs-board-render">{children}</div>
             <Board theme="simple">
               <BoardBody>
-                <div className="demo__code">
+                <div className="example__code">
                   <Code lang="jsx">{code}</Code>
                 </div>
               </BoardBody>
@@ -93,21 +93,21 @@ class Example extends React.Component {
     }
     const renderInFull = () => {
       return (
-        <Row className={cx('demo', { demo__open: !open }, className)}>
-          <Col col="md-24">
-            <div className="demo__content">{children}</div>
+        <Row className={cx('example', { example__open: !open }, className)}>
+          <Col col="md-32">
+            <div className="example__content">{children}</div>
           </Col>
         </Row>
       )
     }
     const renderInRun = () => {
       return (
-        <Row className={cx('demo', { demo__open: !open }, className)}>
-          <Col col="md-16" className="demo__left">
+        <Row className={cx('example', { example__open: !open }, className)}>
+          <Col col="md-32" className="example__left">
             <Board theme="simple">
               <BoardHeader>{children}</BoardHeader>
               <BoardBody>
-                <div className="demo__code">
+                <div className="example__code">
                   <Code lang="jsx">{trimCode(code)}</Code>
                 </div>
               </BoardBody>

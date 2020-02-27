@@ -2,22 +2,50 @@
 props: [Test, Button]
 ---
 
-# Basic Usage
-## Description
+## Basic Usage
+
+The display and hiding of loading effects are controlled by the value of `isLoading`.
 
 ```jsx left
-import { Button, Test } from 'earth-ui'
+import { Spinner, Switch } from 'earth-ui'
 
-class TestBasic1 extends React.Component {
-  render () {
+class SpinnerBasic extends React.Component {
+  constructor() {
+    super();
+    this.state = { isLoading: false }
+  }
+  toggle(value) {
+    this.setState({ isLoading: value });
+  }
+  render() {
+    const border = {
+      height: '120px',
+      lineHeight: '118px',
+      color: '#aaa',
+      textAlign: 'center',
+      border: '1px dashed #ccc'
+    }
     return (
-      <Test />
+      <div>
+        <div style={{ marginBottom: 16 }}>
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
+        </div>
+        <div style={border}>
+          <Spinner isLoading={this.state.isLoading}>
+            Will be overridden by the load effect
+          </Spinner>
+        </div>
+      </div>
     )
   }
 }
 ```
 
-dede
+This component will ensure that the loading display time is at least `300ms` to avoid the bad experience as "flash".
+
+## Custom description
+
+The description of spinner could be changed by the `tip` property。
 
 ```jsx right
 import { Button, Test } from 'earth-ui'

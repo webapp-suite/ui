@@ -106,7 +106,9 @@ export const docs = ${JSON.stringify(docs)}
 export default ({...props}) => {
   return (
     <div>
-      {props.children}
+      <Row>
+        <Col col="md-16"><div className="markdown">{props.children}</div></Col>
+      </Row>
       {docs.length > 0 && (
         <Row>
           <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
