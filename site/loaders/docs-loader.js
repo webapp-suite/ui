@@ -4,10 +4,7 @@ const reactDocs = require('react-docgen')
 const marked = require('marked')
 const matter = require('gray-matter')
 const imports = require('./imports')
-
-const DESCRIPTION_REGEX = /\r?\n?\s*\*\s?/g
-const IMPORT_REGEX = /import\s[\w|{](?:\w|\s|,|\n|\r)*}\sfrom\s.*/g
-const EXAMPLE_CODE_REGEX = /```jsx?\s(?:tabs|vertical|renderOnly|run).*[\n\r](([^```]|\n|\r)+)```/g
+const constant = require('../constant')
 
 const getSourceCode = componentName => {
   let dir = path.join(__dirname, '../../src/components/' + componentName)
@@ -40,7 +37,7 @@ const generateItemProps = componentName => {
       type,
       required,
       description: marked(
-        description.replace(DESCRIPTION_REGEX, '\r\n').trim()
+        description.replace(constant.DESCRIPTION_REGEX, '\r\n').trim()
       ),
       default: defaultValue && defaultValue.value
     }
@@ -53,18 +50,18 @@ const generateItemProps = componentName => {
 
 const getExampleCodes = content => {
   const exampleCodes = []
-  content.replace(EXAMPLE_CODE_REGEX, (match, $1) => {
+  content.replace(constant.EXAMPLE_CODE_REGEX, (match, $1) => {
     exampleCodes.push($1)
   })
   return exampleCodes
 }
 
 const getImportsFromExample = exampleCode => {
-  return exampleCode.match(IMPORT_REGEX)
+  return exampleCode.match(constant.IMPORT_REGEX)
 }
 
 const getComponentsFromExample = exampleCode => {
-  return exampleCode.replace(IMPORT_REGEX, '').trim()
+  return exampleCode.replace(constant.IMPORT_REGEX, '').trim()
 }
 
 module.exports = function (source) {
