@@ -52,8 +52,8 @@ const getComponentDoc = component => {
   if (WIP.includes(component)) {
     return 'InProgress'
   }
-  if (component === 'Test') {
-    return `${component}/docs/${component}.mdx`
+  if (component.includes('Test')) {
+    return `${component.split('-')[0]}/docs/${component}.mdx`
   }
   return `${component.split('-')[0]}/docs/${component}.dox`
 }

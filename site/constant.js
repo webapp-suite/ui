@@ -1,6 +1,6 @@
 exports.EXAMPLE_MODE = {
-  LEFT: 'left',
-  RIGHT: 'right',
-  FULL: 'full',
+  TABS: 'tabs',
+  VERTICAL: 'vertical',
+  RENDER_ONLY: 'renderOnly',
   RUN: 'run'
 }

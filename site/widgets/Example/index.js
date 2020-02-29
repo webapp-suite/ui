@@ -14,6 +14,7 @@ import {
   Tabs
 } from 'earth-ui'
 import Code from 'widgets/Code'
+import { EXAMPLE_MODE } from '../../constant'
 import './index.less'
 
 class Example extends React.Component {
@@ -31,10 +32,10 @@ class Example extends React.Component {
   render () {
     const { className, code, renderModel, children, onRunClick } = this.props
     const { open } = this.state
-    const renderInLeft = () => {
+    const renderInTabs = () => {
       return (
         <Row className={cx('example', { example__open: open }, className)}>
-          <Col col="md-32" className="example__left">
+          <Col col="md-32" className="example__col">
             <Board theme="simple">
               <Tabs>
                 <BoardHeader>
@@ -57,7 +58,7 @@ class Example extends React.Component {
         </Row>
       )
     }
-    const renderInRight = () => {
+    const renderInVertical = () => {
       return (
         <Row
           className={cx(
@@ -67,7 +68,7 @@ class Example extends React.Component {
             className
           )}
         >
-          <Col col="md-32" className="example__left">
+          <Col col="md-32" className="example__col">
             <div className="example__no-tabs-board-render">{children}</div>
             <Board theme="simple">
               <BoardBody>
@@ -80,7 +81,7 @@ class Example extends React.Component {
         </Row>
       )
     }
-    const renderInFull = () => {
+    const renderInRenderOnly = () => {
       return (
         <Row className={cx('example', { example__open: !open }, className)}>
           <Col col="md-32">
@@ -92,7 +93,7 @@ class Example extends React.Component {
     const renderInRun = () => {
       return (
         <Row className={cx('example', { example__open: !open }, className)}>
-          <Col col="md-32" className="example__left">
+          <Col col="md-32" className="example__col">
             <Board theme="simple">
               <BoardHeader>
                 <Button onClick={() => onRunClick()} size="sm">
@@ -110,10 +111,10 @@ class Example extends React.Component {
       )
     }
     const render = {
-      left: renderInLeft,
-      right: renderInRight,
-      full: renderInFull,
-      run: renderInRun
+      [EXAMPLE_MODE.TABS]: renderInTabs,
+      [EXAMPLE_MODE.VERTICAL]: renderInVertical,
+      [EXAMPLE_MODE.RENDER_ONLY]: renderInRenderOnly,
+      [EXAMPLE_MODE.RUN]: renderInRun
     }
     return render[renderModel]()
   }
@@ -124,7 +125,7 @@ Example.propTypes = {
   className: PropTypes.string,
   code: PropTypes.string,
   onRunClick: PropTypes.func,
-  renderModel: PropTypes.oneOf(['left', 'right', 'full', 'run'])
+  renderModel: PropTypes.oneOf(['tabs', 'vertical', 'renderOnly', 'run'])
 }
 
 export default Example

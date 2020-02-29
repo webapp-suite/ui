@@ -1,0 +1,33 @@
+```jsx renderOnly
+import { Header } from 'earth-ui'
+
+const ColorfulHeader = () => {
+  const colors = [
+    'white',
+    'blue',
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'purple',
+    'pink',
+    'gray',
+    'slate',
+    'black'
+  ]
+  const li = {
+    width: '100%',
+    listStyle: 'none',
+    marginBottom: 20
+  }
+  return (
+    <ul>
+      {colors.map(color =>
+        <li style={li} key={color}>
+          <Header icon="/svg/app_logo_bg_blue.svg" title={color} color={color} />
+        </li>
+      )}
+    </ul>
+  )
+}
+```

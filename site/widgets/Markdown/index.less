@@ -10,7 +10,7 @@
       text-decoration: underline;
     }
   }
-  & > li {
+  & > ul li, & > ol li {
     margin-left: @ui-unit-half * 1.5;
     margin-bottom: @ui-unit-quarter;
   }
@@ -71,8 +71,9 @@
     margin-top: @ui-unit;
   }
   & > p > code,
-  & > li > code,
-  & > td > code,
+  & > ul li > code,
+  & > ol li > code,
+  & > table td > code,
   & > h1 > code,
   & > h2 > code,
   & > h3 > code,
