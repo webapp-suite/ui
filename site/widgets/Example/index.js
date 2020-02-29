@@ -5,6 +5,7 @@ import {
   Board,
   BoardBody,
   BoardHeader,
+  Button,
   Col,
   Row,
   Tab,
@@ -13,19 +14,7 @@ import {
   Tabs
 } from 'earth-ui'
 import Code from 'widgets/Code'
-import * as type from '../../../src/components/_utils/type'
 import './index.less'
-
-function trimCode (code) {
-  if (!type.isString(code)) {
-    return
-  }
-  const snippet = code.split(';')[1]
-  const snippetArray = snippet.split('\n')
-  const lastSnippetItem = snippetArray[snippetArray.length - 1]
-  const indent = lastSnippetItem.length - lastSnippetItem.trim().length
-  return snippetArray.map((v, i) => (i === 0 ? v : v.slice(indent))).join('\n')
-}
 
 class Example extends React.Component {
   constructor (props) {
@@ -40,7 +29,7 @@ class Example extends React.Component {
   }
 
   render () {
-    const { className, code, renderModel, children } = this.props
+    const { className, code, renderModel, children, onRunClick } = this.props
     const { open } = this.state
     const renderInLeft = () => {
       return (
@@ -105,10 +94,14 @@ class Example extends React.Component {
         <Row className={cx('example', { example__open: !open }, className)}>
           <Col col="md-32" className="example__left">
             <Board theme="simple">
-              <BoardHeader>{children}</BoardHeader>
+              <BoardHeader>
+                <Button onClick={() => onRunClick()} size="sm">
+                  RUN THIS CODE
+                </Button>
+              </BoardHeader>
               <BoardBody>
                 <div className="example__code">
-                  <Code lang="jsx">{trimCode(code)}</Code>
+                  <Code lang="jsx">{code}</Code>
                 </div>
               </BoardBody>
             </Board>
@@ -130,6 +123,7 @@ Example.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   code: PropTypes.string,
+  onRunClick: PropTypes.func,
   renderModel: PropTypes.oneOf(['left', 'right', 'full', 'run'])
 }
 

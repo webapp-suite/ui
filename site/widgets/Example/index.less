@@ -3,28 +3,12 @@
 .example {
   margin-top: @ui-unit;
   border-radius: @ui-radius;
+  line-height: @ui-unit;
   &:first-child {
     margin-top: 0;
   }
-  .earthui-board {
-    margin-bottom: @ui-unit;
-  }
-}
-
-.markdown {
-  margin-bottom: @ui-unit;
-  .example {
-    .earthui-tabs__list {
-      li {
-        margin: auto;
-      }
-      a {
-        color: inherit;
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
+  & + p {
+    margin-top: @ui-unit !important;
   }
 }
 

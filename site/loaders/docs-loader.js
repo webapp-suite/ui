@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const reactDocs = require('react-docgen')
+const marked = require('marked')
 const matter = require('gray-matter')
 const imports = require('./imports')
 
@@ -23,12 +24,9 @@ const generateItemProps = componentName => {
   const componentProps = reactDocs.parse(getSourceCode(componentName))
 
   const props = Object.keys(componentProps.props).map(key => {
-    let {
-      type,
-      required,
-      description: desc,
-      defaultValue
-    } = componentProps.props[key]
+    let { type, required, description, defaultValue } = componentProps.props[
+      key
+    ]
     if (Array.isArray(type.value)) {
       type = type.value.map(v => v.name || v.value).join('|')
     } else {
@@ -38,7 +36,9 @@ const generateItemProps = componentName => {
       name: key,
       type,
       required,
-      desc,
+      description: marked(
+        description.replace(/\r?\n?\s*\*\s?/g, '\r\n').trim()
+      ),
       default: defaultValue && defaultValue.value
     }
   })
@@ -50,9 +50,12 @@ const generateItemProps = componentName => {
 
 const getExampleCodes = content => {
   const exampleCodes = []
-  content.replace(/```jsx?.*(?:\n|\r)(([^```]|\n|\r)+)```/g, (match, $1) => {
-    exampleCodes.push($1)
-  })
+  content.replace(
+    /```jsx?\s(?:left|right|full|run).*(?:\n|\r)(([^```]|\n|\r)+)```/g,
+    (match, $1) => {
+      exampleCodes.push($1)
+    }
+  )
   return exampleCodes
 }
 
@@ -69,20 +72,20 @@ module.exports = async function (source) {
   // const callback = this.async()
 
   const { content, data } = matter(source)
-  let docs = []
+  let propsTables = []
   if (Array.isArray(data.props)) {
-    docs = data.props.map(componentName => {
+    propsTables = data.props.map(componentName => {
       return generateItemProps(componentName)
     })
   } else {
-    docs.push(generateItemProps(data.props))
+    propsTables.push(generateItemProps(data.props))
   }
 
   imports.reset()
 
   imports.add("import { Row, Col } from 'earth-ui';")
   imports.add("import Example from 'widgets/Example';")
-  imports.add("import Doc from 'widgets/Doc';")
+  imports.add("import PropsTable from 'widgets/PropsTable';")
   imports.add("import Markdown from 'widgets/Markdown';")
 
   const exampleCodes = getExampleCodes(content)
@@ -101,7 +104,7 @@ ${imports.getAll().join('\n\n')}
 
 export ${componentsFromExample.join('\n\nexport ')}
 
-export const docs = ${JSON.stringify(docs)}
+export const propsTables = ${JSON.stringify(propsTables)}
 
 export default ({...props}) => {
   return (
@@ -109,9 +112,9 @@ export default ({...props}) => {
       <Row>
         <Col col="md-16"><div className="markdown">{props.children}</div></Col>
       </Row>
-      {docs.length > 0 && (
+      {propsTables.length > 0 && (
         <Row>
-          <Col col="md-16">{docs.map(doc => <Doc key={doc.name} {...doc} />)}</Col>
+          <Col col="md-16">{propsTables.map(pt => <PropsTable key={pt.name} {...pt} />)}</Col>
         </Row>
       )}
     </div>

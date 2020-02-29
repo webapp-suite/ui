@@ -47,29 +47,84 @@ This component will ensure that the loading display time is at least `300ms` to 
 
 The description of spinner could be changed by the `tip` property。
 
-```jsx right
-import { Button, Test } from 'earth-ui'
+```jsx left
+import { Spinner, Switch } from 'earth-ui'
 
-class TestBasic2 extends React.Component {
-  render () {
+class SpinnerTip extends React.Component {
+  constructor() {
+    super();
+    this.state = { isLoading: false }
+  }
+  toggle(value) {
+    this.setState({ isLoading: value });
+  }
+  render() {
+    const border = {
+      height: '120px',
+      lineHeight: '118px',
+      color: '#aaa',
+      textAlign: 'center',
+      border: '1px dashed #ccc'
+    }
     return (
-      <Test />
+      <div>
+        <div style={{ marginBottom: 16 }}>
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
+        </div>
+        <div style={border}>
+          <Spinner tip="Loading..." isLoading={this.state.isLoading}>
+            Custom description
+          </Spinner>
+        </div>
+      </div>
     )
   }
 }
 ```
 
-dddd
+## Header
 
-```jsx full
-import { Button, Test } from 'earth-ui'
+```jsx right
+import { Header } from 'earth-ui'
 
-class TestBasic3 extends React.Component {
-  render () {
-    return (
-      <Test />
-    )
-  }
+const ColorfulHeader = () => {
+  return (
+    <Header icon="/svg/app_logo_bg_white.svg" title="Header" color="blue" />
+  )
+}
+```
+
+## Dialog Type
+
+The `danger` type dialog can be nested in the `warning` type dialog, so that the interaction will have a sense of hierarchy from weak to strong.
+
+```jsx run
+import { dialog, Button } from 'earth-ui'
+
+function DialogIcon() {
+  dialog.confirm('Proceed to Checkout?', 'CHECK OUT', {
+    icon: 'cart'
+  })
+}
+```
+
+This is the test for pure markdown code:
+
+```js
+export const EXAMPLE_MODE = {
+  LEFT: 'left',
+  RIGHT: 'right',
+  FULL: 'full',
+  RUN: 'run'
+}
+```
+
+```jsx
+export const EXAMPLE_MODE = {
+  LEFT: 'left',
+  RIGHT: 'right',
+  FULL: 'full',
+  RUN: 'run'
 }
 ```
 
