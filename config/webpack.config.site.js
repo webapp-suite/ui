@@ -4,6 +4,7 @@ const rimraf = require('rimraf')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const parseCodeExample = require('../site/loaders/parseCodeExample')
 const Prism = require('../site/3rdParty/prism/prism.js')
 const sitePath = path.resolve(__dirname, '../site')
 const sourcePath = path.resolve(__dirname, '../src')
@@ -27,7 +28,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         use: ['babel-loader'],
         exclude: /node_modules/
       },
@@ -100,6 +101,23 @@ const config = {
         ]
       },
       {
+        test: /\.mdx$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: '@mdx-js/loader',
+            options: {
+              remarkPlugins: [parseCodeExample]
+            }
+          },
+          {
+            loader: 'docs-loader'
+          }
+        ]
+      },
+      {
         test: /\.dox$/,
         use: ['babel-loader', 'dox-loader']
       },
@@ -111,7 +129,8 @@ const config = {
   },
   resolveLoader: {
     alias: {
-      'dox-loader': path.join(__dirname, '../site/loaders/dox')
+      'dox-loader': path.join(__dirname, '../site/loaders/dox'),
+      'docs-loader': path.join(__dirname, '../site/loaders/docs-loader')
     }
   },
   resolve: {

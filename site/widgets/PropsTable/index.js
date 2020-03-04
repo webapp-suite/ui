@@ -4,11 +4,11 @@ import cx from 'classnames'
 import Markdown from 'widgets/Markdown'
 import './index.less'
 
-const Doc = props => {
+const PropsTable = props => {
   return (
-    <div className="doc">
-      <header className="doc__header">
-        <div className="doc__title">
+    <div className="props-table">
+      <header className="props-table__header">
+        <div className="props-table__title">
           {props.name.charCodeAt(0) < 97
             ? '<' + props.name + ' />'
             : props.name}
@@ -28,16 +28,18 @@ const Doc = props => {
             {props.props.map(prop => (
               <tr key={prop.name}>
                 <td
-                  className={cx('doc__prop-name', {
-                    'doc__prop-name--required': prop.required
+                  className={cx('props-table__prop-name', {
+                    'props-table__prop-name--required': prop.required
                   })}
                 >
                   {prop.name}
                 </td>
-                <td className="doc__prop-type">{prop.type}</td>
-                <td className="doc__prop-type">{prop.default || '-'}</td>
+                <td className="props-table__prop-type">{prop.type}</td>
+                <td className="props-table__prop-type">
+                  {prop.default || '-'}
+                </td>
                 <td>
-                  <Markdown html={prop.desc} />
+                  <Markdown html={prop.description} />
                 </td>
               </tr>
             ))}
@@ -46,7 +48,7 @@ const Doc = props => {
       ) : null}
       {props.apis &&
         props.apis.map(api => {
-          const { name, type, desc, params } = api
+          const { name, type, description, params } = api
           return (
             <dl key={name}>
               <dt>
@@ -62,7 +64,7 @@ const Doc = props => {
                     {params.map(param => (
                       <li key={param.name}>
                         {param.name} {param.type}
-                        <Markdown html={param.desc} />
+                        <Markdown html={param.description} />
                       </li>
                     ))}
                   </ul>
@@ -71,7 +73,7 @@ const Doc = props => {
               {api.return && (
                 <dd>
                   <h2>Return</h2>
-                  {api.return.type + ' ' + api.return.desc}
+                  {api.return.type + ' ' + api.return.description}
                 </dd>
               )}
               {type && (
@@ -80,10 +82,10 @@ const Doc = props => {
                   {type}
                 </dd>
               )}
-              {desc && (
+              {description && (
                 <dd>
                   <h2>Description</h2>
-                  <Markdown html={desc} />
+                  <Markdown html={description} />
                 </dd>
               )}
             </dl>
@@ -93,10 +95,10 @@ const Doc = props => {
   )
 }
 
-Doc.propTypes = {
+PropsTable.propTypes = {
   name: PropTypes.string,
   apis: PropTypes.array,
   props: PropTypes.array
 }
 
-export default Doc
+export default PropsTable

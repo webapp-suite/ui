@@ -214,6 +214,20 @@
     "defaultOpen":true,
     "components":[
       {
+        "name":"Test",
+        "cn":"测试",
+        "tabs":[
+          {
+            "label":"usage",
+            "doc":"Test-usage"
+          },
+          {
+            "label":"gallery",
+            "doc":"Test-gallery"
+          }
+        ]
+      },
+      {
         "name":"Avatar",
         "cn":"头像",
         "icon":"edit"
