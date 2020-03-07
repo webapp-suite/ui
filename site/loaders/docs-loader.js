@@ -100,10 +100,14 @@ module.exports = function (source) {
       componentsFromExample.push(getComponentsFromExample(ec))
     })
 
+  const exportComponentsFromExample = componentsFromExample.length
+    ? `export ${componentsFromExample.join('\n\nexport ')}`
+    : ''
+
   const res = `
 ${imports.getAll().join('\n\n')}
 
-export ${componentsFromExample.join('\n\nexport ')}
+${exportComponentsFromExample}
 
 export const propsTables = ${JSON.stringify(propsTables)};
 

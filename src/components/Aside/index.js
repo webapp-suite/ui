@@ -66,12 +66,12 @@ class Aside extends React.Component {
 Aside.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  // Whether to open Aside
+  /** Whether to open Aside  */
   isOpen: PropTypes.bool.isRequired,
-  // The callback of closing Aside
+  /** The callback of closing Aside  */
   onClose: PropTypes.func.isRequired,
   onOpen: PropTypes.func,
-  // The title of Aside
+  /** The title of Aside  */
   title: PropTypes.string
 }
 
