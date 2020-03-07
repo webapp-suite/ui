@@ -143,7 +143,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pm2": "^4.2.1",
     "postcss-loader": "^3.0.0",
-    "prettier-standard": "^16.1.0",
+    "prettier-standard": "^16.2.1",
     "prop-types": "^15.6.1",
     "rc-queue-anim": "^1.6.10",
     "rc-scroll-anim": "^2.5.6",
