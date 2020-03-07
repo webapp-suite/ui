@@ -36,6 +36,7 @@ class Aside extends React.Component {
 
   componentWillMount () {
     React.Children.forEach(this.props.children, child => {
+      // TODO child.props.mdxType
       child?.type?.name === 'Tabs' && this.setState({ hasTabsChildren: true })
     })
   }

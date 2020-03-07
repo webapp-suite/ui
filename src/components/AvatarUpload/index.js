@@ -61,19 +61,19 @@ class AvatarUpload extends Component {
 AvatarUpload.propTypes = {
   className: PropTypes.string,
 
-  // The shape of avatar, default value is `circle`
+  /** The shape of avatar, default value is `circle` */
   shape: PropTypes.oneOf(['square', 'circle']),
 
-  // The size of avatar
+  /** The size of avatar */
   size: PropTypes.oneOf(['lg', 'xl']),
 
-  // The url of image
+  /** The url of image */
   src: PropTypes.string,
 
-  // The caption of avatar when hovering the avatar
+  /** The caption of avatar when hovering the avatar */
   text: PropTypes.string,
 
-  // The callback of clicking avatar
+  /** The callback of clicking avatar */
   onClick: PropTypes.func
 }
 

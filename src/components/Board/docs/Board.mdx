@@ -1,8 +1,12 @@
-/**
- * @title Basic Usage
- * @desc Board provides the `theme` property which allows you to choose between two theme styles: `classic` and `simple`. The default value is `classic` which is the style of white background with borders.
- * @renderModel right
- */
+---
+props: [Board/Board, Board/BoardHeader]
+---
+
+## Basic Usage
+
+Board provides the `theme` property which allows you to choose between two theme styles: `classic` and `simple`. The default value is `classic` which is the style of white background with borders.
+
+```jsx vertical
 import { Board, BoardHeader, BoardBody } from 'earth-ui'
 
 const BoardBasic = () => {
@@ -21,12 +25,13 @@ const BoardBasic = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Board with Title
- * @desc The `title` property on the `BoardHeader` allows you to customize the title and also supports all theme styles.
- * @renderModel right
- */
+## Board with Title
+
+The `title` property on the `BoardHeader` allows you to customize the title and also supports all theme styles.
+
+```jsx vertical
 import { Board, BoardHeader, BoardBody } from 'earth-ui'
 
 const BoardWithTitle = () => {
@@ -47,12 +52,12 @@ const BoardWithTitle = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Board with Buttons
- * @renderModel right
- */
-import { Board, BoardHeader, BoardBody, Button } from 'earth-ui'
+## Board with Buttons
+
+```jsx vertical
+import { Board, BoardHeader, BoardBody, Button, notification } from 'earth-ui'
 
 const BoardWithButtons = () => {
   return (
@@ -68,11 +73,11 @@ const BoardWithButtons = () => {
     </Board>
   )
 }
+```
 
-/**
- * @title Board with Tabs
- * @renderModel right
- */
+## Board with Tabs
+
+```jsx vertical
 import { Board, BoardHeader, BoardBody, Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
 const BoardWithTabs = () => {
@@ -95,6 +100,4 @@ const BoardWithTabs = () => {
     </Board>
   )
 }
-
-@component Board/Board
-@component Board/BoardHeader
+```

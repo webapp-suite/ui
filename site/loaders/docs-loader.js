@@ -29,6 +29,16 @@ const generateItemProps = componentName => {
     ]
     if (Array.isArray(type.value)) {
       type = type.value.map(v => v.name || v.value).join('|')
+    } else if (type.name === 'arrayOf') {
+      if (type.value.name === 'shape') {
+        const obj = type.value.value
+        const str = Object.keys(obj)
+          .map(key => `"${key}": ${obj[key].name}`)
+          .join(', ')
+        type = `Array<{${str}>`
+      } else {
+        type = type.value.name + '[]'
+      }
     } else {
       type = type.name
     }

@@ -1,7 +1,12 @@
-/**
- * @title Type
- * @desc The `default` and `primary` buttons are used in most cases, you can also use other types in specific scenarios.
- */
+---
+props: Button
+---
+
+## Type
+
+The `default` and `primary` buttons are used in most cases, you can also use other types in specific scenarios.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonType = () => {
@@ -17,11 +22,13 @@ const ButtonType = () => {
     </>
   )
 }
+```
 
-/**
- * @title Ghost
- * @desc The `ghost` style button is commonly used in the place where you don't want the button to stand out.
- */
+## Ghost
+
+The `ghost` style button is commonly used in the place where you don't want the button to stand out.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonGhost = () => {
@@ -37,11 +44,13 @@ const ButtonGhost = () => {
     </>
   )
 }
+```
 
-/**
- * @title Loading Button
- * @desc Assign the `loading` property to Button to initialize a spinner. Click event will be disabled when button is loading state, open the browser console you will see more logs.
- */
+## Loading Button
+
+Assign the `loading` property to Button to initialize a spinner. Click event will be disabled when button is loading state, open the browser console you will see more logs.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 import { useState } from 'react'
 
@@ -54,11 +63,13 @@ const LoadingButton = () => {
   }
   return <Button type="primary" loading={loading} onClick={handleClick}>SHOW LOADING</Button>
 }
+```
 
-/**
- * @title Block Button
- * @desc The `block` property will make the button fit to its parent width.
- */
+## Block Button
+
+The `block` property will make the button fit to its parent width.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonBlock = () => {
@@ -69,11 +80,13 @@ const ButtonBlock = () => {
     </>
   )
 }
+```
 
-/**
- * @title Size
- * @desc Besides default `md` size, Button component provides three additional sizes for you to choose among different scenarios.
- */
+## Size
+
+Besides default `md` size, Button component provides three additional sizes for you to choose among different scenarios.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonMicro = () => {
@@ -90,11 +103,13 @@ const ButtonMicro = () => {
     </>
   )
 }
+```
 
-/**
- * @title Icon
- * @desc Use icons to add more meaning to Button. You can use icon alone to save some space, or use it with text.
- */
+## Icon
+
+Use icons to add more meaning to Button. You can use icon alone to save some space, or use it with text.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonIcon = () => {
@@ -111,11 +126,13 @@ const ButtonIcon = () => {
     </>
   )
 }
+```
 
-/**
- * @title Disabled
- * @desc The `disabled` attribute determines if the button is disabled.
- */
+## Disabled
+
+The `disabled` attribute determines if the button is disabled.
+
+```jsx tabs
 import { Button } from 'earth-ui'
 
 const ButtonDisabled = () => {
@@ -132,5 +149,4 @@ const ButtonDisabled = () => {
     </>
   )
 }
-
-@component Button
+```

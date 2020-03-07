@@ -9,6 +9,7 @@ const rerangeChildren = children => {
   const buttonList = []
   const tabList = []
   children.forEach(elem => {
+    // TODO elem.props.mdxType
     React.isValidElement(elem) &&
       (elem?.type?.name === 'Button' ? buttonList : tabList).push(elem)
   })
@@ -38,7 +39,7 @@ BoardHeader.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // The title of Board
+  /** The title of Board */
   title: PropTypes.string
 }
 

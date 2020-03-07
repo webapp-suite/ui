@@ -61,25 +61,32 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // button type
-  type: PropTypes.oneOf(['primary', 'accept', 'warning', 'danger', 'link', 'text']),
+  /** button type */
+  type: PropTypes.oneOf([
+    'primary',
+    'accept',
+    'warning',
+    'danger',
+    'link',
+    'text'
+  ]),
 
-  // button size, default `md`
+  /** button size, default `md` */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
-  // determine whether it's a ghost button
+  /** determine whether it's a ghost button */
   ghost: PropTypes.bool,
 
-  // determine whether it's a block button
+  /** determine whether it's a block button */
   block: PropTypes.bool,
 
-  // determine whether it's loading
+  /** determine whether it's loading */
   loading: PropTypes.bool,
 
-  // disable the button
+  /** disable the button */
   disabled: PropTypes.bool,
 
-  // icon type name
+  /** icon type name */
   icon: PropTypes.string
 }
 

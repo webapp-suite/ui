@@ -1,19 +1,23 @@
-/**
- * @title Upload Avatar
- */
+---
+props: AvatarUpload
+---
+
+## Upload Avatar
+
+```jsx tabs
 import { AvatarUpload } from 'earth-ui'
 
 const AvatarUploadFirst = () => {
   return <AvatarUpload size="lg" text="Upload" onClick={() => confirm('e.g. Upload Avatar?')} />
 }
+```
 
-/**
- * @title Update Avatar
- */
+## Update Avatar
+
+```jsx tabs
 import { AvatarUpload } from 'earth-ui'
 
 const AvatarUploadUpdate = () => {
   return <AvatarUpload size="lg" text="Update Avatar" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg" onClick={() => confirm('e.g. Update Avatar')} />
 }
-
-@component AvatarUpload
+```
