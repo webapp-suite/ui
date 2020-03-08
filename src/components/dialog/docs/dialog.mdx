@@ -1,0 +1,92 @@
+> Dialogs are used for **upcoming** events that require the user to choose whether to proceed, similar to the JavaScript `comfirm()` method. Various types of dialogs and custom configuration are supported while text content also supports the basic markdown syntax.
+
+## Basic Usage
+
+```jsx tabs
+import { dialog, notification, Button } from "earth-ui";
+
+class DialogBasic extends React.Component {
+  handleClick() {
+    dialog.confirm("Will you try?", {
+      onAccept: function() {
+        notification.success("Good luck");
+      },
+      onCancel: function() {
+        notification.success("Come back later");
+      }
+    });
+  };
+  render() {
+    return (
+      <Button type="primary" onClick={() => this.handleClick()} ghost>OPEN DIALOG</Button>
+    );
+  }
+}
+```
+
+## Type
+
+There are four basic dialogs including `confirm`, `accept`, `warning` and `danger`.
+
+```jsx tabs
+import { dialog, Button } from "earth-ui";
+
+class DialogTypes extends React.Component {
+  handleClick(type) {
+    dialog[type](`Dialog ${type} message`);
+  };
+  render() {
+    return (
+      <>
+        <Button type="primary" onClick={() => this.handleClick("confirm")} ghost>CONFIRM</Button>
+        <Button type="primary" onClick={() => this.handleClick("accept")} ghost>ACCEPT</Button>
+        <Button type="primary" onClick={() => this.handleClick("warning")} ghost>WARNING</Button>
+        <Button type="primary" onClick={() => this.handleClick("danger")} ghost>DANGER</Button>
+      </>
+    );
+  }
+}
+```
+
+The `danger` type dialog can be nested in the `warning` type dialog, so that the interaction will have a sense of hierarchy from weak to strong.
+
+```jsx run
+import { dialog } from "earth-ui";
+
+const DialogWarning = () => {
+  dialog.warning("This will delete the thing.", "DELETE IT ?", {
+    onAccept: function() {
+      dialog.danger(
+        "Are you absolutely sure you want to *permanently* delete the whole thing?",
+        "CONFIRM"
+      );
+    }
+  });
+};
+```
+
+## Custom Text of Button
+
+You can customize the button text. The second and third arguments of `string` type will correspond to the text of the `ACCEPT` and `CANCEL` buttons respectively.
+
+```jsx run
+import { dialog } from "earth-ui";
+
+const DialogButtonsLabel = () => {
+  dialog.confirm("Will you try?", "JOIN NOW", "NOT NOW");
+};
+```
+
+## Custom Icon
+
+You can change any supported [Icon](/components/Icon-all-icons), but use common icons whenever possible so that the users can quickly recognize which type of dialog is.
+
+```jsx run
+import { dialog } from "earth-ui";
+
+const DialogIcon = () => {
+  dialog.confirm("Proceed to Checkout?", "CHECK OUT", {
+    icon: "cart"
+  });
+};
+```
