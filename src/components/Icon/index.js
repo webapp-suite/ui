@@ -25,9 +25,9 @@ const Icon = props => {
 
 Icon.propTypes = {
   className: PropTypes.string,
-  // icon type
+  /** icon type */
   type: PropTypes.string,
-  // icon src, such as svg xlinkHref
+  /** icon src, such as svg `xlinkHref` */
   src: PropTypes.string
 }
 

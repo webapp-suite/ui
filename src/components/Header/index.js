@@ -38,14 +38,26 @@ Header.propTypes = {
 
   children: PropTypes.node,
 
-  // The left icon of Header
+  /** The left icon of Header */
   icon: PropTypes.string,
 
-  // The title of Header
+  /** The title of Header */
   title: PropTypes.string,
 
-  // The background color of Header, default value is `white`
-  color: PropTypes.oneOf(['blue', 'red', 'orange', 'yellow', 'green', 'purple', 'pink', 'gray', 'slate', 'black', 'white'])
+  /** The background color of Header, default value is `white` */
+  color: PropTypes.oneOf([
+    'blue',
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'purple',
+    'pink',
+    'gray',
+    'slate',
+    'black',
+    'white'
+  ])
 }
 
 Header.defaultProps = {

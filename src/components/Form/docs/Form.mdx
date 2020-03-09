@@ -1,14 +1,18 @@
-@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+---
+props: [Form/Form, Form/FormItem, Form/FormSubmit]
+---
 
-/**
- * @title 基本功能
- * @desc 为了方便，FormInput、FormSelect、FormTextarea 自动绑定最近的 FormItem name 属性对应的数据；FormSubmit 触发表单提交，如果不指定 onSubmit 则自动调用 save
- */
+> 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+
+## 基本功能
+
+为了方便，FormInput、FormSelect、FormTextarea 自动绑定最近的 FormItem name 属性对应的数据；FormSubmit 触发表单提交，如果不指定 onSubmit 则自动调用 save
+
+```jsx tabs
 import update from 'react-update'
 import { notification, Option, Form, FormItem, FormSubmit, FormInput, FormSelect, FormTextarea } from 'earth-ui'
 
 class FormBasic extends Component {
-
   constructor(props) {
     super()
     this.update = update.bind(this)
@@ -27,20 +31,16 @@ class FormBasic extends Component {
       }
     }
   }
-
   handleDateSelect(date) {
     this.update('set', 'formData.date', date)
   }
-
   handleCitySelect(selects) {
     this.update('set', 'formData.cities', selects)
   }
-
-  handleSuccess = res => {
+  handleSuccess(res) {
     console.log(res)
     notification.success('操作成功！')
   }
-
   render() {
     const { formData } = this.state
     return (
@@ -49,7 +49,7 @@ class FormBasic extends Component {
         data={formData}
         onChange={formData => this.update('set', { formData })}
         rules={this.rules}
-        onSuccess={this.handleSuccess}
+        onSuccess={res => this.handleSuccess(res)}
         width={460}
       >
         <FormItem label="用户群" required name="name" help="5个字符以内">
@@ -70,7 +70,4 @@ class FormBasic extends Component {
     )
   }
 }
-
-@component Form/Form
-@component Form/FormItem
-@component Form/FormSubmit
+```

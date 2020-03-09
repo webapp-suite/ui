@@ -1,9 +1,14 @@
-@summary > Input is a controlled component and **does not support** `defaultValue` which is uncontrolled, it **always shows React binding value**. Under normal circumstances, input `onChange` should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
+---
+props: Input
+---
 
-/**
- * @title Basic usage
- * @desc The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
- */
+> Input is a controlled component and **does not support** `defaultValue` which is uncontrolled, it **always shows React binding value**. Under normal circumstances, input `onChange` should be handled. Its handler should update component's binding value. Otherwise, input box's value will not change.
+
+## Basic usage
+
+The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
+
+```jsx tabs
 import { Input } from 'earth-ui'
 import { Row, Col } from 'earth-ui'
 import { useState } from 'react'
@@ -25,11 +30,13 @@ const InputNormal = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Readonly / Disabled
- * @desc Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
- */
+## Readonly / Disabled
+
+Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
+
+```jsx tabs
 import { Input } from 'earth-ui'
 
 const InputRD = () => {
@@ -41,11 +48,13 @@ const InputRD = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Icon
- * @desc To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
- */
+## Icon
+
+To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
+
+```jsx tabs
 import { Input, Icon, Tooltip } from 'earth-ui'
 import { useState } from 'react'
 
@@ -74,11 +83,13 @@ const InputIcon = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Size
- * @desc Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
- */
+## Size
+
+Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
+
+```jsx tabs
 import { Input } from 'earth-ui'
 import { useState } from 'react'
 
@@ -97,11 +108,13 @@ const InputSize = () => {
     </div>
   )
 }
+```
 
-/**
- * @title Clear
- * @desc Triggers when the Input is cleared by clicking the clear button
- */
+## Clear
+
+Triggers when the Input is cleared by clicking the clear button
+
+```jsx tabs
 import { Input } from 'earth-ui'
 import { useState } from 'react'
 
@@ -123,5 +136,4 @@ const InputClearable = () => {
     />
   )
 }
-
-@component Input
+```

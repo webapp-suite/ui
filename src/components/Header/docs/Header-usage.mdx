@@ -1,7 +1,10 @@
-/**
- * @title Basic Usage
- * @renderModel right
- */
+---
+props: Header
+---
+
+## Basic Usage
+
+```jsx vertical
 import { Header } from 'earth-ui'
 
 const HeaderBasic = () => {
@@ -9,11 +12,12 @@ const HeaderBasic = () => {
     <Header icon="/svg/app_logo_bg_blue.svg" title="Header" />
   )
 }
+```
 
-/**
- * @title Background color
- * @renderModel right
- */
+
+## Background color
+
+```jsx vertical
 import { Header } from 'earth-ui'
 
 const ColorfulHeader = () => {
@@ -21,5 +25,4 @@ const ColorfulHeader = () => {
     <Header icon="/svg/app_logo_bg_white.svg" title="Header" color="blue" />
   )
 }
-
-@component Header
+```

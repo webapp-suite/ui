@@ -173,37 +173,37 @@ class Input extends React.Component {
 Input.propTypes = {
   className: PropTypes.string,
 
-  // binding value
+  /** binding value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // riggers when the icon inside Input value change
+  /** riggers when the icon inside Input value change */
   onChange: PropTypes.func,
 
-  // type of input, support [native input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types), default `text`
+  /** type of input, support [native input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) */
   type: PropTypes.string,
 
-  // size of Input, default `md`
+  /** size of Input */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
-  // the length of input, unit as px, default `100%`
+  /** the length of input, unit as px */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
-  // whether Input is disabled
+  /** whether Input is disabled */
   disabled: PropTypes.bool,
 
-  // whether Input is readonly
+  /** whether Input is readonly */
   readonly: PropTypes.bool,
 
-  // same as native input placeholder
+  /** same as native input placeholder */
   placeholder: PropTypes.string,
 
-  // the prefix icon for the Input
+  /** the prefix icon for the Input */
   prefix: PropTypes.element,
 
-  // the suffix icon for the Input
+  /** the suffix icon for the Input */
   suffix: PropTypes.element,
 
-  // triggers when the Input is cleared by clicking the clear button
+  /** triggers when the Input is cleared by clicking the clear button */
   onClear: PropTypes.func
 }
 

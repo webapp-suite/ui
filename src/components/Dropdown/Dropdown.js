@@ -77,16 +77,17 @@ class Dropdown extends Component {
 Dropdown.propTypes = {
   children: PropTypes.node,
 
-  // 是否展开
+  /** 是否展开 */
+  // todo react-docgen parse error
   open: controlledPropValidator(PropTypes.bool, 'onToggle'),
 
-  // 切换 open 状态后的回调，参数为切换后的 open 状态
+  /** 切换 open 状态后的回调，参数为切换后的 open 状态 */
   onToggle: PropTypes.func,
 
-  // 是否禁用
+  /** 是否禁用 */
   disabled: PropTypes.bool,
 
-  // DropdownToggle 与 DropdownMenu 宽度相同
+  /** DropdownToggle 与 DropdownMenu 宽度相同 */
   aligned: PropTypes.bool
 }
 
