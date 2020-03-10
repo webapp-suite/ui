@@ -242,19 +242,19 @@ Pager.defaultProps = {
 }
 
 Pager.propTypes = {
-  // Total count of items
+  /** Total count of items */
   totalItems: PropTypes.number.isRequired,
 
-  // The count of items per page, default value is `20`
+  /** The count of items per page, default value is `20` */
   itemsPerPage: PropTypes.number,
 
-  // Current page number, starting with `1`, default value is `1`
+  /** Current page number, starting with `1`, default value is `1` */
   currentPage: PropTypes.number,
 
-  // Maximum number of consecutive page Numbers displayed, default value is `4`
+  /** Maximum number of consecutive page Numbers displayed, default value is `4` */
   maxSerialPages: PropTypes.number,
 
-  // The event of the selected page number, param is the the of selected page
+  /** The event of the selected page number, param is the the of selected page */
   onSelect: PropTypes.func
 }
 

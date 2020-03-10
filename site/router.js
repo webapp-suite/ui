@@ -52,7 +52,7 @@ const getComponentDoc = component => {
   if (WIP.includes(component)) {
     return 'InProgress'
   }
-  return `${component.split('-')[0]}/docs/${component}.dox`
+  return `${component.split('-')[0]}/docs/${component}.mdx`
 }
 
 const Home = () => React.createElement(asyncComponent('/'))

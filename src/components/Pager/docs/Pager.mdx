@@ -1,0 +1,28 @@
+---
+props: Pager
+---
+
+## Basic Usage
+
+As you can see, the Pager has no default outline and this will make it easier to embed into other components.
+
+```jsx tabs
+import { Pager } from 'earth-ui'
+
+class PagerBasic extends React.Component {
+  onSelect(page) {
+    console.log(page)
+  }
+  render () {
+    return (
+      <Pager
+        currentPage={1}
+        totalItems={200}
+        itemsPerPage={10}
+        maxSerialPages={4}
+        onSelect={page => this.onSelect(page)}
+      />
+    )
+  }
+}
+```

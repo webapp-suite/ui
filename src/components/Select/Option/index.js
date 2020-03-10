@@ -20,7 +20,12 @@ const Option = props => {
       <TextOverflow>
         <div>{children}</div>
       </TextOverflow>
-      {selected && <Icon type="check" className={`${prefixCls}-select__option-icon_selected`} />}
+      {selected && (
+        <Icon
+          type="check"
+          className={`${prefixCls}-select__option-icon_selected`}
+        />
+      )}
     </li>
   )
 }
@@ -30,7 +35,7 @@ Option.propTypes = {
   className: PropTypes.string,
   data: PropTypes.object,
 
-  // 值，与 Select value 对应，数据类型也要一致
+  /** 值，与 Select value 对应，数据类型也要一致 */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   selected: PropTypes.bool,

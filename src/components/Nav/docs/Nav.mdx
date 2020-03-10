@@ -1,30 +1,31 @@
-/**
- * @title Basic Usage
- * @renderModel right
- */
+---
+props: [Nav/Nav, Nav/SubNav, Nav/NavItemGroup, Nav/NavItem]
+---
 
-import React, { Component } from 'react'
+## Basic Usage
+
+```jsx vertical
 import { notification, Nav, SubNav, NavItemGroup, NavItem } from 'earth-ui'
 
-class NavBasic extends Component {
-  handleClick = res => {
+class NavBasic extends React.Component {
+  handleClick(res) {
     console.log(res)
     notification.success(res.title);
   }
-  handleSettingClick = () => {
+  handleSettingClick() {
     notification.success('Setting Clicked!');
   }
-  handleLogoutClick = () => {
+  handleLogoutClick() {
     notification.success('Logout Clicked!');
   }
-  render () {
+  render() {
     return (
       <div style={{display: 'flex', height: 600}}>
         <Nav
           selectedId="1"
-          onItemClick={this.handleClick}
-          onSettingClick={this.handleSettingClick}
-          onLogoutClick={this.handleLogoutClick}
+          onItemClick={res => this.handleClick(res)}
+          onSettingClick={() => this.handleSettingClick()}
+          onLogoutClick={() => this.handleLogoutClick()}
           user={{
             avatar: 'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
             name: 'KIMI GAO',
@@ -53,8 +54,4 @@ class NavBasic extends Component {
     )
   }
 }
-
-@component Nav/Nav
-@component Nav/SubNav
-@component Nav/NavItemGroup
-@component Nav/NavItem
+```

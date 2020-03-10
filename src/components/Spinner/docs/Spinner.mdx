@@ -1,13 +1,20 @@
-/**
- * @title Basic Usage
- * @desc The display and hiding of loading effects are controlled by the value of `isLoading`.
- * @note This component will ensure that the loading display time is at least `300ms` to avoid the bad experience as "flash".
- */
+---
+props: Spinner
+---
+
+## Basic Usage
+
+The display and hiding of loading effects are controlled by the value of `isLoading`.
+
+```jsx tabs
 import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerBasic extends React.Component {
-  state = { isLoading: false }
-  toggle = value => {
+  constructor() {
+    super();
+    this.state = { isLoading: false };
+  }
+  toggle(value) {
     this.setState({ isLoading: value });
   }
   render() {
@@ -21,7 +28,7 @@ class SpinnerBasic extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
         </div>
         <div style={border}>
           <Spinner isLoading={this.state.isLoading}>
@@ -32,16 +39,23 @@ class SpinnerBasic extends React.Component {
     )
   }
 }
+```
 
-/**
- * @title Custom description
- * @desc The description of spinner could be changed by the `tip` property。
- */
+This component will ensure that the loading display time is at least `300ms` to avoid the bad experience as "flash".
+
+## Custom description
+
+The description of spinner could be changed by the `tip` property。
+
+```jsx tabs
 import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerTip extends React.Component {
-  state = { isLoading: false }
-  toggle = value => {
+  constructor() {
+    super();
+    this.state = { isLoading: false };
+  }
+  toggle(value) {
     this.setState({ isLoading: value });
   }
   render() {
@@ -55,7 +69,7 @@ class SpinnerTip extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
         </div>
         <div style={border}>
           <Spinner tip="Loading..." isLoading={this.state.isLoading}>
@@ -66,17 +80,21 @@ class SpinnerTip extends React.Component {
     )
   }
 }
+```
 
-/**
- * @title Black and White Background
- * @desc The `cover` property is currently provided to select the performance of the spinner background.
- * @note The default `cover` is white background.
- */
+## Black and White Background
+
+The `cover` property is currently provided to select the performance of the spinner background.
+
+```jsx tabs
 import { Spinner, Switch } from 'earth-ui'
 
 class SpinnerCover extends React.Component {
-  state = { isLoading: false }
-  toggle = value => {
+  constructor() {
+    super();
+    this.state = { isLoading: false };
+  }
+  toggle(value) {
     this.setState({ isLoading: value });
   }
   render() {
@@ -90,7 +108,7 @@ class SpinnerCover extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
         </div>
         <div style={border}>
           <Spinner tip="Loading..." isLoading={this.state.isLoading}>
@@ -107,66 +125,76 @@ class SpinnerCover extends React.Component {
     )
   }
 }
+```
 
-/**
- * @title Size
- * @desc There are three different sizes such as `sm`, `md` and `lg` to meet the requirements in different scenarios.
- * @note For the global Spinner and the Spinner inside the Aside, it is recommended to use the `lg` size, which will provide a good visual experience in the scene with relatively high height.
- */
+The default `cover` is white background.
+
+## Size
+
+There are three different sizes such as `sm`, `md` and `lg` to meet the requirements in different scenarios.
+
+```jsx tabs
 import { Spinner } from 'earth-ui'
 
 const SpinnerSize = () => {
   return (
-    <div>
+    <>
       <Spinner size="sm" tip="Loading..."/>
       <Spinner tip="Loading..."/>
       <Spinner size="lg" tip="Loading..."/>
-    </div>
+    </>
   )
 }
+```
 
-/**
- * @title Custom Indicator
- * @desc You can create a custom indicator with the `indicator` property, which need passing a react instance.
- */
+For the global Spinner and the Spinner inside the Aside, it is recommended to use the `lg` size, which will provide a good visual experience in the scene with relatively high height.
+
+## Custom Indicator
+
+You can create a custom indicator with the `indicator` property, which need passing a react instance.
+
+```jsx tabs
 import { Spinner } from 'earth-ui'
 import styled, { keyframes } from 'styled-components'
 
 class SpinnerIndicator extends React.Component {
-  state = { isLoading: false }
-  toggle = value => {
+  constructor() {
+    super();
+    this.state = { isLoading: false };
+    this.spinnerKeyFrames = keyframes`
+      from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      to {
+        transform: translate3d(0, 0, 0) rotate(360deg);
+      }
+    `
+    this.Indicator = styled.div`
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border: 3px solid #00aeff
+      border-radius: 50%;
+      border-bottom-color: transparent;
+      animation: 1s ease-in-out infinite ${this.spinnerKeyFrames};
+    `
+    this.Border = styled.div`
+      height: 120px;
+      line-height: 118px;
+      color: #aaa;
+      text-align: center;
+      border: 1px dashed #ccc;
+    `
+  }
+  toggle(value) {
     this.setState({ isLoading: value });
   }
-  spinnerKeyFrames = keyframes`
-    from {
-      transform: translate3d(0, 0, 0) rotate(0deg);
-    }
-    to {
-      transform: translate3d(0, 0, 0) rotate(360deg);
-    }
-  `
-  Indicator = styled.div`
-    position: relative;
-    width: 60px;
-    height: 60px;
-    border: 3px solid #00aeff
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    animation: 1s ease-in-out infinite ${this.spinnerKeyFrames};
-  `
-  Border = styled.div`
-    height: 120px;
-    line-height: 118px;
-    color: #aaa;
-    text-align: center;
-    border: 1px dashed #ccc;
-  `
   render() {
     const { Indicator, Border } = this
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          Open Spinner：<Switch on={this.state.isLoading} onChange={this.toggle} />
+          Open Spinner：<Switch on={this.state.isLoading} onChange={value => this.toggle(value)} />
         </div>
         <Border>
           <Spinner isLoading={this.state.isLoading} indicator={<Indicator />}>
@@ -177,5 +205,4 @@ class SpinnerIndicator extends React.Component {
     )
   }
 }
-
-@component Spinner
+```

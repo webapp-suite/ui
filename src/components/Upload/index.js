@@ -159,10 +159,10 @@ Upload.propTypes = {
 
   className: PropTypes.string,
 
-  // The url of uploading
+  /** The url of uploading */
   action: PropTypes.string,
 
-  // The configuration of button for uploading
+  /** The configuration of button for uploading */
   button: PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
@@ -172,21 +172,21 @@ Upload.propTypes = {
     transparent: PropTypes.bool
   }),
 
-  // The name of uploaded file, default value is `files`
+  /** The name of uploaded file, default value is `files` */
   fileName: PropTypes.string,
 
-  // Whether to support multi-selection, ie10+ supports, press ctrl can select multi files after enabled。
+  /** Whether to support multi-selection, ie10+ supports, press ctrl can select multi files after enabled。 */
   multiple: PropTypes.bool,
 
-  // The callback of the progress of uploading
+  /** The callback of the progress of uploading */
   onUplading: PropTypes.func,
 
   onUpload: PropTypes.func,
 
-  // The callback of having uploaded, it works if the user does not have a custom onUpload method
+  /** The callback of having uploaded, it works if the user does not have a custom onUpload method */
   onComplete: PropTypes.func,
 
-  // Whether to show file list
+  /** Whether to show file list */
   showFileList: PropTypes.bool
 }
 

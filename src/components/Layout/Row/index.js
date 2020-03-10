@@ -25,10 +25,10 @@ Row.propTypes = {
 
   className: PropTypes.string,
 
-  // Whether to have gutter
+  /** Whether to have gutter */
   gutter: PropTypes.bool,
 
-  // Whether is fluid
+  /** Whether is fluid */
   fluid: PropTypes.bool
 }
 

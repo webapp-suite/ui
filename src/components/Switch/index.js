@@ -51,19 +51,19 @@ class Switch extends React.Component {
 Switch.propTypes = {
   className: PropTypes.string,
 
-  // Whether to be on
+  /** Whether to be on */
   on: PropTypes.bool,
 
-  // Whether to be on by default (uncontrolled)
+  /** Whether to be on by default (uncontrolled) */
   defaultOn: PropTypes.bool,
 
-  // The callback after switching, param: (whether to be on)
+  /** The callback after switching, param: (whether to be on) */
   onChange: PropTypes.func,
 
-  // The text of Switch which is on
+  /** The text of Switch which is on */
   labelOn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // The text of Switch which is off
+  /** The text of Switch which is off */
   labelOff: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
   customProp ({ on, onChange }) {

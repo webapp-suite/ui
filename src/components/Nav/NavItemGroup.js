@@ -17,10 +17,10 @@ class NavItemGroup extends React.Component {
 NavItemGroup.propTypes = {
   className: PropTypes.string,
 
-  // NavItem list
+  /** NavItem list */
   children: PropTypes.node,
 
-  // The title of NavItemGroup which can be a text string or a React element
+  /** The title of NavItemGroup which can be a text string or a React element */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 }
 

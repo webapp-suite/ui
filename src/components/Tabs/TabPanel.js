@@ -80,7 +80,7 @@ TabPanel.contextTypes = {
 TabPanel.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  // Corresponds to the Tabs `activeKey`
+  /** Corresponds to the Tabs `activeKey` */
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 

@@ -20,6 +20,13 @@ const getSourceCode = componentName => {
   return fs.readFileSync(dir, 'utf8')
 }
 
+const generateShapeType = value => {
+  const str = Object.keys(value)
+    .map(key => `"${key}": ${value[key].name}`)
+    .join(', ')
+  return `{${str}}`
+}
+
 const generateItemProps = componentName => {
   const componentProps = reactDocs.parse(getSourceCode(componentName))
 
@@ -28,17 +35,15 @@ const generateItemProps = componentName => {
       key
     ]
     if (Array.isArray(type.value)) {
-      type = type.value.map(v => v.name || v.value).join('|')
+      type = type.value.map(v => v.name || v.value).join(' | ') // \s for break-word
     } else if (type.name === 'arrayOf') {
       if (type.value.name === 'shape') {
-        const obj = type.value.value
-        const str = Object.keys(obj)
-          .map(key => `"${key}": ${obj[key].name}`)
-          .join(', ')
-        type = `Array<{${str}>`
+        type = `Array<${generateShapeType(type.value.value)}>`
       } else {
         type = type.value.name + '[]'
       }
+    } else if (type.name === 'shape') {
+      type = generateShapeType(type.value)
     } else {
       type = type.name
     }

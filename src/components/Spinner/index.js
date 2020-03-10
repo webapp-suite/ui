@@ -180,28 +180,28 @@ class Spinner extends React.Component {
 
 Spinner.propTypes = {
   children: PropTypes.node,
-  // Spinner's own class property
+  /** Spinner's own class property */
   className: PropTypes.string,
 
-  // The outermost class property of the Spinner wrapper
+  /** The outermost class property of the Spinner wrapper */
   wrapperClassName: PropTypes.string,
 
-  // Whether is loading, default value is `true`
+  /** Whether is loading */
   isLoading: PropTypes.bool,
 
-  // Customize the description
+  /** Customize the description */
   tip: PropTypes.string,
 
-  // The sizes, default value is `md`
+  /** The sizes */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
-  // The style of backdrop, default value is `white`
+  /** The style of backdrop */
   cover: PropTypes.oneOf(['white', 'black']),
 
-  // Loading indicator
+  /** Loading indicator */
   indicator: PropTypes.node,
 
-  // The delay time of Spinner, default value is `300`
+  /** The delay time of Spinner, default value is `300` */
   delay: PropTypes.number
 }
 

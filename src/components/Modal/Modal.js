@@ -62,7 +62,8 @@ class Modal extends Component {
       // TODO 代码和updateBodyState重复，后期优化，有状态组件产生了副作用
       const body = document.body
       const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
-      const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
+      const _scrollbarWidth =
+        body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
       classlist(body).remove(`${prefixCls}-modal_open`)
       if (bodyPaddingRight) {
         body.style.paddingRight = bodyPaddingRight - _scrollbarWidth + 'px'
@@ -78,7 +79,8 @@ class Modal extends Component {
     }
     const body = document.body
     const bodyPaddingRight = parseInt(body.style.paddingRight, 10) || 0
-    const _scrollbarWidth = body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
+    const _scrollbarWidth =
+      body.scrollHeight > window.innerHeight ? scrollbarWidth : 0
     if (open && !prevOpen) {
       classlist(body).add(`${prefixCls}-modal_open`)
       body.style.paddingRight = bodyPaddingRight + _scrollbarWidth + 'px'
@@ -135,14 +137,16 @@ class Modal extends Component {
     }
     this.renderIntoDocument = () => {
       const { open, onToggle, onClose, ...other } = this.props
-      ReactDOM.render((
+      ReactDOM.render(
         <ModalContent
           ref={content => (this.content = content)}
           close={this.close}
           modal={this}
           {...other}
-        />
-      ), this.containerNode, onRendered)
+        />,
+        this.containerNode,
+        onRendered
+      )
     }
     this.renderIntoDocument()
   }
@@ -157,20 +161,19 @@ Modal.contextTypes = {
 }
 
 Modal.propTypes = {
-
-  // 是否打开
+  /** 是否打开 */
   open: PropTypes.bool,
 
-  // 切换 open 状态后的回调，参数为切换后的 open 状态，立刻执行，不会等到动画结束后
+  /** 切换 open 状态后的回调，参数为切换后的 open 状态，立刻执行，不会等到动画结束后 */
   onToggle: PropTypes.func,
 
-  // 是否锁定，锁定后点击背景无法关闭
+  /** 是否锁定，锁定后点击背景无法关闭 */
   lock: PropTypes.bool,
 
-  // 关闭后的回调，动画结束后执行。如果 close 方法传入回调，则此属性不会触发
+  /** 关闭后的回调，动画结束后执行。如果 close 方法传入回调，则此属性不会触发 */
   onClose: PropTypes.func,
 
-  // 尺寸，可选值：`sm`, `lg`, 默认中等尺寸
+  /** 尺寸，可选值：`sm`, `lg`, 默认中等尺寸 */
   size: PropTypes.oneOf(['sm', 'lg'])
 }
 

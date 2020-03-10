@@ -118,10 +118,6 @@ const config = {
         ]
       },
       {
-        test: /\.dox$/,
-        use: ['babel-loader', 'dox-loader']
-      },
-      {
         test: /\.snap$/,
         use: ['ignore-loader']
       }
@@ -129,7 +125,6 @@ const config = {
   },
   resolveLoader: {
     alias: {
-      'dox-loader': path.join(__dirname, '../site/loaders/dox'),
       'docs-loader': path.join(__dirname, '../site/loaders/docs-loader')
     }
   },

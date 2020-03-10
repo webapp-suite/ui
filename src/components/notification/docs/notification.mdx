@@ -1,0 +1,83 @@
+> notification is mainly used for the event `has occurred`. The users can only choose to accept. It's similar to the JavaScript `alert()` method. There are two main types: automatic closing and manual closing notification, while text content also supports the basic markdown syntax.
+
+## Automatically Close
+
+The `success` notification do not require the confirmation of user and will be automatically closed by default after`1500ms`.
+
+```jsx tabs
+import { notification, Button } from 'earth-ui'
+
+class NotificationSuccess extends React.Component {
+  handleClick() {
+    notification.success('You did it!')
+  }
+  render () {
+    return <Button type="primary" onClick={() => this.handleClick()} ghost>SUCCESS</Button>
+  }
+}
+```
+
+You can also customize the delay time of closing notification, unit is `ms` :
+
+```jsx run
+import { notification } from 'earth-ui'
+
+const NotificationDuration = () => {
+  notification.success('You did it!', 3000);
+}
+```
+
+## Manually Close
+
+The notifications of type `info`, `warning`, and `error` require user confirmation to close.
+
+```jsx tabs
+import { notification, Button } from 'earth-ui'
+
+const NotificationCloseManually = () => {
+  return (
+    <>
+      <Button type="primary" onClick={() => notification.info('You can do it.')} ghost>INFO</Button>
+      <Button type="primary" onClick={() => notification.warning('You will fail.')} ghost>WARNING</Button>
+      <Button type="primary" onClick={() => notification.error('You are wrong.')} ghost>ERROR</Button>
+    </>
+  )
+}
+```
+
+The notification which can be manually closed allows you to customize the text of the `ACCEPT` button。
+
+```jsx run
+import { notification } from 'earth-ui'
+
+const NotificationButtonsLabel = () => {
+  notification.warning('Beware', 'UNDERSTOOD');
+}
+```
+
+You can add a callback when you click the `ACCEPT` button.
+
+```jsx run
+import { notification } from 'earth-ui'
+
+const NotificationNested = () => {
+  notification.info('You must accept it.', {
+    onAccept: function() {
+      notification.success('We knew you would.')
+    }
+  });
+}
+```
+
+## Notification Queue
+
+```jsx run
+import { notification } from 'earth-ui'
+
+const NotificationQueue = () => {
+  notification.success('You did it!');
+  notification.info('You can do it.');
+  notification.warning('You will fail.');
+  notification.error('You are wrong.');
+}
+```

@@ -1,7 +1,10 @@
-/**
- * @title The ToolBar with Tabs
- * @renderModel right
- */
+---
+props: [ToolBar, Tabs/Tabs, Tabs/TabList, Tabs/Tab]
+---
+
+## The ToolBar with Tabs
+
+```jsx vertical
 import { ToolBar, notification, Tabs, TabList, Tab } from 'earth-ui'
 
 const ToolBarWithTabs = () => {
@@ -16,15 +19,14 @@ const ToolBarWithTabs = () => {
     </ToolBar>
   )
 }
+```
 
+## Dynamic Tabs
 
-/**
- * @title Dynamic Tabs
- * @renderModel right
- */
+```jsx vertical
 import { ToolBar, Tabs, TabList, Tab } from 'earth-ui'
 
-class TabsDynamic extends Component {
+class TabsDynamic extends React.Component {
   render() {
     return (
       <ToolBar>
@@ -38,8 +40,4 @@ class TabsDynamic extends Component {
     )
   }
 }
-
-@component ToolBar
-@component Tabs/Tabs
-@component Tabs/TabList
-@component Tabs/Tab
+```

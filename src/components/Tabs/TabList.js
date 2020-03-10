@@ -67,7 +67,7 @@ TabList.contextTypes = {
 TabList.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  // The definition of new tab
+  /** The definition of new tab */
   newTab: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string,

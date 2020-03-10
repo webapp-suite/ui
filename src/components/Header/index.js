@@ -44,7 +44,7 @@ Header.propTypes = {
   /** The title of Header */
   title: PropTypes.string,
 
-  /** The background color of Header, default value is `white` */
+  /** The background color of Header */
   color: PropTypes.oneOf([
     'blue',
     'red',

@@ -61,16 +61,16 @@ Tabs.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // Specifies which Tab is active
+  /** Specifies which Tab is active */
   activeIndex: PropTypes.number,
 
-  // Tabs manage active state by default by index, but you can also bind `id` to each Tab and TabPanel
+  /** Tabs manage active state by default by index, but you can also bind `id` to each Tab and TabPanel */
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // The callback of switching Tab, param: (index, key)
+  /** The callback of switching Tab, param: (index, key) */
   onChange: PropTypes.func,
 
-  // The event of closing tab, param: (index, key)
+  /** The event of closing tab, param: (index, key) */
   onClose: PropTypes.func,
 
   customProp (props) {
