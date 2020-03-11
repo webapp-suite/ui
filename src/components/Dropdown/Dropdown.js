@@ -78,7 +78,6 @@ Dropdown.propTypes = {
   children: PropTypes.node,
 
   /** 是否展开 */
-  // todo react-docgen parse error
   open: controlledPropValidator(PropTypes.bool, 'onToggle'),
 
   /** 切换 open 状态后的回调，参数为切换后的 open 状态 */

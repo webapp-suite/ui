@@ -71,7 +71,7 @@ Button.propTypes = {
     'text'
   ]),
 
-  /** button size, default `md` */
+  /** button size */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 
   /** determine whether it's a ghost button */

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+// TODO Error: No suitable component definition found. for react-docgen
+// https://github.com/reactjs/react-docgen/issues?q=No+suitable+component+definition+found.
 const DropdownMenu = () => null
 
 DropdownMenu.defaultProps = {
