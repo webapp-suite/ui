@@ -78,6 +78,7 @@ Dropdown.propTypes = {
   children: PropTypes.node,
 
   /** 是否展开 */
+  // TODO need to add more details in props table
   open: controlledPropValidator(PropTypes.bool, 'onToggle'),
 
   /** 切换 open 状态后的回调，参数为切换后的 open 状态 */

@@ -61,10 +61,7 @@ const generateItemProps = componentName => {
         default: defaultValue && defaultValue.value
       }
     })
-    .filter(
-      v =>
-        !/^(customProp|className|children)/.test(v.name) && v.type !== 'custom'
-    )
+    .filter(v => !/^(customProp|className|children)/.test(v.name))
   return {
     name: componentProps.displayName,
     props
