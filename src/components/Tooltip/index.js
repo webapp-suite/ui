@@ -28,16 +28,16 @@ Tooltip.propTypes = {
 
   children: PropTypes.element.isRequired,
 
-  // The title of tooltips
+  /** The title of tooltips */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // The mode of triggering tooltips, default value is `hover`
+  /** The mode of triggering tooltips */
   triggerMode: PropTypes.oneOf(['hover', 'click']),
 
-  // The direction of tooltips, default value is `up`
+  /** The direction of tooltips */
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
 
-  // The alignment of tooltips, default value is `middle`
+  /** The alignment of tooltips */
   align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'middle'])
 }
 

@@ -25,10 +25,10 @@ Col.propTypes = {
 
   className: PropTypes.string,
 
-  // Total 24 cols, such as `col="md-6 sm-24"`
+  /** Total 24 cols, such as `col="md-6 sm-24"` */
   col: PropTypes.string,
 
-  // Whether to align right
+  /** Whether to align right */
   right: PropTypes.bool
 }
 

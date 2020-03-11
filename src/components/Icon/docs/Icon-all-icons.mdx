@@ -1,10 +1,10 @@
-/**
- * @title All Icons
- * @renderModel full
- */
+---
+col: 24
+---
+
 import { Icon, Button } from 'earth-ui'
 
-const IconBasic = () => {
+export const IconBasic = () => {
   const allIcons = [
     'discovery',
     'activity',
@@ -136,13 +136,17 @@ const IconBasic = () => {
     ul.columnCount = 6
   }
   return (
-    <ul style={ul}>
-      {allIcons.sort().map(icon =>
-        <li style={li} key={icon}>
-          <Button icon={icon} />
-          <span>{icon}</span>
-        </li>
-      )}
-    </ul>
+    <div>
+      <ul style={ul}>
+        {allIcons.sort().map(icon =>
+          <li style={li} key={icon}>
+            <Button icon={icon} />
+            <span>{icon}</span>
+          </li>
+        )}
+      </ul>
+    </div>
   )
 }
+
+<IconBasic />

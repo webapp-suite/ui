@@ -7,6 +7,9 @@
   &:first-child {
     margin-top: 0;
   }
+  .@{prefix-cls}-board + .@{prefix-cls}-board {
+    margin-top: @ui-unit;
+  }
   & + p {
     margin-top: @ui-unit !important;
   }

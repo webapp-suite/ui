@@ -72,16 +72,16 @@ NavItem.propTypes = {
 
   className: PropTypes.string,
 
-  // The id of navigation item
+  /** The id of navigation item */
   id: PropTypes.string.isRequired,
 
-  // Navigation item title which can be a text string or a React element
+  /** Navigation item title which can be a text string or a React element */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // Click the navigation item will call this function
+  /** Click the navigation item will call this function */
   onClick: PropTypes.func,
 
-  // Navigation item icon, support `Icon` component or svg url. It's not recommended.
+  /** Navigation item icon, support `Icon` component or svg url. It's not recommended. */
   icon: PropTypes.string
 }
 

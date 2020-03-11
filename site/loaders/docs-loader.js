@@ -1,52 +1,7 @@
-const fs = require('fs')
-const path = require('path')
-const reactDocs = require('react-docgen')
-const marked = require('marked')
 const matter = require('gray-matter')
 const imports = require('./imports')
 const constant = require('../constant')
-
-const getSourceCode = componentName => {
-  let dir = path.join(__dirname, '../../src/components/' + componentName)
-  try {
-    if (fs.statSync(dir).isDirectory()) {
-      dir += '/index.js'
-    } else {
-      dir += '.js'
-    }
-  } catch (e) {
-    dir += '.js'
-  }
-  return fs.readFileSync(dir, 'utf8')
-}
-
-const generateItemProps = componentName => {
-  const componentProps = reactDocs.parse(getSourceCode(componentName))
-
-  const props = Object.keys(componentProps.props).map(key => {
-    let { type, required, description, defaultValue } = componentProps.props[
-      key
-    ]
-    if (Array.isArray(type.value)) {
-      type = type.value.map(v => v.name || v.value).join('|')
-    } else {
-      type = type.name
-    }
-    return {
-      name: key,
-      type,
-      required,
-      description: marked(
-        description.replace(constant.DESCRIPTION_REGEX, '\r\n').trim()
-      ),
-      default: defaultValue && defaultValue.value
-    }
-  })
-  return {
-    name: componentProps.displayName,
-    props
-  }
-}
+const generateItemProps = require('./generateItemProps')
 
 const getExampleCodes = content => {
   const exampleCodes = []
@@ -100,10 +55,14 @@ module.exports = function (source) {
       componentsFromExample.push(getComponentsFromExample(ec))
     })
 
+  const exportComponentsFromExample = componentsFromExample.length
+    ? `export ${componentsFromExample.join('\n\nexport ')}`
+    : ''
+
   const res = `
 ${imports.getAll().join('\n\n')}
 
-export ${componentsFromExample.join('\n\nexport ')}
+${exportComponentsFromExample}
 
 export const propsTables = ${JSON.stringify(propsTables)};
 

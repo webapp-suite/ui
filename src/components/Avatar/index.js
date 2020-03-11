@@ -34,19 +34,17 @@ class Avatar extends Component {
 Avatar.propTypes = {
   className: PropTypes.string,
 
-  // The shape of avatar, default value is `circle`
+  /** The shape of avatar, default value is `circle` */
   shape: PropTypes.oneOf(['square', 'circle']),
 
-  // The size of avatar
+  /** The size of avatar */
   size: PropTypes.oneOf(['sm', 'lg', 'xl']),
 
-  // The url of image
+  /** The url of image */
   src: PropTypes.string,
 
-  // The callback of clicking avatar
-  onClick: PropTypes.func,
-
-  others: PropTypes.any
+  /** The callback of clicking avatar */
+  onClick: PropTypes.func
 }
 
 Avatar.defaultProps = {

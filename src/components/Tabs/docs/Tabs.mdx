@@ -1,7 +1,10 @@
-/**
- * @title Basic usage
- * @renderModel right
- */
+---
+props: [Tabs/Tabs, Tabs/TabList, Tabs/Tab, Tabs/TabPanel]
+---
+
+## Basic usage
+
+```jsx vertical
 import { Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
 const TabsBasic = () => {
@@ -16,14 +19,14 @@ const TabsBasic = () => {
     </Tabs>
   )
 }
+```
 
-/**
- * @title Add or Close Tabs
- * @renderModel right
- */
+## Add or Close Tabs
+
+```jsx vertical
 import { Tabs, TabList, Tab, TabPanel, Button } from 'earth-ui'
 
-class TabsDynamic extends Component {
+class TabsDynamic extends React.Component {
   constructor(props) {
     super()
     this.state = {
@@ -36,14 +39,12 @@ class TabsDynamic extends Component {
       }]
     }
   }
-
-  handleClose = index => {
+  handleClose(index) {
     const tabs = this.state.tabs
     tabs.splice(index, 1)
     this.setState({ tabs, activeIndex: tabs.length - 1 })
   }
-
-  handleAdd = e => {
+  handleAdd(e) {
     e.preventDefault()
     const tabs = this.state.tabs
     const id = Math.random().toString(16).slice(2, 6)
@@ -53,21 +54,20 @@ class TabsDynamic extends Component {
     })
     this.setState({ tabs, activeIndex: tabs.length - 1 })
   }
-
   render() {
     const { activeIndex, tabs } = this.state
     return (
       <Tabs
         dynamic
         activeIndex={activeIndex}
-        handleClose={this.handleClose}
+        handleClose={index => this.handleClose(index)}
         onChange={activeIndex => this.setState({ activeIndex })}
       >
         <TabList>
           {tabs.map((item, i) => (
             <Tab key={item.id}>{item.name}</Tab>)
           )}
-          <Button ghost icon="add" onClick={this.handleAdd} />
+          <Button ghost icon="add" onClick={e => this.handleAdd(e)} />
         </TabList>
         {tabs.map((item, i) => (
           <TabPanel key={item.id}>{`This is ${item.name}`}</TabPanel>
@@ -76,7 +76,4 @@ class TabsDynamic extends Component {
     )
   }
 }
-
-@component Tabs/Tabs
-@component Tabs/Tab
-@component Tabs/TabPanel
+```

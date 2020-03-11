@@ -4,7 +4,7 @@
 
 .markdown {
   line-height: 22px;
-  & > a {
+  & > a, & > p a {
     color: @ui-color-blue;
     &:hover {
       text-decoration: underline;
@@ -80,10 +80,15 @@
   & > h4 > code,
   & > h5 > code,
   & > h6 > code,
-  & > blockquote > code {
+  & > blockquote code {
     font-family: @ui-fontstack-mono;
-    color: @ui-color-green-dark;
-    font-size: @ui-fontsize-medium;
+    font-size: 0.98em;
+    color: rgba(0, 0, 0, 0.8);
+    background: #e8e8e8;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    margin: 0 1px;
   }
   & > blockquote {
     background-color: lighten(@ui-color-gray-lightest, 4%);

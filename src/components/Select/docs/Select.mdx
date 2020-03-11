@@ -1,8 +1,12 @@
-@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+---
+props: [Select/Select, Select/Option]
+---
 
-/**
- * @title 基本功能
- */
+> 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+
+## 基本功能
+
+```jsx tabs
 import { Select, Option } from 'earth-ui'
 
 const SelectBasic = () => {
@@ -15,10 +19,11 @@ const SelectBasic = () => {
     </Select>
   )
 }
+```
 
-/**
- * @title data 数据
- */
+## data 数据
+
+```jsx tabs
 import { Select, Option } from 'earth-ui'
 
 const SelectData = () => {
@@ -41,10 +46,11 @@ const SelectData = () => {
     />
   )
 }
+```
 
-/**
- * @title 可搜索的
- */
+## 可搜索的
+
+```jsx tabs
 import { Select, Option } from 'earth-ui'
 
 const SelectSearchable = () => {
@@ -57,11 +63,11 @@ const SelectSearchable = () => {
     </Select>
   )
 }
+```
 
-/**
- * @title 禁用
- */
+## 禁用
 
+```jsx tabs
 import { Select, Option } from 'earth-ui'
 
 const SelectDisabled = () => {
@@ -74,6 +80,4 @@ const SelectDisabled = () => {
     </Select>
   )
 }
-
-@component Select/Select
-@component Select/Option
+```

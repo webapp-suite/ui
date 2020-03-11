@@ -78,10 +78,10 @@ Tab.contextTypes = {
 Tab.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  // Corresponds to the Tabs `activeKey`
+  /** Corresponds to the Tabs `activeKey` */
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // Whether to display the close button, default value is `false`
+  /** Whether to display the close button, default value is `false` */
   closeable: PropTypes.bool
 }
 

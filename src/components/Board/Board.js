@@ -22,7 +22,7 @@ Board.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 
-  // The theme style of Board, default value is `classic`
+  /** The theme style of Board, default value is `classic` */
   theme: PropTypes.oneOf(['classic', 'simple'])
 }
 

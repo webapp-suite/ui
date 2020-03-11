@@ -1,10 +1,13 @@
-/**
- * @title Crop Avatar
- */
-import React, { Component } from 'react'
+---
+props: AvatarClip
+---
+
+## Crop Avatar
+
+```jsx tabs
 import { AvatarClip, AvatarUpload, Upload, notification } from 'earth-ui'
 
-class ProfileAvatar extends Component {
+class ProfileAvatar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -13,27 +16,25 @@ class ProfileAvatar extends Component {
       imgSrc: 'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg'
     }
   }
-  onUpload = files => {
+  onUpload(files) {
     let reader = new FileReader()
     let file = files[0]
     if (!file) return
-
     reader.onload = function (img) {
       this.setState({
         img: img.target.result,
         cropperOpen: true
       })
     }.bind(this)
-
     reader.readAsDataURL(file)
   }
   // The callback of clicking the button: X
-  onClose = () => {
+  onClose() {
     this.setState({
       cropperOpen: false
     })
   }
-  dataURLtoBlob (dataURL) {
+  dataURLtoBlob(dataURL) {
     const arr = dataURL.split(',')
     const mime = arr[0].match(/:(.*?);/)[1]
     const bstr = atob(arr[1])
@@ -44,9 +45,8 @@ class ProfileAvatar extends Component {
     }
     return new Blob([u8arr], {type: mime})
   }
-  handleSave = dataURL => {
+  handleSave(dataURL) {
     const blob = this.dataURLtoBlob(dataURL)
-
     const fd = new FormData()
     // API: https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/append
     fd.append('files', blob, 'image.jpg')
@@ -57,14 +57,14 @@ class ProfileAvatar extends Component {
   render () {
     return (
       <div>
-        <Upload onUpload={this.onUpload}>
+        <Upload onUpload={files => this.onUpload(files)}>
           <AvatarUpload size="lg" text="Update" src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/VY1Fkv.jpg"/>
         </Upload>
         {this.state.cropperOpen &&
           <AvatarClip
             open={this.state.cropperOpen}
-            onSave={this.handleSave}
-            onClose={this.onClose}
+            onSave={dataURL => this.handleSave(dataURL)}
+            onClose={() => this.onClose()}
             cropButtonName="SAVE"
             image={this.state.img}
             width={160}
@@ -75,5 +75,4 @@ class ProfileAvatar extends Component {
     )
   }
 }
-
-@component AvatarClip
+```

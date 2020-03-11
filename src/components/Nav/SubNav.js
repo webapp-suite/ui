@@ -136,16 +136,16 @@ SubNav.contextTypes = {
 SubNav.propTypes = {
   className: PropTypes.string,
 
-  // The children of SubNav which can be NavItem or NavItemGroup
+  /* The children of SubNav which can be NavItem or NavItemGroup */
   children: PropTypes.node,
 
-  // The title of SubNav which can be a text string or a React element
+  /* The title of SubNav which can be a text string or a React element */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-  // The click event of each SubNav
+  /* The click event of each SubNav */
   onClick: PropTypes.func,
 
-  // SubNav icon, support `Icon` component or svg url
+  /* SubNav icon, support `Icon` component or svg url */
   icon: PropTypes.string
 }
 

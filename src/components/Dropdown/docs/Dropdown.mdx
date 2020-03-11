@@ -1,8 +1,12 @@
-@summary > 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+---
+props: [Dropdown/Dropdown, Dropdown/DropdownToggle]
+---
 
-/**
- * @title 基本功能
- */
+> 该组件正在大规模重构中，请以 `1.0.0` 正式版为准。
+
+## 基本功能
+
+```jsx tabs
 import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownBasic = () => {
@@ -19,10 +23,11 @@ const DropdownBasic = () => {
     </Dropdown>
   )
 }
+```
 
-/**
- * @title 自定义方向、对齐方式
- */
+## 自定义方向、对齐方式
+
+```jsx tabs
 import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownRight = () => {
@@ -39,10 +44,11 @@ const DropdownRight = () => {
     </Dropdown>
   )
 }
+```
 
-/**
- * @title 嵌套的
- */
+## 嵌套的
+
+```jsx tabs
 import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownNested = () => {
@@ -69,10 +75,11 @@ const DropdownNested = () => {
     </Dropdown>
   )
 }
+```
 
-/**
- * @title 不可用的
- */
+## 不可用的
+
+```jsx tabs
 import { Dropdown, DropdownToggle, DropdownMenu, Button } from 'earth-ui'
 
 const DropdownDisabled = () => {
@@ -85,6 +92,4 @@ const DropdownDisabled = () => {
     </Dropdown>
   )
 }
-
-@component Dropdown/Dropdown
-@component Dropdown/DropdownMenu
+```

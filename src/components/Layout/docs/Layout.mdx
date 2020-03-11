@@ -1,6 +1,10 @@
-/**
- * @title Basic Usage
- */
+---
+props: [Layout/Row, Layout/Col]
+---
+
+## Basic Usage
+
+```jsx tabs
 import { Row, Col } from 'earth-ui'
 
 const LayoutBasic = () => {
@@ -11,10 +15,11 @@ const LayoutBasic = () => {
     </Row>
   )
 }
+```
 
-/**
- * @title Gutter
- */
+## Gutter
+
+```jsx tabs
 import { Row, Col } from 'earth-ui'
 
 const LayoutGutter = () => {
@@ -29,10 +34,11 @@ const LayoutGutter = () => {
     </Row>
   )
 }
+```
 
-/**
- * @title Align Right
- */
+## Align Right
+
+```jsx tabs
 import { Row, Col } from 'earth-ui'
 
 const LayoutRight = () => {
@@ -43,11 +49,13 @@ const LayoutRight = () => {
     </Row>
   )
 }
+```
 
-/**
- * @title Fluid
- * @desc Adapt the layout from left to right and up to down by the width of Col.
- */
+## Fluid
+
+Adapt the layout from left to right and up to down by the width of Col.
+
+```jsx tabs
 import { Row, Col } from 'earth-ui'
 
 const LayoutFluid = () => {
@@ -58,6 +66,4 @@ const LayoutFluid = () => {
     </Row>
   )
 }
-
-@component Layout/Row
-@component Layout/Col
+```

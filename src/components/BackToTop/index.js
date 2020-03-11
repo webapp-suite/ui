@@ -36,7 +36,7 @@ class BackToTop extends Component {
   componentWillMount () {
     const { icon, text } = this.props
     const iconStyle = {
-      paddingRight: (text !== '' ? '10px' : '0')
+      paddingRight: text !== '' ? '10px' : '0'
     }
     if (icon === '') {
       this.ico = ''
@@ -44,6 +44,7 @@ class BackToTop extends Component {
       this.ico = <Icon type={icon} style={iconStyle} />
     }
   }
+
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
   }
@@ -78,7 +79,7 @@ class BackToTop extends Component {
     }
   }
 
-  handleHover = (hover) => {
+  handleHover = hover => {
     this.setState({
       ...this.state,
       hover
@@ -95,14 +96,20 @@ class BackToTop extends Component {
 
     return (
       <button
-        ref={(instance) => { this.btn = instance }}
-        style={this.state.hover ? { ...this.state.style, ...hover } : this.state.style}
+        ref={instance => {
+          this.btn = instance
+        }}
+        style={
+          this.state.hover
+            ? { ...this.state.style, ...hover }
+            : this.state.style
+        }
         onClick={this.handleClickBack}
         onMouseOver={() => this.handleHover(true)}
         onMouseOut={() => this.handleHover(false)}
       >
-        { this.ico }
-        { text }
+        {this.ico}
+        {text}
       </button>
     )
   }
@@ -129,20 +136,19 @@ BackToTop.defaultProps = {
 }
 
 BackToTop.propTypes = {
-
-  // 按钮形状，默认`default`无圆角， 可选`round`
+  /** 按钮形状，默认`default`无圆角， 可选`round` */
   shape: PropTypes.oneOf(['default', 'round']),
 
-  // 按钮圆角的大小
+  /** 按钮圆角的大小 */
   radius: PropTypes.number,
 
-  // 按钮中的文字
+  /** 按钮中的文字 */
   text: PropTypes.string,
 
-  // 文字字体大小，默认`18px`
+  /** 文字字体大小，默认`18px` */
   fontSize: PropTypes.string,
 
-  // 按钮的 position, 包括 top, bottom, left, right, 默认`position: {bottom: '10%', right: '5%'}`
+  /** 按钮的 position, 包括 top, bottom, left, right, 默认`position: {bottom: '10%', right: '5%'}` */
   position: PropTypes.shape({
     top: PropTypes.string,
     bottom: PropTypes.string,
@@ -150,25 +156,25 @@ BackToTop.propTypes = {
     right: PropTypes.string
   }),
 
-  // 按钮的图标类型
+  /** 按钮的图标类型 */
   icon: PropTypes.string,
 
-  // 按钮文字颜色，默认`white`
+  /** 按钮文字颜色，默认`white` */
   color: PropTypes.string,
 
-  // 按钮的背景颜色， 默认`rgba(0, 0, 0, .5)`
+  /** 按钮的背景颜色， 默认`rgba(0, 0, 0, .5)` */
   background: PropTypes.string,
 
-  // 按钮hover时候的背景颜色， 默认`rgba(0, 0, 0, .7)`
+  /** 按钮hover时候的背景颜色， 默认`rgba(0, 0, 0, .7)` */
   hover: PropTypes.object,
 
-  // 按钮距离顶部的高度，默认`200`
+  /** 按钮距离顶部的高度，默认`200` */
   topDistance: PropTypes.number,
 
-  // 按钮出现和消失的动画类型，默认`linear`，此外还有`easeIn/easeOut/easeInOut`
+  /** 按钮出现和消失的动画类型，默认`linear`，此外还有`easeIn/easeOut/easeInOut` */
   timing: PropTypes.oneOf(['linear', 'easeIn', 'easeOut', 'easeInOut']),
 
-  // 按钮出现和消失的速度，默认`100`
+  /** 按钮出现和消失的速度，默认`100` */
   speed: PropTypes.number
 }
 

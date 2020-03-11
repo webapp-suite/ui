@@ -1,10 +1,10 @@
-/**
- * @title Header Gallery
- * @renderModel full
- */
+---
+col: 24
+---
+
 import { Header } from 'earth-ui'
 
-const ColorfulHeader = () => {
+export const ColorfulHeader = () => {
   const colors = [
     'white',
     'blue',
@@ -30,12 +30,16 @@ const ColorfulHeader = () => {
     ul.columnCount = 6
   }
   return (
-    <ul style={ul}>
-      {colors.map(color =>
-        <li style={li} key={color}>
-          <Header icon={`/svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
-        </li>
-      )}
-    </ul>
+    <div>
+      <ul style={ul}>
+        {colors.map(color =>
+          <li style={li} key={color}>
+            <Header icon={`/svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
+          </li>
+        )}
+      </ul>
+    </div>
   )
 }
+
+<ColorfulHeader/>

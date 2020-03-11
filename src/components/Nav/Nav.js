@@ -117,32 +117,32 @@ Nav.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  // The id of active nav item
+  /** The id of active nav item */
   selectedId: PropTypes.string.isRequired,
 
-  // The url of logo image such as svg, png
+  /** The url of logo image such as svg, png */
   logoUrl: PropTypes.string,
 
-  // Whether the navigation is collapsed
+  /** Whether the navigation is collapsed */
   collapsed: PropTypes.bool,
 
-  // The width of expanded navigation, default value is `330px`
+  /** The width of expanded navigation, default value is `330px` */
   width: PropTypes.number,
 
-  // User information
+  /** User information */
   user: PropTypes.shape({
     avatar: PropTypes.string,
     name: PropTypes.string,
     company: PropTypes.string
   }),
 
-  // The click event of each NavItem, the parameters are the current NavItem props and event object
+  /** The click event of each NavItem, the parameters are the current NavItem props and event object */
   onItemClick: PropTypes.func,
 
-  // The click event of setting button
+  /** The click event of setting button */
   onSettingClick: PropTypes.func,
 
-  // The click event of logout button
+  /** The click event of logout button */
   onLogoutClick: PropTypes.func
 }
 

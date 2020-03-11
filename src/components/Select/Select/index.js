@@ -246,52 +246,52 @@ Select.propTypes = {
 
   className: PropTypes.string,
 
-  // 选中的值
+  /** 选中的值 */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // 初始化时选中的值（不可控）
+  /** 初始化时选中的值（不可控） */
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-  // 切换选择后的回调，function(value, item)，当前数据项或 option.props
+  /** 切换选择后的回调，function(value, item)，当前数据项或 option.props */
   onChange: PropTypes.func,
 
-  // 数据源，结合 render 属性定义 Option 渲染逻辑
+  /** 数据源，结合 render 属性定义 Option 渲染逻辑 */
   data: PropTypes.array,
 
-  // URL 数据源
+  /** URL 数据源 */
   url: PropTypes.string,
 
-  // URL 数据源模式数据过滤，参数为服务器返回的数据，返回处理后的数据
+  /** URL 数据源模式数据过滤，参数为服务器返回的数据，返回处理后的数据 */
   dataFilter: PropTypes.func,
 
-  // data 或 url 方式时 Option 渲染回调，参数为当前数据和索引，返回一个 Option
+  /** data 或 url 方式时 Option 渲染回调，参数为当前数据和索引，返回一个 Option */
   render: PropTypes.func,
 
-  // data 或 url 方式时默认的 Option，通常针对空值时的选项
+  /** data 或 url 方式时默认的 Option，通常针对空值时的选项 */
   defaultOption: PropTypes.element,
 
-  // 无 `value` 且无选项匹配时 Select 显示的内容，默认 `请选择`
+  /** 无 `value` 且无选项匹配时 Select 显示的内容，默认 `请选择` */
   placeholder: PropTypes.string,
 
-  // 是否可搜索，搜索范围为 Option 的 value 和 children
+  /** 是否可搜索，搜索范围为 Option 的 value 和 children */
   searchable: PropTypes.bool,
 
-  // 搜索框 placeholder，默认`请输入关键词搜索`
+  /** 搜索框 placeholder，默认`请输入关键词搜索` */
   searchPlaceholder: PropTypes.string,
 
-  // 是否禁用
+  /** 是否禁用 */
   disabled: PropTypes.bool,
 
-  // 尺寸
+  /** 尺寸 */
   size: PropTypes.oneOf(['sm', 'lg']),
 
-  // 宽度，默认`100%`
+  /** 宽度，默认`100%` */
   width: PropTypes.number,
 
-  // 无 option 时显示的内容，默认`无选项`
+  /** 无 option 时显示的内容，默认`无选项` */
   noOptionsContent: PropTypes.string,
 
-  // 有 `value` 但无选项匹配时显示的内容，默认`无匹配选项`
+  /** 有 `value` 但无选项匹配时显示的内容，默认`无匹配选项` */
   noMatchingContent: PropTypes.string,
 
   customProp ({ value, onChange, url, render }) {

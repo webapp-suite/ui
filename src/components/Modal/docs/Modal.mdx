@@ -1,17 +1,20 @@
-/**
- * @title 基本功能
- */
+---
+props: Modal/Modal
+---
+
+## 基本功能
+
+```jsx tabs
 import { Button, Modal, ModalHeader, ModalBody } from 'earth-ui'
 
-class ModalBasic extends Component {
-  handleOpen = () => {
+class ModalBasic extends React.Component {
+  handleOpen() {
     this.refs.modal.open()
   }
-
   render() {
     return (
       <div>
-        <Button onClick={this.handleOpen}>Open</Button>
+        <Button onClick={() => this.handleOpen()}>Open</Button>
         <Modal ref="modal">
           <ModalHeader title="标题" />
           <ModalBody>
@@ -22,22 +25,23 @@ class ModalBasic extends Component {
     )
   }
 }
+```
 
-/**
- * @title 锁定的
- * @desc 点击半透明背景不会自动关闭
- */
+## 锁定的
+
+点击半透明背景不会自动关闭
+
+```jsx tabs
 import { Button, Modal, ModalHeader, ModalBody } from 'earth-ui'
 
-class ModalLock extends Component {
-  handleOpen = () => {
+class ModalLock extends React.Component {
+  handleOpen() {
     this.refs.modal.open()
   }
-
   render() {
     return (
       <div>
-        <Button onClick={this.handleOpen}>Open</Button>
+        <Button onClick={() => this.handleOpen()}>Open</Button>
         <Modal ref="modal" lock>
           <ModalHeader title="锁定的" />
           <ModalBody>
@@ -48,21 +52,21 @@ class ModalLock extends Component {
     )
   }
 }
+```
 
-/**
- * @title 嵌套的
- */
+## 嵌套的
+
+```jsx tabs
 import { Button, Modal, ModalHeader, ModalBody } from 'earth-ui'
 
 class ModalNested extends Component {
-  handleOpen = () => {
+  handleOpen() {
     this.refs.modal.open()
   }
-
   render() {
     return (
       <div>
-        <Button onClick={this.handleOpen}>Open</Button>
+        <Button onClick={() => this.handleOpen()}>Open</Button>
         <Modal ref="modal">
           <ModalHeader title="第一层模态框" />
           <ModalBody>
@@ -81,5 +85,4 @@ class ModalNested extends Component {
     )
   }
 }
-
-@component Modal/Modal
+```

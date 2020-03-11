@@ -39,10 +39,10 @@ TextOverflow.propTypes = {
 
   children: PropTypes.element.isRequired,
 
-  // The direction of tips, default value is `up`
+  /** The direction of tips */
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
 
-  // The alignment of tips, default value is `middle`
+  /** The alignment of tips */
   align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'middle'])
 }
 

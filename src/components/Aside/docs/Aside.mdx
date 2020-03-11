@@ -1,52 +1,66 @@
-@summary > Aside is mainly used to make the page hierarchical. Putting complex or deeper operations in the aside can make the main page more concise.
+---
+props: Aside
+---
 
-/**
- * @title Basic Usage
- * @desc Aside controls whether it is turned on or off by the `isOpen` property, and the `onClose` property is used to clear the state, so both properties are required.
- * @note `Aside` actually generates two DOM nodes, one is Aside and the other is Backdrop which is passed to the body as its children through the `React Portal` API, but it should be noted that the final rendered context is the same as the Aside. Closing the Aside including clicking the Backdrop will automatically destroy both nodes.
- */
+> Aside is mainly used to make the page hierarchical. Putting complex or deeper operations in the aside can make the main page more concise.
+
+## Basic Usage
+
+Aside controls whether it is turned on or off by the `isOpen` property, and the `onClose` property is used to clear the state, so both properties are required.
+
+```jsx tabs
 import { Aside, Button } from 'earth-ui'
 
-class AsideBasic extends Component {
-  state = { isOpen: false }
-  openAside = () => {
+class AsideBasic extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false }
+  }
+  openAside() {
     this.setState({ isOpen: true })
   }
-  onClose =  () => {
+  onClose() {
     this.setState({ isOpen: false })
   }
   render () {
     return (
       <div>
-        <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE</Button>
-        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
+        <Button ghost type="primary" onClick={() => this.openAside()}>OPEN ASIDE</Button>
+        <Aside isOpen={this.state.isOpen} onClose={() => this.onClose()} title="Aside Title">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit.
         </Aside>
       </div>
     )
   }
 }
+```
 
-/**
- * @title Aside with Spinner
- * @desc You can use a Spinner nested inside an Aside which is also a common way to wait the asynchronous requests.
- */
+`Aside` actually generates two DOM nodes, one is Aside and the other is Backdrop which is passed to the body as its children through the `React Portal` API, but it should be noted that the final rendered context is the same as the Aside. Closing the Aside including clicking the Backdrop will automatically destroy both nodes.
+
+## Aside with Spinner
+
+You can use a Spinner nested inside an Aside which is also a common way to wait the asynchronous requests.
+
+```jsx tabs
 import { Aside, Button, Spinner } from 'earth-ui'
 
-class AsideSpinner extends Component {
-  state = { isOpen: false, isLoading: true }
-  openAside = () => {
+class AsideSpinner extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false, isLoading: true }
+  }
+  openAside() {
     this.setState({ isOpen: true })
     window.setTimeout(() => this.setState({ isLoading: false }), 500)
   }
-  onClose =  () => {
+  onClose() {
     this.setState({ isOpen: false, isLoading: true })
   }
   render () {
    return (
      <div>
-       <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE WITH SPINNER</Button>
-       <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Aside Title">
+       <Button ghost type="primary" onClick={() => this.openAside()}>OPEN ASIDE WITH SPINNER</Button>
+       <Aside isOpen={this.state.isOpen} onClose={() => this.onClose()} title="Aside Title">
          <Spinner isLoading={this.state.isLoading}>
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, suscipit libero necessitatibus vel corrupti beatae aliquam enim molestiae alias. Aspernatur mollitia voluptatibus laborum atque autem quisquam error ut harum! Quibusdam? Voluptate, debitis qui! Voluptates perferendis quibusdam saepe! Rerum impedit accusamus non nihil necessitatibus accusantium, adipisci expedita aliquam provident voluptate nobis minus aut quaerat illo ipsum fuga dolor quis, eaque qui. Nisi sequi dolorum sint labore, velit illo. Aspernatur nisi exercitationem quisquam dolorum officia eius quo facere ut, laudantium quis. Praesentium, sed culpa. Minima sapiente deserunt in nesciunt, ipsa nulla! Delectus veniam, quasi impedit, quia nemo placeat molestiae id minima quidem quis doloribus optio perspiciatis pariatur eligendi dolor assumenda accusamus velit soluta laborum sunt quibusdam at doloremque. Ratione, consequuntur sit.
          </Spinner>
@@ -55,26 +69,31 @@ class AsideSpinner extends Component {
    )
   }
 }
+```
 
-/**
- * @title Aside with Tabs
- * @desc If the Aside contains a lot of content and doesn't have a hierarchical relationship, you can use Tabs which allows the user to focus on what they're working on even if it's still on the same Aside. You can use the Tabs nested in the Aside and the style will be automatically adjusted within the Aside.
- */
+## Aside with Tabs
+
+If the Aside contains a lot of content and doesn't have a hierarchical relationship, you can use Tabs which allows the user to focus on what they're working on even if it's still on the same Aside. You can use the Tabs nested in the Aside and the style will be automatically adjusted within the Aside.
+
+```jsx tabs
 import { Aside, Button, Tabs, TabList, Tab, TabPanel } from 'earth-ui'
 
-class AsideTabs extends Component {
-  state = { isOpen: false }
-  openAside = () => {
+class AsideTabs extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false }
+  }
+  openAside() {
     this.setState({ isOpen: true })
   }
-  onClose =  () => {
+  onClose() {
     this.setState({ isOpen: false })
   }
   render () {
     return (
       <div>
-        <Button ghost type="primary" onClick={this.openAside}>OPEN ASIDE WITH TABS</Button>
-        <Aside isOpen={this.state.isOpen} onClose={this.onClose} title="Declarative Tabs">
+        <Button ghost type="primary" onClick={() => this.openAside()}>OPEN ASIDE WITH TABS</Button>
+        <Aside isOpen={this.state.isOpen} onClose={() => this.onClose()} title="Declarative Tabs">
           <Tabs>
             <TabList>
               <Tab>tab 1</Tab>
@@ -92,20 +111,24 @@ class AsideTabs extends Component {
     )
   }
 }
+```
 
-/**
- * @title Nested Asides
- * @desc You should use nested Asides when the content of Aside is more complex or they have logical relationship, such as the content of the first Aside is a list item and it's another Aside when each item opens.
- * @note It should be noted that no matter which layer of Aside is, all Asides will be closed when clicking the Backdrop. It will automatically call each `onClose` function to clear `isOpen` state of all Asides.
- */
+## Nested Asides
+
+You should use nested Asides when the content of Aside is more complex or they have logical relationship, such as the content of the first Aside is a list item and it's another Aside when each item opens.
+
+```jsx tabs
 import { Aside, Button } from 'earth-ui'
 
-class NestedAsides extends Component {
-  state = { isOpen1: false, isOpen2: false, isOpen3: false }
-  openAside = number => {
+class NestedAsides extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isOpen1: false, isOpen2: false, isOpen3: false }
+  }
+  openAside(number) {
     this.setState({ [`isOpen${number}`]: true })
   }
-  closeAside = number => {
+  closeAside(number) {
     this.setState({ [`isOpen${number}`]: false })
   }
   render () {
@@ -133,5 +156,4 @@ class NestedAsides extends Component {
     )
   }
 }
-
-@component Aside
+```

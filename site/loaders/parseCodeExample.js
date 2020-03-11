@@ -10,6 +10,8 @@ module.exports = () => (tree, file) => {
       node.type = node.lang
       /** get example component name */
       const code = node.value
+        .replace(constant.TRANSFER_STRING_TEMPLATE_BACKQUOTE_REGEX, '\\`$1\\`')
+        .replace(constant.TRANSFER_STRING_TEMPLATE_DOLLAR_SYMBOL_REGEX, '\\$')
       const componentName = code.match(constant.COMPONENT_NAME_REGEX)[1]
       if (node.meta === 'run') {
         node.value = `<Example renderModel="${node.meta ||

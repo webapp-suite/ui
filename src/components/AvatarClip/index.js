@@ -116,31 +116,31 @@ class AvatarClip extends Component {
 }
 
 AvatarClip.propTypes = {
-  // The url of image
+  /** The url of image */
   image: PropTypes.string.isRequired,
 
-  // The callback of saving avatar
+  /** The callback of saving avatar */
   onSave: PropTypes.func.isRequired,
 
-  // The callback of closing avatar
+  /** The callback of closing avatar */
   onClose: PropTypes.func,
 
-  // Whether to open the modal of cropping avatar
+  /** Whether to open the modal of cropping avatar */
   open: PropTypes.bool,
 
-  // The name of the button for cropping, default value is `SAVE`
+  /** The name of the button for cropping */
   cropButtonName: PropTypes.string,
 
-  // The width of cropping, default value is `160`
+  /** The width of cropping */
   width: PropTypes.number,
 
-  // The height of cropping, default value is `160`
+  /** The height of cropping */
   height: PropTypes.number,
 
-  // The border of mask for cropping, default value is `40`
+  /** The border of mask for cropping */
   border: PropTypes.number,
 
-  // The color of text for cropping, default value is `[248, 249, 250, 0.9]`
+  /** The color of text for cropping */
   color: PropTypes.arrayOf(PropTypes.number)
 }
 
