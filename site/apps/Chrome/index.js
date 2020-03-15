@@ -171,9 +171,9 @@ class Components extends React.Component {
                 avatar:
                   'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
                 name: 'KIMI GAO',
-                company: 'Earth React UI'
+                company: 'Web Apps UI'
               }}
-              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/ui-logo-white.svg"
+              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/dark-bg-webapps-ui.svg"
             >
               {components.map(item => {
                 if (!item.components) {

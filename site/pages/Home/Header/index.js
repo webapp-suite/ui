@@ -37,7 +37,10 @@ class Header extends React.Component {
       <Row className="header" fluid>
         <Col>
           <div className="header__logo">
-            <span className="header__logo-text">EARTHUi</span>
+            <img
+              className="header__logo-img"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.svg"
+            />
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>
           </div>

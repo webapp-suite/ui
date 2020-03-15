@@ -7,21 +7,27 @@ class Footer extends PureComponent {
       <footer className="container">
         <div className="first-line">
           <div className="left">
-            <h2>About Earth-UI</h2>
+            <h2>About WebApps-UI</h2>
             <div className="intro">
-              A minimalism style ui component library based on React
+              A simple style react components for modern web applications
             </div>
           </div>
           <div className="left">
             <h2>Alipay reward</h2>
             <div className="pay">
-              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_alipay.jpg" alt="qrcode_alipay" />
+              <img
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_alipay.jpg"
+                alt="qrcode_alipay"
+              />
             </div>
           </div>
           <div className="left">
             <h2>Wechat reward</h2>
             <div className="pay">
-              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_wechat.jpg" alt="qrcode_wechat" />
+              <img
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_wechat.jpg"
+                alt="qrcode_wechat"
+              />
             </div>
           </div>
           <div className="right">
@@ -48,7 +54,10 @@ class Footer extends PureComponent {
         </div>
         <div className="second-line">
           <div className="left">
-            <span className="footer__second-line-left-logo">EARTHUi</span>
+            <img
+              className="footer__second-line-left-logo"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.svg"
+            />
           </div>
           <div className="right">
             <span>

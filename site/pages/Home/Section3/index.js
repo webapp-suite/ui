@@ -51,7 +51,7 @@ const Section3 = props => (
     </div>
     <div className="home__section3-content">
       <div className="home__section3-content-title">
-        <h2>Earth-UI component library features</h2>
+        <h2>WebApps-UI component library features</h2>
       </div>
       <ScrollOverPack playScale="0.4" targetId="home" location="home__section3">
         <QueueAnim
