@@ -1,5 +1,5 @@
 import { navigate } from '@reach/router'
-import { Button } from 'earth-ui'
+import { Button } from '@webapps-ui/core-react'
 import React from 'react'
 import './index.less'
 

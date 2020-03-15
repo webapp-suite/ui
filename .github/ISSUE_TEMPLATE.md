@@ -1,6 +1,6 @@
 First of all, thank you for your contribution! :-)
 
-If you want to ask a question, please read [CONTRIBUTING.md](https://github.com/cosmos-x/earth-ui/blob/master/.github/CONTRIBUTING.md) first :-)
+If you want to ask a question, please read [CONTRIBUTING.md](https://github.com/webapps-ui/core-react/blob/master/.github/CONTRIBUTING.md) first :-)
 
 If you are going to report a bug, please answer the following questions, thank you!
 

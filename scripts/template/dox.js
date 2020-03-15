@@ -2,7 +2,7 @@
  * @title Basic Usage
  * @desc Description
  */
-import { <%= name %> } from 'earth-ui'
+import { <%= name %> } from '@webapps-ui/core-react'
 
 const <%= name %>Basic = () => {
   return (

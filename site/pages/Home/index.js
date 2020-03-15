@@ -1,5 +1,5 @@
 import { navigate } from '@reach/router'
-import { Button, BackToTop } from 'earth-ui'
+import { Button, BackToTop } from '@webapps-ui/core-react'
 import NProgress from 'nprogress'
 import QueueAnim from 'rc-queue-anim'
 import React from 'react'
@@ -71,7 +71,7 @@ class Home extends React.Component {
                 >
                   GET STARTED
                 </Button>
-                <a href="https://github.com/cosmos-x/earth-ui">
+                <a href="https://github.com/webapps-ui/core-react">
                   <Button type="primary" size="lg" ghost>
                     GITHUB
                   </Button>

@@ -9,8 +9,8 @@ props: Input
 The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
 
 ```jsx tabs
-import { Input } from 'earth-ui'
-import { Row, Col } from 'earth-ui'
+import { Input } from '@webapps-ui/core-react'
+import { Row, Col } from '@webapps-ui/core-react'
 import { useState } from 'react'
 
 const InputNormal = () => {
@@ -37,7 +37,7 @@ const InputNormal = () => {
 Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
 
 ```jsx tabs
-import { Input } from 'earth-ui'
+import { Input } from '@webapps-ui/core-react'
 
 const InputRD = () => {
   return (
@@ -55,7 +55,7 @@ const InputRD = () => {
 To add icons in Input, you can simply use `prefix` and `suffix` render-props which can make nested components.
 
 ```jsx tabs
-import { Input, Icon, Tooltip } from 'earth-ui'
+import { Input, Icon, Tooltip } from '@webapps-ui/core-react'
 import { useState } from 'react'
 
 const InputIcon = () => {
@@ -90,7 +90,7 @@ const InputIcon = () => {
 Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
 
 ```jsx tabs
-import { Input } from 'earth-ui'
+import { Input } from '@webapps-ui/core-react'
 import { useState } from 'react'
 
 const InputSize = () => {
@@ -115,7 +115,7 @@ const InputSize = () => {
 Triggers when the Input is cleared by clicking the clear button
 
 ```jsx tabs
-import { Input } from 'earth-ui'
+import { Input } from '@webapps-ui/core-react'
 import { useState } from 'react'
 
 const InputClearable = () => {

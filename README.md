@@ -1,13 +1,13 @@
 <h1 align="center">
     <br>
-    <img width="350" src="https://user-images.githubusercontent.com/12554487/76698462-23f12300-66de-11ea-9186-9d959bfb3d07.png" alt="webapps-ui logo">
+    <img width="370" src="https://user-images.githubusercontent.com/12554487/76698462-23f12300-66de-11ea-9186-9d959bfb3d07.png" alt="webapps-ui logo">
     <br>
 </h1>
 
 <p align="center">
   Simple style react components for modern web apps
-    <a href="https://ui.muwenzi.com">
-      https://ui.muwenzi.com
+    <a href="https://react.webapps-ui.com">
+      https://react.webapps-ui.com
     </a>
 </p>
 
@@ -39,7 +39,7 @@ npm i @webapps-ui/core-react
 
 ```jsx
 import { Button } from '@webapps-ui/core-react';
-import '@webapps-ui/core-react/dist/webapps-ui.min.css';
+import '@webapps-ui/core-react/dist/index.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
@@ -97,7 +97,7 @@ We use [GitHub Releases][github-release-url] to manage our releases, including t
 
 [![FOSSA Status][fossa-status-image]][fossa-status-url]
 
-All files on the Earth UI github repository are subject to the [MIT][license-url] license.
+All files on the WebApps UI github repository are subject to the [MIT][license-url] license.
 
 [travis-image]: https://badgen.net/travis/webapps-ui/core-react?icon=travis&label=build
 [codecov-image]: https://badgen.net/codecov/c/github/webapps-ui/core-react/?icon=codecov

@@ -97,8 +97,8 @@ function xhr (option) {
          * @description 全局成功回调，在 dataFilter 后执行，此方法会覆盖单独的 success
          * 方法，如果需要可手动调用
          * ```js
-         * import xhr from 'earth-ui/lib/_utils/xhr'
-         * import { notification } from 'earth-ui'
+         * import xhr from '@webapps-ui/core-react/lib/_utils/xhr'
+         * import { notification } from '@webapps-ui/core-react'
          *
          * xhr.success = (res, option) => {
          *   if (typeof res !== 'object') {

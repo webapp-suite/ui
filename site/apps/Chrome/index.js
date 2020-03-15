@@ -10,7 +10,7 @@ import {
   Tabs,
   ToolBar,
   notification
-} from 'earth-ui'
+} from '@webapps-ui/core-react'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'
@@ -89,7 +89,7 @@ class Components extends React.Component {
     }
     const component = this.componentsMap[componentName]
     const { name = '' } = component || {}
-    const title = name === 'intro' ? 'Earth UI' : name
+    const title = name === 'intro' ? 'WebApps UI' : name
     const tabs = getTabsByComponentName(components, name)
     return (
       <div className="components__content-top">
@@ -171,7 +171,7 @@ class Components extends React.Component {
                 avatar:
                   'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
                 name: 'KIMI GAO',
-                company: 'Web Apps UI'
+                company: 'WebApps UI'
               }}
               logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/dark-bg-webapps-ui.svg"
             >

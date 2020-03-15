@@ -5,7 +5,7 @@
 The `success` notification do not require the confirmation of user and will be automatically closed by default after`1500ms`.
 
 ```jsx tabs
-import { notification, Button } from 'earth-ui'
+import { notification, Button } from '@webapps-ui/core-react'
 
 class NotificationSuccess extends React.Component {
   handleClick() {
@@ -20,7 +20,7 @@ class NotificationSuccess extends React.Component {
 You can also customize the delay time of closing notification, unit is `ms` :
 
 ```jsx run
-import { notification } from 'earth-ui'
+import { notification } from '@webapps-ui/core-react'
 
 const NotificationDuration = () => {
   notification.success('You did it!', 3000);
@@ -32,7 +32,7 @@ const NotificationDuration = () => {
 The notifications of type `info`, `warning`, and `error` require user confirmation to close.
 
 ```jsx tabs
-import { notification, Button } from 'earth-ui'
+import { notification, Button } from '@webapps-ui/core-react'
 
 const NotificationCloseManually = () => {
   return (
@@ -48,7 +48,7 @@ const NotificationCloseManually = () => {
 The notification which can be manually closed allows you to customize the text of the `ACCEPT` button。
 
 ```jsx run
-import { notification } from 'earth-ui'
+import { notification } from '@webapps-ui/core-react'
 
 const NotificationButtonsLabel = () => {
   notification.warning('Beware', 'UNDERSTOOD');
@@ -58,7 +58,7 @@ const NotificationButtonsLabel = () => {
 You can add a callback when you click the `ACCEPT` button.
 
 ```jsx run
-import { notification } from 'earth-ui'
+import { notification } from '@webapps-ui/core-react'
 
 const NotificationNested = () => {
   notification.info('You must accept it.', {
@@ -72,7 +72,7 @@ const NotificationNested = () => {
 ## Notification Queue
 
 ```jsx run
-import { notification } from 'earth-ui'
+import { notification } from '@webapps-ui/core-react'
 
 const NotificationQueue = () => {
   notification.success('You did it!');
