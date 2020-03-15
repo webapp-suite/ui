@@ -2,11 +2,14 @@
   "name": "@webapps-ui/core-react",
   "version": "0.7.1",
   "author": "Kimi Gao",
-  "description": "Simple Style React UI Components for Web",
+  "description": "Simple style react components for modern web apps",
   "keywords": [
-    "react.js",
+    "app",
     "component",
-    "ui"
+    "design",
+    "react",
+    "ui",
+    "web"
   ],
   "license": "MIT",
   "main": "lib/index.js",
