@@ -97,7 +97,7 @@ We use [GitHub Releases][github-release-url] to manage our releases, including t
 
 [![FOSSA Status][fossa-status-image]][fossa-status-url]
 
-All files on the WebApps UI github repository are subject to the [MIT][license-url] license.
+All files on the WebApps UI github repository are subjected to the [MIT][license-url] license.
 
 [travis-image]: https://badgen.net/travis/webapps-ui/core-react?icon=travis&label=build
 [codecov-image]: https://badgen.net/codecov/c/github/webapps-ui/core-react/?icon=codecov
