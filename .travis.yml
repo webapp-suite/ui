@@ -15,4 +15,4 @@ script:
 after_success:
   - npm run report-coverage
 notifications:
-  slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
+  slack: webapps-ui:81CbfYw9kEml7k1QcXQkGfrB

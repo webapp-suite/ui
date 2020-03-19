@@ -1,24 +1,27 @@
 {
-  "name": "earth-ui",
+  "name": "@webapps-ui/core-react",
   "version": "0.7.1",
   "author": "Kimi Gao",
-  "description": "Simple Style React UI Components for Web",
+  "description": "Simple style react components for modern web apps",
   "keywords": [
-    "react.js",
+    "app",
     "component",
-    "ui"
+    "design",
+    "react",
+    "ui",
+    "web"
   ],
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cosmos-x/earth-ui.git"
+    "url": "git+https://github.com/webapps-ui/core-react.git"
   },
   "bugs": {
-    "url": "https://github.com/cosmos-x/earth-ui/issues"
+    "url": "https://github.com/webapps-ui/core-react/issues"
   },
-  "homepage": "https://ui.muwenzi.com/",
+  "homepage": "https://react.webapps-ui.com/",
   "engines": {
     "node": ">=12.0.0",
     "npm": ">=6.9.0"
@@ -45,7 +48,7 @@
     "release": "npm run build && standard-version",
     "gh-pages": "npm run build:site && node scripts/deploy.js",
     "preprod": "npm ci && npm run build:site",
-    "prod": "NODE_ENV=production pm2 start site/server.js --name earth-ui",
+    "prod": "NODE_ENV=production pm2 start site/server.js --name webapps-ui-core-react",
     "****** LINT *****": "",
     "fix": "eslint src --fix && eslint site --fix",
     "lint": "eslint src && eslint site",

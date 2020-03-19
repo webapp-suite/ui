@@ -8,7 +8,7 @@
   }
 
   &__title {
-    .earthui-header__bars-tool-item-title {
+    .@{prefix-cls}-header__bars-tool-item-title {
       text-transform: capitalize;
     }
   }
@@ -19,6 +19,11 @@
     padding: 70px @ui-unit-triple 140px;
     &-top {
       flex-shrink: 0;
+    }
+  }
+  .layout__sidebar {
+    .@{prefix-cls}-nav__top-center-container-logo {
+      transform: scale(1.44);
     }
   }
 }

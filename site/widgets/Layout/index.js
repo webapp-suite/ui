@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Row, Col, Button } from 'earth-ui'
+import { Row, Col, Button } from '@webapps-ui/core-react'
 import './index.less'
 
 class Layout extends Component {

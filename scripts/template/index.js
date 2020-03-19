@@ -4,7 +4,7 @@ import cx from 'classnames'
 import './index.less'
 
 // remove this after created
-const prefixCls = 'earthui'
+const prefixCls = 'waui'
 
 class <%= name %> extends React.Component {
   constructor () {

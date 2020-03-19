@@ -12,7 +12,7 @@ import {
   TabList,
   TabPanel,
   Tabs
-} from 'earth-ui'
+} from '@webapps-ui/core-react'
 import Code from 'widgets/Code'
 import { EXAMPLE_MODE } from '../../constant'
 import './index.less'

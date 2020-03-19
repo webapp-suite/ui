@@ -132,7 +132,7 @@ const config = {
     extensions: ['.js', '.jsx'],
     modules: [sitePath, 'node_modules'],
     alias: {
-      'earth-ui': `${sourcePath}/components`,
+      '@webapps-ui/core-react': `${sourcePath}/components`,
       widgets: `${sitePath}/widgets`,
       'ui-variables': `${sourcePath}/styles/ui-variables.less`,
       'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
@@ -147,7 +147,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      prefixCls: JSON.stringify('earthui')
+      prefixCls: JSON.stringify('waui')
     })
   ],
   optimization: {

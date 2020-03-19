@@ -7,36 +7,42 @@ class Footer extends PureComponent {
       <footer className="container">
         <div className="first-line">
           <div className="left">
-            <h2>About Earth-UI</h2>
+            <h2>About WebApps-UI</h2>
             <div className="intro">
-              A minimalism style ui component library based on React
+              A simple style react components for modern web applications
             </div>
           </div>
           <div className="left">
             <h2>Alipay reward</h2>
             <div className="pay">
-              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_alipay.jpg" alt="qrcode_alipay" />
+              <img
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_alipay.jpg"
+                alt="qrcode_alipay"
+              />
             </div>
           </div>
           <div className="left">
             <h2>Wechat reward</h2>
             <div className="pay">
-              <img src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_wechat.jpg" alt="qrcode_wechat" />
+              <img
+                src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/qrcode_wechat.jpg"
+                alt="qrcode_wechat"
+              />
             </div>
           </div>
           <div className="right">
             <h2>Help</h2>
             <div className="help">
               <div>
-                <a href="https://github.com/cosmos-x/earth-ui">Github</a>
+                <a href="https://github.com/webapps-ui/core-react">Github</a>
               </div>
               <div>
-                <a href="https://github.com/cosmos-x/earth-ui/releases">
+                <a href="https://github.com/webapps-ui/core-react/releases">
                   Release Note
                 </a>
               </div>
               <div>
-                <a href="https://github.com/cosmos-x/earth-ui/issues/new">
+                <a href="https://github.com/webapps-ui/core-react/issues/new">
                   Bug Report
                 </a>
               </div>
@@ -48,18 +54,13 @@ class Footer extends PureComponent {
         </div>
         <div className="second-line">
           <div className="left">
-            <span className="footer__second-line-left-logo">EARTHUi</span>
+            <img
+              className="footer__second-line-left-logo"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.svg"
+            />
           </div>
           <div className="right">
-            <span>
-              <a
-                href="http://beian.miit.gov.cn/"
-                style={{ color: 'hsl(199, 20%, 22%)' }}
-              >
-                SU ICP NO.15056713-1
-              </a>
-            </span>
-            <span>© Kimi Gao</span>
+            <span>Copyright © {new Date().getFullYear()} WebApps-UI</span>
           </div>
         </div>
       </footer>

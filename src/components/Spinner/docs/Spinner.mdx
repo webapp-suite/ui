@@ -7,7 +7,7 @@ props: Spinner
 The display and hiding of loading effects are controlled by the value of `isLoading`.
 
 ```jsx tabs
-import { Spinner, Switch } from 'earth-ui'
+import { Spinner, Switch } from '@webapps-ui/core-react'
 
 class SpinnerBasic extends React.Component {
   constructor() {
@@ -48,7 +48,7 @@ This component will ensure that the loading display time is at least `300ms` to 
 The description of spinner could be changed by the `tip` property。
 
 ```jsx tabs
-import { Spinner, Switch } from 'earth-ui'
+import { Spinner, Switch } from '@webapps-ui/core-react'
 
 class SpinnerTip extends React.Component {
   constructor() {
@@ -87,7 +87,7 @@ class SpinnerTip extends React.Component {
 The `cover` property is currently provided to select the performance of the spinner background.
 
 ```jsx tabs
-import { Spinner, Switch } from 'earth-ui'
+import { Spinner, Switch } from '@webapps-ui/core-react'
 
 class SpinnerCover extends React.Component {
   constructor() {
@@ -134,7 +134,7 @@ The default `cover` is white background.
 There are three different sizes such as `sm`, `md` and `lg` to meet the requirements in different scenarios.
 
 ```jsx tabs
-import { Spinner } from 'earth-ui'
+import { Spinner } from '@webapps-ui/core-react'
 
 const SpinnerSize = () => {
   return (
@@ -154,7 +154,7 @@ For the global Spinner and the Spinner inside the Aside, it is recommended to us
 You can create a custom indicator with the `indicator` property, which need passing a react instance.
 
 ```jsx tabs
-import { Spinner } from 'earth-ui'
+import { Spinner } from '@webapps-ui/core-react'
 import styled, { keyframes } from 'styled-components'
 
 class SpinnerIndicator extends React.Component {

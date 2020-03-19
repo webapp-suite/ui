@@ -1,4 +1,4 @@
-import { Icon } from 'earth-ui'
+import { Icon } from '@webapps-ui/core-react'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'
@@ -27,7 +27,7 @@ const dataList = [
     icon: 'docs-icon-modules-1',
     title: 'Markup Declarative Components',
     intro:
-      'It has natural advantage of flexibility and easy combination, which is the cornerstone of the Earth UI component library.'
+      'It has natural advantage of flexibility and easy combination, which is the cornerstone of the WebApps UI component library.'
   },
   {
     icon: 'docs-icon-devices',
@@ -39,7 +39,7 @@ const dataList = [
     icon: 'docs-icon-font-size',
     title: 'Support Markdown',
     intro:
-      'Earth UI has built-in support for Markdown meanwhile support basic Markdown for specific components.'
+      'WebApps UI has built-in support for Markdown meanwhile support basic Markdown for specific components.'
   }
 ]
 
@@ -51,7 +51,7 @@ const Section3 = props => (
     </div>
     <div className="home__section3-content">
       <div className="home__section3-content-title">
-        <h2>Earth-UI component library features</h2>
+        <h2>WebApps-UI component library features</h2>
       </div>
       <ScrollOverPack playScale="0.4" targetId="home" location="home__section3">
         <QueueAnim

@@ -1,4 +1,4 @@
-import { Col, Row } from 'earth-ui'
+import { Col, Row } from '@webapps-ui/core-react'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'
@@ -7,12 +7,12 @@ import Center from '../Center'
 import './index.less'
 
 const code = `
-import { Button } from 'earth-ui'
+import { Button } from '@webapps-ui/core-react'
 
 class App extends Component {
 
   handleClick = () => {
-    console.log('hello, earth-ui')
+    console.log('hello, @webapps-ui/core-react')
   }
 
   render () {

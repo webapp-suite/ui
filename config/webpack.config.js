@@ -7,7 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const sourcePath = path.resolve(__dirname, '../src')
 const outputPath = path.resolve(__dirname, '../dist')
-const entryName = 'earth-ui.min'
+const entryName = 'index.min'
 
 rimraf.sync(outputPath)
 
@@ -102,7 +102,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      prefixCls: JSON.stringify('earthui')
+      prefixCls: JSON.stringify('waui')
     }),
     new MiniCssExtractPlugin('[name].css')
   ],
