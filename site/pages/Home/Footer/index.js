@@ -60,15 +60,7 @@ class Footer extends PureComponent {
             />
           </div>
           <div className="right">
-            <span>
-              <a
-                href="http://beian.miit.gov.cn/"
-                style={{ color: 'hsl(199, 20%, 22%)' }}
-              >
-                SU ICP NO.15056713-1
-              </a>
-            </span>
-            <span>© Kimi Gao</span>
+            <span>Copyright © {new Date().getFullYear()} WebApps-UI</span>
           </div>
         </div>
       </footer>
