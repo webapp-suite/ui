@@ -60,7 +60,7 @@ class Footer extends PureComponent {
             />
           </div>
           <div className="right">
-            <span>Copyright © {new Date().getFullYear()} WebApps-UI</span>
+            <span>苏ICP备15056713号-2</span>
           </div>
         </div>
       </footer>
