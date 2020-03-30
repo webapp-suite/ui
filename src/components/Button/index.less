@@ -250,10 +250,10 @@
 .@{prefix-cls}-button--lg {
   margin-right: @ui-unit;
   &:not(.@{prefix-cls}-button--text):not(.@{prefix-cls}-button--link) {
-    .ui-mixin-fixheight(@ui-unit-plus);
     border-radius: 28px;
-    padding: 24px;
-    font-size: @ui-fontsize-big;
+    padding: 12px;
+    .ui-mixin-reduce(@ui-unit);
+    font-size: @ui-fontsize-medium;
     min-width: @ui-unit-plus;
   }
 }

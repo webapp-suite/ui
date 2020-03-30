@@ -39,7 +39,7 @@ class Header extends React.Component {
           <div className="header__logo">
             <img
               className="header__logo-img"
-              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.svg"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.png"
             />
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>

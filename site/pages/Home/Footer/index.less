@@ -82,27 +82,32 @@
     span {
       line-height: 32px;
     }
-    .left span {
+    .left {
       display: inline-table;
       margin-right: 5px;
-      &.footer__second-line-left-logo {
-        height: 15px;
+      .footer__second-line-left-logo {
         position: relative;
-        top: 4px;
+        height: 18px;
+        top: 6px;
       }
     }
-    .right span {
-      display: inline-table;
-      &:after {
-        content: '';
-        display: inline-block;
-        text-align: center;
-        width: @ui-unit-quarter
+    .right {
+      a {
+        color: @item-color;
       }
-      &:last-child {
+      span {
+        display: inline-table;
         &:after {
           content: '';
-          width: 0;
+          display: inline-block;
+          text-align: center;
+          width: @ui-unit-quarter
+        }
+        &:last-child {
+          &:after {
+            content: '';
+            width: 0;
+          }
         }
       }
     }

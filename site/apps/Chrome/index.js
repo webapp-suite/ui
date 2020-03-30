@@ -173,7 +173,7 @@ class Components extends React.Component {
                 name: 'KIMI GAO',
                 company: 'WebApps UI'
               }}
-              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/dark-bg-webapps-ui.svg"
+              logoUrl="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/dark-bg-webapps-ui.png"
             >
               {components.map(item => {
                 if (!item.components) {

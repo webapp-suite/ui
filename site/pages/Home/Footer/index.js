@@ -56,11 +56,11 @@ class Footer extends PureComponent {
           <div className="left">
             <img
               className="footer__second-line-left-logo"
-              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.svg"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.png"
             />
           </div>
           <div className="right">
-            <span>苏ICP备15056713号-2</span>
+            <a href="http://beian.miit.gov.cn/">苏ICP备15056713号-2</a>
           </div>
         </div>
       </footer>
