@@ -24,15 +24,15 @@ class Upload extends React.Component {
   handleChange = event => {
     const el = event.target
     const files = el.files
-    const onUplading = this.props.onUplading
+    const onUploading = this.props.onUploading
     const onUpload = this.props.onUpload
-    onUplading && onUplading(0)
+    onUploading && onUploading(0)
     onUpload ? onUpload(files) : this.upload(files)
     el.value = ''
   }
 
   upload (files) {
-    const onUplading = this.props.onUplading
+    const onUploading = this.props.onUploading
     const self = this
     const arr = []
     for (let i = 0; i < files.length; i++) {
@@ -59,7 +59,7 @@ class Upload extends React.Component {
               const list = self.state.list.slice(0)
               const f = list[index]
               f.percent = per
-              onUplading && onUplading(per)
+              onUploading && onUploading(per)
               self.setState({
                 list
               })
@@ -117,7 +117,7 @@ class Upload extends React.Component {
       action,
       fileName,
       multiple,
-      onUplading,
+      onUploading,
       onComplete,
       showFileList,
       button,
@@ -175,11 +175,11 @@ Upload.propTypes = {
   /** The name of uploaded file, default value is `files` */
   fileName: PropTypes.string,
 
-  /** Whether to support multi-selection, ie10+ supports, press ctrl can select multi files after enabled。 */
+  /** Whether to support multi-selection, ie10+ supports, press ctrl can select multi files after enabled */
   multiple: PropTypes.bool,
 
   /** The callback of the progress of uploading */
-  onUplading: PropTypes.func,
+  onUploading: PropTypes.func,
 
   onUpload: PropTypes.func,
 
