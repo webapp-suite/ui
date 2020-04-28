@@ -4,8 +4,18 @@ import renderer from 'react-test-renderer'
 import Header from '../index'
 
 describe('Header', () => {
-  it('should render correctly', () => {
+  it('should render title correctly', () => {
     const wrapper = render(<Header title="Header" />)
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('should render icon correctly', () => {
+    const wrapper = render(
+      <Header icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/blue-bg-webapps-ui-icon.png" />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+  it('should render children correctly', () => {
+    const wrapper = render(<Header>Test</Header>)
     expect(wrapper).toMatchSnapshot()
   })
   it('should mount correctly', () => {
