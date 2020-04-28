@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/webapps-ui/core-react/compare/v0.7.1...v0.8.0) (2020-04-28)
+
+
+### Features
+
+* **Header:** support children and polish style ([0cb4c7a](https://github.com/webapps-ui/core-react/commit/0cb4c7ae16d2357ce8d41b19367fbc921305baf3))
+
+
+### Bug Fixes
+
+* **Button:** large button style issue ([687cefa](https://github.com/webapps-ui/core-react/commit/687cefaa11a7df1053960ee8fd1e1928c906a3f9))
+* **dialog:** make the dialog to the center of window ([fcfc20f](https://github.com/webapps-ui/core-react/commit/fcfc20f161d2bd1b5057e41a5cbce27ac769fb5a))
+* **docs:** button line-height caused by markdown ([153d289](https://github.com/webapps-ui/core-react/commit/153d289a36f95b809e910a6427973699f83a1428))
+* **Upload:** onUplading to onUploading ([3ad6871](https://github.com/webapps-ui/core-react/commit/3ad68717a7a2caac98a9b10f313ac7476118642f))
+* **website:** svg font and style issue ([3092009](https://github.com/webapps-ui/core-react/commit/309200978af129eedaf4337cdf088f490b078330))
+
 ### [0.7.1](https://github.com/webapps-ui/core-react/compare/v0.7.0...v0.7.1) (2020-02-20)
 
 
