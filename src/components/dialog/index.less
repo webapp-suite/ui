@@ -68,15 +68,11 @@
 
 .@{prefix-cls}-dialog__main {
   position: fixed;
-  top: 20%;
-  right: 0;
-  bottom: 0;
+  top: 40%;
   left: 50%;
+  transform: translate(-50%, -50%);
   z-index: @ui-zindex-dialog;
   overflow: hidden;
-  margin-left: @local-variable-dialog-minus;
-  // TODO: assumed in the chrome, account for menu width
-  margin-left: @local-variable-dialog-minus + 130px;
   display: table;
   opacity: 0;
   &_lock {
