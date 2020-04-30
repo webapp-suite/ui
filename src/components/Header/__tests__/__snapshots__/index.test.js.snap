@@ -14,15 +14,6 @@ exports[`Header should render Chinese characters correctly 1`] = `
         class="true-header__bars-tool-item"
       >
         <li
-          class="true-header__bars-tool-item-icon"
-        >
-          <img
-            alt="icon"
-            height="40"
-            width="40"
-          />
-        </li>
-        <li
           class="true-header__bars-tool-item-title"
         >
           <label>
@@ -35,7 +26,30 @@ exports[`Header should render Chinese characters correctly 1`] = `
 </header>
 `;
 
-exports[`Header should render correctly 1`] = `
+exports[`Header should render children correctly 1`] = `
+<header
+  class="true-header true-header--white"
+>
+  <ul
+    class="true-header__bars"
+  >
+    <li
+      class="true-header__bars-tool"
+    >
+      <menu
+        class="true-header__bars-tool-item"
+      />
+    </li>
+    <li
+      class="true-header__bars-left"
+    >
+      Test
+    </li>
+  </ul>
+</header>
+`;
+
+exports[`Header should render icon correctly 1`] = `
 <header
   class="true-header true-header--white"
 >
@@ -54,9 +68,28 @@ exports[`Header should render correctly 1`] = `
           <img
             alt="icon"
             height="40"
-            width="40"
+            src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/blue-bg-webapps-ui-icon.png"
           />
         </li>
+      </menu>
+    </li>
+  </ul>
+</header>
+`;
+
+exports[`Header should render title correctly 1`] = `
+<header
+  class="true-header true-header--white"
+>
+  <ul
+    class="true-header__bars"
+  >
+    <li
+      class="true-header__bars-tool"
+    >
+      <menu
+        class="true-header__bars-tool-item"
+      >
         <li
           class="true-header__bars-tool-item-title"
         >

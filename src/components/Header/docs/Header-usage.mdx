@@ -2,18 +2,43 @@
 props: Header
 ---
 
-## Basic Usage
+## Title
 
 ```jsx vertical
 import { Header } from '@webapps-ui/core-react'
 
-const HeaderBasic = () => {
+const HeaderTitle = () => {
   return (
-    <Header icon="/svg/app_logo_bg_blue.svg" title="Header" />
+    <Header title="Header" />
   )
 }
 ```
 
+## Icon
+
+In the most scenarios, app logo/icon should be square, like following example shows:
+
+```jsx vertical
+import { Header } from '@webapps-ui/core-react'
+
+const HeaderIconSquare = () => {
+  return (
+    <Header icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/blue-bg-webapps-ui-icon.png" title="Header" />
+  )
+}
+```
+
+In addition, you can also use rectangle logo:
+
+```jsx vertical
+import { Header } from '@webapps-ui/core-react'
+
+const HeaderIconRectangle = () => {
+  return (
+    <Header icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/eb-logo.png" title="Header" />
+  )
+}
+```
 
 ## Background color
 
@@ -22,7 +47,22 @@ import { Header } from '@webapps-ui/core-react'
 
 const ColorfulHeader = () => {
   return (
-    <Header icon="/svg/app_logo_bg_white.svg" title="Header" color="blue" />
+    <Header icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-icon.png" title="Header" color="blue" />
+  )
+}
+```
+
+## Buttons
+
+```jsx vertical
+import { Header, Button } from '@webapps-ui/core-react'
+
+const HeaderButtons = () => {
+  return (
+    <Header icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/blue-bg-webapps-ui-icon.png" title="Header">
+      <Button>BUTTON</Button>
+      <Button icon="logout" />
+    </Header>
   )
 }
 ```

@@ -2,7 +2,7 @@
 col: 24
 ---
 
-import { Header } from '@webapps-ui/core-react'
+import { Header, Button, notification } from '@webapps-ui/core-react'
 
 export const ColorfulHeader = () => {
   const colors = [
@@ -19,7 +19,7 @@ export const ColorfulHeader = () => {
     'black'
   ]
   const ul = {
-    // marginTop: -20
+    lineHeight: '20px' // todo: fix button line-height caused by .markdown
   }
   const li = {
     width: '100%',
@@ -34,7 +34,9 @@ export const ColorfulHeader = () => {
       <ul style={ul}>
         {colors.map(color =>
           <li style={li} key={color}>
-            <Header icon={`/svg/app_logo_bg_${color === 'blue' ? 'white' : 'blue'}.svg`} title={color} color={color} />
+            <Header icon={`https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/${color === 'white' ? 'blue' : 'white'}-bg-webapps-ui-icon.png`} title={color} color={color}>
+              <Button ghost onClick={() => notification.success('You have clicked this button!')}>BUTTON</Button>
+            </Header>
           </li>
         )}
       </ul>
