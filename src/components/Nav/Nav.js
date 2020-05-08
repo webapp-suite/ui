@@ -24,6 +24,7 @@ class Nav extends Component {
 
   handleItemClick (props, e) {
     this.setState({ selectedId: props.id })
+    this.props.collapsed && this.handleCollapseToggle(true)
     this.props.onItemClick && this.props.onItemClick(props, e)
   }
 
