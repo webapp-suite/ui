@@ -147,6 +147,40 @@ describe('<Nav>', () => {
       expect(subnav1).not.toHaveClass(openSubNavClassName)
       expect(subnav2).toHaveClass(openSubNavClassName)
     })
+    it('should collapse expanded automatically when click Nav Item and collapsed is true', () => {
+      const { getByTestId } = render(
+        <Nav selectedId="1" data-testid="nav">
+          <SubNav data-testid="subnav">
+            <NavItem id="1" />
+            <NavItem id="2" />
+          </SubNav>
+        </Nav>
+      )
+      const nav = getByTestId('nav')
+      const subnav = getByTestId('subnav')
+      const collapsedNavClassName = `${navClassName}--collapsed`
+
+      expect(nav).toHaveClass(collapsedNavClassName)
+      fireEvent.click(subnav.firstChild)
+      expect(nav).not.toHaveClass(collapsedNavClassName)
+    })
+    it('should not collapse expanded automatically when click Nav Item and collapsed is false', () => {
+      const { getByTestId } = render(
+        <Nav selectedId="1" collapsed={false} data-testid="nav">
+          <SubNav data-testid="subnav">
+            <NavItem id="1" />
+            <NavItem id="2" />
+          </SubNav>
+        </Nav>
+      )
+      const nav = getByTestId('nav')
+      const subnav = getByTestId('subnav')
+      const collapsedNavClassName = `${navClassName}--collapsed`
+
+      expect(nav).not.toHaveClass(collapsedNavClassName)
+      fireEvent.click(subnav.firstChild)
+      expect(nav).not.toHaveClass(collapsedNavClassName)
+    })
     it('should open SubNav correctly when click expanded SubNav title', () => {
       const { getByTestId } = render(
         <Nav selectedId="1" collapsed={false}>
