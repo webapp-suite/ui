@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/webapps-ui/core-react/compare/v0.8.0...v0.8.1) (2020-05-09)
+
+### Bug Fixes
+
+* **Nav:** make Nav can be collapsed after clicked item ([7748b67](https://github.com/webapps-ui/core-react/commit/7748b678816955b269772418c85083d07dd95bb3))
+
 ## [0.8.0](https://github.com/webapps-ui/core-react/compare/v0.7.1...v0.8.0) (2020-04-28)
 
 
