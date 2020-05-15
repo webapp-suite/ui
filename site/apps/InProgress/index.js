@@ -18,12 +18,13 @@ class InProgress extends React.Component {
   }
 
   render () {
+    const text = 'Coming soon...'
     if (this.state.imageStatus === 'loading') {
       return (
         <img
           style={{ display: 'none' }}
           src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/in_progress.png"
-          alt="Work in progress"
+          alt={text}
           onLoad={this.handleImageLoaded}
           onError={this.handleImageErrored}
         />
@@ -35,11 +36,11 @@ class InProgress extends React.Component {
           <img
             className="in-progress__image"
             src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/in_progress.png"
-            alt="Work in progress"
+            alt={text}
             draggable="false"
           />
         )}
-        <p>Work in progress...</p>
+        <p>{text}</p>
       </div>
     )
   }
