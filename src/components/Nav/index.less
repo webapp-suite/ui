@@ -240,8 +240,11 @@
 
 .@{prefix-cls}-nav__item-icon,
 .@{prefix-cls}-nav__sub-nav-title-icon {
-  margin-right: @ui-unit;
+  margin-right: @ui-unit-double + 2px;
   text-align: center;
+  svg {
+    position: absolute; // fix `float:left` rendering bug in safari
+  }
 }
 
 .@{prefix-cls}-nav__sub-nav-title-toggle {
