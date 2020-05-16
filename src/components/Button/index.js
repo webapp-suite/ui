@@ -15,6 +15,7 @@ function Button (props) {
     ghost,
     icon,
     disabled,
+    htmlType,
     ...other
   } = props
   const classNames = cx(
@@ -32,7 +33,7 @@ function Button (props) {
   if (icon && children) {
     return (
       <button
-        type="button"
+        type={htmlType}
         className={classNames}
         disabled={disabled || loading}
         {...other}
@@ -46,7 +47,7 @@ function Button (props) {
   }
   return (
     <button
-      type="button"
+      type={htmlType}
       className={classNames}
       disabled={disabled || loading}
       {...other}
@@ -61,7 +62,7 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  /** button type */
+  /** button type which is not original html `type` of `button` */
   type: PropTypes.oneOf([
     'primary',
     'accept',
@@ -87,11 +88,15 @@ Button.propTypes = {
   disabled: PropTypes.bool,
 
   /** icon type name */
-  icon: PropTypes.string
+  icon: PropTypes.string,
+
+  /** set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) */
+  htmlType: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 Button.defaultProps = {
-  size: 'md'
+  size: 'md',
+  htmlType: 'button'
 }
 
 export default Button
