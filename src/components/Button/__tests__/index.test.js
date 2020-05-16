@@ -5,6 +5,16 @@ import Button from '../index'
 import Icon from '../../Icon'
 
 describe('Button', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+  afterEach(() => {
+    errorSpy.mockReset()
+  })
+
+  afterAll(() => {
+    errorSpy.mockRestore()
+  })
+
   it('should render correctly', () => {
     const wrapper = render(<Button>OK</Button>)
     expect(wrapper).toMatchSnapshot()
@@ -135,5 +145,17 @@ describe('Button', () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find('button').hasClass('true-button--ghost')).toBe(true)
     })
+  })
+  it('should render original html type of button correctly', () => {
+    const wrapperDefault = mount(<Button>Default</Button>)
+    const wrapperSubmit = mount(<Button htmlType="submit">Default</Button>)
+    const wrapperReset = mount(<Button htmlType="reset">Reset</Button>)
+    expect(wrapperDefault.find('button').prop('type')).toBe('button')
+    expect(wrapperSubmit.find('button').prop('type')).toBe('submit')
+    expect(wrapperReset.find('button').prop('type')).toBe('reset')
+  })
+  it('should have error when setting invalid htmlType', () => {
+    mount(<Button htmlType="hello">Hello</Button>)
+    expect(errorSpy).toHaveBeenCalled()
   })
 })
