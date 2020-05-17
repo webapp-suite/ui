@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/webapps-ui/core-react/compare/v0.8.2...v0.9.0) (2020-05-17)
+
+
+### Features
+
+* **Button:** add htmlType prop for form submit button ([#278](https://github.com/webapps-ui/core-react/issues/278)) ([03fbf72](https://github.com/webapps-ui/core-react/commit/03fbf72334a852f6c18135ed7ca4927f019089d9))
+* **Nav:** make setting button can be hidden ([#279](https://github.com/webapps-ui/core-react/issues/279)) ([e9e121b](https://github.com/webapps-ui/core-react/commit/e9e121bded0cc97076d35a7e18590a2358c3587d))
+
+
+### Bug Fixes
+
+* **button:** prevent button inheriting parent's line-height ([9b48c71](https://github.com/webapps-ui/core-react/commit/9b48c718a2ff42740dcd7ed9b6008bd1544e32a7))
+* **header:** fix button height issue in safari ([dc9d7d6](https://github.com/webapps-ui/core-react/commit/dc9d7d6afe1bf13c850cd1e3173d49226d22f1b1))
+
 ### [0.8.2](https://github.com/webapps-ui/core-react/compare/v0.8.0...v0.8.2) (2020-05-15)
 
 ### Bug Fixes
