@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Button from '../Button'
 
-export default function NavBottom ({ user, onSettingClick, onLogoutClick }) {
+export default function NavBottom ({
+  user,
+  onSettingClick,
+  onLogoutClick,
+  hideSetting
+}) {
   return (
     <div className={`${prefixCls}-nav__bottom`}>
       <div className={`${prefixCls}-nav__bottom-image`}>
@@ -31,16 +36,18 @@ export default function NavBottom ({ user, onSettingClick, onLogoutClick }) {
           )}
         />
       </div>
-      <div className={`${prefixCls}-nav__bottom-settings`}>
-        <Button
-          icon="settings"
-          onClick={e => onSettingClick(e)}
-          className={cx(
-            `${prefixCls}-nav__btn-icon`,
-            `${prefixCls}-nav__bottom-settings-icon`
-          )}
-        />
-      </div>
+      {!hideSetting && (
+        <div className={`${prefixCls}-nav__bottom-settings`}>
+          <Button
+            icon="settings"
+            onClick={e => onSettingClick(e)}
+            className={cx(
+              `${prefixCls}-nav__btn-icon`,
+              `${prefixCls}-nav__bottom-settings-icon`
+            )}
+          />
+        </div>
+      )}
     </div>
   )
 }
@@ -52,5 +59,6 @@ NavBottom.propTypes = {
     company: PropTypes.string
   }),
   onSettingClick: PropTypes.func,
-  onLogoutClick: PropTypes.func
+  onLogoutClick: PropTypes.func,
+  hideSetting: PropTypes.bool
 }

@@ -87,6 +87,24 @@ describe('<Nav>', () => {
       expect(getByTestId1('nav1')?.style?.width).toBe('200px')
       expect(getByTestId2('nav2')?.style?.width).toBeUndefined
     })
+    it('should show setting button correctly according the value of hideSetting', () => {
+      const { getByTestId: getByTestId1 } = render(
+        <Nav selectedId="1" data-testid="nav1">
+          <NavItem id="1" />
+        </Nav>
+      )
+      const { getByTestId: getByTestId2 } = render(
+        <Nav selectedId="1" hideSetting data-testid="nav2">
+          <NavItem id="1" />
+        </Nav>
+      )
+      expect(
+        getByTestId1('nav1').querySelector(`.${navClassName}__bottom-settings`)
+      ).not.toBeNull()
+      expect(
+        getByTestId2('nav2').querySelector(`.${navClassName}__bottom-settings`)
+      ).toBeNull()
+    })
     // TODO test computed style
     it.skip('should render hovered NavItem or SubNav correctly', () => {})
   })
