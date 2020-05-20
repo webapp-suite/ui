@@ -87,6 +87,24 @@ describe('<Nav>', () => {
       expect(getByTestId1('nav1')?.style?.width).toBe('200px')
       expect(getByTestId2('nav2')?.style?.width).toBeUndefined
     })
+    it('should show setting button correctly according the value of hideSetting', () => {
+      const { getByTestId: getByTestId1 } = render(
+        <Nav selectedId="1" data-testid="nav1">
+          <NavItem id="1" />
+        </Nav>
+      )
+      const { getByTestId: getByTestId2 } = render(
+        <Nav selectedId="1" hideSetting data-testid="nav2">
+          <NavItem id="1" />
+        </Nav>
+      )
+      expect(
+        getByTestId1('nav1').querySelector(`.${navClassName}__bottom-settings`)
+      ).not.toBeNull()
+      expect(
+        getByTestId2('nav2').querySelector(`.${navClassName}__bottom-settings`)
+      ).toBeNull()
+    })
     // TODO test computed style
     it.skip('should render hovered NavItem or SubNav correctly', () => {})
   })
@@ -146,6 +164,40 @@ describe('<Nav>', () => {
       expect(nav).not.toHaveClass(collapsedNavClassName)
       expect(subnav1).not.toHaveClass(openSubNavClassName)
       expect(subnav2).toHaveClass(openSubNavClassName)
+    })
+    it('should collapse expanded automatically when click Nav Item and collapsed is true', () => {
+      const { getByTestId } = render(
+        <Nav selectedId="1" data-testid="nav">
+          <SubNav data-testid="subnav">
+            <NavItem id="1" />
+            <NavItem id="2" />
+          </SubNav>
+        </Nav>
+      )
+      const nav = getByTestId('nav')
+      const subnav = getByTestId('subnav')
+      const collapsedNavClassName = `${navClassName}--collapsed`
+
+      expect(nav).toHaveClass(collapsedNavClassName)
+      fireEvent.click(subnav.firstChild)
+      expect(nav).not.toHaveClass(collapsedNavClassName)
+    })
+    it('should not collapse expanded automatically when click Nav Item and collapsed is false', () => {
+      const { getByTestId } = render(
+        <Nav selectedId="1" collapsed={false} data-testid="nav">
+          <SubNav data-testid="subnav">
+            <NavItem id="1" />
+            <NavItem id="2" />
+          </SubNav>
+        </Nav>
+      )
+      const nav = getByTestId('nav')
+      const subnav = getByTestId('subnav')
+      const collapsedNavClassName = `${navClassName}--collapsed`
+
+      expect(nav).not.toHaveClass(collapsedNavClassName)
+      fireEvent.click(subnav.firstChild)
+      expect(nav).not.toHaveClass(collapsedNavClassName)
     })
     it('should open SubNav correctly when click expanded SubNav title', () => {
       const { getByTestId } = render(

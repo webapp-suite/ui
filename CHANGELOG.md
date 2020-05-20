@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/webapps-ui/core-react/compare/v0.8.2...v0.9.0) (2020-05-17)
+
+
+### Features
+
+* **Button:** add htmlType prop for form submit button ([#278](https://github.com/webapps-ui/core-react/issues/278)) ([03fbf72](https://github.com/webapps-ui/core-react/commit/03fbf72334a852f6c18135ed7ca4927f019089d9))
+* **Nav:** make setting button can be hidden ([#279](https://github.com/webapps-ui/core-react/issues/279)) ([e9e121b](https://github.com/webapps-ui/core-react/commit/e9e121bded0cc97076d35a7e18590a2358c3587d))
+
+
+### Bug Fixes
+
+* **button:** prevent button inheriting parent's line-height ([9b48c71](https://github.com/webapps-ui/core-react/commit/9b48c718a2ff42740dcd7ed9b6008bd1544e32a7))
+* **header:** fix button height issue in safari ([dc9d7d6](https://github.com/webapps-ui/core-react/commit/dc9d7d6afe1bf13c850cd1e3173d49226d22f1b1))
+
+### [0.8.2](https://github.com/webapps-ui/core-react/compare/v0.8.0...v0.8.2) (2020-05-15)
+
+### Bug Fixes
+
+* **Nav:** render issue in safari when nav collapsed ([#276](https://github.com/webapps-ui/core-react/issues/276)) ([244a891](https://github.com/webapps-ui/core-react/commit/244a8915fad93e91bcf0be9bb0c37a20f828a22d)), closes [#272](https://github.com/webapps-ui/core-react/issues/272)
+
+### [0.8.1](https://github.com/webapps-ui/core-react/compare/v0.8.0...v0.8.1) (2020-05-09)
+
+### Bug Fixes
+
+* **Nav:** make Nav can be collapsed after clicked item ([#271](https://github.com/webapps-ui/core-react/issues/271)) ([7748b67](https://github.com/webapps-ui/core-react/commit/7748b678816955b269772418c85083d07dd95bb3))
+
+## [0.8.0](https://github.com/webapps-ui/core-react/compare/v0.7.1...v0.8.0) (2020-04-28)
+
+
+### Features
+
+* **Header:** support children and polish style ([0cb4c7a](https://github.com/webapps-ui/core-react/commit/0cb4c7ae16d2357ce8d41b19367fbc921305baf3))
+
+
+### Bug Fixes
+
+* **Button:** large button style issue ([687cefa](https://github.com/webapps-ui/core-react/commit/687cefaa11a7df1053960ee8fd1e1928c906a3f9))
+* **dialog:** make the dialog to the center of window ([fcfc20f](https://github.com/webapps-ui/core-react/commit/fcfc20f161d2bd1b5057e41a5cbce27ac769fb5a))
+* **docs:** button line-height caused by markdown ([153d289](https://github.com/webapps-ui/core-react/commit/153d289a36f95b809e910a6427973699f83a1428))
+* **Upload:** onUplading to onUploading ([3ad6871](https://github.com/webapps-ui/core-react/commit/3ad68717a7a2caac98a9b10f313ac7476118642f))
+* **website:** svg font and style issue ([3092009](https://github.com/webapps-ui/core-react/commit/309200978af129eedaf4337cdf088f490b078330))
+
 ### [0.7.1](https://github.com/webapps-ui/core-react/compare/v0.7.0...v0.7.1) (2020-02-20)
 
 

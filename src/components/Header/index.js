@@ -11,6 +11,9 @@ class Header extends React.Component {
         className={cx(
           `${prefixCls}-header`,
           `${prefixCls}-header--${color}`,
+          {
+            [`${prefixCls}-bg-colorful`]: color !== 'white'
+          },
           className
         )}
         {...other}
@@ -18,15 +21,21 @@ class Header extends React.Component {
         <ul className={`${prefixCls}-header__bars`}>
           <li className={`${prefixCls}-header__bars-tool`}>
             <menu className={`${prefixCls}-header__bars-tool-item`}>
-              <li className={`${prefixCls}-header__bars-tool-item-icon`}>
-                <img src={icon} alt="icon" width={40} height={40} />
-              </li>
-              <li className={`${prefixCls}-header__bars-tool-item-title`}>
-                <label>{title}</label>
-              </li>
+              {icon && (
+                <li className={`${prefixCls}-header__bars-tool-item-icon`}>
+                  <img src={icon} alt="icon" height={40} />
+                </li>
+              )}
+              {title && (
+                <li className={`${prefixCls}-header__bars-tool-item-title`}>
+                  <label>{title}</label>
+                </li>
+              )}
             </menu>
           </li>
-          {children && <li>{children}</li>}
+          {children && (
+            <li className={`${prefixCls}-header__bars-left`}>{children}</li>
+          )}
         </ul>
       </header>
     )

@@ -95,7 +95,7 @@ class Components extends React.Component {
       <div className="components__content-top">
         <Header
           className="components__title"
-          icon="/svg/app_logo_bg_blue.svg"
+          icon="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/blue-bg-webapps-ui-icon.png"
           title={title}
         />
         {!!tabs && (
@@ -169,7 +169,7 @@ class Components extends React.Component {
               className="components__nav"
               user={{
                 avatar:
-                  'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.svg',
+                  'https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/avatarPlaceholder.jpeg',
                 name: 'KIMI GAO',
                 company: 'WebApps UI'
               }}

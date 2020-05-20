@@ -24,6 +24,7 @@ class Nav extends Component {
 
   handleItemClick (props, e) {
     this.setState({ selectedId: props.id })
+    this.props.collapsed && this.handleCollapseToggle(true)
     this.props.onItemClick && this.props.onItemClick(props, e)
   }
 
@@ -44,6 +45,7 @@ class Nav extends Component {
       user,
       onSettingClick,
       onLogoutClick,
+      hideSetting,
       ...other
     } = this.props
 
@@ -103,6 +105,7 @@ class Nav extends Component {
           user={user}
           onSettingClick={onSettingClick}
           onLogoutClick={onLogoutClick}
+          hideSetting={hideSetting}
         />
       </div>
     )
@@ -139,15 +142,19 @@ Nav.propTypes = {
   /** The click event of each NavItem, the parameters are the current NavItem props and event object */
   onItemClick: PropTypes.func,
 
+  /** The click event of logout button */
+  onLogoutClick: PropTypes.func,
+
   /** The click event of setting button */
   onSettingClick: PropTypes.func,
 
-  /** The click event of logout button */
-  onLogoutClick: PropTypes.func
+  /** Determine whether setting button should be hidden */
+  hideSetting: PropTypes.bool
 }
 
 Nav.defaultProps = {
-  collapsed: true
+  collapsed: true,
+  hideSetting: false
 }
 
 export default Nav
