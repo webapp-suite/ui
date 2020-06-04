@@ -161,7 +161,7 @@
     "style-loader": "^1.0.0",
     "styled-components": "^5.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^3.0.0",
+    "url-loader": "^4.1.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-middleware": "^3.7.0",
