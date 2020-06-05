@@ -4,13 +4,10 @@ node_js:
 cache:
   directories:
     - "node_modules"
-before_script:
-  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 script:
   - npm test
   - npm run build
   - npm run build:site
-  - fossa analyze
 after_success:
   - npm run report-coverage
 notifications:
