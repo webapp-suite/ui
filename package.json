@@ -127,7 +127,7 @@
     "gray-matter": "^4.0.2",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.0.0",
-    "html-loader": "^0.5.5",
+    "html-loader": "^1.1.0",
     "husky": "^4.2.3",
     "ignore-loader": "^0.1.2",
     "jest": "^24.8.0",
