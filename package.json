@@ -86,7 +86,7 @@
     "classlist": "^2.0.0",
     "classnames": "^2.2.5",
     "invariant": "^2.2.2",
-    "marked": "^0.7.0",
+    "marked": "^1.1.0",
     "react-avatar-editor": "^11.0.7",
     "react-custom-scrollbars": "^4.2.1",
     "react-update": "^0.4.4"
@@ -159,7 +159,7 @@
     "standard": "^14.1.0",
     "standard-version": "^7.0.0",
     "style-loader": "^1.0.0",
-    "styled-components": "^5.0.0",
+    "styled-components": "^5.1.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.0",

@@ -113,7 +113,7 @@ All files on the WebApps UI github repository are subjected to the [MIT][license
 [slack-image]: https://badgen.net/badge/icon/slack?icon=slack&label
 [fossa-status-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwebapps-ui%2Fcore-react.svg?type=small
 
-[travis-url]: https://travis-ci.org/webapps-ui/core-react
+[travis-url]: https://travis-ci.com/webapps-ui/core-react
 [codecov-url]: https://codecov.io/gh/webapps-ui/core-react
 [npm-version-url]: https://www.npmjs.com/package/@webapps-ui/core-react
 [npm-downloads-url]: https://www.npmjs.com/package/@webapps-ui/core-react
