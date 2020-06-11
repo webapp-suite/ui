@@ -242,6 +242,13 @@
 .@{prefix-cls}-nav__sub-nav-title-icon {
   margin-right: @ui-unit-double + 2px;
   text-align: center;
+  &:before {
+    float: left;
+    position: absolute;
+    top: 50%;
+    margin-top: 2px; // TODO: after icon refactor
+    transform: translateY(-50%);
+  }
   svg {
     position: absolute; // fix `float:left` rendering bug in safari
   }
