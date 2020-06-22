@@ -130,7 +130,7 @@
     "html-loader": "^1.1.0",
     "husky": "^4.2.3",
     "ignore-loader": "^0.1.2",
-    "jest": "^24.8.0",
+    "jest": "^26.0.1",
     "jest-css-modules": "^2.1.0",
     "jest-environment-jsdom-global": "^2.0.2",
     "jsx-loader": "^0.13.2",
