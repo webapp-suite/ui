@@ -157,7 +157,7 @@
     "react-imported-component": "^6.2.1",
     "rimraf": "^3.0.2",
     "standard": "^14.1.0",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.1",
     "style-loader": "^1.0.0",
     "styled-components": "^5.1.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
