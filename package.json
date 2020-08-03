@@ -108,7 +108,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.0.4",
-    "chalk": "^3.0.0",
+    "chalk": "^4.1.0",
     "codecov": "^3.7.0",
     "commitizen": "^4.0.3",
     "compression": "^1.7.2",
