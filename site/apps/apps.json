@@ -171,6 +171,10 @@
         "name":"Switch",
         "cn":"开关"
       },
+        {
+        "name":"Checkbox",
+        "cn":"复选框"
+      },
       {
         "name":"Input",
         "cn":"输入框"
