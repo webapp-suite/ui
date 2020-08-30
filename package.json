@@ -1,172 +1,205 @@
 {
-  "name": "@webapps-ui/core-react",
-  "version": "0.9.0",
-  "author": "Kimi Gao",
-  "description": "Simple style react components for modern web apps",
-  "keywords": [
-    "app",
-    "component",
-    "design",
-    "react",
-    "ui",
-    "web"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/webapps-ui/core-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/webapps-ui/core-react/issues"
-  },
-  "homepage": "https://react.webapps-ui.com/",
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.9.0"
-  },
-  "directories": {
-    "lib": "lib"
-  },
-  "files": [
-    "dist",
-    "lib",
-    "es"
-  ],
-  "sideEffects": [
-    "dist/*"
-  ],
-  "scripts": {
-    "****** DEV *****": "",
-    "create": "node scripts/create.js",
-    "dev": "NODE_ENV=development node-dev site/server.js",
-    "****** BUILD *****": "",
-    "build": "node scripts/build.js",
-    "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config config/webpack.config.site.js",
-    "****** RELEASE *****": "",
-    "release": "npm run build && standard-version",
-    "gh-pages": "npm run build:site && node scripts/deploy.js",
-    "preprod": "npm ci && npm run build:site",
-    "prod": "NODE_ENV=production pm2 start site/server.js --name webapps-ui-core-react",
-    "****** LINT *****": "",
-    "fix": "eslint src --fix && eslint site --fix",
-    "lint": "eslint src && eslint site",
-    "****** TEST *****": "",
-    "test": "jest --config=jest.config.json",
-    "report-coverage": "codecov",
-    "****** OTHERS *****": "",
-    "commit": "git-cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+    "name": "@webapps-ui/core-react",
+    "version": "0.9.0",
+    "author": "Kimi Gao",
+    "description": "Simple style react components for modern web apps",
+    "keywords": [
+        "app",
+        "component",
+        "design",
+        "react",
+        "ui",
+        "web"
+    ],
+    "license": "MIT",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webapps-ui/core-react.git"
+    },
+    "bugs": {
+        "url": "https://github.com/webapps-ui/core-react/issues"
+    },
+    "homepage": "https://react.webapps-ui.com/",
+    "engines": {
+        "node": ">=12.0.0",
+        "npm": ">=6.9.0"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "files": [
+        "dist",
+        "lib",
+        "es"
+    ],
+    "sideEffects": [
+        "dist/*"
+    ],
+    "scripts": {
+        "****** DEV *****": "",
+        "create": "node scripts/create.js",
+        "dev": "NODE_ENV=development node-dev site/server.js",
+        "****** BUILD *****": "",
+        "build": "npm run build:gulp && npm run build:dist",
+        "build:gulp": "gulp build",
+        "build:dist": "node scripts/build-dist.js",
+        "build:site": "rimraf site/dist && NODE_ENV=production webpack --progress --config site/webpack.config.js",
+        "****** RELEASE *****": "",
+        "release": "npm run build && standard-version",
+        "gh-pages": "npm run build:site && node scripts/deploy.js",
+        "preprod": "npm ci && npm run build:site",
+        "prod": "NODE_ENV=production pm2 start site/server.js --name webapps-ui-core-react",
+        "****** LINT *****": "",
+        "fix": "eslint src --ext ts,tsx,js --fix",
+        "format": "prettier --write \"{src,test}/**/*.{tsx,ts,js}\"",
+        "format:check": "prettier --list-different \"{src,test}/**/*.{tsx,ts,js}\"",
+        "lint": "npm run lint:ts && npm run lint:js",
+        "lint:ts": "eslint src/**/*.{ts,tsx}",
+        "lint:js": "eslint src/**/*.js",
+        "****** TEST *****": "",
+        "test": "jest --config=jest.config.json",
+        "report-coverage": "codecov",
+        "****** OTHERS *****": "",
+        "commit": "git-cz",
+        "rename-js": "ts-node renameJS.ts"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{tsx,ts,js}": [
+            "eslint --fix",
+            "npm run format"
+        ]
+    },
+    "browserslist": [
+        "defaults"
+    ],
+    "peerDependencies": {
+        "prop-types": ">=15.0.0",
+        "react": ">=16.0.0",
+        "react-dom": ">=16.0.0"
+    },
+    "dependencies": {
+        "classlist": "^2.0.0",
+        "classnames": "^2.2.5",
+        "invariant": "^2.2.2",
+        "lodash": "^4.17.15",
+        "marked": "^1.1.0",
+        "react-avatar-editor": "^11.0.7",
+        "react-custom-scrollbars": "^4.2.1",
+        "react-update": "^0.4.4",
+        "recompose": "^0.30.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.10.5",
+        "@babel/core": "^7.11.0",
+        "@babel/plugin-proposal-class-properties": "^7.0.0",
+        "@babel/plugin-proposal-export-default-from": "^7.10.4",
+        "@babel/plugin-proposal-export-namespace-from": "^7.10.4",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+        "@babel/plugin-transform-runtime": "^7.11.0",
+        "@babel/preset-env": "^7.8.7",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/preset-typescript": "^7.10.1",
+        "@mdx-js/loader": "^1.5.7",
+        "@reach/router": "^1.3.3",
+        "@testing-library/jest-dom": "^5.1.1",
+        "@testing-library/react": "^10.0.3",
+        "@types/classnames": "^2.2.10",
+        "@types/lodash": "^4.14.155",
+        "@types/prop-types": "^15.7.3",
+        "@types/react": "^16.9.35",
+        "@types/react-dom": "^16.9.8",
+        "@types/recompose": "^0.30.7",
+        "@types/shelljs": "^0.8.8",
+        "@typescript-eslint/eslint-plugin": "^3.1.0",
+        "@typescript-eslint/parser": "^3.1.0",
+        "autoprefixer": "^9.6.1",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.0.1",
+        "babel-loader": "^8.0.4",
+        "babel-plugin-add-module-exports": "^1.0.2",
+        "babel-plugin-lodash": "^3.3.4",
+        "chalk": "^4.1.0",
+        "codecov": "^3.7.0",
+        "commitizen": "^4.0.3",
+        "compression": "^1.7.2",
+        "css-loader": "^3.2.0",
+        "cz-conventional-changelog": "^3.0.2",
+        "del": "^5.1.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "enzyme-to-json": "^3.4.0",
+        "eslint": "^6.3.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-config-standard-react": "^9.2.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-testing-library": "^3.0.4",
+        "express": "^4.16.3",
+        "file-loader": "^6.0.0",
+        "friendly-errors-webpack-plugin": "^1.7.0",
+        "gray-matter": "^4.0.2",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-replace": "^1.0.0",
+        "html-loader": "^1.1.0",
+        "husky": "^4.2.3",
+        "ignore-loader": "^0.1.2",
+        "jest": "^24.8.0",
+        "jest-css-modules": "^2.1.0",
+        "jest-environment-jsdom-global": "^2.0.2",
+        "jsx-loader": "^0.13.2",
+        "less": "^3.8.1",
+        "less-loader": "^5.0.0",
+        "lint-staged": "^10.0.8",
+        "lodash.template": "^4.4.0",
+        "markdown-loader": "^5.1.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "multiparty": "^4.1.3",
+        "node-dev": "^4.0.0",
+        "nprogress": "^0.2.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "pm2": "^4.4.0",
+        "postcss-loader": "^3.0.0",
+        "prettier": "^2.0.5",
+        "prettier-standard": "^16.2.1",
+        "prop-types": "^15.6.1",
+        "rc-queue-anim": "^1.6.10",
+        "rc-scroll-anim": "^2.5.6",
+        "react": "^16.13.0",
+        "react-copy-to-clipboard": "^5.0.1",
+        "react-docgen": "^5.2.1",
+        "react-dom": "^16.13.0",
+        "react-imported-component": "^6.2.1",
+        "rimraf": "^3.0.2",
+        "shelljs": "^0.8.4",
+        "standard": "^14.1.0",
+        "standard-version": "^8.0.1",
+        "style-loader": "^1.0.0",
+        "styled-components": "^5.1.1",
+        "ts-node": "^9.0.0",
+        "typescript": "^3.9.5",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.42.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-middleware": "^3.7.0",
+        "webpack-hot-middleware": "^2.25.0",
+        "webpack-livereload-plugin": "^2.3.0",
+        "webpack-merge": "^4.2.2"
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier-standard"
-    ]
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0",
-    "prop-types": ">=15.0.0"
-  },
-  "dependencies": {
-    "classlist": "^2.0.0",
-    "classnames": "^2.2.5",
-    "invariant": "^2.2.2",
-    "marked": "^1.1.0",
-    "react-avatar-editor": "^11.0.7",
-    "react-custom-scrollbars": "^4.2.1",
-    "react-update": "^0.4.4"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.0.0",
-    "@mdx-js/loader": "^1.5.7",
-    "@reach/router": "^1.3.3",
-    "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^10.0.3",
-    "autoprefixer": "^9.6.1",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.0.1",
-    "babel-loader": "^8.0.4",
-    "chalk": "^3.0.0",
-    "codecov": "^3.7.0",
-    "commitizen": "^4.0.3",
-    "compression": "^1.7.2",
-    "css-loader": "^3.2.0",
-    "cz-conventional-changelog": "^3.0.2",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.4.0",
-    "eslint": "^6.3.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-testing-library": "^3.0.4",
-    "express": "^4.16.3",
-    "file-loader": "^6.0.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "gray-matter": "^4.0.2",
-    "gulp": "^4.0.2",
-    "gulp-replace": "^1.0.0",
-    "html-loader": "^1.1.0",
-    "husky": "^4.2.3",
-    "ignore-loader": "^0.1.2",
-    "jest": "^24.8.0",
-    "jest-css-modules": "^2.1.0",
-    "jest-environment-jsdom-global": "^2.0.2",
-    "jsx-loader": "^0.13.2",
-    "less": "^3.8.1",
-    "less-loader": "^5.0.0",
-    "lint-staged": "^10.0.8",
-    "lodash.template": "^4.4.0",
-    "markdown-loader": "^5.1.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "multiparty": "^4.1.3",
-    "node-dev": "^4.0.0",
-    "nprogress": "^0.2.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "pm2": "^4.2.1",
-    "postcss-loader": "^3.0.0",
-    "prettier-standard": "^16.2.1",
-    "prop-types": "^15.6.1",
-    "rc-queue-anim": "^1.6.10",
-    "rc-scroll-anim": "^2.5.6",
-    "react": "^16.13.0",
-    "react-copy-to-clipboard": "^5.0.1",
-    "react-docgen": "^5.2.1",
-    "react-dom": "^16.13.0",
-    "react-imported-component": "^6.2.1",
-    "rimraf": "^3.0.2",
-    "standard": "^14.1.0",
-    "standard-version": "^8.0.1",
-    "style-loader": "^1.0.0",
-    "styled-components": "^5.1.1",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-middleware": "^3.7.0",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-livereload-plugin": "^2.3.0",
-    "webpack-merge": "^4.2.2"
-  }
 }

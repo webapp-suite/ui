@@ -1,0 +1,184 @@
+---
+props: [Checkbox/Checkbox, Checkbox/CheckboxGroup]
+---
+
+Commonly used checkboxes
+
+- `<Checkbox>`
+- `<CheckboxGroup>`
+
+## Default
+
+The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
+
+```jsx tabs
+import { Checkbox } from '@webapps-ui/core-react'
+
+const InputNormal = () => {
+  return (
+    <div>
+        <Checkbox> Default</Checkbox>
+        <Checkbox defaultChecked> Checked</Checkbox>
+    </div>
+  )
+}
+```
+
+## Readonly / Disabled
+
+Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
+
+```jsx tabs
+import { Checkbox } from '@webapps-ui/core-react'
+
+const InputRD = () => {
+  return (
+    <div>
+        <Checkbox disabled> Default</Checkbox>
+        <Checkbox defaultChecked disabled>
+          {' '}
+          Checked
+        </Checkbox>
+    </div>
+  )
+}
+```
+
+## Indeterminate State
+
+the `indeterminate` property is mainly used on the select all or tree structure checkbox.
+
+```jsx tabs
+import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+
+class CheckboxIndeterminate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.options = ['A', 'B', 'C', 'D'];
+    this.state = {
+      indeterminate: true,
+      checkAll: false,
+      value: ['A', 'C']
+    };
+    this.handleCheckAll = this.handleCheckAll.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleCheckAll(value, checked) {
+    const nextValue = checked ? this.options : [];
+    console.log(nextValue, 'handleCheckAll');
+    this.setState({
+      value: nextValue,
+      indeterminate: false,
+      checkAll: checked
+    });
+  }
+  handleChange(value) {
+    console.log(value, 'handleChange');
+    this.setState({
+      value,
+      indeterminate: value.length > 0 && value.length < this.options.length,
+      checkAll: value.length === this.options.length
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Checkbox
+          indeterminate={this.state.indeterminate}
+          checked={this.state.checkAll}
+          onChange={this.handleCheckAll}
+        >
+          Check all
+        </Checkbox>
+        <hr />
+        <CheckboxGroup
+          inline
+          name="checkboxList"
+          value={this.state.value}
+          onChange={this.handleChange}
+        >
+          <Checkbox value="A">Item A</Checkbox>
+          <Checkbox value="B">Item B</Checkbox>
+          <Checkbox value="C">Item C</Checkbox>
+          <Checkbox value="D">Item D</Checkbox>
+        </CheckboxGroup>
+      </div>
+    );
+  }
+}
+```
+
+## Checkbox Group
+
+### Vertical Layout
+
+Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
+
+```jsx tabs
+import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+
+const CheckboxGroupVertical = () => (
+  <CheckboxGroup name="checkboxList">
+    <p>Group1</p>
+    <Checkbox>Item A</Checkbox>
+    <Checkbox>Item B</Checkbox>
+    <p>Group2</p>
+    <Checkbox>Item C</Checkbox>
+    <Checkbox disabled>Item D</Checkbox>
+  </CheckboxGroup>
+);
+```
+
+### Horizontal Layout
+
+Triggers when the Input is cleared by clicking the clear button
+
+```jsx tabs
+import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+
+const CheckboxGroupHorizontal = () => (
+  <CheckboxGroup inline name="checkboxList">
+    <Checkbox>Item A</Checkbox>
+    <Checkbox>Item B</Checkbox>
+    <Checkbox>Item C</Checkbox>
+    <Checkbox disabled>Item D</Checkbox>
+  </CheckboxGroup>
+)
+```
+
+### Controlled
+
+Triggers when the Input is cleared by clicking the clear button
+
+```jsx tabs
+import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+
+class CheckboxGroupControlled extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ['A', 'C']
+    };
+  }
+  render() {
+    return (
+      <CheckboxGroup
+        inline
+        name="checkboxList"
+        value={this.state.value}
+        onChange={value => {
+          console.log(value, 'onChange');
+          this.setState({ value });
+        }}
+      >
+        <Checkbox value="A">Item A</Checkbox>
+        <Checkbox value="B">Item B</Checkbox>
+        <Checkbox value="C">Item C</Checkbox>
+        <Checkbox value="D" disabled>
+          Item D
+        </Checkbox>
+      </CheckboxGroup>
+    );
+  }
+}
+```

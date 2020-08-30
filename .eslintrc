@@ -1,30 +1,52 @@
 {
-  "extends": [
-    "standard",
-    "standard-react",
-    "plugin:testing-library/react"
-  ],
-  "plugins": ["testing-library"],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true,
-    "jest": true
-  },
-  "globals": {
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__DEVELOPMENT__": true,
-    "__DEVTOOLS__": true,
-    "runtime": true,
-    "jsdom": true,
-    "prefixCls": true
-  },
-  "parser": "babel-eslint",
-  "rules": {
-    "jsx-quotes": ["error", "prefer-double"],
-    "no-unused-expressions": "off",
-    "react/jsx-no-bind": "off",
-    "react/no-did-update-set-state": "off"
-  }
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:testing-library/react",
+        "plugin:react/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "testing-library",
+        "@typescript-eslint",
+        "react"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "globals": {
+        "__CLIENT__": "readonly",
+        "__SERVER__": "readonly",
+        "__DEVELOPMENT__": "readonly",
+        "__DEVTOOLS__": "readonly",
+        "__WEBAPPS_CLASSNAME_PREFIX__": "readonly",
+        "runtime": "readonly",
+        "jsdom": "readonly",
+        "prefixCls": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.eslint.json"
+    },
+    "rules": {
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "indent": ["error", 4],
+        "jsx-quotes": ["error", "prefer-double"],
+        "no-unused-expressions": "off",
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-no-bind": "off",
+        "react/no-did-update-set-state": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-empty-function": "off"
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+    }
 }

@@ -12,7 +12,7 @@
   "globals": {
     "prefixCls": true
   },
-  "setupFiles": ["./config/setupTests.js"],
+  "setupFiles": ["./setupTests.js"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "collectCoverage": true,
   "collectCoverageFrom": ["src/components/**/*.{js,jsx,ts,tsx}"],
