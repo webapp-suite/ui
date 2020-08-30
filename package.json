@@ -76,9 +76,9 @@
         }
     },
     "lint-staged": {
-        "*.js": [
+        "*.{tsx,ts,js}": [
             "eslint --fix",
-            "prettier-standard"
+            "npm run format"
         ]
     },
     "browserslist": [

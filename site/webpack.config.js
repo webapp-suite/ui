@@ -1,28 +1,28 @@
-const webpack = require('webpack')
-const path = require('path')
-const rimraf = require('rimraf')
-const LiveReloadPlugin = require('webpack-livereload-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const autoprefixer = require('autoprefixer')
-const parseCodeExample = require('./loaders/parseCodeExample')
-const Prism = require('./3rdParty/prism/prism.js')
-const sitePath = path.resolve(__dirname, './')
-const sourcePath = path.resolve(__dirname, '../src')
-const outputPath = path.resolve(__dirname, './dist')
+const webpack = require('webpack');
+const path = require('path');
+const rimraf = require('rimraf');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const parseCodeExample = require('./loaders/parseCodeExample');
+const Prism = require('./3rdParty/prism/prism.js');
+const sitePath = path.resolve(__dirname, './');
+const sourcePath = path.resolve(__dirname, '../src');
+const outputPath = path.resolve(__dirname, './dist');
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production';
 
-rimraf.sync(outputPath)
+rimraf.sync(outputPath);
 
 const config = {
     entry: {
-        site: `${sitePath}/router.js`
+        site: `${sitePath}/router.js`,
     },
     output: {
         path: outputPath,
         filename: '[name].js',
         chunkFilename: '[name].js',
-        publicPath: '/dist/'
+        publicPath: '/dist/',
     },
     mode: 'development',
     module: {
@@ -30,7 +30,7 @@ const config = {
             {
                 test: /\.(j|t)sx?$/,
                 use: ['babel-loader'],
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
@@ -38,94 +38,94 @@ const config = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'files/[hash].[ext]'
-                        }
-                    }
-                ]
+                            name: 'files/[hash].[ext]',
+                        },
+                    },
+                ],
             },
             {
                 test: /\.less$/,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
-                            plugins: () => [autoprefixer({})]
-                        }
+                            plugins: () => [autoprefixer({})],
+                        },
                     },
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true
-                        }
-                    }
-                ]
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
-                            plugins: () => [autoprefixer({})]
-                        }
-                    }
-                ]
+                            plugins: () => [autoprefixer({})],
+                        },
+                    },
+                ],
             },
             {
                 test: /\.md$/,
                 use: [
                     {
-                        loader: 'html-loader'
+                        loader: 'html-loader',
                     },
                     {
                         loader: 'markdown-loader',
                         options: {
-                            highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang])
-                        }
-                    }
-                ]
+                            highlight: (code, lang) => Prism.highlight(code, Prism.languages[lang]),
+                        },
+                    },
+                ],
             },
             {
                 test: /\.mdx$/,
                 use: [
                     {
-                        loader: 'babel-loader'
+                        loader: 'babel-loader',
                     },
                     {
                         loader: '@mdx-js/loader',
                         options: {
-                            remarkPlugins: [parseCodeExample]
-                        }
+                            remarkPlugins: [parseCodeExample],
+                        },
                     },
                     {
-                        loader: 'docs-loader'
-                    }
-                ]
+                        loader: 'docs-loader',
+                    },
+                ],
             },
             {
                 test: /\.snap$/,
-                use: ['ignore-loader']
-            }
-        ]
+                use: ['ignore-loader'],
+            },
+        ],
     },
     resolveLoader: {
         alias: {
-            'docs-loader': path.join(__dirname, '../site/loaders/docs-loader')
-        }
+            'docs-loader': path.join(__dirname, '../site/loaders/docs-loader'),
+        },
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -136,31 +136,31 @@ const config = {
             'ui-variables': `${sourcePath}/styles/ui-variables.less`,
             'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
             ui: `${sourcePath}/styles/index.less`,
-            dox: `${sitePath}/styles/index.less`
-        }
+            dox: `${sitePath}/styles/index.less`,
+        },
     },
     externals: {
         react: 'React',
         'react-dom': 'ReactDOM',
-        'prop-types': 'PropTypes'
+        'prop-types': 'PropTypes',
     },
     plugins: [
         new webpack.DefinePlugin({
-            prefixCls: JSON.stringify('waui')
-        })
+            prefixCls: JSON.stringify('waui'),
+        }),
     ],
     optimization: {
-        minimize: false
-    }
-}
+        minimize: false,
+    },
+};
 
 if (!isProduction) {
     config.plugins.push(
         new LiveReloadPlugin({
-            appendScriptTag: true
+            appendScriptTag: true,
         }),
         new FriendlyErrorsWebpackPlugin()
-    )
+    );
 }
 
-module.exports = config
+module.exports = config;

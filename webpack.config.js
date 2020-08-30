@@ -1,15 +1,15 @@
-const path = require('path')
-const rimraf = require('rimraf')
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const autoprefixer = require('autoprefixer')
-const sourcePath = path.resolve(__dirname, './src')
-const outputPath = path.resolve(__dirname, './dist')
-const entryName = 'index.min'
+const path = require('path');
+const rimraf = require('rimraf');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const sourcePath = path.resolve(__dirname, './src');
+const outputPath = path.resolve(__dirname, './dist');
+const entryName = 'index.min';
 
-rimraf.sync(outputPath)
+rimraf.sync(outputPath);
 
 const config = {
     entry: {},
@@ -17,7 +17,7 @@ const config = {
         path: outputPath,
         publicPath: './',
         filename: '[name].js',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
     },
     mode: process.env.NODE_ENV,
     devtool: 'source-map',
@@ -26,7 +26,7 @@ const config = {
             {
                 test: /\.(j|t)sx?$/,
                 use: ['babel-loader'],
-                include: sourcePath
+                include: sourcePath,
             },
             {
                 test: /\.less$/,
@@ -37,17 +37,17 @@ const config = {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
-                            plugins: () => [autoprefixer({})]
-                        }
+                            plugins: () => [autoprefixer({})],
+                        },
                     },
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true
-                        }
-                    }
+                            javascriptEnabled: true,
+                        },
+                    },
                 ],
-                include: sourcePath
+                include: sourcePath,
             },
             {
                 test: /\.css$/,
@@ -58,71 +58,71 @@ const config = {
                         loader: 'postcss-loader',
                         options: {
                             ident: 'postcss',
-                            plugins: () => [autoprefixer({})]
-                        }
-                    }
+                            plugins: () => [autoprefixer({})],
+                        },
+                    },
                 ],
-                include: sourcePath
+                include: sourcePath,
             },
             {
                 test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-                use: ['url-loader']
+                use: ['url-loader'],
             },
             {
                 test: /\.snap$/,
-                use: ['ignore-loader']
-            }
-        ]
+                use: ['ignore-loader'],
+            },
+        ],
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             'ui-variables': `${sourcePath}/styles/ui-variables.less`,
-            'ui-mixins': `${sourcePath}/styles/ui-mixins.less`
-        }
+            'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
+        },
     },
     externals: {
         react: {
             root: 'React',
             commonjs2: 'react',
             commonjs: 'react',
-            amd: 'react'
+            amd: 'react',
         },
         'react-dom': {
             root: 'ReactDOM',
             commonjs2: 'react-dom',
             commonjs: 'react-dom',
-            amd: 'react-dom'
+            amd: 'react-dom',
         },
         'prop-types': {
             root: 'PropTypes',
             commonjs2: 'prop-types',
             commonjs: 'prop-types',
-            amd: 'prop-types'
-        }
+            amd: 'prop-types',
+        },
     },
     plugins: [
         new webpack.DefinePlugin({
-            prefixCls: JSON.stringify('waui')
+            prefixCls: JSON.stringify('waui'),
         }),
-        new MiniCssExtractPlugin('[name].css')
+        new MiniCssExtractPlugin('[name].css'),
     ],
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
                 parallel: true,
-                sourceMap: true
+                sourceMap: true,
             }),
             new OptimizeCSSAssetsPlugin({
                 cssProcessorOptions: {
                     map: true,
-                    preset: ['default', { discardComments: { removeAll: true } }]
-                }
-            })
-        ]
-    }
-}
+                    preset: ['default', { discardComments: { removeAll: true } }],
+                },
+            }),
+        ],
+    },
+};
 
-config.entry[entryName] = [`${sourcePath}/components/index.tsx`]
+config.entry[entryName] = [`${sourcePath}/components/index.tsx`];
 
-module.exports = config
+module.exports = config;

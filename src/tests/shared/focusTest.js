@@ -1,56 +1,56 @@
-import React from 'react'
-import { mount } from 'enzyme'
+import React from 'react';
+import { mount } from 'enzyme';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function focusTest (Component) {
+export default function focusTest(Component) {
     describe('focus and blur', () => {
         beforeAll(() => {
-            jest.useFakeTimers()
-        })
+            jest.useFakeTimers();
+        });
 
-        let container
+        let container;
         beforeEach(() => {
-            container = document.createElement('div')
-            document.body.appendChild(container)
-        })
+            container = document.createElement('div');
+            document.body.appendChild(container);
+        });
 
         afterAll(() => {
-            jest.useRealTimers()
-        })
+            jest.useRealTimers();
+        });
 
         afterEach(() => {
-            document.body.removeChild(container)
-        })
+            document.body.removeChild(container);
+        });
 
         it('focus() and onFocus', () => {
-            const handleFocus = jest.fn()
+            const handleFocus = jest.fn();
             const wrapper = mount(<Component onFocus={handleFocus} />, {
-                attachTo: container
-            })
-            wrapper.instance().focus()
-            jest.runAllTimers()
-            expect(handleFocus).toHaveBeenCalled()
-        })
+                attachTo: container,
+            });
+            wrapper.instance().focus();
+            jest.runAllTimers();
+            expect(handleFocus).toHaveBeenCalled();
+        });
 
         it('blur() and onBlur', () => {
-            const handleBlur = jest.fn()
+            const handleBlur = jest.fn();
             const wrapper = mount(<Component onBlur={handleBlur} />, {
-                attachTo: container
-            })
-            wrapper.instance().focus()
-            jest.runAllTimers()
-            wrapper.instance().blur()
-            jest.runAllTimers()
-            expect(handleBlur).toHaveBeenCalled()
-        })
+                attachTo: container,
+            });
+            wrapper.instance().focus();
+            jest.runAllTimers();
+            wrapper.instance().blur();
+            jest.runAllTimers();
+            expect(handleBlur).toHaveBeenCalled();
+        });
 
         it('autoFocus', () => {
-            const handleFocus = jest.fn()
+            const handleFocus = jest.fn();
             mount(<Component autoFocus onFocus={handleFocus} />, {
-                attachTo: container
-            })
-            jest.runAllTimers()
-            expect(handleFocus).toHaveBeenCalled()
-        })
-    })
+                attachTo: container,
+            });
+            jest.runAllTimers();
+            expect(handleFocus).toHaveBeenCalled();
+        });
+    });
 }
