@@ -14,23 +14,23 @@ const getSourceCode = componentName => {
     try {
         if (fs.statSync(dir).isDirectory()) {
             try {
-                fs.statSync(`${dir}/index.js`)
-                dir += '/index.js'
+                fs.statSync(`${dir}/index.tsx`)
+                dir += '/index.tsx'
             } catch (e) {
                 dir = `${dir}/${componentName}.tsx`
             }
         } else {
             try {
-                fs.statSync(`${dir}.js`)
-                dir += '.js'
+                fs.statSync(`${dir}.ts`)
+                dir += '.ts'
             } catch (e) {
                 dir += '.tsx'
             }
         }
     } catch (e) {
         try {
-            fs.statSync(`${dir}.js`)
-            dir += '.js'
+            fs.statSync(`${dir}.ts`)
+            dir += '.ts'
         } catch (e) {
             dir += '.tsx'
         }

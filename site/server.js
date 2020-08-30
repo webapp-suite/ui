@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, './')))
 if (process.env.NODE_ENV === 'development') {
     const webpack = require('webpack')
     const webpackDevMiddleware = require('webpack-dev-middleware')
-    const WebpackConfig = require('../config/webpack.config.site')
+    const WebpackConfig = require('./webpack.config')
     app.use(
         webpackDevMiddleware(
             webpack({

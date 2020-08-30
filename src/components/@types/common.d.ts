@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 export interface StandardProps {
@@ -59,6 +60,7 @@ export interface PickerBaseProps extends StandardProps, AnimationEventProps {
     menuClassName?: string;
 
     /** A style to apply to the Menu DOM node. */
+    // eslint-disable-next-line @typescript-eslint/ban-types
     menuStyle?: object;
 
     /** Placeholder text */

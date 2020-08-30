@@ -18,18 +18,18 @@
         "jest": true
     },
     "globals": {
-        "__CLIENT__": true,
-        "__SERVER__": true,
-        "__DEVELOPMENT__": true,
-        "__DEVTOOLS__": true,
-        "__WEBAPPS_CLASSNAME_PREFIX__": true,
-        "runtime": true,
-        "jsdom": true,
-        "prefixCls": true
+        "__CLIENT__": "readonly",
+        "__SERVER__": "readonly",
+        "__DEVELOPMENT__": "readonly",
+        "__DEVTOOLS__": "readonly",
+        "__WEBAPPS_CLASSNAME_PREFIX__": "readonly",
+        "runtime": "readonly",
+        "jsdom": "readonly",
+        "prefixCls": "readonly"
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.eslint.json"
     },
     "rules": {
         "quotes": ["error", "single"],
@@ -40,7 +40,9 @@
         "react/jsx-indent": ["error", 4],
         "react/jsx-no-bind": "off",
         "react/no-did-update-set-state": "off",
-        "@typescript-eslint/explicit-member-accessibility": "off"
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-empty-function": "off"
     },
     "settings": {
         "react": {

@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash';
 import './styles/index.less';
 
 import { prefix, defaultProps, getUnhandledProps, partitionHTMLProps, refType } from '../_utils';
 import { CheckboxContext } from './CheckboxGroup';
-import { CheckboxContextProps } from '../Checkbox/CheckboxGroup';
+import { CheckboxContextProps } from './CheckboxGroup';
 import { StandardProps } from '../@types/common';
 
 export interface CheckboxProps<V = any> extends StandardProps {
@@ -54,24 +53,6 @@ interface CheckboxState {
 
 class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
     static contextType = CheckboxContext;
-    // static propTypes = {
-    //     title: PropTypes.string,
-    //     className: PropTypes.string,
-    //     inline: PropTypes.bool,
-    //     disabled: PropTypes.bool,
-    //     checked: PropTypes.bool,
-    //     defaultChecked: PropTypes.bool,
-    //     indeterminate: PropTypes.bool,
-    //     onChange: PropTypes.func,
-    //     onClick: PropTypes.func,
-    //     inputRef: refType,
-    //     value: PropTypes.any,
-    //     children: PropTypes.node,
-    //     tabIndex: PropTypes.number,
-    //
-    //     checkable: PropTypes.bool,
-    //     onCheckboxClick: PropTypes.func,
-    // };
     static defaultProps = {
         checkable: true,
         tabIndex: 0,
