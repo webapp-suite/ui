@@ -164,7 +164,7 @@
         "jest-environment-jsdom-global": "^2.0.2",
         "jsx-loader": "^0.13.2",
         "less": "^3.8.1",
-        "less-loader": "^5.0.0",
+        "less-loader": "^7.0.0",
         "lint-staged": "^10.0.8",
         "lodash.template": "^4.4.0",
         "markdown-loader": "^5.1.0",
