@@ -7,6 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const sourcePath = path.resolve(__dirname, './src');
 const outputPath = path.resolve(__dirname, './dist');
+const testPath = path.resolve(__dirname, './test');
 const entryName = 'index.min';
 
 rimraf.sync(outputPath);
@@ -79,6 +80,7 @@ const config = {
         alias: {
             'ui-variables': `${sourcePath}/styles/ui-variables.less`,
             'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
+            '@test': testPath,
         },
     },
     externals: {

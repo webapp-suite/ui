@@ -1,0 +1,162 @@
+---
+props: [Radio/Radio, Radio/RadioGroup]
+---
+
+A common radio box. If there are only two options, you can also use the Toggle component.
+
+-   `<Radio>`
+-   `<RadioGroup>`
+
+## Default
+
+```jsx tabs
+import { Radio } from '@webapps-ui/core-react';
+
+const RGDefault = () => {
+    return (
+        <div>
+            <Radio> Radio</Radio>
+            <Radio checked> Checked Radio</Radio>
+        </div>
+    );
+};
+```
+
+## Readonly / Disabled
+
+```jsx tabs
+import { Radio } from '@webapps-ui/core-react';
+
+const RGReadonlyDisabled = () => {
+    return (
+        <div>
+            <Radio disabled> Radio</Radio>
+            <Radio checked disabled>
+                {' '}
+                Checked Radio
+            </Radio>
+        </div>
+    );
+};
+```
+
+## Radio Group
+
+### Basic
+
+```jsx tabs
+import { Radio, RadioGroup } from '@webapps-ui/core-react';
+
+const RGBasic = () => {
+    return (
+        <div>
+            <RadioGroup name="radioList">
+                <p>Group1</p>
+                <Radio value="A">Item A</Radio>
+                <Radio value="B">Item B</Radio>
+                <p>Group2</p>
+                <Radio value="C">Item C</Radio>
+                <Radio value="D" disabled>
+                    Item D
+                </Radio>
+            </RadioGroup>
+        </div>
+    );
+};
+```
+
+### Inline layout
+
+```jsx tabs
+import { Radio, RadioGroup } from '@webapps-ui/core-react';
+
+const RGInline = () => {
+    return (
+        <div>
+            <RadioGroup name="radioList" inline>
+                <Radio value="A">Item A</Radio>
+                <Radio value="B">Item B</Radio>
+                <Radio value="C">Item C</Radio>
+                <Radio value="D" disabled>
+                    Item D
+                </Radio>
+            </RadioGroup>
+        </div>
+    );
+};
+```
+
+### Picker
+
+```jsx tabs
+import { Radio, RadioGroup } from '@webapps-ui/core-react';
+
+const RGPicker = () => {
+    const styles = {
+        radioGroupLabel: {
+            padding: '8px 2px 8px 10px',
+            display: 'inline-block',
+            verticalAlign: 'middle',
+        },
+    };
+    return (
+        <div>
+            <RadioGroup name="radioList" inline appearance="picker" defaultValue="A">
+                <Radio value="A">Item A</Radio>
+                <Radio value="B">Item B</Radio>
+                <Radio value="C">Item C</Radio>
+                <Radio value="D" disabled>
+                    Item D
+                </Radio>
+            </RadioGroup>
+            <hr />
+            <RadioGroup name="radioList" inline appearance="picker" defaultValue="A">
+                <span style={styles.radioGroupLabel}>Status: </span>
+                <Radio value="A">All</Radio>
+                <Radio value="B">Enbaled</Radio>
+                <Radio value="C">Disabled</Radio>
+            </RadioGroup>
+        </div>
+    );
+};
+```
+
+### Controlled
+
+```jsx tabs
+import { Radio, RadioGroup } from '@webapps-ui/core-react';
+
+class RGControlled extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            radioList: 'A',
+        };
+    }
+    handleChange(name, value) {
+        this.setState({
+            [name]: value,
+        });
+        console.log(name, value);
+    }
+    render() {
+        return (
+            <RadioGroup
+                inline
+                name="radioList"
+                value={this.state.radioList}
+                onChange={(value) => {
+                    this.handleChange('radioList', value);
+                }}
+            >
+                <Radio value="A">Item A</Radio>
+                <Radio value="B">Item B</Radio>
+                <Radio value="C">Item C</Radio>
+                <Radio value="D" disabled>
+                    Item D
+                </Radio>
+            </RadioGroup>
+        );
+    }
+}
+```

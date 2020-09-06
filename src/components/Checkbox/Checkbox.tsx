@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import './styles/index.less';
 
-import { prefix, defaultProps, getUnhandledProps, partitionHTMLProps, refType } from '../_utils';
+import { prefix, getUnhandledProps, partitionHTMLProps } from '../_utils';
 import { CheckboxContext } from './CheckboxGroup';
 import { CheckboxContextProps } from './CheckboxGroup';
 import { StandardProps } from '../@types/common';

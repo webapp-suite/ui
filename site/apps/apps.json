@@ -1,271 +1,275 @@
 [
-  {
-    "icon":"docs-icon-space-rocket",
-    "path":"start",
-    "name":"get started",
-    "cn":"开始",
-    "tabs":[
-      {
-        "label":"usage",
-        "doc":"usage"
-      },
-      {
-        "label":"development",
-        "doc":"development"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-paint-palette",
-    "path":"design",
-    "name":"design",
-    "cn":"设计",
-    "tabs":[
-      {
-        "label":"color",
-        "doc":"color"
-      },
-      {
-        "label":"font",
-        "doc":"font"
-      },
-      {
-        "label":"Arrangement",
-        "doc":"arrange"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-cursor-touch-1",
-    "path":"components",
-    "name":"General",
-    "cn":"通用组件",
-    "defaultOpen":false,
-    "components":[
-      {
-        "name":"Icon",
-        "cn":"图标",
-        "tabs":[
-          {
-            "label":"usage",
-            "doc":"Icon-usage"
-          },
-          {
-            "label":"all icons",
-            "doc":"Icon-all-icons"
-          }
+    {
+        "icon": "docs-icon-space-rocket",
+        "path": "start",
+        "name": "get started",
+        "cn": "开始",
+        "tabs": [
+            {
+                "label": "usage",
+                "doc": "usage"
+            },
+            {
+                "label": "development",
+                "doc": "development"
+            }
         ]
-      },
-      {
-        "name":"Button",
-        "cn":"按钮",
-        "tabs":[
-          {
-            "label":"Basic",
-            "doc":"Button-basic"
-          },
-          {
-            "label":"Gallery",
-            "doc":"Button-gallery"
-          }
+    },
+    {
+        "icon": "docs-icon-paint-palette",
+        "path": "design",
+        "name": "design",
+        "cn": "设计",
+        "tabs": [
+            {
+                "label": "color",
+                "doc": "color"
+            },
+            {
+                "label": "font",
+                "doc": "font"
+            },
+            {
+                "label": "Arrangement",
+                "doc": "arrange"
+            }
         ]
-      },
-      {
-        "name":"Spinner",
-        "cn":"加载器"
-      },
-      {
-        "name":"Pager",
-        "cn":"分页器"
-      },
-      {
-        "name":"Actions",
-        "cn":"操作"
-      },
-      {
-        "name":"Search",
-        "cn":"搜索"
-      },
-      {
-        "name":"Tabs",
-        "cn":"标签页"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-window-application-6",
-    "path":"components",
-    "name":"Layout",
-    "cn":"布局组件",
-    "defaultOpen":false,
-    "components":[
-      {
-        "name":"Layout",
-        "cn":"布局"
-      },
-      {
-        "name":"Nav",
-        "cn":"导航"
-      },
-      {
-        "name":"Header",
-        "cn":"顶栏",
-        "tabs":[
-          {
-            "label":"usage",
-            "doc":"Header-usage"
-          },
-          {
-            "label":"gallery",
-            "doc":"Header-gallery"
-          }
+    },
+    {
+        "icon": "docs-icon-cursor-touch-1",
+        "path": "components",
+        "name": "General",
+        "cn": "通用组件",
+        "defaultOpen": false,
+        "components": [
+            {
+                "name": "Icon",
+                "cn": "图标",
+                "tabs": [
+                    {
+                        "label": "usage",
+                        "doc": "Icon-usage"
+                    },
+                    {
+                        "label": "all icons",
+                        "doc": "Icon-all-icons"
+                    }
+                ]
+            },
+            {
+                "name": "Button",
+                "cn": "按钮",
+                "tabs": [
+                    {
+                        "label": "Basic",
+                        "doc": "Button-basic"
+                    },
+                    {
+                        "label": "Gallery",
+                        "doc": "Button-gallery"
+                    }
+                ]
+            },
+            {
+                "name": "Spinner",
+                "cn": "加载器"
+            },
+            {
+                "name": "Pager",
+                "cn": "分页器"
+            },
+            {
+                "name": "Actions",
+                "cn": "操作"
+            },
+            {
+                "name": "Search",
+                "cn": "搜索"
+            },
+            {
+                "name": "Tabs",
+                "cn": "标签页"
+            }
         ]
-      },
-      {
-        "name":"Footer",
-        "cn":"底栏"
-      },
-      {
-        "name":"ToolBar",
-        "cn":"工具栏"
-      },
-      {
-        "name":"SideBar",
-        "cn":"侧边栏"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-dialog",
-    "path":"components",
-    "name":"Dialog",
-    "cn":"弹框组件",
-    "defaultOpen":false,
-    "components":[
-      {
-        "name":"dialog",
-        "cn":"对话框"
-      },
-      {
-        "name":"notification",
-        "cn":"通知框"
-      },
-      {
-        "name":"Modal",
-        "cn":"模态框"
-      },
-      {
-        "name":"Aside",
-        "cn":"侧边框"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-paragraph-normal",
-    "path":"components",
-    "name":"Form",
-    "cn":"表单组件",
-    "defaultOpen":false,
-    "components":[
-      {
-        "name":"Switch",
-        "cn":"开关"
-      },
-        {
-        "name":"Checkbox",
-        "cn":"复选框"
-      },
-      {
-        "name":"Input",
-        "cn":"输入框"
-      },
-      {
-        "name":"Dropdown",
-        "cn":"下拉菜单"
-      },
-      {
-        "name":"Form",
-        "cn":"表单"
-      },
-      {
-        "name":"Menu",
-        "cn":"菜单"
-      },
-      {
-        "name":"DatePicker",
-        "cn":"日期选择器"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-grid",
-    "path":"components",
-    "name":"Table",
-    "cn":"表格组件",
-    "defaultOpen":false,
-    "components":[
-      {
-        "name":"Table",
-        "cn":"表格"
-      }
-    ]
-  },
-  {
-    "icon":"docs-icon-modules-1",
-    "path":"components",
-    "name":"Others",
-    "cn":"其他组件",
-    "defaultOpen":true,
-    "components":[
-      {
-        "name":"Avatar",
-        "cn":"头像",
-        "icon":"edit"
-      },
-      {
-        "name":"AvatarUpload",
-        "cn":"上传头像"
-      },
-      {
-        "name":"AvatarClip",
-        "cn":"裁剪头像"
-      },
-      {
-        "name":"BackToTop",
-        "cn":"回到顶部"
-      },
-      {
-        "name":"Board",
-        "cn":"面板"
-      },
-      {
-        "name":"Card",
-        "cn":"卡片"
-      },
-      {
-        "name":"Note",
-        "cn":"备注"
-      },
-      {
-        "name":"Tag",
-        "cn":"标签"
-      },
-      {
-        "name":"TextOverflow",
-        "cn":"文字溢出"
-      },
-      {
-        "name":"Time",
-        "cn":"时间"
-      },
-      {
-        "name":"Tooltip",
-        "cn":"提示贴"
-      },
-      {
-        "name":"Upload",
-        "cn":"上传"
-      }
-    ]
-  }
+    },
+    {
+        "icon": "docs-icon-window-application-6",
+        "path": "components",
+        "name": "Layout",
+        "cn": "布局组件",
+        "defaultOpen": false,
+        "components": [
+            {
+                "name": "Layout",
+                "cn": "布局"
+            },
+            {
+                "name": "Nav",
+                "cn": "导航"
+            },
+            {
+                "name": "Header",
+                "cn": "顶栏",
+                "tabs": [
+                    {
+                        "label": "usage",
+                        "doc": "Header-usage"
+                    },
+                    {
+                        "label": "gallery",
+                        "doc": "Header-gallery"
+                    }
+                ]
+            },
+            {
+                "name": "Footer",
+                "cn": "底栏"
+            },
+            {
+                "name": "ToolBar",
+                "cn": "工具栏"
+            },
+            {
+                "name": "SideBar",
+                "cn": "侧边栏"
+            }
+        ]
+    },
+    {
+        "icon": "docs-icon-dialog",
+        "path": "components",
+        "name": "Dialog",
+        "cn": "弹框组件",
+        "defaultOpen": false,
+        "components": [
+            {
+                "name": "dialog",
+                "cn": "对话框"
+            },
+            {
+                "name": "notification",
+                "cn": "通知框"
+            },
+            {
+                "name": "Modal",
+                "cn": "模态框"
+            },
+            {
+                "name": "Aside",
+                "cn": "侧边框"
+            }
+        ]
+    },
+    {
+        "icon": "docs-icon-paragraph-normal",
+        "path": "components",
+        "name": "Form",
+        "cn": "表单组件",
+        "defaultOpen": false,
+        "components": [
+            {
+                "name": "Switch",
+                "cn": "开关"
+            },
+            {
+                "name": "Checkbox",
+                "cn": "复选框"
+            },
+            {
+                "name": "Radio",
+                "cn": "单选框"
+            },
+            {
+                "name": "Input",
+                "cn": "输入框"
+            },
+            {
+                "name": "Dropdown",
+                "cn": "下拉菜单"
+            },
+            {
+                "name": "Form",
+                "cn": "表单"
+            },
+            {
+                "name": "Menu",
+                "cn": "菜单"
+            },
+            {
+                "name": "DatePicker",
+                "cn": "日期选择器"
+            }
+        ]
+    },
+    {
+        "icon": "docs-icon-grid",
+        "path": "components",
+        "name": "Table",
+        "cn": "表格组件",
+        "defaultOpen": false,
+        "components": [
+            {
+                "name": "Table",
+                "cn": "表格"
+            }
+        ]
+    },
+    {
+        "icon": "docs-icon-modules-1",
+        "path": "components",
+        "name": "Others",
+        "cn": "其他组件",
+        "defaultOpen": true,
+        "components": [
+            {
+                "name": "Avatar",
+                "cn": "头像",
+                "icon": "edit"
+            },
+            {
+                "name": "AvatarUpload",
+                "cn": "上传头像"
+            },
+            {
+                "name": "AvatarClip",
+                "cn": "裁剪头像"
+            },
+            {
+                "name": "BackToTop",
+                "cn": "回到顶部"
+            },
+            {
+                "name": "Board",
+                "cn": "面板"
+            },
+            {
+                "name": "Card",
+                "cn": "卡片"
+            },
+            {
+                "name": "Note",
+                "cn": "备注"
+            },
+            {
+                "name": "Tag",
+                "cn": "标签"
+            },
+            {
+                "name": "TextOverflow",
+                "cn": "文字溢出"
+            },
+            {
+                "name": "Time",
+                "cn": "时间"
+            },
+            {
+                "name": "Tooltip",
+                "cn": "提示贴"
+            },
+            {
+                "name": "Upload",
+                "cn": "上传"
+            }
+        ]
+    }
 ]

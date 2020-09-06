@@ -156,6 +156,19 @@
 @ui-color-slate-darker: hsl(197, 20%, 7%);
 @ui-color-slate-darkest: hsl(196, 23%, 3%);
 
+//** Gray levels.
+@B000: #fff;
+@B050: #f7f7fa;
+@B100: #f2f2f5;
+@B200: #e5e5ea;
+@B300: #d9d9d9;
+@B400: #c5c6c7;
+@B500: #a6a6a6;
+@B600: #8e8e93;
+@B700: #7a7a7a;
+@B800: #575757;
+@B900: #272c36;
+
 // Theme
 @theme-lightest: @ui-color-blue-lightest;
 @theme-lighter: @ui-color-blue-lighter;
@@ -199,3 +212,73 @@
 @ui-timing-easeinoutexpo: cubic-bezier(1, 0, 0, 1);
 @ui-timing-easeinoutcirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 @ui-timing-easeinoutback: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// ============================
+//** Picker content width
+@picker-content-min-width: 200px;
+@picker-search-bar-icon-width: @ui-fontsize;
+@picker-default-toggle-border-width: 1px;
+@picker-default-toggle-border-color: @B200;
+@picker-default-toggle-hover-border-color: @theme-dark;
+@picker-default-toggle-font-color: @B800;
+@picker-default-toggle-caret-color: @B600;
+@picker-toggle-clean-width: 12px;
+@picker-toggle-clean-color: @B500;
+@picker-toggle-clean-hover-color: @ui-color-red;
+@picker-toggle-clean-right: 30px;
+// Select picker
+@picker-select-menu-item-selected-color: @theme-dark;
+@picker-select-menu-item-selected-disabled-color: @theme-lighter;
+@picker-menu-item-disabled-color: @B400;
+@picker-selected-value-color: @theme;
+@picker-select-arrow-down: '\F0D7';
+
+//** Global textual link color.
+@link-color: @theme;
+//** Link hover color.
+@link-hover-color: @theme-light;
+//** Link Active color
+@link-active-color: @theme;
+//** border base color.
+@border-base-color: @B300;
+//** base bg color.
+@base-bg-color: @B050;
+//** border primary color.
+@border-primary-color: @theme;
+//** loading text color
+@loading-text-color: @B800;
+
+//** Checkbox Styles
+@checkbox-width-height: @ui-unit;
+@checkbox-sense-width: @ui-unit-half;
+@checkbox-border-radius: @ui-radius - 1px;
+@checkbox-default-border-color: @ui-color-gray-light;
+@checkbox-hover-border-color: @theme;
+@checkbox-checked-border-color: @theme;
+
+//** Checkbox checked mark color
+@checkbox-checked-mark-color: @B000;
+@checkbox-disabled-color: @B050;
+@checkbox-bg: transparent;
+
+//** Disabled cursor for form controls and buttons.
+@cursor-disabled: not-allowed;
+
+//** Text disabled color
+@input-color-disabled: @B400;
+
+//** Radio Checked width
+@radio-width-height: 20px;
+@radio-inner-width-height: 8px;
+@radio-sense-width: @ui-unit-half;
+@radio-border-radius: 50%;
+@radio-default-border-color: @border-base-color;
+@radio-checked-border-color: @border-primary-color;
+@radio-hover-border-color: @border-primary-color;
+@radio-disabled-color: @B050;
+@radio-bg: transparent;
+@radio-inner-checked-color: @B000;
+@radio-picker-active-color: @picker-selected-value-color;
+@radio-label-font-color: @B600;
+@radio-label-font-hover-color: @B800;
+@radio-label-padding-horizontal: @ui-unit-half;

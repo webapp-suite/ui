@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import Input from '..';
 import Tooltip from '../../Tooltip';
 import Icon from '../../Icon';
-import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../tests/shared/mountTest';
+import focusTest from '@test/focusTest';
+import mountTest from '@test/mountTest';
 
 describe('Input basic usage', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

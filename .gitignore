@@ -45,3 +45,4 @@ dist/
 lib/
 es/
 site/dist/
+build/

@@ -9,6 +9,7 @@ export interface Props extends StandardProps {
     componentClass?: React.ElementType;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function defaultProps<T>(props) {
     const { classPrefix, ...rest } = props;
 

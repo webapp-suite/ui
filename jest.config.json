@@ -1,4 +1,6 @@
 {
+    "roots": ["<rootDir>"],
+    "modulePaths": ["<rootDir>"],
   "testEnvironment": "jest-environment-jsdom-global",
   "testMatch": ["**/src/**/__tests__/**/*.[jt]s?(x)", "**/src/**/?(*.)+(spec|test).[jt]s?(x)"],
   "testURL": "http://localhost",
@@ -6,7 +8,8 @@
     "^.+\\.[t|j]sx?$": "babel-jest"
   },
   "moduleNameMapper": {
-    "\\.(css|less|scss|sss|styl)$": "jest-css-modules"
+    "\\.(css|less|scss|sss|styl)$": "jest-css-modules",
+    "^@test/(.*)$": "<rootDir>/test/$1"
   },
   "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"],
   "globals": {

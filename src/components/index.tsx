@@ -9,6 +9,7 @@ export * from './Nav';
 export * from './Select';
 export * from './Tabs';
 export * from './Checkbox';
+export * from './Radio';
 export { default as Icon } from './Icon';
 export { default as Tooltip } from './Tooltip';
 export { default as dialog } from './dialog';

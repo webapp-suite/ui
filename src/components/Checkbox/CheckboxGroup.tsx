@@ -1,9 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
 import shallowEqual from '../_utils/shallowEqual';
-import { getUnhandledProps, defaultProps, prefix, createContext } from '../_utils';
+import { getUnhandledProps, prefix, createContext } from '../_utils';
 import { StandardProps, FormControlBaseProps } from '../@types/common';
 import { CheckboxProps } from './Checkbox';
 
@@ -39,16 +38,6 @@ export interface CheckboxGroupProps<V = any>
 export const CheckboxContext = createContext<CheckboxContextProps>({});
 
 class CheckboxGroup extends React.Component<CheckboxGroupProps, State> {
-    // static propTypes = {
-    //     name: PropTypes.string,
-    //     className: PropTypes.string,
-    //     inline: PropTypes.bool,
-    //     value: PropTypes.array,
-    //     defaultValue: PropTypes.array,
-    //     onChange: PropTypes.func,
-    //     children: PropTypes.array,
-    //     classPrefix: PropTypes.string,
-    // };
     constructor(props: CheckboxGroupProps) {
         super(props);
         this.state = {

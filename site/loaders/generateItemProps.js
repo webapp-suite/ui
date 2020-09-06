@@ -58,7 +58,7 @@ const generateItemProps = componentName => {
                     description,
                     defaultValue
                 } = componentProps.props[key]
-                type = type || flowType || tsType
+                type = type || flowType || tsType || {}
                 if (Array.isArray(type.value)) {
                     type = type.value.map(v => v.name || v.value).join(' | ') // \s for break-word
                 } else if (type.name === 'arrayOf') {
