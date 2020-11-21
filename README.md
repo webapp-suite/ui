@@ -17,7 +17,7 @@
 [![Codecov][codecov-image]][codecov-url]
 [![Npm Version][npm-version-image]][npm-version-url]
 [![Downloads Per Month][npm-downloads-image]][npm-downloads-url]
-[![Dependencies][dependencies-image]][dependencies-url]  
+[![Dependencies][dependencies-image]][dependencies-url]
 [![Open PRs][open-prs-image]][open-prs-url]
 [![Contributors][contributors-image]][contributors-url]
 [![Slack][slack-image]][slack-url]
@@ -80,14 +80,6 @@ Open: http://localhost:3003/apps/components/MyComponent
 ## Contributing
 
 We welcome all contributions. If you'd like to improve code, please read our [CONTRIBUTING.md][contributing-url] first, check out the [Development Instructions][dev-instructions-url] and feel free to create an [issue][open-issues-url] or submit a [pull request][open-prs-url].
-
-### Maintainers
-
-Welcome to join us if you have interest in this repo, please contact mrgaonju@gmail.com and we can discuss further.
-
-- [Kimi Gao](https://github.com/Kimi-Gao)
-- [Robbie Han](https://github.com/USTC-Han)
-- [Sherry Shen](https://github.com/Mylittlegirl)
 
 ## Changelog
 
