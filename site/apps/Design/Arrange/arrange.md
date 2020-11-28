@@ -1,6 +1,6 @@
 The arrangement of components determines the basic visual experience of the page.
 
-The arrangement scheme of WebApps UI is based on the principle of `50:50`, and we carry out a `50:50` design based on flexibility and consistency. Considering not only the flexibility of the arrangement of components, but also the consistency of the arrangement style, the arrangement position of some components is also limited accordingly.
+The arrangement scheme of web app suite ui is based on the principle of `50:50`, and we carry out a `50:50` design based on flexibility and consistency. Considering not only the flexibility of the arrangement of components, but also the consistency of the arrangement style, the arrangement position of some components is also limited accordingly.
 
 ## Recommended Arrangement
 

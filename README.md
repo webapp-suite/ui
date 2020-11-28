@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <img width="370" src="https://user-images.githubusercontent.com/12554487/82000941-70c88a00-968c-11ea-9aea-e8cf754e7021.png" alt="webapp-suite ui logo">
+    <img width="370" src="https://user-images.githubusercontent.com/12554487/100519844-68254480-31d5-11eb-9834-f926818d1aad.png" alt="webapp-suite ui logo">
     <br>
 </h1>
 
@@ -97,7 +97,7 @@ We use [GitHub Releases][github-release-url] to manage our releases, including t
 
 [![FOSSA Status][fossa-status-image]][fossa-status-url]
 
-All files on the WebApps UI github repository are subjected to the [MIT][license-url] license.
+All files on the WebApp UI github repository are subjected to the [MIT][license-url] license.
 
 [travis-image]: https://badgen.net/travis/webapp-suite/ui?icon=travis&label=build
 [codecov-image]: https://badgen.net/codecov/c/github/webapp-suite/ui/?icon=codecov
