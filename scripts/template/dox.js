@@ -2,7 +2,7 @@
  * @title Basic Usage
  * @desc Description
  */
-import { <%= name %> } from '@webapps-ui/core-react'
+import { <%= name %> } from '@webapp-suite/ui'
 
 const <%= name %>Basic = () => {
   return (

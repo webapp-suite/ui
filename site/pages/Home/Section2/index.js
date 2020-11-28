@@ -1,5 +1,5 @@
 // import { navigate } from '@reach/router'
-import { Row } from '@webapps-ui/core-react'
+import { Row } from '@webapp-suite/ui'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'

@@ -1,9 +1,9 @@
 import React from 'react'
 // import { Link } from '@reach/router'
-import { Row, Col } from '@webapps-ui/core-react'
-// import { Button } from '@webapps-ui/core-react'
-// import { Dropdown, DropdownToggle, DropdownMenu } from '@webapps-ui/core-react'
-// import { Icon } from '@webapps-ui/core-react'
+import { Row, Col } from '@webapp-suite/ui'
+// import { Button } from '@webapp-suite/ui'
+// import { Dropdown, DropdownToggle, DropdownMenu } from '@webapp-suite/ui'
+// import { Icon } from '@webapp-suite/ui'
 import pkg from '../../../../package.json'
 import './index.less'
 
@@ -62,7 +62,7 @@ class Header extends React.Component {
         {/* </DropdownMenu> */}
         {/* </Dropdown> */}
         {/* <a */}
-        {/* href="https://github.com/cosmos-x/@webapps-ui/core-react" */}
+        {/* href="https://github.com/cosmos-x/@webapp-suite/ui" */}
         {/* target="_blank" */}
         {/* className="header__github" */}
         {/* > */}

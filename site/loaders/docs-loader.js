@@ -38,7 +38,7 @@ module.exports = function (source) {
 
   imports.reset()
 
-  imports.add("import { Row, Col } from '@webapps-ui/core-react';")
+  imports.add("import { Row, Col } from '@webapp-suite/ui';")
   imports.add("import Example from 'widgets/Example';")
   imports.add("import PropsTable from 'widgets/PropsTable';")
   imports.add("import Markdown from 'widgets/Markdown';")

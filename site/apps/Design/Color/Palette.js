@@ -4,7 +4,7 @@
  * Copyright (c) 2015-present Alipay.com, https://www.alipay.com/, MIT LICENSE
  */
 
-import { notification } from '@webapps-ui/core-react'
+import { notification } from '@webapp-suite/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'

@@ -34,15 +34,15 @@ class Footer extends PureComponent {
             <h2>Help</h2>
             <div className="help">
               <div>
-                <a href="https://github.com/webapps-ui/core-react">Github</a>
+                <a href="https://github.com/webapp-suite/ui">Github</a>
               </div>
               <div>
-                <a href="https://github.com/webapps-ui/core-react/releases">
+                <a href="https://github.com/webapp-suite/ui/releases">
                   Release Note
                 </a>
               </div>
               <div>
-                <a href="https://github.com/webapps-ui/core-react/issues/new">
+                <a href="https://github.com/webapp-suite/ui/issues/new">
                   Bug Report
                 </a>
               </div>

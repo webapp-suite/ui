@@ -9,7 +9,7 @@ props: Aside
 Aside controls whether it is turned on or off by the `isOpen` property, and the `onClose` property is used to clear the state, so both properties are required.
 
 ```jsx tabs
-import { Aside, Button } from '@webapps-ui/core-react'
+import { Aside, Button } from '@webapp-suite/ui'
 
 class AsideBasic extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class AsideBasic extends React.Component {
 You can use a Spinner nested inside an Aside which is also a common way to wait the asynchronous requests.
 
 ```jsx tabs
-import { Aside, Button, Spinner } from '@webapps-ui/core-react'
+import { Aside, Button, Spinner } from '@webapp-suite/ui'
 
 class AsideSpinner extends React.Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class AsideSpinner extends React.Component {
 If the Aside contains a lot of content and doesn't have a hierarchical relationship, you can use Tabs which allows the user to focus on what they're working on even if it's still on the same Aside. You can use the Tabs nested in the Aside and the style will be automatically adjusted within the Aside.
 
 ```jsx tabs
-import { Aside, Button, Tabs, TabList, Tab, TabPanel } from '@webapps-ui/core-react'
+import { Aside, Button, Tabs, TabList, Tab, TabPanel } from '@webapp-suite/ui'
 
 class AsideTabs extends React.Component {
   constructor(props) {
@@ -118,7 +118,7 @@ class AsideTabs extends React.Component {
 You should use nested Asides when the content of Aside is more complex or they have logical relationship, such as the content of the first Aside is a list item and it's another Aside when each item opens.
 
 ```jsx tabs
-import { Aside, Button } from '@webapps-ui/core-react'
+import { Aside, Button } from '@webapp-suite/ui'
 
 class NestedAsides extends React.Component {
   constructor(props) {

@@ -1,4 +1,4 @@
-import { Icon } from '@webapps-ui/core-react'
+import { Icon } from '@webapp-suite/ui'
 import QueueAnim from 'rc-queue-anim'
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import React from 'react'

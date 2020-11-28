@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, BackToTop } from '@webapps-ui/core-react'
+import { Col, Row, BackToTop } from '@webapp-suite/ui'
 import Markdown from 'widgets/Markdown'
 import { backToTop } from '../../config'
 import md from './arrange.md'

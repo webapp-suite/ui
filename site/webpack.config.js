@@ -131,7 +131,7 @@ const config = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         modules: [sitePath, 'node_modules'],
         alias: {
-            '@webapps-ui/core-react': `${sourcePath}/components`,
+            '@webapp-suite/ui': `${sourcePath}/components`,
             widgets: `${sitePath}/widgets`,
             'ui-variables': `${sourcePath}/styles/ui-variables.less`,
             'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,

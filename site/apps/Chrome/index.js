@@ -10,7 +10,7 @@ import {
   Tabs,
   ToolBar,
   notification
-} from '@webapps-ui/core-react'
+} from '@webapp-suite/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Layout, LayoutContent, LayoutSidebar } from 'widgets/Layout'

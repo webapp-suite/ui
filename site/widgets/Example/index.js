@@ -12,7 +12,7 @@ import {
   TabList,
   TabPanel,
   Tabs
-} from '@webapps-ui/core-react'
+} from '@webapp-suite/ui'
 import Code from 'widgets/Code'
 import { EXAMPLE_MODE } from '../../constant'
 import './index.less'

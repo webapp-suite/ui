@@ -12,7 +12,7 @@ Commonly used checkboxes
 The Input default width is `100%`, you can use `with` property to customize input (px) or use the layout components: `Row`, `Col`.
 
 ```jsx tabs
-import { Checkbox } from '@webapps-ui/core-react'
+import { Checkbox } from '@webapp-suite/ui'
 
 const InputNormal = () => {
   return (
@@ -29,7 +29,7 @@ const InputNormal = () => {
 Disable the Input with the `disabled` attribute, but you can also choose `readonly` style for a better experience.
 
 ```jsx tabs
-import { Checkbox } from '@webapps-ui/core-react'
+import { Checkbox } from '@webapp-suite/ui'
 
 const InputRD = () => {
   return (
@@ -49,7 +49,7 @@ const InputRD = () => {
 the `indeterminate` property is mainly used on the select all or tree structure checkbox.
 
 ```jsx tabs
-import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+import { Checkbox, CheckboxGroup } from '@webapp-suite/ui'
 
 class CheckboxIndeterminate extends React.Component {
   constructor(props) {
@@ -115,7 +115,7 @@ class CheckboxIndeterminate extends React.Component {
 Add `size` attribute to change the size of Input. In addition to the default `md` size, there are three other options: `sm` (30px), `md` (35px) and `lg` (40px).
 
 ```jsx tabs
-import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+import { Checkbox, CheckboxGroup } from '@webapp-suite/ui'
 
 const CheckboxGroupVertical = () => (
   <CheckboxGroup name="checkboxList">
@@ -134,7 +134,7 @@ const CheckboxGroupVertical = () => (
 Triggers when the Input is cleared by clicking the clear button
 
 ```jsx tabs
-import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+import { Checkbox, CheckboxGroup } from '@webapp-suite/ui'
 
 const CheckboxGroupHorizontal = () => (
   <CheckboxGroup inline name="checkboxList">
@@ -151,7 +151,7 @@ const CheckboxGroupHorizontal = () => (
 Triggers when the Input is cleared by clicking the clear button
 
 ```jsx tabs
-import { Checkbox, CheckboxGroup } from '@webapps-ui/core-react'
+import { Checkbox, CheckboxGroup } from '@webapp-suite/ui'
 
 class CheckboxGroupControlled extends React.Component {
   constructor(props) {
