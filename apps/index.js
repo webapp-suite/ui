@@ -1,20 +1,16 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import './index.less'
+import PropTypes from 'prop-types';
+import React from 'react';
+import './index.less';
 
 class App extends React.Component {
-  render () {
-    let { children } = this.props
-    return (
-      <div className="wrapper">
-        {children}
-      </div>
-    )
-  }
+    render() {
+        let { children } = this.props;
+        return <div className="wrapper">{children}</div>;
+    }
 }
 
 App.propTypes = {
-  children: PropTypes.node
-}
+    children: PropTypes.node,
+};
 
-export default App
+export default App;

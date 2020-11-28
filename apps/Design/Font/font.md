@@ -1,6 +1,6 @@
 Font is one of the most basic foundational part of a interface design system.
 
-Text is the major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The typography system of Earth UI is based on the design principle of `dynamic order`. While defining the font system for a visual system, we propose to start from the following five aspects:
+Text is the major channel for users to understand application content and complete their work, and a well designed font system will greatly enhance the user's reading experience and work efficiency. The typography system of web app suite ui is based on the design principle of `dynamic order`. While defining the font system for a visual system, we propose to start from the following five aspects:
 
 1. Font Family
 2. Base Font Size
@@ -10,7 +10,7 @@ Text is the major channel for users to understand application content and comple
 
 ## Font Family
 
-In order to implement a good font system, the first thing is to choose an appropriate font family. Earth UI prefers the *[Open Sans](https://fonts.google.com/specimen/Open+Sans)* font which is a humanist sans-serif typeface designed by Steve Matteson and commissioned by Google. Then it uses the system default font family and also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
+In order to implement a good font system, the first thing is to choose an appropriate font family. web app suite ui prefers the *[Open Sans](https://fonts.google.com/specimen/Open+Sans)* font which is a humanist sans-serif typeface designed by Steve Matteson and commissioned by Google. Then it uses the system default font family and also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
 @ui-fontstack: 'Open Sans', 'Helvetica Neue', 'Lucida Grande', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
@@ -42,7 +42,7 @@ The font scale and line height determine the beauty of the dynamics and order of
   <img width="600" src='https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/PAnlsN.jpg'/>
 </div>
 
-Earth UI has defined 8 different font sizes and corresponding line heights.
+WebApp UI has defined 8 different font sizes and corresponding line heights.
 
 |    Variables    | Font Size | Line Height |
 | ---------- | --- | --- |
@@ -55,7 +55,7 @@ Earth UI has defined 8 different font sizes and corresponding line heights.
 | @ui-fontsize-xxbig      |  36 |48 |
 | @ui-fontsize-icon       |  22 |30 |
 
-In the visual system of Earth UI, our recommended base font size is `14px`, and its corresponding line height is `22px`. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
+In the visual system of web app suite ui, our recommended base font size is `14px`, and its corresponding line height is `22px`. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 
 ## Font Weight
 

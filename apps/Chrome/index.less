@@ -8,11 +8,13 @@
   }
 
   &__title {
-    .earthui-header__bars-tool-item-title {
+    .@{prefix-cls}-header__bars-tool-item-title {
       text-transform: capitalize;
     }
   }
   &__content-wrapper {
+    position: relative;
+    height: 100%;
     overflow-y: scroll;
   }
   &__content {
@@ -21,10 +23,9 @@
       flex-shrink: 0;
     }
   }
+  .layout__sidebar {
+    .@{prefix-cls}-nav__top-center-container-logo {
+      transform: scale(1.5);
+    }
+  }
 }
-
-//.scrollbar {
-//  top: @ui-unit-triple;
-//  bottom: @ui-unit-triple;
-//  background-color: @ui-color-slate-light;
-//}

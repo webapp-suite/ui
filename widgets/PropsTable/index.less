@@ -1,0 +1,111 @@
+@import "~ui-variables";
+
+@magenta-7: #c41d7f;
+
+.props-table {
+  border-radius: @ui-radius;
+  margin-top: 20px;
+  .markdown {
+    margin-bottom: 0;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: 'Menlo', 'Monaco', 'Consolas', 'Bitstream Vera Sans Mono', monospace;
+      font-size: 13px;
+      font-weight: @ui-fontweight;
+    }
+  }
+  .props-table__header {
+    margin-top: 0;
+    border-top-left-radius: @ui-radius;
+    border-top-right-radius: @ui-radius;
+    background-color: @ui-color-slate-lightest;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    .props-table__title {
+      padding: @ui-unit-quarter @ui-unit;
+      color: @ui-color-white;
+      font-size: @ui-fontsize-medium;
+      font-weight: @ui-fontweight;
+      font-family: @ui-fontstack-mono;
+    }
+  }
+  table {
+    width: 100%;
+    border-spacing: 0;
+    padding: 0 @ui-unit @ui-unit;
+    background-color: lighten(@ui-color-gray-lightest, 4%);
+    border: 1px solid #e8e8e8;
+    border-top-color: transparent;
+    border-bottom-left-radius: @ui-radius;
+    border-bottom-right-radius: @ui-radius;
+    th {
+      text-align: left;
+      font-weight: normal;
+      color: #333;
+      //border-bottom: 2px solid #ececec;
+      padding: 12px 0;
+      padding-right: 20px;
+    }
+    td {
+      font-size: @ui-fontsize-medium;
+      font-family: @ui-fontstack-mono;
+      line-height: 34px;
+      padding: 10px 0;
+      padding-right: 20px;
+    }
+    thead {
+      th {
+        padding-top: @ui-unit;
+        font-size: @ui-fontsize;
+        font-weight: @ui-fontweight-bold;
+      }
+    }
+  }
+  dl {
+    margin: 0;
+    padding: @ui-unit;
+    background-color: @ui-color-gray-lightest;
+    border: 1px solid #e8e8e8;
+    border-top-color: transparent;
+  }
+  dt {
+    color: #333;
+    margin: 0;
+    font-size: @ui-fontsize;
+    font-weight: @ui-fontweight-medium;
+    span:first-child {
+      color: #c82829;
+    }
+  }
+  dd {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 12px;
+    > h2 {
+      font-size: 12px;
+      color: #333;
+      &:after {
+        content: ':'
+      }
+    }
+    .markdown {
+      margin-top: 5px;
+    }
+  }
+}
+
+.props-table__prop-name {
+  color: @ui-color-black;
+}
+
+.props-table__prop-name--required {
+  &:after {
+    content: ' *';
+    color: @ui-color-red;
+  }
+}
+
+.props-table__prop-type {
+  color: @ui-color-black;
+}

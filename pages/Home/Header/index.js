@@ -1,9 +1,9 @@
 import React from 'react'
 // import { Link } from '@reach/router'
-import { Row, Col } from 'earth-ui'
-// import { Button } from 'earth-ui'
-// import { Dropdown, DropdownToggle, DropdownMenu } from 'earth-ui'
-// import { Icon } from 'earth-ui'
+import { Row, Col } from '@webapp-suite/ui'
+// import { Button } from '@webapp-suite/ui'
+// import { Dropdown, DropdownToggle, DropdownMenu } from '@webapp-suite/ui'
+// import { Icon } from '@webapp-suite/ui'
 import pkg from '../../../../package.json'
 import './index.less'
 
@@ -37,7 +37,10 @@ class Header extends React.Component {
       <Row className="header" fluid>
         <Col>
           <div className="header__logo">
-            <span className="header__logo-text">EARTHUi</span>
+            <img
+              className="header__logo-img"
+              src="https://cosmos-x.oss-cn-hangzhou.aliyuncs.com/white-bg-webapps-ui-gray.png"
+            />
             {/* <svg dangerouslySetInnerHTML={{__html: '<use xlink:href="#logo"></use>'}} /> */}
             <sub>v{`${pkg.version}`}</sub>
           </div>
@@ -59,7 +62,7 @@ class Header extends React.Component {
         {/* </DropdownMenu> */}
         {/* </Dropdown> */}
         {/* <a */}
-        {/* href="https://github.com/cosmos-x/earth-ui" */}
+        {/* href="https://github.com/cosmos-x/@webapp-suite/ui" */}
         {/* target="_blank" */}
         {/* className="header__github" */}
         {/* > */}
