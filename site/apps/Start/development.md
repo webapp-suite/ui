@@ -5,8 +5,8 @@
 ```bash
 git clone git@github.com:webapp-suite/ui.git
 cd ui
-yarn
-yarn dev
+npm i
+npm run dev
 ```
 
 Open your browser and visit http://localhost:3003 , see more at [Development Instructions][dev-instructions-url] .
@@ -14,7 +14,7 @@ Open your browser and visit http://localhost:3003 , see more at [Development Ins
 ### How to create new component
 
 ```bash
-yarn create MyComponent
+npm run create MyComponent
 ```
 
 Open: http://localhost:3003/apps/components/MyComponent

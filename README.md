@@ -5,10 +5,7 @@
 </h1>
 
 <p align="center">
-  Simple style react components for modern web apps
-    <a href="https://ui.webapp-suite.com">
-      https://ui.webapp-suite.com
-    </a>
+  A simple, modular and accessible react component library for modern web applications
 </p>
 
 <div align="center">
@@ -55,8 +52,8 @@ For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/
 ```bash
 git clone git@github.com:webapp-suite/ui.git
 cd ui
-yarn
-yarn dev
+npm i
+npm run dev
 ```
 
 Open your browser and visit http://localhost:3003 , see more at [Development Instructions][dev-instructions-url] .
@@ -64,7 +61,7 @@ Open your browser and visit http://localhost:3003 , see more at [Development Ins
 ### How to create new component
 
 ```bash
-yarn create MyComponent
+npm run create MyComponent
 ```
 
 Open: http://localhost:3003/apps/components/MyComponent
@@ -80,14 +77,6 @@ Open: http://localhost:3003/apps/components/MyComponent
 ## Contributing
 
 We welcome all contributions. If you'd like to improve code, please read our [CONTRIBUTING.md][contributing-url] first, check out the [Development Instructions][dev-instructions-url] and feel free to create an [issue][open-issues-url] or submit a [pull request][open-prs-url].
-
-### Maintainers
-
-Welcome to join us if you have interest in this repo, please contact mrgaonju@gmail.com and we can discuss further.
-
-- [Kimi Gao](https://github.com/Kimi-Gao)
-- [Robbie Han](https://github.com/USTC-Han)
-- [Sherry Shen](https://github.com/Mylittlegirl)
 
 ## Changelog
 
