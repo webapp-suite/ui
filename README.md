@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <img width="370" src="https://user-images.githubusercontent.com/12554487/100519844-68254480-31d5-11eb-9834-f926818d1aad.png" alt="webapp-suite ui logo">
+    <img width="328" src="https://user-images.githubusercontent.com/12554487/100519844-68254480-31d5-11eb-9834-f926818d1aad.png" alt="webapp-suite ui logo">
     <br>
 </h1>
 
