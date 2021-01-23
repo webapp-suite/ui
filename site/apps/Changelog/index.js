@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackToTop } from '@webapps-ui/core-react'
+import { BackToTop } from '@webapp-suite/ui'
 import Markdown from 'widgets/Markdown'
 import html from '../../../CHANGELOG.md'
 import { backToTop } from '../config'

@@ -3,8 +3,8 @@
 ### How to run it
 
 ```bash
-git clone git@github.com:webapps-ui/core-react.git
-cd core-react
+git clone git@github.com:webapp-suite/ui.git
+cd ui
 npm i
 npm run dev
 ```
@@ -19,4 +19,4 @@ npm run create MyComponent
 
 Open: http://localhost:3003/apps/components/MyComponent
 
-[dev-instructions-url]: https://github.com/webapps-ui/core-react/wiki/Local-development
+[dev-instructions-url]: https://github.com/webapp-suite/ui/wiki/Local-development

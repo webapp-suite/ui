@@ -1,14 +1,11 @@
 <h1 align="center">
     <br>
-    <img width="370" src="https://user-images.githubusercontent.com/12554487/82000941-70c88a00-968c-11ea-9aea-e8cf754e7021.png" alt="webapps-ui logo">
+    <img width="328" src="https://user-images.githubusercontent.com/12554487/100519844-68254480-31d5-11eb-9834-f926818d1aad.png" alt="webapp-suite ui logo">
     <br>
 </h1>
 
 <p align="center">
-  Simple style react components for modern web apps
-    <a href="https://react.webapps-ui.com">
-      https://react.webapps-ui.com
-    </a>
+  A simple, modular and accessible react component library for modern web applications
 </p>
 
 <div align="center">
@@ -32,19 +29,19 @@
 - Install the package
 
 ```bash
-npm i @webapps-ui/core-react
+npm i @webapp-suite/ui
 ```
 
 - Import the component
 
 ```jsx
-import { Button } from '@webapps-ui/core-react';
-import '@webapps-ui/core-react/dist/index.min.css';
+import { Button } from '@webapp-suite/ui';
+import '@webapp-suite/ui/dist/index.min.css';
 
 ReactDOM.render(<Button>Name</Button>, mountNode);
 ```
 
-> Note: @webapps-ui/core-react supports ES6 tree shaking by default.
+> Note: @webapp-suite/ui supports ES6 tree shaking by default.
 
 For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/start/usage) in our documentation.
 
@@ -53,8 +50,8 @@ For more information, please refer to [Get Started](https://ui.muwenzi.com/apps/
 ### How to run it
 
 ```bash
-git clone git@github.com:webapps-ui/core-react.git
-cd core-react
+git clone git@github.com:webapp-suite/ui.git
+cd ui
 npm i
 npm run dev
 ```
@@ -89,37 +86,37 @@ We use [GitHub Releases][github-release-url] to manage our releases, including t
 
 [![FOSSA Status][fossa-status-image]][fossa-status-url]
 
-All files on the WebApps UI github repository are subjected to the [MIT][license-url] license.
+All files on the WebApp UI github repository are subjected to the [MIT][license-url] license.
 
-[travis-image]: https://badgen.net/travis/webapps-ui/core-react?icon=travis&label=build
-[codecov-image]: https://badgen.net/codecov/c/github/webapps-ui/core-react/?icon=codecov
-[npm-version-image]: https://badgen.net/npm/v/@webapps-ui/core-react?icon=npm
-[npm-downloads-image]: https://badgen.net/npm/dm/@webapps-ui/core-react
-[dependencies-image]: https://badgen.net/david/dep/webapps-ui/core-react
-[open-issues-image]: https://badgen.net/github/open-issues/webapps-ui/core-react
-[open-prs-image]: https://badgen.net/github/open-prs/webapps-ui/core-react
-[last-commit-image]: https://badgen.net/github/last-commit/webapps-ui/core-react
-[contributors-image]: https://badgen.net/github/contributors/webapps-ui/core-react
-[license-image]: https://badgen.net/npm/license/@webapps-ui/core-react
-[license-scan-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwebapps-ui%2Fcore-react.svg?type=shield
+[travis-image]: https://badgen.net/travis/webapp-suite/ui?icon=travis&label=build
+[codecov-image]: https://badgen.net/codecov/c/github/webapp-suite/ui/?icon=codecov
+[npm-version-image]: https://badgen.net/npm/v/@webapp-suite/ui?icon=npm
+[npm-downloads-image]: https://badgen.net/npm/dm/@webapp-suite/ui
+[dependencies-image]: https://badgen.net/david/dep/webapp-suite/ui
+[open-issues-image]: https://badgen.net/github/open-issues/webapp-suite/ui
+[open-prs-image]: https://badgen.net/github/open-prs/webapp-suite/ui
+[last-commit-image]: https://badgen.net/github/last-commit/webapp-suite/ui
+[contributors-image]: https://badgen.net/github/contributors/webapp-suite/ui
+[license-image]: https://badgen.net/npm/license/@webapp-suite/ui
+[license-scan-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwebapp-suite%2Fui.svg?type=shield
 [slack-image]: https://badgen.net/badge/icon/slack?icon=slack&label
-[fossa-status-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwebapps-ui%2Fcore-react.svg?type=small
+[fossa-status-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwebapp-suite%2Fui.svg?type=small
 
-[travis-url]: https://travis-ci.com/webapps-ui/core-react
-[codecov-url]: https://codecov.io/gh/webapps-ui/core-react
-[npm-version-url]: https://www.npmjs.com/package/@webapps-ui/core-react
-[npm-downloads-url]: https://www.npmjs.com/package/@webapps-ui/core-react
-[dependencies-url]: https://david-dm.org/webapps-ui/core-react
-[open-issues-url]: https://github.com/webapps-ui/core-react/issues
-[open-prs-url]: https://github.com/webapps-ui/core-react/pulls
-[last-commit-url]: https://github.com/webapps-ui/core-react/commits/master
-[contributors-url]: https://github.com/webapps-ui/core-react/graphs/contributors
-[license-url]: https://github.com/webapps-ui/core-react/blob/master/LICENSE
-[license-scan-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fwebapps-ui%2Fcore-react?ref=badge_shield
-[dev-instructions-url]: https://github.com/webapps-ui/core-react/wiki/Local-development
-[changelog-url]: https://github.com/webapps-ui/core-react/blob/master/CHANGELOG.md
-[contributing-url]: https://github.com/webapps-ui/core-react/blob/master/.github/CONTRIBUTING.md
-[slack-url]: https://webapps-ui.slack.com
-[fossa-status-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fwebapps-ui%2Fcore-react?ref=badge_small
+[travis-url]: https://travis-ci.com/webapp-suite/ui
+[codecov-url]: https://codecov.io/gh/webapp-suite/ui
+[npm-version-url]: https://www.npmjs.com/package/@webapp-suite/ui
+[npm-downloads-url]: https://www.npmjs.com/package/@webapp-suite/ui
+[dependencies-url]: https://david-dm.org/webapp-suite/ui
+[open-issues-url]: https://github.com/webapp-suite/ui/issues
+[open-prs-url]: https://github.com/webapp-suite/ui/pulls
+[last-commit-url]: https://github.com/webapp-suite/ui/commits/master
+[contributors-url]: https://github.com/webapp-suite/ui/graphs/contributors
+[license-url]: https://github.com/webapp-suite/ui/blob/master/LICENSE
+[license-scan-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fwebapp-suite%2Fui?ref=badge_shield
+[dev-instructions-url]: https://github.com/webapp-suite/ui/wiki/Local-development
+[changelog-url]: https://github.com/webapp-suite/ui/blob/master/CHANGELOG.md
+[contributing-url]: https://github.com/webapp-suite/ui/blob/master/.github/CONTRIBUTING.md
+[slack-url]: https://webapp-suite.slack.com
+[fossa-status-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fwebapp-suite%2Fui?ref=badge_small
 [github-release-url]: https://github.com/blog/1547-release-your-software
-[release-url]: https://github.com/webapps-ui/core-react/releases
+[release-url]: https://github.com/webapp-suite/ui/releases

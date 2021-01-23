@@ -11,4 +11,4 @@ script:
 after_success:
   - npm run report-coverage
 notifications:
-  slack: webapps-ui:81CbfYw9kEml7k1QcXQkGfrB
+  slack: webapp-suite:81CbfYw9kEml7k1QcXQkGfrB
