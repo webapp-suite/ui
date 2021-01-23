@@ -40,7 +40,8 @@
     "scripts": {
         "****** DEV *****": "",
         "create": "node scripts/create.js",
-        "dev": "NODE_ENV=development node-dev site/server.js",
+        "prestart": "npm i",
+        "start": "NODE_ENV=development node-dev site/server.js",
         "****** BUILD *****": "",
         "build": "npm run build:gulp && npm run build:dist",
         "build:gulp": "gulp build",

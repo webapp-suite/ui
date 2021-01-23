@@ -7,6 +7,7 @@ const autoprefixer = require('autoprefixer');
 const parseCodeExample = require('./loaders/parseCodeExample');
 const Prism = require('./3rdParty/prism/prism.js');
 const sitePath = path.resolve(__dirname, './');
+const testPath = path.resolve(__dirname, '../test');
 const sourcePath = path.resolve(__dirname, '../src');
 const outputPath = path.resolve(__dirname, './dist');
 
@@ -137,6 +138,7 @@ const config = {
             'ui-mixins': `${sourcePath}/styles/ui-mixins.less`,
             ui: `${sourcePath}/styles/index.less`,
             dox: `${sitePath}/styles/index.less`,
+            '@test': testPath,
         },
     },
     externals: {
