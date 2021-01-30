@@ -1,24 +1,24 @@
-@import "~ui-variables";
+@import '~ui-variables';
 
 @color-menu-shadow-border: #0e1315;
 
 .mixin-shadow() {
-  display: block;
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: @ui-unit-half;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(44, 44, 44, 0) 100%);
-  border-bottom: 1px solid @color-menu-shadow-border;
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: @ui-unit-half;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(44, 44, 44, 0) 100%);
+    border-bottom: 1px solid @color-menu-shadow-border;
 }
 .mixin-top-shadow() {
-  .mixin-shadow();
-  top: 0;
-  transform: rotate(-180deg);
+    .mixin-shadow();
+    top: 0;
+    transform: rotate(-180deg);
 }
 .mixin-bottom-shadow() {
-  .mixin-shadow();
-  bottom: 0;
-  border-bottom-color: transparent;
+    .mixin-shadow();
+    bottom: 0;
+    border-bottom-color: transparent;
 }
