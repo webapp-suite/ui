@@ -3,7 +3,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Radio from '../Radio';
 import { getDOMNode } from '@test/testUtils';
 
-describe('Radio', () => {
+describe.skip('Radio', () => {
     it('Should render a radio', () => {
         const instance = getDOMNode(<Radio>Test</Radio>);
         expect(instance.querySelectorAll('input[type="radio"]').length).toBe(1);

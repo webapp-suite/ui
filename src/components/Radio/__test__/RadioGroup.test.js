@@ -4,7 +4,7 @@ import { getDOMNode, getInstance } from '@test/testUtils';
 import RadioGroup from '../RadioGroup';
 import Radio from '..';
 
-describe('RadioGroup', () => {
+describe.skip('RadioGroup', () => {
     it('Should render a radio group', () => {
         const instance = getDOMNode(
             <RadioGroup>
