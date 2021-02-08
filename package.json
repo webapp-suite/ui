@@ -95,7 +95,7 @@
         "classnames": "^2.2.5",
         "invariant": "^2.2.2",
         "lodash": "^4.17.20",
-        "marked": "^1.1.0",
+        "marked": "^2.0.0",
         "react-avatar-editor": "^11.0.7",
         "react-custom-scrollbars": "^4.2.1",
         "react-update": "^0.4.4",
